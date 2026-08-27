@@ -168,6 +168,16 @@
      --accent, words use this, and the two are never swapped. */
   --accent-ink: color-mix(in oklab, var(--accent) 28%, var(--text));
 
+  /* The sticky header's height, stated once because the tour's pinned stage
+     has to hang off exactly it. It is what the 44px control floor below adds
+     up to, not a number chosen for the look of it. */
+  --header-h: 60px;
+
+  /* The pointer-target floor: 44px, the web one. The app's 48px is Android's
+     and applies to the app. Written as a token because six controls have to
+     reach it and a floor that lives in six places drifts. */
+  --target: 44px;
+
   --radius-card: 20px;
   --radius-action: 18px;
   --radius-pill: 999px;
@@ -285,7 +295,8 @@ a {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.75rem 1.5rem;
-  padding: 0.75rem clamp(1rem, 4vw, 2.5rem);
+  min-height: var(--header-h);
+  padding: 0.5rem clamp(1rem, 4vw, 2.5rem);
   /* Opaque, not glass. The app's chrome is translucent because content
      scrolls under it and the blur is doing a legibility job; here there is
      nothing to see through, and blur as decoration is what the craft floor
@@ -294,7 +305,12 @@ a {
   border-bottom: 1px solid var(--outline);
 }
 
+/* Not just type: it is the way back from every page that is not the landing
+   page, so it is a target and answers to the floor. */
 .brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--target);
   margin-right: auto;
   font-family: var(--font-display);
   font-weight: 600;
@@ -324,6 +340,9 @@ a {
 
 .control a,
 .control button {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--target);
   background: none;
   border: 1px solid var(--outline);
   border-radius: var(--radius-pill);
@@ -331,7 +350,7 @@ a {
   cursor: pointer;
   font: inherit;
   font-size: 0.8125rem;
-  padding: 0.3rem 0.75rem;
+  padding: 0.3rem 0.9rem;
   text-decoration: none;
   transition:
     border-color var(--dur-fast),
@@ -351,6 +370,9 @@ a {
   align-items: center;
   gap: 0;
   min-width: 10.8rem;
+  /* The switch is the target, and each half of it is a target too, so the
+     wrapper has to clear the floor plus its own padding. */
+  min-height: calc(var(--target) + 0.36rem);
   padding: 0.18rem;
   border-radius: var(--radius-pill);
   border: 1px solid var(--outline);
@@ -363,6 +385,7 @@ a {
   z-index: 1;
   display: grid;
   place-items: center;
+  min-height: var(--target);
   padding: 0.3rem 0.75rem;
   border: 0;
   border-radius: var(--radius-pill);
@@ -433,6 +456,7 @@ a {
   /* The side padding gives way before the label does. At 200% text on a 390px
      screen a fixed 2.1rem is 67px of air either side of a string that is
      already 220px, and the pill stops fitting the phone. */
+  min-height: var(--target);
   padding: 0.85rem min(2.1rem, 8vw);
   text-decoration: none;
   box-shadow: var(--shadow-action);

@@ -2312,6 +2312,48 @@ test('the ambient band travels, and only where motion is allowed', async () => {
 });
 
 
+for (const width of [390, 1280]) {
+  test(`every pointer target clears 44px at ${width}px`, async () => {
+    /* WCAG 2.5.5, and this repository's own floor: 44px, the web one. The app's
+       48px is Android's and applies to the app.
+
+       Written after the audit found five controls under it, all of them
+       inherited from the previous design rather than introduced by the
+       redesign: both halves of each switch at 30px, the theme switch itself at
+       38, the privacy link at 32, the back link at 27. The badges were the
+       instructive ones - they measured 44 exactly in the stylesheet and 43.98
+       once laid out, which is not clearing a floor.
+
+       Measured as laid out, at both widths, because padding counts and a
+       control that fits on a desktop row can be squeezed on a phone. */
+    const { context, page } = await visitor({});
+    try {
+      await page.setViewportSize({ width, height: 844 });
+      for (const suffix of Object.values(PAGE_PATHS)) {
+        await page.goto(`${base}/en/${suffix}`);
+        await page.evaluate(() => document.fonts.ready);
+        const small = await page.evaluate(() =>
+          [...document.querySelectorAll('a, button, [role="button"], input, select, summary')]
+            .map((node) => {
+              const rect = node.getBoundingClientRect();
+              return {
+                what: `${node.tagName.toLowerCase()}.${String(node.className).split(' ')[0]}`,
+                text: (node.textContent ?? '').trim().slice(0, 24),
+                w: rect.width,
+                h: rect.height,
+              };
+            })
+            .filter((box) => (box.w > 0 || box.h > 0) && (box.w < 44 || box.h < 44))
+            .map((box) => `${box.what} "${box.text}" is ${box.w.toFixed(1)}x${box.h.toFixed(1)}`),
+        );
+        assert.deepEqual(small, [], `/en/${suffix} at ${width}px has targets under 44px`);
+      }
+    } finally {
+      await context.close();
+    }
+  });
+}
+
 test('pointer movement does not move the motif', async () => {
   /* The motif answers the clock and nothing else. A sun that tilted toward the
      pointer would be the one piece of motion on this page a reader could not

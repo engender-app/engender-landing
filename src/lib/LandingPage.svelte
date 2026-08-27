@@ -448,8 +448,12 @@
   }
 
   .badge {
-    display: inline-block;
-    padding: 0.55rem 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    /* Cleared the floor by a fraction of a pixel before, which is not
+       clearing it: sub-pixel layout put these at 43.98 tall. */
+    min-height: var(--target);
+    padding: 0.6rem 1.1rem;
     border-radius: var(--radius-pill);
     border: 1px solid var(--outline);
     background: var(--surface);
@@ -483,14 +487,19 @@
     }
   }
 
+  /* A link the page sends people to on purpose, so it answers to the target
+     floor like the controls do. The rule it hangs from stays put; the height
+     comes from padding under it. */
   .more {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--target);
     font-family: var(--font-display);
     font-weight: 600;
     font-size: 1.0625rem;
     text-decoration: none;
     border-bottom: 2px solid currentcolor;
-    padding-bottom: 0.15rem;
+    padding-bottom: 0.35rem;
     transition: opacity var(--dur-fast);
   }
 
@@ -660,14 +669,14 @@
           var(--tour-cards) * min(21rem, 80vw) + (var(--tour-cards) - 1) * clamp(1rem, 2vw, 2rem) +
             2 * clamp(1rem, 5vw, 4rem)
         );
-        height: calc(100dvh - 56px + max(0px, var(--strip) - 100vw));
+        height: calc(100dvh - var(--header-h) + max(0px, var(--strip) - 100vw));
         view-timeline: --tour block;
       }
 
       .tour-stage {
         position: sticky;
-        top: 56px;
-        height: calc(100dvh - 56px);
+        top: var(--header-h);
+        height: calc(100dvh - var(--header-h));
         display: flex;
         /* `safe` matters here. Plain `center` on a card taller than the stage
            spills it off both ends equally, and the half above the start edge
@@ -709,7 +718,7 @@
 
   .features-head {
     position: sticky;
-    top: calc(56px + 2rem);
+    top: calc(var(--header-h) + 2rem);
   }
 
   .feature-groups {
