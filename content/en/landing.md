@@ -91,8 +91,8 @@ links to and why nothing else on the page competes with it.
 
 *Gate: shipped. The full page is `privacy.md` and this is only the handoff to it.*
 
-> Your journal is stored on your device and encrypted where it is stored. There is
-> no enGender account, and your entries are not sent to an enGender server, because
+> Your journal is stored on your device, encrypted where it sits. There is no
+> enGender account, and your entries are not sent to an enGender server, because
 > none exists.
 >
 > What that protects, and what it does not, is on its own page.
