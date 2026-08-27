@@ -17,6 +17,10 @@
   },
   "hero": {
     "headline": "Dziennik tranzycji, który zostaje na twoim urządzeniu.",
+    "definition": {
+      "lead": "engender",
+      "rest": ", verb, /ɪnˈdʒɛndə/: to cause or give rise to a feeling, situation or condition."
+    },
     "subheadline": "Zapisz, jak minął dzień, i jak ci w nim było z własną płcią. Konta nie zakładasz, synchronizować nie ma czego."
   },
   "sectionOverview": "Czym jest Gender Diary",

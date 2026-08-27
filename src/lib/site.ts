@@ -141,13 +141,14 @@ export function socialTags(preview: {
     most likely to be believed. Refusing the offer costs the
     software-application rich result, which needs a price.
 
-    `WebApplication` rather than the wider `SoftwareApplication`, because the
-    page says the app runs in a browser and says there is no Android app yet.
-    For the same reason there is no `operatingSystem`: "any" would be a claim
-    about a platform the site is careful not to mention. There is no
-    `applicationCategory` either, recommended though it is, because the page
-    never puts the app in a category and this block says only what the page
-    says. `url` is the Journal, since that is where the application is; this
+    `WebApplication` rather than the wider `SoftwareApplication`, because
+    `url` points at the web Journal and this block describes the application
+    living there; the Android app is the acquisition section's story, and the
+    channels there get their own markup when ticket 04 makes them live. There
+    is no `operatingSystem` and no `applicationCategory`, recommended though
+    they are, because the page never puts the app in a category and this
+    block says only what the page says. `url` is the Journal, since that is
+    where the application is; this
     page is where it is described. Nobody is named as an author or a
     publisher, which is the site's rule about its own author rather than an
     oversight. No screenshot, until ticket 15 captures the tour from invented

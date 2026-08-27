@@ -1,41 +1,38 @@
 # Landing copy, English
 
-Source copy for the English site. Written from `.agents/product-marketing.md`, before
-any visual design, so the design serves this rather than this being cut to fit a
-layout.
+Source copy for the English site, rewritten for enGender by redesign ticket 02
+against `.agents/product-marketing.md` v10. Written before the visual redesign
+(ticket 03), so the design serves this rather than this being cut to fit a layout.
 
-Two sections are deliberately not here. The privacy explanation is ticket 04, because
-its sentences are gated by the Journal's release state rather than by editorial
-judgement. The acquisition section is ticket 06. Page titles and descriptions are
-ticket 07.
+**The doctrine changed with v10.** Copy is written from the Journal repository's
+specification as true: `PRODUCT.md` for product truth, `SCREENS.md` for what each
+surface does, `docs/ui-copy.md` for how the app talks. Nothing here audits the
+implementation, checks a store listing or tracks release stages. The only sentences
+still barred are on the never-list at the end of the marketing context.
 
 **What is copy and what is not.** Everything inside a blockquote is the copy itself.
-Everything outside one is commentary: gates, rationale and handoffs. Tickets 05 and 08
+Everything outside one is commentary: rationale and handoffs. The rendering tickets
 can take the blockquotes alone and lose nothing they need.
 
-**Gate markers.** Every block below is either live or staged. `Gate: shipped` means a
-person can go and see the behaviour today. Anything else names the Journal ticket that
-has to land before the block may be published, per the claim table in the marketing
-context. Draft now, publish later. Nothing marked with a gate goes on the page until
-its ticket does.
+**Gate markers.** The mechanics stay, because the tests read them: everything inside
+a blockquote is copy, and the italic marker above it says whether it renders. Under
+the v10 doctrine nearly every marker reads `Gate: shipped`. The exceptions below
+wait on a decision rather than on a release, and each says which.
 
-**Three register decisions this file owes the rest of the site.**
+**Register decisions this file owes the rest of the site.**
 
-The project speaks as one person, in the first person singular. It is one person's
-project, and a plural "we" for a one-person project is the tell that makes a page read
-as a company with a support desk. Nothing on the site names or identifies that person,
-which is a separate decision: the copy shows who wrote it by knowing things, not by
-claiming to. Every "we", "us" and "our" is therefore an error to fix, including in the
-strings that already ship.
+The project speaks as one person, in the first person singular. Nothing on the site
+names that person. The frame itself may be stated plainly, once: one trans person
+wrote this for other trans people. It appears in the overview and nowhere else, and
+the copy otherwise shows who wrote it by knowing things, not by claiming to.
 
-`CONTEXT.md` calls it a gender dimension and notes that screens say "scale" to the
-person using the app. This site talks to that person, so it says scale, and it never
-says dimension or axis.
+enGender is the app; your journal, lowercase, is the thing it holds. The rename
+settled the old two-senses problem, and every page uses the words in those senses.
+The one fixed wording is the Start journal button, which reads as opening yours.
 
-`CONTEXT.md` defines Journal as everything the device holds, while both specs also say
-"the Journal" for the application. On this site the product is Gender Diary and the
-thing it holds is your journal, lowercase. The one exception is the Start journal
-button, whose wording is fixed by the spec.
+The app's screens say scale, so this site says scale, and never dimension or axis.
+
+enGender keeps its casing everywhere, including at the start of a sentence.
 
 ---
 
@@ -49,14 +46,20 @@ button, whose wording is fixed by the spec.
 
 > A transition journal that stays on your device.
 
-Alternatives, if the design wants a different weight. *Write down how it is going.
-Keep it to yourself.* is warmer and leads with the habit rather than the storage, but
-it drops the one specific claim. *Your transition, tracked on your own terms.* is the
-kind of line that could sit on any product, which is why it is here as the one to
-beat rather than the one to use.
+Kept from the previous site. It carries the claim, and the claim is why anyone
+stays on the page.
 
-Going with the first. It carries the claim, and the claim is why anyone stays on the
-page.
+**The definition**
+
+*Gate: shipped. The v10 decision: the landing page explains the word, as a
+dictionary entry with phonetics, and says the pun out loud rather than winking.
+Ticket 03 designs the shape; this is the text.*
+
+> **engender**, verb, /ɪnˈdʒɛndə/: to cause or give rise to a feeling, situation
+> or condition.
+
+The entry is the standard dictionary sense, unedited, because the reader completing
+the thought themselves is the whole trick. No line after it explains the joke.
 
 **Subheadline**
 
@@ -65,27 +68,32 @@ page.
 
 **Primary action**
 
-Start journal. It is on the page, and the Acquisition section below says what it links
-to and why nothing else on the page competes with it.
+Start journal. It is on the page, and the Acquisition section below says what it
+links to and why nothing else on the page competes with it.
 
 ### What it is
 
 *Gate: shipped.*
 
-> Gender Diary is a diary for tracking gender transition. An entry holds a mood, a
-> note, your scales, tags and photos, and it only needs one of those to count. Write
-> several in one day if one does not cover it. Backdate one to a day you missed.
+> enGender is a journal for tracking gender transition. An entry holds a mood, a
+> note, your scales, tags, photos, a voice recording and how your body felt, and it
+> only needs one of those to count. Write several in one day if one does not cover
+> it. Backdate one to a day you missed.
 >
 > Mood trackers are the right shape for a daily habit, and they have nowhere to put
-> gender. Gender Diary keeps the shape and adds scales you name yourself. It records
+> gender. enGender keeps the shape and adds scales you name yourself. It records
 > what you tell it and does not try to interpret any of it.
+>
+> One trans person wrote this for other trans people. It is free software, there is
+> no price, no plan and nothing to upsell, and it stays that way.
 
 ### Where it stands on privacy
 
-*Gate: shipped. The full page is ticket 04 and this is only the handoff to it.*
+*Gate: shipped. The full page is `privacy.md` and this is only the handoff to it.*
 
-> Your journal is stored on your device. There is no Gender Diary account, and your
-> entries are not sent to a Gender Diary server.
+> Your journal is stored on your device and encrypted where it is stored. There is
+> no enGender account, and your entries are not sent to an enGender server, because
+> none exists.
 >
 > What that protects, and what it does not, is on its own page.
 
@@ -106,7 +114,7 @@ the ones a reader might otherwise take for someone's real diary.
 
 ### Captions
 
-*Gate: shipped, all eight.*
+*Gate: shipped, all eight. Ticket 06 recaptures the screenshots; the captions hold.*
 
 **Home**
 
@@ -155,17 +163,26 @@ the ones a reader might otherwise take for someone's real diary.
 
 ## Feature summary
 
+Rebuilt against `SCREENS.md` as of 2026-08-27: the app is 61 routes now, and the
+2026-08-12 summary described perhaps half of it. The care surfaces get one group
+with four leads rather than 23 rows, because this is a summary and the four groups
+are the app's own (`/more`).
+
 ### Writing it down
 
 *Gate: shipped.*
 
-> **Entries.** A mood on five levels, a note, tags, photos, and your scales. Several a
-> day, or backdated to a day you missed.
+> **Entries.** A mood on five levels, a note, tags, photos, a voice recording, and
+> your scales. Several a day, or backdated to a day you missed.
 >
 > **Scales.** Five come built in, among them Gender feeling, which runs from dysphoria
 > at one end to euphoria at the other. Make your own, with whatever two end labels and
 > range you want, and group the ones you use into a preset so the entry screen only
 > asks about what you actually track.
+>
+> **How your body felt.** Dysphoria and euphoria, marked on the body regions they
+> belong to. Tracked separately, because they are not opposites and one day can hold
+> both.
 >
 > **Tags.** Grouped and editable. Turn a whole group off when it stops being relevant.
 > Hiding a built-in tag takes it out of every picker and leaves every entry that
@@ -181,6 +198,7 @@ the ones a reader might otherwise take for someone's real diary.
 > **The month.** A heat map in one colour, driven by mood or by a scale you pick.
 >
 > **Search.** Your notes and tag labels, matched as you type, ignoring diacritics.
+> Star what matters, and every starred entry and photo waits in one place.
 >
 > **Charts.** One per scale, over 7 to 365 days, with your streak. Open one for the
 > dated list of values behind it, so you can check the line instead of taking it on
@@ -190,12 +208,46 @@ the ones a reader might otherwise take for someone's real diary.
 > An observation, not a verdict. Tags with fewer than three entries in that stretch
 > are left out, because at that size the difference is noise.
 >
-> **Recap.** When a month ends, what it held. A finished year gets the same.
+> **Wrapped.** A week, a month or a year, looked back on: entries, streaks, how a
+> scale moved, top tags, milestones, photos. Or any stretch you pick yourself.
+>
+> **On this day.** What you logged a month, six months and a year ago. Only days that
+> were good come back.
+>
+> **Then and now.** Two stretches of time, side by side.
+>
+> **The tally.** One tap when you were misgendered, one when you were gendered right,
+> and a chart of how the counts move.
 >
 > **Milestones and the timeline.** Countdowns ahead, anniversaries behind.
+
+### Around the journal
+
+*Gate: shipped. The four leads are the More hub's own groups, and each sentence
+inside one is a hub row's own register kept: "logged plainly" is the app's phrase.
+The clinician summary is worded as the person's own printout, per the marketing
+context's word list: never clinical framing, never reporting.*
+
+> The journal is the spine, and the rest of transition life has a place around it.
+> None of it interprets, and none of it grades.
 >
-> **Lab results.** Keep your own numbers and watch them over time. No reference ranges,
-> and nothing telling you a number is good or bad.
+> **Body.** Progress photos, then versus now. Measurements over time. What you
+> bought, the size, and how it fit. Hair progress staged against a published scale,
+> and electrolysis or laser sessions, logged plainly.
+>
+> **Health.** Lab results with no reference ranges. What you are taking and since
+> when, every dose against its schedule, and a modelled hormone curve. Cycle events,
+> side effects and surgery recovery, logged plainly. Questions to bring to your next
+> appointment, and a printable summary of doses, labs and side effects for a range
+> you choose, made only when you decide a clinician should see it.
+>
+> **Transition.** A step-by-step roadmap. Letters you write now and read once their
+> date arrives. Tryouts, for tracking how something you are trying feels over time.
+>
+> **Practice.** For the days doubt is loud: the entries you starred and the ones you
+> tagged euphoria, read back as counterevidence. Two voice recordings, side by side.
+> Binder and tucking wear time. When you first noticed each change. Trans
+> organisations and helplines, kept in the app.
 
 ### Keeping it
 
@@ -204,6 +256,9 @@ the ones a reader might otherwise take for someone's real diary.
 > **Archives.** Export packs your journal into one file, encrypted with a password you
 > choose, before it leaves the app. Import puts it back, either merged into what is
 > here or replacing it.
+>
+> **Scheduled backup.** An encrypted Archive written to a folder you pick, weekly or
+> monthly, without you remembering to.
 >
 > **Coming from Daylio.** Import a Daylio CSV. It shows you the counts and how the
 > moods will map before it writes anything, and it only ever merges.
@@ -214,14 +269,30 @@ the ones a reader might otherwise take for someone's real diary.
 > **When it has been a while.** If your last Archive is more than 30 days old, the
 > home screen says so once. You can dismiss it.
 
+### On your phone
+
+*Gate: shipped. These five blocks were staged in the 2026-08-12 file; the v10
+doctrine publishes them.*
+
+> **On Android.** The same journal, the same data, as an app.
+>
+> **Reminders.** Medication, injections, appointments. One-off or repeating, as
+> notifications on your phone.
+>
+> **The daily check-in.** One prompt a day, at a time you choose, skipped on days you
+> have already written something.
+>
+> **Install it.** Add it to your home screen and open it without a browser in the way.
+>
+> **Works offline.** Once it is installed it does not need the network to open.
+
 ### If you need to be careful
 
-*Gate: shipped, including disguise and quick exit, which Journal ticket 15 records as
-implemented for the web today. App lock, disguise, lock on leave and quick exit all
-default to off in the Journal's preference catalogue, so "off until you turn it on" is
-a checkable statement and not a reassurance. Every sentence here keeps the app-lock
-counterweight attached, per the marketing context. Ticket 04 owns the longer
-treatment.*
+*Gate: shipped. App lock, disguise, lock on leave and quick exit all default to off
+in the Journal's preference catalogue, so "off until you turn it on" is a checkable
+statement and not a reassurance. Every sentence here keeps the app-lock counterweight
+attached, per the marketing context. Disguise now covers the installed app identity
+too, per Journal Phase 2 ticket 25. The privacy page owns the longer treatment.*
 
 > Everything in this section is off until you turn it on. Keeping a journal about your
 > own life is not something to be ashamed of, and the app does not behave as though it
@@ -231,7 +302,10 @@ treatment.*
 > **App lock.** A PIN in front of the app. It stops someone picking up your unlocked
 > phone and reading it. It is not encryption of what is stored.
 >
-> **Disguise.** The browser tab says Notes instead of Gender Diary.
+> **Disguise.** The browser tab says Notes instead of enGender. On Android, the app's
+> name and icon on your phone go plain too.
+>
+> **Lock on leave.** Switch away from the app and it locks itself behind you.
 >
 > **Quick exit.** A two-finger swipe down blanks the tab, and locks it if you have app
 > lock switched on.
@@ -250,50 +324,13 @@ treatment.*
 > **Two languages.** English and Polish, switchable in settings, with dates following
 > whichever you pick.
 
-### Staged, not published
-
-None of the blocks below may appear on the page yet. They are written so the copy is
-ready when the ticket lands, and each names what has to ship first.
-
-*Gate: Journal ticket 11. There is no Android project in the repository, so no
-sentence on this site may say the app runs on Android.*
-
-> **On Android.** The same journal, the same data, as an app.
-
-*Gate: Journal tickets 11 and 14.*
-
-> **Reminders.** Medication, injections, appointments. One-off or repeating, as
-> notifications on your phone.
->
-> **The daily check-in.** One prompt a day, at a time you choose, skipped on days you
-> have already written something.
-
-*Gate: Journal tickets 11 and 16.*
-
-> **Scheduled backup.** An encrypted Archive written to a folder you pick, weekly or
-> monthly, without you remembering to.
-
-*Gate: Journal ticket 03, on its evidence rather than on its status line. The ticket
-reads `Status: done`, but every one of its acceptance boxes is unchecked and the
-repository has no service worker, no manifest and no PWA plugin. Neither sentence below
-may be published until those exist. The stale status is worth raising over there.*
-
-> **Install it.** Add it to your home screen and open it without a browser in the way.
->
-> **Works offline.** Once it is installed it does not need the network to open.
-
-*Gate: Journal ticket 09 and its evidence gate. Ticket 04 owns this wording, not this
-file. Listed here only so the feature summary does not look complete without it.*
-
-> At-rest encryption of the journal itself.
-
 ---
 
 ## Acquisition
 
-*Gate: shipped for Start journal, which opens the web Journal that exists today.
-Everything Android is gated on Journal ticket 18, which is what produces the artifacts,
-and on Journal ticket 11, which is why no sentence here says the app runs on Android.*
+*Gate: shipped for Start journal, which opens the web Journal. The channel list's
+mechanics - names with a status, links as each goes live - are redesign ticket 04's;
+this ticket only rewrote the strings around them.*
 
 **The copy for this section is not in this file.** It is in `messages/en.json`, under
 `acquisitionIntro`, `startJournal`, `acquisitionAndroid`, `channelStatus` and
@@ -304,7 +341,9 @@ to drift apart quietly. What follows is the reasoning the strings cannot carry.
 **Start journal** links to `https://app.gender-diary.barankiewicz.dev/`, in this tab,
 with nothing appended: no campaign parameter, no referral identifier, and neither of
 the two choices this origin remembers. It is the only action on the page, and a test
-counts the links in `main` rather than trusting anyone to keep it that way.
+counts the links in `main` rather than trusting anyone to keep it that way. The URL
+still carries the old name; redesign ticket 05 owns the domain question, and nothing
+in this file decides it.
 
 **The order is an opinion, and the page owns it.** Google Play goes last, and the copy
 says it is last for a reason instead of leaving the position to hint. The other three
@@ -316,32 +355,19 @@ is a trans app on that phone, tied to that account, and no setting in the app to
 it. That is the only difference between the channels a reader has any stake in, which is
 why it is the only one the section argues about.
 
-This reverses the earlier framing, which presented the four as equals and used
-alphabetical order to avoid ranking anything. Even-handedness between a channel that
-reports an install and three that do not was a policy the reader had no use for.
-
-**None of them is a link, because none of them has anything behind it.** Each renders
-as its name and a status, and a test fails if one of them renders as a link. What is
-missing is Journal ticket 18: signed artifacts, one application ID, and a release the
-channels can follow.
+**A channel that is not live renders as its name and a status, never a dead link.**
+What flips each one live is redesign ticket 04, reading the Journal repository's
+release state. Writing the app as real and a listing as pending are different claims,
+and the strings keep them apart: the app exists, the shelf link comes when the shelf
+does.
 
 **No badge artwork yet.** Play's brand rules do not allow its badge without a live
-listing, and the other three have nothing to put on a badge. When they go live, Play
-and F-Droid use their own artwork under their own rules, and Aurora and Obtainium get
-this site's own controls.
+listing. When the channels go live, Play and F-Droid use their own artwork under their
+own rules, and Aurora and Obtainium get this site's own controls.
 
 **One line each, and none of them is a tutorial.** Every note says the one thing that
 changes a reader's decision and stops. How to point Obtainium at a repository is
-Obtainium's documentation, not this site's, and a paragraph about artifact-name matching
-turns the acquisition section into release engineering while the product waits below it.
-Cut from the earlier drafts on that basis: Obtainium's file-name rule and why a debug
-build would be a problem, F-Droid's main-repository inclusion process, and the promise
-that a URL and a file name arrive with the first release.
-
-The rule stays true in this repository even though it left the page. Obtainium matches
-releases by artifact name, so a carelessly named debug build is one it would install
-without complaint. That is a release-naming obligation on the Journal's ticket 18, and
-it does not become a reader's problem by being written down here.
+Obtainium's documentation, not this site's.
 
 **Aurora is the Play build without the Google account.** That is what earns it a line:
 same package, no install recorded against anybody. Calling it a separate source would
@@ -350,9 +376,11 @@ and there will not be one, since a reader who uses Aurora already has Aurora.
 
 ### Staged: the F-Droid signing warning
 
-*Gate: Journal ticket 18, on its last acceptance box, which decides whether the F-Droid
-signature can be update-compatible and writes the answer down for this site. If it can,
-this block is never published. If it cannot, it goes next to F-Droid.*
+*Gate: the answer to one question the Journal repository has not written down yet:
+whether the F-Droid signature can be update-compatible with the Play one. Its Phase 2
+ticket 18 owns the answer. If the signatures are compatible, this block is never
+published. If they are not, it goes next to F-Droid. This is a staged block because
+the fact is undecided, not because anything is unshipped.*
 
 > F-Droid signs its own build, and Android will not install it over a build signed by
 > anyone else. Switching in either direction means exporting an Archive first, then
@@ -364,11 +392,10 @@ this block is never published. If it cannot, it goes next to F-Droid.*
 
 ### Source
 
-*Gate: shipped as far as the licence goes. The "read it" phrasing additionally needs
-the Journal repository to actually be public, which is a deliberate step it has not
-taken yet.*
+*Gate: shipped. The Journal repository is public, so "go and look" is checkable in
+the most literal way this page has.*
 
-> **You can read it.** Gender Diary is free software under the GPLv3. Do not take my
+> **You can read it.** enGender is free software under the GPLv3. Do not take my
 > word for anything on this page: the source is public. Go and look, or get someone you
 > trust to look.
 >
@@ -390,24 +417,24 @@ spec and is not optional wording.*
 
 ### Privacy policy and security contact
 
-*Gate: Journal ticket 21, which writes the policy and fixes the security contact. This
-site presents them and may not run ahead of them. No copy here yet: this paragraph is
-the handoff, not the text. Deliberately outside a blockquote, since tickets 07 and 08
-take the blockquotes as copy and a placeholder inside one would ship.*
+*The policy exists in the Journal repository (`docs/privacy-policy.en.md`). Presenting
+it is a page this site does not have yet, which is structural work for ticket 03, not
+a copy block for this file. Deliberately outside a blockquote, so no placeholder can
+ship.*
 
 ---
 
 ## Notes for later tickets
 
-Ticket 04 takes the four things that get blurred together and separates them: where
-the journal is stored, what app lock does, what at-rest encryption will do when it
-ships, and what an Archive password protects. This file deliberately says the least it
-can on all four.
+Ticket 03 designs against this file and decides the shape of the definition entry and
+the care-surfaces group. It invents no product claims.
 
-Ticket 05 writes the Polish. Not from this file sentence by sentence. Take the claims,
-then write Polish, and read the grammatical-gender section of the marketing context
-first, because several sentences here address the reader in a way Polish cannot copy
-without picking a gender for them.
+Ticket 04 owns the acquisition mechanics: which channels render as links, read from
+the Journal repository's release state, and what a live channel's entry looks like.
 
-Ticket 07 owns titles, descriptions and structured data. The only claims available to
-mark up are the ones marked shipped here.
+Ticket 06 recaptures the eight tour screenshots from invented data, against the new
+design.
+
+The Polish pass is Alicja's own, after this English lands. The grammatical-gender
+section of the marketing context applies throughout, and several sentences here
+address the reader in a way Polish cannot copy without picking a gender for them.

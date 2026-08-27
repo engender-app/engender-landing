@@ -47,11 +47,9 @@
 </script>
 
 <PageShell {locale} page="landing" title={m.pageTitle}>
-  <!-- The splash. Alicja's direction for ticket 09: design the page as if the
-       product were finished, so the channel badges render as buttons here and
-       point at this page until each channel has an artifact (Journal ticket
-       18). The acquisition section below keeps the honest wording: nothing on
-       Android exists yet. -->
+  <!-- The splash. The channel badges render as buttons here and point at this
+       page until each channel has an artifact; flipping them live is redesign
+       ticket 04's, reading the Journal repository's release state. -->
   <div class="hero">
     <div class="hero-inner scrim">
       <h1 class="enter shimmer" style:--enter={0}>{m.pageTitle}</h1>
@@ -126,9 +124,16 @@
         </svg>
       </div>
 
-      <p class="subheadline enter" style:--enter={2}>{m.hero.subheadline}</p>
+      <!-- The dictionary entry for the name, the v10 decision: the page says
+           the pun out loud. Ticket 03 owns its final shape; this is the plain
+           rendering the copy needs to be on the page at all. -->
+      <p class="definition enter" style:--enter={2}>
+        <strong>{m.hero.definition.lead}</strong>{m.hero.definition.rest}
+      </p>
 
-      <div class="hero-actions enter" style:--enter={3}>
+      <p class="subheadline enter" style:--enter={3}>{m.hero.subheadline}</p>
+
+      <div class="hero-actions enter" style:--enter={4}>
         <a class="cta" href={JOURNAL_URL}>{m.startJournal}</a>
         <ul class="badges">
           {#each m.channels as channel (channel.name)}
@@ -396,6 +401,21 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+  }
+
+  /* The dictionary entry, set quiet on purpose: it earns its place by being
+     read second, after the name has already been met. Ticket 03 designs its
+     real shape. */
+  .definition {
+    font-size: 0.9375rem;
+    color: var(--muted);
+    max-width: 60ch;
+    margin: 0 0 1.5rem;
+  }
+
+  .definition strong {
+    font-weight: 600;
+    color: var(--ink);
   }
 
   .subheadline {
