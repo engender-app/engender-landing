@@ -55,11 +55,25 @@ stays on the page.
 dictionary entry with phonetics, and says the pun out loud rather than winking.
 Ticket 03 designs the shape; this is the text.*
 
-> **engender**, verb, /ɪnˈdʒɛndə/: to cause or give rise to a feeling, situation
-> or condition.
+> **engender** v. /ɪnˈdʒɛndə/
+> to cause or give rise to a feeling, situation or condition.
 
 The entry is the standard dictionary sense, unedited, because the reader completing
 the thought themselves is the whole trick. No line after it explains the joke.
+
+**Set as an entry rather than as a sentence** (Alicja's decision, 2026-08-27,
+during ticket 03). The headword takes its own line and everything the entry knows
+about it sits under it, which is how a printed entry is set and which the first
+draft's run-on line could not do: the sense wrapped back under the headword and
+collided with it. The part of speech is abbreviated the way a dictionary
+abbreviates it, `v.` here and `czas.` in Polish, so the line under the headword
+reads as an entry's own furniture rather than as the start of a sentence. The
+words of the sense itself are unchanged.
+
+`messages/*.json` carries the four parts separately - headword, grammar,
+phonetics, sense - because the design sets them on different lines and a renderer
+splitting one string on its punctuation would be the renderer deciding the
+copy's shape.
 
 **Subheadline**
 

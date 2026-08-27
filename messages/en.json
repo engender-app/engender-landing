@@ -18,8 +18,10 @@
   "hero": {
     "headline": "A transition journal that stays on your device.",
     "definition": {
-      "lead": "engender",
-      "rest": ", verb, /ɪnˈdʒɛndə/: to cause or give rise to a feeling, situation or condition."
+      "headword": "engender",
+      "grammar": "v.",
+      "phonetics": "/ɪnˈdʒɛndə/",
+      "sense": "to cause or give rise to a feeling, situation or condition."
     },
     "subheadline": "Write down how a day went, and track how your gender felt that day. No account, nothing to sync."
   },

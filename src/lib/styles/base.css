@@ -217,12 +217,17 @@
   --dur-crossfade: 120ms;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
-  /* A mild overshoot, for the motif's rings only. Milder than the app's
-     --ease-spring (1.4), which its own detector flags as bounce easing: at 1.32
-     a ring passes its new radius by a little and settles, which reads as one
-     movement rather than as a bounce. Nothing else on the site uses it, and the
-     craft floor's warning about reaching for bounce by reflex is why. */
-  --ease-overshoot: cubic-bezier(0.34, 1.32, 0.64, 1);
+  /* Overshoot, for the motif's rings only. Past the app's own --ease-spring
+     (1.4) now, at Alicja's asking twice for more of it: a ring passes its new
+     radius and settles back. The craft floor warns against reaching for bounce
+     by reflex, and this is not reflex - it is the one authored moment on the
+     page, asked for by name, and nothing else on the site uses this curve. */
+  --ease-overshoot: cubic-bezier(0.34, 1.45, 0.64, 1);
+  /* The motif's own duration, longer than any other tier because it is the one
+     thing on the page meant to be watched rather than noticed. */
+  --dur-motif: 900ms;
+  /* A flag sweeping in over the one before it, left to right. */
+  --dur-sweep: 760ms;
 }
 
 /* ---- The page ---------------------------------------------------------- */

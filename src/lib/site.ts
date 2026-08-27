@@ -23,6 +23,17 @@ export const SITE_ORIGIN = 'https://gender-diary.barankiewicz.dev';
     deliberate edit here as well as in tests/site.test.mjs. */
   export const JOURNAL_URL = 'https://app.gender-diary.barankiewicz.dev/';
 
+/** The public source, which the support section's copy invites a reader to go
+    and read. Named in `.agents/product-marketing.md` under Evidence, and the
+    reason the privacy claims on this site are checkable rather than asserted.
+
+    The link's label is this string with the scheme taken off rather than a
+    phrase in the message catalogue, and that is deliberate twice over: a URL is
+    not copy and needs no translation, and a reader deciding whether to trust
+    this page is better served by seeing where the link goes than by being
+    invited to click something. */
+export const SOURCE_URL = 'https://github.com/barankiewicz/gender-diary';
+
 export const LOCALES = ['en', 'pl'] as const;
 export type Locale = (typeof LOCALES)[number];
 

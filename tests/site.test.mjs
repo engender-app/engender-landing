@@ -22,6 +22,11 @@ const SITE_ORIGIN = 'https://gender-diary.barankiewicz.dev';
   src/lib/site.ts, and changing it there means changing it here. */
 const JOURNAL_URL = 'https://app.gender-diary.barankiewicz.dev/';
 
+/* The public source, written out here for the same reason as the Journal above:
+   the string is the assertion. It is the only link on the site that goes
+   anywhere but this origin and the Journal's. */
+const SOURCE_URL = 'https://github.com/barankiewicz/gender-diary';
+
 /** The product's name as each language's pages currently render it. The
     English pages say enGender since redesign ticket 02; the Polish pages
     still say Gender Diary until Alicja's own translation pass. */
@@ -419,7 +424,13 @@ for (const locale of ['en', 'pl']) {
          has an artifact (Journal ticket 18). Start journal appears twice, at
          the top for someone arriving convinced and in the acquisition
          section for someone who has just read their way to a decision, and
-         both carry the bare URL and nothing else. */
+         both carry the bare URL and nothing else.
+
+         Ticket 03 added one more, and it is the only link on the site that
+         leaves it: the support section's copy says the source is public and to
+         go and look, and it said so without a link, which asked a reader to go
+         and find the thing the sentence is about. It is last because the
+         sentence it belongs to is. */
       const links = await page.locator('main a').evaluateAll((found) => found.map((a) => a.href));
       assert.deepEqual(
         links,
@@ -428,6 +439,7 @@ for (const locale of ['en', 'pl']) {
           ...CHANNELS.map(() => `${base}/${locale}/`),
           `${base}/${locale}/privacy/`,
           JOURNAL_URL,
+          SOURCE_URL,
         ],
         'main offered something besides the splash actions, the privacy page and Start journal',
       );
@@ -561,7 +573,12 @@ test('the site keeps to its own origin and its own storage', async () => {
         .map((link) => link.href)
         .filter((href) => new URL(href).origin !== location.origin),
     );
-    assert.deepEqual(outbound, [JOURNAL_URL, JOURNAL_URL]);
+    /* Three now: Start journal twice, and the source repository once. The
+       source link is the only one that leaves for anywhere but the Journal, and
+       it carries rel="noopener" and no referrer - the document-wide referrer
+       policy in app.html is what makes that true of every link here, so
+       following it tells GitHub nothing about which page it came from. */
+    assert.deepEqual(outbound, [JOURNAL_URL, JOURNAL_URL, SOURCE_URL]);
 
     assert.equal(await page.evaluate(() => document.cookie), '', 'the site set a cookie');
     assert.equal((await context.cookies()).length, 0);
@@ -727,7 +744,10 @@ test('reduced motion disables the moving parts rather than shortening them', asy
        role and name wherever a role exists; the motif is decorative and
        aria-hidden, so it has no accessible name to ask for and stays a
        class. */
-    const heading = page.getByRole('heading', { level: 1, name: SITE_NAME.en });
+    /* The nameplate rather than the h1: ticket 03 took the drawn wordmark out
+       of the splash at Alicja's asking, so the h1 is visually hidden and the
+       entrance runs on the block that is actually seen. */
+    const heading = page.locator('main .nameplate');
     const action = page.getByRole('link', { name: ACQUISITION.en.action }).first();
     const channel = page.getByRole('link', { name: CHANNELS[0], exact: true }).first();
 
@@ -739,19 +759,20 @@ test('reduced motion disables the moving parts rather than shortening them', asy
     const reduced = {
       hero: await animationOf(heading),
       sun: await page.locator('.splash .sun').evaluate((node) => getComputedStyle(node).animationName),
-      /* Counted, not read: with reduced motion the band is not in the document
-         at all, so there is no element to compute a style on. */
-      bands: await page.locator('.rule .band').count(),
+      /* Counted, not read: with reduced motion a flag change replaces the
+         rule's one layer outright, so there is never a second one to compute a
+         style on. */
+      layers: await page.locator('.rule').first().locator('.layer').count(),
       ctaTransition: await transitionOf(action),
       badgeTransition: await transitionOf(channel),
     };
 
-    assert.equal(reduced.hero, 'none', 'the wordmark still runs its entrance with reduced motion');
+    assert.equal(reduced.hero, 'none', 'the splash entrance still runs with reduced motion');
     /* Both infinite loops, and both must be off rather than fast. A 1ms
        infinite loop is a strobe, which is the failure mode this pair exists
        to catch. */
     assert.equal(reduced.sun, 'none', 'the motif still breathes with reduced motion');
-    assert.equal(reduced.bands, 0, 'the ambient band is still rendered with reduced motion');
+    assert.equal(reduced.layers, 1, 'a rule is still sweeping with reduced motion');
     assert.ok(
       !reduced.ctaTransition.includes('transform'),
       'CTA still transitions transform with reduced motion',
@@ -764,19 +785,16 @@ test('reduced motion disables the moving parts rather than shortening them', asy
     await page.emulateMedia({ reducedMotion: 'no-preference' });
     await page.reload();
     await page.waitForLoadState('networkidle');
-    await page.locator('.rule .band').first().waitFor({ timeout: 5000 });
     const animated = await page.evaluate(() => ({
-      hero: getComputedStyle(document.querySelector('main h1')).animationName,
+      hero: getComputedStyle(document.querySelector('main .nameplate')).animationName,
       sun: getComputedStyle(document.querySelector('.splash .sun')).animationName,
-      band: getComputedStyle(document.querySelector('.rule .band')).animationName,
     }));
 
-    assert.ok(animated.hero.includes('rise'), 'the wordmark entrance did not return with motion allowed');
+    assert.ok(animated.hero.includes('rise'), 'the entrance did not return with motion allowed');
     assert.ok(
       animated.sun.includes('breathe'),
       `the motif did not start breathing with motion allowed: ${animated.sun}`,
     );
-    assert.ok(animated.band.includes('cross'), 'the ambient band did not travel with motion allowed');
   } finally {
     await context.close();
   }
@@ -2197,10 +2215,21 @@ for (const scheme of ['light', 'dark']) {
           `ring ${index} is ${rings[index].colour}, expected the trans flag's ${hex}`,
         );
       }
-      /* The two rings trans has no stripe for are scaled away, not left
-         painting over the middle of the sun. */
+      /* The two rings trans has no stripe for park on top of the innermost
+         real ring - same radius, same colour - rather than scaling to nothing.
+         Zero was the first answer and it glitched: a ring that shrinks into the
+         centre pops back out of nothing when a wider flag comes round, and
+         because colour and transform run on different durations you catch a
+         disc of the wrong hue on the way. Parked, a spare ring is invisible and
+         has somewhere real to grow from. */
+      const innermost = rings[trans.length - 1];
       for (const ring of rings.slice(trans.length)) {
-        assert.equal(ring.scale, 0, 'a ring with no stripe is still being painted');
+        assert.equal(
+          ring.scale,
+          innermost.scale,
+          'a spare ring is not parked on the innermost one, so the cycle will glitch',
+        );
+        assert.equal(ring.colour, innermost.colour, 'a parked ring is a visible disc');
       }
 
       /* The stripes are vivid and unmeasured on purpose, which is only safe
@@ -2244,18 +2273,17 @@ test("the tour's eight frames carry the eight flags, one each", async () => {
     const seen = [];
     for (let index = 0; index < FLAG_STRIPES.length; index++) {
       const rings = await ringsOf(frames.nth(index));
-      seen.push({
-        lead: rings[0].colour,
-        stripes: rings.filter((ring) => ring.scale > 0).length,
-      });
+      seen.push(rings[0].colour);
     }
 
-    /* As a set. The frames sit in the feature groups they illustrate, so their
-       document order is that distribution and not the tour's own order; what
-       matters is that all eight flags are used and none twice. */
-    const want = FLAG_STRIPES.map((stripes) => `${asRgb(stripes[0])} x${stripes.length}`).sort();
-    const got = seen.map((frame) => `${frame.lead} x${frame.stripes}`).sort();
-    assert.deepEqual(got, want, 'the eight frames do not carry the eight flags one each');
+    /* By outermost stripe, as a set. The eight flags' outermost stripes are
+       eight different colours, so that one value identifies a flag; the ring
+       count cannot be used for it any more, since spare rings park visibly
+       rather than scaling away. And a set rather than a sequence because the
+       frames sit in the feature groups they illustrate, so their document order
+       is that distribution and not the catalogue's. */
+    const want = FLAG_STRIPES.map((stripes) => asRgb(stripes[0])).sort();
+    assert.deepEqual(seen.sort(), want, 'the eight frames do not carry the eight flags one each');
   } finally {
     await context.close();
   }
@@ -2321,37 +2349,40 @@ test('the motif cycles the flags, and stops when it cannot be seen', async () =>
   }
 });
 
-test('one band travels the page, handed from one rule to the next', async () => {
-  /* The first build gave every section rule its own band on its own loop,
-     which is six unrelated things twitching at six phases rather than an
-     ambient layer. There is one band on the page now: it crosses a rule,
-     leaves, and appears in the next one down.
+test('a flag change sweeps in over the one before it', async () => {
+  /* The rule's own motion, and the page's ambient layer (Alicja's note,
+     2026-08-27). Two things stood here before and both were worse: a crossfade
+     between two stripe sets, which muddied every colour through the middle of
+     it, and a separate band of accent ink travelling the rule, which was a
+     second moving thing with nothing to do with the flag underneath it.
 
-     So the assertion is about the count, not about one element's style. Exactly
-     one band exists at a time, and over a couple of crossings it must have
-     moved to a different rule. */
+     What is asserted is the mechanism, because the look is hers to judge: while
+     a flag change is in flight a rule carries two layers, the top one clipped
+     from the left, and when it lands it carries one again. */
   const { context, page } = await visitor({});
   try {
     await page.goto(`${base}/en/`);
     await page.waitForLoadState('networkidle');
 
-    const bands = page.locator('.rule .band');
-    await bands.first().waitFor({ timeout: 5000 });
-    assert.equal(await bands.count(), 1, 'more than one band is travelling at once');
+    const rule = page.locator('.rule').first();
+    assert.equal(await rule.locator('.layer').count(), 1, 'a resting rule carries two layers');
 
-    const ruleNow = () =>
-      page.evaluate(() => {
-        const rules = [...document.querySelectorAll('.rule')];
-        return rules.findIndex((rule) => rule.querySelector('.band'));
-      });
-    const first = await ruleNow();
-    assert.ok(first >= 0, 'no rule is carrying the band');
+    /* The cycle turns over every six seconds; polling catches the sweep
+       whichever phase this started in. */
+    let swept = false;
+    for (let tick = 0; tick < 90 && !swept; tick += 1) {
+      if ((await rule.locator('.layer.sweeping').count()) === 1) swept = true;
+      else await new Promise((resolve) => setTimeout(resolve, 100));
+    }
+    assert.ok(swept, 'no flag change swept in over the rule in nine seconds');
 
-    /* One crossing is 4.2s; two of them is past the handoff whichever phase
-       this started in. */
-    await new Promise((resolve) => setTimeout(resolve, 9000));
-    assert.notEqual(await ruleNow(), first, 'the band never moved to another rule');
-    assert.equal(await bands.count(), 1, 'the handoff left more than one band behind');
+    /* And it lands: the second layer is not left sitting on top for ever. */
+    await new Promise((resolve) => setTimeout(resolve, 1600));
+    assert.equal(
+      await rule.locator('.layer').count(),
+      1,
+      'the sweep never landed, so the rule is still carrying two flags',
+    );
   } finally {
     await context.close();
   }

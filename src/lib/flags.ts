@@ -58,20 +58,27 @@ export const MAX_RINGS = Math.max(...FLAGS.map((flag) => flag.stripes.length));
     its unused rings to nothing, and they grow back when a seven-stripe flag
     comes round. */
 export interface Ring {
-  /** Fraction of the motif's full diameter, as a `transform: scale()`. Zero
-      for a slot this flag has no stripe for. */
+  /** Fraction of the motif's full diameter, as a `transform: scale()`. */
   scale: number;
-  /** The stripe's colour, or the last real stripe's colour for an unused slot
-      - a ring scaled to nothing still needs a colour to travel from, and
-      inheriting its neighbour's keeps the wave continuous instead of flashing
-      a stale hue as it grows back. */
   colour: string;
 }
 
 export function rings(flag: Flag): Ring[] {
   const count = flag.stripes.length;
+  /* A slot this flag has no stripe for parks at the innermost real ring's
+     radius, in the innermost real ring's colour, rather than at zero.
+
+     That is the fix for a visible glitch, and it is worth writing down because
+     zero is the obvious value. A ring scaling to zero disappears into the
+     centre and then pops back out of nothing when a wider flag comes round,
+     and because colour and transform run on different durations you catch a
+     disc of the wrong hue on the way. Parked on top of the innermost ring, at
+     the same size and the same colour, a spare ring is simply invisible: it
+     has somewhere real to wait, and it grows outward from there when the next
+     flag needs it, which is the same wave every other ring is making. */
+  const innermost = (count - (count - 1)) / count;
   return Array.from({ length: MAX_RINGS }, (_, index) => ({
-    scale: index < count ? (count - index) / count : 0,
+    scale: index < count ? (count - index) / count : innermost,
     colour: flag.stripes[Math.min(index, count - 1)],
   }));
 }

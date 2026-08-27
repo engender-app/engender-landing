@@ -112,7 +112,7 @@
     <i
       style:--ring-scale={ring.scale}
       style:--ring-colour={ring.colour}
-      style:--ring-delay="{index * 115}ms"
+      style:--ring-delay="{index * 130}ms"
       style:z-index={index}
     ></i>
   {/each}
@@ -168,7 +168,7 @@
        colour rides the same curve but overshoot is meaningless for a colour,
        so it takes the plain one. */
     transition:
-      transform var(--dur-authored) var(--ease-overshoot),
+      transform var(--dur-motif) var(--ease-overshoot),
       background-color var(--dur-slow) var(--ease-standard);
     transition-delay: var(--ring-delay);
   }

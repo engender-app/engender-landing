@@ -99,17 +99,24 @@ test('every page carries the content policy and the referrer policy', async () =
   }
 });
 
-test('only the two known things are parsed before the policy arrives', async () => {
+test('only the known things are parsed before the policy arrives', async () => {
   /* A policy in a meta element governs what follows it and nothing before it,
-     and the policy arrives with %sveltekit.head%. Two things in src/app.html
+     and the policy arrives with the head block. Three things in src/app.html
      are deliberately above it: the theme stamp, which cannot move below the
-     stylesheet without waiting on it, and the font preload beside it. Both are
-     written in a source file rather than acquired at run time.
+     stylesheet without waiting on it, and the two font preloads beside it. All
+     three are written in a source file rather than acquired at run time.
 
-     What this test refuses is a third. The region above the policy is the one
+     Two preloads, not one, since redesign ticket 03: Outfit joined DM Sans and
+     sets the largest text on the page, so it is preloaded for the same reason
+     DM Sans is. Outfit's Latin Extended half is deliberately not up here - the
+     unicode-range in base.css fetches it when a page actually needs it, and
+     preloading it would pull 14kb to render nothing in English.
+
+     What this test refuses is a fourth. The region above the policy is the one
      place on the site where a resource can be added and no policy will have an
      opinion, and it is invisible: a page with something new up there looks
-     exactly like a page without it. */
+     exactly like a page without it. Every addition here is a deliberate edit to
+     this expectation, which is the point. */
   for (const path of pages) {
     const html = await readFile(`${buildDirectory}${path}index.html`, 'utf8');
     const unpoliced = html.slice(0, html.indexOf('http-equiv="content-security-policy"'));
@@ -119,8 +126,14 @@ test('only the two known things are parsed before the policy arrives', async () 
     assert.match(unpoliced, /gd-landing-theme/, `${path}: the ungoverned script is not that one`);
 
     const links = unpoliced.match(/<link/g) ?? [];
-    assert.equal(links.length, 1, `${path} loads something ungoverned beyond the font`);
-    assert.match(unpoliced, /dm-sans/, `${path}: the ungoverned load is not the font`);
+    assert.equal(links.length, 2, `${path} loads something ungoverned beyond the two fonts`);
+    assert.match(unpoliced, /dm-sans\.woff2/, `${path}: DM Sans is not preloaded`);
+    assert.match(unpoliced, /outfit-latin\.woff2/, `${path}: Outfit is not preloaded`);
+    assert.doesNotMatch(
+      unpoliced,
+      /outfit-latin-ext/,
+      `${path}: Outfit's Latin Extended half is preloaded, which costs 14kb to render nothing`,
+    );
   }
 });
 

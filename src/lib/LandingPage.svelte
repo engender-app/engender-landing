@@ -3,9 +3,10 @@
   import Prose from '$lib/Prose.svelte';
   import FlagSun from '$lib/FlagSun.svelte';
   import StripeRule from '$lib/StripeRule.svelte';
+  import Mark from '$lib/Mark.svelte';
   import { FLAGS } from '$lib/flags';
   import { flagCycle } from '$lib/flagCycle.svelte';
-  import { JOURNAL_URL, messages, pathFor, type Locale } from '$lib/site';
+  import { JOURNAL_URL, SOURCE_URL, messages, pathFor, type Locale } from '$lib/site';
 
   let { locale }: { locale: Locale } = $props();
 
@@ -30,6 +31,18 @@
      The ids live in the message catalogue beside each group. They are not copy
      and never render; they exist so a renderer can ask which group this is
      without reading a translated name. */
+  /* Which mark each channel gets. Keyed on the channel's own name, which is
+     the one thing about a channel that is not translated - F-Droid is F-Droid
+     in both catalogues - and defaulting to nothing rather than to a wrong mark
+     if a channel is ever added. $lib/Mark carries why these are the site's own
+     marks and not the channels' logos. */
+  const CHANNEL_MARKS: Record<string, string> = {
+    'F-Droid': 'community',
+    Aurora: 'mirror',
+    Obtainium: 'direct',
+    'Google Play': 'storefront',
+  };
+
   const GROUP_FRAMES: Record<string, number[]> = {
     /* By index into `m.tour`, whose order is ticket 02's: Home, An entry, The
        month, One day twice, Search, Six months of one scale, Milestones,
@@ -78,26 +91,6 @@
       <FlagSun placement="corner" size="clamp(20rem, 46vw, 38rem)" />
     </div>
 
-    <!-- The swirl, and it is deliberately not behind the headword, which is
-         where it was asked for. A stroke in the flag's own colours cannot sit
-         under text and hold 4.5:1: on the dark theme a light stroke behind
-         light type loses the ratio outright, and the pixel-contrast pass
-         samples exactly that. So it sits in the empty band between the entry
-         and the motif, at the entry's own height, and it is not rendered below
-         60rem where that band does not exist. -->
-    <svg class="swirl" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
-      {#each FLAGS[0].stripes.slice(0, 3) as stripe, index (index)}
-        <path
-          d="M100 104 C 102 84, 132 82, 133 107 S 96 143, 70 112 S 82 50, 137 56 S 192 112, 150 168"
-          pathLength="1"
-          fill="none"
-          stroke={stripe}
-          stroke-width="1.6"
-          stroke-linecap="round"
-          style:--turn={index}
-        />
-      {/each}
-    </svg>
 
     <div class="sheet">
       <!-- The name, then its definition directly under it as one block: the
@@ -105,26 +98,39 @@
            (Alicja's note, 2026-08-27). The tests read the site name off this
            element, so no text-transform: innerText reports the transformed
            casing. -->
-      <div class="nameplate">
-        <h1 class="wordmark enter" style:--enter={0}>{m.pageTitle}</h1>
-        <p class="entry enter" style:--enter={1}>
-          <strong class="headword">{m.hero.definition.lead}</strong><span class="sense tnum"
-            >{m.hero.definition.rest}</span
-          >
+      <!-- The site's name is the h1 and it is not drawn: the headword below
+           says the word already, twice over would be a stutter, and Alicja
+           asked for the small one at the top to go. It stays in the document
+           because a landing page's h1 is its name, and the tests and the
+           metadata read it here. -->
+      <h1 class="vh">{m.pageTitle}</h1>
+
+      <div class="nameplate enter" style:--enter={0}>
+        <p class="headword">{m.hero.definition.headword}</p>
+        <p class="grammar tnum">
+          <em>{m.hero.definition.grammar}</em>&nbsp;{m.hero.definition.phonetics}
         </p>
+        <p class="sense">{m.hero.definition.sense}</p>
       </div>
 
       <!-- Flush with the nameplate above it, not indented. The indent read as
            an accident rather than as a hierarchy (Alicja's note). -->
       <div class="claim">
-        <p class="headline enter" style:--enter={2}>{m.hero.headline}</p>
-        <p class="subheadline enter" style:--enter={3}>{m.hero.subheadline}</p>
+        <p class="headline enter" style:--enter={1}>{m.hero.headline}</p>
+        <p class="subheadline enter" style:--enter={2}>{m.hero.subheadline}</p>
 
-        <div class="actions enter" style:--enter={4}>
+        <div class="actions enter" style:--enter={3}>
           <a class="cta" href={JOURNAL_URL}>{m.startJournal}</a>
           <ul class="badges">
             {#each m.channels as channel (channel.name)}
-              <li><a class="badge" href={pathFor(locale)}>{channel.name}</a></li>
+              <li>
+                <a class="badge" href={pathFor(locale)}>
+                  {#if CHANNEL_MARKS[channel.name]}
+                    <Mark name={CHANNEL_MARKS[channel.name]} />
+                  {/if}
+                  {channel.name}
+                </a>
+              </li>
             {/each}
           </ul>
         </div>
@@ -224,7 +230,12 @@
         {#each m.channels as channel, index (channel.name)}
           <li class="wipe" style:--reveal-index={index}>
             <div class="channel-head">
-              <strong>{channel.name}</strong>
+              <strong>
+                {#if CHANNEL_MARKS[channel.name]}
+                  <Mark name={CHANNEL_MARKS[channel.name]} size="1.3em" />
+                {/if}
+                {channel.name}
+              </strong>
               <span class="status">{m.channelStatus}</span>
             </div>
             <p>{channel.note}</p>
@@ -241,6 +252,16 @@
     </div>
     <div class="support reveal">
       <Prose paragraphs={m.support} reveal />
+      <!-- The copy in this section says the source is public and to go and
+           look. It said it without a link, which asked a reader to go and find
+           the thing the sentence is about. The URL is the one
+           .agents/product-marketing.md names under Evidence. -->
+      <p class="source-line">
+        <a class="source" href={SOURCE_URL} rel="noopener">
+          <Mark name="repository" size="1.25em" />
+          {SOURCE_URL.replace('https://', '')}
+        </a>
+      </p>
     </div>
   </section>
 </PageShell>
@@ -254,7 +275,7 @@
   >
     <div class="group-head reveal">
       <h3>{group.group}</h3>
-      <StripeRule band={false} />
+      <StripeRule />
     </div>
 
     {#if GROUP_FRAMES[group.id]}
@@ -381,9 +402,6 @@
     pointer-events: none;
   }
 
-  .swirl {
-    display: none;
-  }
 
   /* One column on a phone, two once there is room. The second column holds no
      content: it is the space the motif is allowed to occupy, and capping the
@@ -409,50 +427,59 @@
     }
   }
 
-  /* The name and its definition as one block. */
   .nameplate {
     margin-bottom: clamp(2.5rem, 8vh, 5rem);
   }
 
-  .wordmark {
-    margin: 0 0 0.5rem;
-    font-size: 1.0625rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    color: var(--text-2);
-    width: fit-content;
-  }
 
-  /* One run of text, not two blocks. `rest` opens with the copy's own comma,
-     so the headword and the sense have to sit on one line the way they do in a
-     printed entry: as flex items they could not, the sense wrapped, and every
-     viewport narrower than the pair opened a line with a bare comma.
+  /* Set the way a printed entry is set: the headword alone on its line, then
+     its grammar and pronunciation, then the sense. The first draft ran all of
+     it as one line of text with the headword inline, and at that size the sense
+     wrapped back under the headword and collided with its descenders. Three
+     blocks with real space between them cannot do that at any text size.
 
-     The line height is set here rather than inherited because an inline
-     element four times the body size opens a line box that tall. */
-  .entry {
-    margin: 0;
-    max-width: 44rem;
-    font-size: clamp(1rem, 1.4vw, 1.1875rem);
-    line-height: 1.45;
-    color: var(--text-2);
+     `line-height: 1` on the headword plus the gap below is why the collision is
+     gone: the space is spacing rather than leading, so it does not scale into
+     the gap between the sense's own lines. */
+  .nameplate {
+    display: grid;
+    justify-items: start;
+    gap: 0.85rem;
+    max-width: 40ch;
   }
 
   .headword {
+    margin: 0;
     font-family: var(--font-display);
     /* The largest type on the page, and the reason the splash reads as a
        definition before it reads as a pitch. Under the craft floor's 6rem
        display ceiling. */
-    font-size: clamp(2.5rem, 6.5vw, 4.5rem);
+    font-size: clamp(2.75rem, 7.5vw, 5rem);
     font-weight: 600;
     line-height: 1;
     letter-spacing: -0.03em;
     color: var(--text);
-    vertical-align: -0.02em;
+  }
+
+  /* An entry's own furniture: the part of speech abbreviated the way a
+     dictionary abbreviates it, then the pronunciation. */
+  .grammar {
+    margin: 0;
+    font-size: clamp(0.9375rem, 1.2vw, 1.0625rem);
+    letter-spacing: 0.01em;
+    color: var(--text-2);
+  }
+
+  .grammar em {
+    font-style: italic;
   }
 
   .sense {
-    display: inline;
+    margin: 0;
+    font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
+    line-height: 1.5;
+    color: var(--text-2);
+    max-width: 34ch;
   }
 
   .claim {
@@ -500,6 +527,7 @@
   .badge {
     display: inline-flex;
     align-items: center;
+    gap: 0.45rem;
     min-height: var(--target);
     padding: 0.6rem 1.1rem;
     border-radius: var(--radius-pill);
@@ -620,7 +648,7 @@
   /* ---- Features ------------------------------------------------------- */
 
   .features {
-    padding-block: clamp(4rem, 12vh, 8rem) 0;
+    padding-block: clamp(4rem, 12vh, 8rem) clamp(3.5rem, 10vh, 6rem);
   }
 
   .features-tail {
@@ -665,6 +693,14 @@
     margin: 0;
     padding-top: clamp(1.5rem, 3vh, 2.25rem);
     border-top: 1px solid var(--outline);
+  }
+
+  /* No rule above the first group in a run: the act's own head is already the
+     line between them, and two lines a heading apart read as an empty
+     section. */
+  .group:first-child {
+    padding-top: 0;
+    border-top: 0;
   }
 
   .group-head {
@@ -733,6 +769,12 @@
     list-style: none;
     margin: 0 0 clamp(2rem, 5vh, 3rem);
     padding: 0;
+    /* A frame is 9:16, so a column's width decides its height. One frame in a
+       full-width grid was a placeholder two thirds of a window tall - the
+       Keeping it group was a poster of an empty box. Capped at what four across
+       would each get, so a group with one frame shows it at the same size as a
+       group with four. */
+    max-width: calc(var(--across) * 15rem + (var(--across) - 1) * 2rem);
   }
 
   .frame {
@@ -911,6 +953,9 @@
   }
 
   .channels strong {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     font-family: var(--font-display);
     font-size: 1.125rem;
     font-weight: 600;
@@ -933,6 +978,29 @@
     padding-block: clamp(5rem, 14vh, 9rem);
   }
 
+  .source-line {
+    margin: 2rem 0 0;
+  }
+
+  .source {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    min-height: var(--target);
+    font-family: var(--font-display);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    letter-spacing: var(--display-track);
+    text-decoration: none;
+    border-bottom: 2px solid currentcolor;
+    padding-bottom: 0.3rem;
+    transition: opacity var(--dur-fast);
+  }
+
+  .source:hover {
+    opacity: 0.75;
+  }
+
   .support :global(p) {
     max-width: 52ch;
     font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
@@ -950,37 +1018,6 @@
 
   /* ---- Wide ----------------------------------------------------------- */
 
-  /* The swirl needs a band of empty page between the entry and the motif to
-     live in. Below this width there is no such band. */
-  @media (min-width: 60rem) {
-    .swirl {
-      display: block;
-      position: absolute;
-      top: clamp(2rem, 7vh, 5rem);
-      right: clamp(4rem, 22vw, 20rem);
-      width: clamp(11rem, 18vw, 16rem);
-      height: auto;
-      opacity: 0.5;
-      pointer-events: none;
-    }
-  }
-
-  @media (min-width: 60rem) and (prefers-reduced-motion: no-preference) {
-    .swirl path {
-      stroke-dasharray: 0.14 0.86;
-      animation: unspool 34s linear infinite;
-      animation-delay: calc(var(--turn) * -2.6s);
-    }
-  }
-
-  @keyframes unspool {
-    from {
-      stroke-dashoffset: 1;
-    }
-    to {
-      stroke-dashoffset: 0;
-    }
-  }
 
   /* ---- Narrow --------------------------------------------------------- */
 

@@ -1,93 +1,125 @@
 <script lang="ts">
   /* A section's rule, drawn in a flag's stripes rather than in one line, and
-     one of the two places the page's ambient motion lives.
+     the page's ambient motion.
 
-     The rule is the live flag's stripes laid flat end to end, so the
-     eight-flag cycle reaches every heading on the page and not only the motif
-     in the splash.
+     The flag change is a sweep: the incoming flag is laid over the outgoing one
+     and uncovered from the left on an ease-out, the way a stroke is drawn
+     (Alicja's note, 2026-08-27). It replaces two things that were here before
+     and were both worse. A crossfade between two stripe sets muddied every
+     colour through the middle of it. And a separate band of accent ink
+     travelling across the rule was a second moving thing with nothing to do
+     with the flag underneath it: one motion that means something beats two that
+     do not, so the band and the clock that handed it between rules are gone.
 
-     The band that crosses it belongs to the whole page rather than to this
-     rule: $lib/bandCycle hands out ordinals in document order and moves one
-     band down them, so at any moment exactly one rule on the page has
-     something travelling across it. The first build gave every rule its own
-     loop, which was six unrelated things twitching at six phases. */
-  import { onMount } from 'svelte';
+     Two layers, never more. A sweep still running when the next flag arrives is
+     finished instantly rather than queued, because the cycle is six seconds and
+     the sweep is under one - if that ever stops being true, the right fix is a
+     slower cycle, not a queue. */
   import { FLAGS } from '$lib/flags';
   import { flagCycle } from '$lib/flagCycle.svelte';
-  import { bandCycle, joinBand } from '$lib/bandCycle.svelte';
 
   let {
     /** Pinning a rule to one flag is for the frames, where each of the eight
-        owns a flag of its own and none of them should be cycling. */
+        owns a flag of its own and none of them sweeps. */
     flagIndex = null,
-    /** A rule that is furniture rather than a section head takes no part in
-        the handoff. */
-    band = true,
-  }: { flagIndex?: number | null; band?: boolean } = $props();
+  }: { flagIndex?: number | null } = $props();
 
-  let ordinal = $state(-1);
+  const pinned = $derived(flagIndex !== null ? FLAGS[flagIndex % FLAGS.length].stripes : null);
 
-  const stripes = $derived(
-    flagIndex === null ? flagCycle.flag.stripes : FLAGS[flagIndex % FLAGS.length].stripes,
-  );
-  const carrying = $derived(band && ordinal >= 0 && bandCycle.at === ordinal);
+  /* What is painted underneath, and what is sweeping in over it. Before the
+     first change - and for a pinned rule, and with reduced motion - `incoming`
+     is null and there is one layer. */
+  let beneath = $state(FLAGS[0].stripes);
+  let incoming = $state<string[] | null>(null);
+  let sweeping = $state(false);
 
-  onMount(() => {
-    if (!band) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const seat = joinBand();
-    ordinal = seat.index;
-    return () => {
-      ordinal = -1;
-      seat.release();
-    };
+  /* A plain variable, deliberately not $state, and the whole reason the effect
+     below is safe. An effect that reads the same state it writes is a loop
+     Svelte refuses, and refusing it throws during hydration - which takes the
+     whole page's scripting with it, not just this rule. So the effect's only
+     reactive read is the flag itself, and what it compares against is kept
+     here, outside the graph. */
+  let seen = FLAGS[0].stripes;
+
+  $effect(() => {
+    /* The one reactive dependency. */
+    const next = flagCycle.flag.stripes;
+    if (pinned || next === seen) return;
+    seen = next;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      beneath = next;
+      return;
+    }
+
+    /* A sweep still in flight lands where it was going before the next one
+       starts, so the rule never shows three flags at once. */
+    if (incoming) beneath = incoming;
+    incoming = next;
+    sweeping = true;
   });
+
+  function landed() {
+    if (!incoming) return;
+    beneath = incoming;
+    incoming = null;
+    sweeping = false;
+  }
 </script>
 
 <div class="rule" aria-hidden="true">
-  {#each stripes as stripe, index (index)}
-    <i style:background={stripe}></i>
-  {/each}
-  {#if carrying}
-    <span class="band" style:--crossing="{bandCycle.crossingMs}ms"></span>
+  <span class="layer">
+    {#each pinned ?? beneath as stripe, index (index)}
+      <i style:background={stripe}></i>
+    {/each}
+  </span>
+  {#if incoming}
+    <span class="layer sweep" class:sweeping onanimationend={landed}>
+      {#each incoming as stripe, index (index)}
+        <i style:background={stripe}></i>
+      {/each}
+    </span>
   {/if}
 </div>
 
 <style>
   .rule {
     position: relative;
-    display: flex;
     height: 3px;
     overflow: clip;
     border-radius: 2px;
   }
 
-  .rule i {
-    flex: 1;
-    /* A stripe changing colour crossfades rather than cutting: this rule sits
-       next to running text, and a hard cut in peripheral vision reads as a
-       flicker. --dur-crossfade is deliberately outside the reduced-motion
-       clamp, because a change of colour moves nothing. */
-    transition: background-color var(--dur-crossfade) linear;
-  }
-
-  /* Only ever in the DOM while this rule is the one carrying the band, so
-     there is nothing to park anywhere and nothing to hide under reduced
-     motion: the element simply is not rendered. */
-  .band {
+  .layer {
     position: absolute;
-    inset: 0 auto 0 0;
-    width: 20%;
-    background: var(--accent);
-    animation: cross var(--crossing) linear both;
+    inset: 0;
+    display: flex;
   }
 
-  @keyframes cross {
+  .layer i {
+    flex: 1;
+  }
+
+  /* The incoming flag, uncovered from the left. Its default state is fully
+     uncovered, so a browser that runs no animation - or a script that fails
+     between mounting this layer and animating it - shows the new flag rather
+     than a bare rule. */
+  .sweep {
+    clip-path: inset(0 0 0 0);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .sweeping {
+      animation: sweep var(--dur-sweep) var(--ease-out) both;
+    }
+  }
+
+  @keyframes sweep {
     from {
-      transform: translateX(-100%);
+      clip-path: inset(0 100% 0 0);
     }
     to {
-      transform: translateX(500%);
+      clip-path: inset(0 0 0 0);
     }
   }
 </style>
