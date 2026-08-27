@@ -23,10 +23,16 @@
          Do not name that placeholder in prose anywhere in this file: the build
          replaces its first occurrence, so a mention in a comment is where the
          whole head lands. (Ticket 11.) -->
-    <!-- The one font on the site, self-hosted (ticket 09: no remote asset).
-         Preloaded because every visible string is set in it, so the swap it
-         avoids would be the whole page. -->
+    <!-- Both faces are self-hosted; no remote asset, ever. Preloaded because
+         between them they set every visible string, so the swap they avoid
+         would be the whole page.
+
+         Outfit's Latin Extended file is deliberately not preloaded. It exists
+         for the Polish diacritics and the unicode-range in base.css already
+         fetches it exactly when a page needs it; preloading it would download
+         14kb on the English page to render nothing. -->
     <link rel="preload" href="/fonts/dm-sans.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin />
     <script>
       /* Stamps a stored theme choice before first paint. Someone who chose
          dark chose it for a reason, and repainting from light after hydration
@@ -54,6 +60,35 @@
     %sveltekit.head%
   </head>
   <body>
+    <!--
+      THESIS: this page is the app's own sheet at poster scale, and it refuses
+      the arrangement its category always ships - pastel gradient, phone
+      mockup at an angle, three icon cards. It also refuses the aurora it
+      replaces: no gradients anywhere, ink is flat, surfaces separate with a
+      line.
+      OWN-WORLD: the app's trans palette for paper, character for character.
+      Two deepened flag inks as full-bleed fields, blue for privacy and rose for
+      the one warning, the same values in both themes because ink does not
+      change with the paper. The eight flags' raw stripes, vivid and never under
+      text, for the motif, the section rules, the frames and the swatches.
+      Outfit at -0.024em over DM Sans, 20px card radius, hairlines at 19% and
+      30% of the text colour, one accent spent on one action.
+      STORY: a reader meets the word engender, completes the pun themselves,
+      and is then told what the app does and where it keeps their journal.
+      FIRST VIEWPORT: the name top left with its dictionary entry directly
+      under it as one block, the headword the largest type on the page; the
+      claim flush beneath, in text ink, with the action as one solid block of
+      the reserved accent; the flag sun bleeding off the top-right corner,
+      cycling all eight flags on a wave that crosses its rings rim to centre and
+      overshoots; a three-stroke swirl in the band between them. The text column
+      is capped as a fraction of the sheet so no word can ever be painted on the
+      raw stripes.
+      FORM: brief-pinned after three re-rolls - the app's own language, taken
+      further in motion than the app can afford. Seed key 8ffa734c.
+      FINISH: unreviewed and undocumented is unfinished; this build ends with
+      the finish review, the verdict, DESIGN.md, and every shipping raster
+      carrying its provenance.
+    -->
     <div style="display: contents">%sveltekit.body%</div>
   </body>
 </html>

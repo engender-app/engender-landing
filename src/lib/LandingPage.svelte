@@ -1,238 +1,242 @@
 <script lang="ts">
-  import { animate } from 'motion';
-  import { onMount } from 'svelte';
   import PageShell from '$lib/PageShell.svelte';
   import Prose from '$lib/Prose.svelte';
-  import { JOURNAL_URL, messages, pathFor, type Locale } from '$lib/site';
+  import FlagSun from '$lib/FlagSun.svelte';
+  import StripeRule from '$lib/StripeRule.svelte';
+  import Mark from '$lib/Mark.svelte';
+  import { FLAGS } from '$lib/flags';
+  import { flagCycle } from '$lib/flagCycle.svelte';
+  import { JOURNAL_URL, SOURCE_URL, messages, pathFor, type Locale } from '$lib/site';
 
   let { locale }: { locale: Locale } = $props();
 
-  let flagStroke: SVGSVGElement | null = null;
-  let flagPath: SVGPathElement | null = null;
-
   const m = $derived(messages[locale]);
 
-  onMount(() => {
-    if (!flagStroke || !flagPath) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  /* The eight screens are not a section any more. They were a sideways strip
+     of eight placeholder frames a reader had to scroll through before reaching
+     anything the frames illustrated; now each frame sits in the feature group
+     it belongs to, so a picture stands next to the sentences it proves
+     (Alicja's decision, 2026-08-27).
 
-    flagStroke.dataset.motion = 'on';
-    flagPath.style.strokeDasharray = '1';
-    flagPath.style.strokeDashoffset = '1';
+     Everything below keys on a group's `id`, never on its position, and that
+     is not fastidiousness: English has seven feature groups and Polish has
+     five. Polish is still the pre-rewrite copy - ticket 02 wrote English only
+     and the translation pass owns the rest - so it has no "around the journal"
+     and no "on your phone", and its "keeping it" sits where English has
+     "around". An index-based mapping is therefore wrong on one of the two
+     pages by construction, which is exactly what the first build of this
+     section did: it disabled every frame on the Polish page and dropped eight
+     approved captions with them.
 
-    let disposed = false;
-    let breatheControls: { stop: () => void } | null = null;
+     The ids live in the message catalogue beside each group. They are not copy
+     and never render; they exist so a renderer can ask which group this is
+     without reading a translated name. */
+  /* Which mark each channel gets. Keyed on the channel's own name, which is
+     the one thing about a channel that is not translated - F-Droid is F-Droid
+     in both catalogues - and defaulting to nothing rather than to a wrong mark
+     if a channel is ever added. $lib/Mark carries why these are the site's own
+     marks and not the channels' logos. */
+  const CHANNEL_MARKS: Record<string, string> = {
+    'F-Droid': 'fdroid',
+    Aurora: 'aurora',
+    Obtainium: 'obtainium',
+    'Google Play': 'play',
+  };
 
-    const drawThenBreathe = async () => {
-      await animate(flagPath, { strokeDashoffset: [1, 0] }, { duration: 1.2, ease: [0.16, 1, 0.3, 1] })
-        .finished;
-      if (disposed) return;
-      breatheControls = animate(
-        flagPath,
-        {
-          strokeWidth: [3, 3.35, 3],
-          opacity: [1, 0.92, 1],
-        },
-        { duration: 6.5, ease: 'easeInOut', repeat: Infinity },
-      );
-    };
+  const GROUP_FRAMES: Record<string, number[]> = {
+    /* By index into `m.tour`, whose order is ticket 02's: Home, An entry, The
+       month, One day twice, Search, Six months of one scale, Milestones,
+       Export. A frame keeps its own tour index as its flag, so eight frames
+       carry eight flags in either language. */
+    writing: [0, 1, 3],
+    reading: [2, 4, 5, 6],
+    keeping: [7],
+  };
 
-    void drawThenBreathe();
+  /* The groups whose presentation is not a plain list of sentences. */
+  const LEADS_GROUP = 'around';
+  const CAREFUL_GROUP = 'careful';
+  const PALETTE_GROUP = 'looks';
 
-    return () => {
-      disposed = true;
-      breatheControls?.stop();
-    };
-  });
+  /* Where the privacy act interrupts the run: immediately before the careful
+     group, in whichever position that group happens to occupy. Privacy used to
+     be a single handoff paragraph two sections above eight placeholder frames,
+     which gave the page's strongest claim its least room. It is a full act
+     now, and putting it here is what lets "if you need to be careful" read
+     straight after the threat model rather than from the middle of a feature
+     list. Anchored to the group rather than to a number so it lands in the
+     same place in both languages. */
+  const split = $derived(
+    (() => {
+      const at = m.features.findIndex((group) => group.id === CAREFUL_GROUP);
+      /* A catalogue with no careful group at all puts the whole run before the
+         privacy act rather than losing half of it. */
+      const cut = at === -1 ? m.features.length : at;
+      return { before: m.features.slice(0, cut), after: m.features.slice(cut) };
+    })(),
+  );
 </script>
 
 <PageShell {locale} page="landing" title={m.pageTitle}>
-  <!-- The splash. The channel badges render as buttons here and point at this
-       page until each channel has an artifact; flipping them live is redesign
-       ticket 04's, reading the Journal repository's release state. -->
-  <div class="hero">
-    <div class="hero-inner scrim">
-      <h1 class="enter shimmer" style:--enter={0}>{m.pageTitle}</h1>
-      <!-- Shrink-wrapped around the headline so the stroke below is exactly
-           as wide as the words it sits under, whatever the balancer does with
-           the line breaks. -->
-      <div class="headline-block enter" style:--enter={1}>
-        <p class="headline">{m.hero.headline}</p>
+  <!-- The splash. The definition leads and the claim answers it: a reader
+       meets the word, completes the pun themselves, and only then is told what
+       the app does (Alicja's decision, 2026-08-27). Nothing here explains the
+       joke, which is the whole trick.
 
-        <!-- The flag as a line rather than as stripes: one straight rule
-             stroked blue to white to pink, drawing itself once the headline has
-             landed. Alicja asked for this in Rive (2026-08-12); it is SVG
-             because Rive would be 150-200kb of runtime and WASM against a
-             ticket that argues 40kb is already too much, would need
-             wasm-unsafe-eval in a policy that has no eval anywhere in it, and
-             would leave a visitor without scripting looking at an empty canvas.
-             This is markup, so they get the line too.
+       The channel badges point at this page until each channel has an artifact
+       behind it; flipping them live is redesign ticket 04's, reading the
+       Journal repository's release state. -->
+  <div class="splash">
+    <div class="sun-well" aria-hidden="true">
+      <!-- Sized in px and vw, never rem. A rem clamp scales with the root
+           font size, so at 200% text this motif's *floor* doubled to 640px on
+           a 390px screen and swallowed the whole nameplate - the contrast pass
+           measured the definition at 1.20:1 against the flag's blue. A motif
+           is a picture and its size is a fact about the viewport, not about
+           the reader's text size. -->
+      <FlagSun placement="corner" size="var(--splash-sun)" />
+    </div>
 
-             pathLength normalises the curve to 1 unit, which is what lets the
-             dash in base.css be written as a fraction rather than as a length
-             somebody has to measure again after every edit to the `d`. -->
-        <svg
-          class="flag-stroke"
-          data-motion="off"
-          viewBox="0 0 400 14"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-          focusable="false"
-          bind:this={flagStroke}
-        >
-          <defs>
-            <!-- userSpaceOnUse, and that is load-bearing rather than a
-               preference. A linearGradient defaults to objectBoundingBox
-               units, and the bounding box of a perfectly horizontal line has
-               zero height, which makes the gradient unresolvable: the path is
-               then not painted at all. The line simply was not there. In user
-               space the coordinates are the viewBox's own, so 0 to 400 is the
-               full width. -->
-          <linearGradient
-            id="flag-stroke-gradient"
-            gradientUnits="userSpaceOnUse"
-            x1="0"
-            y1="0"
-            x2="400"
-            y2="0"
-          >
-              <stop class="stop-start" offset="0%" />
-              <stop class="stop-mid" offset="50%" />
-              <stop class="stop-end" offset="100%" />
-            </linearGradient>
-          </defs>
-          <g class="flag-ink">
-            <path
-              class="flag-base"
-              d="M2 7 L 398 7"
-              fill="none"
-              stroke="url(#flag-stroke-gradient)"
-              stroke-width="3"
-              stroke-linecap="round"
-            />
-            <path
-              class="flag-trace"
-              pathLength="1"
-              d="M2 7 L 398 7"
-              fill="none"
-              stroke="url(#flag-stroke-gradient)"
-              stroke-width="3"
-              stroke-linecap="round"
-              bind:this={flagPath}
-            />
-          </g>
-        </svg>
+
+    <div class="sheet">
+      <!-- The name, then its definition directly under it as one block: the
+           entry annotates the name rather than standing apart from it
+           (Alicja's note, 2026-08-27). The tests read the site name off this
+           element, so no text-transform: innerText reports the transformed
+           casing. -->
+      <!-- The site's name is the h1 and it is not drawn: the headword below
+           says the word already, twice over would be a stutter, and Alicja
+           asked for the small one at the top to go. It stays in the document
+           because a landing page's h1 is its name, and the tests and the
+           metadata read it here. -->
+      <h1 class="vh">{m.pageTitle}</h1>
+
+      <div class="nameplate enter" style:--enter={0}>
+        <p class="headword">{m.hero.definition.headword}</p>
+        <p class="grammar tnum">
+          <em>{m.hero.definition.grammar}</em>&nbsp;{m.hero.definition.phonetics}
+        </p>
+        <p class="sense">{m.hero.definition.sense}</p>
       </div>
 
-      <!-- The dictionary entry for the name, the v10 decision: the page says
-           the pun out loud. Ticket 03 owns its final shape; this is the plain
-           rendering the copy needs to be on the page at all. -->
-      <p class="definition enter" style:--enter={2}>
-        <strong>{m.hero.definition.lead}</strong>{m.hero.definition.rest}
-      </p>
+      <!-- Flush with the nameplate above it, not indented. The indent read as
+           an accident rather than as a hierarchy (Alicja's note). -->
+      <div class="claim">
+        <p class="headline enter" style:--enter={1}>{m.hero.headline}</p>
+        <p class="subheadline enter" style:--enter={2}>{m.hero.subheadline}</p>
 
-      <p class="subheadline enter" style:--enter={3}>{m.hero.subheadline}</p>
-
-      <div class="hero-actions enter" style:--enter={4}>
-        <a class="cta" href={JOURNAL_URL}>{m.startJournal}</a>
-        <ul class="badges">
-          {#each m.channels as channel (channel.name)}
-            <li><a class="badge" href={pathFor(locale)}>{channel.name}</a></li>
-          {/each}
-        </ul>
+        <div class="actions enter" style:--enter={3}>
+          <a class="cta" href={JOURNAL_URL}>{m.startJournal}</a>
+          <ul class="badges">
+            {#each m.channels as channel (channel.name)}
+              <li>
+                <a class="badge" href={pathFor(locale)}>
+                  {#if CHANNEL_MARKS[channel.name]}
+                    <Mark name={CHANNEL_MARKS[channel.name]} size="1.6em" />
+                  {/if}
+                  {channel.name}
+                </a>
+              </li>
+            {/each}
+            <!-- The source, beside the channels rather than at the foot of the
+                 page: it is one of the places a reader can go from here, and
+                 the support copy's "go and look" is easier to act on when the
+                 way to look is where the other destinations are (Alicja's
+                 note, 2026-08-28). Labelled with the host's name rather than
+                 the URL, which is a brand name and identical in both
+                 languages. -->
+            <li>
+              <a class="badge" href={SOURCE_URL} rel="noopener">
+                <Mark name="github" size="1.6em" />
+                github
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 
-  <section class="opening scrim">
-    <div class="opening-title reveal">
+  <section class="overview">
+    <div class="section-head reveal">
       <h2>{m.sectionOverview}</h2>
-      <span class="section-mark" aria-hidden="true"></span>
+      <StripeRule />
     </div>
-    <div class="opening-copy">
-      <div class="opening-lede"><Prose paragraphs={m.overview.slice(0, 1)} reveal /></div>
+    <div class="overview-copy">
+      <div class="lede"><Prose paragraphs={m.overview.slice(0, 1)} reveal /></div>
       <Prose paragraphs={m.overview.slice(1)} reveal />
     </div>
   </section>
 
-  <section class="privacy-note scrim">
-    <div class="privacy-title reveal">
-      <h2>{m.sectionPrivacy}</h2>
-      <div class="standfirst"><Prose paragraphs={m.privacyHandoff.slice(0, 1)} reveal /></div>
-    </div>
-    <div class="privacy-answer reveal">
-      <Prose paragraphs={m.privacyHandoff.slice(1)} />
-      <p class="more-line"><a class="more" href={pathFor(locale, 'privacy')}>{m.privacyPage.title}</a></p>
-    </div>
-  </section>
-
-  <section class="tour">
-    <div class="tour-head scrim">
-      <h2>{m.sectionTour}</h2>
-      <p class="tour-intro">{m.tourIntro}</p>
-    </div>
-
-    <!-- Captions without their screenshots. Each frame declares the aspect
-         ratio its screenshot will have, so ticket 16 drops the pictures in
-         and moves no layout; until then the frame holds only this section's
-         colours, and the page describes no picture that is not there. -->
-    <div class="tour-pin" style:--tour-cards={m.tour.length}>
-      <div class="tour-stage">
-        <ol class="tour-strip">
-          {#each m.tour as screen, index (screen.screen)}
-            <li>
-              <div class="slot" aria-hidden="true" data-tint={index % 2 ? 'pink' : 'blue'}></div>
-              <h3>{screen.screen}</h3>
-              <p>{screen.caption}</p>
-            </li>
-          {/each}
-        </ol>
+  <section class="features">
+    <div class="features-head">
+      <div class="section-head reveal">
+        <h2>{m.sectionFeatures}</h2>
+        <StripeRule />
+      </div>
+      <!-- The frame disclosure, and it sits here because this is where a
+           reader meets the first one. `content/en/landing.md` is explicit that
+           this line goes where a person meets the first screenshot and not in
+           a footnote, and with the strip dissolved the first screenshot is in
+           the group immediately below. -->
+      <div class="screens-note reveal">
+        <h3>{m.sectionTour}</h3>
+        <p>{m.tourIntro}</p>
       </div>
     </div>
-  </section>
 
-  <section class="features scrim">
-    <div class="features-head">
-      <h2>{m.sectionFeatures}</h2>
-      <span class="section-mark" aria-hidden="true"></span>
-    </div>
     <div class="feature-groups">
-      {#each m.features as group (group.group)}
-        <!-- The groups are headed rather than run together because one of them
-             opens by saying that everything in it is off until you turn it on,
-             and that sentence is only true of its own group. -->
-        <article class="group reveal">
-          <h3>{group.group}</h3>
-          <div class="entries">
-            <!-- Rendered here rather than through Prose because this layout
-                 needs to know which paragraph is a group's plain intro, and
-                 Prose deliberately does not distinguish. The rendering of each
-                 paragraph is Prose's, character for character: `rest` carries
-                 its own separator. -->
-            {#each group.paragraphs as paragraph, index (index)}
-              {#if typeof paragraph === 'string'}
-                <p class="plain reveal" style:--reveal-index={index}>{paragraph}</p>
-              {:else}
-                <p class="reveal" style:--reveal-index={index}><strong>{paragraph.lead}</strong>{paragraph.rest}</p>
-              {/if}
-            {/each}
-          </div>
-        </article>
+      {#each split.before as group (group.id)}
+        {@render featureGroup(group)}
       {/each}
     </div>
   </section>
 
-  <section class="acquisition-wrap scrim">
-    <div class="acquisition">
-      <div class="acquisition-head reveal">
-        <h2>{m.sectionAcquisition}</h2>
-        <p>{m.acquisitionIntro}</p>
+  <!-- The privacy act. The page's most serious claim gets the page's most
+       committed colour: a full-bleed field of one flat ink with the words
+       knocked out of it. The field colours are theme-independent by design
+       (base.css), so this block is the same blue in either theme. -->
+  <section class="privacy field field-blue">
+    <div class="field-inner">
+      <div class="section-head reveal">
+        <h2>{m.sectionPrivacy}</h2>
+        <StripeRule />
       </div>
+      <div class="privacy-copy">
+        <div class="lede"><Prose paragraphs={m.privacyHandoff.slice(0, 1)} reveal /></div>
+        <div class="privacy-rest reveal">
+          <Prose paragraphs={m.privacyHandoff.slice(1)} />
+          <p class="more-line">
+            <a class="more" href={pathFor(locale, 'privacy')}>{m.privacyPage.title}</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features features-tail">
+    <div class="feature-groups">
+      {#each split.after as group (group.id)}
+        {@render featureGroup(group)}
+      {/each}
+    </div>
+  </section>
+
+  <section class="acquisition-wrap">
+    <div class="acquisition">
+      <div class="acquisition-head">
+        <div class="section-head reveal">
+          <h2>{m.sectionAcquisition}</h2>
+          <StripeRule />
+        </div>
+        <p class="reveal">{m.acquisitionIntro}</p>
+      </div>
+
       <!-- The primary action, again at the moment a reader has just finished
            deciding: a plain link, in this tab, to the URL and nothing appended
            to it. What may not ride along with it is on JOURNAL_URL in
            $lib/site. -->
-      <p class="acquisition-action"><a class="cta" href={JOURNAL_URL}>{m.startJournal}</a></p>
+      <p class="acquisition-action reveal"><a class="cta" href={JOURNAL_URL}>{m.startJournal}</a></p>
 
       <p class="android reveal">{m.acquisitionAndroid}</p>
 
@@ -243,9 +247,16 @@
            ticket 18). -->
       <ul class="channels">
         {#each m.channels as channel, index (channel.name)}
-          <li class="reveal" style:--reveal-index={index}>
-            <strong>{channel.name}</strong>
-            <span class="status">{m.channelStatus}</span>
+          <li class="wipe" style:--reveal-index={index}>
+            <div class="channel-head">
+              <strong>
+                {#if CHANNEL_MARKS[channel.name]}
+                  <Mark name={CHANNEL_MARKS[channel.name]} size="1.3em" />
+                {/if}
+                {channel.name}
+              </strong>
+              <span class="status">{m.channelStatus}</span>
+            </div>
             <p>{channel.note}</p>
           </li>
         {/each}
@@ -253,9 +264,10 @@
     </div>
   </section>
 
-  <section class="support-section scrim">
-    <div class="support-title reveal">
+  <section class="support-section">
+    <div class="section-head reveal">
       <h2>{m.sectionSupport}</h2>
+      <StripeRule />
     </div>
     <div class="support reveal">
       <Prose paragraphs={m.support} reveal />
@@ -263,170 +275,302 @@
   </section>
 </PageShell>
 
+{#snippet featureGroup(group: (typeof messages)['en']['features'][number])}
+  <article
+    class="group"
+    class:leads={group.id === LEADS_GROUP}
+    class:careful={group.id === CAREFUL_GROUP}
+    class:palettes={group.id === PALETTE_GROUP}
+  >
+    <div class="group-head reveal">
+      <h3>{group.group}</h3>
+      <StripeRule />
+    </div>
+
+    {#if GROUP_FRAMES[group.id]}
+      <!-- The frames this group's sentences are about. Each declares the
+           aspect ratio its screenshot will have, so ticket 06 drops the
+           pictures in and moves no layout. Until then the frame is not empty
+           and not a grey placeholder: it is inked in its own flag. -->
+      <ol class="frames" style:--across={GROUP_FRAMES[group.id].length}>
+        {#each GROUP_FRAMES[group.id] as screen, at (screen)}
+          <li class="wipe" style:--reveal-index={screen}>
+            <!-- Shaped like the phone the screenshot will be of, and edged in
+                 the live flag. The motif used to fill it, which read as
+                 abstract art rather than as a place a picture goes; then each
+                 frame was pinned to a flag of its own, which made the strip a
+                 chart of all eight while everything else on the page was
+                 showing one. They move together now (Alicja's note,
+                 2026-08-28), so the frames belong to the same moment as the
+                 motif and the rules. -->
+            <!-- A different stripe of the live flag each, so a row of three
+                 is three of the flag's colours rather than three copies of one,
+                 and each lands a little after the one before it (Alicja's note,
+                 2026-08-28). Modulo the stripe count, so a three-stripe flag
+                 repeats rather than leaving a frame with no colour. -->
+            <div
+              class="frame"
+              aria-hidden="true"
+              style:--frame-ink={flagCycle.flag.stripes[at % flagCycle.flag.stripes.length]}
+              style:--frame-delay="{at * 130}ms"
+            ></div>
+            <h4>{m.tour[screen].screen}</h4>
+            <p>{m.tour[screen].caption}</p>
+          </li>
+        {/each}
+      </ol>
+    {/if}
+
+    {#if group.id === PALETTE_GROUP}
+      <!-- The one group the page can prove instead of assert: the sun and the
+           strip cycle the eight flags in step, and the swatch currently inking
+           the page lifts. Deliberately not interactive - a pointer-only
+           control is unreachable by keyboard, and giving eight swatches real
+           accessible names would mean eight new strings in the message
+           catalogue, which is a copy change this ticket does not own. The whole
+           block is aria-hidden because every one of the eight names is already
+           in the paragraph beside it. -->
+      <div class="palette-demo" aria-hidden="true">
+        <div class="palette-sun">
+          <FlagSun placement="inline" size="min(11rem, 40vw)" />
+        </div>
+        <ul class="swatches">
+          {#each FLAGS as flag, flagIndex (flag.id)}
+            <li>
+              <span class="swatch" class:active={flagCycle.activeIndex === flagIndex}>
+                {#each flag.stripes as stripe, stripeIndex (stripeIndex)}
+                  <i style:background={stripe}></i>
+                {/each}
+              </span>
+            </li>
+          {/each}
+        </ul>
+      </div>
+    {/if}
+
+    <div class="entries">
+      <!-- Rendered here rather than through Prose because this layout needs to
+           know which paragraph is a group's plain intro, and Prose
+           deliberately does not distinguish. The rendering of each paragraph is
+           Prose's, character for character: `rest` carries its own
+           separator. -->
+      {#each group.paragraphs as paragraph, entry (entry)}
+        {#if typeof paragraph === 'string'}
+          <p class="plain reveal" style:--reveal-index={entry}>{paragraph}</p>
+        {:else}
+          <p
+            class="reveal"
+            class:lead-block={group.id === LEADS_GROUP}
+            style:--reveal-index={entry}
+          >
+            <strong>{paragraph.lead}</strong>{paragraph.rest}
+          </p>
+        {/if}
+      {/each}
+    </div>
+  </article>
+{/snippet}
+
 <style>
-  section:last-of-type {
-    padding-bottom: clamp(4rem, 10vh, 7rem);
+  /* ---- Shared ---------------------------------------------------------- */
+
+  .overview,
+  .features,
+  .acquisition-wrap,
+  .support-section,
+  .field-inner,
+  .sheet {
+    width: min(100%, 74rem);
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 5vw, 4rem);
   }
 
   h2 {
-    font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+    font-size: clamp(2rem, 4.6vw, 4rem);
     font-weight: 600;
+    line-height: 0.98;
     margin: 0;
-    text-wrap: balance;
   }
 
-  /* Existing copy moved, never written: the standfirst is the section's own
-     first paragraph, which ticket 17 relocates rather than replaces. Sections
-     whose copy has no such paragraph get a rail with only a heading in it,
-     because inventing one here would be a copy change. */
-  .standfirst {
-    margin-top: 1rem;
-    color: var(--muted);
-    font-size: 0.9375rem;
+  /* `align-content: start` is load-bearing. These heads sit in grids whose
+     rows stretch, so without it the rule sank to the bottom of whatever the
+     tallest column in the section was and ended up hundreds of pixels below the
+     heading it belongs to (Alicja's note, 2026-08-28). */
+  .section-head {
+    display: grid;
+    align-content: start;
+    gap: 0.75rem;
+    margin-bottom: clamp(1.75rem, 5vh, 3rem);
   }
 
-  .standfirst :global(p:last-child) {
-    margin-bottom: 0;
+  .lede :global(p) {
+    color: var(--text);
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 2.2vw, 1.8rem);
+    font-weight: 500;
+    line-height: 1.35;
+    letter-spacing: var(--display-track);
+    max-width: 34ch;
   }
 
-  /* ---- Hero ------------------------------------------------------------ */
+  /* ---- Splash ---------------------------------------------------------- */
 
-  /* 56px is the sticky header's one-row height. On viewports narrow enough
-     for the controls to wrap, the sum overshoots the viewport by a row and
-     the page simply scrolls; the mobile override below steps in before that
-     looks wrong.
+  .splash {
+    /* In px and vw, never rem. A rem clamp scales with the root font size, so
+       at 200% text this motif's floor doubled and swallowed the nameplate - the
+       contrast pass measured the definition at 1.20:1 against the flag's blue.
+       A motif is a picture and its size is a fact about the viewport, not about
+       the reader's text size. */
+    --splash-sun: clamp(280px, 46vw, 560px);
+    position: relative;
+    /* Clips the corner motif and the swirl. Only here: a clip at the body
+       would hide a layout broken by long Polish strings from the test that
+       looks for exactly that. */
+    overflow: clip;
+    padding-block: clamp(2.5rem, 8vh, 6rem) clamp(4rem, 12vh, 9rem);
+  }
 
-     No `overflow: clip` any more. It was here to hold the aurora inside the
-     hero, and holding the aurora inside the hero is exactly what put a hard
-     horizontal line across the page at the first scroll (ticket 17). The
-     layer is fixed to the viewport in Aura.svelte now and clips itself. */
-  .hero {
+  .sun-well {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  /* On a phone the motif stays in the window's corner, where it belongs - a
+     band of its own put it in the middle of nowhere and it stopped reading as a
+     corner at all (Alicja's note, 2026-08-28).
+
+     What keeps text off it is not arithmetic about how wide a line might get:
+     the sheet simply starts below the motif's reach. The motif is a circle
+     centred on the corner, so its reach down the page is half its diameter, and
+     --sun-size is in px and vw so that half is a fixed number whatever the
+     reader's text size. */
+  @media (max-width: 60rem) {
+    .splash {
+      --splash-sun: min(46vw, 230px);
+    }
+
+    .sheet {
+      padding-top: calc(var(--splash-sun) / 2);
+    }
+  }
+
+
+  /* One column on a phone, two once there is room. The second column holds no
+     content: it is the space the motif is allowed to occupy, and capping the
+     text to the first column is what guarantees no word is ever painted on the
+     raw flag stripes. In rem that guarantee does not hold - at 200% text a
+     44rem cap is wider than the window, so the entry spanned the whole sheet
+     and the pixel pass measured the definition at 2.91:1 against the flag's
+     blue. A fraction of the sheet cannot widen with the text. */
+  .sheet {
     position: relative;
     display: grid;
-    align-items: center;
-    min-height: calc(100dvh - 56px);
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  /* min-width: 0 because this is a grid item, and a grid track's automatic
-     minimum is its content's min-content size. At 200% text the longest word
-     in the headline is wider than a phone, so the track grew to fit it and
-     took the document sideways with it. The clip that used to be on .hero hid
-     that by cutting the word off instead, which is not better. */
-  .hero-inner {
-    position: relative;
-    width: 100%;
-    min-width: 0;
-    max-width: 68rem;
-    margin: 0 auto;
-    padding: 2rem clamp(1rem, 4vw, 2.5rem) 4rem;
+  @media (min-width: 60rem) {
+    .sheet {
+      grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+    }
+
+    .nameplate,
+    .claim {
+      grid-column: 1;
+    }
   }
 
-  /* No text-transform here: the tests read the site name off this element,
-     and innerText reports the transformed casing. */
-  h1 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    margin: 0 0 2.5rem;
-    background: linear-gradient(92deg, var(--grad-a), var(--grad-b));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    width: fit-content;
+  .nameplate {
+    margin-bottom: clamp(2.5rem, 8vh, 5rem);
   }
 
-  /* Ink for most of its length, and the flag's two colours at the end of the
-     last line. The endpoints are the theme's text-safe pair, so the gradient
-     never trades contrast for the effect.
 
-     min() around the clamp's floor, for the reason the .channels grid uses
-     one: a floor written in rem is a promise about the smallest this may be,
-     and at 200% text 2.4rem is 76.8px, which sets "transition" wider than the
-     phone holding it. The min() lets the floor fall back to what the viewport
-     can carry and leaves the 2.4rem intent untouched everywhere it fits. */
-  /* Shrink-wrapped so that .flag-stroke below can be exactly as wide as the
-     longest line of the headline, whatever text-wrap: balance decides that
-     is, in either language. */
-  .headline-block {
-    width: fit-content;
-    max-width: 100%;
-    margin: 0 0 1.5rem;
+  /* Set the way a printed entry is set: the headword alone on its line, then
+     its grammar and pronunciation, then the sense. The first draft ran all of
+     it as one line of text with the headword inline, and at that size the sense
+     wrapped back under the headword and collided with its descenders. Three
+     blocks with real space between them cannot do that at any text size.
+
+     `line-height: 1` on the headword plus the gap below is why the collision is
+     gone: the space is spacing rather than leading, so it does not scale into
+     the gap between the sense's own lines. */
+  /* Not a uniform gap. The pronunciation belongs to the headword's line in a
+     printed entry and the sense follows it closely, so the two of them sit
+     together and the pair sits well clear of the word above (Alicja's note,
+     2026-08-28). */
+  .nameplate {
+    display: grid;
+    justify-items: start;
+    max-width: 40ch;
   }
 
-  /* The stop colours are CSS rather than stop-color attributes on the stops
-     themselves. A var() inside an SVG presentation attribute resolves in
-     Chromium and has a history of not resolving elsewhere, and the way it
-     fails is the stop falling back to black: the one part of this that could
-     quietly stop being the flag. As the stop-color property it is ordinary
-     CSS everywhere. */
-  .stop-start {
-    stop-color: var(--grad-a);
+  .headword {
+    margin-bottom: clamp(0.7rem, 1.5vh, 1rem);
   }
 
-  .stop-mid {
-    stop-color: var(--stroke-mid);
+  .grammar {
+    margin-bottom: 0.35rem;
   }
 
-  .stop-end {
-    stop-color: var(--grad-b);
+  .headword {
+    font-family: var(--font-display);
+    /* The largest type on the page, and the reason the splash reads as a
+       definition before it reads as a pitch. Under the craft floor's 6rem
+       display ceiling. */
+    font-size: clamp(2.75rem, 7.5vw, 5rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--text);
   }
 
-  .flag-stroke {
-    display: block;
-    width: 100%;
-    height: 0.85rem;
-    margin-top: 0.35rem;
-    overflow: visible;
+  /* An entry's own furniture: the part of speech abbreviated the way a
+     dictionary abbreviates it, then the pronunciation. */
+  .grammar {
+    font-size: clamp(0.9375rem, 1.2vw, 1.0625rem);
+    letter-spacing: 0.01em;
+    color: var(--text-2);
   }
 
-  .flag-ink {
-    transform-box: fill-box;
-    transform-origin: 50% 50%;
-    will-change: transform;
+  .grammar em {
+    font-style: italic;
   }
 
-  .flag-base {
-    opacity: 0.58;
+  .sense {
+    margin: 0;
+    font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
+    line-height: 1.5;
+    color: var(--text-2);
+    max-width: 34ch;
+  }
+
+  .claim {
+    max-width: 46rem;
   }
 
   .headline {
-    font-size: clamp(min(2.4rem, 12vw), 7vw, 4.75rem);
-    font-weight: 600;
+    margin: 0 0 1.25rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 4.4vw, 3.25rem);
+    font-weight: 500;
     line-height: 1.05;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.028em;
+    /* Flat --text, and specifically not the accent: the accent is spent on the
+       one action and nowhere else, which is what makes the action findable
+       without a word of urgency. */
+    color: var(--text);
+    max-width: 20ch;
     text-wrap: balance;
-    margin: 0;
-    max-width: 17ch;
-    background: linear-gradient(105deg, var(--headline-base) 45%, var(--grad-a) 78%, var(--grad-b) 96%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-
-  /* The dictionary entry, set quiet on purpose: it earns its place by being
-     read second, after the name has already been met. Ticket 03 designs its
-     real shape. */
-  .definition {
-    font-size: 0.9375rem;
-    color: var(--muted);
-    max-width: 60ch;
-    margin: 0 0 1.5rem;
-  }
-
-  .definition strong {
-    font-weight: 600;
-    color: var(--ink);
   }
 
   .subheadline {
-    font-size: clamp(1.1rem, 2vw, 1.35rem);
-    font-weight: 400;
-    color: var(--muted);
-    max-width: 44ch;
-    margin: 0 0 2.75rem;
+    margin: 0 0 clamp(1.75rem, 5vh, 2.75rem);
+    font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
+    color: var(--text-2);
+    max-width: 46ch;
   }
 
-  .hero-actions {
+  .actions {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -442,673 +586,377 @@
     padding: 0;
   }
 
-  /* Store-badge-shaped, glass over the aura. */
   .badge {
-    position: relative;
-    display: inline-block;
-    padding: 0.55rem 1.1rem;
-    border-radius: 999px;
-    border: 1px solid var(--line);
-    background: var(--panel);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    font-size: 0.9375rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    /* Bigger than the target floor. These are the page's secondary
+       destinations and they carry a mark, which at badge scale was almost
+       invisible (Alicja's note, 2026-08-28); the mark grew and the pill had to
+       grow with it or the label would have been squeezed against it. */
+    min-height: 3.25rem;
+    padding: 0.7rem 1.25rem;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--outline);
+    background: var(--surface);
+    font-size: 1rem;
     font-weight: 500;
     text-decoration: none;
-    overflow: clip;
-    transform: rotate(var(--tilt, 0deg));
-    transition: border-color 0.25s;
-  }
-
-  .badges li:nth-child(odd) .badge {
-    --tilt: -0.7deg;
-  }
-
-  .badges li:nth-child(3n) .badge {
-    --tilt: 0.6deg;
+    transition:
+      border-color var(--dur-fast),
+      background-color var(--dur-fast);
   }
 
   .badge:hover {
-    border-color: var(--blue);
+    border-color: var(--outline-strong);
+    background: var(--surface-2);
   }
 
-  /* The badge's moving feedback, behind the gate its recolouring is not. */
   @media (prefers-reduced-motion: no-preference) {
     .badge {
       transition:
-        border-color 0.25s,
-        transform 0.2s;
+        border-color var(--dur-fast),
+        background-color var(--dur-fast),
+        transform var(--dur-fast) var(--ease-out);
     }
 
     .badge:hover {
-      transform: rotate(var(--tilt, 0deg)) translateY(-2px);
+      transform: translateY(-2px);
     }
 
     .badge:active {
-      transform: rotate(var(--tilt, 0deg)) scale(0.97);
+      transform: scale(0.97);
     }
   }
 
   .more {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--target);
+    font-family: var(--font-display);
     font-weight: 600;
+    font-size: 1.0625rem;
     text-decoration: none;
-    border-bottom: 2px solid var(--pink);
-    padding-bottom: 0.15rem;
-    transition: border-color 0.25s;
-  }
-
-  .more:hover {
-    border-color: var(--blue);
+    border-bottom: 2px solid currentcolor;
+    padding-bottom: 0.35rem;
+    transition: opacity var(--dur-fast);
   }
 
   .more::after {
     content: ' \2192';
   }
 
-  /* ---- Tour ---------------------------------------------------------------- */
-
-  /* The deliberate exception. It keeps no rail and no 68rem container: the
-     strip runs the full width of the window, so the aura is at full strength
-     around it rather than behind a scrim. */
-  .tour {
-    padding: clamp(3rem, 8vh, 5.5rem) 0 0;
+  .more:hover {
+    opacity: 0.75;
   }
 
-  .tour-head {
-    max-width: 68rem;
-    margin: 0 auto 2rem;
-    padding: 0 clamp(1rem, 4vw, 2.5rem);
+  /* ---- Overview -------------------------------------------------------- */
+
+  .overview {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.3fr);
+    gap: clamp(2rem, 8vw, 7rem);
+    align-items: start;
+    padding-block: clamp(4rem, 12vh, 8rem);
   }
 
-  .tour-intro {
-    color: var(--muted);
-    max-width: 55ch;
-    margin: 1rem 0 0;
+  .overview-copy :global(p) {
+    max-width: 54ch;
+    font-size: 1.0625rem;
   }
 
-  /* The strip a reader gets when nothing pins it: their own scroll container,
-     wider than the window and scrolling inside itself so it never takes the
-     document sideways. This is the finished section for a browser without
-     scroll-driven animations and for anybody who asked for reduced motion,
-     and the pinned pan below is written on top of it rather than instead of
-     it. */
-  .tour-stage {
-    overflow-x: auto;
-    scroll-snap-type: x proximity;
-    scrollbar-width: thin;
+  .overview-copy .lede :global(p) {
+    margin-bottom: 2rem;
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    @supports (animation-timeline: view()) {
-      /* The scroll distance the pan is spent over. The stage sticks for the
-         height of this box less its own, so 320vh of page buys roughly 220vh
-         of pinned pan. */
-      /* The scroll the pan is spent over, which is the strip's own overflow
-         and not a fixed guess. At 320vh flat, a 2560px window - where eight
-         19rem frames barely exceed the viewport and there is almost nothing
-         left to pan - still pinned the page for two windowfuls of dead
-         scroll. Derived like this the pan runs at 1:1 with the scrollbar, and
-         on a window wide enough to hold the whole strip the pin is one screen
-         and effectively stands down.
+  /* ---- The ink field -------------------------------------------------- */
 
-         --tour-cards is stamped by the component, so the count comes from the
-         message catalogue rather than from a number written down twice. */
-      .tour-pin {
-        --strip: calc(
-          var(--tour-cards) * min(19rem, 78vw) + (var(--tour-cards) - 1) * 1.25rem + 2 *
-            clamp(1rem, 4vw, 2.5rem)
-        );
-        height: calc(100dvh - 56px + max(0px, var(--strip) - 100vw));
-        view-timeline: --tour block;
-      }
-
-      .tour-stage {
-        position: sticky;
-        top: 56px;
-        height: calc(100dvh - 56px);
-        display: flex;
-        /* `safe` matters here. Plain `center` on a card taller than the stage
-           spills it off both ends equally, and the half above the start edge
-           is unreachable however the overflow is handled: scrollHeight does
-           not extend backwards. `safe` puts the whole overflow at the end,
-           where scrolling can reach it. */
-        align-items: safe center;
-        /* Sideways is clipped, because the strip is driven rather than
-           dragged now and the clip is also what stops a strip several windows
-           wide from widening the document.
-
-           Downwards is not, and that is not symmetry for its own sake. At
-           200% text on a 390px screen a caption runs about fifteen lines, and
-           a card is then 1250px tall against a stage of 788: clipping both
-           axes cut 463px of English and 415px of Polish off the bottom of
-           every card, silently, at exactly the text size somebody chooses
-           because they need it. Nothing is lost this way. At ordinary text
-           sizes the card fits and no scrollbar appears at all. */
-        overflow-x: clip;
-        overflow-y: auto;
-        scroll-snap-type: none;
-      }
-
-      /* `contain` is the phase where the pin box covers the whole viewport,
-         which is exactly the stretch over which the stage is stuck. The
-         keyframe is in base.css with the rest of them, and it carries the
-         reason this pan exists. */
-      .tour-strip {
-        animation: pan linear both;
-        animation-timeline: --tour;
-        animation-range: contain 0% contain 100%;
-      }
-    }
+  .field {
+    background: var(--field);
+    color: var(--on-field);
+    padding-block: clamp(4rem, 13vh, 9rem);
   }
 
-  .tour-strip {
-    display: flex;
-    gap: 1.25rem;
-    list-style: none;
-    margin: 0;
-    padding: 0.25rem clamp(1rem, 4vw, 2.5rem) 1.25rem;
-    width: max-content;
+  .field-blue {
+    --field: var(--field-blue);
   }
 
-  .tour-strip li {
-    flex: 0 0 min(19rem, 78vw);
-    scroll-snap-align: start;
+  .field :global(p) {
+    color: inherit;
   }
 
-  @media (min-width: 60rem) {
-    .tour-strip li:nth-child(odd) {
-      margin-top: clamp(0.45rem, 1.3vw, 1rem);
-    }
-
-    .tour-strip li:nth-child(3n) {
-      margin-top: clamp(-0.4rem, -0.9vw, -0.2rem);
-    }
+  .privacy-copy {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: clamp(2rem, 7vw, 6rem);
+    align-items: start;
   }
 
-  /* The aspect ratio is declared now and the picture arrives later, so
-     ticket 16 changes no layout when it lands. */
-  .slot {
-    aspect-ratio: 9 / 16;
-    border-radius: 1.25rem;
-    border: 1px solid var(--line);
-    margin-bottom: 1rem;
+  .privacy-copy .lede :global(p) {
+    max-width: 26ch;
   }
 
-  .slot[data-tint='blue'] {
-    background:
-      radial-gradient(120% 90% at 20% 10%, var(--blob-blue), transparent 60%),
-      var(--surface);
+  .privacy-rest :global(p) {
+    max-width: 46ch;
+    font-size: 1.0625rem;
+    /* Held back from the field's own foreground rather than greyed, which the
+       craft floor is explicit about. 92% and not less: at 86% this measured
+       4.59:1 on the blue, which clears the floor and leaves the field no room
+       to be darkened later. */
+    color: color-mix(in srgb, var(--on-field) 92%, var(--field));
   }
 
-  .slot[data-tint='pink'] {
-    background:
-      radial-gradient(120% 90% at 80% 90%, var(--blob-pink), transparent 60%),
-      var(--surface);
-  }
-
-  .tour-strip h3 {
-    font-size: 1.125rem;
-    margin: 0 0 0.4rem;
-  }
-
-  /* Ink rather than muted, and the size carries the hierarchy instead of the
-     colour. These captions are the one run of text on the page with no scrim
-     under them: the strip is full-bleed so that the aura is at full strength
-     around the frames, which is the whole point of the exception, and muted
-     text measured 4.18 against the blue blob at some points of its drift.
-     Scrimming the strip would give back the flat band this section exists to
-     break. */
-  .tour-strip p {
-    color: var(--ink);
-    font-size: 0.9375rem;
-    margin: 0;
-  }
-
-  /* ---- Features -------------------------------------------------------------- */
-
-  /* No cards here, deliberately. Ticket 09 gave features and acquisition the
-     same auto-fill grid of bordered tinted boxes, and two near-identical
-     grids four sections apart is most of why the page read as a template.
-     Acquisition keeps the cards, because a channel is a discrete thing a
-     person picks between; a feature is a sentence, and sentences do not need
-     boxes drawn round them. */
-  .group {
-    margin-bottom: 2.75rem;
-  }
-
-  .group:last-child {
+  .more-line {
+    margin-top: 1.75rem;
     margin-bottom: 0;
   }
 
-  /* No text-transform, for the reason the h1 carries the same note: innerText
-     reports the transformed casing, and a group name that is also a line of
-     shipped copy would come back from the copy tests reworded. It is also
-     not set as a small-caps label, because five of those stacked down one
-     section is the templated rhythm this ticket is undoing. */
-  .group h3 {
-    font-size: 1.0625rem;
-    font-weight: 600;
-    color: var(--ink);
-    margin: 0 0 1rem;
+  /* ---- Features ------------------------------------------------------- */
+
+  .features {
+    padding-block: clamp(4rem, 12vh, 8rem) clamp(3.5rem, 10vh, 6rem);
   }
 
-  /* Two columns of unequal width, against acquisition's equal auto-fill
-     cards. Losing the boxes was most of separating these two sections, but
-     both were still laying out on the same even two-up track, back to back,
-     in the same body column. An asymmetric pair reads as a column of prose
-     with notes beside it rather than as another grid. */
+  .features-tail {
+    padding-block: clamp(4rem, 12vh, 8rem);
+  }
+
+  .features-head {
+    margin-bottom: clamp(2.5rem, 7vh, 4.5rem);
+  }
+
+  /* The frame disclosure. Its own heading, one level under the act's, because
+     it introduces the pictures rather than a body of copy. */
+  .screens-note {
+    display: grid;
+    gap: 0.6rem;
+    max-width: 46rem;
+    margin-left: min(12vw, 9rem);
+    padding-left: 1.25rem;
+    border-left: 1px solid var(--outline);
+  }
+
+  .screens-note h3 {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+
+  .screens-note p {
+    margin: 0;
+    color: var(--text-2);
+    max-width: 50ch;
+  }
+
+  .feature-groups {
+    display: grid;
+    gap: clamp(3.5rem, 10vh, 7rem);
+  }
+
+  /* Separated by a line, the way the app separates its surfaces. No cards: a
+     feature is a sentence, and sentences do not need boxes drawn round them. */
+  .group {
+    margin: 0;
+    padding-top: clamp(1.5rem, 3vh, 2.25rem);
+    border-top: 1px solid var(--outline);
+  }
+
+  /* No rule above the first group in a run: the act's own head is already the
+     line between them, and two lines a heading apart read as an empty
+     section. */
+  .group:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .group-head {
+    display: grid;
+    gap: 0.8rem;
+    margin-bottom: clamp(1.5rem, 4vh, 2.5rem);
+    max-width: 26rem;
+  }
+
+  .group h3 {
+    margin: 0;
+    font-size: clamp(1.5rem, 3vw, 2.4rem);
+    font-weight: 600;
+    line-height: 1.02;
+  }
+
+  /* Readability was the note that started this rebuild. The entries were
+     0.96rem grey type in two fixed columns, which is a wall. They are body
+     size now, in a measure that stays readable, with real space between them,
+     and the second column only appears where there is room for two full
+     measures rather than at a fixed breakpoint. */
   .entries {
     display: grid;
-    grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
-    gap: 1.1rem 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr));
+    gap: clamp(1.25rem, 3vh, 2rem) clamp(2rem, 5vw, 4rem);
   }
 
   .entries p {
     margin: 0;
-    font-size: 0.9375rem;
-    color: var(--muted);
-    max-width: 42ch;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--text-2);
+    max-width: 48ch;
   }
 
   /* The lead stays inline: `rest` opens with its own separator, sometimes a
      comma, and a block lead would put a line break where the sentence needs
-     none (the copy tests read the paragraph back as one line). With the boxes
-     gone, weight and ink are the whole of the emphasis. */
+     none. With no boxes, weight and ink are the whole of the emphasis. */
   .entries p strong {
-    color: var(--ink);
+    color: var(--text);
     font-weight: 600;
   }
 
   /* A group's intro speaks for the group, not from beside it. */
   .entries p.plain {
     grid-column: 1 / -1;
-    max-width: 60ch;
-    font-size: 1.0625rem;
-    color: var(--ink);
-    margin-bottom: 0.4rem;
+    max-width: 56ch;
+    font-family: var(--font-display);
+    font-size: clamp(1.125rem, 1.7vw, 1.35rem);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: var(--display-track);
+    color: var(--text);
+    margin-bottom: 0.5rem;
   }
 
-  /* ---- Acquisition ------------------------------------------------------------- */
+  /* ---- The frames ----------------------------------------------------- */
 
-  .acquisition-action {
-    margin: 0 0 2.5rem;
-  }
-
-  .android {
-    color: var(--muted);
-    max-width: 60ch;
-  }
-
-  /* min() around the track floor, because a bare minmax(19rem, 1fr) is a
-     promise the grid keeps even when it cannot: at 200% text 19rem is 608px,
-     wider than the phone holding it, and the row answers by pushing the whole
-     document sideways. The min() lets the column fall back to the width
-     actually available while leaving the 19rem intent untouched everywhere
-     it fits. */
-  .channels {
+  /* In the group they illustrate, in a plain grid. No sideways strip and no
+     pinned pan: the strip made a reader scroll horizontally through eight
+     placeholders before meeting anything they explained. */
+  .frames {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(19rem, 100%), 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(var(--across), minmax(0, 1fr));
+    gap: clamp(1rem, 2.5vw, 2rem);
     list-style: none;
-    margin: 1.5rem 0 0;
+    margin: 0 0 clamp(2rem, 5vh, 3rem);
+    padding: 0;
+    /* A frame is 9:16, so a column's width decides its height. One frame in a
+       full-width grid was a placeholder two thirds of a window tall - the
+       Keeping it group was a poster of an empty box. Capped at what four across
+       would each get, so a group with one frame shows it at the same size as a
+       group with four. */
+    max-width: calc(var(--across) * 15rem + (var(--across) - 1) * 2rem);
+  }
+
+  /* A phone, waiting for its screenshot: a thick bezel in this frame's own
+     flag colour and a screen-shaped surface inside it. The radius is a device's
+     rather than a card's, which is the whole of what makes it read as a phone
+     and not as an empty box. */
+  .frame {
+    position: relative;
+    aspect-ratio: 9 / 16;
+    border-radius: 26px;
+    border: 4px solid var(--frame-ink);
+    transition: border-color var(--dur-motif) var(--ease-standard) var(--frame-delay, 0ms);
+    background: var(--surface-2);
+    overflow: clip;
+    margin-bottom: 1rem;
+  }
+
+  .frames h4 {
+    margin: 0 0 0.4rem;
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: var(--display-track);
+  }
+
+  .frames p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.55;
+    color: var(--text-2);
+  }
+
+  /* ---- Around the journal: four leads as four blocks ------------------ */
+
+  .leads .entries {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  }
+
+  .leads .entries p.lead-block {
+    padding: clamp(1.25rem, 2.5vw, 1.75rem);
+    border: 1px solid var(--outline);
+    border-radius: var(--radius-card);
+    background: var(--surface);
+    max-width: none;
+  }
+
+  /* ---- The careful notice --------------------------------------------- */
+
+  .careful .entries p.plain {
+    padding: clamp(1.25rem, 2.5vw, 1.75rem);
+    border: 1px solid var(--outline);
+    border-radius: var(--radius-card);
+    background: var(--surface-2);
+    margin-bottom: 1rem;
+  }
+
+  /* ---- The palette demonstration -------------------------------------- */
+
+  .palette-demo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: clamp(1.25rem, 3vw, 2.5rem);
+    margin-bottom: clamp(1.75rem, 4vh, 2.5rem);
+  }
+
+  .palette-sun {
+    position: relative;
+    flex: none;
+  }
+
+  .swatches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
     padding: 0;
   }
 
-  .channels li {
-    padding: 1.25rem 1.4rem;
-    border-radius: 1rem;
-    border: 1px solid var(--line);
-    background: var(--surface);
-  }
-
-  /* Two tinted cards per grid, so the row is not a wall of one surface. The
-     tint tokens are the text-safe pair rather than the aura's: --blob-pink
-     under --muted measured 3.34 in dark (ticket 17). */
-  .channels li:nth-child(4n + 1) {
-    background:
-      radial-gradient(140% 120% at 0% 0%, var(--tint-blue), transparent 55%),
-      var(--surface);
-  }
-
-  .channels li:nth-child(4n + 3) {
-    background:
-      radial-gradient(140% 120% at 100% 100%, var(--tint-pink), transparent 55%),
-      var(--surface);
-  }
-
-  .channels strong {
-    font-size: 1.0625rem;
-    margin-right: 0.6rem;
-  }
-
-  .channels p {
-    color: var(--muted);
-    font-size: 0.9375rem;
-    margin: 0.5rem 0 0;
-  }
-
-  /* ---- Support ----------------------------------------------------------------- */
-
-  .support :global(p) {
-    max-width: 60ch;
-  }
-
-  /* The warning is the one thing on the page a reader must not scroll past
-     thinking it was decoration. */
-  .support :global(p:last-child) {
-    border-left: 3px solid var(--pink);
-    padding: 0.75rem 0 0.75rem 1.25rem;
-    margin-top: 1.5rem;
-  }
-
-  @media (max-width: 60rem) {
-    .standfirst {
-      max-width: 60ch;
-    }
-
-    .entries {
-      grid-template-columns: minmax(0, 1fr);
-    }
-  }
-
-  @media (max-width: 48rem) {
-    .hero {
-      min-height: 92dvh;
-    }
-  }
-
-  /* ---- Ticket 18: warmer editorial composition ------------------------- */
-
-  .hero-inner {
-    display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    align-items: end;
-    padding-top: clamp(2.5rem, 9vh, 6rem);
-    padding-bottom: clamp(3rem, 9vh, 6rem);
-  }
-
-  .hero-inner::after {
-    content: '';
-    grid-column: 11 / 13;
-    grid-row: 1 / 5;
-    align-self: stretch;
-    width: 1px;
-    justify-self: end;
-    background: linear-gradient(transparent, var(--pink), var(--blue), transparent);
-    opacity: 0.55;
-  }
-
-  .hero h1,
-  .headline-block,
-  .subheadline,
-  .hero-actions {
-    grid-column: 1 / 11;
-  }
-
-  .hero h1 {
-    margin-bottom: clamp(2rem, 6vh, 4.5rem);
-  }
-
-  .headline-block {
-    margin-bottom: clamp(1.5rem, 4vh, 2.5rem);
-  }
-
-  .headline {
-    max-width: 14ch;
-    font-size: clamp(min(2.75rem, 12vw), 7.7vw, 5.6rem);
-    font-weight: 580;
-    line-height: 0.98;
-    letter-spacing: -0.055em;
-  }
-
-  .flag-stroke {
-    height: 1rem;
-    margin-top: 0.6rem;
-  }
-
-  .subheadline {
-    max-width: 36ch;
-    margin-left: min(9vw, 7rem);
-    font-size: clamp(1.1rem, 1.8vw, 1.35rem);
-  }
-
-  .hero-actions {
-    margin-left: min(9vw, 7rem);
-  }
-
-  .badge {
-    border-radius: 1rem;
-    padding: 0.55rem 1rem;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
-  }
-
-  .opening,
-  .privacy-note,
-  .features,
-  .acquisition-wrap,
-  .support-section {
-    width: min(100%, 74rem);
-    margin-inline: auto;
-    padding-inline: clamp(1rem, 5vw, 4rem);
-  }
-
-  .opening {
-    display: grid;
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.35fr);
-    gap: clamp(2rem, 9vw, 8rem);
-    align-items: start;
-    padding-top: clamp(6rem, 16vh, 11rem);
-    padding-bottom: clamp(5rem, 14vh, 9rem);
-  }
-
-  .opening-title {
+  .swatch {
     display: flex;
-    align-items: flex-end;
-    gap: 1.25rem;
-    min-width: 0;
+    width: 2.5rem;
+    height: 3.25rem;
+    overflow: clip;
+    border-radius: 9px;
+    border: 1px solid var(--outline);
+    transition:
+      transform var(--dur-med) var(--ease-out),
+      border-color var(--dur-fast);
   }
 
-  .opening-title h2 {
-    min-width: 0;
-    overflow-wrap: anywhere;
-  }
-
-  .opening h2,
-  .privacy-note h2,
-  .features h2,
-  .acquisition h2,
-  .support-section h2 {
-    font-size: clamp(2rem, 4.8vw, 4.25rem);
-    font-weight: 560;
-    line-height: 0.98;
-    letter-spacing: -0.045em;
-  }
-
-  .section-mark {
+  .swatch i {
     flex: 1;
-    min-width: 1rem;
-    height: 0.35rem;
-    margin-bottom: 0.35rem;
-    border-radius: 999px;
-    background: linear-gradient(90deg, var(--pink), var(--blue));
   }
 
-  .opening-copy {
-    padding-top: clamp(1rem, 5vw, 4rem);
+  .swatch.active {
+    border-color: var(--outline-strong);
   }
 
-  .opening-copy :global(p) {
-    max-width: 49ch;
+  @media (prefers-reduced-motion: no-preference) {
+    .swatch.active {
+      transform: translateY(-4px);
+    }
   }
 
-  .opening-lede :global(p) {
-    color: var(--ink);
-    font-size: clamp(1.2rem, 2.2vw, 1.7rem);
-    line-height: 1.45;
-    letter-spacing: -0.018em;
-    margin-bottom: 2rem;
-  }
-
-  .privacy-note {
-    display: grid;
-    grid-template-columns: minmax(0, 1.25fr) minmax(15rem, 0.75fr);
-    gap: clamp(2rem, 8vw, 7rem);
-    align-items: end;
-    padding-top: clamp(4rem, 10vh, 7rem);
-    padding-bottom: clamp(6rem, 16vh, 11rem);
-  }
-
-  .privacy-title {
-    padding: clamp(2rem, 6vw, 5rem);
-    border-radius: 2rem 2rem 2rem 0.35rem;
-    background:
-      radial-gradient(90% 120% at 100% 0%, var(--tint-pink), transparent 65%),
-      var(--surface);
-    border: 1px solid var(--line);
-    box-shadow: 0 2rem 6rem color-mix(in srgb, var(--glow) 55%, transparent);
-  }
-
-  .privacy-title .standfirst {
-    max-width: 46ch;
-    margin-top: 2rem;
-    color: var(--ink);
-  }
-
-  .privacy-answer {
-    padding-bottom: 1.5rem;
-  }
-
-  .privacy-answer :global(p) {
-    color: var(--muted);
-  }
-
-  .privacy-answer .more-line {
-    margin-top: 1.75rem;
-  }
-
-  .more {
-    border-bottom-color: var(--pink);
-  }
-
-  .tour {
-    padding-top: clamp(5rem, 14vh, 10rem);
-  }
-
-  .tour-head {
-    max-width: 74rem;
-    margin-bottom: clamp(2.5rem, 7vh, 5rem);
-    padding-inline: clamp(1rem, 5vw, 4rem);
-  }
-
-  .tour-head h2 {
-    max-width: 10ch;
-    font-size: clamp(2.5rem, 7vw, 6rem);
-    font-weight: 560;
-    line-height: 0.94;
-    letter-spacing: -0.055em;
-  }
-
-  .tour-intro {
-    margin-top: 1.5rem;
-    margin-left: min(16vw, 12rem);
-  }
-
-  .tour-strip {
-    gap: clamp(1rem, 2vw, 2rem);
-    padding-inline: clamp(1rem, 5vw, 4rem);
-  }
-
-  .tour-strip li {
-    flex-basis: min(22rem, 82vw);
-  }
-
-  .slot {
-    border-radius: 2rem 2rem 0.6rem 2rem;
-    border-color: color-mix(in srgb, var(--line) 65%, var(--pink));
-    box-shadow: 0 1.4rem 4rem color-mix(in srgb, var(--glow) 45%, transparent);
-  }
-
-  .tour-strip li:nth-child(even) .slot {
-    border-radius: 2rem 2rem 2rem 0.6rem;
-  }
-
-  .features {
-    display: grid;
-    grid-template-columns: minmax(12rem, 0.65fr) minmax(0, 1.35fr);
-    gap: clamp(2rem, 8vw, 7rem);
-    align-items: start;
-    padding-top: clamp(7rem, 18vh, 13rem);
-    padding-bottom: clamp(7rem, 18vh, 13rem);
-  }
-
-  .features-head {
-    position: sticky;
-    top: calc(56px + 2rem);
-  }
-
-  .features-head .section-mark {
-    display: block;
-    width: min(9rem, 70%);
-    margin-top: 1.5rem;
-  }
-
-  .feature-groups {
-    display: grid;
-    gap: clamp(3rem, 9vh, 6rem);
-  }
-
-  .group {
-    margin: 0;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--line);
-  }
-
-  .group:nth-child(even) {
-    margin-left: clamp(0rem, 7vw, 5rem);
-  }
-
-  .group h3 {
-    max-width: 18ch;
-    margin-bottom: 1.75rem;
-    font-size: clamp(1.35rem, 2.5vw, 2rem);
-    font-weight: 560;
-    letter-spacing: -0.025em;
-  }
-
-  .entries {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 0.82fr);
-    gap: 1.4rem clamp(1.5rem, 4vw, 3.5rem);
-  }
-
-  .entries p {
-    max-width: 44ch;
-    font-size: 0.96rem;
-  }
-
-  .entries p.plain {
-    max-width: 56ch;
-    padding: 1.25rem 1.5rem;
-    border-radius: 1rem 1rem 1rem 0.25rem;
-    background: var(--tint-pink);
-  }
+  /* ---- Acquisition ---------------------------------------------------- */
 
   .acquisition-wrap {
-    padding-top: clamp(5rem, 13vh, 9rem);
-    padding-bottom: clamp(5rem, 13vh, 9rem);
+    padding-block: clamp(4rem, 12vh, 8rem);
   }
 
   .acquisition {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
     gap: 1.5rem;
-    padding: clamp(2rem, 6vw, 5rem);
-    border-radius: 2.5rem 2.5rem 0.75rem 2.5rem;
-    background:
-      radial-gradient(90% 120% at 0% 0%, var(--tint-pink), transparent 58%),
-      radial-gradient(75% 90% at 100% 100%, var(--tint-blue), transparent 58%),
-      var(--surface);
-    border: 1px solid var(--line);
   }
 
   .acquisition-head {
@@ -1116,7 +964,9 @@
   }
 
   .acquisition-head p {
-    max-width: 40ch;
+    max-width: 46ch;
+    font-size: 1.0625rem;
+    color: var(--text-2);
     margin-top: 1.5rem;
   }
 
@@ -1124,6 +974,7 @@
     grid-column: 9 / 13;
     align-self: start;
     justify-self: end;
+    margin: 0;
   }
 
   .android,
@@ -1132,73 +983,103 @@
   }
 
   .android {
-    margin-top: clamp(2rem, 6vh, 4rem);
+    margin-top: clamp(2rem, 6vh, 3.5rem);
+    font-size: 1.0625rem;
+    color: var(--text-2);
+    max-width: 60ch;
   }
 
+  /* A channel is a discrete thing a person picks between, so unlike a feature
+     it does get a container - but the container is a rule, not a box. */
   .channels {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: grid;
+    grid-template-columns: repeat(2, minmax(min(19rem, 100%), 1fr));
     gap: 0;
-    border-top: 1px solid var(--line);
+    list-style: none;
+    margin: clamp(1.5rem, 4vh, 2.5rem) 0 0;
+    padding: 0;
+    border-top: 1px solid var(--outline);
   }
 
-  .channels li,
-  .channels li:nth-child(4n + 1),
-  .channels li:nth-child(4n + 3) {
+  .channels li {
     min-height: 10rem;
     padding: 1.5rem;
-    border: 0;
-    border-bottom: 1px solid var(--line);
-    border-radius: 0;
-    background: transparent;
+    border-bottom: 1px solid var(--outline);
   }
 
   .channels li:nth-child(odd) {
-    border-right: 1px solid var(--line);
+    border-right: 1px solid var(--outline);
   }
+
+  .channel-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+
+  .channels strong {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: var(--display-track);
+  }
+
+  .channels p {
+    color: var(--text-2);
+    font-size: 1rem;
+    margin: 0.6rem 0 0;
+    max-width: 44ch;
+  }
+
+  /* ---- Support -------------------------------------------------------- */
 
   .support-section {
     display: grid;
-    grid-template-columns: minmax(0, 0.65fr) minmax(0, 1.35fr);
+    grid-template-columns: minmax(0, 0.6fr) minmax(0, 1.4fr);
     gap: clamp(2rem, 8vw, 7rem);
-    padding-top: clamp(6rem, 16vh, 11rem);
-    padding-bottom: clamp(7rem, 18vh, 13rem);
+    padding-block: clamp(5rem, 14vh, 9rem);
   }
 
-  .support-title h2 {
-    color: var(--grad-b);
-  }
 
   .support :global(p) {
-    max-width: 48ch;
-    font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+    max-width: 52ch;
+    font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
   }
 
+  /* The warning is the one thing on the page a reader must not scroll past
+     thinking it was decoration, so it is the page's second ink field. */
   .support :global(p:last-child) {
     margin-top: 2.5rem;
-    padding: 1.5rem 0 1.5rem 2rem;
-    border-left-width: 0.45rem;
-    border-image: linear-gradient(var(--pink), var(--blue)) 1;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    border-radius: var(--radius-card);
+    background: var(--field-rose);
+    color: var(--on-field);
   }
 
+  /* ---- Wide ----------------------------------------------------------- */
+
+
+  /* ---- Narrow --------------------------------------------------------- */
+
   @media (max-width: 60rem) {
-    .opening,
-    .privacy-note,
-    .features,
+    .overview,
+    .privacy-copy,
     .support-section {
       grid-template-columns: minmax(0, 1fr);
     }
 
-    .opening-copy,
-    .privacy-answer {
-      padding-top: 0;
-    }
-
-    .features-head {
-      position: static;
-    }
-
-    .group:nth-child(even) {
+    .screens-note {
       margin-left: 0;
+    }
+
+    /* Four frames in a row is unreadable on a phone; two is the most that
+       leaves a caption a measure. A single frame stays single. */
+    .frames {
+      grid-template-columns: repeat(min(var(--across), 2), minmax(0, 1fr));
     }
 
     .acquisition-head {
@@ -1211,47 +1092,8 @@
   }
 
   @media (max-width: 48rem) {
-    .hero-inner::after {
-      grid-column: 12;
-    }
-
-    .hero h1,
-    .headline-block,
-    .subheadline,
-    .hero-actions {
-      grid-column: 1 / 12;
-    }
-
-    .subheadline,
-    .hero-actions,
-    .tour-intro {
-      margin-left: 0;
-    }
-
-    .opening {
-      padding-top: 5rem;
-      padding-bottom: 4rem;
-    }
-
-    .privacy-note,
-    .features,
-    .support-section {
-      padding-top: 4rem;
-      padding-bottom: 5rem;
-    }
-
-    .privacy-title,
-    .acquisition {
-      border-radius: 1.5rem 1.5rem 0.4rem 1.5rem;
-    }
-
-    .entries,
-    .channels {
+    .frames {
       grid-template-columns: minmax(0, 1fr);
-    }
-
-    .channels li:nth-child(odd) {
-      border-right: 0;
     }
 
     .acquisition {
@@ -1259,11 +1101,15 @@
     }
 
     .acquisition-action {
-      margin: 1.5rem 0 0;
+      margin-top: 1.5rem;
     }
 
-    .android {
-      margin-top: 3rem;
+    .channels {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .channels li:nth-child(odd) {
+      border-right: 0;
     }
   }
 </style>

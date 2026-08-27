@@ -10,6 +10,12 @@
  * It adds movement and never anything else. With this file blocked, never
  * loaded or simply broken, every element it would have touched is already in
  * its finished state, which is what `.reveal` styles as when nothing marks it.
+ *
+ * `.wipe` is picked up here too. In CSS a wipe is a clip-path uncovering a
+ * card from one edge, which is a different material from the prose rise on
+ * purpose; the fallback gives both the rise, because clip-path scrubbed by
+ * hand on every frame is exactly the expense this file exists to avoid, and
+ * an arrival that arrives is the part that carries the meaning.
  */
 export function startReveals(): () => void {
   /* Three ways to decide there is nothing to do here, in the order that costs
@@ -34,7 +40,7 @@ export function startReveals(): () => void {
     { rootMargin: '0px 0px -10% 0px' },
   );
 
-  for (const item of document.querySelectorAll<HTMLElement>('.reveal')) {
+  for (const item of document.querySelectorAll<HTMLElement>('.reveal, .wipe')) {
     /* Only what is still below the fold. Hiding something that is already on
        screen so it can fade back in is a flash in the face of somebody who
        was reading it, and this file runs after the page has painted. */

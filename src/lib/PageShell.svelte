@@ -1,12 +1,17 @@
 <script lang="ts">
   import { onMount, type Snippet } from 'svelte';
-  import Aura from '$lib/Aura.svelte';
   import ThemeControl from '$lib/ThemeControl.svelte';
+  import FlagRail from '$lib/FlagRail.svelte';
+  import Mark from '$lib/Mark.svelte';
+
+  import { flagCycle } from '$lib/flagCycle.svelte';
   import { startReveals } from '$lib/reveal';
   import {
     LANGUAGE_KEY,
     LOCALES,
+    PORTFOLIO_URL,
     SITE_ORIGIN,
+    SOURCE_URL,
     defaultPathFor,
     messages,
     pathFor,
@@ -41,6 +46,23 @@
       cancelAnimationFrame(frame);
       stop();
     };
+  });
+
+  /* The action wears the live flag's own accent pair. Both themes' pairs are
+     published and base.css picks between them, rather than this reading the
+     theme: the theme can change without the flag changing, and an effect that
+     had to watch both would be watching something that is only in the cascade.
+
+     On the document rather than on the button, because both pages have chrome
+     that reads them and the root is the one place they can be read from
+     everywhere. */
+  $effect(() => {
+    const { light, dark } = flagCycle.flag.accents;
+    const root = document.documentElement;
+    root.style.setProperty('--flag-light-a', light[0]);
+    root.style.setProperty('--flag-light-b', light[1]);
+    root.style.setProperty('--flag-dark-a', dark[0]);
+    root.style.setProperty('--flag-dark-b', dark[1]);
   });
 
   /* Only a person choosing a language is remembered, which is why this is on
@@ -104,19 +126,50 @@
   {/if}
 </svelte:head>
 
-<!-- The site's ground, under both pages and under the header. The landing page
-     leads with it and the privacy page runs it at half, which is the whole of
-     the difference between them: one layer, one set of tokens, two
-     intensities (ticket 17). -->
-<Aura strength={page === 'landing' ? 'full' : 'quiet'} />
+<!-- No page-wide ground layer any more. Ticket 09's aurora was a fixed wash
+     of drifting blobs behind everything, which is why every block of text on
+     the site needed a blurred veil of --bg between it and the glow. The flag
+     sun replaces it: a motif with edges, placed by the page that wants it
+     (the splash's corner, the privacy page's masthead), clipped by its own
+     container, and never behind running text. So the veil is gone too, and
+     the contrast numbers are the palette's own again rather than something
+     measured through a scrim. -->
 
-<header class="controls">
+<!-- The flag standing on end down the left margin, filling as the page is
+     read: a reading-progress rail that is also the trans flag. On both pages,
+     because a rail that appeared on one of them would read as a fault on the
+     other. -->
+<FlagRail />
+
+<main id="content">
+  {@render children()}
+</main>
+
+<!-- The site's chrome, at the foot of the window and fixed there (Alicja's
+     decision, 2026-08-28). It replaces a sticky header, and the reasoning is in
+     base.css: the controls are things a reader reaches for after they have read
+     something, and a header spent the top of every viewport on them - the most
+     valuable band on a page whose first screen is a dictionary entry.
+
+     In the document after `main`, which is also the order somebody tabbing
+     through the page should meet it. -->
+<footer class="bar">
   {#if page !== 'landing'}
     <!-- The way back, on every page that is not the one it points at. It is
          the site's name rather than a word like "back", so it says where it
          goes and needs no translation of its own. -->
     <a class="brand" href={pathFor(locale)}>{m.pageTitle}</a>
   {/if}
+
+  <a class="bar-link" href={PORTFOLIO_URL} rel="noopener">{m.footer.portfolio}</a>
+  <a class="bar-link" href={SOURCE_URL} rel="noopener">
+    <Mark name="github" size="1.05em" />
+    github
+  </a>
+
+  <span class="bar-rights">{m.footer.rights}</span>
+
+  <span class="bar-spacer" aria-hidden="true"></span>
 
   <nav class="control language-control" aria-label={m.languageLabel} data-locale={locale}>
     <span class="control-label">{m.languageLabel}</span>
@@ -147,8 +200,4 @@
   </nav>
 
   <ThemeControl {locale} />
-</header>
-
-<main id="content">
-  {@render children()}
-</main>
+</footer>

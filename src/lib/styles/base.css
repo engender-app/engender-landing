@@ -1,13 +1,35 @@
-/* The visual direction (ticket 09): dark aurora leads, light is its daytime
-   counterpart. The trans flag's three colours - #5BCEFA, #F5A9B8, white - are
-   the whole accent vocabulary, used as atmosphere (gradients, glows) rather
-   than as stripes. Nothing else on the site gets to be a colour.
+/* The visual direction (redesign ticket 03), replacing ticket 09's aurora.
+   The full contract is the HTML comment at the top of src/app.html; this file
+   is where it becomes tokens.
 
-   What lives here: the tokens, the font, the shell (header, controls), the
-   two shared control styles (.cta, .status), focus and selection, and every
-   keyframe. Section layouts live scoped in their components. All motion sits
-   behind prefers-reduced-motion: no-preference, so the reduced-motion page is
-   simply this page with nothing moving.
+   Three rules decide everything below.
+
+   FLAT. The app has no gradients: surfaces separate with a line rather than
+   with tonal elevation, and colour arrives as flat ink. The old site was built
+   almost entirely on gradients - the headline, the wordmark, the action, the
+   drifting aurora - so they are gone rather than toned down, and gradient text
+   in particular is not coming back. Emphasis is weight, size, and paper
+   knocked out of ink.
+
+   INK DOES NOT CHANGE WITH THE THEME, ONLY THE PAPER DOES. The theme tokens
+   below flip between light and dark. The flag inks do not: a field of
+   --field-rose is the same rose in both themes, the way the app's motif
+   stripes are the same stripes in both. It is why a full-bleed coloured
+   section needs its contrast checked once instead of twice, and it is the
+   reason the site can afford to be much more colourful than the app.
+
+   TWO KINDS OF COLOUR, AND THEY ARE NOT INTERCHANGEABLE. The --field-*
+   tokens are deepened, contrast-checked, and text sits on them in
+   --on-field. The raw flag stripes in $lib/flags.ts are vivid and unchecked,
+   and they are only ever used where nothing reads on top of them: the motif,
+   the palette strip, rules and marks. Putting body text on a raw stripe is
+   the one way to break this palette.
+
+   Motion lives at the bottom, behind prefers-reduced-motion: no-preference,
+   so the reduced-motion page is this page with nothing moving. The durations
+   and the tier names are the app's own (its DIRECTION.md handoff), because
+   the two products should feel related when somebody moves from one to the
+   other.
 
    The cascade decides the theme, not a script. `data-theme` on <html> is an
    explicit choice and nothing else: when it is absent, the media query below
@@ -15,120 +37,265 @@
    --theme names the theme in effect so that a test can read what the page is
    actually painted in rather than what an attribute claims. */
 
+/* ---- Faces -------------------------------------------------------------- */
+
 @font-face {
   /* Subset to Latin + Latin Extended-A (the Polish diacritics live there),
      variable weight 300-700. The file and its OFL licence are in
      static/fonts/. */
-  font-family: 'DM Sans';
-  src: url('/fonts/dm-sans.woff2') format('woff2');
+  font-family: "DM Sans";
+  src: url("/fonts/dm-sans.woff2") format("woff2");
   font-weight: 300 700;
   font-display: swap;
 }
 
+/* Outfit, the app's display face, copied from the Journal repository's own
+   bundle rather than fetched (ticket 03; no third-party resource, ever). It is
+   here so the two products share a voice at the size a visitor reads first,
+   and it is split on unicode-range the way the app splits it: an English
+   reader never downloads the 14kb of Latin Extended that only the Polish page
+   needs.
+
+   Outfit is on the impeccable craft floor's list of overused display faces.
+   It stays anyway, and the reason is the only one that counts: it is what the
+   product itself is set in. A different face here would make the site a
+   stranger to the app it is describing. */
+@font-face {
+  font-family: "Outfit";
+  src: url("/fonts/outfit-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/fonts/outfit-latin-ext.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+    U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* ---- The action's two colours ------------------------------------------- */
+
+/* Registered rather than declared, so they can be transitioned. An ordinary
+   custom property is a string as far as the cascade is concerned and jumps from
+   one value to the next; registered as a colour it interpolates, and the
+   `color-mix` that reads it recomputes each frame.
+
+   This is the whole of the action's motion: it changes colour with the flag and
+   it does not move (Alicja, 2026-08-28). The initial values are the trans
+   flag's own two, which is what a page without scripting keeps for good.
+
+   Outside every reduced-motion clamp deliberately, on the same reasoning as
+   --dur-crossfade: prefers-reduced-motion is about movement, and a change of
+   colour moves nothing. */
+@property --flag-a {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #5bcefa;
+}
+
+@property --flag-b {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f5a9b8;
+}
+
+:root {
+  transition:
+    --flag-a var(--dur-motif) linear,
+    --flag-b var(--dur-motif) linear;
+}
+
+/* ---- The inks ----------------------------------------------------------- */
+
+/* Outside both theme blocks on purpose: see the second rule at the top of the
+   file. These are the trans flag's two colours deepened until white holds
+   4.5:1 on them, measured rather than eyeballed, and a test re-measures them
+   against the text that actually ships on top.
+
+   Two, and the page uses both: blue carries the privacy section, rose carries
+   the one warning a reader must not scroll past. A third and a fourth were
+   drafted from nonbinary's violet and agender's green and then cut, because
+   nothing on the page needed them and a field colour with no job is a palette
+   with no opinion. The vivid flag colours all eight flags own arrive through
+   the motif instead, where nothing has to read on top of them. */
+:root {
+  --field-rose: #a8375b;
+  --field-blue: #0b6e9b;
+  /* What reads on a field. One value, both themes, because the fields are one
+     value in both themes. */
+  --on-field: #ffffff;
+}
+
+/* ---- The paper --------------------------------------------------------- */
+
+/* The app's trans palette, character for character (its
+   src/lib/theme/palettes.css). Copying the values is what makes the kinship
+   literal rather than approximate: a visitor arriving at the Journal from here
+   lands on the same paper. Ticket 03's decision was that the site keeps this
+   one palette for paper and ink-on-paper, and spends all eight flags on the
+   motif instead. */
 :root,
-:root[data-theme='light'] {
+:root[data-theme="light"] {
   --theme: light;
-  --page: #f7f7fb;
+  --bg: #f4f8fb;
   --surface: #ffffff;
-  --panel: rgba(255, 255, 255, 0.72);
-  --ink: #171a21;
-  --muted: #545b6b;
-  --line: rgba(23, 26, 33, 0.14);
-  /* The flag colours as this theme can afford them: decorative endpoints stay
-     vivid, text endpoints are deepened until they hold WCAG AA at display
-     sizes on --page. */
-  --blue: #5bcefa;
-  --pink: #f5a9b8;
-  --headline-base: #6e2f54;
-  --grad-a: #0d7fb5;
-  --grad-b: #c14b78;
-  --blob-blue: rgba(91, 206, 250, 0.38);
-  --blob-pink: rgba(245, 169, 184, 0.42);
-  --blob-white: rgba(255, 255, 255, 0.9);
-  /* The same two colours at the strength a surface carrying text can afford,
-     as opposed to --blob-*, which is what the aura is painted in and never has
-     a word on top of it. In light they are the same values, because a tint
-     that lightens a white card cannot hurt dark text; in dark a tint lifts the
-     surface toward the text and the pair below is deliberately weaker. Ticket
-     17's pixel test is what found this: --muted on the dark pink card was
-     3.34, and had been since ticket 09 shipped the grid. */
-  --tint-blue: rgba(91, 206, 250, 0.38);
-  --tint-pink: rgba(245, 169, 184, 0.42);
-  /* The middle of the hero's drawn stroke, which runs the flag's three
-     colours. White is the third of them and it is what the dark theme uses;
-     on a near-white page it would read as a break in the line, so light
-     blends its own two text-safe endpoints instead of inventing a colour the
-     rest of the site does not have. */
-  --stroke-mid: color-mix(in oklab, var(--grad-a), var(--grad-b));
-  --glow: rgba(193, 75, 120, 0.18);
-  --header: rgba(247, 247, 251, 0.78);
-  /* The veil between the aura and a paragraph (ticket 17). The aura is a
-     page-wide fixed layer now, so text no longer sits on --page but on --page
-     plus whatever has drifted behind it; this is --page again at an alpha that
-     leaves the glow readable as atmosphere and leaves the contrast ratios
-     where the palette put them. Measured rather than guessed: the scrim test
-     in tests/site.test.mjs samples the rendered pixels behind every text block
-     at four points of the drift and reads the real ratio back. */
-  --scrim: rgba(247, 247, 251, 0.86);
-  /* Text sitting on the vivid gradient (.cta, ::selection). The same
-     near-black in both themes, because the gradient underneath it is too. */
-  --ink-on-accent: #0c0f16;
+  --surface-2: #e9f1f7;
+  --text: #1b2b36;
+  --text-2: #55707f;
+  --accent: #b85272;
+  --accent-2: #0f7dae;
+  --on-accent: #ffffff;
+  --flag-a: var(--flag-light-a);
+  --flag-b: var(--flag-light-b);
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) {
+  :root:not([data-theme="light"]) {
     --theme: dark;
-    --page: #150b13;
-    --surface: #21131e;
-    --panel: rgba(33, 19, 30, 0.68);
-    --ink: #fff7fb;
-    --muted: #c4adb9;
-    --line: rgba(247, 193, 218, 0.18);
-    --blue: #5bcefa;
-    --pink: #f5a9b8;
-    --headline-base: #fff7fb;
-    --grad-a: #5bcefa;
-    --grad-b: #f5a9b8;
-    --blob-blue: rgba(91, 206, 250, 0.3);
-    --blob-pink: rgba(245, 169, 184, 0.52);
-    --blob-white: rgba(255, 247, 251, 0.18);
-    --tint-blue: rgba(91, 206, 250, 0.13);
-    --tint-pink: rgba(245, 169, 184, 0.2);
-    --stroke-mid: rgba(255, 247, 251, 0.9);
-    --glow: rgba(245, 126, 177, 0.28);
-    --header: rgba(21, 11, 19, 0.76);
-    --scrim: rgba(21, 11, 19, 0.84);
+    --bg: #0d141a;
+    --surface: #151f27;
+    --surface-2: #1d2a34;
+    --text: #e8f1f7;
+    --text-2: #9db4c3;
+    --accent: #f0a3b6;
+    --accent-2: #63c4ee;
+    --on-accent: #0d141a;
+    --flag-a: var(--flag-dark-a);
+    --flag-b: var(--flag-dark-b);
     color-scheme: dark;
   }
 }
 
 /* Identical to the media-query block above, so a toggled dark and a system
    dark paint the same page. A value changed in one is changed in the other. */
-:root[data-theme='dark'] {
+:root[data-theme="dark"] {
   --theme: dark;
-  --page: #150b13;
-  --surface: #21131e;
-  --panel: rgba(33, 19, 30, 0.68);
-  --ink: #fff7fb;
-  --muted: #c4adb9;
-  --line: rgba(247, 193, 218, 0.18);
-  --blue: #5bcefa;
-  --pink: #f5a9b8;
-  --headline-base: #fff7fb;
-  --grad-a: #5bcefa;
-  --grad-b: #f5a9b8;
-  --blob-blue: rgba(91, 206, 250, 0.3);
-  --blob-pink: rgba(245, 169, 184, 0.52);
-  --blob-white: rgba(255, 247, 251, 0.18);
-  --tint-blue: rgba(91, 206, 250, 0.13);
-  --tint-pink: rgba(245, 169, 184, 0.2);
-  --stroke-mid: rgba(255, 247, 251, 0.9);
-  --glow: rgba(245, 126, 177, 0.28);
-  --header: rgba(21, 11, 19, 0.76);
-  --scrim: rgba(21, 11, 19, 0.84);
+  --bg: #0d141a;
+  --surface: #151f27;
+  --surface-2: #1d2a34;
+  --text: #e8f1f7;
+  --text-2: #9db4c3;
+  --accent: #f0a3b6;
+  --accent-2: #63c4ee;
+  --on-accent: #0d141a;
+  --flag-a: var(--flag-dark-a);
+  --flag-b: var(--flag-dark-b);
   color-scheme: dark;
 }
+
+/* ---- Derived ----------------------------------------------------------- */
+
+:root {
+  /* Lines, --text at low alpha rather than a mix toward the surface, so one
+     value reads over a card and over the page behind it. The app has a third,
+     a 14% hairline for separators inside a surface; this site has no surface
+     with separators inside it, so it is not carried here unused. */
+  --outline: color-mix(in srgb, var(--text) 19%, transparent);
+  --outline-strong: color-mix(in srgb, var(--text) 30%, transparent);
+
+  /* Accent-coloured text. --accent itself measures 4.38:1 on --bg in light,
+     which fails, and the app hit the same wall: this is its --accent-ink,
+     the accent carried 72% of the way to the text colour. Fills use
+     --accent, words use this, and the two are never swapped. */
+  --accent-ink: color-mix(in oklab, var(--accent) 28%, var(--text));
+
+  /* The fixed footer's height, stated once because the page has to reserve
+     exactly this much room at its foot for it. It is not arithmetic - the
+     controls decide the real height, and this token has to match what they come
+     to, and it came up short twice while this was being built: the controls,
+     their padding and the border add up past a round number. A test measures
+     the rendered bar against the room reserved for it, so the two cannot drift
+     apart quietly. */
+  --footer-h: 72px;
+
+  /* The pointer-target floor: 44px, the web one. The app's 48px is Android's
+     and applies to the app. Written as a token because six controls have to
+     reach it and a floor that lives in six places drifts. */
+  --target: 44px;
+
+  --radius-card: 20px;
+  --radius-action: 18px;
+  --radius-pill: 999px;
+
+  /* The site's one shadow, on the one thing that presses: offset and blur,
+     never a zero-offset halo.
+
+     Black at low alpha rather than --text at low alpha. Derived from the text
+     colour it inverts with the theme, and a pale shadow under a pink button on
+     a dark page is a glow - decoration wearing depth's clothes. A shadow is an
+     absence of light in both themes. */
+  /* The app's one gradient, and the only one on this site. Everything else here
+     is flat, which is the app's own discipline - but the app makes exactly one
+     exception, for its primary button and the marks beside its section titles,
+     and the site's one action should be the app's one action. The shape is the
+     Journal's --grad-accent: 120 degrees, second stop at 65%.
+
+     The two colours are the live flag's own accent pair, copied from the app's
+     palettes rather than derived from its stripes. Two earlier attempts derived
+     them and both were wrong in the same way: a raw stripe held at a readable
+     lightness is a muted version of itself, and the button ended up a wash of a
+     colour instead of the colour. The app already has a pair per palette chosen
+     to be sat on, so the site uses those, which is also why the button now
+     looks like the app's - it is the app's.
+
+     They are registered properties so the change of flag interpolates: the
+     button changes colour and does not move. */
+  --grad-accent: linear-gradient(120deg, var(--flag-a), var(--flag-b) 65%);
+
+  --shadow-action: 0 6px 18px rgb(0 0 0 / 0.28);
+  --shadow-action-pressed: 0 2px 6px rgb(0 0 0 / 0.34);
+
+  --font-display: "Outfit", "DM Sans", system-ui, sans-serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+  /* Outfit sets wider than the faces this site used before it, which is what
+     the app found too. */
+  --display-track: -0.024em;
+
+  /* The motion system, tier by tier, named as the app names them.
+     tier 1, a control answering a press: --dur-press.
+     tier 2, something arriving or leaving: --dur-fast out, --dur-med in.
+     tier 3, a change inside one region: --dur-slow.
+     tier 0, the authored moment and the ambient loop. */
+  --dur-fast: 150ms;
+  --dur-med: 240ms;
+  --dur-slow: 320ms;
+  --dur-press: 260ms;
+  --dur-authored: 700ms;
+  --dur-breathe: 7s;
+  /* Sits outside every reduced-motion clamp deliberately: a crossfade is not
+     movement, and clamped to 1ms it would become an instant cut, which is a
+     different tier's substitute. */
+  --dur-crossfade: 120ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  /* Overshoot, for the motif's rings only. Past the app's own --ease-spring
+     (1.4) now, at Alicja's asking twice for more of it: a ring passes its new
+     radius and settles back. The craft floor warns against reaching for bounce
+     by reflex, and this is not reflex - it is the one authored moment on the
+     page, asked for by name, and nothing else on the site uses this curve. */
+  --ease-overshoot: cubic-bezier(0.34, 1.45, 0.64, 1);
+  /* Harder out than --ease-out: almost all of the sweep's distance is covered
+     in its first third, so the flag arrives and then settles rather than
+     crossing at a pace. */
+  --ease-sweep: cubic-bezier(0.05, 0.92, 0.14, 1);
+  /* The motif's own duration, longer than any other tier because it is the one
+     thing on the page meant to be watched rather than noticed. */
+  --dur-motif: 900ms;
+  /* A flag sweeping in over the one before it, left to right. */
+  --dur-sweep: 1500ms;
+}
+
+/* ---- The page ---------------------------------------------------------- */
 
 * {
   box-sizing: border-box;
@@ -136,35 +303,30 @@
 
 body {
   margin: 0;
-  background: var(--page);
-  color: var(--ink);
-  font-family: 'DM Sans', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
   font-size: 1.0625rem;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  /* Room for the fixed bar at the foot, plus a line of air, so the last line
+     of the page is never under it and never against it either. The cushion is
+     also the margin the reservation needs: the bar's height is what its
+     contents come to, and a reader running larger text makes it taller than the
+     token says. */
+  padding-bottom: calc(var(--footer-h) + 1.5rem);
   /* No overflow-x: clip here, deliberately. Wide compositions clip or scroll
-     inside their own containers (the aura layer clips its blobs, the tour
-     strip scrolls itself), and a clip at the body would also hide a layout
-     broken by Polish text lengths from the test that checks for exactly
-     that. */
-}
-
-::selection {
-  background: var(--pink);
-  color: var(--ink-on-accent);
-}
-
-:focus-visible {
-  outline: 2px solid var(--blue);
-  outline-offset: 3px;
-  border-radius: 2px;
+     inside their own containers, and a clip at the body would also hide a
+     layout broken by Polish text lengths from the test that checks for
+     exactly that. */
 }
 
 h1,
 h2,
 h3 {
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  font-family: var(--font-display);
+  line-height: 1.1;
+  letter-spacing: var(--display-track);
   text-wrap: balance;
 }
 
@@ -176,38 +338,145 @@ a {
   color: inherit;
 }
 
-/* ---- The shell ------------------------------------------------------- */
+/* ---- Browser surfaces -------------------------------------------------- */
 
-.controls {
-  position: sticky;
-  top: 0;
+/* The parts of the page nobody draws still belong to the design. */
+
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+:root {
+  /* The caret and the scrollbar, from the palette rather than from the
+     browser's idea of grey. `color-scheme` above already tells the browser
+     which family to draw form controls from. */
+  caret-color: var(--accent-ink);
+  scrollbar-color: var(--outline-strong) transparent;
+  scrollbar-width: thin;
+}
+
+/* The scrollbar goes, but only where something replaces it. The flag rail down
+   the left margin fills as the page is read, so it is already telling a reader
+   how far through they are and a second indicator beside it is noise.
+
+   Under reduced motion the rail is not rendered - it is movement tied to
+   reading - so hiding the scrollbar there would leave no position indicator at
+   all and nothing to drag. Hence the media query: the two are a pair, and
+   neither should be removed without the other being present. Keyboard and wheel
+   scrolling are untouched either way. */
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scrollbar-width: none;
+  }
+
+  :root::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}
+
+/* Out of the layout, still in the accessibility tree. The theme switch is
+   labelled by its visible label, so that label cannot be display:none on narrow
+   screens - it would take the switch's accessible name with it. */
+.vh {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Tabular figures wherever a number sits next to another number. The
+   phonetics line is set with them too: /ɪnˈdʒɛndə/ is not a number, but the
+   slashes want the same even rhythm the figures get. */
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- The footer bar --------------------------------------------------- */
+
+/* The site's chrome sits at the foot of the window and stays there, which is
+   Alicja's decision (2026-08-28) and replaces a sticky header. The controls are
+   things a reader reaches for after they have read something, not before, and a
+   header spent the top of every viewport on them - the most valuable band on a
+   page whose first screen is a dictionary entry.
+
+   Fixed rather than sticky, so it is always reachable. The document reserves
+   --footer-h at its foot so nothing is ever hidden underneath it. */
+
+.bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 10;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.75rem 1.5rem;
-  padding: 0.75rem clamp(1rem, 4vw, 2.5rem);
-  background: var(--header);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--line);
+  gap: 0.5rem clamp(0.75rem, 2vw, 1.75rem);
+  min-height: var(--footer-h);
+  padding: 0.5rem clamp(1rem, 4vw, 2.5rem);
+  /* Opaque, not glass. Content scrolls under it and the words have to hold. */
+  background: var(--bg);
+  border-top: 1px solid var(--outline);
 }
 
+/* Pushes the two switches to the right, so the bar reads as identity on the
+   left and controls on the right. */
+.bar-spacer {
+  flex: 1;
+  min-width: 0;
+}
+
+.bar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: var(--target);
+  padding: 0 0.35rem;
+  color: var(--text-2);
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: color var(--dur-fast);
+}
+
+.bar-link:hover {
+  color: var(--text);
+}
+
+.bar-rights {
+  color: var(--text-2);
+  font-size: 0.8125rem;
+  white-space: nowrap;
+}
+
+/* The way back, on every page that is not the one it points at. It is the
+   site's name rather than a word like "back", so it says where it goes and
+   needs no translation of its own. */
 .brand {
-  margin-right: auto;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--target);
+  font-family: var(--font-display);
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: var(--display-track);
   text-decoration: none;
 }
 
-/* With no brand link on the landing page, the controls still sit right. */
-.controls > .control:first-child {
-  margin-left: auto;
-}
-
-/* Wraps for the same reason .controls does. Somebody running large text has
-   a header row far wider than the phone it sits on, and a control that can
-   only lay itself out on one line pushes the whole document sideways. */
+/* Wraps for the same reason the bar does. Somebody running large text has a
+   control row far wider than the phone it sits on, and a control that can only
+   lay itself out on one line pushes the whole document sideways. */
 .control {
   display: flex;
   flex-wrap: wrap;
@@ -216,29 +485,32 @@ a {
 }
 
 .control-label {
-  color: var(--muted);
+  color: var(--text-2);
   font-size: 0.8125rem;
 }
 
 .control a,
 .control button {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--target);
   background: none;
-  border: 1px solid var(--line);
-  border-radius: 999px;
+  border: 1px solid var(--outline);
+  border-radius: var(--radius-pill);
   color: inherit;
   cursor: pointer;
   font: inherit;
   font-size: 0.8125rem;
-  padding: 0.3rem 0.75rem;
+  padding: 0.3rem 0.9rem;
   text-decoration: none;
   transition:
-    border-color 0.2s,
-    background-color 0.2s;
+    border-color var(--dur-fast),
+    background-color var(--dur-fast);
 }
 
 .control a:hover,
 .control button:hover {
-  border-color: var(--blue);
+  border-color: var(--accent-2);
 }
 
 .control .switch {
@@ -248,11 +520,12 @@ a {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: center;
   gap: 0;
-  min-width: 10.8rem;
+  min-width: 9.5rem;
+  min-height: calc(var(--target) + 0.36rem);
   padding: 0.18rem;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: var(--surface);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--outline);
+  background: var(--surface-2);
   overflow: clip;
 }
 
@@ -261,9 +534,10 @@ a {
   z-index: 1;
   display: grid;
   place-items: center;
+  min-height: var(--target);
   padding: 0.3rem 0.75rem;
   border: 0;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   color: inherit;
   font: inherit;
   font-size: 0.8125rem;
@@ -271,115 +545,91 @@ a {
   text-decoration: none;
 }
 
+/* Flat, with a line. */
 .control .switch-thumb {
   position: absolute;
   top: 0.18rem;
   bottom: 0.18rem;
   left: 0.18rem;
   width: calc(50% - 0.18rem);
-  border-radius: 999px;
-  border: 1px solid transparent;
-  background:
-    linear-gradient(var(--surface), var(--surface)) padding-box,
-    linear-gradient(90deg, var(--blue), var(--pink)) border-box;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--outline-strong);
+  background: var(--surface);
+  transition: transform var(--dur-med) var(--ease-standard);
 }
 
-.language-control .switch [aria-current='page'] {
+.language-control .switch [aria-current="page"] {
   font-weight: 600;
 }
 
-.language-control[data-locale='pl'] .switch-thumb {
+.language-control[data-locale="pl"] .switch-thumb {
   transform: translateX(100%);
 }
 
-.theme-control .switch[aria-checked='true'] .switch-thumb {
+.theme-control .switch[aria-checked="true"] .switch-thumb {
   transform: translateX(100%);
 }
 
-.theme-control .switch[aria-checked='true'] .switch-option:last-of-type,
-.theme-control .switch[aria-checked='false'] .switch-option:first-of-type {
+.theme-control .switch[aria-checked="true"] .switch-option:last-of-type,
+.theme-control .switch[aria-checked="false"] .switch-option:first-of-type {
   font-weight: 600;
 }
 
 .control .switch:focus-visible,
 .control .switch-option:focus-visible {
-  outline: 2px solid var(--blue);
+  outline: 2px solid var(--accent-2);
   outline-offset: 3px;
 }
 
-/* ---- The two shared controls ------------------------------------------ */
+/* On a phone the bar drops its labels out of the layout - not out of the
+   accessibility tree, see .vh - and the rights line with them, so the two
+   switches and the two links get the width. */
+@media (max-width: 40rem) {
+  :root {
+    /* Two rows of controls, so the page reserves two rows of room. */
+    --footer-h: 128px;
+  }
 
-/* The action: a vivid trans-gradient pill with near-black text, the same in
-   both themes, so it is unmistakably the thing to press. */
-.cta {
-  display: inline-block;
-  background: linear-gradient(100deg, var(--blue), var(--pink));
-  background-size: 160% 100%;
-  background-position: 0% 0%;
-  border: none;
-  border-radius: 1rem;
-  color: var(--ink-on-accent);
-  font-weight: 600;
-  font-size: 1.0625rem;
-  letter-spacing: -0.01em;
-  /* The side padding gives way before the label does. At 200% text on a 390px
-     screen a fixed 2.1rem is 67px of air either side of a string that is
-     already 220px, and the pill stops fitting the phone. */
-  padding: 0.85rem min(2.1rem, 8vw);
-  text-decoration: none;
-  box-shadow: 0 8px 32px var(--glow);
-  transition:
-    background-position 0.35s,
-    box-shadow 0.2s;
-}
+  .bar {
+    gap: 0.4rem 0.6rem;
+    padding-inline: 0.75rem;
+  }
 
-/* Hover feedback that recolours is here; hover feedback that moves is in the
-   motion block below. */
-.cta:hover {
-  background-position: 100% 0%;
-  box-shadow: 0 12px 40px var(--glow);
-}
+  .bar .control-label,
+  .bar-rights {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
 
-/* An availability status is not a control and must not read as one. */
-.status {
-  color: var(--muted);
-  font-size: 0.875rem;
-}
+  /* A line break rather than a gap. On a phone the links and the two switches
+     cannot share a row and stay pressable - squeezed onto one line the switch
+     halves measured 23.5px against a 44px floor - so the spacer becomes a
+     full-width break and the controls take a row of their own. The bar is two
+     rows there, and --footer-h below reserves the room for both. */
+  .bar-spacer {
+    flex-basis: 100%;
+    height: 0;
+  }
 
-/* ---- The scrim --------------------------------------------------------- */
+  .control {
+    flex: 1;
+    min-width: 0;
+  }
 
-/* A veil of --page between the page-wide aura and a block of text (ticket
-   17). Blurred rather than bounded, so it reads as the glow thinning out
-   behind the words rather than as one more box on a page that had too many.
-   The aura keeps its full strength in the gutters and in the full-bleed tour,
-   which is where it is supposed to be seen.
+  .control .switch {
+    width: 100%;
+    min-width: 0;
+  }
 
-   `isolation` is load-bearing. The pseudo-element sits at -1 so that it paints
-   behind its own parent's text, and without a stacking context here that -1
-   would land in the root's negative layer beside the aura rather than above
-   it, which paints the veil under the thing it is meant to veil. */
-.scrim {
-  position: relative;
-  isolation: isolate;
-}
-
-/* Bleeds up and down but never sideways. An absolutely positioned box with a
-   negative inset contributes to the scrollable overflow of its containing
-   block, so a horizontal bleed here is a phone scrolling sideways - which is
-   what the 390px tests caught the first time this was written. The blur is
-   what softens the left and right edges instead, and a filter's ink overflow
-   is not scrollable overflow, so it costs nothing. */
-.scrim::before {
-  content: '';
-  position: absolute;
-  inset: -1.5rem 0;
-  z-index: -1;
-  border-radius: 2rem;
-  background: var(--scrim);
-  filter: blur(24px);
-  pointer-events: none;
+  .control .switch-option {
+    padding-inline: 0.4rem;
+    font-size: 0.78125rem;
+  }
 }
 
 /* The theme control needs scripting to do anything, so it is only shown once
@@ -388,17 +638,66 @@ a {
   display: none;
 }
 
-/* ---- Motion ------------------------------------------------------------ */
+/* ---- The action ------------------------------------------------------- */
 
-/* Every keyframe on the site, and every rule that moves something: the hover
-   transforms live here too, and LandingPage.svelte keeps its blob animation
-   declarations behind the same media query. A reduced-motion visitor gets
-   the finished page, static, with the recolouring hover feedback intact. */
+/* The app's primary button, brought over whole: the two-accent gradient, the
+   pill, the on-accent label. Nothing else on this page is this, which is what
+   makes it unmistakably the thing to press without a word of urgency, and a
+   visitor who follows it meets the same button on the other side. */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--grad-accent);
+  border: none;
+  border-radius: var(--radius-pill);
+  color: var(--on-accent);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.125rem;
+  letter-spacing: var(--display-track);
+  /* The side padding gives way before the label does. At 200% text on a 390px
+     screen a fixed 2.1rem is 67px of air either side of a string that is
+     already 220px, and the pill stops fitting the phone. */
+  min-height: var(--target);
+  padding: 0.85rem min(2.1rem, 8vw);
+  text-decoration: none;
+  box-shadow: var(--shadow-action);
+  transition:
+    box-shadow var(--dur-press),
+    background-color var(--dur-fast);
+}
+
+/* No recolour on hover: the gradient is the button. What answers a pointer is
+   the lift and the shadow, in the motion block below. */
+.cta:hover {
+  box-shadow: 0 10px 26px rgb(0 0 0 / 0.3);
+}
+
+/* An availability status is not a control and must not read as one. */
+.status {
+  color: var(--text-2);
+  font-size: 0.875rem;
+}
+
+/* ---- Motion ---------------------------------------------------------- */
+
+/* Every keyframe on the site and every rule that moves something. A
+   reduced-motion visitor gets the finished page, static, with the
+   recolouring feedback intact.
+
+   The rule each of these keeps: the default state is the finished state.
+   Nothing here hides content that a failed script or an unsupported feature
+   would then leave hidden. */
 @media (prefers-reduced-motion: no-preference) {
+  /* Tier 0, the authored entrance. The order is the reading order: the
+     running head, then the dictionary entry, then the claim, then the
+     action. */
   @keyframes rise {
     from {
       opacity: 0;
-      transform: translateY(1.5rem);
+      transform: translateY(1.25rem);
     }
     to {
       opacity: 1;
@@ -406,77 +705,32 @@ a {
     }
   }
 
-  @keyframes drift-a {
-    0%,
-    100% {
-      transform: translate(0, 0) scale(1);
-    }
-    50% {
-      transform: translate(8vw, 6vh) scale(1.15);
-    }
+  .enter {
+    animation: rise var(--dur-authored) var(--ease-out) both;
+    animation-delay: calc(var(--enter, 0) * 110ms);
   }
 
-  @keyframes drift-b {
-    0%,
-    100% {
-      transform: translate(0, 0) scale(1.1);
-    }
-    50% {
-      transform: translate(-7vw, -4vh) scale(0.95);
-    }
-  }
-
-  @keyframes drift-c {
-    0%,
-    100% {
-      transform: translate(0, 0);
-    }
-    50% {
-      transform: translate(4vw, -7vh);
-    }
-  }
-
-  @keyframes shimmer {
+  /* Tier 0's other half, the ambient loop: a band of ink travelling a fixed
+     structure. It rides a section's rule, so what a reader sees is the line
+     under a heading catching light and letting it go. Never clamped to 1ms -
+     an infinite 1ms loop is a strobe - it stops outright under reduced
+     motion, which is why it lives inside this block. */
+  @keyframes travel {
     from {
-      background-position: 0% 0%;
+      transform: translateX(-100%);
     }
     to {
-      background-position: -200% 0%;
+      transform: translateX(100%);
     }
   }
 
-  /* Sequence: the wordmark, the headline, the subheadline and the actions
-     arrive in that order, which is the order they are meant to be read in.
-     Stamped element by element with --enter. */
-  .enter {
-    animation: rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
-    animation-delay: calc(var(--enter, 0) * 120ms);
-  }
-
-  /* Hierarchy: the sheen is only ever on the wordmark, which is what marks it
-     as the product's mark rather than as the first heading of the page. The
-     element brings its own gradient and this only moves it, so a
-     reduced-motion visitor sees the same colours standing still. */
-  .shimmer {
-    background-size: 200% 100%;
-    animation: shimmer 7s linear infinite;
-  }
-
-  /* Both classes at once: the animation shorthands above would override each
-     other (last rule wins), so an element that enters and then shimmers
-     needs the pair joined, each keeping its own delay. */
-  .enter.shimmer {
-    animation:
-      rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both,
-      shimmer 7s linear infinite;
-    animation-delay: calc(var(--enter, 0) * 120ms), 0s;
-  }
-
+  /* Tier 1, a control answering a press. The shadow collapses with the scale
+     rather than on its own: an elevation change with no movement to explain
+     it reads as a flicker. */
   .cta {
     transition:
-      background-position 0.35s,
-      transform 0.2s,
-      box-shadow 0.2s;
+      box-shadow var(--dur-press),
+      transform var(--dur-press) var(--ease-out);
   }
 
   .cta:hover {
@@ -484,31 +738,49 @@ a {
   }
 
   .cta:active {
-    transform: translateY(0) scale(0.98);
+    transform: translateY(0) scale(0.97);
+    box-shadow: var(--shadow-action-pressed);
   }
 
-  /* Sequence: a paragraph, a card or a channel arrives just after the one
-     before it, so a section reads as a list being set down rather than as a
-     slab appearing. Ticket 09 put this on whole <section> elements, where a
-     600px block sliding 24px is invisible by construction; the class is on
-     the items now, and `--reveal` is their position in their own group.
+  /* Tier 2, arrival. Per item rather than per section: a 600px block sliding
+     20px is invisible by construction, and `--reveal-index` is an item's
+     position in its own group.
 
-     Scroll-driven and CSS-only, so a Chromium visitor gets the whole thing
-     with scripting switched off. Browsers without scroll-driven animations
-     skip this block and get $lib/reveal.ts instead, which does the same
-     staggered arrival on an IntersectionObserver and no scrubbing. Browsers
-     with neither show the finished page, which is what `.reveal` styles as
-     when nothing touches it. */
+     Scroll-driven and CSS-only, so a Chromium visitor gets it with scripting
+     switched off. Browsers without scroll-driven animations skip this block
+     and get $lib/reveal.ts instead. Browsers with neither show the finished
+     page, which is what `.reveal` styles as when nothing touches it. */
   @supports (animation-timeline: view()) {
     .reveal {
       animation: rise 1ms linear both;
       animation-timeline: view();
       /* The stagger is the offset, because a scrubbed animation has no delay
          to give it: two cards side by side enter the viewport on the same
-         frame and would otherwise land on the same one. Capped at the fifth
-         item so a long list does not push its tail off the bottom. */
-      animation-range: entry calc(5% + min(var(--reveal-index, 0), 4) * 7%) entry
-        calc(55% + min(var(--reveal-index, 0), 4) * 7%);
+         frame and would otherwise land together. Capped at the fifth item so
+         a long list does not push its tail off the bottom. */
+      animation-range: entry calc(5% + min(var(--reveal-index, 0), 4) * 7%)
+        entry calc(55% + min(var(--reveal-index, 0), 4) * 7%);
+    }
+
+    /* Tier 3, a change inside one region: a wipe uncovering from one edge,
+       capped to a card-sized area the way the app caps it. Cards get this
+       instead of the rise, so a section of cards and a section of prose do
+       not arrive identically. */
+    .wipe {
+      animation: uncover 1ms linear both;
+      animation-timeline: view();
+      animation-range: entry 8% entry 52%;
+    }
+  }
+
+  @keyframes uncover {
+    from {
+      clip-path: inset(0 0 100% 0);
+      opacity: 0.4;
+    }
+    to {
+      clip-path: inset(0 0 0 0);
+      opacity: 1;
     }
   }
 
@@ -516,55 +788,23 @@ a {
      only what is below the fold when it runs, so nothing already on screen
      blinks out and back in, and it never marks anything at all when the
      rules above are supported. */
-  [data-reveal='pending'] {
+  [data-reveal="pending"] {
     opacity: 0;
-    transform: translateY(1.5rem);
+    transform: translateY(1.25rem);
   }
 
-  [data-reveal='in'] {
+  [data-reveal="in"] {
     opacity: 1;
     transform: none;
     transition:
-      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity var(--dur-authored) var(--ease-out),
+      transform var(--dur-authored) var(--ease-out);
     transition-delay: calc(min(var(--reveal-index, 0), 4) * 70ms);
   }
 
-  /* Sequence: the line finishes drawing after the headline has landed and
-     before the actions arrive, so the hero resolves onto the one sentence the
-     page is there to make. pathLength="1" on the path is what lets the dash
-     be written as a fraction rather than as a measured length. */
-  @keyframes draw {
-    from {
-      stroke-dashoffset: 1;
-    }
-    to {
-      stroke-dashoffset: 0;
-    }
-  }
-
-  .flag-stroke .flag-base,
-  .flag-stroke .flag-trace {
-    stroke-dasharray: 1;
-    animation: draw 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
-    animation-delay: 420ms;
-  }
-
-  .flag-stroke[data-motion='on'] .flag-base {
-    stroke-dasharray: none;
-    stroke-dashoffset: 0;
-    animation: none;
-  }
-
-  .flag-stroke[data-motion='on'] .flag-trace {
-    animation: none;
-  }
-
-  /* Hierarchy: the tour is the one place the page stops advancing and asks to
-     be looked at, and the pan is what says the eight screens are one strip
-     rather than eight pictures. The distance is the strip's own width less a
-     windowful, and the min() keeps a strip narrower than the window from
-     sliding the wrong way on a very wide screen. */
+  /* The tour's pan. The distance is the strip's own width less a windowful,
+     and the min() keeps a strip narrower than the window from sliding the
+     wrong way on a very wide screen. */
   @keyframes pan {
     to {
       transform: translateX(min(0px, calc(-100% + 100vw)));

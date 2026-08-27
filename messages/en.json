@@ -7,7 +7,7 @@
   "themeLight": "Light",
   "themeDark": "Dark",
   "meta": {
-    "cardAlt": "The word enGender on a dark background.",
+    "cardAlt": "The word enGender on a dark background, with the trans flag drawn as concentric rings in the corner.",
     "landing": {
       "description": "A journal for tracking gender transition. An entry holds a mood, a note, tags, photos and your own scales. It stays on your device, and there is no account."
     },
@@ -18,8 +18,10 @@
   "hero": {
     "headline": "A transition journal that stays on your device.",
     "definition": {
-      "lead": "engender",
-      "rest": ", verb, /ɪnˈdʒɛndə/: to cause or give rise to a feeling, situation or condition."
+      "headword": "enGender",
+      "grammar": "v.",
+      "phonetics": "/ɪnˈdʒɛndə/",
+      "sense": "to cause or give rise to a feeling, situation or condition."
     },
     "subheadline": "Write down how a day went, and track how your gender felt that day. No account, nothing to sync."
   },
@@ -73,6 +75,7 @@
   "sectionFeatures": "What it does",
   "features": [
     {
+      "id": "writing",
       "group": "Writing it down",
       "paragraphs": [
         {
@@ -98,6 +101,7 @@
       ]
     },
     {
+      "id": "reading",
       "group": "Reading it back",
       "paragraphs": [
         {
@@ -139,6 +143,7 @@
       ]
     },
     {
+      "id": "around",
       "group": "Around the journal",
       "paragraphs": [
         "The journal is the spine, and the rest of transition life has a place around it. None of it interprets, and none of it grades.",
@@ -161,6 +166,7 @@
       ]
     },
     {
+      "id": "keeping",
       "group": "Keeping it",
       "paragraphs": [
         {
@@ -186,6 +192,7 @@
       ]
     },
     {
+      "id": "phone",
       "group": "On your phone",
       "paragraphs": [
         {
@@ -211,6 +218,7 @@
       ]
     },
     {
+      "id": "careful",
       "group": "If you need to be careful",
       "paragraphs": [
         "Everything in this section is off until you turn it on. Keeping a journal about your own life is not something to be ashamed of, and the app does not behave as though it is. These exist because some people's circumstances are genuinely unsafe, and only you know whether that is yours.",
@@ -233,6 +241,7 @@
       ]
     },
     {
+      "id": "looks",
       "group": "How it looks",
       "paragraphs": [
         {
@@ -378,5 +387,9 @@
         ]
       }
     ]
+  },
+  "footer": {
+    "portfolio": "Portfolio",
+    "rights": "2026 Alicja Barankiewicz"
   }
 }
