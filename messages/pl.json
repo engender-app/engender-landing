@@ -290,5 +290,9 @@
         ]
       }
     ]
+  },
+  "footer": {
+    "portfolio": "Portfolio",
+    "rights": "2026 Alicja Barankiewicz"
   }
 }

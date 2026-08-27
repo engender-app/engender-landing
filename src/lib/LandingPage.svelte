@@ -37,10 +37,10 @@
      if a channel is ever added. $lib/Mark carries why these are the site's own
      marks and not the channels' logos. */
   const CHANNEL_MARKS: Record<string, string> = {
-    'F-Droid': 'community',
-    Aurora: 'mirror',
-    Obtainium: 'direct',
-    'Google Play': 'storefront',
+    'F-Droid': 'fdroid',
+    Aurora: 'aurora',
+    Obtainium: 'obtainium',
+    'Google Play': 'play',
   };
 
   const GROUP_FRAMES: Record<string, number[]> = {
@@ -94,7 +94,7 @@
            measured the definition at 1.20:1 against the flag's blue. A motif
            is a picture and its size is a fact about the viewport, not about
            the reader's text size. -->
-      <FlagSun placement="corner" size="clamp(280px, 46vw, 560px)" />
+      <FlagSun placement="corner" size="var(--sun-size)" />
     </div>
 
 
@@ -138,6 +138,19 @@
                 </a>
               </li>
             {/each}
+            <!-- The source, beside the channels rather than at the foot of the
+                 page: it is one of the places a reader can go from here, and
+                 the support copy's "go and look" is easier to act on when the
+                 way to look is where the other destinations are (Alicja's
+                 note, 2026-08-28). Labelled with the host's name rather than
+                 the URL, which is a brand name and identical in both
+                 languages. -->
+            <li>
+              <a class="badge" href={SOURCE_URL} rel="noopener">
+                <Mark name="github" />
+                github
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -258,16 +271,6 @@
     </div>
     <div class="support reveal">
       <Prose paragraphs={m.support} reveal />
-      <!-- The copy in this section says the source is public and to go and
-           look. It said it without a link, which asked a reader to go and find
-           the thing the sentence is about. The URL is the one
-           .agents/product-marketing.md names under Evidence. -->
-      <p class="source-line">
-        <a class="source" href={SOURCE_URL} rel="noopener">
-          <Mark name="repository" size="1.25em" />
-          {SOURCE_URL.replace('https://', '')}
-        </a>
-      </p>
     </div>
   </section>
 </PageShell>
@@ -292,11 +295,17 @@
       <ol class="frames" style:--across={GROUP_FRAMES[group.id].length}>
         {#each GROUP_FRAMES[group.id] as screen (screen)}
           <li class="wipe" style:--reveal-index={screen}>
-            <div class="frame" aria-hidden="true">
-              <div class="frame-sun">
-                <FlagSun placement="corner" size="95%" flagIndex={screen} />
-              </div>
-            </div>
+            <!-- Shaped like the phone the screenshot will be of, and edged in
+                 this frame's own flag. The motif used to fill it, which read as
+                 abstract art rather than as a place a picture goes, and would
+                 have had to come out again when ticket 06 lands the pictures
+                 (Alicja's note, 2026-08-28). Eight frames still carry eight
+                 flags; the flag is the edge now. -->
+            <div
+              class="frame"
+              aria-hidden="true"
+              style:--frame-ink={FLAGS[screen % FLAGS.length].stripes[0]}
+            ></div>
             <h4>{m.tour[screen].screen}</h4>
             <p>{m.tour[screen].caption}</p>
           </li>
@@ -375,9 +384,14 @@
     margin: 0;
   }
 
+  /* `align-content: start` is load-bearing. These heads sit in grids whose
+     rows stretch, so without it the rule sank to the bottom of whatever the
+     tallest column in the section was and ended up hundreds of pixels below the
+     heading it belongs to (Alicja's note, 2026-08-28). */
   .section-head {
     display: grid;
-    gap: 1rem;
+    align-content: start;
+    gap: 0.75rem;
     margin-bottom: clamp(1.75rem, 5vh, 3rem);
   }
 
@@ -394,6 +408,12 @@
   /* ---- Splash ---------------------------------------------------------- */
 
   .splash {
+    /* In px and vw, never rem. A rem clamp scales with the root font size, so
+       at 200% text this motif's floor doubled and swallowed the nameplate - the
+       contrast pass measured the definition at 1.20:1 against the flag's blue.
+       A motif is a picture and its size is a fact about the viewport, not about
+       the reader's text size. */
+    --sun-size: clamp(280px, 46vw, 560px);
     position: relative;
     /* Clips the corner motif and the swirl. Only here: a clip at the body
        would hide a layout broken by long Polish strings from the test that
@@ -408,21 +428,22 @@
     pointer-events: none;
   }
 
-  /* On a phone the motif stops sitting behind the text and takes a band of its
-     own above it. Behind the text it can only ever be safe by arithmetic - the
-     text has to stay left of where the arc reaches - and that arithmetic breaks
-     the moment somebody turns their text up, which is exactly when it must not.
-     A band cannot overlap anything, at any text size. */
+  /* On a phone the motif stays in the window's corner, where it belongs - a
+     band of its own put it in the middle of nowhere and it stopped reading as a
+     corner at all (Alicja's note, 2026-08-28).
+
+     What keeps text off it is not arithmetic about how wide a line might get:
+     the sheet simply starts below the motif's reach. The motif is a circle
+     centred on the corner, so its reach down the page is half its diameter, and
+     --sun-size is in px and vw so that half is a fixed number whatever the
+     reader's text size. */
   @media (max-width: 60rem) {
     .splash {
-      display: grid;
+      --sun-size: min(46vw, 230px);
     }
 
-    .sun-well {
-      position: relative;
-      inset: auto;
-      height: clamp(110px, 30vw, 190px);
-      margin-bottom: clamp(1.5rem, 5vh, 2.5rem);
+    .sheet {
+      padding-top: calc(var(--sun-size) / 2);
     }
   }
 
@@ -801,19 +822,18 @@
     max-width: calc(var(--across) * 15rem + (var(--across) - 1) * 2rem);
   }
 
+  /* A phone, waiting for its screenshot: a thick bezel in this frame's own
+     flag colour and a screen-shaped surface inside it. The radius is a device's
+     rather than a card's, which is the whole of what makes it read as a phone
+     and not as an empty box. */
   .frame {
     position: relative;
     aspect-ratio: 9 / 16;
-    border-radius: var(--radius-card);
-    border: 1px solid var(--outline);
-    background: var(--surface);
+    border-radius: 26px;
+    border: 4px solid var(--frame-ink);
+    background: var(--surface-2);
     overflow: clip;
     margin-bottom: 1rem;
-  }
-
-  .frame-sun {
-    position: absolute;
-    inset: 0;
   }
 
   .frames h4 {
@@ -1002,28 +1022,6 @@
     padding-block: clamp(5rem, 14vh, 9rem);
   }
 
-  .source-line {
-    margin: 2rem 0 0;
-  }
-
-  .source {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    min-height: var(--target);
-    font-family: var(--font-display);
-    font-size: 1.0625rem;
-    font-weight: 600;
-    letter-spacing: var(--display-track);
-    text-decoration: none;
-    border-bottom: 2px solid currentcolor;
-    padding-bottom: 0.3rem;
-    transition: opacity var(--dur-fast);
-  }
-
-  .source:hover {
-    opacity: 0.75;
-  }
 
   .support :global(p) {
     max-width: 52ch;

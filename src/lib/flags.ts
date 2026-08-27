@@ -82,3 +82,27 @@ export function rings(flag: Flag): Ring[] {
     colour: flag.stripes[Math.min(index, count - 1)],
   }));
 }
+
+/** The two stripes a flag lends to the action's gradient: its two most
+    saturated, kept in the order the flag lists them.
+
+    Saturation rather than position, because position picks badly. Trans is
+    symmetric, so its first and last stripe are the same blue and the gradient
+    would have no gradient in it; agender's outermost stripes are black. The two
+    most saturated are the two a person would name if asked what colour a flag
+    is, which is what the button should be wearing.
+
+    A flag with one saturated stripe lends it twice, and the gradient is then a
+    single colour deepening across itself, which is still the flag's colour and
+    still legible. */
+export function actionStripes(flag: Flag): [string, string] {
+  const saturation = (hex: string) => {
+    const [r, g, b] = [1, 3, 5].map((at) => Number.parseInt(hex.slice(at, at + 2), 16));
+    return Math.max(r, g, b) - Math.min(r, g, b);
+  };
+  const ranked = flag.stripes
+    .map((hex, index) => ({ hex, index, saturation: saturation(hex) }))
+    .sort((a, b) => b.saturation - a.saturation);
+  const [first, second] = [ranked[0], ranked[1] ?? ranked[0]];
+  return first.index <= second.index ? [first.hex, second.hex] : [second.hex, first.hex];
+}

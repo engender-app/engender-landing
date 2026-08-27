@@ -47,7 +47,6 @@
     flagIndex?: number | null;
   } = $props();
 
-  let host: HTMLDivElement | null = null;
   let moving = $state(false);
 
   /* Before mount, and for anybody without scripting, the trans flag. After
@@ -74,28 +73,19 @@
       return;
     }
 
-    /* The loop runs while the motif is on screen and not a moment longer. An
-       observer rather than a scroll handler, and it is also what stops the
-       small sun in the features section cycling while a reader is still up in
-       the splash. */
-    let release: (() => void) | null = null;
-    const observer = new IntersectionObserver((entries) => {
-      for (const entry of entries) {
-        if (entry.isIntersecting && !release) {
-          release = holdCycle();
-          moving = true;
-        } else if (!entry.isIntersecting && release) {
-          release();
-          release = null;
-        }
-      }
-    });
-    if (host) observer.observe(host);
+    /* The cycle runs for as long as the page is open, not only while this
+       motif is on screen. It was gated on an IntersectionObserver, which is the
+       usual advice for an ambient loop - but the loop does not drive this motif
+       alone. Every section rule on the page is inked in the live flag and
+       sweeps when it changes, so gating on one element's visibility stopped the
+       colour changing for a reader who had scrolled past the splash, which is
+       most of the page (Alicja's note, 2026-08-28).
 
-    return () => {
-      observer.disconnect();
-      release?.();
-    };
+       The guard that matters stays: $lib/flagCycle keeps no timer at all while
+       the document is hidden, so a tab left open in the background repaints
+       nothing. */
+    moving = true;
+    return holdCycle();
   });
 </script>
 
@@ -106,7 +96,6 @@
   class:moving
   style:--sun-size={size}
   aria-hidden="true"
-  bind:this={host}
 >
   {#each ringSet as ring, index (index)}
     <i
@@ -167,9 +156,15 @@
        one movement crossing the sun instead of seven rings changing size. The
        colour rides the same curve but overshoot is meaningless for a colour,
        so it takes the plain one. */
+    /* Colour on the motif's own duration, not on --dur-slow. They were
+       different and the difference showed: a change between two flags with the
+       same number of stripes moves no ring, so all a reader saw was a 320ms
+       colour swap with no wave in it, while a change that resized rings took
+       900ms. Half the transitions looked like the animation had stopped
+       (Alicja's note, 2026-08-28). One duration, one stagger, one wave. */
     transition:
       transform var(--dur-motif) var(--ease-overshoot),
-      background-color var(--dur-slow) var(--ease-standard);
+      background-color var(--dur-motif) var(--ease-standard);
     transition-delay: var(--ring-delay);
   }
 

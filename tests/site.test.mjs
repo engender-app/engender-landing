@@ -31,6 +31,9 @@ const JOURNAL_URL = "https://app.gender-diary.barankiewicz.dev/";
    anywhere but this origin and the Journal's. */
 const SOURCE_URL = "https://github.com/barankiewicz/gender-diary";
 
+/* Alicja's own site, linked from the footer (her decision, 2026-08-28). */
+const PORTFOLIO_URL = "https://barankiewicz.dev/";
+
 /** The product's name as each language's pages currently render it. The
     English pages say enGender since redesign ticket 02; the Polish pages
     still say Gender Diary until Alicja's own translation pass. */
@@ -486,9 +489,9 @@ for (const locale of ["en", "pl"]) {
         [
           JOURNAL_URL,
           ...CHANNELS.map(() => `${base}/${locale}/`),
+          SOURCE_URL,
           `${base}/${locale}/privacy/`,
           JOURNAL_URL,
-          SOURCE_URL,
         ],
         "main offered something besides the splash actions, the privacy page and Start journal",
       );
@@ -660,7 +663,18 @@ test("the site keeps to its own origin and its own storage", async () => {
        it carries rel="noopener" and no referrer - the document-wide referrer
        policy in app.html is what makes that true of every link here, so
        following it tells GitHub nothing about which page it came from. */
-    assert.deepEqual(outbound, [JOURNAL_URL, JOURNAL_URL, SOURCE_URL]);
+    /* Five now, and every one deliberate: Start journal twice, the source
+       beside the channels and again in the footer, and Alicja's own site in the
+       footer. All three destinations carry rel="noopener", and the
+       document-wide referrer policy in app.html means following any of them
+       tells the far end nothing about which page it came from. */
+    assert.deepEqual(outbound, [
+      JOURNAL_URL,
+      SOURCE_URL,
+      JOURNAL_URL,
+      PORTFOLIO_URL,
+      SOURCE_URL,
+    ]);
 
     assert.equal(
       await page.evaluate(() => document.cookie),
@@ -772,13 +786,17 @@ for (const locale of ["en", "pl"]) {
     try {
       await page.goto(`${base}/${locale}/`);
       /* Asked for by role and by name throughout, because that is the page as
-         a screen reader receives it. A <header> that drifted inside a section
-         would stop being a banner while still being a <header>, and querying
-         the tag would keep passing; asking for the banner role does not. */
+         a screen reader receives it. A <footer> that drifted inside a section
+         would stop being a contentinfo while still being a <footer>, and
+         querying the tag would keep passing; asking for the role does not.
+
+         contentinfo rather than banner since ticket 03: the chrome moved from a
+         sticky header to a bar fixed at the foot, so the controls live in the
+         page's footer and that is the landmark they belong to. */
       const languageLabel = locale === "en" ? "Language" : "Język";
       const themeLabel = locale === "en" ? "Theme" : "Motyw";
 
-      await page.getByRole("banner").waitFor();
+      await page.getByRole("contentinfo").waitFor();
       await page.getByRole("main").waitFor();
 
       assert.equal(
@@ -1899,14 +1917,16 @@ async function backgroundFailures(page, decoder) {
        carries the colour the text is really painted in. */
     const probes = await page.evaluate((selector) => {
       const found = [];
-      /* The header is sticky, so the top band of the viewport belongs to it
-         and not to whatever has scrolled underneath. Clamping a probe to the
-         viewport without clamping it to this instead samples the header's own
-         text, which is ink on ink and reports 1.00 for a paragraph that is
-         perfectly readable where a reader actually reads it. */
-      const header = document
-        .querySelector("header")
-        .getBoundingClientRect().bottom;
+      /* The bar is fixed to the foot of the window, so the bottom band of the
+         viewport belongs to it and not to whatever has scrolled under it.
+         Clamping a probe to the viewport without clamping it to this instead
+         samples through the bar, which is ink on ink and reports about 1.00 for
+         a paragraph that is perfectly readable where a reader actually reads
+         it. It was a sticky header until ticket 03 moved the chrome to the
+         foot; the hazard is the same one, at the other end. */
+      const barTop = document
+        .querySelector("footer")
+        .getBoundingClientRect().top;
       for (const node of document.querySelectorAll(selector)) {
         /* Only elements holding text of their own. A <section> wrapping three
            paragraphs would otherwise be measured across its whole area,
@@ -1918,7 +1938,7 @@ async function backgroundFailures(page, decoder) {
 
         const rect = node.getBoundingClientRect();
         if (rect.width < 8 || rect.height < 8) continue;
-        if (rect.bottom <= header || rect.top >= window.innerHeight) continue;
+        if (rect.bottom <= 0 || rect.top >= barTop) continue;
 
         const style = getComputedStyle(node);
         /* Text painted in no colour of its own has nothing to measure. The
@@ -1936,18 +1956,18 @@ async function backgroundFailures(page, decoder) {
         const edge = (side) =>
           Number.parseFloat(style[`border${side}Width`]) + 1;
         const x = Math.max(0, rect.x) + edge("Left");
-        const y = Math.max(header, rect.y) + edge("Top");
+        const y = Math.max(0, rect.y) + edge("Top");
         const box = {
           x,
           y,
           w: Math.min(rect.right, window.innerWidth) - x - edge("Right"),
-          h: Math.min(rect.bottom, window.innerHeight) - y - edge("Bottom"),
+          h: Math.min(rect.bottom, barTop) - y - edge("Bottom"),
         };
-        /* What is left after the header band and the borders have been taken
-           off has to still be a box. An element sliding under the sticky
-           header leaves a sliver, and a sliver of negative height samples
-           points above its own top edge, which is how a link came to be
-           measured against its own underline. */
+        /* What is left after the bar's band and the borders have been taken
+           off has to still be a box. An element sliding under the fixed bar
+           leaves a sliver, and a sliver of negative height samples points
+           outside itself, which is how a link came to be measured against its
+           own underline. */
         if (box.w < 8 || box.h < 8) continue;
 
         found.push({
@@ -2597,116 +2617,78 @@ for (const scheme of ["light", "dark"]) {
   });
 }
 
-test("the tour's eight frames carry the eight flags, one each", async () => {
-  /* Eight captions, eight flags, and the pairing is the whole reason the
-     frames are inked rather than grey. A frame following the shared cycle
-     instead of its own flag would make the strip eight copies of one flag,
-     which reads as a bug in the motif rather than as a decision. */
+test("the eight frames carry the eight flags, one each", async () => {
+  /* Eight captions, eight flags, and the pairing is the whole reason the frames
+     are inked rather than grey. The flag used to be the motif drawn inside the
+     frame; it is the frame's own edge now, because a frame full of motif read
+     as abstract art rather than as a place a picture goes, and would have had
+     to come out again when ticket 06 lands the screenshots (Alicja's note,
+     2026-08-28). The edge survives that arrival.
+
+     By outermost stripe, as a set: those eight colours are all different, so one
+     identifies a flag, and the frames sit in the feature groups they illustrate
+     so their document order is that distribution rather than the catalogue's. */
   const { context, page } = await visitor({});
   try {
     await page.goto(`${base}/en/`);
     await page.emulateMedia({ reducedMotion: "reduce" });
 
-    const frames = page.locator(".frames .frame .sun");
-    assert.equal(
-      await frames.count(),
-      FLAG_STRIPES.length,
-      "there are not eight inked frames",
+    const frames = page.locator(".frames .frame");
+    assert.equal(await frames.count(), FLAG_STRIPES.length, "there are not eight inked frames");
+
+    const edges = await frames.evaluateAll((found) =>
+      found.map((node) => getComputedStyle(node).borderTopColor),
     );
-
-    /* The frames are distributed across the groups they illustrate rather than
-       collected in one strip, and the order they appear in the document is the
-       order of `m.tour`, so index i still carries flag i. */
-
-    const seen = [];
-    for (let index = 0; index < FLAG_STRIPES.length; index++) {
-      const rings = await ringsOf(frames.nth(index));
-      seen.push(rings[0].colour);
-    }
-
-    /* By outermost stripe, as a set. The eight flags' outermost stripes are
-       eight different colours, so that one value identifies a flag; the ring
-       count cannot be used for it any more, since spare rings park visibly
-       rather than scaling away. And a set rather than a sequence because the
-       frames sit in the feature groups they illustrate, so their document order
-       is that distribution and not the catalogue's. */
     const want = FLAG_STRIPES.map((stripes) => asRgb(stripes[0])).sort();
     assert.deepEqual(
-      seen.sort(),
+      [...edges].sort(),
       want,
       "the eight frames do not carry the eight flags one each",
+    );
+
+    /* And the motif is not inside them any more. */
+    assert.equal(
+      await page.locator(".frames .sun").count(),
+      0,
+      "a frame is still drawing the motif inside itself",
     );
   } finally {
     await context.close();
   }
 });
 
-test("the motif cycles the flags, and stops when it cannot be seen", async () => {
+test("the motif cycles the flags, and stops only when the tab is hidden", async () => {
   /* The ambient loop. It is the one thing on this page that moves while a
-     reader does nothing, so if it silently stopped, nothing else would say so.
+     reader does nothing, so if it silently stopped nothing else would say so.
 
-     The second half is the rule from reference/animate.md that a nonessential
-     loop stops when it is offscreen or hidden: a page left open in a
-     background tab must not sit there repainting a sun nobody is looking at. */
+     It used to be gated on the splash motif being on screen, which is the usual
+     advice for a nonessential loop and was wrong here: the loop does not drive
+     that motif alone. Every section rule on the page is inked in the live flag,
+     so gating on one element's visibility stopped the colour changing for a
+     reader who had scrolled past the splash - which is most of the page
+     (Alicja's note, 2026-08-28). What stays is the guard that matters, and it
+     is the one this asserts second: a hidden tab keeps no timer at all. */
   const { context, page } = await visitor({});
   try {
     await page.goto(`${base}/en/`);
     await page.waitForLoadState("networkidle");
 
     const sun = page.locator(".splash .sun");
-    /* The loop starts when the motif's own IntersectionObserver reports it on
-       screen, which is a frame or two after hydration rather than at load. */
-    await sun.evaluate(
-      (node) =>
-        new Promise((resolve, reject) => {
-          if (node.classList.contains("moving")) return resolve();
-          const observer = new MutationObserver(() => {
-            if (node.classList.contains("moving")) {
-              observer.disconnect();
-              resolve();
-            }
-          });
-          observer.observe(node, {
-            attributes: true,
-            attributeFilter: ["class"],
-          });
-          setTimeout(() => {
-            observer.disconnect();
-            reject(new Error("the motif never started moving"));
-          }, 4000);
-        }),
-    );
-    assert.ok(
-      /breathe/.test(
-        await sun.evaluate((node) => getComputedStyle(node).animationName),
-      ),
-      "the motif is not breathing",
-    );
+    const lead = () =>
+      sun.locator("i").first().evaluate((node) => getComputedStyle(node).backgroundColor);
 
-    const first = (await ringsOf(sun))[0].colour;
-    /* One period plus the outermost ring's own transition, which is the first
-       to move because the wave crosses from the rim inward. */
+    const first = await lead();
     await new Promise((resolve) => setTimeout(resolve, 6800));
-    const second = (await ringsOf(sun))[0].colour;
+    assert.notEqual(await lead(), first, `the motif did not change flag in one period, still ${first}`);
+
+    /* Scrolled to the foot of the page, it keeps going. */
+    await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+    const away = await lead();
+    await new Promise((resolve) => setTimeout(resolve, 6800));
     assert.notEqual(
-      second,
-      first,
-      `the motif did not change flag in one period, still ${first}`,
-    );
-
-    /* Scrolled well past it, the cycle releases its timer. Read through the
-       page's own count of live intervals rather than through the module, which
-       a browser test cannot import. */
-    await page.evaluate(() =>
-      window.scrollTo(0, document.documentElement.scrollHeight),
-    );
-    await new Promise((resolve) => setTimeout(resolve, 300));
-    const held = await ringsOf(sun);
-    await new Promise((resolve) => setTimeout(resolve, 6800));
-    assert.equal(
-      (await ringsOf(sun))[0].colour,
-      held[0].colour,
-      "the motif kept cycling after scrolling out of view",
+      await lead(),
+      away,
+      "the motif stopped cycling once the splash was scrolled past",
     );
   } finally {
     await context.close();
@@ -2755,6 +2737,38 @@ test("a flag change sweeps in over the one before it", async () => {
     await context.close();
   }
 });
+
+for (const width of [390, 1280]) {
+  test(`the page reserves room for the bar at ${width}px`, async () => {
+    /* The chrome is fixed to the foot of the window, so the document has to
+       reserve exactly as much room at its foot as the bar actually occupies.
+       --footer-h is that reservation and it is a written number, not arithmetic
+       - the controls decide the real height - so the two can drift apart, and
+       when they do the last line of every page is under the bar.
+
+       They drift at 390 first, because the bar wraps to two rows there. */
+    const { context, page } = await visitor({});
+    try {
+      await page.setViewportSize({ width, height: 844 });
+      for (const suffix of Object.values(PAGE_PATHS)) {
+        await page.goto(`${base}/en/${suffix}`);
+        await page.evaluate(() => document.fonts.ready);
+        const room = await page.evaluate(() => ({
+          bar: Math.ceil(document.querySelector("footer").getBoundingClientRect().height),
+          reserved: Math.ceil(
+            Number.parseFloat(getComputedStyle(document.body).paddingBottom),
+          ),
+        }));
+        assert.ok(
+          room.reserved >= room.bar,
+          `/en/${suffix} at ${width}px reserves ${room.reserved}px for a bar ${room.bar}px tall`,
+        );
+      }
+    } finally {
+      await context.close();
+    }
+  });
+}
 
 for (const width of [390, 1280]) {
   test(`every pointer target clears 44px at ${width}px`, async () => {

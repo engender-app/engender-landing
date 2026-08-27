@@ -2,11 +2,16 @@
   import { onMount, type Snippet } from 'svelte';
   import ThemeControl from '$lib/ThemeControl.svelte';
   import FlagRail from '$lib/FlagRail.svelte';
+  import Mark from '$lib/Mark.svelte';
+  import { actionStripes } from '$lib/flags';
+  import { flagCycle } from '$lib/flagCycle.svelte';
   import { startReveals } from '$lib/reveal';
   import {
     LANGUAGE_KEY,
     LOCALES,
+    PORTFOLIO_URL,
     SITE_ORIGIN,
+    SOURCE_URL,
     defaultPathFor,
     messages,
     pathFor,
@@ -41,6 +46,18 @@
       cancelAnimationFrame(frame);
       stop();
     };
+  });
+
+  /* The action wears the live flag's two most saturated stripes. Written onto
+     the document rather than onto the button, because both pages have chrome
+     that reads them and a custom property on the root is the one place they can
+     be read from everywhere. base.css carries why they are registered
+     properties and how they are made safe to put a label on. */
+  $effect(() => {
+    const [a, b] = actionStripes(flagCycle.flag);
+    const root = document.documentElement;
+    root.style.setProperty('--flag-a', a);
+    root.style.setProperty('--flag-b', b);
   });
 
   /* Only a person choosing a language is remembered, which is why this is on
@@ -119,13 +136,35 @@
      other. -->
 <FlagRail />
 
-<header class="controls">
+<main id="content">
+  {@render children()}
+</main>
+
+<!-- The site's chrome, at the foot of the window and fixed there (Alicja's
+     decision, 2026-08-28). It replaces a sticky header, and the reasoning is in
+     base.css: the controls are things a reader reaches for after they have read
+     something, and a header spent the top of every viewport on them - the most
+     valuable band on a page whose first screen is a dictionary entry.
+
+     In the document after `main`, which is also the order somebody tabbing
+     through the page should meet it. -->
+<footer class="bar">
   {#if page !== 'landing'}
     <!-- The way back, on every page that is not the one it points at. It is
          the site's name rather than a word like "back", so it says where it
          goes and needs no translation of its own. -->
     <a class="brand" href={pathFor(locale)}>{m.pageTitle}</a>
   {/if}
+
+  <a class="bar-link" href={PORTFOLIO_URL} rel="noopener">{m.footer.portfolio}</a>
+  <a class="bar-link" href={SOURCE_URL} rel="noopener">
+    <Mark name="github" size="1.05em" />
+    github
+  </a>
+
+  <span class="bar-rights">{m.footer.rights}</span>
+
+  <span class="bar-spacer" aria-hidden="true"></span>
 
   <nav class="control language-control" aria-label={m.languageLabel} data-locale={locale}>
     <span class="control-label">{m.languageLabel}</span>
@@ -156,8 +195,4 @@
   </nav>
 
   <ThemeControl {locale} />
-</header>
-
-<main id="content">
-  {@render children()}
-</main>
+</footer>

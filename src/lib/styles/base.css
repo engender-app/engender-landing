@@ -43,8 +43,8 @@
   /* Subset to Latin + Latin Extended-A (the Polish diacritics live there),
      variable weight 300-700. The file and its OFL licence are in
      static/fonts/. */
-  font-family: 'DM Sans';
-  src: url('/fonts/dm-sans.woff2') format('woff2');
+  font-family: "DM Sans";
+  src: url("/fonts/dm-sans.woff2") format("woff2");
   font-weight: 300 700;
   font-display: swap;
 }
@@ -61,22 +61,57 @@
    product itself is set in. A different face here would make the site a
    stranger to the app it is describing. */
 @font-face {
-  font-family: 'Outfit';
-  src: url('/fonts/outfit-latin.woff2') format('woff2');
+  font-family: "Outfit";
+  src: url("/fonts/outfit-latin.woff2") format("woff2");
   font-weight: 100 900;
   font-display: swap;
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
-    U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
-  font-family: 'Outfit';
-  src: url('/fonts/outfit-latin-ext.woff2') format('woff2');
+  font-family: "Outfit";
+  src: url("/fonts/outfit-latin-ext.woff2") format("woff2");
   font-weight: 100 900;
   font-display: swap;
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308,
-    U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113,
-    U+2C60-2C7F, U+A720-A7FF;
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+    U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* ---- The action's two colours ------------------------------------------- */
+
+/* Registered rather than declared, so they can be transitioned. An ordinary
+   custom property is a string as far as the cascade is concerned and jumps from
+   one value to the next; registered as a colour it interpolates, and the
+   `color-mix` that reads it recomputes each frame.
+
+   This is the whole of the action's motion: it changes colour with the flag and
+   it does not move (Alicja, 2026-08-28). The initial values are the trans
+   flag's own two, which is what a page without scripting keeps for good.
+
+   Outside every reduced-motion clamp deliberately, on the same reasoning as
+   --dur-crossfade: prefers-reduced-motion is about movement, and a change of
+   colour moves nothing. */
+@property --flag-a {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #5bcefa;
+}
+
+@property --flag-b {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f5a9b8;
+}
+
+:root {
+  transition:
+    --flag-a var(--dur-motif) linear,
+    --flag-b var(--dur-motif) linear;
 }
 
 /* ---- The inks ----------------------------------------------------------- */
@@ -109,7 +144,7 @@
    one palette for paper and ink-on-paper, and spends all eight flags on the
    motif instead. */
 :root,
-:root[data-theme='light'] {
+:root[data-theme="light"] {
   --theme: light;
   --bg: #f4f8fb;
   --surface: #ffffff;
@@ -123,7 +158,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) {
+  :root:not([data-theme="light"]) {
     --theme: dark;
     --bg: #0d141a;
     --surface: #151f27;
@@ -139,7 +174,7 @@
 
 /* Identical to the media-query block above, so a toggled dark and a system
    dark paint the same page. A value changed in one is changed in the other. */
-:root[data-theme='dark'] {
+:root[data-theme="dark"] {
   --theme: dark;
   --bg: #0d141a;
   --surface: #151f27;
@@ -168,12 +203,14 @@
      --accent, words use this, and the two are never swapped. */
   --accent-ink: color-mix(in oklab, var(--accent) 28%, var(--text));
 
-  /* The sticky header's height, stated once because more than one thing hangs
-     off it: the features heading's sticky offset, and anything else that has to
-     start below the header. It is not arithmetic - the controls decide the real
-     height, and this token has to match what they come to. A test measures the
-     rendered header against it, so the two cannot drift. */
-  --header-h: 66px;
+  /* The fixed footer's height, stated once because the page has to reserve
+     exactly this much room at its foot for it. It is not arithmetic - the
+     controls decide the real height, and this token has to match what they come
+     to, and it came up short twice while this was being built: the controls,
+     their padding and the border add up past a round number. A test measures
+     the rendered bar against the room reserved for it, so the two cannot drift
+     apart quietly. */
+  --footer-h: 72px;
 
   /* The pointer-target floor: 44px, the web one. The app's 48px is Android's
      and applies to the app. Written as a token because six controls have to
@@ -191,11 +228,42 @@
      colour it inverts with the theme, and a pale shadow under a pink button on
      a dark page is a glow - decoration wearing depth's clothes. A shadow is an
      absence of light in both themes. */
+  /* The app's one gradient, and the only one on this site. Everything else here
+     is flat, which is the app's own discipline - but the app makes exactly one
+     exception, for its primary button and the marks beside its section titles,
+     and the site's one action should be the app's one action (Alicja,
+     2026-08-28). The shape is the Journal's --grad-accent: 120 degrees, the
+     second stop at 65%.
+
+     Where it differs is that the two colours are the live flag's, so the action
+     changes with the motif rather than staying one product colour while
+     everything around it turns over. They are the flag's two most saturated
+     stripes ($lib/flags actionStripes), carried part of the way to --text
+     before they are used.
+
+     That last part is what makes it safe rather than pretty. Raw stripes
+     include white, yellow and near-black, and a label cannot hold 4.5:1 across
+     a ramp that might end in any of them. Mixed toward --text the ramp is
+     always dark on the light theme and always light on the dark one, which is
+     the direction --on-accent needs.
+
+     40% is measured, not chosen. Swept across all eight flags in both themes,
+     the worst pair on the whole set is 4.86:1 at 40% and 4.22:1 at 45%, so 45
+     fails and 40 clears with a little room. Raising it makes the button more
+     colourful and puts the label under the floor - agender's grey and
+     nonbinary's yellow are the two that go first. tests/site.test.mjs measures
+     every flag against both ends, so this cannot drift quietly. */
+  --grad-accent: linear-gradient(
+    120deg,
+    color-mix(in oklab, var(--flag-a) 40%, var(--text)),
+    color-mix(in oklab, var(--flag-b) 40%, var(--text)) 65%
+  );
+
   --shadow-action: 0 6px 18px rgb(0 0 0 / 0.28);
   --shadow-action-pressed: 0 2px 6px rgb(0 0 0 / 0.34);
 
-  --font-display: 'Outfit', 'DM Sans', system-ui, sans-serif;
-  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-display: "Outfit", "DM Sans", system-ui, sans-serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
   /* Outfit sets wider than the faces this site used before it, which is what
      the app found too. */
   --display-track: -0.024em;
@@ -244,6 +312,12 @@ body {
   font-size: 1.0625rem;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  /* Room for the fixed bar at the foot, plus a line of air, so the last line
+     of the page is never under it and never against it either. The cushion is
+     also the margin the reservation needs: the bar's height is what its
+     contents come to, and a reader running larger text makes it taller than the
+     token says. */
+  padding-bottom: calc(var(--footer-h) + 1.5rem);
   /* No overflow-x: clip here, deliberately. Wide compositions clip or scroll
      inside their own containers, and a clip at the body would also hide a
      layout broken by Polish text lengths from the test that checks for
@@ -313,47 +387,79 @@ a {
   font-variant-numeric: tabular-nums;
 }
 
-/* ---- The shell -------------------------------------------------------- */
+/* ---- The footer bar --------------------------------------------------- */
 
-.controls {
-  position: sticky;
-  top: 0;
+/* The site's chrome sits at the foot of the window and stays there, which is
+   Alicja's decision (2026-08-28) and replaces a sticky header. The controls are
+   things a reader reaches for after they have read something, not before, and a
+   header spent the top of every viewport on them - the most valuable band on a
+   page whose first screen is a dictionary entry.
+
+   Fixed rather than sticky, so it is always reachable. The document reserves
+   --footer-h at its foot so nothing is ever hidden underneath it. */
+
+.bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 10;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.75rem 1.5rem;
-  min-height: var(--header-h);
+  gap: 0.5rem clamp(0.75rem, 2vw, 1.75rem);
+  min-height: var(--footer-h);
   padding: 0.5rem clamp(1rem, 4vw, 2.5rem);
-  /* Opaque, not glass. The app's chrome is translucent because content
-     scrolls under it and the blur is doing a legibility job; here there is
-     nothing to see through, and blur as decoration is what the craft floor
-     calls a costume. */
+  /* Opaque, not glass. Content scrolls under it and the words have to hold. */
   background: var(--bg);
-  border-bottom: 1px solid var(--outline);
+  border-top: 1px solid var(--outline);
 }
 
-/* Not just type: it is the way back from every page that is not the landing
-   page, so it is a target and answers to the floor. */
+/* Pushes the two switches to the right, so the bar reads as identity on the
+   left and controls on the right. */
+.bar-spacer {
+  flex: 1;
+  min-width: 0;
+}
+
+.bar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: var(--target);
+  padding: 0 0.35rem;
+  color: var(--text-2);
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: color var(--dur-fast);
+}
+
+.bar-link:hover {
+  color: var(--text);
+}
+
+.bar-rights {
+  color: var(--text-2);
+  font-size: 0.8125rem;
+  white-space: nowrap;
+}
+
+/* The way back, on every page that is not the one it points at. It is the
+   site's name rather than a word like "back", so it says where it goes and
+   needs no translation of its own. */
 .brand {
   display: inline-flex;
   align-items: center;
   min-height: var(--target);
-  margin-right: auto;
   font-family: var(--font-display);
   font-weight: 600;
   letter-spacing: var(--display-track);
   text-decoration: none;
 }
 
-/* With no brand link on the landing page, the controls still sit right. */
-.controls > .control:first-child {
-  margin-left: auto;
-}
-
-/* Wraps for the same reason .controls does. Somebody running large text has
-   a header row far wider than the phone it sits on, and a control that can
-   only lay itself out on one line pushes the whole document sideways. */
+/* Wraps for the same reason the bar does. Somebody running large text has a
+   control row far wider than the phone it sits on, and a control that can only
+   lay itself out on one line pushes the whole document sideways. */
 .control {
   display: flex;
   flex-wrap: wrap;
@@ -397,9 +503,7 @@ a {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: center;
   gap: 0;
-  min-width: 10.8rem;
-  /* The switch is the target, and each half of it is a target too, so the
-     wrapper has to clear the floor plus its own padding. */
+  min-width: 9.5rem;
   min-height: calc(var(--target) + 0.36rem);
   padding: 0.18rem;
   border-radius: var(--radius-pill);
@@ -424,7 +528,7 @@ a {
   text-decoration: none;
 }
 
-/* Flat, with a line. The thumb used to be a gradient border trick. */
+/* Flat, with a line. */
 .control .switch-thumb {
   position: absolute;
   top: 0.18rem;
@@ -437,20 +541,20 @@ a {
   transition: transform var(--dur-med) var(--ease-standard);
 }
 
-.language-control .switch [aria-current='page'] {
+.language-control .switch [aria-current="page"] {
   font-weight: 600;
 }
 
-.language-control[data-locale='pl'] .switch-thumb {
+.language-control[data-locale="pl"] .switch-thumb {
   transform: translateX(100%);
 }
 
-.theme-control .switch[aria-checked='true'] .switch-thumb {
+.theme-control .switch[aria-checked="true"] .switch-thumb {
   transform: translateX(100%);
 }
 
-.theme-control .switch[aria-checked='true'] .switch-option:last-of-type,
-.theme-control .switch[aria-checked='false'] .switch-option:first-of-type {
+.theme-control .switch[aria-checked="true"] .switch-option:last-of-type,
+.theme-control .switch[aria-checked="false"] .switch-option:first-of-type {
   font-weight: 600;
 }
 
@@ -460,19 +564,22 @@ a {
   outline-offset: 3px;
 }
 
-/* On a phone the two controls were two rows of a label beside a pill, the
-   labels different lengths and the pills different widths, which read as a
-   layout accident rather than as a pair of controls. Narrow screens drop the
-   labels out of the layout - not out of the accessibility tree, see .vh - and
-   put the two switches on one row, sharing the width equally. */
-@media (max-width: 34rem) {
-  .controls {
-    flex-wrap: nowrap;
-    gap: 0.5rem;
+/* On a phone the bar drops its labels out of the layout - not out of the
+   accessibility tree, see .vh - and the rights line with them, so the two
+   switches and the two links get the width. */
+@media (max-width: 40rem) {
+  :root {
+    /* Two rows of controls, so the page reserves two rows of room. */
+    --footer-h: 128px;
+  }
+
+  .bar {
+    gap: 0.4rem 0.6rem;
     padding-inline: 0.75rem;
   }
 
-  .controls .control-label {
+  .bar .control-label,
+  .bar-rights {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -480,6 +587,16 @@ a {
     overflow: hidden;
     clip-path: inset(50%);
     white-space: nowrap;
+  }
+
+  /* A line break rather than a gap. On a phone the links and the two switches
+     cannot share a row and stay pressable - squeezed onto one line the switch
+     halves measured 23.5px against a 44px floor - so the spacer becomes a
+     full-width break and the controls take a row of their own. The bar is two
+     rows there, and --footer-h below reserves the room for both. */
+  .bar-spacer {
+    flex-basis: 100%;
+    height: 0;
   }
 
   .control {
@@ -506,14 +623,18 @@ a {
 
 /* ---- The action ------------------------------------------------------- */
 
-/* One solid block of accent, and the only place that ink is spent on this
-   page. Nothing else is this colour, which is what makes it unmistakably the
-   thing to press without a single word of urgency. */
+/* The app's primary button, brought over whole: the two-accent gradient, the
+   pill, the on-accent label. Nothing else on this page is this, which is what
+   makes it unmistakably the thing to press without a word of urgency, and a
+   visitor who follows it meets the same button on the other side. */
 .cta {
-  display: inline-block;
-  background: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--grad-accent);
   border: none;
-  border-radius: var(--radius-action);
+  border-radius: var(--radius-pill);
   color: var(--on-accent);
   font-family: var(--font-display);
   font-weight: 600;
@@ -531,8 +652,10 @@ a {
     background-color var(--dur-fast);
 }
 
+/* No recolour on hover: the gradient is the button. What answers a pointer is
+   the lift and the shadow, in the motion block below. */
 .cta:hover {
-  background: var(--accent-ink);
+  box-shadow: 0 10px 26px rgb(0 0 0 / 0.3);
 }
 
 /* An availability status is not a control and must not read as one. */
@@ -590,7 +713,6 @@ a {
   .cta {
     transition:
       box-shadow var(--dur-press),
-      background-color var(--dur-fast),
       transform var(--dur-press) var(--ease-out);
   }
 
@@ -619,8 +741,8 @@ a {
          to give it: two cards side by side enter the viewport on the same
          frame and would otherwise land together. Capped at the fifth item so
          a long list does not push its tail off the bottom. */
-      animation-range: entry calc(5% + min(var(--reveal-index, 0), 4) * 7%) entry
-        calc(55% + min(var(--reveal-index, 0), 4) * 7%);
+      animation-range: entry calc(5% + min(var(--reveal-index, 0), 4) * 7%)
+        entry calc(55% + min(var(--reveal-index, 0), 4) * 7%);
     }
 
     /* Tier 3, a change inside one region: a wipe uncovering from one edge,
@@ -649,12 +771,12 @@ a {
      only what is below the fold when it runs, so nothing already on screen
      blinks out and back in, and it never marks anything at all when the
      rules above are supported. */
-  [data-reveal='pending'] {
+  [data-reveal="pending"] {
     opacity: 0;
     transform: translateY(1.25rem);
   }
 
-  [data-reveal='in'] {
+  [data-reveal="in"] {
     opacity: 1;
     transform: none;
     transition:
