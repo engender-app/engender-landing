@@ -15,17 +15,18 @@ this audience searches in the mood-tracker aisle and finds nothing with a place 
 gender. So the listing spends the title, the strongest field, on the mood aisle where
 the volume is, and covers the niche transition terms in the short description and
 throughout the full description, where a low-competition term does not need title
-weight to rank. The brand name itself already carries "gender" and "diary" into the
-title for free, in English at least.
+weight to rank. The enGender rename changed the arithmetic: the old brand carried
+"gender" and "diary" into the title for free, the new one carries only "gender", so
+the title suffix has to buy "diary" as well as the mood terms.
 
 ## English (en-US)
 
 | Term | Where it sits | Why |
 |---|---|---|
 | gender | Title (brand), full description throughout | The category-defining word, free with the brand |
-| diary | Title (brand), full description | Half the aisle searches "diary" rather than "tracker" |
+| diary | Title suffix, full description | Half the aisle searches "diary" rather than "tracker". Free with the old brand, bought by the suffix since the rename |
 | mood journal / mood | Title suffix, full description | The aisle the audience actually searches, per the marketing context |
-| transition journal / transition | Short description lead, full description opening | The exact-fit term. First choice for the title suffix; does not fit in 30 with the brand |
+| transition journal / transition | Short description lead, full description opening | The exact-fit term. Fits the title since the rename (28), and still loses to the aisle terms: low competition does not need title weight, and the short description leads with it |
 | dysphoria, euphoria | Full description, scales sentence | High-intent, and already how the shipped app names the ends of Gender feeling |
 | private / on your device / no account | Short and full description | The deciding concern for this audience. Stated as mechanism, never as a bare "private" adjective, per the voice rules |
 | encrypted | Full description, Archive and at-rest blocks | Real term people search; every use names what is encrypted |
@@ -51,12 +52,12 @@ so the Polish fields have to buy their own terms.
 
 | Candidate | Verdict |
 |---|---|
-| "transition journal" in the EN title | Does not fit: brand plus separator plus term is 32 of 30 characters. Went to the short description lead instead, which is also indexed |
+| "transition journal" in the EN title | Fit changed with the rename: 32 of 30 under the old brand, 28 now. Still rejected, for the reason above: the title's weight goes to the high-volume aisle terms, and the exact-fit term is already the short description's lead |
 | "trans journal" in the EN title | Fits at 27, and was runner-up. Rejected because the site's own register is "transition journal", and the marketing context bars presuming the reader's identity; a questioning reader is exactly who "trans" might tell this is not for them. "trans" still appears in indexed text as a palette name, which is honest and costs nothing |
 | "dziennik nastroju" in the PL title | 31 of 30 with the brand. Moved to the short description |
 | "dziennik trans" in the PL title | Fits, but "trans" as a bare Polish noun reads as trance before it reads as trans, and the identity-presumption point above applies |
 | HRT / HTZ | Real search volume with exactly this audience, and rejected: the site's published copy never says HRT, and the listing may not claim or imply more than the site. If the site ever adds it, the listing should follow, not lead |
-| offline, works offline | Gated. Journal ticket 03's acceptance boxes are unchecked and there is no service worker, so the claim is false today and stays out until the evidence exists |
+| offline, works offline | Out of the listing for room, not for truth any more: the site claims install-and-offline since the v10 doctrine change, so a later listing pass may add it if the 4,000-character assembly can pay for it |
 | free, no ads, best | "free" and performance claims are prohibited by Play in titles and short descriptions. In the full description the facts appear as facts: free software under the GPLv3, no advertising, no telemetry |
 | tracker (self-description) | The app calls itself a diary and a journal; "mood tracker" appears once, describing the aisle. Self-describing as a tracker would trade the register the whole site keeps for one more token |
 | lgbt, lgbtq | Generic reach terms. The listing is not a community app and does not tag itself into a shelf it does not serve; the palette names already carry the specific words that are true |

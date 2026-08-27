@@ -37,15 +37,18 @@ the full assembly has to fit with every gate passed.
 *Gate: baseline. Limit 30 characters. This field is Play's strongest ranking signal.
 Play prohibits "best", "free", "#1", calls to action, emoji and all-caps here.*
 
-> Gender Diary: mood journal
+> enGender: mood journal & diary
 
-26 of 30 characters. The brand already carries two search terms, gender and diary. The
-suffix buys the two the brand does not: mood and journal. The marketing context is
-explicit that most of this audience searches in the mood-tracker aisle and finds
-nothing with a place for gender, so the title meets them there and the description
-explains the difference. "transition journal" was the first choice and does not fit:
-with the brand and a separator it needs 32. The rejected alternatives and the reasoning
-are in `keywords.md`.
+30 of 30 characters. The rename moved the goalposts here: the old brand carried
+gender and diary into the title for free, and enGender carries only gender. So the
+suffix now buys the three terms the brand does not: mood, journal and diary. The
+marketing context is explicit that most of this audience searches in the mood-tracker
+aisle and finds nothing with a place for gender, so the title meets them there and
+the description explains the difference. "transition journal" fits now (28 with the
+brand and a separator) and still lost: it would spend the strongest field on the
+low-competition exact-fit term while giving up diary entirely, and the short
+description already leads with it. The rejected alternatives and the reasoning are in
+`keywords.md`.
 
 ## Short description
 
@@ -65,12 +68,12 @@ passed: 3,839 characters.*
 
 *Gate: baseline.*
 
-> Gender Diary is a diary for tracking gender transition. An entry holds a mood, a
+> enGender is a journal for tracking gender transition. An entry holds a mood, a
 > note, your scales, tags and photos, and it only needs one of those to count. Write
 > several in one day, or backdate one to a day you missed.
 >
 > Mood trackers are the right shape for a daily habit, and they have nowhere to put
-> gender. Gender Diary keeps the shape and adds scales you name yourself. It records
+> gender. enGender keeps the shape and adds scales you name yourself. It records
 > what you tell it and does not interpret any of it.
 
 The first sentences are the ones Play shows before "read more", so the opening is the
@@ -80,7 +83,7 @@ product definition, not a greeting.
 
 > Your journal, your device
 >
-> Your journal is stored on your device. There is no Gender Diary account, no server
+> Your journal is stored on your device. There is no enGender account, no server
 > with a copy of it, and nothing syncing in the background.
 
 "Makes no network requests" does not appear, per the claim table: fetching updates is
@@ -173,7 +176,7 @@ the wording here assumes a launcher alias and a one-gesture exit.*
 > and rainbow. Each recolours the whole app, charts and calendar included, in light
 > and dark. Colour never judges: no red for a bad day, and an empty day stays empty.
 >
-> Gender Diary is in English and Polish.
+> enGender is in English and Polish.
 
 *Gate: the Journal repository actually being public, the same caveat as the site's
 Source section. By Journal ticket 18 it will be, since F-Droid rebuilds from public
@@ -181,7 +184,7 @@ source, but the gate is the repository's visibility and not the licence file.*
 
 > Free software
 >
-> Gender Diary is free software under the GPLv3. Do not take my word for anything on
+> enGender is free software under the GPLv3. Do not take my word for anything on
 > this listing: the source is public. Go and look, or get someone you trust to look.
 > If this project ever stops, someone else can pick the code up.
 
