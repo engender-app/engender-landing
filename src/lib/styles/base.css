@@ -362,6 +362,26 @@ a {
   scrollbar-width: thin;
 }
 
+/* The scrollbar goes, but only where something replaces it. The flag rail down
+   the left margin fills as the page is read, so it is already telling a reader
+   how far through they are and a second indicator beside it is noise.
+
+   Under reduced motion the rail is not rendered - it is movement tied to
+   reading - so hiding the scrollbar there would leave no position indicator at
+   all and nothing to drag. Hence the media query: the two are a pair, and
+   neither should be removed without the other being present. Keyboard and wheel
+   scrolling are untouched either way. */
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scrollbar-width: none;
+  }
+
+  :root::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}
+
 /* Out of the layout, still in the accessibility tree. The theme switch is
    labelled by its visible label, so that label cannot be display:none on narrow
    screens - it would take the switch's accessible name with it. */

@@ -293,7 +293,7 @@
            pictures in and moves no layout. Until then the frame is not empty
            and not a grey placeholder: it is inked in its own flag. -->
       <ol class="frames" style:--across={GROUP_FRAMES[group.id].length}>
-        {#each GROUP_FRAMES[group.id] as screen (screen)}
+        {#each GROUP_FRAMES[group.id] as screen, at (screen)}
           <li class="wipe" style:--reveal-index={screen}>
             <!-- Shaped like the phone the screenshot will be of, and edged in
                  the live flag. The motif used to fill it, which read as
@@ -303,7 +303,17 @@
                  showing one. They move together now (Alicja's note,
                  2026-08-28), so the frames belong to the same moment as the
                  motif and the rules. -->
-            <div class="frame" aria-hidden="true"></div>
+            <!-- A different stripe of the live flag each, so a row of three
+                 is three of the flag's colours rather than three copies of one,
+                 and each lands a little after the one before it (Alicja's note,
+                 2026-08-28). Modulo the stripe count, so a three-stripe flag
+                 repeats rather than leaving a frame with no colour. -->
+            <div
+              class="frame"
+              aria-hidden="true"
+              style:--frame-ink={flagCycle.flag.stripes[at % flagCycle.flag.stripes.length]}
+              style:--frame-delay="{at * 130}ms"
+            ></div>
             <h4>{m.tour[screen].screen}</h4>
             <p>{m.tour[screen].caption}</p>
           </li>
@@ -495,7 +505,7 @@
   }
 
   .headword {
-    margin-bottom: clamp(1.1rem, 2.5vh, 1.6rem);
+    margin-bottom: clamp(0.7rem, 1.5vh, 1rem);
   }
 
   .grammar {
@@ -841,8 +851,8 @@
     position: relative;
     aspect-ratio: 9 / 16;
     border-radius: 26px;
-    border: 4px solid var(--flag-a);
-    transition: border-color var(--dur-motif) var(--ease-standard);
+    border: 4px solid var(--frame-ink);
+    transition: border-color var(--dur-motif) var(--ease-standard) var(--frame-delay, 0ms);
     background: var(--surface-2);
     overflow: clip;
     margin-bottom: 1rem;

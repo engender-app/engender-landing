@@ -2617,15 +2617,18 @@ for (const scheme of ["light", "dark"]) {
   });
 }
 
-test("the eight frames wear the live flag, together", async () => {
-  /* The frames were pinned one flag each, which made the strip a chart of all
-     eight while every other coloured thing on the page was showing one. They
-     follow the cycle now (Alicja's note, 2026-08-28), so the frames belong to
-     the same moment as the motif and the section rules.
+test("the frames wear the live flag, a different stripe each", async () => {
+  /* Three arrangements have stood here. The motif drawn inside each frame,
+     which read as abstract art rather than as a place a picture goes. Then one
+     flag pinned per frame, which made the strip a chart of all eight while
+     everything else on the page showed one. Now: every frame takes a stripe of
+     the live flag, a different one along each row, so a group of three is three
+     of that flag's colours (Alicja's notes, 2026-08-28).
 
-     Asserted as agreement rather than against a fixed colour: which flag is up
-     depends on when this runs, and the point is that all eight frames and the
-     action are showing the same one. */
+     Asserted as membership rather than against fixed colours, because which
+     flag is up depends on when this runs. What must hold is that every frame's
+     edge belongs to one and the same flag, and that a row does not paint itself
+     one colour. */
   const { context, page } = await visitor({});
   try {
     await page.goto(`${base}/en/`);
@@ -2637,17 +2640,23 @@ test("the eight frames wear the live flag, together", async () => {
     const edges = await frames.evaluateAll((found) =>
       found.map((node) => getComputedStyle(node).borderTopColor),
     );
-    assert.equal(
-      new Set(edges).size,
-      1,
-      `the frames are showing ${new Set(edges).size} different flags at once`,
+
+    /* Exactly one of the eight flags can account for all eight edges. */
+    const owners = FLAG_STRIPES.filter((stripes) => {
+      const palette = new Set(stripes.map(asRgb));
+      return edges.every((edge) => palette.has(edge));
+    });
+    assert.ok(
+      owners.length > 0,
+      `the frames' edges are not all stripes of one flag: ${[...new Set(edges)].join(", ")}`,
     );
 
-    /* And it is the flag the rest of the page is on, not some other one. */
-    const action = await page.evaluate(
-      () => getComputedStyle(document.documentElement).getPropertyValue("--flag-a").trim(),
+    /* And the largest group, four frames, is not four of the same. */
+    const distinct = new Set(edges).size;
+    assert.ok(
+      distinct > 1,
+      `every frame is the same colour, so a row is one colour rather than the flag's`,
     );
-    assert.ok(action.length > 0, "the action has no flag colour to agree with");
 
     /* The motif is not inside them any more. */
     assert.equal(
@@ -2946,6 +2955,36 @@ for (const scheme of ["light", "dark"]) {
     }
   });
 }
+
+test("the scrollbar goes only where the rail replaces it", async () => {
+  /* The two are a pair. The rail fills as the page is read, so it is already
+     saying how far through a reader is and the scrollbar beside it is noise -
+     but the rail is not rendered under reduced motion, and hiding the scrollbar
+     there would leave no position indicator and nothing to drag. */
+  const { context, page } = await visitor({});
+  try {
+    await page.goto(`${base}/en/`);
+    assert.equal(
+      await styleOf(page, ":root", "scrollbarWidth"),
+      "none",
+      "the scrollbar is still drawn while the rail is showing",
+    );
+
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    assert.equal(
+      await styleOf(page, ".rail", "display"),
+      "none",
+      "the rail is showing with reduced motion, so this test is measuring the wrong pair",
+    );
+    assert.notEqual(
+      await styleOf(page, ":root", "scrollbarWidth"),
+      "none",
+      "with the rail gone there is no scroll position indicator left at all",
+    );
+  } finally {
+    await context.close();
+  }
+});
 
 test("the flag rail fills with the scroll rather than starting full", async () => {
   /* The rail is the trans flag standing on end down the left margin, uncovered

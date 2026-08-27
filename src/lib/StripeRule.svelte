@@ -1,3 +1,9 @@
+<script module lang="ts">
+  /* How many rules have been built, so each can be told where it sits. Module
+     scope, so the count is per document rather than per component. */
+  let seats = 0;
+</script>
+
 <script lang="ts">
   /* A section's rule, drawn in a flag's stripes rather than in one line, and
      the page's ambient motion.
@@ -41,6 +47,13 @@
      here, outside the graph. */
   let seen = FLAGS[0].stripes;
 
+  /* Where this rule sits in the document, claimed as it is built, which is
+     document order. Every rule changes flag on the same tick, and sweeping them
+     all on the same frame read as one big switch rather than as a page turning
+     over (Alicja's note, 2026-08-28); a small offset each makes the change
+     travel down the page instead. */
+  const ordinal = seats++;
+
   $effect(() => {
     /* The one reactive dependency. */
     const next = flagCycle.flag.stripes;
@@ -74,7 +87,12 @@
     {/each}
   </span>
   {#if incoming}
-    <span class="layer sweep" class:sweeping onanimationend={landed}>
+    <span
+      class="layer sweep"
+      class:sweeping
+      style:--sweep-delay="{ordinal * 110}ms"
+      onanimationend={landed}
+    >
       {#each incoming as stripe, index (index)}
         <i style:background={stripe}></i>
       {/each}
@@ -110,7 +128,7 @@
 
   @media (prefers-reduced-motion: no-preference) {
     .sweeping {
-      animation: sweep var(--dur-sweep) var(--ease-sweep) both;
+      animation: sweep var(--dur-sweep) var(--ease-sweep) var(--sweep-delay, 0ms) both;
     }
   }
 
