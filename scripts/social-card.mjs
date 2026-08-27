@@ -7,16 +7,19 @@
    change. Re-run it when the palette, the font or the wordmark move.
 
    What is on the card is the wordmark and the aurora behind it, and nothing
-   else. The reasoning is on SOCIAL_CARD in src/lib/site.ts. The colours and
-   the type are the dark theme's, read off src/lib/styles/base.css by hand
-   because this is a picture rather than a page and nothing here goes through
-   the cascade; a token that moves there has to be copied here, which is the
-   cost of the file being static.
+   else. The reasoning is on SOCIAL_CARD in src/lib/site.ts. The colours are
+   the dark theme's, read off src/lib/styles/base.css by hand because this is
+   a picture rather than a page and nothing here goes through the cascade; a
+   token that moves there has to be copied here, which is the cost of the file
+   being static.
 
-   The font arrives as a data URI so the page renders from a string with no
-   server and no network. Chromium comes from the same launcher the browser
-   tests use, so CHROMIUM_PATH works here too. */
-import { readFile, writeFile } from 'node:fs/promises';
+   The type is the system sans, deliberately: the woff2 this repo bundles
+   (static/fonts/dm-sans.woff2) is a subset with most of basic Latin missing,
+   so embedding it renders the wordmark in per-glyph serif fallback. Redesign
+   ticket 03 owns the site's type; when it settles a display face, this file
+   takes it. Chromium comes from the same launcher the browser tests use, so
+   CHROMIUM_PATH works here too. */
+import { writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { launchChromium } from '../tests/browser-harness.mjs';
 
@@ -24,19 +27,12 @@ const WIDTH = 1200;
 const HEIGHT = 630;
 
 const root = new URL('../', import.meta.url);
-const font = await readFile(new URL('static/fonts/space-grotesk.woff2', root));
 
 const card = `<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
     <style>
-      @font-face {
-        font-family: 'Space Grotesk';
-        src: url(data:font/woff2;base64,${font.toString('base64')}) format('woff2');
-        font-weight: 300 700;
-      }
-
       html,
       body {
         margin: 0;
@@ -48,7 +44,7 @@ const card = `<!doctype html>
         position: relative;
         overflow: hidden;
         background: #0c0f16;
-        font-family: 'Space Grotesk';
+        font-family: system-ui, sans-serif;
         display: grid;
         align-content: center;
         padding-left: 96px;
@@ -104,7 +100,7 @@ const card = `<!doctype html>
     <div class="blob blob-a"></div>
     <div class="blob blob-b"></div>
     <div class="blob blob-c"></div>
-    <p class="wordmark">Gender Diary</p>
+    <p class="wordmark">enGender</p>
   </body>
 </html>`;
 

@@ -1,16 +1,16 @@
-# Gender Diary landing site
+# enGender landing site
 
-The public site that explains Gender Diary and points people at the Journal.
+The public site that explains enGender and points people at the Journal.
 
-Gender Diary is a local-first journal for tracking gender transition. It lives in a
+enGender (renamed from Gender Diary on 2026-08-26) is a local-first journal for tracking gender transition. It lives in a
 separate repository and on a separate origin, and this site never shares storage,
 a service worker or runtime code with it.
 
 ## Status
 
-The structure is up and the copy is not written yet: every page reads "copy
-pending" where its text will go. The specification and its tickets live in
-`.scratch/`, which is not committed. Nothing here is deployed yet.
+Live, mid-rebrand. The English copy is rewritten for the enGender rename; the
+Polish still says Gender Diary and is Alicja's own translation pass. The
+redesign spec and its tickets live in `.scratch/`, which is not committed.
 
 ## Stack
 

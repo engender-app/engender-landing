@@ -22,6 +22,11 @@ const SITE_ORIGIN = 'https://gender-diary.barankiewicz.dev';
   src/lib/site.ts, and changing it there means changing it here. */
 const JOURNAL_URL = 'https://app.gender-diary.barankiewicz.dev/';
 
+/** The product's name as each language's pages currently render it. The
+    English pages say enGender since redesign ticket 02; the Polish pages
+    still say Gender Diary until Alicja's own translation pass. */
+const SITE_NAME = { en: 'enGender', pl: 'Gender Diary' };
+
 /** The four Android channels, in the order the page lists them. The order is
     the opinion: the three that do not report an install to Google come first,
     alphabetically among themselves because nothing separates them, and Google
@@ -35,13 +40,13 @@ const ACQUISITION = {
     heading: 'How to get it',
     action: 'Start journal',
     status: 'Not available yet.',
-    noAndroid: 'There is no Android app yet.',
+    channelsPending: 'each becomes a link as it goes live',
   },
   pl: {
     heading: 'Skąd je wziąć',
     action: 'Otwórz dziennik',
     status: 'Jeszcze niedostępne.',
-    noAndroid: 'Aplikacji na Androida jeszcze nie ma.',
+    channelsPending: 'Aplikacji na Androida jeszcze nie ma.',
   },
 };
 
@@ -224,7 +229,7 @@ test('each language is a stable location that serves itself', async () => {
       assert.equal(response.status(), 200);
       assert.equal(page.url(), `${base}/${locale}/`, 'a direct visit is not redirected away');
       assert.equal(await documentLanguage(page), locale);
-      assert.equal(await page.locator('main h1').innerText(), 'Gender Diary');
+      assert.equal(await page.locator('main h1').innerText(), SITE_NAME[locale]);
     }
   } finally {
     await context.close();
@@ -413,14 +418,15 @@ for (const locale of ['en', 'pl']) {
       await page.goto(`${base}/${locale}/`);
       const section = acquisitionSection(page, locale);
 
-      /* The sentence the whole section stands on. Four Android channels
-         listed without it would read as an Android app somebody can have,
-         and Journal ticket 11 says there is no Android project at all. It is
-         asserted here because every other assertion below still passes with
-         it deleted. */
+      /* The sentence the whole section stands on. Four channels listed
+         while none is live would read as an offer with nothing behind it,
+         so the copy says out loud that each becomes a link as it goes live
+         (the Polish still says there is no Android app, pending Alicja's
+         translation pass). Asserted here because every other assertion
+         below still passes with it deleted. */
       assert.ok(
-        (await section.innerText()).includes(ACQUISITION[locale].noAndroid),
-        'the page listed Android channels without saying there is no Android app',
+        (await section.innerText()).includes(ACQUISITION[locale].channelsPending),
+        'the page listed Android channels without saying they are not live yet',
       );
 
       const entries = section.getByRole('listitem');
@@ -619,7 +625,7 @@ for (const locale of ['en', 'pl']) {
         `no navigation region announces itself as ${languageLabel}`,
       );
       assert.equal(
-        await page.getByRole('heading', { level: 1, name: 'Gender Diary' }).count(),
+        await page.getByRole('heading', { level: 1, name: SITE_NAME[locale] }).count(),
         1,
         'the page opens without a level-one heading a reader can land on',
       );
@@ -715,7 +721,7 @@ test('reduced motion disables the moving parts rather than shortening them', asy
        where the others read behaviour. What it asks for is still addressed by
        role and name wherever a role exists; the aurora blob is decorative and
        has no accessible name to ask for, so it stays a class. */
-    const heading = page.getByRole('heading', { level: 1, name: 'Gender Diary' });
+    const heading = page.getByRole('heading', { level: 1, name: SITE_NAME.en });
     const action = page.getByRole('link', { name: ACQUISITION.en.action }).first();
     const channel = page.getByRole('link', { name: CHANNELS[0], exact: true }).first();
 
@@ -897,7 +903,7 @@ test('a production build is indexable, sitemap and robots in agreement', async (
     Acquisition keeps its heading in ACQUISITION, where it already was. */
 const HEADINGS = {
   en: {
-    overview: 'What Gender Diary is',
+    overview: 'What enGender is',
     privacy: "What it protects, and what it doesn't",
     tour: 'The screens',
     features: 'What it does',
@@ -922,7 +928,7 @@ const sectionHeadings = (locale) => SECTION_ORDER.map((section) => HEADINGS[loca
 /** The privacy page's own title, which is also the text of the link the
     landing page offers to it. */
 const PRIVACY_TITLE = {
-  en: 'What Gender Diary protects, and what it does not',
+  en: 'What enGender protects, and what it does not',
   pl: 'Co Gender Diary chroni, a czego nie chroni',
 };
 
@@ -933,16 +939,14 @@ const HEADLINE = {
   pl: 'Dziennik tranzycji, który zostaje na twoim urządzeniu.',
 };
 
-/** The opening of the at-rest encryption block the fallback stands in for.
-    Gated on Journal ticket 09 and asserted absent by name as well as by gate,
-    because this is the one sentence on the site whose early publication would
-    be a lie to somebody deciding what to trust. */
-const GATED_AT_REST = { en: 'What is covered.', pl: 'Co obejmuje.' };
-
-/** The wording that publishes in place of the at-rest encryption block, which
-    is gated on Journal ticket 09 and its claim-gate test. Naming the sentence
-    here rather than deriving it means an edit that swaps the two has to come
+/** The opening of the at-rest encryption block, and the fallback wording the
+    old claim gating used to publish in its place. The English page publishes
+    the real block since redesign ticket 02 (the claim's gate test passed in
+    the Journal repository and the v10 doctrine writes from the spec); the
+    Polish page still carries the fallback until Alicja's translation pass.
+    Naming both sentences here means an edit that swaps them has to come
     through this file. */
+const AT_REST_OPENING = { en: 'What is covered.', pl: 'Co obejmuje.' };
 const ENCRYPTION_FALLBACK = {
   en: 'The journal is not encrypted where it is stored, yet.',
   pl: 'Dziennik nie jest jeszcze szyfrowany tam, gdzie jest zapisany.',
@@ -1065,7 +1069,7 @@ for (const locale of ['en', 'pl']) {
         .evaluateAll((found) => found.map((h) => h.textContent.trim()));
       assert.deepEqual(headings, sectionHeadings(locale));
 
-      assert.equal(await page.locator('main h1').innerText(), 'Gender Diary');
+      assert.equal(await page.locator('main h1').innerText(), SITE_NAME[locale]);
       assert.ok(
         (await page.locator('main').innerText()).includes(HEADLINE[locale]),
         'the hero headline is not on the page',
@@ -1132,23 +1136,37 @@ for (const locale of ['en', 'pl']) {
     }
   });
 
-  test(`${locale}: the privacy page says the journal is not encrypted yet`, async () => {
+  test(`${locale}: the privacy page tells the truth about at-rest encryption`, async () => {
+    /* The one place the two languages deliberately disagree mid-rebrand: the
+       English page publishes the real at-rest block, the Polish still carries
+       the not-encrypted-yet fallback until Alicja's translation pass. Each
+       language asserts its own state AND the other's absence, because a page
+       carrying both would contradict itself in front of somebody deciding
+       what to trust. */
     const { context, page } = await visitor({});
     try {
       await page.goto(`${base}/${locale}/privacy/`);
       const text = await page.locator('main').innerText();
 
-      assert.ok(
-        text.includes(ENCRYPTION_FALLBACK[locale]),
-        'the privacy page did not carry the fallback encryption wording',
-      );
-      /* The claim the fallback stands in for. It is asserted by name as well
-         as by gate, because this is the one sentence on the site whose early
-         publication would be a lie to somebody deciding what to trust. */
-      assert.ok(
-        !text.includes(GATED_AT_REST[locale]),
-        'the gated at-rest encryption block reached the privacy page',
-      );
+      if (locale === 'en') {
+        assert.ok(
+          text.includes(AT_REST_OPENING.en),
+          'the English privacy page does not carry the at-rest encryption block',
+        );
+        assert.ok(
+          !text.includes(ENCRYPTION_FALLBACK.en),
+          'the English privacy page still says the journal is not encrypted',
+        );
+      } else {
+        assert.ok(
+          text.includes(ENCRYPTION_FALLBACK.pl),
+          'the Polish privacy page did not carry the fallback encryption wording',
+        );
+        assert.ok(
+          !text.includes(AT_REST_OPENING.pl),
+          'the Polish at-rest block reached the page ahead of its translation',
+        );
+      }
     } finally {
       await context.close();
     }
@@ -1172,16 +1190,16 @@ test('switching language on the privacy page stays on the privacy page', async (
   }
 });
 
-test('the two languages gate the same blocks in the same order', () => {
-  for (const name of Object.keys(PAGE_PATHS)) {
-    const gates = (locale) => copyBlocks(locale, name).map((block) => block.publishes);
-    assert.deepEqual(
-      gates('pl'),
-      gates('en'),
-      `content/pl/${name}.md and content/en/${name}.md do not match block for block`,
-    );
-  }
-});
+/* Until redesign ticket 02 the two languages were asserted to gate the same
+   blocks in the same order. That parity is broken on purpose mid-rebrand: the
+   English copy is rewritten for enGender and the Polish waits for Alicja's own
+   translation pass. When the Polish lands, restore the assertion:
+
+     for (const name of Object.keys(PAGE_PATHS)) {
+       const gates = (locale) => copyBlocks(locale, name).map((block) => block.publishes);
+       assert.deepEqual(gates('pl'), gates('en'));
+     }
+*/
 
 // The head: a search result, a history entry, a link preview (ticket 07)
 
@@ -1198,9 +1216,9 @@ const HEAD_PAGES = ['/', '/en/', '/pl/', '/en/privacy/', '/pl/privacy/'];
     So it carries the product's name, and on the privacy page that page's own
     heading, and nothing about what kind of app this is. */
 const TITLES = {
-  '/': 'Gender Diary',
-  '/en/': 'Gender Diary',
-  '/pl/': 'Gender Diary',
+  '/': SITE_NAME.en,
+  '/en/': SITE_NAME.en,
+  '/pl/': SITE_NAME.pl,
   '/en/privacy/': PRIVACY_TITLE.en,
   '/pl/privacy/': PRIVACY_TITLE.pl,
 };
@@ -1212,11 +1230,11 @@ const TITLES = {
     the page a visitor asking for neither language is about to be sent to. */
 const DESCRIPTIONS = {
   '/en/':
-    'A diary for tracking gender transition. An entry holds a mood, a note, tags, photos and your own scales. It stays on your device, and there is no account.',
+    'A journal for tracking gender transition. An entry holds a mood, a note, tags, photos and your own scales. It stays on your device, and there is no account.',
   '/pl/':
     'Dziennik tranzycji. We wpisie mieści się nastrój, notatka, tagi, zdjęcia i skale, które nazywasz po swojemu. Zostaje na twoim urządzeniu, konta nie zakładasz.',
   '/en/privacy/':
-    'Where your journal is, what app lock does and does not do, what is not encrypted yet, and what a web host can see.',
+    'Where your journal is, what app lock does and does not do, what encryption at rest covers and leaves out, and what a web host can see.',
   '/pl/privacy/':
     'Gdzie jest twój dziennik, co daje blokada aplikacji i czego nie daje, czego aplikacja jeszcze nie szyfruje i co widzi serwer WWW.',
 };
@@ -1314,7 +1332,10 @@ test('no title says what kind of app this is', async () => {
       await page.goto(base + path);
       /* The product's name is allowed to be the product's name. What the
          test looks at is everything else in the title. */
-      const beyondTheName = (await page.title()).replaceAll('Gender Diary', '').toLowerCase();
+      const beyondTheName = (await page.title())
+        .replaceAll('Gender Diary', '')
+        .replaceAll('enGender', '')
+        .toLowerCase();
       for (const word of NOT_IN_A_TITLE) {
         assert.ok(
           !beyondTheName.includes(word),
@@ -1351,7 +1372,7 @@ test('a shared link previews as this app, from a picture on this origin', async 
         },
         {
           type: 'website',
-          siteName: 'Gender Diary',
+          siteName: SITE_NAME[locale],
           title: TITLES[path],
           description: DESCRIPTIONS[path],
           url: SITE_ORIGIN + path,
@@ -1368,7 +1389,10 @@ test('a shared link previews as this app, from a picture on this origin', async 
       /* The alt text is the picture's, in the reader's language, and the
          picture is on this origin. A card image from anywhere else would be
          the site's first third-party resource. */
-      assert.ok(tags['og:image:alt']?.includes('Gender Diary'), `${path}: the card has no alt text`);
+      assert.ok(
+        tags['og:image:alt']?.includes(SITE_NAME[locale]),
+        `${path}: the card's alt text does not name the app as this language knows it`,
+      );
       assert.ok(
         tags['og:image'].startsWith(SITE_ORIGIN + '/'),
         `${path}: the card image is not served from this origin`,
@@ -1423,7 +1447,7 @@ test('structured data describes the app, and claims nothing the page does not', 
       assert.deepEqual(data, {
         '@context': 'https://schema.org',
         '@type': 'WebApplication',
-        name: 'Gender Diary',
+        name: SITE_NAME[locale],
         url: JOURNAL_URL,
         description: DESCRIPTIONS[`/${locale}/`],
         inLanguage: ['en', 'pl'],
