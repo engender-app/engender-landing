@@ -2825,6 +2825,125 @@ for (const width of [390, 1280]) {
   });
 }
 
+/** The two stripes each flag lends the action's gradient: its two most
+    saturated, in the order the flag lists them. Worked out here rather than
+    imported from $lib/flags, for the same reason FLAG_STRIPES is written out
+    again - a test that reads the code under test asserts nothing. */
+const FLAG_NAMES = [
+  "trans",
+  "nonbinary",
+  "genderfluid",
+  "bisexual",
+  "lesbian",
+  "pansexual",
+  "rainbow",
+  "agender",
+];
+
+const ACTION_STRIPES = FLAG_STRIPES.map((stripes, index) => {
+  const saturation = (hex) => {
+    const [r, g, b] = hexToRgb(hex);
+    return Math.max(r, g, b) - Math.min(r, g, b);
+  };
+  const ranked = stripes
+    .map((hex, at) => ({ hex, at, saturation: saturation(hex) }))
+    .sort((a, b) => b.saturation - a.saturation);
+  const [first, second] = [ranked[0], ranked[1] ?? ranked[0]];
+  return [
+    FLAG_NAMES[index],
+    first.at <= second.at ? [first.hex, second.hex] : [second.hex, first.hex],
+  ];
+});
+
+for (const scheme of ["light", "dark"]) {
+  test(`${scheme}: the action's label holds on every flag's gradient`, async () => {
+    /* The action wears the live flag's two most saturated stripes, so its
+       background is eight different gradients over a turn of the cycle rather
+       than one product colour. The label has to hold 4.5:1 on all of them, at
+       both ends of each, which is sixteen backgrounds and not one.
+
+       Raw stripes cannot carry a label - the set includes white, a bright
+       yellow and a near-black - so base.css puts each one at the lightness the
+       label needs while keeping its hue and chroma. That lightness is what this
+       measures: 52% on the light theme, worst case 5.19:1 on agender's green,
+       and 80% on the dark, worst 6.76:1 on pansexual's pink. Where a browser
+       cannot do relative colour the fallback is a mix toward --text at 40%,
+       whose worst pair is 4.86:1; 45% gives 4.22:1 and fails. Nonbinary's
+       yellow and agender's grey go first either way, so a change that looks
+       harmless on trans is not.
+
+       Measured in the page, so the colour is the browser's own and the theme is
+       whichever one actually resolved. */
+    const { context, page } = await visitor({ colorScheme: scheme });
+    try {
+      await page.goto(`${base}/en/`);
+      assert.equal(await themeNow(page), scheme, `asked for ${scheme} and got the other palette`);
+
+      const worst = await page.evaluate((flags) => {
+        const paint = (value) => {
+          const canvas = document.createElement("canvas");
+          canvas.width = canvas.height = 1;
+          const context = canvas.getContext("2d", { willReadFrequently: true });
+          context.fillStyle = "#000000";
+          context.fillStyle = value;
+          context.fillRect(0, 0, 1, 1);
+          const [r, g, b] = context.getImageData(0, 0, 1, 1).data;
+          return [r, g, b];
+        };
+        const channel = (n) => {
+          const v = n / 255;
+          return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4;
+        };
+        const luminance = ([r, g, b]) =>
+          0.2126 * channel(r) + 0.7152 * channel(g) + 0.0722 * channel(b);
+        const ratio = (front, back) => {
+          const [bright, dark] = [luminance(front), luminance(back)].sort((a, b) => b - a);
+          return (bright + 0.05) / (dark + 0.05);
+        };
+
+        const root = getComputedStyle(document.documentElement);
+        const text = root.getPropertyValue("--text").trim();
+        const label = paint(root.getPropertyValue("--on-accent").trim());
+
+        /* Whichever form actually ships, read out of the stylesheet rather than
+           written here twice, so this measures what a visitor is served. */
+        const gradient = root.getPropertyValue("--grad-accent");
+        const relative = gradient.includes("oklch(from");
+        const lightness = root.getPropertyValue("--action-l").trim();
+        const pct = Number(gradient.match(/var\(--flag-a\)\s+(\d+)%/)?.[1]);
+        const recipe = (hex) =>
+          relative
+            ? `oklch(from ${hex} ${lightness} c h)`
+            : `color-mix(in oklab, ${hex} ${pct}%, ${text})`;
+
+        const probe = document.createElement("span");
+        document.body.append(probe);
+        let low = { ratio: Infinity, flag: null, stripe: null };
+        for (const [name, stripes] of flags) {
+          for (const hex of stripes) {
+            probe.style.color = recipe(hex);
+            const found = ratio(label, paint(getComputedStyle(probe).color));
+            if (found < low.ratio) low = { ratio: found, flag: name, stripe: hex };
+          }
+        }
+        probe.remove();
+        return { ...low, recipe: recipe("#5BCEFA") };
+      }, ACTION_STRIPES);
+
+      assert.ok(
+        worst.recipe.startsWith("oklch(") || worst.recipe.startsWith("color-mix("),
+        `could not read the action's colour recipe out of --grad-accent: ${worst.recipe}`,
+      );
+      assert.ok(
+        worst.ratio >= 4.5,
+        `the action's label is ${worst.ratio.toFixed(2)} on ${worst.flag}'s ${worst.stripe}, needs 4.5 (${worst.recipe})`,
+      );
+    } finally {
+      await context.close();
+    }
+  });
+}
+
 test("pointer movement does not move the motif", async () => {
   /* The motif answers the clock and nothing else. A sun that tilted toward the
      pointer would be the one piece of motion on this page a reader could not

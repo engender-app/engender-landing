@@ -168,6 +168,7 @@
     --accent: #f0a3b6;
     --accent-2: #63c4ee;
     --on-accent: #0d141a;
+    --action-l: 80%;
     color-scheme: dark;
   }
 }
@@ -184,7 +185,25 @@
   --accent: #f0a3b6;
   --accent-2: #63c4ee;
   --on-accent: #0d141a;
+  --action-l: 80%;
   color-scheme: dark;
+}
+
+/* Relative colour syntax: take the flag's hue and chroma and put them at the
+   lightness the label needs. It is the difference between a flag's colour and a
+   flag's colour rinsed through the text colour, and it is what the app does -
+   its palette accents are the flag's hues at a lightness chosen to be sat on.
+   Where a browser cannot do this the mix above stands in, paler but legible.
+
+   Declared after the theme blocks so --action-l is resolved. */
+@supports (color: oklch(from red l c h)) {
+  :root {
+    --grad-accent: linear-gradient(
+      120deg,
+      oklch(from var(--flag-a) var(--action-l) c h),
+      oklch(from var(--flag-b) var(--action-l) c h) 65%
+    );
+  }
 }
 
 /* ---- Derived ----------------------------------------------------------- */
@@ -252,12 +271,22 @@
      fails and 40 clears with a little room. Raising it makes the button more
      colourful and puts the label under the floor - agender's grey and
      nonbinary's yellow are the two that go first. tests/site.test.mjs measures
-     every flag against both ends, so this cannot drift quietly. */
+     every flag against both ends, so this cannot drift quietly.
+
+     This mix is the fallback, and it is pale: mixing toward --text pulls
+     lightness and chroma together, so a flag's colour arrives washed out. What
+     ships where the browser can do it is the block below, which pins lightness
+     and keeps the chroma - which is how the app's own palette is built, and why
+     its button is vivid where this one was not. */
   --grad-accent: linear-gradient(
     120deg,
     color-mix(in oklab, var(--flag-a) 40%, var(--text)),
     color-mix(in oklab, var(--flag-b) 40%, var(--text)) 65%
   );
+
+  /* Where the action's ramp has to sit for its label to hold: dark on the
+     light theme, light on the dark one. Set per theme below. */
+  --action-l: 52%;
 
   --shadow-action: 0 6px 18px rgb(0 0 0 / 0.28);
   --shadow-action-pressed: 0 2px 6px rgb(0 0 0 / 0.34);

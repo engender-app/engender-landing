@@ -94,7 +94,7 @@
            measured the definition at 1.20:1 against the flag's blue. A motif
            is a picture and its size is a fact about the viewport, not about
            the reader's text size. -->
-      <FlagSun placement="corner" size="var(--sun-size)" />
+      <FlagSun placement="corner" size="var(--splash-sun)" />
     </div>
 
 
@@ -413,7 +413,7 @@
        contrast pass measured the definition at 1.20:1 against the flag's blue.
        A motif is a picture and its size is a fact about the viewport, not about
        the reader's text size. */
-    --sun-size: clamp(280px, 46vw, 560px);
+    --splash-sun: clamp(280px, 46vw, 560px);
     position: relative;
     /* Clips the corner motif and the swirl. Only here: a clip at the body
        would hide a layout broken by long Polish strings from the test that
@@ -439,11 +439,11 @@
      reader's text size. */
   @media (max-width: 60rem) {
     .splash {
-      --sun-size: min(46vw, 230px);
+      --splash-sun: min(46vw, 230px);
     }
 
     .sheet {
-      padding-top: calc(var(--sun-size) / 2);
+      padding-top: calc(var(--splash-sun) / 2);
     }
   }
 
