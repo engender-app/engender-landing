@@ -55,11 +55,19 @@ stays on the page.
 dictionary entry with phonetics, and says the pun out loud rather than winking.
 Ticket 03 designs the shape; this is the text.*
 
-> **engender** v. /ɪnˈdʒɛndə/
+> **enGender** v. /ɪnˈdʒɛndə/
 > to cause or give rise to a feeling, situation or condition.
 
 The entry is the standard dictionary sense, unedited, because the reader completing
 the thought themselves is the whole trick. No line after it explains the joke.
+
+**The headword is set in the product's own casing** (Alicja's decision,
+2026-08-28). It read `engender`, the verb, with the reader left to notice that
+the app's name is the same word. Set as `enGender` the entry is the pun rather
+than a clue to it: a dictionary page for a word that is also the thing being
+described. It is the same word either way and the sense is untouched, so nothing
+about the claim changes - what changes is whether the page says it or waits to
+be caught.
 
 **Set as an entry rather than as a sentence** (Alicja's decision, 2026-08-27,
 during ticket 03). The headword takes its own line and everything the entry knows

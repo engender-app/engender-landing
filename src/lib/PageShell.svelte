@@ -3,7 +3,7 @@
   import ThemeControl from '$lib/ThemeControl.svelte';
   import FlagRail from '$lib/FlagRail.svelte';
   import Mark from '$lib/Mark.svelte';
-  import { actionStripes } from '$lib/flags';
+
   import { flagCycle } from '$lib/flagCycle.svelte';
   import { startReveals } from '$lib/reveal';
   import {
@@ -48,16 +48,21 @@
     };
   });
 
-  /* The action wears the live flag's two most saturated stripes. Written onto
-     the document rather than onto the button, because both pages have chrome
-     that reads them and a custom property on the root is the one place they can
-     be read from everywhere. base.css carries why they are registered
-     properties and how they are made safe to put a label on. */
+  /* The action wears the live flag's own accent pair. Both themes' pairs are
+     published and base.css picks between them, rather than this reading the
+     theme: the theme can change without the flag changing, and an effect that
+     had to watch both would be watching something that is only in the cascade.
+
+     On the document rather than on the button, because both pages have chrome
+     that reads them and the root is the one place they can be read from
+     everywhere. */
   $effect(() => {
-    const [a, b] = actionStripes(flagCycle.flag);
+    const { light, dark } = flagCycle.flag.accents;
     const root = document.documentElement;
-    root.style.setProperty('--flag-a', a);
-    root.style.setProperty('--flag-b', b);
+    root.style.setProperty('--flag-light-a', light[0]);
+    root.style.setProperty('--flag-light-b', light[1]);
+    root.style.setProperty('--flag-dark-a', dark[0]);
+    root.style.setProperty('--flag-dark-b', dark[1]);
   });
 
   /* Only a person choosing a language is remembered, which is why this is on

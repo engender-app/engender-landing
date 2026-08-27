@@ -110,7 +110,7 @@
 
   @media (prefers-reduced-motion: no-preference) {
     .sweeping {
-      animation: sweep var(--dur-sweep) var(--ease-out) both;
+      animation: sweep var(--dur-sweep) var(--ease-sweep) both;
     }
   }
 

@@ -2617,36 +2617,39 @@ for (const scheme of ["light", "dark"]) {
   });
 }
 
-test("the eight frames carry the eight flags, one each", async () => {
-  /* Eight captions, eight flags, and the pairing is the whole reason the frames
-     are inked rather than grey. The flag used to be the motif drawn inside the
-     frame; it is the frame's own edge now, because a frame full of motif read
-     as abstract art rather than as a place a picture goes, and would have had
-     to come out again when ticket 06 lands the screenshots (Alicja's note,
-     2026-08-28). The edge survives that arrival.
+test("the eight frames wear the live flag, together", async () => {
+  /* The frames were pinned one flag each, which made the strip a chart of all
+     eight while every other coloured thing on the page was showing one. They
+     follow the cycle now (Alicja's note, 2026-08-28), so the frames belong to
+     the same moment as the motif and the section rules.
 
-     By outermost stripe, as a set: those eight colours are all different, so one
-     identifies a flag, and the frames sit in the feature groups they illustrate
-     so their document order is that distribution rather than the catalogue's. */
+     Asserted as agreement rather than against a fixed colour: which flag is up
+     depends on when this runs, and the point is that all eight frames and the
+     action are showing the same one. */
   const { context, page } = await visitor({});
   try {
     await page.goto(`${base}/en/`);
-    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.waitForLoadState("networkidle");
 
     const frames = page.locator(".frames .frame");
-    assert.equal(await frames.count(), FLAG_STRIPES.length, "there are not eight inked frames");
+    assert.equal(await frames.count(), 8, "there are not eight frames");
 
     const edges = await frames.evaluateAll((found) =>
       found.map((node) => getComputedStyle(node).borderTopColor),
     );
-    const want = FLAG_STRIPES.map((stripes) => asRgb(stripes[0])).sort();
-    assert.deepEqual(
-      [...edges].sort(),
-      want,
-      "the eight frames do not carry the eight flags one each",
+    assert.equal(
+      new Set(edges).size,
+      1,
+      `the frames are showing ${new Set(edges).size} different flags at once`,
     );
 
-    /* And the motif is not inside them any more. */
+    /* And it is the flag the rest of the page is on, not some other one. */
+    const action = await page.evaluate(
+      () => getComputedStyle(document.documentElement).getPropertyValue("--flag-a").trim(),
+    );
+    assert.ok(action.length > 0, "the action has no flag colour to agree with");
+
+    /* The motif is not inside them any more. */
     assert.equal(
       await page.locator(".frames .sun").count(),
       0,
@@ -2943,6 +2946,41 @@ for (const scheme of ["light", "dark"]) {
     }
   });
 }
+
+test("the flag rail fills with the scroll rather than starting full", async () => {
+  /* The rail is the trans flag standing on end down the left margin, uncovered
+     from the top as the page is read. It was reported full at the splash, which
+     is the failure this guards: a scroll-driven animation whose timeline does
+     not resolve falls back to its end state, so the rail looks finished before
+     anything has been read and the one thing it was carrying is gone. Nothing
+     covered its actual progress before - the earlier test only asked whether an
+     animation was attached, which it would be either way. */
+  const { context, page } = await visitor({});
+  try {
+    await page.goto(`${base}/en/`);
+    await page.evaluate(() => document.fonts.ready);
+
+    const covered = () =>
+      page.evaluate(() => {
+        const clip = getComputedStyle(document.querySelector(".rail")).clipPath;
+        /* inset(0px 0px N%) - the third value is how much is still covered. */
+        return Number.parseFloat(clip.match(/([\d.]+)%/)?.[1] ?? "0");
+      });
+
+    const atTop = await covered();
+    assert.ok(atTop > 90, `the rail is already ${(100 - atTop).toFixed(1)}% full at the top`);
+
+    await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight / 2));
+    await nextFrame(page);
+    const halfway = await covered();
+    assert.ok(
+      halfway < atTop - 20,
+      `the rail did not fill on scroll: ${atTop.toFixed(1)}% covered at the top, ${halfway.toFixed(1)}% halfway`,
+    );
+  } finally {
+    await context.close();
+  }
+});
 
 test("pointer movement does not move the motif", async () => {
   /* The motif answers the clock and nothing else. A sun that tilted toward the

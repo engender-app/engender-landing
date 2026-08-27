@@ -132,7 +132,7 @@
               <li>
                 <a class="badge" href={pathFor(locale)}>
                   {#if CHANNEL_MARKS[channel.name]}
-                    <Mark name={CHANNEL_MARKS[channel.name]} />
+                    <Mark name={CHANNEL_MARKS[channel.name]} size="1.6em" />
                   {/if}
                   {channel.name}
                 </a>
@@ -147,7 +147,7 @@
                  languages. -->
             <li>
               <a class="badge" href={SOURCE_URL} rel="noopener">
-                <Mark name="github" />
+                <Mark name="github" size="1.6em" />
                 github
               </a>
             </li>
@@ -296,16 +296,14 @@
         {#each GROUP_FRAMES[group.id] as screen (screen)}
           <li class="wipe" style:--reveal-index={screen}>
             <!-- Shaped like the phone the screenshot will be of, and edged in
-                 this frame's own flag. The motif used to fill it, which read as
-                 abstract art rather than as a place a picture goes, and would
-                 have had to come out again when ticket 06 lands the pictures
-                 (Alicja's note, 2026-08-28). Eight frames still carry eight
-                 flags; the flag is the edge now. -->
-            <div
-              class="frame"
-              aria-hidden="true"
-              style:--frame-ink={FLAGS[screen % FLAGS.length].stripes[0]}
-            ></div>
+                 the live flag. The motif used to fill it, which read as
+                 abstract art rather than as a place a picture goes; then each
+                 frame was pinned to a flag of its own, which made the strip a
+                 chart of all eight while everything else on the page was
+                 showing one. They move together now (Alicja's note,
+                 2026-08-28), so the frames belong to the same moment as the
+                 motif and the rules. -->
+            <div class="frame" aria-hidden="true"></div>
             <h4>{m.tour[screen].screen}</h4>
             <p>{m.tour[screen].caption}</p>
           </li>
@@ -486,15 +484,25 @@
      `line-height: 1` on the headword plus the gap below is why the collision is
      gone: the space is spacing rather than leading, so it does not scale into
      the gap between the sense's own lines. */
+  /* Not a uniform gap. The pronunciation belongs to the headword's line in a
+     printed entry and the sense follows it closely, so the two of them sit
+     together and the pair sits well clear of the word above (Alicja's note,
+     2026-08-28). */
   .nameplate {
     display: grid;
     justify-items: start;
-    gap: 0.85rem;
     max-width: 40ch;
   }
 
   .headword {
-    margin: 0;
+    margin-bottom: clamp(1.1rem, 2.5vh, 1.6rem);
+  }
+
+  .grammar {
+    margin-bottom: 0.35rem;
+  }
+
+  .headword {
     font-family: var(--font-display);
     /* The largest type on the page, and the reason the splash reads as a
        definition before it reads as a pitch. Under the craft floor's 6rem
@@ -509,7 +517,6 @@
   /* An entry's own furniture: the part of speech abbreviated the way a
      dictionary abbreviates it, then the pronunciation. */
   .grammar {
-    margin: 0;
     font-size: clamp(0.9375rem, 1.2vw, 1.0625rem);
     letter-spacing: 0.01em;
     color: var(--text-2);
@@ -572,13 +579,17 @@
   .badge {
     display: inline-flex;
     align-items: center;
-    gap: 0.45rem;
-    min-height: var(--target);
-    padding: 0.6rem 1.1rem;
+    gap: 0.6rem;
+    /* Bigger than the target floor. These are the page's secondary
+       destinations and they carry a mark, which at badge scale was almost
+       invisible (Alicja's note, 2026-08-28); the mark grew and the pill had to
+       grow with it or the label would have been squeezed against it. */
+    min-height: 3.25rem;
+    padding: 0.7rem 1.25rem;
     border-radius: var(--radius-pill);
     border: 1px solid var(--outline);
     background: var(--surface);
-    font-size: 0.9375rem;
+    font-size: 1rem;
     font-weight: 500;
     text-decoration: none;
     transition:
@@ -830,7 +841,8 @@
     position: relative;
     aspect-ratio: 9 / 16;
     border-radius: 26px;
-    border: 4px solid var(--frame-ink);
+    border: 4px solid var(--flag-a);
+    transition: border-color var(--dur-motif) var(--ease-standard);
     background: var(--surface-2);
     overflow: clip;
     margin-bottom: 1rem;

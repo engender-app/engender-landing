@@ -154,6 +154,8 @@
   --accent: #b85272;
   --accent-2: #0f7dae;
   --on-accent: #ffffff;
+  --flag-a: var(--flag-light-a);
+  --flag-b: var(--flag-light-b);
   color-scheme: light;
 }
 
@@ -168,7 +170,8 @@
     --accent: #f0a3b6;
     --accent-2: #63c4ee;
     --on-accent: #0d141a;
-    --action-l: 80%;
+    --flag-a: var(--flag-dark-a);
+    --flag-b: var(--flag-dark-b);
     color-scheme: dark;
   }
 }
@@ -185,25 +188,9 @@
   --accent: #f0a3b6;
   --accent-2: #63c4ee;
   --on-accent: #0d141a;
-  --action-l: 80%;
+  --flag-a: var(--flag-dark-a);
+  --flag-b: var(--flag-dark-b);
   color-scheme: dark;
-}
-
-/* Relative colour syntax: take the flag's hue and chroma and put them at the
-   lightness the label needs. It is the difference between a flag's colour and a
-   flag's colour rinsed through the text colour, and it is what the app does -
-   its palette accents are the flag's hues at a lightness chosen to be sat on.
-   Where a browser cannot do this the mix above stands in, paler but legible.
-
-   Declared after the theme blocks so --action-l is resolved. */
-@supports (color: oklch(from red l c h)) {
-  :root {
-    --grad-accent: linear-gradient(
-      120deg,
-      oklch(from var(--flag-a) var(--action-l) c h),
-      oklch(from var(--flag-b) var(--action-l) c h) 65%
-    );
-  }
 }
 
 /* ---- Derived ----------------------------------------------------------- */
@@ -250,43 +237,20 @@
   /* The app's one gradient, and the only one on this site. Everything else here
      is flat, which is the app's own discipline - but the app makes exactly one
      exception, for its primary button and the marks beside its section titles,
-     and the site's one action should be the app's one action (Alicja,
-     2026-08-28). The shape is the Journal's --grad-accent: 120 degrees, the
-     second stop at 65%.
+     and the site's one action should be the app's one action. The shape is the
+     Journal's --grad-accent: 120 degrees, second stop at 65%.
 
-     Where it differs is that the two colours are the live flag's, so the action
-     changes with the motif rather than staying one product colour while
-     everything around it turns over. They are the flag's two most saturated
-     stripes ($lib/flags actionStripes), carried part of the way to --text
-     before they are used.
+     The two colours are the live flag's own accent pair, copied from the app's
+     palettes rather than derived from its stripes. Two earlier attempts derived
+     them and both were wrong in the same way: a raw stripe held at a readable
+     lightness is a muted version of itself, and the button ended up a wash of a
+     colour instead of the colour. The app already has a pair per palette chosen
+     to be sat on, so the site uses those, which is also why the button now
+     looks like the app's - it is the app's.
 
-     That last part is what makes it safe rather than pretty. Raw stripes
-     include white, yellow and near-black, and a label cannot hold 4.5:1 across
-     a ramp that might end in any of them. Mixed toward --text the ramp is
-     always dark on the light theme and always light on the dark one, which is
-     the direction --on-accent needs.
-
-     40% is measured, not chosen. Swept across all eight flags in both themes,
-     the worst pair on the whole set is 4.86:1 at 40% and 4.22:1 at 45%, so 45
-     fails and 40 clears with a little room. Raising it makes the button more
-     colourful and puts the label under the floor - agender's grey and
-     nonbinary's yellow are the two that go first. tests/site.test.mjs measures
-     every flag against both ends, so this cannot drift quietly.
-
-     This mix is the fallback, and it is pale: mixing toward --text pulls
-     lightness and chroma together, so a flag's colour arrives washed out. What
-     ships where the browser can do it is the block below, which pins lightness
-     and keeps the chroma - which is how the app's own palette is built, and why
-     its button is vivid where this one was not. */
-  --grad-accent: linear-gradient(
-    120deg,
-    color-mix(in oklab, var(--flag-a) 40%, var(--text)),
-    color-mix(in oklab, var(--flag-b) 40%, var(--text)) 65%
-  );
-
-  /* Where the action's ramp has to sit for its label to hold: dark on the
-     light theme, light on the dark one. Set per theme below. */
-  --action-l: 52%;
+     They are registered properties so the change of flag interpolates: the
+     button changes colour and does not move. */
+  --grad-accent: linear-gradient(120deg, var(--flag-a), var(--flag-b) 65%);
 
   --shadow-action: 0 6px 18px rgb(0 0 0 / 0.28);
   --shadow-action-pressed: 0 2px 6px rgb(0 0 0 / 0.34);
@@ -320,11 +284,15 @@
      by reflex, and this is not reflex - it is the one authored moment on the
      page, asked for by name, and nothing else on the site uses this curve. */
   --ease-overshoot: cubic-bezier(0.34, 1.45, 0.64, 1);
+  /* Harder out than --ease-out: almost all of the sweep's distance is covered
+     in its first third, so the flag arrives and then settles rather than
+     crossing at a pace. */
+  --ease-sweep: cubic-bezier(0.05, 0.92, 0.14, 1);
   /* The motif's own duration, longer than any other tier because it is the one
      thing on the page meant to be watched rather than noticed. */
   --dur-motif: 900ms;
   /* A flag sweeping in over the one before it, left to right. */
-  --dur-sweep: 760ms;
+  --dur-sweep: 1500ms;
 }
 
 /* ---- The page ---------------------------------------------------------- */

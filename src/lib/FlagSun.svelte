@@ -49,6 +49,29 @@
 
   let moving = $state(false);
 
+  /* A ring only moves when the next flag has a different number of stripes, so
+     a change between two five-stripe flags - trans to bisexual to lesbian, half
+     the cycle - moved nothing at all and read as a plain fade (Alicja's note,
+     2026-08-28). The wave is the authored moment and it should happen every
+     time, so every change also runs a pulse: each ring dips and returns,
+     staggered outward to inward, on top of whatever its radius is doing.
+
+     Keyed off the flag itself rather than a timer, and toggled so the animation
+     restarts even when the class is already there. */
+  let pulsing = $state(false);
+  let seen = FLAGS[0];
+
+  $effect(() => {
+    const next = flagCycle.flag;
+    if (flagIndex !== null || next === seen) return;
+    seen = next;
+    if (!moving) return;
+    pulsing = false;
+    requestAnimationFrame(() => {
+      pulsing = true;
+    });
+  });
+
   /* Before mount, and for anybody without scripting, the trans flag. After
      mount it follows the shared cycle - but only once `moving` says this
      motif is allowed to move, so a reduced-motion visitor keeps the still
@@ -99,6 +122,7 @@
 >
   {#each ringSet as ring, index (index)}
     <i
+      class:pulsing
       style:--ring-scale={ring.scale}
       style:--ring-colour={ring.colour}
       style:--ring-delay="{index * 130}ms"
@@ -166,6 +190,27 @@
       transform var(--dur-motif) var(--ease-overshoot),
       background-color var(--dur-motif) var(--ease-standard);
     transition-delay: var(--ring-delay);
+  }
+
+  /* The pulse: a dip and a return on the `scale` property, which is its own
+     property and multiplies with the `transform` the ring's radius is set in,
+     so the two compose instead of fighting. Staggered by the same per-ring
+     delay as the radius, so both halves of the wave travel together. */
+  .pulsing {
+    animation: pulse var(--dur-motif) var(--ease-overshoot) both;
+    animation-delay: var(--ring-delay);
+  }
+
+  @keyframes pulse {
+    0% {
+      scale: 1;
+    }
+    45% {
+      scale: 0.9;
+    }
+    100% {
+      scale: 1;
+    }
   }
 
   /* The breathing loop, tier 0. One slow scale on the whole sun rather than
