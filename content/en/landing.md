@@ -393,7 +393,9 @@ the fact is undecided, not because anything is unshipped.*
 ### Source
 
 *Gate: shipped. The Journal repository is public, so "go and look" is checkable in
-the most literal way this page has.*
+the most literal way this page has. The block renders inside the Support section
+for now - the old site held it entirely, so no section of its own exists - and
+ticket 03 decides whether it earns one.*
 
 > **You can read it.** enGender is free software under the GPLv3. Do not take my
 > word for anything on this page: the source is public. Go and look, or get someone you

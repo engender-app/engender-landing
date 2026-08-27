@@ -276,6 +276,11 @@
   "sectionSupport": "Support",
   "support": [
     {
+      "lead": "You can read it.",
+      "rest": " enGender is free software under the GPLv3. Do not take my word for anything on this page: the source is public. Go and look, or get someone you trust to look."
+    },
+    "The licence also means you can run it, change it and pass it on. This is one person's project, so it might stop. If it does, someone else is free to pick the code up, and your Archives are a documented format rather than something only this app can open.",
+    {
       "lead": "If something is broken",
       "rest": ", tell me what happened and what you expected instead. That is usually enough to find it."
     },
