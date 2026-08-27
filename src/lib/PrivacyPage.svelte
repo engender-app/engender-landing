@@ -21,8 +21,12 @@
       <!-- Quieter than the landing page's, and smaller. It is the same motif
            doing the same cycle: this is still the same site, and a reader who
            followed the link from the landing page should not arrive somewhere
-           that looks unrelated. -->
-      <FlagSun placement="corner" size="clamp(13rem, 26vw, 22rem)" />
+           that looks unrelated.
+
+           Sized in px and vw rather than rem, for the reason written out on
+           the landing page's: a rem clamp scales with the reader's text size,
+           so the motif grows precisely when there is least room for it. -->
+      <FlagSun placement="corner" size="clamp(150px, 26vw, 340px)" />
     </div>
     <div class="masthead-inner">
       <h1>{privacy.title}</h1>

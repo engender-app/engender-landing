@@ -88,7 +88,13 @@
        Journal repository's release state. -->
   <div class="splash">
     <div class="sun-well" aria-hidden="true">
-      <FlagSun placement="corner" size="clamp(20rem, 46vw, 38rem)" />
+      <!-- Sized in px and vw, never rem. A rem clamp scales with the root
+           font size, so at 200% text this motif's *floor* doubled to 640px on
+           a 390px screen and swallowed the whole nameplate - the contrast pass
+           measured the definition at 1.20:1 against the flag's blue. A motif
+           is a picture and its size is a fact about the viewport, not about
+           the reader's text size. -->
+      <FlagSun placement="corner" size="clamp(280px, 46vw, 560px)" />
     </div>
 
 
@@ -400,6 +406,24 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
+  }
+
+  /* On a phone the motif stops sitting behind the text and takes a band of its
+     own above it. Behind the text it can only ever be safe by arithmetic - the
+     text has to stay left of where the arc reaches - and that arithmetic breaks
+     the moment somebody turns their text up, which is exactly when it must not.
+     A band cannot overlap anything, at any text size. */
+  @media (max-width: 60rem) {
+    .splash {
+      display: grid;
+    }
+
+    .sun-well {
+      position: relative;
+      inset: auto;
+      height: clamp(110px, 30vw, 190px);
+      margin-bottom: clamp(1.5rem, 5vh, 2.5rem);
+    }
   }
 
 
