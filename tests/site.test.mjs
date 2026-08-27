@@ -139,9 +139,44 @@ async function contrastTokens(page) {
   return page.evaluate(() => {
     const root = getComputedStyle(document.documentElement);
 
-    /* Resolves any CSS colour to rgb by letting the browser do it. A token
-       that got renamed resolves to the empty string, which would silently
-       inherit some other colour and quietly pass, so it throws instead. */
+    /* Painted rather than parsed, and that is the whole point of it. Reading
+       the digits out of a serialised colour is only safe while every colour
+       serialises as `rgb(0-255)`, and this palette's do not: a resolved
+       `color-mix(in srgb, ...)` comes back as `color(srgb 0.87 0.92 0.95)` and
+       a resolved `color-mix(in oklab, ...)` as `oklab(0.36 0.03 -0.02)`, both
+       on scales a 0-255 reader turns into approximately black. Every token
+       defined as a mix - --outline, --outline-strong, --accent-ink, the ink
+       field's own secondary text - was measured as black on its own
+       background, which failed absurdly in one theme and passed for entirely
+       the wrong reason in the other.
+
+       So the browser is asked to paint the colour and the pixel is read back.
+       One code path for every colour space, now and for whatever the palette
+       is written in later. */
+    const paintToRgb = (value) => {
+      const canvas = document.createElement('canvas');
+      canvas.width = 1;
+      canvas.height = 1;
+      const context = canvas.getContext('2d', { willReadFrequently: true });
+      /* A sentinel first, because an unparseable fillStyle is ignored rather
+         than thrown: without this, a colour canvas cannot read would silently
+         measure as the previous fill and the test would pass on a colour that
+         is not on the page. */
+      context.fillStyle = '#000000';
+      context.fillStyle = value;
+      if (context.fillStyle === '#000000' && !/^(#000000|rgb\(0, 0, 0\)|black)$/.test(value)) {
+        throw new Error(`canvas could not read the colour ${value}`);
+      }
+      context.fillRect(0, 0, 1, 1);
+      const [r, g, b] = context.getImageData(0, 0, 1, 1).data;
+      return [r, g, b];
+    };
+
+    /* Resolves any CSS colour to rgb by letting the browser do it, in two
+       steps: an element resolves the var() references and the cascade, then
+       the canvas above resolves the colour space. A token that got renamed
+       resolves to the empty string, which would silently inherit some other
+       colour and quietly pass, so it throws instead. */
     const colorToRgb = (value) => {
       if (!value) throw new Error('a colour token resolved to nothing; was one renamed?');
       const probe = document.createElement('span');
@@ -149,8 +184,7 @@ async function contrastTokens(page) {
       document.body.append(probe);
       const rgb = getComputedStyle(probe).color;
       probe.remove();
-      const parts = rgb.match(/\d+(?:\.\d+)?/g).map(Number);
-      return [parts[0], parts[1], parts[2]];
+      return paintToRgb(rgb);
     };
 
     const luminance = ([r, g, b]) => {
@@ -167,37 +201,38 @@ async function contrastTokens(page) {
     };
 
     const token = (name) => root.getPropertyValue(name).trim();
-    const pageColor = colorToRgb(token('--page'));
+    const bg = colorToRgb(token('--bg'));
     const surface = colorToRgb(token('--surface'));
-    const ink = colorToRgb(token('--ink'));
-    const muted = colorToRgb(token('--muted'));
-    const inkOnAccent = colorToRgb(token('--ink-on-accent'));
-    const blue = colorToRgb(token('--blue'));
-    const pink = colorToRgb(token('--pink'));
+    const surface2 = colorToRgb(token('--surface-2'));
+    const text = colorToRgb(token('--text'));
+    const text2 = colorToRgb(token('--text-2'));
+    const accent = colorToRgb(token('--accent'));
+    const accentInk = colorToRgb(token('--accent-ink'));
+    const onAccent = colorToRgb(token('--on-accent'));
+    /* The two ink fields, which are the same values in both themes by design
+       (base.css: ink does not change with the paper). Measured in both runs
+       anyway, because a test that trusts a comment is not a test. */
+    const fieldRose = colorToRgb(token('--field-rose'));
+    const fieldBlue = colorToRgb(token('--field-blue'));
+    const onField = colorToRgb(token('--on-field'));
 
-    const gradA = colorToRgb(token('--grad-a'));
-    const gradB = colorToRgb(token('--grad-b'));
-
-    /* The two headings painted through the gradient, and whether each one is
-       still big enough to be judged as WCAG large text. 24px at any weight,
-       or 18.66px once bold. */
-    const gradientText = ['main h1', '.headline'].map((selector) => {
-      const node = document.querySelector(selector);
-      const style = getComputedStyle(node);
-      const px = Number.parseFloat(style.fontSize);
-      const bold = Number.parseInt(style.fontWeight, 10) >= 700;
-      return { selector, px, bold, large: px >= 24 || (px >= 18.66 && bold) };
-    });
-
+    /* Nothing on this page is painted through a gradient any more, so nothing
+       claims the 3:1 large-text bar on the strength of being display-sized.
+       Every pair below is body text against its own ground at 4.5:1. This
+       list is the reason the redesign could drop the scrim: with the aura
+       gone, what is behind a word is a token again. */
     return {
-      inkOnPage: ratio(ink, pageColor),
-      mutedOnPage: ratio(muted, pageColor),
-      inkOnSurface: ratio(ink, surface),
-      accentTextOnBlue: ratio(inkOnAccent, blue),
-      accentTextOnPink: ratio(inkOnAccent, pink),
-      gradStartOnPage: ratio(gradA, pageColor),
-      gradEndOnPage: ratio(gradB, pageColor),
-      gradientText,
+      textOnBg: ratio(text, bg),
+      text2OnBg: ratio(text2, bg),
+      textOnSurface: ratio(text, surface),
+      text2OnSurface: ratio(text2, surface),
+      textOnSurface2: ratio(text, surface2),
+      text2OnSurface2: ratio(text2, surface2),
+      onAccentOnAccent: ratio(onAccent, accent),
+      onAccentOnAccentInk: ratio(onAccent, accentInk),
+      accentInkOnBg: ratio(accentInk, bg),
+      onFieldOnRose: ratio(onField, fieldRose),
+      onFieldOnBlue: ratio(onField, fieldBlue),
     };
   });
 }
@@ -666,45 +701,15 @@ for (const scheme of ['light', 'dark']) {
       assert.equal(await themeNow(page), scheme, `asked for ${scheme} and got the other palette`);
 
       const ratios = await contrastTokens(page);
-      assert.ok(ratios.inkOnPage >= 4.5, `ink/page contrast too low: ${ratios.inkOnPage.toFixed(2)}`);
-      assert.ok(
-        ratios.mutedOnPage >= 4.5,
-        `muted/page contrast too low: ${ratios.mutedOnPage.toFixed(2)}`,
-      );
-      assert.ok(
-        ratios.inkOnSurface >= 4.5,
-        `ink/surface contrast too low: ${ratios.inkOnSurface.toFixed(2)}`,
-      );
-      assert.ok(
-        ratios.accentTextOnBlue >= 4.5,
-        `accent text/blue contrast too low: ${ratios.accentTextOnBlue.toFixed(2)}`,
-      );
-      assert.ok(
-        ratios.accentTextOnPink >= 4.5,
-        `accent text/pink contrast too low: ${ratios.accentTextOnPink.toFixed(2)}`,
-      );
-
-      /* The hero heading and the h1 are painted in the gradient itself rather
-         than in --ink, so they answer to --grad-a and --grad-b and to the 3:1
-         bar WCAG allows large text. The size is asserted first: the lower bar
-         is earned by being display-sized, and a heading shrunk back under it
-         would otherwise keep passing on a threshold it no longer qualifies
-         for. In light these endpoints sit at 4.16 and 4.32, deliberately
-         deepened for this - see the token comment in base.css. */
-      for (const heading of ratios.gradientText) {
-        assert.ok(
-          heading.large,
-          `${heading.selector} is ${heading.px}px${heading.bold ? ' bold' : ''}, too small for the large-text contrast bar`,
-        );
+      for (const [pair, found] of Object.entries(ratios)) {
+        assert.ok(found >= 4.5, `${pair} contrast too low: ${found.toFixed(2)}, needs 4.5`);
       }
-      assert.ok(
-        ratios.gradStartOnPage >= 3,
-        `gradient start/page contrast too low: ${ratios.gradStartOnPage.toFixed(2)}`,
-      );
-      assert.ok(
-        ratios.gradEndOnPage >= 3,
-        `gradient end/page contrast too low: ${ratios.gradEndOnPage.toFixed(2)}`,
-      );
+
+      /* No 3:1 exemptions here, deliberately. The old page had two headings
+         painted through a gradient and claiming the large-text bar their
+         display size earned them; this one paints every word in a token and
+         clears 4.5:1 for all of them, including the two headings, so there is
+         no size threshold left for a later edit to quietly fall below. */
     } finally {
       await context.close();
     }
@@ -719,8 +724,9 @@ test('reduced motion disables the moving parts rather than shortening them', asy
 
     /* Motion is only observable as computed style, so this test reads style
        where the others read behaviour. What it asks for is still addressed by
-       role and name wherever a role exists; the aurora blob is decorative and
-       has no accessible name to ask for, so it stays a class. */
+       role and name wherever a role exists; the motif is decorative and
+       aria-hidden, so it has no accessible name to ask for and stays a
+       class. */
     const heading = page.getByRole('heading', { level: 1, name: SITE_NAME.en });
     const action = page.getByRole('link', { name: ACQUISITION.en.action }).first();
     const channel = page.getByRole('link', { name: CHANNELS[0], exact: true }).first();
@@ -732,13 +738,18 @@ test('reduced motion disables the moving parts rather than shortening them', asy
 
     const reduced = {
       hero: await animationOf(heading),
-      blob: await page.locator('.blob-a').evaluate((node) => getComputedStyle(node).animationName),
+      sun: await page.locator('.splash .sun').evaluate((node) => getComputedStyle(node).animationName),
+      band: await page.locator('.rule .band').first().evaluate((node) => getComputedStyle(node).animationName),
       ctaTransition: await transitionOf(action),
       badgeTransition: await transitionOf(channel),
     };
 
-    assert.equal(reduced.hero, 'none', 'hero heading still runs rise or shimmer with reduced motion');
-    assert.equal(reduced.blob, 'none', 'aurora blob still animates with reduced motion');
+    assert.equal(reduced.hero, 'none', 'the wordmark still runs its entrance with reduced motion');
+    /* Both infinite loops, and both must be off rather than fast. A 1ms
+       infinite loop is a strobe, which is the failure mode this pair exists
+       to catch. */
+    assert.equal(reduced.sun, 'none', 'the motif still breathes with reduced motion');
+    assert.equal(reduced.band, 'none', 'the ambient band still travels with reduced motion');
     assert.ok(
       !reduced.ctaTransition.includes('transform'),
       'CTA still transitions transform with reduced motion',
@@ -750,14 +761,19 @@ test('reduced motion disables the moving parts rather than shortening them', asy
 
     await page.emulateMedia({ reducedMotion: 'no-preference' });
     await page.reload();
+    await page.waitForLoadState('networkidle');
     const animated = await page.evaluate(() => ({
       hero: getComputedStyle(document.querySelector('main h1')).animationName,
-      blob: getComputedStyle(document.querySelector('.blob-a')).animationName,
+      sun: getComputedStyle(document.querySelector('.splash .sun')).animationName,
+      band: getComputedStyle(document.querySelector('.rule .band')).animationName,
     }));
 
-    assert.ok(animated.hero.includes('rise'), 'hero entrance did not return with motion allowed');
-    assert.ok(animated.hero.includes('shimmer'), 'hero shimmer did not return with motion allowed');
-    assert.ok(animated.blob.includes('drift-a'), 'aurora drift did not return with motion allowed');
+    assert.ok(animated.hero.includes('rise'), 'the wordmark entrance did not return with motion allowed');
+    assert.ok(
+      animated.sun.includes('breathe'),
+      `the motif did not start breathing with motion allowed: ${animated.sun}`,
+    );
+    assert.ok(animated.band.includes('travel'), 'the ambient band did not travel with motion allowed');
   } finally {
     await context.close();
   }
@@ -1087,15 +1103,18 @@ for (const locale of ['en', 'pl']) {
         has: page.getByRole('heading', { name: HEADINGS[locale].tour }),
       });
 
+      /* `li h3` rather than `li > h3`: ticket 03 wraps each caption's rule,
+         heading and text in a label block, so the heading is a grandchild. */
       const screens = await tour
-        .locator('li > h3')
+        .locator('li h3')
         .evaluateAll((found) => found.map((h) => h.textContent.trim()));
       assert.deepEqual(screens, TOUR[locale]);
 
-      /* The screenshots do not exist yet: ticket 09 shipped the tour's design
-         with each card reserving the frame its screenshot will occupy, and
-         ticket 15 captures them from invented data. Until it does, no card
-         shows a picture or an alt text claiming one. */
+      /* The screenshots do not exist yet: each card reserves the frame its
+         screenshot will occupy, and ticket 06 captures them from invented
+         data. Until it does, no card shows a picture or an alt text claiming
+         one - the frame is inked in its own flag instead, which is decoration
+         and carries no alt text to mistake for a caption. */
       assert.equal(await tour.locator('img').count(), 0, 'the tour claimed a picture');
     } finally {
       await context.close();
@@ -1478,18 +1497,26 @@ test('structured data describes the app, and claims nothing the page does not', 
   }
 });
 
-// The scrim: what a word is actually painted on (ticket 17)
+// What a word is actually painted on (ticket 17, kept and re-aimed by ticket 03)
 
-/* The aura used to be an ornament inside the hero, so every paragraph on the
-   page sat on --page and the token ratios above were the whole story. It is a
-   page-wide fixed layer now, which means a paragraph sits on --page plus
-   whatever has drifted behind it, and a test that reads the palette cannot see
-   that. This one reads the page.
+/* This was written for the aurora: a page-wide drifting layer meant a
+   paragraph sat on --page plus whatever had wandered behind it, and a test
+   that read the palette could not see that. Ticket 03 deleted the aurora and
+   with it the scrim that held text legible over it, so the token ratios above
+   are the whole story again for most of the page.
+
+   The pass stays, and it is doing more work than before rather than less. The
+   redesign puts running text on two full-bleed ink fields and on the app's
+   card surfaces, which means the answer to "what is behind this word" is now a
+   question about composition rather than about one page colour: a paragraph
+   that drifts out of its field, a heading that lands on a raw flag stripe, or
+   a knocked-out warning that loses its block would all read perfectly in the
+   tokens and fail on the page.
 
    Every string is painted transparent, the viewport is photographed, and the
    pixels where the text was are measured against the colour that text is
    really painted in. What comes back is the actual background behind every
-   word, scrim and aura and card tint included.
+   word: page, card surface, ink field and all.
 
    The decode happens on about:blank rather than on the site, because the
    screenshot arrives as a data: URL and this site's own policy is
@@ -1499,16 +1526,11 @@ test('structured data describes the app, and claims nothing the page does not', 
     the question is the same for a heading and for a list item - what colour is
     behind this ink - and it has to be asked of every string on the page rather
     than of the named ones. */
-const SCRIM_PROBE = 'main h2, main h3, main p, main li, main a, main strong, main span';
+const TEXT_PROBE = 'main h2, main h3, main p, main li, main a, main strong, main span';
 
 /** WCAG's bar for the size the text actually is: 3:1 once it is large, 4.5:1
     otherwise. Large is 24px at any weight, or 18.66px once bold. */
 const contrastFloor = ({ px, bold }) => (px >= 24 || (px >= 18.66 && bold) ? 3 : 4.5);
-
-/** Where the aura is parked for a given pass. The three blobs run on 19, 23
-    and 27 second loops, so these offsets land them in a different arrangement
-    every time rather than sampling one instant of a moving layer. */
-const DRIFT_PHASES = [0, 5, 11, 17];
 
 /** Waits for the page to be laid out and painted again. Two frames rather
     than one: the first lets a style change take effect, the second lets the
@@ -1529,8 +1551,8 @@ async function pixelDecoder() {
 
 /** Walks a page from top to bottom a screen at a time and reports every text
     element whose contrast against its own background falls under the bar. */
-async function scrimFailures(page, decoder) {
-  /* The hero's entrance runs for 0.8s behind a delay of up to 0.36s, and it
+async function backgroundFailures(page, decoder) {
+  /* The splash entrance runs for 0.7s behind a delay of up to 0.44s, and it
      animates opacity. Measuring through it reads a half-faded control against
      the page and calls that a contrast failure, which photographs the page
      arriving rather than the page.
@@ -1563,10 +1585,7 @@ async function scrimFailures(page, decoder) {
        from here is blocked - correctly, and tests/policy.test.mjs is what
        keeps it that way. Attributes are the one loosening the policy makes,
        for ticket 09's staggered entrance, and they are enough here. */
-    await page.evaluate((phase) => {
-      for (const blob of document.querySelectorAll('.blob')) {
-        blob.style.animationDelay = `-${phase}s`;
-      }
+    await page.evaluate(() => {
       /* The reveals come off entirely rather than being paused, because what
          is being measured is the page a person reads and a reveal is a thing
          that happens on the way to it. Frozen half way through, a reveal is
@@ -1582,7 +1601,7 @@ async function scrimFailures(page, decoder) {
       for (const node of document.querySelectorAll('main, main *')) {
         node.style.animationName = 'none';
       }
-    }, DRIFT_PHASES[pass % DRIFT_PHASES.length]);
+    });
     await nextFrame(page);
 
     /* The measurements are taken before the ink is hidden, so each probe
@@ -1609,16 +1628,18 @@ async function scrimFailures(page, decoder) {
         if (rect.bottom <= header || rect.top >= window.innerHeight) continue;
 
         const style = getComputedStyle(node);
-        /* The two gradient-clipped headings paint no ink of their own. The
-           token test above is what covers those, against the 3:1 bar their
-           display size earns them. */
+        /* Text painted in no colour of its own has nothing to measure. The
+           redesign has none - the two gradient-clipped headings this guard was
+           written for are gone - and it stays as the guard rather than as a
+           special case, because the failure it prevents is a divide by a
+           colour that is not there. */
         if (/,\s*0\)$/.test(style.color)) continue;
 
-        /* An element's own borders are not the background behind its text,
-           and several here are a flag colour: `.more` hangs from a 2px pink
-           rule and the support warning stands on a 3px one. Sampling those
-           measures ink against a border and reports 2.09 for a link that
-           reads perfectly. */
+        /* An element's own borders are not the background behind its text.
+           `.more` still hangs from a 2px rule in its own colour, and the
+           channel rows and feature groups are separated by hairlines.
+           Sampling those measures ink against a line and reports about 2 for
+           a link that reads perfectly. */
         const edge = (side) => Number.parseFloat(style[`border${side}Width`]) + 1;
         const x = Math.max(0, rect.x) + edge('Left');
         const y = Math.max(header, rect.y) + edge('Top');
@@ -1644,7 +1665,7 @@ async function scrimFailures(page, decoder) {
         });
       }
       return found;
-    }, SCRIM_PROBE);
+    }, TEXT_PROBE);
 
     if (probes.length === 0) continue;
 
@@ -1697,13 +1718,25 @@ async function scrimFailures(page, decoder) {
         return (bright + 0.05) / (dark + 0.05);
       };
 
-      return probes.map((probe) => {
-        const ink = probe.color.match(/\d+(?:\.\d+)?/g).map(Number).slice(0, 3);
-        /* A grid across the element rather than one point in the middle: the
-           aura is a gradient, so the worst pixel under a wide paragraph is at
-           one of its ends.
+      /* The ink colour arrives as whatever the site serialised it to, which
+         for anything defined as a mix is `color(srgb ...)` or `oklab(...)` on
+         a 0-1 scale. Painted rather than parsed, for the reason written out in
+         full at the token helper above. */
+      const paintToRgb = (value) => {
+        const swatch = document.createElement('canvas');
+        swatch.width = 1;
+        swatch.height = 1;
+        const paint = swatch.getContext('2d', { willReadFrequently: true });
+        paint.fillStyle = '#000000';
+        paint.fillStyle = value;
+        paint.fillRect(0, 0, 1, 1);
+        const [r, g, b] = paint.getImageData(0, 0, 1, 1).data;
+        return [r, g, b];
+      };
 
-           It keeps well inside the box, which is not slack but accuracy. The
+      return probes.map((probe) => {
+        const ink = paintToRgb(probe.color);
+        /* It keeps well inside the box, which is not slack but accuracy. The
            question is what colour is behind the words, and an element's
            extreme edge is not behind its words: the corner of a 999px pill is
            outside the pill, the last row of `.more` is its pink underline and
@@ -1711,6 +1744,10 @@ async function scrimFailures(page, decoder) {
            those measures ink against ink and reports 1.02 for a control that
            the token ratios above already cover properly. */
         let worst = { ratio: Infinity, background: null };
+        /* A grid rather than one central point, still. The aurora gradient was
+           the original reason and it is gone, but a word can now sit near the
+           edge of an ink field or a card, and the worst pixel under a wide
+           paragraph is at one of its ends either way. */
         for (let i = 0; i <= 4; i++) {
           for (let j = 0; j <= 2; j++) {
             const x = Math.round(probe.rect.x + probe.rect.w * (0.1 + 0.2 * i));
@@ -1738,12 +1775,12 @@ async function scrimFailures(page, decoder) {
   return failures;
 }
 
-/* Both themes, both text sizes, both pages. The aura runs on the privacy page
-   too, at half strength, so the page a person opens while deciding whether to
-   trust the app is measured the same way as the one selling it to them. */
+/* Both themes, both text sizes, both pages. The privacy page carries the motif
+   too, so the page a person opens while deciding whether to trust the app is
+   measured the same way as the one that sent them there. */
 for (const scheme of ['light', 'dark']) {
   for (const textSize of ['100%', '200%']) {
-    test(`${scheme} at ${textSize}: the scrim holds text contrast over the whole aura`, async () => {
+    test(`${scheme} at ${textSize}: every word holds contrast against what is behind it`, async () => {
       const { context, page } = await visitor({ colorScheme: scheme });
       const decoder = await pixelDecoder();
       try {
@@ -1755,7 +1792,7 @@ for (const scheme of ['light', 'dark']) {
             document.documentElement.style.fontSize = size;
           }, textSize);
 
-          const failures = await scrimFailures(page, decoder.page);
+          const failures = await backgroundFailures(page, decoder.page);
           assert.deepEqual(failures, [], `/en/${suffix} at ${textSize} in ${scheme}`);
         }
       } finally {
@@ -1806,11 +1843,25 @@ test('scroll-driven motion runs with scripting switched off', async () => {
       'some items were not revealing without scripting',
     );
 
+    /* The motif without scripting is the motif holding still: the app's
+       default flag, correctly stacked, no cycle and no breathing. It is not a
+       degraded state and it is not an empty box, which is what the old
+       stroke's <canvas>-based alternative would have been. */
+    const rings = await page
+      .locator('.splash .sun i')
+      .evaluateAll((found) => found.map((node) => getComputedStyle(node).backgroundColor));
+    assert.equal(rings.length, 7, `the motif did not render without scripting: ${rings.length} rings`);
     assert.equal(
-      await styleOf(page, '.flag-stroke path', 'animationName'),
-      'draw',
-      'the hero stroke did not draw without scripting',
+      rings[0],
+      'rgb(91, 206, 250)',
+      `the motif is not the trans flag without scripting: ${rings[0]}`,
     );
+    assert.equal(
+      await styleOf(page, '.splash .sun', 'animationName'),
+      'none',
+      'the motif is breathing without scripting, which nothing can have started',
+    );
+
   } finally {
     await context.close();
   }
@@ -1847,7 +1898,7 @@ test('the reveals are per item rather than per section', async () => {
   }
 });
 
-test('reduced motion removes the pinning and the drawing, and finishes them', async () => {
+test('reduced motion removes the pinning and the loops, and finishes the page', async () => {
   const { context, page } = await visitor({});
   try {
     await page.emulateMedia({ reducedMotion: 'reduce' });
@@ -1869,18 +1920,32 @@ test('reduced motion removes the pinning and the drawing, and finishes them', as
       'with the pinning gone the strip has no way to be read',
     );
 
-    /* The stroke is finished rather than absent. Its dash is what hides it
-       while it draws, and that only exists inside the motion block, so with
-       reduced motion there is no dash and the line is simply there. */
+    /* The motif is finished rather than absent: every ring painted, correctly
+       stacked, simply not moving. The two infinite loops stop outright rather
+       than being clamped short, because a 1ms infinite loop is a strobe. */
     assert.equal(
-      await styleOf(page, '.flag-stroke path', 'animationName'),
+      await styleOf(page, '.splash .sun', 'animationName'),
       'none',
-      'the hero stroke still draws itself with reduced motion',
+      'the motif still breathes with reduced motion',
     );
+
+    const stillRings = await page
+      .locator('.splash .sun i')
+      .evaluateAll((found) =>
+        found.map((node) => ({
+          colour: getComputedStyle(node).backgroundColor,
+          transition: getComputedStyle(node).transitionProperty,
+        })),
+      );
+    assert.equal(stillRings.length, 7, 'the motif lost rings with reduced motion');
     assert.equal(
-      await styleOf(page, '.flag-stroke path', 'strokeDasharray'),
-      'none',
-      'the hero stroke is dashed with reduced motion, so it is drawn part way and left there',
+      stillRings[0].colour,
+      'rgb(91, 206, 250)',
+      `the motif is not resting on the trans flag: ${stillRings[0].colour}`,
+    );
+    assert.ok(
+      stillRings.every((ring) => !ring.transition.includes('transform')),
+      'a ring still transitions transform with reduced motion',
     );
 
     const reveals = await page
@@ -2018,181 +2083,277 @@ for (const locale of ['en', 'pl']) {
   });
 }
 
+/* The motif (ticket 03). The flag sun replaces the hero stroke: the app's own
+   home-screen motif, one concentric ring per stripe, cycling all eight flags.
+
+   Three things about it can fail silently, and each has a test below. The ring
+   stacking can invert, which paints one flat disc instead of a flag and looks
+   deliberate. The stripe values can drift from the app's, which is the one
+   thing making the two products look related. And the cycle can stop, which
+   nothing else on the page would reveal. */
+
+/** The eight stripe sequences the motif must be painted in, copied from the
+    Journal repository's `--motif-stripes` (its src/lib/theme/palettes.css) the
+    same way $lib/flags.ts copies them. Written out a second time here on
+    purpose: this is the test asserting the two repositories agree, so reading
+    the values from the code under test would assert nothing at all. */
+const FLAG_STRIPES = [
+  ['#5BCEFA', '#F5A9B8', '#FFFFFF', '#F5A9B8', '#5BCEFA'],
+  ['#FCF434', '#FFFFFF', '#9C59D1', '#2C2C2C'],
+  ['#FF76A4', '#FFFFFF', '#C011D7', '#2F2F2F', '#2F3CBE'],
+  ['#D60270', '#D60270', '#9B4F96', '#0038A8', '#0038A8'],
+  ['#D52D00', '#FF9A56', '#FFFFFF', '#D362A4', '#A30262'],
+  ['#FF218C', '#FFD800', '#21B1FF'],
+  ['#E40303', '#FF8C00', '#FFED00', '#008026', '#004CFF', '#732982'],
+  ['#1A1A1A', '#B9B9B9', '#FFFFFF', '#B9F484', '#FFFFFF', '#B9B9B9', '#1A1A1A'],
+];
+
+const hexToRgb = (hex) => [1, 3, 5].map((at) => Number.parseInt(hex.slice(at, at + 2), 16));
+const asRgb = (hex) => `rgb(${hexToRgb(hex).join(', ')})`;
+
+/** The rings of one motif, outermost first, as the browser resolved them. */
+const ringsOf = (locator) =>
+  locator.locator('i').evaluateAll((found) =>
+    found.map((node) => {
+      const style = getComputedStyle(node);
+      return {
+        colour: style.backgroundColor,
+        scale: Number.parseFloat(style.transform.match(/matrix\(([\d.]+)/)?.[1] ?? '1'),
+        z: Number.parseInt(style.zIndex, 10),
+      };
+    }),
+  );
+
 for (const scheme of ['light', 'dark']) {
-  test(`${scheme}: the hero stroke is painted in the flag's colours`, async () => {
-    /* The one part of the stroke that could fail silently. Everything else
-       about it is asserted through animation-name, and a gradient whose stops
-       did not resolve still animates: it just draws a black line under the
-       headline, in both themes, and nothing says so. */
+  test(`${scheme}: the motif is the flag's own stripes, stacked largest first`, async () => {
+    /* Stacking is the silent one. Ring 0 is the outermost and therefore the
+       widest, so it has to paint underneath every ring inside it; reversed, it
+       covers all seven and the motif is a single flat circle in one colour,
+       which is exactly what this build shipped for one round. */
     const { context, page } = await visitor({ colorScheme: scheme });
     try {
       await page.goto(`${base}/en/`);
       assert.equal(await themeNow(page), scheme, `asked for ${scheme} and got the other palette`);
+      await page.emulateMedia({ reducedMotion: 'reduce' });
 
-      const painted = await page.evaluate(() => {
-        const root = getComputedStyle(document.documentElement);
-        const stop = (selector) =>
-          getComputedStyle(document.querySelector(selector)).stopColor;
-        const token = (name) => {
-          /* Resolved through the browser, because --grad-a is a hex and
-             stop-color comes back as rgb. */
-          const probe = document.createElement('span');
-          probe.style.color = root.getPropertyValue(name).trim();
-          document.body.append(probe);
-          const resolved = getComputedStyle(probe).color;
-          probe.remove();
-          return resolved;
-        };
-        return {
-          start: stop('.stop-start'),
-          mid: stop('.stop-mid'),
-          end: stop('.stop-end'),
-          gradA: token('--grad-a'),
-          gradB: token('--grad-b'),
-        };
-      });
+      const sun = page.locator('.splash .sun');
+      const rings = await ringsOf(sun);
 
-      assert.equal(painted.start, painted.gradA, 'the stroke does not start in the theme blue');
-      assert.equal(painted.end, painted.gradB, 'the stroke does not end in the theme pink');
-      for (const [where, colour] of Object.entries(painted)) {
-        assert.notEqual(
-          colour,
-          'rgb(0, 0, 0)',
-          `the ${where} of the stroke resolved to black, so a var() did not reach it`,
+      /* Seven, always, whichever flag is up: agender is the widest at seven
+         stripes and the node count is fixed at that so a flag change animates
+         colour and scale instead of adding and removing elements. */
+      assert.equal(rings.length, 7, `the motif has ${rings.length} rings, expected 7`);
+
+      for (const [index, ring] of rings.entries()) {
+        if (index === 0) continue;
+        assert.ok(
+          ring.z > rings[index - 1].z,
+          `ring ${index} paints under ring ${index - 1}, so the motif is one flat disc`,
+        );
+        assert.ok(
+          ring.scale <= rings[index - 1].scale,
+          `ring ${index} is wider than ring ${index - 1}`,
         );
       }
 
-      /* And then the pixels, because every assertion above passed while there
-         was no line on the page at all. A linearGradient defaults to
-         objectBoundingBox units, the bounding box of a horizontal line has
-         zero height, and an unresolvable gradient means the path is not
-         painted: correct stops, correct animation, nothing drawn. Only
-         looking at the rendered page catches that. */
-      const decoder = await pixelDecoder();
-      try {
-        /* The draw takes 1.2s behind a 420ms delay, and a stroke measured
-           half way through is missing its right-hand end by design. */
-        await page.evaluate(
-          () =>
-            new Promise((resolve) => {
-              const onClock = document
-                .getAnimations()
-                .filter((animation) => animation.timeline === document.timeline)
-                .filter((animation) => animation.effect?.getTiming().iterations !== Infinity);
-              Promise.allSettled(onClock.map((animation) => animation.finished)).then(resolve);
-            }),
+      /* Reduced motion holds it on the trans flag, which is the app's default
+         palette, so the colours are known exactly. */
+      const trans = FLAG_STRIPES[0];
+      for (const [index, hex] of trans.entries()) {
+        assert.equal(
+          rings[index].colour,
+          asRgb(hex),
+          `ring ${index} is ${rings[index].colour}, expected the trans flag's ${hex}`,
         );
-        await nextFrame(page);
+      }
+      /* The two rings trans has no stripe for are scaled away, not left
+         painting over the middle of the sun. */
+      for (const ring of rings.slice(trans.length)) {
+        assert.equal(ring.scale, 0, 'a ring with no stripe is still being painted');
+      }
 
-        const where = await page.evaluate(() => {
-          const rect = document.querySelector('.flag-stroke').getBoundingClientRect();
-          return { x: rect.x, y: rect.y + rect.height / 2, w: rect.width };
-        });
-
-        const pageColour = await page.evaluate(() => {
-          const probe = document.createElement('span');
-          probe.style.color = getComputedStyle(document.documentElement)
-            .getPropertyValue('--page')
-            .trim();
-          document.body.append(probe);
-          const resolved = getComputedStyle(probe).color.match(/\d+/g).map(Number);
-          probe.remove();
-          return resolved;
-        });
-
-        const shot = (await page.screenshot()).toString('base64');
-        const along = await decoder.page.evaluate(
-          async ({ shot, where, pageColour }) => {
-            const image = new Image();
-            image.src = `data:image/png;base64,${shot}`;
-            await image.decode();
-            const canvas = document.createElement('canvas');
-            canvas.width = image.naturalWidth;
-            canvas.height = image.naturalHeight;
-            const context = canvas.getContext('2d', { willReadFrequently: true });
-            context.drawImage(image, 0, 0);
-            /* A short vertical sweep at each point, because the rule is about
-               3px tall inside a 14px box and its exact row depends on how the
-               viewBox scales. The winner is the pixel furthest from the page
-               colour rather than the brightest: on a light page the brightest
-               pixel in the sweep is the background, which is how this first
-               passed in dark and failed in light. */
-            const apart = ([r, g, b]) =>
-              Math.abs(r - pageColour[0]) + Math.abs(g - pageColour[1]) + Math.abs(b - pageColour[2]);
-            return [0.08, 0.5, 0.92].map((across) => {
-              const x = Math.round(where.x + where.w * across);
-              let best = null;
-              for (let dy = -6; dy <= 6; dy++) {
-                const [r, g, b] = context.getImageData(x, Math.round(where.y + dy), 1, 1).data;
-                if (!best || apart([r, g, b]) > apart([best.r, best.g, best.b])) best = { r, g, b };
-              }
-              return best;
-            });
-          },
-          { shot, where, pageColour },
-        );
-
-        for (const [index, pixel] of along.entries()) {
-          const apart =
-            Math.abs(pixel.r - pageColour[0]) +
-            Math.abs(pixel.g - pageColour[1]) +
-            Math.abs(pixel.b - pageColour[2]);
-          assert.ok(
-            apart > 40,
-            `nothing is painted ${['near the start', 'in the middle', 'near the end'][index]} of the stroke: found rgb(${pixel.r}, ${pixel.g}, ${pixel.b}) against a page of rgb(${pageColour.join(', ')})`,
-          );
+      /* The stripes are vivid and unmeasured on purpose, which is only safe
+         because nothing reads on top of them. This is that rule as a test:
+         the motif must not sit under any text. */
+      const overlaps = await page.evaluate(() => {
+        const box = document.querySelector('.splash .sun').getBoundingClientRect();
+        const hits = [];
+        for (const node of document.querySelectorAll('.splash h1, .splash p, .splash a')) {
+          const rect = node.getBoundingClientRect();
+          if (rect.right > box.left && rect.left < box.right && rect.bottom > box.top && rect.top < box.bottom) {
+            hits.push(node.textContent.trim().slice(0, 40));
+          }
         }
-
-        /* Blue at one end and pink at the other, which is the gradient
-           actually running along the line rather than one flat colour. */
-        assert.ok(
-          along[0].b > along[0].r,
-          `the start of the stroke is not the blue end: rgb(${along[0].r}, ${along[0].g}, ${along[0].b})`,
-        );
-        assert.ok(
-          along[2].r > along[2].b,
-          `the end of the stroke is not the pink end: rgb(${along[2].r}, ${along[2].g}, ${along[2].b})`,
-        );
-      } finally {
-        await decoder.close();
-      }
+        return hits;
+      });
+      assert.deepEqual(overlaps, [], 'text is sitting on the raw flag stripes');
     } finally {
       await context.close();
     }
   });
 }
 
-test('pointer movement does not move the hero stroke', async () => {
+test("the tour's eight frames carry the eight flags, one each", async () => {
+  /* Eight captions, eight flags, and the pairing is the whole reason the
+     frames are inked rather than grey. A frame following the shared cycle
+     instead of its own flag would make the strip eight copies of one flag,
+     which reads as a bug in the motif rather than as a decision. */
+  const { context, page } = await visitor({});
+  try {
+    await page.goto(`${base}/en/`);
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+
+    const frames = page.locator('.tour-strip .frame .sun');
+    assert.equal(await frames.count(), FLAG_STRIPES.length, 'the tour is not eight inked frames');
+
+    for (let index = 0; index < FLAG_STRIPES.length; index++) {
+      const rings = await ringsOf(frames.nth(index));
+      const expected = FLAG_STRIPES[index];
+      assert.equal(
+        rings[0].colour,
+        asRgb(expected[0]),
+        `tour frame ${index} leads with ${rings[0].colour}, expected ${expected[0]}`,
+      );
+      assert.equal(
+        rings.filter((ring) => ring.scale > 0).length,
+        expected.length,
+        `tour frame ${index} does not have ${expected.length} stripes showing`,
+      );
+    }
+  } finally {
+    await context.close();
+  }
+});
+
+test('the motif cycles the flags, and stops when it cannot be seen', async () => {
+  /* The ambient loop. It is the one thing on this page that moves while a
+     reader does nothing, so if it silently stopped, nothing else would say so.
+
+     The second half is the rule from reference/animate.md that a nonessential
+     loop stops when it is offscreen or hidden: a page left open in a
+     background tab must not sit there repainting a sun nobody is looking at. */
   const { context, page } = await visitor({});
   try {
     await page.goto(`${base}/en/`);
     await page.waitForLoadState('networkidle');
-    const stroke = page.locator('.flag-ink');
-    const before = await stroke.evaluate((node) => getComputedStyle(node).transform);
 
-    await page.mouse.move(20, 100);
-    await page.mouse.move(1200, 600);
-    await new Promise((resolve) => setTimeout(resolve, 250));
+    const sun = page.locator('.splash .sun');
+    /* The loop starts when the motif's own IntersectionObserver reports it on
+       screen, which is a frame or two after hydration rather than at load. */
+    await sun.evaluate((node) =>
+      new Promise((resolve, reject) => {
+        if (node.classList.contains('moving')) return resolve();
+        const observer = new MutationObserver(() => {
+          if (node.classList.contains('moving')) {
+            observer.disconnect();
+            resolve();
+          }
+        });
+        observer.observe(node, { attributes: true, attributeFilter: ['class'] });
+        setTimeout(() => {
+          observer.disconnect();
+          reject(new Error('the motif never started moving'));
+        }, 4000);
+      }),
+    );
+    assert.ok(
+      /breathe/.test(await sun.evaluate((node) => getComputedStyle(node).animationName)),
+      'the motif is not breathing',
+    );
 
+    const first = (await ringsOf(sun))[0].colour;
+    /* One period plus the outermost ring's own transition, which is the first
+       to move because the wave crosses from the rim inward. */
+    await new Promise((resolve) => setTimeout(resolve, 6800));
+    const second = (await ringsOf(sun))[0].colour;
+    assert.notEqual(second, first, `the motif did not change flag in one period, still ${first}`);
+
+    /* Scrolled well past it, the cycle releases its timer. Read through the
+       page's own count of live intervals rather than through the module, which
+       a browser test cannot import. */
+    await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+    await new Promise((resolve) => setTimeout(resolve, 300));
+    const held = await ringsOf(sun);
+    await new Promise((resolve) => setTimeout(resolve, 6800));
     assert.equal(
-      await stroke.evaluate((node) => getComputedStyle(node).transform),
-      before,
-      'the hero stroke still follows the pointer',
+      (await ringsOf(sun))[0].colour,
+      held[0].colour,
+      'the motif kept cycling after scrolling out of view',
     );
   } finally {
     await context.close();
   }
 });
 
-test('the motion system uses one runtime dependency and no duplicate runtime', async () => {
-  /* Ticket 18 introduces motion.dev on purpose: one runtime dependency, used
-  for the hero stroke choreography, with the ambient page movement still
-  CSS or hand-rolled. */
+test('the ambient band travels, and only where motion is allowed', async () => {
+  const { context, page } = await visitor({});
+  try {
+    await page.goto(`${base}/en/`);
+    assert.equal(
+      await styleOf(page, '.rule .band', 'animationName'),
+      'travel',
+      'the ambient band is not travelling',
+    );
+
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    assert.equal(
+      await styleOf(page, '.rule .band', 'animationName'),
+      'none',
+      'the ambient band still travels with reduced motion',
+    );
+    assert.equal(
+      await styleOf(page, '.rule .band', 'opacity'),
+      '0',
+      'the band is parked mid-travel with reduced motion rather than removed',
+    );
+  } finally {
+    await context.close();
+  }
+});
+
+
+test('pointer movement does not move the motif', async () => {
+  /* The motif answers the clock and nothing else. A sun that tilted toward the
+     pointer would be the one piece of motion on this page a reader could not
+     escape by holding still, and it would be the first thing anybody reached
+     for to make the splash livelier. */
+  const { context, page } = await visitor({});
+  try {
+    await page.goto(`${base}/en/`);
+    await page.waitForLoadState('networkidle');
+    const ring = page.locator('.splash .sun i').first();
+    const before = await ring.evaluate((node) => getComputedStyle(node).transform);
+
+    await page.mouse.move(20, 100);
+    await page.mouse.move(1200, 600);
+    await new Promise((resolve) => setTimeout(resolve, 250));
+
+    assert.equal(
+      await ring.evaluate((node) => getComputedStyle(node).transform),
+      before,
+      'the motif follows the pointer',
+    );
+  } finally {
+    await context.close();
+  }
+});
+
+test('the motion system ships no animation runtime at all', async () => {
+  /* Ticket 18 added motion.dev for one job, choreographing the hero stroke.
+     Ticket 03's redesign has no stroke, and everything that replaced it - the
+     flag cycle, the breathing sun, the travelling band, the reveals, the
+     pinned pan - is CSS driven by tokens, plus one small hand-rolled
+     IntersectionObserver for browsers that cannot scrub. So the dependency
+     went with the stroke rather than being kept in case.
+
+     This is a landing page whose whole argument is that the app holds nothing
+     back. Shipping an animation library to slide some paragraphs upward would
+     be the page contradicting itself in the network tab. */
   const manifest = JSON.parse(
     await readFile(fileURLToPath(new URL('../package.json', import.meta.url)), 'utf8'),
   );
   const runtime = Object.keys(manifest.dependencies ?? {}).sort();
-  assert.deepEqual(runtime, ['motion'], 'expected exactly one runtime animation dependency');
+  assert.deepEqual(runtime, [], 'expected no runtime dependencies at all');
 
   /* Matched whole, not as substrings. "motion" inside a package name catches
      half the ecosystem and "aos" catches any word containing it, and a test
@@ -2211,7 +2372,7 @@ test('the motion system uses one runtime dependency and no duplicate runtime', a
   for (const name of Object.keys(manifest.devDependencies ?? {})) {
     assert.ok(
       !banned.has(name),
-      `${name} is an animation library, and motion.dev should be the only one here`,
+      `${name} is an animation library, and this site animates itself in CSS`,
     );
   }
 });

@@ -1,6 +1,5 @@
 <script lang="ts">
   import { onMount, type Snippet } from 'svelte';
-  import Aura from '$lib/Aura.svelte';
   import ThemeControl from '$lib/ThemeControl.svelte';
   import { startReveals } from '$lib/reveal';
   import {
@@ -104,11 +103,14 @@
   {/if}
 </svelte:head>
 
-<!-- The site's ground, under both pages and under the header. The landing page
-     leads with it and the privacy page runs it at half, which is the whole of
-     the difference between them: one layer, one set of tokens, two
-     intensities (ticket 17). -->
-<Aura strength={page === 'landing' ? 'full' : 'quiet'} />
+<!-- No page-wide ground layer any more. Ticket 09's aurora was a fixed wash
+     of drifting blobs behind everything, which is why every block of text on
+     the site needed a blurred veil of --bg between it and the glow. The flag
+     sun replaces it: a motif with edges, placed by the page that wants it
+     (the splash's corner, the privacy page's masthead), clipped by its own
+     container, and never behind running text. So the veil is gone too, and
+     the contrast numbers are the palette's own again rather than something
+     measured through a scrim. -->
 
 <header class="controls">
   {#if page !== 'landing'}

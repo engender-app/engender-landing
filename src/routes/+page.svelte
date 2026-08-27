@@ -76,11 +76,10 @@
   h1 {
     margin: 0;
     font-size: clamp(2rem, 6vw, 3.5rem);
+    font-family: var(--font-display);
     font-weight: 600;
-    background: linear-gradient(92deg, var(--grad-a), var(--grad-b));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    letter-spacing: var(--display-track);
+    color: var(--text);
   }
 
   ul {
@@ -97,14 +96,14 @@
     display: inline-block;
     padding: 0.6rem 1.5rem;
     border-radius: 999px;
-    border: 1px solid var(--line);
+    border: 1px solid var(--outline);
     background: var(--surface);
     font-weight: 500;
     text-decoration: none;
-    transition: border-color 0.25s;
+    transition: border-color var(--dur-fast);
   }
 
   a:hover {
-    border-color: var(--blue);
+    border-color: var(--outline-strong);
   }
 </style>
