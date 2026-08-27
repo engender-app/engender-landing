@@ -739,7 +739,9 @@ test('reduced motion disables the moving parts rather than shortening them', asy
     const reduced = {
       hero: await animationOf(heading),
       sun: await page.locator('.splash .sun').evaluate((node) => getComputedStyle(node).animationName),
-      band: await page.locator('.rule .band').first().evaluate((node) => getComputedStyle(node).animationName),
+      /* Counted, not read: with reduced motion the band is not in the document
+         at all, so there is no element to compute a style on. */
+      bands: await page.locator('.rule .band').count(),
       ctaTransition: await transitionOf(action),
       badgeTransition: await transitionOf(channel),
     };
@@ -749,7 +751,7 @@ test('reduced motion disables the moving parts rather than shortening them', asy
        infinite loop is a strobe, which is the failure mode this pair exists
        to catch. */
     assert.equal(reduced.sun, 'none', 'the motif still breathes with reduced motion');
-    assert.equal(reduced.band, 'none', 'the ambient band still travels with reduced motion');
+    assert.equal(reduced.bands, 0, 'the ambient band is still rendered with reduced motion');
     assert.ok(
       !reduced.ctaTransition.includes('transform'),
       'CTA still transitions transform with reduced motion',
@@ -762,6 +764,7 @@ test('reduced motion disables the moving parts rather than shortening them', asy
     await page.emulateMedia({ reducedMotion: 'no-preference' });
     await page.reload();
     await page.waitForLoadState('networkidle');
+    await page.locator('.rule .band').first().waitFor({ timeout: 5000 });
     const animated = await page.evaluate(() => ({
       hero: getComputedStyle(document.querySelector('main h1')).animationName,
       sun: getComputedStyle(document.querySelector('.splash .sun')).animationName,
@@ -773,7 +776,7 @@ test('reduced motion disables the moving parts rather than shortening them', asy
       animated.sun.includes('breathe'),
       `the motif did not start breathing with motion allowed: ${animated.sun}`,
     );
-    assert.ok(animated.band.includes('travel'), 'the ambient band did not travel with motion allowed');
+    assert.ok(animated.band.includes('cross'), 'the ambient band did not travel with motion allowed');
   } finally {
     await context.close();
   }
@@ -790,7 +793,10 @@ test('without scripting the page reads, in the system theme', async () => {
   try {
     await page.goto(`${base}/pl/`);
     assert.equal(await documentLanguage(page), 'pl');
-    assert.equal(await page.locator('main section').count(), sectionHeadings('pl').length);
+    /* One more section than there are headings: the features act is split in
+       two by the privacy act that interrupts it, and the continuation carries
+       no heading of its own. */
+    assert.equal(await page.locator('main section').count(), sectionHeadings('pl').length + 1);
     assert.equal(await themeNow(page), 'dark', 'a dark system theme got a light page');
     assert.equal(
       await page.locator('.theme-control').isVisible(),
@@ -936,9 +942,18 @@ const HEADINGS = {
   },
 };
 
-/** The order a reader meets them in. Written out rather than counted, so that
-    a section quietly disappearing fails here and names itself. */
-const SECTION_ORDER = ['overview', 'privacy', 'tour', 'features', 'acquisition', 'support'];
+/** The order a reader meets them in, at the level each one is set. Written out
+    rather than counted, so that a section quietly disappearing fails here and
+    names itself.
+
+    Ticket 03 reordered this and changed one level. Privacy moved from third to
+    fourth: it used to be one handoff paragraph two sections above eight
+    placeholder frames, and it is a full act now that lands immediately before
+    the careful controls, so the threat model is read before the controls that
+    answer it. And "the screens" stopped being a section of its own - the eight
+    frames moved into the feature groups they illustrate - so its heading is
+    now the frame disclosure inside the features act, one level down. */
+const SECTION_ORDER = ['overview', 'features', 'privacy', 'acquisition', 'support'];
 const sectionHeadings = (locale) => SECTION_ORDER.map((section) => HEADINGS[locale][section]);
 
 /** The privacy page's own title, which is also the text of the link the
@@ -1085,6 +1100,15 @@ for (const locale of ['en', 'pl']) {
         .evaluateAll((found) => found.map((h) => h.textContent.trim()));
       assert.deepEqual(headings, sectionHeadings(locale));
 
+      /* The screens' heading is still on the page and still says what it says;
+         it introduces the frames from inside the features act rather than
+         heading a section of its own. */
+      assert.equal(
+        await page.locator('.screens-note h3').innerText(),
+        HEADINGS[locale].tour,
+        'the frame disclosure lost its heading',
+      );
+
       assert.equal(await page.locator('main h1').innerText(), SITE_NAME[locale]);
       assert.ok(
         (await page.locator('main').innerText()).includes(HEADLINE[locale]),
@@ -1099,23 +1123,22 @@ for (const locale of ['en', 'pl']) {
     const { context, page } = await visitor({});
     try {
       await page.goto(`${base}/${locale}/`);
-      const tour = page.locator('section').filter({
-        has: page.getByRole('heading', { name: HEADINGS[locale].tour }),
-      });
 
-      /* `li h3` rather than `li > h3`: ticket 03 wraps each caption's rule,
-         heading and text in a label block, so the heading is a grandchild. */
-      const screens = await tour
-        .locator('li h3')
+      /* The captions are distributed across the feature groups they
+         illustrate, so they are collected from the page rather than from one
+         section, and compared as a set: their document order is that
+         distribution and not the catalogue's own order. */
+      const screens = await page
+        .locator('.frames h4')
         .evaluateAll((found) => found.map((h) => h.textContent.trim()));
-      assert.deepEqual(screens, TOUR[locale]);
+      assert.deepEqual([...screens].sort(), [...TOUR[locale]].sort());
 
       /* The screenshots do not exist yet: each card reserves the frame its
          screenshot will occupy, and ticket 06 captures them from invented
          data. Until it does, no card shows a picture or an alt text claiming
          one - the frame is inked in its own flag instead, which is decoration
          and carries no alt text to mistake for a caption. */
-      assert.equal(await tour.locator('img').count(), 0, 'the tour claimed a picture');
+      assert.equal(await page.locator('.frames img').count(), 0, 'a frame claimed a picture');
     } finally {
       await context.close();
     }
@@ -1826,12 +1849,13 @@ test('scroll-driven motion runs with scripting switched off', async () => {
   try {
     await page.goto(`${base}/en/`);
 
-    const pan = await styleOf(page, '.tour-strip', 'animationName');
-    assert.equal(pan, 'pan', 'the tour did not pan without scripting');
-    assert.equal(
-      await styleOf(page, '.tour-stage', 'position'),
-      'sticky',
-      'the tour did not pin without scripting',
+    /* The pinned sideways pan is gone with the strip that needed it. What is
+       scroll-driven now is the flag rail down the margin, which fills as the
+       page is read - and like the pan it is CSS, so it works here with no
+       script to start it. */
+    assert.ok(
+      /fill/.test(await styleOf(page, '.rail', 'animationName')),
+      'the flag rail did not fill without scripting',
     );
 
     const reveals = await page
@@ -1904,20 +1928,20 @@ test('reduced motion removes the pinning and the loops, and finishes the page', 
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.goto(`${base}/en/`);
 
+    /* The rail is not rendered at all rather than parked full: it tracks the
+       scrollbar, so it is movement tied to reading, and somebody who asked for
+       less of that asked for less of this. */
     assert.equal(
-      await styleOf(page, '.tour-stage', 'position'),
-      'static',
-      'the tour still pins with reduced motion',
-    );
-    assert.equal(
-      await styleOf(page, '.tour-strip', 'animationName'),
+      await styleOf(page, '.rail', 'display'),
       'none',
-      'the tour still pans with reduced motion',
+      'the flag rail is still shown with reduced motion',
     );
+    /* And the band is not in the document either, so there is nothing frozen
+       part way across a rule. */
     assert.equal(
-      await styleOf(page, '.tour-stage', 'overflowX'),
-      'auto',
-      'with the pinning gone the strip has no way to be read',
+      await page.locator('.rule .band').count(),
+      0,
+      'the travelling band is still rendered with reduced motion',
     );
 
     /* The motif is finished rather than absent: every ring painted, correctly
@@ -2047,14 +2071,18 @@ test('the hand-rolled fallback reveals items in a browser that cannot scrub', as
 });
 
 for (const locale of ['en', 'pl']) {
-  test(`${locale}: the pinned tour loses no caption at 200% text`, async () => {
-    /* The pin holds the strip at the height of one window and clips it, which
-       is what stops a strip several windows wide from widening the document.
-       Clipping the other axis as well cut 463px of English and 415px of
-       Polish off the bottom of every card at 200% text on a 390px screen: a
-       caption runs about fifteen lines there, so the card is 1250px tall
-       against a stage of 788, and the text simply was not on the page. At
-       exactly the text size somebody picks because they need it. */
+  test(`${locale}: no caption is cut off at 200% text on a phone`, async () => {
+    /* The pinned sideways strip is gone (ticket 03): eight placeholder frames a
+       reader had to scroll horizontally through before meeting anything they
+       illustrated, held at one window's height and clipped. The clip was the
+       hazard - clipping the vertical axis as well cut 463px of English and
+       415px of Polish off the bottom of every card at 200% text on a 390px
+       screen, at exactly the text size somebody picks because they need it.
+
+       The frames sit in the feature groups they belong to now, in an ordinary
+       grid with nothing clipping them, so this measures the thing that
+       actually mattered: is every caption's text inside its own element, and
+       is every frame inside the document. */
     const { context, page } = await visitor({});
     try {
       await page.setViewportSize({ width: 390, height: 844 });
@@ -2064,19 +2092,22 @@ for (const locale of ['en', 'pl']) {
       });
       await nextFrame(page);
 
-      const lost = await page.evaluate(() => {
-        const stage = document.querySelector('.tour-stage');
-        /* scrollHeight, not clientHeight: what a reader can reach is the whole
-           scrollable area, and the question is whether any of a card falls
-           outside even that. */
-        return [...document.querySelectorAll('.tour-strip li')]
-          .map((card) => ({
-            screen: card.querySelector('h3').textContent,
-            beyond: Math.round(card.getBoundingClientRect().height - stage.scrollHeight),
-          }))
-          .filter((card) => card.beyond > 0);
-      });
-      assert.deepEqual(lost, [], `/${locale}/ cuts the bottom off a tour card at 200% text`);
+      const cut = await page.evaluate(() =>
+        [...document.querySelectorAll('.frames li')]
+          .map((item) => {
+            const caption = item.querySelector('p');
+            return {
+              screen: item.querySelector('h4').textContent,
+              /* Overflowing its own box is the failure a clip would cause. */
+              hidden: Math.round(caption.scrollHeight - caption.clientHeight),
+            };
+          })
+          .filter((item) => item.hidden > 1),
+      );
+      assert.deepEqual(cut, [], `/${locale}/ cuts a caption off at 200% text`);
+
+      const frames = await page.locator('.frames li').count();
+      assert.equal(frames, 8, `/${locale}/ renders ${frames} frames, expected all eight`);
     } finally {
       await context.close();
     }
@@ -2203,23 +2234,28 @@ test("the tour's eight frames carry the eight flags, one each", async () => {
     await page.goto(`${base}/en/`);
     await page.emulateMedia({ reducedMotion: 'reduce' });
 
-    const frames = page.locator('.tour-strip .frame .sun');
-    assert.equal(await frames.count(), FLAG_STRIPES.length, 'the tour is not eight inked frames');
+    const frames = page.locator('.frames .frame .sun');
+    assert.equal(await frames.count(), FLAG_STRIPES.length, 'there are not eight inked frames');
 
+    /* The frames are distributed across the groups they illustrate rather than
+       collected in one strip, and the order they appear in the document is the
+       order of `m.tour`, so index i still carries flag i. */
+
+    const seen = [];
     for (let index = 0; index < FLAG_STRIPES.length; index++) {
       const rings = await ringsOf(frames.nth(index));
-      const expected = FLAG_STRIPES[index];
-      assert.equal(
-        rings[0].colour,
-        asRgb(expected[0]),
-        `tour frame ${index} leads with ${rings[0].colour}, expected ${expected[0]}`,
-      );
-      assert.equal(
-        rings.filter((ring) => ring.scale > 0).length,
-        expected.length,
-        `tour frame ${index} does not have ${expected.length} stripes showing`,
-      );
+      seen.push({
+        lead: rings[0].colour,
+        stripes: rings.filter((ring) => ring.scale > 0).length,
+      });
     }
+
+    /* As a set. The frames sit in the feature groups they illustrate, so their
+       document order is that distribution and not the tour's own order; what
+       matters is that all eight flags are used and none twice. */
+    const want = FLAG_STRIPES.map((stripes) => `${asRgb(stripes[0])} x${stripes.length}`).sort();
+    const got = seen.map((frame) => `${frame.lead} x${frame.stripes}`).sort();
+    assert.deepEqual(got, want, 'the eight frames do not carry the eight flags one each');
   } finally {
     await context.close();
   }
@@ -2285,27 +2321,37 @@ test('the motif cycles the flags, and stops when it cannot be seen', async () =>
   }
 });
 
-test('the ambient band travels, and only where motion is allowed', async () => {
+test('one band travels the page, handed from one rule to the next', async () => {
+  /* The first build gave every section rule its own band on its own loop,
+     which is six unrelated things twitching at six phases rather than an
+     ambient layer. There is one band on the page now: it crosses a rule,
+     leaves, and appears in the next one down.
+
+     So the assertion is about the count, not about one element's style. Exactly
+     one band exists at a time, and over a couple of crossings it must have
+     moved to a different rule. */
   const { context, page } = await visitor({});
   try {
     await page.goto(`${base}/en/`);
-    assert.equal(
-      await styleOf(page, '.rule .band', 'animationName'),
-      'travel',
-      'the ambient band is not travelling',
-    );
+    await page.waitForLoadState('networkidle');
 
-    await page.emulateMedia({ reducedMotion: 'reduce' });
-    assert.equal(
-      await styleOf(page, '.rule .band', 'animationName'),
-      'none',
-      'the ambient band still travels with reduced motion',
-    );
-    assert.equal(
-      await styleOf(page, '.rule .band', 'opacity'),
-      '0',
-      'the band is parked mid-travel with reduced motion rather than removed',
-    );
+    const bands = page.locator('.rule .band');
+    await bands.first().waitFor({ timeout: 5000 });
+    assert.equal(await bands.count(), 1, 'more than one band is travelling at once');
+
+    const ruleNow = () =>
+      page.evaluate(() => {
+        const rules = [...document.querySelectorAll('.rule')];
+        return rules.findIndex((rule) => rule.querySelector('.band'));
+      });
+    const first = await ruleNow();
+    assert.ok(first >= 0, 'no rule is carrying the band');
+
+    /* One crossing is 4.2s; two of them is past the handoff whichever phase
+       this started in. */
+    await new Promise((resolve) => setTimeout(resolve, 9000));
+    assert.notEqual(await ruleNow(), first, 'the band never moved to another rule');
+    assert.equal(await bands.count(), 1, 'the handoff left more than one band behind');
   } finally {
     await context.close();
   }

@@ -72,6 +72,7 @@
   "sectionFeatures": "Co potrafi",
   "features": [
     {
+      "id": "writing",
       "group": "Zapisywanie",
       "paragraphs": [
         {
@@ -93,6 +94,7 @@
       ]
     },
     {
+      "id": "reading",
       "group": "Przeglądanie",
       "paragraphs": [
         {
@@ -126,6 +128,7 @@
       ]
     },
     {
+      "id": "keeping",
       "group": "Archiwa i eksport",
       "paragraphs": [
         {
@@ -147,6 +150,7 @@
       ]
     },
     {
+      "id": "careful",
       "group": "Jeśli musisz uważać",
       "paragraphs": [
         "Wszystko w tej sekcji jest wyłączone, dopóki tego nie włączysz. Prowadzenie dziennika o własnym życiu to nic wstydliwego i aplikacja nie zachowuje się, jakby było inaczej. Te funkcje istnieją, bo bywają sytuacje naprawdę niebezpieczne, a czy twoja taka jest, wiesz tylko ty.",
@@ -165,6 +169,7 @@
       ]
     },
     {
+      "id": "looks",
       "group": "Wygląd",
       "paragraphs": [
         {

@@ -1,0 +1,35 @@
+{
+  "title": "enGender landing: direction committed",
+  "question": "Round closed. Your three steers are a brief pin, and a pinned direction beats the roll, so this is the commitment rather than a card to choose. Re-roll is still here if you want the carousel back.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "The Flag Sheet",
+      "kicker": "PINNED BY THE BRIEF",
+      "lineage": "the app's own printed language: flat flag inks, hairline-separated cards, the flag sun at the corner, Outfit at display size",
+      "thesis": "The landing page is the app's sheet at poster scale. It inherits the app's world rather than borrowing a foreign one, and what it adds is motion the app cannot afford to have, because the app has to stay usable every day and this page does not.",
+      "palette": ["#5BCEFA", "#F5A9B8", "#B85272", "#0D141A", "#F4F8FB"],
+      "materials": ["flat flag ink, no gradients anywhere", "hairline rules instead of tonal elevation", "20px card radius", "the eight flags' stripe sequences as the motif's only colours", "Outfit at -0.024em, DM Sans for reading"],
+      "viewport": "The definition leads, exactly as you asked: engender, verb, with its phonetics, set as a printed dictionary line across the top of the sheet. The hero comes under it, the headline in Outfit at poster scale with the wordmark drawing itself as one continuous stroke. The flag sun sits in the top-right corner as concentric rings, one per stripe, the way the app's home screen does it, and it cycles all eight flags on a wave that crosses the rings outward to inward. Start journal is one solid ink block in the accent, and it is the only place that ink is spent.",
+      "risk": "Two. Inheriting the app's world means the page can end up looking like a screenshot of the app rather than a page about it, so the scale has to be genuinely poster-scale and the composition has to be nothing the app would ever do. And a lot of animation on a page that must still read at 200% text with reduced motion and no scripting is where this kind of build usually breaks: every moment needs a designed still.",
+      "raised": [
+        { "from": "the incumbent aurora", "raise": "Gradients go. The old page was built on them, the app has none, and surfaces here separate with a line the way the app's do." },
+        { "from": "Hand-Bent Neon", "raise": "The wordmark ignites as one continuous stroke drawn in a single pass, which is also what the site's existing drawn flag line was reaching for." },
+        { "from": "Daylight Section", "raise": "The ambient loop is a band of the flag's ink travelling a fixed structure rather than a static glow, which is the answer to how this page moves when nobody touches it." },
+        { "from": "Character Goods Catalog", "raise": "Fixed printed furniture on every dated item, in one order, so a tour frame and a channel row are read the same way." },
+        { "from": "Game Boy Four-Shade Field", "raise": "A hard ink ceiling per region, with emphasis by inversion rather than by adding a colour." }
+      ]
+    }
+  ],
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "What a private-journal app's landing page ships, executed impeccably.",
+    "palette": ["#FFFFFF", "#F3EEFB", "#7A5AF8", "#1B1B22"],
+    "materials": ["soft gradient wash", "phone mockup at an angle", "rounded feature cards"],
+    "viewport": "Centred headline over a pastel gradient, a tilted phone showing the app, three icon cards below, one purple button.",
+    "risk": "Indistinguishable from every other private-journal app by design, and this audience reads that sameness as a company having made it."
+  },
+  "reroll": { "registers": ["safer", "bolder"] },
+  "steer": true
+}

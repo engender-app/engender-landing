@@ -73,6 +73,7 @@
   "sectionFeatures": "What it does",
   "features": [
     {
+      "id": "writing",
       "group": "Writing it down",
       "paragraphs": [
         {
@@ -98,6 +99,7 @@
       ]
     },
     {
+      "id": "reading",
       "group": "Reading it back",
       "paragraphs": [
         {
@@ -139,6 +141,7 @@
       ]
     },
     {
+      "id": "around",
       "group": "Around the journal",
       "paragraphs": [
         "The journal is the spine, and the rest of transition life has a place around it. None of it interprets, and none of it grades.",
@@ -161,6 +164,7 @@
       ]
     },
     {
+      "id": "keeping",
       "group": "Keeping it",
       "paragraphs": [
         {
@@ -186,6 +190,7 @@
       ]
     },
     {
+      "id": "phone",
       "group": "On your phone",
       "paragraphs": [
         {
@@ -211,6 +216,7 @@
       ]
     },
     {
+      "id": "careful",
       "group": "If you need to be careful",
       "paragraphs": [
         "Everything in this section is off until you turn it on. Keeping a journal about your own life is not something to be ashamed of, and the app does not behave as though it is. These exist because some people's circumstances are genuinely unsafe, and only you know whether that is yours.",
@@ -233,6 +239,7 @@
       ]
     },
     {
+      "id": "looks",
       "group": "How it looks",
       "paragraphs": [
         {

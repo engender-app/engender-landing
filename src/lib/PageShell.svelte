@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount, type Snippet } from 'svelte';
   import ThemeControl from '$lib/ThemeControl.svelte';
+  import FlagRail from '$lib/FlagRail.svelte';
   import { startReveals } from '$lib/reveal';
   import {
     LANGUAGE_KEY,
@@ -111,6 +112,12 @@
      container, and never behind running text. So the veil is gone too, and
      the contrast numbers are the palette's own again rather than something
      measured through a scrim. -->
+
+<!-- The flag standing on end down the left margin, filling as the page is
+     read: a reading-progress rail that is also the trans flag. On both pages,
+     because a rail that appeared on one of them would read as a fault on the
+     other. -->
+<FlagRail />
 
 <header class="controls">
   {#if page !== 'landing'}

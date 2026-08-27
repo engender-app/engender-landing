@@ -15,5 +15,9 @@ vite.config.ts.timestamp-*
 CLAUDE.md
 docs/agents/
 
-# The impeccable run's own working files: review captures and config.
-.impeccable/
+# The impeccable run's own working files. The captures and the sign-off page
+# are scratch; design.json is the design system's machine-readable half and
+# belongs in the repository next to DESIGN.md.
+.impeccable/review/
+.impeccable/*.html
+.impeccable/mocks/

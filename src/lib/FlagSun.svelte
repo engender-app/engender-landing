@@ -112,7 +112,7 @@
     <i
       style:--ring-scale={ring.scale}
       style:--ring-colour={ring.colour}
-      style:--ring-delay="{index * 70}ms"
+      style:--ring-delay="{index * 115}ms"
       style:z-index={index}
     ></i>
   {/each}
@@ -161,8 +161,14 @@
      under reduced motion it would animate at all, which is the thing being
      avoided. */
   .moving i {
+    /* Slow enough to be watched rather than noticed, and it overshoots.
+       --ease-overshoot is a mild spring: a ring travelling to its new radius
+       goes a little past it and settles, which is what makes the wave read as
+       one movement crossing the sun instead of seven rings changing size. The
+       colour rides the same curve but overshoot is meaningless for a colour,
+       so it takes the plain one. */
     transition:
-      transform var(--dur-slow) var(--ease-standard),
+      transform var(--dur-authored) var(--ease-overshoot),
       background-color var(--dur-slow) var(--ease-standard);
     transition-delay: var(--ring-delay);
   }
@@ -184,7 +190,7 @@
       transform: scale(1);
     }
     50% {
-      transform: scale(1.035);
+      transform: scale(1.05);
     }
   }
 </style>
