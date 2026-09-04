@@ -1467,6 +1467,169 @@ for (const locale of ["en", "pl"]) {
   });
 }
 
+// The Guide: eleven chapter routes, a footer link, and the sidebar (ticket 01)
+
+/** The Guide's eleven chapters, in sidebar order. Written out a second time
+    rather than imported from src/lib/site.ts, for the reason PAGE_PATHS above
+    already is: a test that imported the thing it is checking would agree
+    with a wrong answer. */
+const GUIDE_CHAPTERS = [
+  "getting-started",
+  "home",
+  "calendar",
+  "stats",
+  "body",
+  "health",
+  "transition",
+  "practice",
+  "settings",
+  "privacy",
+  "contributing",
+];
+
+/** `/{locale}/guide/` itself is Getting started, the same way `/{locale}/` is
+    the landing page - no separate index page in front of the first chapter. */
+const guidePath = (locale, chapter) =>
+  chapter === "getting-started"
+    ? `/${locale}/guide/`
+    : `/${locale}/guide/${chapter}/`;
+
+/** Every chapter's title, as its own page renders it - the h1 and the
+    sidebar link text both read this. Chapter content is placeholder in both
+    languages until tickets 02-08 write it; the title is not. */
+const GUIDE_TITLES = {
+  en: {
+    "getting-started": "Getting started",
+    home: "Home",
+    calendar: "Calendar",
+    stats: "Stats",
+    body: "Body",
+    health: "Health",
+    transition: "Transition",
+    practice: "Practice",
+    settings: "Settings",
+    privacy: "Privacy",
+    contributing: "Contributing",
+  },
+  pl: {
+    "getting-started": "Zaczynamy",
+    home: "Ekran główny",
+    calendar: "Kalendarz",
+    stats: "Statystyki",
+    body: "Ciało",
+    health: "Zdrowie",
+    transition: "Tranzycja",
+    practice: "Praktyka",
+    settings: "Ustawienia",
+    privacy: "Prywatność",
+    contributing: "Współtworzenie",
+  },
+};
+
+/** The footer bar's link into the Guide, and the sidebar's own accessible
+    name, in each language. */
+const GUIDE_FOOTER_LINK = { en: "Guide", pl: "Przewodnik" };
+const GUIDE_SIDEBAR_LABEL = { en: "Chapters", pl: "Rozdziały" };
+
+for (const locale of ["en", "pl"]) {
+  for (const chapter of GUIDE_CHAPTERS) {
+    test(`${locale} guide/${chapter}: renders with its own canonical link and hreflang alternates`, async () => {
+      const { context, page } = await visitor({ javaScriptEnabled: false });
+      try {
+        await page.goto(`${base}${guidePath(locale, chapter)}`);
+        assert.equal(await documentLanguage(page), locale);
+        assert.equal(
+          await page.locator("main h1").innerText(),
+          GUIDE_TITLES[locale][chapter],
+        );
+
+        const alternates = await page.evaluate(() =>
+          Object.fromEntries(
+            [...document.querySelectorAll("link[rel=alternate][hreflang]")].map(
+              (link) => [link.getAttribute("hreflang"), link.getAttribute("href")],
+            ),
+          ),
+        );
+        assert.deepEqual(alternates, {
+          en: `${SITE_ORIGIN}${guidePath("en", chapter)}`,
+          pl: `${SITE_ORIGIN}${guidePath("pl", chapter)}`,
+          "x-default": `${SITE_ORIGIN}${guidePath("en", chapter)}`,
+        });
+        assert.equal(
+          await page.getAttribute("link[rel=canonical]", "href"),
+          `${SITE_ORIGIN}${guidePath(locale, chapter)}`,
+        );
+      } finally {
+        await context.close();
+      }
+    });
+  }
+
+  test(`${locale}: the footer bar carries the Guide link on every kind of page`, async () => {
+    const { context, page } = await visitor({});
+    try {
+      for (const path of [
+        `/${locale}/`,
+        `/${locale}/privacy/`,
+        guidePath(locale, "getting-started"),
+        guidePath(locale, "health"),
+      ]) {
+        await page.goto(`${base}${path}`);
+        const guideLink = page.getByRole("link", {
+          name: GUIDE_FOOTER_LINK[locale],
+          exact: true,
+        });
+        assert.equal(
+          await guideLink.count(),
+          1,
+          `${path} does not carry exactly one Guide link`,
+        );
+        assert.equal(
+          await guideLink.getAttribute("href"),
+          guidePath(locale, "getting-started"),
+          `${path}'s Guide link does not point at the guide root`,
+        );
+      }
+    } finally {
+      await context.close();
+    }
+  });
+
+  test(`${locale}: the guide sidebar lists all eleven chapters and marks exactly the current one`, async () => {
+    const { context, page } = await visitor({ javaScriptEnabled: false });
+    try {
+      await page.goto(`${base}${guidePath(locale, "stats")}`);
+      const sidebar = page.getByRole("navigation", {
+        name: GUIDE_SIDEBAR_LABEL[locale],
+      });
+      const links = sidebar.getByRole("link");
+
+      assert.equal(await links.count(), GUIDE_CHAPTERS.length);
+      const titles = await links.evaluateAll((found) =>
+        found.map((a) => a.textContent.trim()),
+      );
+      assert.deepEqual(
+        [...titles].sort(),
+        GUIDE_CHAPTERS.map((chapter) => GUIDE_TITLES[locale][chapter]).sort(),
+      );
+
+      const current = sidebar.locator('[aria-current="page"]');
+      assert.equal(
+        await current.count(),
+        1,
+        "the sidebar marked more or fewer than one chapter current",
+      );
+      assert.equal(
+        (await current.innerText()).trim(),
+        GUIDE_TITLES[locale].stats,
+        "the sidebar's current chapter is not the one being viewed",
+      );
+    } finally {
+      await context.close();
+    }
+  });
+}
+
 test("switching language on the privacy page stays on the privacy page", async () => {
   const { context, page } = await visitor({ javaScriptEnabled: false });
   try {

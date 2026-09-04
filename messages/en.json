@@ -388,8 +388,62 @@
       }
     ]
   },
+  "guide": {
+    "sidebarLabel": "Chapters",
+    "hubLabels": {
+      "more": "More"
+    },
+    "comingSoon": "This chapter hasn't been written yet. Check back once it has.",
+    "chapters": {
+      "getting-started": {
+        "title": "Getting started",
+        "description": "Installing enGender, what onboarding asks, and why there's no account."
+      },
+      "home": {
+        "title": "Home",
+        "description": "What the mood pick, the look-back teaser, milestones and recent entries on Home do."
+      },
+      "calendar": {
+        "title": "Calendar",
+        "description": "The heat map, day views, search and starred entries."
+      },
+      "stats": {
+        "title": "Stats",
+        "description": "The look-back group: correlation cards, the trend chart, Wrapped, on-this-day, body map, tally and compare."
+      },
+      "body": {
+        "title": "Body",
+        "description": "Progress photos, measurements, sizes and fit, and the hair-progress scale."
+      },
+      "health": {
+        "title": "Health",
+        "description": "The care dashboard, labs, regimen, the hormone curve, doses, stock, exposure, cycle events, side effects, the surgery journal, appointment prep and the clinician summary."
+      },
+      "transition": {
+        "title": "Transition",
+        "description": "Milestones, the roadmap checklist, letters, presentation tryouts, presentations and eras."
+      },
+      "practice": {
+        "title": "Practice",
+        "description": "The counterevidence check, voice recordings and the voice benchmark, wear-time tracking, the effects timeline and the resource directory."
+      },
+      "settings": {
+        "title": "Settings",
+        "description": "What's a preference in enGender, and what lives elsewhere instead."
+      },
+      "privacy": {
+        "title": "Privacy",
+        "description": "The precise, expanded version of what enGender protects, and what it doesn't."
+      },
+      "contributing": {
+        "title": "Contributing",
+        "description": "Code, country packs and translations - three ways to help."
+      }
+    }
+  },
   "footer": {
     "portfolio": "Portfolio",
+    "guide": "Guide",
     "rights": "2026 Alicja Barankiewicz"
   }
 }

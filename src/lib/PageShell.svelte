@@ -14,6 +14,7 @@
     SOURCE_URL,
     defaultPathFor,
     messages,
+    metaDescriptionFor,
     pathFor,
     socialTags,
     structuredDataScript,
@@ -30,7 +31,7 @@
 
   const m = $derived(messages[locale]);
   const canonical = $derived(SITE_ORIGIN + pathFor(locale, page));
-  const description = $derived(m.meta[page].description);
+  const description = $derived(metaDescriptionFor(locale, page));
 
   /* The scroll reveals for browsers that cannot scrub them in CSS. It decides
      for itself whether there is anything to do, and returns the teardown.
@@ -161,6 +162,7 @@
     <a class="brand" href={pathFor(locale)}>{m.pageTitle}</a>
   {/if}
 
+  <a class="bar-link" href={pathFor(locale, 'guide-getting-started')}>{m.footer.guide}</a>
   <a class="bar-link" href={PORTFOLIO_URL} rel="noopener">{m.footer.portfolio}</a>
   <a class="bar-link" href={SOURCE_URL} rel="noopener">
     <Mark name="github" size="1.05em" />
