@@ -14,7 +14,7 @@
   {#each GUIDE_HUBS as group (group.chapters[0])}
     <div class="hub">
       {#if group.hub}
-        <p class="hub-label">{guide.hubLabels[group.hub as keyof typeof guide.hubLabels]}</p>
+        <p class="hub-label">{guide.hubLabels[group.hub]}</p>
       {/if}
       <ul>
         {#each group.chapters as slug (slug)}

@@ -92,12 +92,18 @@ export function guidePage(chapter: GuideChapter): Page {
   return `guide-${chapter}`;
 }
 
+/** The one named hub the sidebar groups chapters under, matching
+    `guide.hubLabels` in the message catalogue - a union rather than `string`
+    so a typo here is a compile error at the definition site rather than an
+    `undefined` label read out of the catalogue at the sidebar's. */
+export type GuideHub = 'more';
+
 /** The sidebar's grouping, matching the app's own hub structure (spec,
     "Navigation: footer link and sidebar"): Getting started; Home, Calendar,
     Stats; the More hub's Body, Health, Transition, Practice; Settings;
     Privacy; Contributing. `hub` names the group in the message catalogue's
     `guide.hubLabels`, or is `null` for a chapter with no hub of its own. */
-export const GUIDE_HUBS: ReadonlyArray<{ hub: string | null; chapters: readonly GuideChapter[] }> =
+export const GUIDE_HUBS: ReadonlyArray<{ hub: GuideHub | null; chapters: readonly GuideChapter[] }> =
   [
     { hub: null, chapters: ['getting-started'] },
     { hub: null, chapters: ['home', 'calendar', 'stats'] },
