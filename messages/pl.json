@@ -291,8 +291,62 @@
       }
     ]
   },
+  "guide": {
+    "sidebarLabel": "Rozdziały",
+    "hubLabels": {
+      "more": "Więcej"
+    },
+    "comingSoon": "Ten rozdział jeszcze nie powstał. Zajrzyj tu później.",
+    "chapters": {
+      "getting-started": {
+        "title": "Zaczynamy",
+        "description": "Instalacja Gender Diary, o co pyta wdrożenie i dlaczego nie zakładasz konta."
+      },
+      "home": {
+        "title": "Ekran główny",
+        "description": "Co robią wybór nastroju, zapowiedź spojrzenia wstecz, kamienie milowe i ostatnie wpisy na ekranie głównym."
+      },
+      "calendar": {
+        "title": "Kalendarz",
+        "description": "Mapa cieplna, widoki dnia, wyszukiwanie i wpisy oznaczone gwiazdką."
+      },
+      "stats": {
+        "title": "Statystyki",
+        "description": "Grupa spojrzenia wstecz: karty korelacji, wykres trendu, Podsumowanie, to samo dnia rok temu, mapa ciała, liczniki i porównanie."
+      },
+      "body": {
+        "title": "Ciało",
+        "description": "Zdjęcia postępu, pomiary, rozmiary i dopasowanie ubrań, oraz skala postępu owłosienia."
+      },
+      "health": {
+        "title": "Zdrowie",
+        "description": "Panel opieki, wyniki badań, schemat leczenia, krzywa hormonalna, dawki, zapas, ekspozycja, wydarzenia cyklu, skutki uboczne, dziennik zabiegu chirurgicznego, przygotowanie do wizyty i podsumowanie dla lekarza."
+      },
+      "transition": {
+        "title": "Tranzycja",
+        "description": "Kamienie milowe, checklistę mapy drogowej, listy, próby prezentacji, prezentacje i epoki."
+      },
+      "practice": {
+        "title": "Praktyka",
+        "description": "Sprawdzian kontrargumentów, nagrania głosu i test głosu, śledzenie czasu noszenia, oś czasu efektów i katalog zasobów."
+      },
+      "settings": {
+        "title": "Ustawienia",
+        "description": "Co jest preferencją w Gender Diary, a co mieszka gdzie indziej."
+      },
+      "privacy": {
+        "title": "Prywatność",
+        "description": "Dokładna, rozszerzona wersja tego, co Gender Diary chroni, a czego nie."
+      },
+      "contributing": {
+        "title": "Współtworzenie",
+        "description": "Kod, pakiety krajowe i tłumaczenia - trzy sposoby, żeby pomóc."
+      }
+    }
+  },
   "footer": {
     "portfolio": "Portfolio",
+    "guide": "Przewodnik",
     "rights": "2026 Alicja Barankiewicz"
   }
 }

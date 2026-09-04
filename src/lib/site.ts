@@ -56,6 +56,23 @@ export function isLocale(value: unknown): value is Locale {
   return LOCALES.includes(value as Locale);
 }
 
+/** The Guide's eleven chapters (spec, "Chapters and tickets"), in the order
+    the sidebar and `pathFor` both use. */
+export const GUIDE_CHAPTERS = [
+  'getting-started',
+  'home',
+  'calendar',
+  'stats',
+  'body',
+  'health',
+  'transition',
+  'practice',
+  'settings',
+  'privacy',
+  'contributing',
+] as const;
+export type GuideChapter = (typeof GUIDE_CHAPTERS)[number];
+
 /** The pages that exist in both languages. Each one is a location a person can
     be sent to and a search engine can index, which is why the language control
     switches page-for-page rather than dropping a reader who is halfway through
@@ -63,17 +80,54 @@ export function isLocale(value: unknown): value is Locale {
 
     A union rather than a `LOCALES`-style array, because nothing iterates the
     pages: routes are files on disk and the sitemap is generated from the built
-    directory. */
-export type Page = 'landing' | 'privacy';
+    directory. Guide chapters are a template literal on `GuideChapter` rather
+    than eleven names spelled out here, so the chapter list stays the one
+    place that enumerates them. */
+export type Page = 'landing' | 'privacy' | `guide-${GuideChapter}`;
+
+/** A guide chapter's own `Page`, for the sidebar and the route components -
+    both build a chapter's URL and neither should spell out the `guide-`
+    prefix by hand. */
+export function guidePage(chapter: GuideChapter): Page {
+  return `guide-${chapter}`;
+}
+
+/** The one named hub the sidebar groups chapters under, matching
+    `guide.hubLabels` in the message catalogue - a union rather than `string`
+    so a typo here is a compile error at the definition site rather than an
+    `undefined` label read out of the catalogue at the sidebar's. */
+export type GuideHub = 'more';
+
+/** The sidebar's grouping, matching the app's own hub structure (spec,
+    "Navigation: footer link and sidebar"): Getting started; Home, Calendar,
+    Stats; the More hub's Body, Health, Transition, Practice; Settings;
+    Privacy; Contributing. `hub` names the group in the message catalogue's
+    `guide.hubLabels`, or is `null` for a chapter with no hub of its own. */
+export const GUIDE_HUBS: ReadonlyArray<{ hub: GuideHub | null; chapters: readonly GuideChapter[] }> =
+  [
+    { hub: null, chapters: ['getting-started'] },
+    { hub: null, chapters: ['home', 'calendar', 'stats'] },
+    { hub: 'more', chapters: ['body', 'health', 'transition', 'practice'] },
+    { hub: null, chapters: ['settings'] },
+    { hub: null, chapters: ['privacy'] },
+    { hub: null, chapters: ['contributing'] },
+  ];
 
 /** Trailing slash, so the managed host serves `<locale>/index.html` and the URL
     a person copies is the one the alternates and the canonical link name.
 
     Root-relative rather than run through `resolve()` from `$app/paths`: that
     exists to prefix a configured base path, and this site is served from the
-    root of an origin it has to itself. */
+    root of an origin it has to itself.
+
+    A guide chapter nests under `/guide/`, and Getting started sits at
+    `/guide/` itself rather than `/guide/getting-started/` - the same way the
+    landing page sits at `/` rather than at a name of its own. */
 export function pathFor(locale: Locale, page: Page = 'landing'): string {
-  return page === 'landing' ? `/${locale}/` : `/${locale}/${page}/`;
+  if (page === 'landing') return `/${locale}/`;
+  if (page === 'guide-getting-started') return `/${locale}/guide/`;
+  if (page.startsWith('guide-')) return `/${locale}/guide/${page.slice('guide-'.length)}/`;
+  return `/${locale}/${page}/`;
 }
 
 /** What `x-default` names for a page.
@@ -86,6 +140,16 @@ export function pathFor(locale: Locale, page: Page = 'landing'): string {
     would get anyway. */
 export function defaultPathFor(page: Page): string {
   return page === 'landing' ? '/' : pathFor(FALLBACK_LOCALE, page);
+}
+
+/** The description a page's head carries: `meta`'s own entry for the landing
+    and privacy pages, and a guide chapter's own description for every guide
+    page - eleven near-identical `meta` entries would just be those chapter
+    descriptions copied a second time. */
+export function metaDescriptionFor(locale: Locale, page: Page): string {
+  const m = messages[locale];
+  if (page === 'landing' || page === 'privacy') return m.meta[page].description;
+  return m.guide.chapters[page.slice('guide-'.length) as GuideChapter].description;
 }
 
 /** The picture a link preview shows, one file for every page and both
