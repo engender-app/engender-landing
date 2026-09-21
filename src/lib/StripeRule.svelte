@@ -101,11 +101,15 @@
 </div>
 
 <style>
+  /* Square, and 3px, which is the app's own section rule: `border-top: 3px
+     solid var(--text)` in its src/lib/styles/kit.css, drawn here in the live
+     flag's stripes instead of in one ink. The 2px radius this had went with
+     the rest of the radius ramp on ticket 08 - a rule is a line, and a line
+     with rounded ends is a lozenge. */
   .rule {
     position: relative;
     height: 3px;
     overflow: clip;
-    border-radius: 2px;
   }
 
   .layer {
@@ -128,7 +132,7 @@
 
   @media (prefers-reduced-motion: no-preference) {
     .sweeping {
-      animation: sweep var(--dur-sweep) var(--ease-sweep) var(--sweep-delay, 0ms) both;
+      animation: sweep var(--dur-rule-sweep) var(--ease-out-soft) var(--sweep-delay, 0ms) both;
     }
   }
 

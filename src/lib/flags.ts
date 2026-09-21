@@ -18,11 +18,13 @@
     Order is the Journal's own file order, which is neither alphabetical nor
     ranked. It is the order the motif cycles in, so it is a visible decision:
     trans leads because it is the app's default palette. */
-/** A palette's two accents, in the order the gradient uses them: the cooler one
-    first, then the one the app calls --accent. */
-export interface Accents {
-  light: [string, string];
-  dark: [string, string];
+/** The one colour a palette lends the action, per theme: the colour the app
+    itself calls --accent and paints its own accent surfaces in. It was a pair
+    until redesign ticket 08, because the action was a two-stop ramp; the ramp
+    went when the app deleted its own. */
+export interface Accent {
+  light: string;
+  dark: string;
 }
 
 export interface Flag {
@@ -33,51 +35,52 @@ export interface Flag {
   stripes: string[];
   /** What the action is painted in while this flag is up.
 
-      These are the app's own per-palette --accent-2 and --accent, copied value
-      for value from its src/lib/theme/palettes.css, not derived here. The first
-      attempt derived them: it took the flag's two most saturated stripes and
-      pinned their lightness, which was contrast-safe and looked nothing like
-      the app's button, because a raw stripe held at a readable lightness is a
-      muted version of itself. The app already solved this - each palette has a
-      pair chosen to be sat on - so the answer was to copy the answer. */
-  accents: Accents;
+      This is the app's own per-palette --accent, copied value for value from
+      its src/lib/theme/palettes.css, not derived here. An earlier attempt
+      derived it: it took the flag's most saturated stripes and pinned their
+      lightness, which was contrast-safe and looked nothing like the app's
+      button, because a raw stripe held at a readable lightness is a muted
+      version of itself. The app already solved this - each palette has an
+      accent chosen to be sat on, and white or the dark paper holds 4.5:1 on
+      every one of the eight - so the answer was to copy the answer. */
+  accent: Accent;
 }
 
 export const FLAGS: Flag[] = [
   {
     id: "trans",
     stripes: ["#5BCEFA", "#F5A9B8", "#FFFFFF", "#F5A9B8", "#5BCEFA"],
-    accents: { light: ["#0F7DAE", "#B85272"], dark: ["#63C4EE", "#F0A3B6"] },
+    accent: { light: "#B85272", dark: "#F0A3B6" },
   },
   {
     id: "nonbinary",
     stripes: ["#FCF434", "#FFFFFF", "#9C59D1", "#2C2C2C"],
-    accents: { light: ["#8A7500", "#7A3EB1"], dark: ["#F5EC6E", "#C69DEB"] },
+    accent: { light: "#7A3EB1", dark: "#C69DEB" },
   },
   {
     id: "genderfluid",
     stripes: ["#FF76A4", "#FFFFFF", "#C011D7", "#2F2F2F", "#2F3CBE"],
-    accents: { light: ["#3946C4", "#A31DB6"], dark: ["#93A0F2", "#E289F2"] },
+    accent: { light: "#A31DB6", dark: "#E289F2" },
   },
   {
     id: "bisexual",
     stripes: ["#D60270", "#D60270", "#9B4F96", "#0038A8", "#0038A8"],
-    accents: { light: ["#2447B0", "#B7025F"], dark: ["#8FA4F0", "#F272AE"] },
+    accent: { light: "#B7025F", dark: "#F272AE" },
   },
   {
     id: "lesbian",
     stripes: ["#D52D00", "#FF9A56", "#FFFFFF", "#D362A4", "#A30262"],
-    accents: { light: ["#A30262", "#BC3907"], dark: ["#E98BC0", "#FF9A56"] },
+    accent: { light: "#BC3907", dark: "#FF9A56" },
   },
   {
     id: "pansexual",
     stripes: ["#FF218C", "#FFD800", "#21B1FF"],
-    accents: { light: ["#0A6FB4", "#D00A72"], dark: ["#67C6FF", "#FF74B8"] },
+    accent: { light: "#D00A72", dark: "#FF74B8" },
   },
   {
     id: "rainbow",
     stripes: ["#E40303", "#FF8C00", "#FFED00", "#008026", "#004CFF", "#732982"],
-    accents: { light: ["#0A7A3C", "#63348F"], dark: ["#74D99B", "#C09EE8"] },
+    accent: { light: "#63348F", dark: "#C09EE8" },
   },
   {
     id: "agender",
@@ -90,7 +93,7 @@ export const FLAGS: Flag[] = [
       "#B9B9B9",
       "#1A1A1A",
     ],
-    accents: { light: ["#57616B", "#4A7A22"], dark: ["#A6B1BC", "#AEEB76"] },
+    accent: { light: "#4A7A22", dark: "#AEEB76" },
   },
 ];
 

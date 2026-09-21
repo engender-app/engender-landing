@@ -49,7 +49,7 @@
     };
   });
 
-  /* The action wears the live flag's own accent pair. Both themes' pairs are
+  /* The action wears the live flag's own accent. Both themes' values are
      published and base.css picks between them, rather than this reading the
      theme: the theme can change without the flag changing, and an effect that
      had to watch both would be watching something that is only in the cascade.
@@ -58,12 +58,10 @@
      that reads them and the root is the one place they can be read from
      everywhere. */
   $effect(() => {
-    const { light, dark } = flagCycle.flag.accents;
+    const { light, dark } = flagCycle.flag.accent;
     const root = document.documentElement;
-    root.style.setProperty('--flag-light-a', light[0]);
-    root.style.setProperty('--flag-light-b', light[1]);
-    root.style.setProperty('--flag-dark-a', dark[0]);
-    root.style.setProperty('--flag-dark-b', dark[1]);
+    root.style.setProperty('--flag-accent-light', light);
+    root.style.setProperty('--flag-accent-dark', dark);
   });
 
   /* Only a person choosing a language is remembered, which is why this is on
@@ -158,8 +156,19 @@
   {#if page !== 'landing'}
     <!-- The way back, on every page that is not the one it points at. It is
          the site's name rather than a word like "back", so it says where it
-         goes and needs no translation of its own. -->
-    <a class="brand" href={pathFor(locale)}>{m.pageTitle}</a>
+         goes and needs no translation of its own - and since redesign ticket
+         08 it carries the app's mark beside it, which is the one place on the
+         site the mark is drawn at reading size.
+
+         An <img> rather than inline SVG, so the file this site serves and the
+         file the app generates are the same bytes and cannot drift. The mark
+         is its own drawing in fixed colours and it is aria-hidden here
+         because the link already says the site's name: a reader meeting both
+         would hear the name twice. -->
+    <a class="brand" href={pathFor(locale)}>
+      <img class="brand-mark" src="/mark.svg" alt="" aria-hidden="true" width="24" height="24" />
+      {m.pageTitle}
+    </a>
   {/if}
 
   <a class="bar-link" href={pathFor(locale, 'guide-getting-started')}>{m.footer.guide}</a>

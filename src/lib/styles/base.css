@@ -1,15 +1,24 @@
-/* The visual direction (redesign ticket 03), replacing ticket 09's aurora.
-   The full contract is the HTML comment at the top of src/app.html; this file
-   is where it becomes tokens.
+/* The visual direction, rebound to the app's phase 10 language (redesign
+   ticket 08). Ticket 03 wrote this file from the app of 2026-08-28; the app's
+   own redesign landed on 2026-09-07 and kept moving to 2026-09-21, and six of
+   the premises ticket 03 argued from stopped being true. The full contract is
+   the HTML comment at the top of src/app.html; this file is where it becomes
+   tokens.
+
+   Where a value is copied, the app's file and its own value are named in the
+   comment beside it. Nothing here is imported: the two repositories share no
+   package (CLAUDE.md), so every number below is a copy that a person made and
+   a person has to maintain.
 
    Three rules decide everything below.
 
-   FLAT. The app has no gradients: surfaces separate with a line rather than
-   with tonal elevation, and colour arrives as flat ink. The old site was built
-   almost entirely on gradients - the headline, the wordmark, the action, the
-   drifting aurora - so they are gone rather than toned down, and gradient text
-   in particular is not coming back. Emphasis is weight, size, and paper
-   knocked out of ink.
+   FLAT, with no exception left. Ticket 03 recorded one: the app's primary
+   button and the marks beside its section titles were a two-accent ramp, so
+   the site's one action took the same ramp. The app deleted --grad-accent
+   from its palettes on 2026-09-09 and its kit now says colour arrives as flat
+   fill and as coloured text, never as a gradient, a glow or a veil. So the
+   site's last gradient is gone too, and tests/site.test.mjs asserts the built
+   CSS contains none. Emphasis is weight, size, and paper knocked out of ink.
 
    INK DOES NOT CHANGE WITH THE THEME, ONLY THE PAPER DOES. The theme tokens
    below flip between light and dark. The flag inks do not: a field of
@@ -25,11 +34,19 @@
    the palette strip, rules and marks. Putting body text on a raw stripe is
    the one way to break this palette.
 
+   And the app's colour budget, translated (ADR-0075 there, ADR-0003 here).
+   The app allows one field per screen, at the top, with blocks below it only
+   where a value sits on one. A page eight acts long cannot take a rule
+   written for a screen, so the site's rule is one field per *act*: the
+   privacy act is a field, the warning in the support act is a block, and
+   everything else is flush on the page with a hairline where a list has to
+   begin and end.
+
    Motion lives at the bottom, behind prefers-reduced-motion: no-preference,
-   so the reduced-motion page is this page with nothing moving. The durations
-   and the tier names are the app's own (its DIRECTION.md handoff), because
-   the two products should feel related when somebody moves from one to the
-   other.
+   so the reduced-motion page is this page with nothing moving. The durations,
+   the curves and the tier names are the app's own, copied from its
+   src/lib/theme/base.css, because the two products should feel related when
+   somebody moves from one to the other.
 
    The cascade decides the theme, not a script. `data-theme` on <html> is an
    explicit choice and nothing else: when it is absent, the media query below
@@ -39,27 +56,54 @@
 
 /* ---- Faces -------------------------------------------------------------- */
 
+/* Nunito, the app's reading face, split on unicode-range exactly the way the
+   app splits it (its src/lib/theme/fonts.css) so an English reader never
+   downloads the Latin Extended file that only the Polish page needs.
+
+   It replaces DM Sans, which ticket 03 chose on a sentence - "Outfit for
+   display over DM Sans for reading" - that was never true of the app: its
+   --font-body has been 'Nunito' since the theme's first commit and it has
+   never shipped DM Sans at all. So this is not a change of mind about which
+   face reads better; it is the site catching up with what the product is
+   actually set in, and the site's argument for every face it uses is that the
+   app uses it. */
 @font-face {
-  /* Subset to Latin + Latin Extended-A (the Polish diacritics live there),
-     variable weight 300-700. The file and its OFL licence are in
-     static/fonts/. */
-  font-family: "DM Sans";
-  src: url("/fonts/dm-sans.woff2") format("woff2");
-  font-weight: 300 700;
+  font-family: "Nunito";
+  src: url("/fonts/nunito-latin.woff2") format("woff2");
+  font-weight: 200 1000;
   font-display: swap;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("/fonts/nunito-latin-ext.woff2") format("woff2");
+  font-weight: 200 1000;
+  font-display: swap;
+  unicode-range:
+    U+0100-02AF, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329,
+    U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
 }
 
 /* Outfit, the app's display face, copied from the Journal repository's own
    bundle rather than fetched (ticket 03; no third-party resource, ever). It is
    here so the two products share a voice at the size a visitor reads first,
-   and it is split on unicode-range the way the app splits it: an English
-   reader never downloads the 14kb of Latin Extended that only the Polish page
-   needs.
+   and it is split on unicode-range the way the app splits it.
 
    Outfit is on the impeccable craft floor's list of overused display faces.
    It stays anyway, and the reason is the only one that counts: it is what the
    product itself is set in. A different face here would make the site a
-   stranger to the app it is describing. */
+   stranger to the app it is describing.
+
+   What changed on ticket 08 is not the face but how much of the page it is
+   allowed to set. The app's rule 2 is that the display face is for a screen's
+   structure and content is set in the body face, always; this site had Outfit
+   under every lede and intro as well. Those are Nunito now, and Outfit sets
+   the headword, the act and group headings, the claim and the wordmark. */
 @font-face {
   font-family: "Outfit";
   src: url("/fonts/outfit-latin.woff2") format("woff2");
@@ -82,36 +126,44 @@
     U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
-/* ---- The action's two colours ------------------------------------------- */
+/* ---- The action's colour ------------------------------------------------ */
 
-/* Registered rather than declared, so they can be transitioned. An ordinary
-   custom property is a string as far as the cascade is concerned and jumps from
-   one value to the next; registered as a colour it interpolates, and the
-   `color-mix` that reads it recomputes each frame.
+/* One colour, registered rather than declared so it can be transitioned. An
+   ordinary custom property is a string as far as the cascade is concerned and
+   jumps from one value to the next; registered as a colour it interpolates,
+   and every rule reading it recomputes each frame.
 
-   This is the whole of the action's motion: it changes colour with the flag and
-   it does not move (Alicja, 2026-08-28). The initial values are the trans
-   flag's own two, which is what a page without scripting keeps for good.
+   This is the whole of the action's motion: it changes colour with the flag
+   and it does not move (Alicja, 2026-08-28). It was two colours and a
+   120-degree ramp until ticket 08; the ramp went with the app's, and what is
+   left is the flag's own --accent - the app's per-palette button colour,
+   copied value for value from its src/lib/theme/palettes.css, already chosen
+   there to be sat on.
+
+   The initial value below is the trans palette's light accent, and it is only
+   ever a last resort: each theme block names its own fallback in the var()
+   that reads the published value, because a registered property whose var()
+   resolves to nothing falls back to *this* value rather than to the theme's.
+   That is what the old two-colour version did, and it was wrong in a way
+   nothing could see: before hydration and for good without scripting, the
+   action painted the two raw trans stripes it was registered with - #5BCEFA
+   under a white label, 1.8:1 - and every test measured the recipe rather than
+   the button. Ticket 08's own first attempt reproduced it one step milder,
+   painting the light accent under the dark theme's near-black label at 3.7:1,
+   and the test that now reads the element's own background is what caught
+   it.
 
    Outside every reduced-motion clamp deliberately, on the same reasoning as
    --dur-crossfade: prefers-reduced-motion is about movement, and a change of
    colour moves nothing. */
-@property --flag-a {
+@property --flag-accent {
   syntax: "<color>";
   inherits: true;
-  initial-value: #5bcefa;
-}
-
-@property --flag-b {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #f5a9b8;
+  initial-value: #b85272;
 }
 
 :root {
-  transition:
-    --flag-a var(--dur-motif) linear,
-    --flag-b var(--dur-motif) linear;
+  transition: --flag-accent var(--dur-motif) linear;
 }
 
 /* ---- The inks ----------------------------------------------------------- */
@@ -121,8 +173,8 @@
    4.5:1 on them, measured rather than eyeballed, and a test re-measures them
    against the text that actually ships on top.
 
-   Two, and the page uses both: blue carries the privacy section, rose carries
-   the one warning a reader must not scroll past. A third and a fourth were
+   Two, and the page uses both: blue carries the privacy act, rose carries the
+   one warning a reader must not scroll past. A third and a fourth were
    drafted from nonbinary's violet and agender's green and then cut, because
    nothing on the page needed them and a field colour with no job is a palette
    with no opinion. The vivid flag colours all eight flags own arrive through
@@ -142,7 +194,8 @@
    literal rather than approximate: a visitor arriving at the Journal from here
    lands on the same paper. Ticket 03's decision was that the site keeps this
    one palette for paper and ink-on-paper, and spends all eight flags on the
-   motif instead. */
+   motif instead; the app's phase 10 redesign moved none of these seven values,
+   which is why ticket 08 is a change of language and not a repaint. */
 :root,
 :root[data-theme="light"] {
   --theme: light;
@@ -154,8 +207,9 @@
   --accent: #b85272;
   --accent-2: #0f7dae;
   --on-accent: #ffffff;
-  --flag-a: var(--flag-light-a);
-  --flag-b: var(--flag-light-b);
+  /* The fallback is the trans palette's light accent: the flag a page
+     without scripting rests on, in this theme's value. */
+  --flag-accent: var(--flag-accent-light, #b85272);
   color-scheme: light;
 }
 
@@ -170,8 +224,7 @@
     --accent: #f0a3b6;
     --accent-2: #63c4ee;
     --on-accent: #0d141a;
-    --flag-a: var(--flag-dark-a);
-    --flag-b: var(--flag-dark-b);
+    --flag-accent: var(--flag-accent-dark, #f0a3b6);
     color-scheme: dark;
   }
 }
@@ -188,20 +241,23 @@
   --accent: #f0a3b6;
   --accent-2: #63c4ee;
   --on-accent: #0d141a;
-  --flag-a: var(--flag-dark-a);
-  --flag-b: var(--flag-dark-b);
+  --flag-accent: var(--flag-accent-dark, #f0a3b6);
   color-scheme: dark;
 }
 
 /* ---- Derived ----------------------------------------------------------- */
 
 :root {
-  /* Lines, --text at low alpha rather than a mix toward the surface, so one
-     value reads over a card and over the page behind it. The app has a third,
-     a 14% hairline for separators inside a surface; this site has no surface
-     with separators inside it, so it is not carried here unused. */
+  /* Two line strengths, which is the app's whole line vocabulary after its
+     rule 4: --hairline (14%) for a separator and for the edge where a list
+     begins and ends, --outline (19%) for the outer edge of a surface that
+     still is one. --outline-strong retired with the app's own; a third
+     weight was only ever doing the work a shadow used to do.
+
+     --text at low alpha rather than a mix toward the surface, so one value
+     reads over a card and over the page behind it. */
+  --hairline: color-mix(in srgb, var(--text) 14%, transparent);
   --outline: color-mix(in srgb, var(--text) 19%, transparent);
-  --outline-strong: color-mix(in srgb, var(--text) 30%, transparent);
 
   /* Accent-coloured text. --accent itself measures 4.38:1 on --bg in light,
      which fails, and the app hit the same wall: this is its --accent-ink,
@@ -223,52 +279,57 @@
      reach it and a floor that lives in six places drifts. */
   --target: 44px;
 
-  --radius-card: 20px;
-  --radius-action: 18px;
+  /* One radius, and it is the app's (its src/lib/theme/base.css --r-block,
+     6px, held at zero drift there by a contract test). Every surface this
+     site builds takes it: the action, a notice, a frame's inner screen, a
+     swatch. The ramp it replaces ran to six values - 2, 9, 18, 20, 26, 999 -
+     and every one of them was a different idea about how soft this world is.
+
+     --r-track is the app's own concentric exception: its segmented control is
+     "a square track (phase 10, rule 5): 8px around 6px segments, so the
+     corners stay concentric at a 3px inset" (its src/lib/styles/components.css),
+     and the language and theme switches here are that control.
+
+     The pill survives where a shape is genuinely a capsule: the channel
+     badges, which are one word and a mark. The phone frames keep 26px in
+     their own rule, because a frame is a drawing of a device rather than a
+     surface of this site's, and a phone has a corner radius in the world. */
+  --r-block: 6px;
+  --r-track: 8px;
   --radius-pill: 999px;
 
-  /* The site's one shadow, on the one thing that presses: offset and blur,
-     never a zero-offset halo.
+  --font-display: "Outfit", "Nunito", system-ui, sans-serif;
+  --font-body: "Nunito", system-ui, sans-serif;
+  /* The app's weights (its src/lib/theme/base.css): 450 regular, 600 for
+     secondary text that has to hold its own, 750 for bold in the body face,
+     and 800 for every display size - "the display face never sets less". This
+     site ran 400 / 500 / 600 and set its ledes in the display face at 500,
+     which is the one place the two products looked unrelated at a glance. */
+  --weight-regular: 450;
+  --weight-medium: 600;
+  --weight-bold: 750;
+  --weight-display: 800;
+  /* The app's --display-track, -0.04em at 28px and above, up from the
+     -0.024em ticket 03 measured Outfit at. A door's title tightens one step
+     further there, and this site's two largest strings - the headword and a
+     page title - take that step in their own rules. */
+  --display-track: -0.04em;
+  --display-track-tight: -0.045em;
 
-     Black at low alpha rather than --text at low alpha. Derived from the text
-     colour it inverts with the theme, and a pale shadow under a pink button on
-     a dark page is a glow - decoration wearing depth's clothes. A shadow is an
-     absence of light in both themes. */
-  /* The app's one gradient, and the only one on this site. Everything else here
-     is flat, which is the app's own discipline - but the app makes exactly one
-     exception, for its primary button and the marks beside its section titles,
-     and the site's one action should be the app's one action. The shape is the
-     Journal's --grad-accent: 120 degrees, second stop at 65%.
-
-     The two colours are the live flag's own accent pair, copied from the app's
-     palettes rather than derived from its stripes. Two earlier attempts derived
-     them and both were wrong in the same way: a raw stripe held at a readable
-     lightness is a muted version of itself, and the button ended up a wash of a
-     colour instead of the colour. The app already has a pair per palette chosen
-     to be sat on, so the site uses those, which is also why the button now
-     looks like the app's - it is the app's.
-
-     They are registered properties so the change of flag interpolates: the
-     button changes colour and does not move. */
-  --grad-accent: linear-gradient(120deg, var(--flag-a), var(--flag-b) 65%);
-
-  --shadow-action: 0 6px 18px rgb(0 0 0 / 0.28);
-  --shadow-action-pressed: 0 2px 6px rgb(0 0 0 / 0.34);
-
-  --font-display: "Outfit", "DM Sans", system-ui, sans-serif;
-  --font-body: "DM Sans", system-ui, sans-serif;
-  /* Outfit sets wider than the faces this site used before it, which is what
-     the app found too. */
-  --display-track: -0.024em;
-
-  /* The motion system, tier by tier, named as the app names them.
-     tier 1, a control answering a press: --dur-press.
+  /* The motion system, tier by tier, named and valued as the app names and
+     values them (its src/lib/theme/base.css).
+     tier 1, a control answering a press: --dur-press on --ease-press.
      tier 2, something arriving or leaving: --dur-fast out, --dur-med in.
      tier 3, a change inside one region: --dur-slow.
-     tier 0, the authored moment and the ambient loop. */
+     tier 0, the authored moment and the ambient loop.
+
+     ADR-0078 there is the default this site now runs on as well: a change of
+     state moves, and a surface that sits still through a change has to say
+     why in the ticket that owns it. */
   --dur-fast: 150ms;
   --dur-med: 240ms;
-  --dur-slow: 320ms;
+  /* 380ms, the app's, up from the 320ms ticket 03 wrote. */
+  --dur-slow: 380ms;
   --dur-press: 260ms;
   --dur-authored: 700ms;
   --dur-breathe: 7s;
@@ -276,23 +337,43 @@
      movement, and clamped to 1ms it would become an instant cut, which is a
      different tier's substitute. */
   --dur-crossfade: 120ms;
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
-  /* Overshoot, for the motif's rings only. Past the app's own --ease-spring
-     (1.4) now, at Alicja's asking twice for more of it: a ring passes its new
-     radius and settles back. The craft floor warns against reaching for bounce
-     by reflex, and this is not reflex - it is the one authored moment on the
-     page, asked for by name, and nothing else on the site uses this curve. */
-  --ease-overshoot: cubic-bezier(0.34, 1.45, 0.64, 1);
-  /* Harder out than --ease-out: almost all of the sweep's distance is covered
-     in its first third, so the flag arrives and then settles rather than
-     crossing at a pace. */
-  --ease-sweep: cubic-bezier(0.05, 0.92, 0.14, 1);
-  /* The motif's own duration, longer than any other tier because it is the one
-     thing on the page meant to be watched rather than noticed. */
+
+  /* The app's --ease-out, cubic-bezier(0.22, 1, 0.36, 1). Gentler off the
+     mark than the 0.16/1/0.3/1 this site used, which is the difference
+     between a thing that appears and a thing that is thrown. */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  /* --ease-out with the instant taken off the front, for a long edge setting
+     off: the app added it when Alicja read the leading edge of a travelling
+     shape as "a jump followed by a drift" and asked for "a little bit ease-in
+     too". The stripe rule's sweep is exactly that shape, so it takes it. */
+  --ease-out-soft: cubic-bezier(0.38, 0.32, 0.2, 1);
+  /* A sampled spring, the app's --ease-press: a control let go of springs
+     past its resting size and comes back. Written out rather than referred
+     to, because nothing is imported across the two repositories.
+
+     Why the rules that use it write transition longhands: var() defers to
+     computed-value time, so on a WebView too old to parse linear() a
+     `transition:` shorthand naming this computes to `all 0s ease` and strands
+     every other property in the shorthand as well. Longhands lose only the
+     curve. */
+  --ease-press: linear(0, 0.009, 0.035 2.1%, 0.141, 0.281 6.7%, 0.723 12.9%,
+    0.938 16.7%, 1.017, 1.077, 1.121, 1.149 24.3%, 1.159, 1.163, 1.161,
+    1.154 29.9%, 1.129 32.8%, 1.051 39.6%, 1.017 43.1%, 0.991, 0.977 51%,
+    0.975 57.1%, 0.997 69.4%, 1.003 82.6%, 1);
+
+  /* The motif's own duration: the app's --dur-sun-open, 900ms, which is what
+     its sun takes to arrive over a door change. Longer than any tier because
+     it is the one thing on the page meant to be watched rather than noticed.
+     --ease-overshoot went with ticket 08: it was recorded as not canonized,
+     the app has no overshoot curve to justify it, and the rings decelerate on
+     --ease-out like everything else here. */
   --dur-motif: 900ms;
-  /* A flag sweeping in over the one before it, left to right. */
-  --dur-sweep: 1500ms;
+  /* A flag sweeping in over the one before it, left to right. The site's own
+     number, and named for what it is rather than as --dur-sweep, which is a
+     token in the app with a different job - one pass of a progress bar. */
+  --dur-rule-sweep: 1500ms;
+  /* The beat a group of things arrives on, the app's --stagger-step. */
+  --stagger-step: 50ms;
 }
 
 /* ---- The page ---------------------------------------------------------- */
@@ -307,6 +388,10 @@ body {
   color: var(--text);
   font-family: var(--font-body);
   font-size: 1.0625rem;
+  /* Nunito's own regular weight in the app, and a step up from the 400 this
+     site set DM Sans at: Nunito is a rounded face and 400 reads thin beside
+     Outfit at 800. */
+  font-weight: var(--weight-regular);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   /* Room for the fixed bar at the foot, plus a line of air, so the last line
@@ -321,11 +406,16 @@ body {
      exactly that. */
 }
 
+/* Every heading is the display face at one weight. The app sets Outfit at 800
+   for every display size and at nothing less, which is what makes a heading
+   read as structure rather than as a larger sentence; sizes and line heights
+   are each heading's own, in the component that draws it. */
 h1,
 h2,
 h3 {
   font-family: var(--font-display);
-  line-height: 1.1;
+  font-weight: var(--weight-display);
+  line-height: 1.05;
   letter-spacing: var(--display-track);
   text-wrap: balance;
 }
@@ -350,7 +440,7 @@ a {
 :focus-visible {
   outline: 2px solid var(--accent-2);
   outline-offset: 3px;
-  border-radius: 2px;
+  border-radius: var(--r-block);
 }
 
 :root {
@@ -358,7 +448,7 @@ a {
      browser's idea of grey. `color-scheme` above already tells the browser
      which family to draw form controls from. */
   caret-color: var(--accent-ink);
-  scrollbar-color: var(--outline-strong) transparent;
+  scrollbar-color: var(--outline) transparent;
   scrollbar-width: thin;
 }
 
@@ -429,6 +519,24 @@ a {
   padding: 0.5rem clamp(1rem, 4vw, 2.5rem);
   /* Opaque, not glass. Content scrolls under it and the words have to hold. */
   background: var(--bg);
+  /* Its own edge, so --outline rather than the --hairline a separator takes,
+     and that edge is the whole of what says the bar is in front. Nothing on
+     this site casts a shadow, and a test holds it at nothing.
+
+     Redesign ticket 08 set out to give this bar the app's --shadow-float,
+     because the app keeps exactly one shadow and gives it to the chrome that
+     genuinely floats. It was built, measured and taken out again. The app's
+     bar floats over an inset content area on a phone; this one is welded to
+     the foot of the window across its full width, with the page running up
+     behind it, so the shadow had to be turned upward to land on anything -
+     and what it landed on was the running text. It tinted --bg from #F4F8FB
+     to rgb(232 237 241) about ten pixels above the bar, which took --text-2
+     from 4.90:1 to 4.44:1 and through the floor, on a paragraph that sits in
+     that band at rest on /en/privacy/ at 1280px. Not an edge case a reader
+     has to scroll into: content passes through that band at every scroll
+     position. So this site has no elevation at all, which is also the
+     simpler reading of the app's own rule - surfaces separate with a line,
+     not a plane. */
   border-top: 1px solid var(--outline);
 }
 
@@ -468,10 +576,21 @@ a {
   display: inline-flex;
   align-items: center;
   min-height: var(--target);
+  gap: 0.5rem;
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: var(--weight-display);
   letter-spacing: var(--display-track);
   text-decoration: none;
+}
+
+/* The mark, at the size of the line it sits on and no larger. It keeps its
+   own corner - the tile's radius is part of the drawing and is not this
+   site's 6px - and it is the one element here that neither theme nor flag
+   changes. */
+.brand-mark {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex: none;
 }
 
 /* Wraps for the same reason the bar does. Somebody running large text has a
@@ -496,7 +615,7 @@ a {
   min-height: var(--target);
   background: none;
   border: 1px solid var(--outline);
-  border-radius: var(--radius-pill);
+  border-radius: var(--r-block);
   color: inherit;
   cursor: pointer;
   font: inherit;
@@ -521,9 +640,11 @@ a {
   align-items: center;
   gap: 0;
   min-width: 9.5rem;
-  min-height: calc(var(--target) + 0.36rem);
-  padding: 0.18rem;
-  border-radius: var(--radius-pill);
+  min-height: calc(var(--target) + 6px);
+  /* The app's own concentric arithmetic for this exact control: an 8px track
+     around 6px segments at a 3px inset (its src/lib/styles/components.css). */
+  padding: 3px;
+  border-radius: var(--r-track);
   border: 1px solid var(--outline);
   background: var(--surface-2);
   overflow: clip;
@@ -537,29 +658,36 @@ a {
   min-height: var(--target);
   padding: 0.3rem 0.75rem;
   border: 0;
-  border-radius: var(--radius-pill);
+  border-radius: var(--r-block);
   color: inherit;
   font: inherit;
   font-size: 0.8125rem;
-  font-weight: 500;
+  font-weight: var(--weight-medium);
   text-decoration: none;
+  /* The label meets the thumb on one frame, which is the app's rule for a
+     segmented control: "the chosen label's colour now runs on the pill's
+     duration, so the ink and the page-coloured label meet on one frame
+     instead" (ADR-0078). Here the label changes weight rather than colour,
+     and font-weight interpolates on a variable face. */
+  transition: font-weight var(--dur-med) var(--ease-out);
 }
 
-/* Flat, with a line. */
+/* Flat, with a line. 6px inside the track's 8px at a 3px inset, so the two
+   corners stay concentric. */
 .control .switch-thumb {
   position: absolute;
-  top: 0.18rem;
-  bottom: 0.18rem;
-  left: 0.18rem;
-  width: calc(50% - 0.18rem);
-  border-radius: var(--radius-pill);
-  border: 1px solid var(--outline-strong);
+  top: 3px;
+  bottom: 3px;
+  left: 3px;
+  width: calc(50% - 3px);
+  border-radius: var(--r-block);
+  border: 1px solid var(--outline);
   background: var(--surface);
-  transition: transform var(--dur-med) var(--ease-standard);
+  transition: transform var(--dur-med) var(--ease-out);
 }
 
 .language-control .switch [aria-current="page"] {
-  font-weight: 600;
+  font-weight: var(--weight-bold);
 }
 
 .language-control[data-locale="pl"] .switch-thumb {
@@ -572,7 +700,7 @@ a {
 
 .theme-control .switch[aria-checked="true"] .switch-option:last-of-type,
 .theme-control .switch[aria-checked="false"] .switch-option:first-of-type {
-  font-weight: 600;
+  font-weight: var(--weight-bold);
 }
 
 .control .switch:focus-visible,
@@ -640,40 +768,52 @@ a {
 
 /* ---- The action ------------------------------------------------------- */
 
-/* The app's primary button, brought over whole: the two-accent gradient, the
-   pill, the on-accent label. Nothing else on this page is this, which is what
-   makes it unmistakably the thing to press without a word of urgency, and a
-   visitor who follows it meets the same button on the other side. */
+/* The app's primary button, in the app's own shape: 6px, the body face at
+   750, no shadow, and one flat colour. Nothing else on this page is this,
+   which is what makes it unmistakably the thing to press without a word of
+   urgency, and a visitor who follows it meets the same button on the other
+   side.
+
+   The colour is the live flag's own --accent, copied per palette from the
+   app's src/lib/theme/palettes.css into $lib/flags, so the one thing to press
+   turns over with the motif instead of holding one product colour while
+   everything around it changes. It was a 120-degree ramp between that
+   palette's two accents until ticket 08 deleted the site's last gradient.
+   Each of the eight clears 4.5:1 against --on-accent in both themes - the
+   worst is nonbinary's 4.54 on light - because the app picked them to be sat
+   on, and tests/site.test.mjs re-measures all sixteen in the page.
+
+   The app's own primary button is Ink instead: --text as the ground and --bg
+   as the label. That is the truer copy and it costs the action its colour
+   entirely, so it was drawn against this one for sign-off and this is what
+   was kept.
+
+   Two of its three properties transition here; the press is in the motion
+   block below. Longhands rather than a shorthand wherever --ease-press is
+   named - the reason is written at that token. */
 .cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background: var(--grad-accent);
+  background: var(--flag-accent);
   border: none;
-  border-radius: var(--radius-pill);
+  border-radius: var(--r-block);
   color: var(--on-accent);
-  font-family: var(--font-display);
-  font-weight: 600;
+  font-family: var(--font-body);
+  font-weight: var(--weight-bold);
   font-size: 1.125rem;
-  letter-spacing: var(--display-track);
   /* The side padding gives way before the label does. At 200% text on a 390px
      screen a fixed 2.1rem is 67px of air either side of a string that is
-     already 220px, and the pill stops fitting the phone. */
+     already 220px, and the block stops fitting the phone. */
   min-height: var(--target);
   padding: 0.85rem min(2.1rem, 8vw);
   text-decoration: none;
-  box-shadow: var(--shadow-action);
-  transition:
-    box-shadow var(--dur-press),
-    background-color var(--dur-fast);
 }
 
-/* No recolour on hover: the gradient is the button. What answers a pointer is
-   the lift and the shadow, in the motion block below. */
-.cta:hover {
-  box-shadow: 0 10px 26px rgb(0 0 0 / 0.3);
-}
+/* What answers a pointer is a lift, in the motion block below. There is no
+   recolour on hover: the flag's colour is the button, and a hover state that
+   moved it would be arguing with the cycle. */
 
 /* An availability status is not a control and must not read as one. */
 .status {
@@ -710,27 +850,32 @@ a {
     animation-delay: calc(var(--enter, 0) * 110ms);
   }
 
-  /* Tier 0's other half, the ambient loop: a band of ink travelling a fixed
-     structure. It rides a section's rule, so what a reader sees is the line
-     under a heading catching light and letting it go. Never clamped to 1ms -
-     an infinite 1ms loop is a strobe - it stops outright under reduced
-     motion, which is why it lives inside this block. */
-  @keyframes travel {
-    from {
-      transform: translateX(-100%);
-    }
-    to {
-      transform: translateX(100%);
-    }
-  }
+  /* An appearance that is not on the reading order's clock still travels.
+     Alicja's standing clause for this ticket set: every appearance and every
+     fade-in happens with a smooth animation, no yanks - nothing painted at
+     its destination before it got there, and no frame where a thing is in
+     neither place. */
 
-  /* Tier 1, a control answering a press. The shadow collapses with the scale
-     rather than on its own: an elevation change with no movement to explain
-     it reads as a flicker. */
+  /* A `travel` keyframe sat here until ticket 08 - a band of ink crossing a
+     section's rule. Nothing has referred to it since ticket 03's build
+     replaced that band with the flag sweep, and this ticket has to state the
+     ambient budget as a number, which a keyframe no rule names would make
+     wrong. The budget is two: the sun's breath and the flag cycle that drives
+     the sun, the rules and the action together. */
+
+  /* Tier 1, a control answering a press, on the app's sampled spring: the
+     button springs past 0.97 and settles rather than easing into it. There is
+     no shadow to collapse with it any more - the app's ramp retired and this
+     site kept nothing in its place, for the reason measured at .bar - so the
+     press is the whole of the answer and it has to be a real one.
+
+     Longhands, because --ease-press is a linear() and a shorthand naming it
+     computes to `all 0s ease` on a WebView that cannot parse it, which would
+     strand the hover's transform as well. */
   .cta {
-    transition:
-      box-shadow var(--dur-press),
-      transform var(--dur-press) var(--ease-out);
+    transition-property: transform;
+    transition-duration: var(--dur-press);
+    transition-timing-function: var(--ease-press);
   }
 
   .cta:hover {
@@ -739,7 +884,6 @@ a {
 
   .cta:active {
     transform: translateY(0) scale(0.97);
-    box-shadow: var(--shadow-action-pressed);
   }
 
   /* Tier 2, arrival. Per item rather than per section: a 600px block sliding
@@ -763,9 +907,12 @@ a {
     }
 
     /* Tier 3, a change inside one region: a wipe uncovering from one edge,
-       capped to a card-sized area the way the app caps it. Cards get this
-       instead of the rise, so a section of cards and a section of prose do
-       not arrive identically. */
+       capped to a block-sized area the way the app caps it. Blocks get this
+       instead of the rise, so a row of frames and a column of prose do not
+       arrive identically - and because the app's rule for a block is that it
+       slides in from its own edge and clips, and never fades up from nothing
+       (ADR-0078). The 0.4 opacity this used to start at was exactly that
+       fade, so it is gone: a block is either uncovered or not yet drawn. */
     .wipe {
       animation: uncover 1ms linear both;
       animation-timeline: view();
@@ -776,11 +923,9 @@ a {
   @keyframes uncover {
     from {
       clip-path: inset(0 0 100% 0);
-      opacity: 0.4;
     }
     to {
       clip-path: inset(0 0 0 0);
-      opacity: 1;
     }
   }
 

@@ -25,6 +25,14 @@ const CONTENT_TYPES = {
   '.css': 'text/css',
   '.json': 'application/json',
   '.png': 'image/png',
+  /* The mark, and the one type a browser will not sniff its way around: an
+     SVG served as application/octet-stream is refused in an <img> and comes
+     back as a broken-image glyph, which is how the footer's mark first
+     rendered under this harness (redesign ticket 08). Apache sends this
+     itself, so it was only ever missing here. */
+  '.svg': 'image/svg+xml',
+  '.woff2': 'font/woff2',
+  '.txt': 'text/plain; charset=utf-8',
 };
 
 /* Serves the built directory the way the managed host will: a directory URL
@@ -74,8 +82,13 @@ export function createReporter() {
   const ok = (name) => console.log('PASS', name);
   const fail = (name, detail) => {
     failures++;
-    const message =
-      detail instanceof Error ? (detail.message ?? String(detail)).split('\n')[0] : detail;
+    const text = detail instanceof Error ? (detail.message ?? String(detail)) : String(detail);
+    /* One line per failure by default, because a run with several failures is
+       unreadable otherwise and the first line names the page and the state.
+       VERBOSE=1 prints the whole assertion, which is where the measured
+       numbers are - a pixel pass reports what a word was painted on and at
+       what ratio, and none of that is on the first line. */
+    const message = process.env.VERBOSE ? text : text.split('\n')[0];
     console.log('FAIL', name, '-', message);
   };
   const finish = (passMessage) => {

@@ -27,11 +27,11 @@
          between them they set every visible string, so the swap they avoid
          would be the whole page.
 
-         Outfit's Latin Extended file is deliberately not preloaded. It exists
+         The Latin Extended files are deliberately not preloaded. They exist
          for the Polish diacritics and the unicode-range in base.css already
-         fetches it exactly when a page needs it; preloading it would download
-         14kb on the English page to render nothing. -->
-    <link rel="preload" href="/fonts/dm-sans.woff2" as="font" type="font/woff2" crossorigin />
+         fetches them exactly when a page needs them; preloading them would
+         download 50kb on the English page to render nothing. -->
+    <link rel="preload" href="/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin />
     <script>
       /* Stamps a stored theme choice before first paint. Someone who chose
@@ -58,6 +58,21 @@
       }
     </script>
     %sveltekit.head%
+    <!-- The app's mark (redesign ticket 08), copied from ../gender-diary/brand/
+         rather than imported and served from this origin like everything else.
+         Three files because a tab, a bookmark and a phone's home screen each
+         ask for a different one, and the SVG is the only one that is the
+         drawing rather than a render of it. The mark does not move, anywhere,
+         ever: no animation touches it and no theme recolours it.
+
+         Below the head block rather than above it with the preloads, so the
+         policy governs them: an icon is fetched by the browser like any other
+         image and there is no reason for it to sit in the one region of this
+         document nothing has an opinion about. Nothing waits on them either,
+         so being parsed a few lines later costs nothing. -->
+    <link rel="icon" href="/mark.svg" type="image/svg+xml" />
+    <link rel="icon" href="/mark-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/mark-192.png" />
   </head>
   <body>
     <!--
@@ -71,16 +86,17 @@
       the one warning, the same values in both themes because ink does not
       change with the paper. The eight flags' raw stripes, vivid and never under
       text, for the motif, the section rules, the frames and the swatches.
-      Outfit at -0.024em over DM Sans, 20px card radius, hairlines at 19% and
-      30% of the text colour, one accent spent on one action.
+      Outfit at -0.04em and weight 800 for structure over Nunito for reading,
+      one 6px radius on every surface, hairlines at 14% and 19% of the text
+      colour, no elevation anywhere, one flat accent on one action.
       STORY: a reader meets the word engender, completes the pun themselves,
       and is then told what the app does and where it keeps their journal.
       FIRST VIEWPORT: the name top left with its dictionary entry directly
       under it as one block, the headword the largest type on the page; the
       claim flush beneath, in text ink, with the action as one solid block of
-      the reserved accent; the flag sun bleeding off the top-right corner,
-      cycling all eight flags on a wave that crosses its rings rim to centre and
-      overshoots; a three-stroke swirl in the band between them. The text column
+      the live flag's own accent; the flag sun bleeding off the top-right
+      corner, cycling all eight flags on a wave that crosses its rings rim to
+      centre and decelerates. The text column
       is capped as a fraction of the sheet so no word can ever be painted on the
       raw stripes.
       FORM: brief-pinned after three re-rolls - the app's own language, taken

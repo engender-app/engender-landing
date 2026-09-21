@@ -149,9 +149,12 @@ async function main() {
       await context.close();
     }
 
-    /* The tour, cropped, because it is the one section a full-page shot
-       cannot show: the strip is a horizontal scroller and the page shot only
-       ever catches its first three frames and the top of their captions. */
+    /* The frames, cropped to the group they illustrate. This used to shoot a
+       `.tour-stage` - a sideways strip of all eight - and that element stopped
+       existing when ticket 03 distributed the frames into the feature groups;
+       the shot has been throwing ever since and nothing noticed, because this
+       file is not part of `npm test`. Cropping the first group that has frames
+       is the same job against the composition that actually shipped. */
     for (const theme of ['light', 'dark']) {
       const context = await browser.newContext({
         viewport: { width: 1280, height: 900 },
@@ -162,10 +165,8 @@ async function main() {
       const page = await context.newPage();
       await page.goto(`${base}/en/`, { waitUntil: 'load' });
       await settle(page);
-      const strip = page.locator('.tour-stage');
-      await strip.evaluate((node) => node.scrollTo({ left: 0 }));
-      const file = `${OUT}/tour-${theme}.png`;
-      await strip.screenshot({ path: file });
+      const file = `${OUT}/frames-${theme}.png`;
+      await page.locator('.frames').first().screenshot({ path: file });
       written.push(file);
       await context.close();
     }

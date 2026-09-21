@@ -174,12 +174,14 @@
      under reduced motion it would animate at all, which is the thing being
      avoided. */
   .moving i {
-    /* Slow enough to be watched rather than noticed, and it overshoots.
-       --ease-overshoot is a mild spring: a ring travelling to its new radius
-       goes a little past it and settles, which is what makes the wave read as
-       one movement crossing the sun instead of seven rings changing size. The
-       colour rides the same curve but overshoot is meaningless for a colour,
-       so it takes the plain one. */
+    /* Slow enough to be watched rather than noticed, and it decelerates.
+       --ease-overshoot used to be here - a mild spring, a ring passing its
+       new radius and settling back - and it went with redesign ticket 08:
+       DESIGN.md had it recorded as not canonized, the app has no overshoot
+       curve of its own to justify it, and one curve for the whole site is the
+       app's own discipline. What carries the wave now is the per-ring delay
+       and the app's --ease-out, which still leaves at four times its average
+       speed and lands soft. */
     /* Colour on the motif's own duration, not on --dur-slow. They were
        different and the difference showed: a change between two flags with the
        same number of stripes moves no ring, so all a reader saw was a 320ms
@@ -187,8 +189,8 @@
        900ms. Half the transitions looked like the animation had stopped
        (Alicja's note, 2026-08-28). One duration, one stagger, one wave. */
     transition:
-      transform var(--dur-motif) var(--ease-overshoot),
-      background-color var(--dur-motif) var(--ease-standard);
+      transform var(--dur-motif) var(--ease-out),
+      background-color var(--dur-motif) var(--ease-out);
     transition-delay: var(--ring-delay);
   }
 
@@ -197,7 +199,7 @@
      so the two compose instead of fighting. Staggered by the same per-ring
      delay as the radius, so both halves of the wave travel together. */
   .pulsing {
-    animation: pulse var(--dur-motif) var(--ease-overshoot) both;
+    animation: pulse var(--dur-motif) var(--ease-out) both;
     animation-delay: var(--ring-delay);
   }
 

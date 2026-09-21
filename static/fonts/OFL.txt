@@ -2,8 +2,12 @@ Two font families are bundled in this directory, both under the SIL Open Font
 License Version 1.1. The licence text is identical for both and is copied once,
 below; the copyright notices are theirs separately.
 
-Copyright 2014 The DM Sans Project Authors (https://github.com/googlefonts/dm-fonts)
-  dm-sans.woff2 - the body face.
+Copyright 2016 The Nunito Project Authors (https://github.com/googlefonts/nunito)
+  nunito-latin.woff2, nunito-latin-ext.woff2 - the reading face, and the app's
+  own. It replaced DM Sans on redesign ticket 08, which found that the app has
+  never shipped DM Sans: --font-body in the Journal repository's
+  src/lib/theme/base.css has been Nunito since its first commit. The files are
+  copies of the ones that repository bundles, not a separate build.
 
 Copyright 2021 The Outfit Project Authors (https://github.com/Outfitio/Outfit-Fonts)
   outfit-latin.woff2, outfit-latin-ext.woff2 - the display face, added by the

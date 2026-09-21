@@ -3000,10 +3000,12 @@ for (const width of [390, 1280]) {
   });
 }
 
-/** The two stripes each flag lends the action's gradient: its two most
-    saturated, in the order the flag lists them. Worked out here rather than
-    imported from $lib/flags, for the same reason FLAG_STRIPES is written out
-    again - a test that reads the code under test asserts nothing. */
+/** The colour each flag lends the action, per theme: the app's own --accent
+    for that palette. Written out here rather than imported from $lib/flags,
+    for the same reason FLAG_STRIPES is written out again - a test that reads
+    the code under test asserts nothing. These are the values in the Journal
+    repository's src/lib/theme/palettes.css, so this table disagreeing with
+    the site is the site having drifted from the app. */
 const FLAG_NAMES = [
   "trans",
   "nonbinary",
@@ -3015,46 +3017,72 @@ const FLAG_NAMES = [
   "agender",
 ];
 
-const ACTION_STRIPES = FLAG_STRIPES.map((stripes, index) => {
-  const saturation = (hex) => {
-    const [r, g, b] = hexToRgb(hex);
-    return Math.max(r, g, b) - Math.min(r, g, b);
-  };
-  const ranked = stripes
-    .map((hex, at) => ({ hex, at, saturation: saturation(hex) }))
-    .sort((a, b) => b.saturation - a.saturation);
-  const [first, second] = [ranked[0], ranked[1] ?? ranked[0]];
-  return [
-    FLAG_NAMES[index],
-    first.at <= second.at ? [first.hex, second.hex] : [second.hex, first.hex],
-  ];
-});
+const ACTION_FILL = {
+  light: [
+    "#B85272",
+    "#7A3EB1",
+    "#A31DB6",
+    "#B7025F",
+    "#BC3907",
+    "#D00A72",
+    "#63348F",
+    "#4A7A22",
+  ],
+  dark: [
+    "#F0A3B6",
+    "#C69DEB",
+    "#E289F2",
+    "#F272AE",
+    "#FF9A56",
+    "#FF74B8",
+    "#C09EE8",
+    "#AEEB76",
+  ],
+};
 
 for (const scheme of ["light", "dark"]) {
-  test(`${scheme}: the action's label holds on every flag's gradient`, async () => {
-    /* The action wears the live flag's two most saturated stripes, so its
-       background is eight different gradients over a turn of the cycle rather
-       than one product colour. The label has to hold 4.5:1 on all of them, at
-       both ends of each, which is sixteen backgrounds and not one.
+  test(`${scheme}: the action is one flat colour and its label holds on every flag`, async () => {
+    /* The action wears the live flag's own accent, so its background is eight
+       different colours over a turn of the cycle rather than one product
+       colour. Two things have to hold and they fail in different ways.
 
-       Raw stripes cannot carry a label - the set includes white, a bright
-       yellow and a near-black - so base.css puts each one at the lightness the
-       label needs while keeping its hue and chroma. That lightness is what this
-       measures: 52% on the light theme, worst case 5.19:1 on agender's green,
-       and 80% on the dark, worst 6.76:1 on pansexual's pink. Where a browser
-       cannot do relative colour the fallback is a mix toward --text at 40%,
-       whose worst pair is 4.86:1; 45% gives 4.22:1 and fails. Nonbinary's
-       yellow and agender's grey go first either way, so a change that looks
-       harmless on trans is not.
+       It is flat. Until redesign ticket 08 this was a 120-degree ramp between
+       that palette's two accents, which existed only because the app had a
+       gradient on its own primary button; the app deleted that on 2026-09-09
+       and this went with it. `background-image: none` is what says so about
+       the element a visitor actually presses, rather than about a token.
 
-       Measured in the page, so the colour is the browser's own and the theme is
-       whichever one actually resolved. */
+       The label holds 4.5:1 on all eight, in both themes, which is sixteen
+       backgrounds and not one. The app picked these colours to be sat on and
+       its own palette test holds them; this re-measures them here because
+       --on-accent is this site's own token and a change to it would be
+       invisible on trans and wrong on nonbinary, whose 4.54 is the tightest
+       of the sixteen.
+
+       Measured in the page, so the colours are the browser's own and the
+       theme is whichever one actually resolved. */
     const { context, page } = await visitor({ colorScheme: scheme });
     try {
       await page.goto(`${base}/en/`);
       assert.equal(await themeNow(page), scheme, `asked for ${scheme} and got the other palette`);
 
-      const worst = await page.evaluate((flags) => {
+      const painted = await page.evaluate(() => {
+        const action = document.querySelector(".cta");
+        const style = getComputedStyle(action);
+        return { image: style.backgroundImage, colour: style.backgroundColor };
+      });
+      assert.equal(
+        painted.image,
+        "none",
+        `the action is painted through ${painted.image}, and nothing on this site is a gradient any more`,
+      );
+      assert.equal(
+        painted.colour,
+        asRgb(ACTION_FILL[scheme][0]),
+        "the action does not start on the trans palette's own accent",
+      );
+
+      const worst = await page.evaluate((fills) => {
         const paint = (value) => {
           const canvas = document.createElement("canvas");
           canvas.width = canvas.height = 1;
@@ -3076,42 +3104,48 @@ for (const scheme of ["light", "dark"]) {
           return (bright + 0.05) / (dark + 0.05);
         };
 
-        const root = getComputedStyle(document.documentElement);
-        const text = root.getPropertyValue("--text").trim();
-        const label = paint(root.getPropertyValue("--on-accent").trim());
-
-        /* Whichever form actually ships, read out of the stylesheet rather than
-           written here twice, so this measures what a visitor is served. */
-        const gradient = root.getPropertyValue("--grad-accent");
-        const relative = gradient.includes("oklch(from");
-        const lightness = root.getPropertyValue("--action-l").trim();
-        const pct = Number(gradient.match(/var\(--flag-a\)\s+(\d+)%/)?.[1]);
-        const recipe = (hex) =>
-          relative
-            ? `oklch(from ${hex} ${lightness} c h)`
-            : `color-mix(in oklab, ${hex} ${pct}%, ${text})`;
-
-        const probe = document.createElement("span");
-        document.body.append(probe);
-        let low = { ratio: Infinity, flag: null, stripe: null };
-        for (const [name, stripes] of flags) {
-          for (const hex of stripes) {
-            probe.style.color = recipe(hex);
-            const found = ratio(label, paint(getComputedStyle(probe).color));
-            if (found < low.ratio) low = { ratio: found, flag: name, stripe: hex };
-          }
+        const label = paint(
+          getComputedStyle(document.documentElement).getPropertyValue("--on-accent").trim(),
+        );
+        let low = { ratio: Infinity, flag: null, fill: null };
+        for (const [name, hex] of fills) {
+          const found = ratio(label, paint(hex));
+          if (found < low.ratio) low = { ratio: found, flag: name, fill: hex };
         }
-        probe.remove();
-        return { ...low, recipe: recipe("#5BCEFA") };
-      }, ACTION_STRIPES);
+        return low;
+      }, FLAG_NAMES.map((name, at) => [name, ACTION_FILL[scheme][at]]));
 
-      assert.ok(
-        worst.recipe.startsWith("oklch(") || worst.recipe.startsWith("color-mix("),
-        `could not read the action's colour recipe out of --grad-accent: ${worst.recipe}`,
-      );
       assert.ok(
         worst.ratio >= 4.5,
-        `the action's label is ${worst.ratio.toFixed(2)} on ${worst.flag}'s ${worst.stripe}, needs 4.5 (${worst.recipe})`,
+        `the action's label is ${worst.ratio.toFixed(2)} on ${worst.flag}'s ${worst.fill}, needs 4.5`,
+      );
+    } finally {
+      await context.close();
+    }
+  });
+
+  test(`${scheme}: the action without scripting is this theme's own accent`, async () => {
+    /* The state nothing was watching. The live flag's accent is published onto
+       the document by a script, and a registered custom property whose var()
+       resolves to nothing falls back to the value it was *registered* with -
+       one value, for one theme. So a page with no scripting painted the
+       button in whatever that registration happened to say, which on the
+       two-colour version was a pair of raw trans stripes under a white label
+       at 1.8:1, and on ticket 08's first cut was the light accent under the
+       dark theme's near-black label at 3.7:1. Both were invisible to a test
+       that read the recipe out of a token instead of reading the element. */
+    const { context, page } = await visitor({ colorScheme: scheme, javaScriptEnabled: false });
+    try {
+      await page.goto(`${base}/en/`);
+      const painted = await page.evaluate(() => {
+        const style = getComputedStyle(document.querySelector(".cta"));
+        return { image: style.backgroundImage, colour: style.backgroundColor };
+      });
+      assert.equal(painted.image, "none", "the action is a gradient without scripting");
+      assert.equal(
+        painted.colour,
+        asRgb(ACTION_FILL[scheme][0]),
+        `without scripting the ${scheme} action is painted ${painted.colour}`,
       );
     } finally {
       await context.close();
@@ -3206,6 +3240,254 @@ test("pointer movement does not move the motif", async () => {
       await ring.evaluate((node) => getComputedStyle(node).transform),
       before,
       "the motif follows the pointer",
+    );
+  } finally {
+    await context.close();
+  }
+});
+
+// The design contract (redesign ticket 08)
+
+/* Four rules the app's phase 10 language binds this site to, each asserted
+   against what a browser computed rather than against what a stylesheet says.
+   They exist because every one of them can be broken in a single line and
+   none of them shows up in a screenshot until it is everywhere: a 20px corner
+   among the 6px ones, a shadow under one card, a heading that fell back to
+   the wrong face on the one page nobody opened.
+
+   Each walks every element on every page the build produced, which is what
+   makes them cheap to keep true and expensive to work around. */
+
+/** Every element and every generated box on a page, as computed style. */
+const everyBox = (page, properties) =>
+  page.evaluate((properties) => {
+    const found = [];
+    const label = (node) => {
+      const classes = [...node.classList].map((name) => `.${name}`).join("");
+      return `${node.tagName.toLowerCase()}${classes}`;
+    };
+    for (const node of document.querySelectorAll("*")) {
+      for (const pseudo of [null, "::before", "::after"]) {
+        const style = getComputedStyle(node, pseudo ?? undefined);
+        /* A pseudo-element nobody drew has a computed style all the same, and
+           reporting its inherited values would make every one of these tests
+           a list of ghosts. */
+        if (pseudo && (style.content === "none" || style.content === "normal")) continue;
+        const values = {};
+        for (const property of properties) values[property] = style[property];
+        found.push({ what: label(node) + (pseudo ?? ""), ...values });
+      }
+    }
+    return found;
+  }, properties);
+
+/** The pages a contract walk covers: the splash, the reference page and one
+    Guide chapter, in both languages for the splash, because Polish is where a
+    layout breaks first. */
+const CONTRACT_PAGES = ["/en/", "/pl/", "/en/privacy/", "/en/guide/home/"];
+
+test("every corner on the site is one the radius budget names", async () => {
+  /* The app collapsed twenty-three distinct corners to one on its phase 10
+     ticket and holds it there with a contract test; this is that test for the
+     site, against the budget redesign ticket 08 wrote down.
+
+     6px is --r-block, every surface this site builds. 8px is the switch's
+     track, which is the app's own concentric exception - 8 around 6 at a 3px
+     inset. 999px is a capsule and only the channel badges are one. 50% is the
+     motif's rings. 26px is a phone frame, which is a drawing of a device
+     rather than a surface of this site's. Anything else is a corner nobody
+     decided. */
+  const BUDGET = new Set(["0px", "6px", "8px", "999px", "50%", "26px"]);
+  const { context, page } = await visitor({});
+  try {
+    const wrong = [];
+    for (const path of CONTRACT_PAGES) {
+      await page.goto(`${base}${path}`);
+      const boxes = await everyBox(page, ["borderRadius"]);
+      for (const box of boxes) {
+        /* Per corner, because the shorthand computes to four values whenever
+           they differ and an asymmetric corner is exactly the thing this
+           budget lost on the way in. */
+        for (const corner of box.borderRadius.split(/[\s/]+/).filter(Boolean)) {
+          if (!BUDGET.has(corner)) wrong.push(`${path} ${box.what}: ${box.borderRadius}`);
+        }
+      }
+    }
+    assert.deepEqual([...new Set(wrong)], [], "corners outside the budget");
+  } finally {
+    await context.close();
+  }
+});
+
+test("nothing on the site casts a shadow", async () => {
+  /* The elevation ramp retired with the app's (its DIRECTION.md rule 4:
+     surfaces separate with a line, not a plane). The app keeps one shadow,
+     for the bar that genuinely floats over its content; this site tried to
+     keep the same one for the same reason and measured it costing the running
+     text its contrast floor - the reasoning is written at .bar in base.css.
+     So: none, anywhere, and a rule that adds one has to come back here and
+     say why. */
+  const { context, page } = await visitor({});
+  try {
+    const lifted = [];
+    for (const path of CONTRACT_PAGES) {
+      await page.goto(`${base}${path}`);
+      for (const box of await everyBox(page, ["boxShadow"])) {
+        if (box.boxShadow !== "none") lifted.push(`${path} ${box.what}: ${box.boxShadow}`);
+      }
+    }
+    assert.deepEqual([...new Set(lifted)], [], "something on the site is casting a shadow");
+  } finally {
+    await context.close();
+  }
+});
+
+test("no gradient reaches the built site", async () => {
+  /* Asserted rather than inspected, which is what the ticket asks for. The
+     site had exactly one - the action's two-accent ramp - and it existed only
+     because the app made exactly one exception for its own primary button.
+     The app deleted that exception, so the argument for keeping this one went
+     with it, and what is left has to be checked mechanically: a gradient is a
+     one-line thing to add back and it never looks like a mistake. */
+  const files = (await readdir(buildDirectory, { recursive: true })).filter((entry) =>
+    /\.(css|html|svg)$/.test(entry),
+  );
+  const found = [];
+  for (const file of files) {
+    const body = await readFile(`${buildDirectory}/${file}`, "utf8");
+    if (/(linear|radial|conic|repeating-\w+)-gradient\s*\(/.test(body)) found.push(file);
+  }
+  assert.deepEqual(found, [], "these built files paint through a gradient");
+});
+
+test("the faces served are the app's two, and the page is set in them", async () => {
+  /* Nunito for reading and Outfit for structure, which is what the app is set
+     in - its --font-body has been Nunito since the theme's first commit, and
+     the "Outfit over DM Sans" this site ran on was a sentence about an app
+     that never existed. DM Sans leaving the repository is half of it; the
+     other half is that the page is actually painted in what it bundles, which
+     a missing file would not fail loudly. */
+  const fonts = (await readdir(`${buildDirectory}/fonts`)).filter((file) =>
+    file.endsWith(".woff2"),
+  );
+  assert.deepEqual(
+    fonts.sort(),
+    [
+      "nunito-latin-ext.woff2",
+      "nunito-latin.woff2",
+      "outfit-latin-ext.woff2",
+      "outfit-latin.woff2",
+    ],
+    "the bundled faces are not the app's two, split the app's way",
+  );
+
+  const styles = (await readdir(buildDirectory, { recursive: true })).filter((entry) =>
+    entry.endsWith(".css"),
+  );
+  for (const file of styles) {
+    const body = await readFile(`${buildDirectory}/${file}`, "utf8");
+    assert.ok(!/DM Sans/i.test(body), `${file} still names DM Sans`);
+  }
+
+  const { context, page } = await visitor({});
+  try {
+    await page.goto(`${base}/en/`);
+    await page.evaluate(() => document.fonts.ready);
+    const set = await page.evaluate(() => {
+      const first = (node) => getComputedStyle(node).fontFamily.split(",")[0].replaceAll('"', "");
+      return {
+        body: first(document.body),
+        heading: first(document.querySelector("h2")),
+        lede: first(document.querySelector(".lede p")),
+        action: first(document.querySelector(".cta")),
+        loaded: [...document.fonts].filter((face) => face.status === "loaded").map((face) => face.family),
+      };
+    });
+    assert.equal(set.body, "Nunito", "the page does not read in Nunito");
+    assert.equal(set.heading, "Outfit", "an act heading is not set in Outfit");
+    /* The two the rebind moved off the display face: content is set in the
+       body face, always (the app's rule 2), and a lede and a button label are
+       content. */
+    assert.equal(set.lede, "Nunito", "a lede is still set in the display face");
+    assert.equal(set.action, "Nunito", "the action's label is still set in the display face");
+    assert.ok(set.loaded.includes("Nunito"), "Nunito is declared but never loaded");
+  } finally {
+    await context.close();
+  }
+});
+
+test("a flag change travels, and nothing arrives in one frame", async () => {
+  /* No yanks, in Alicja's own terms: nothing painted at its destination
+     before it travelled there, and no frame in which something is in neither
+     place. Her instruction is that this is measured rather than judged, so
+     this samples every property the change animates on every animation frame
+     and reads the samples.
+
+     Three things move on a flag change and they are three different
+     mechanisms, which is why one of them passing says nothing about the other
+     two: the action's fill interpolates because --flag-accent is a registered
+     property, a ring's radius is a transition on transform, and the rule's
+     sweep is a keyframed clip-path. The old build had a fourth case that
+     looked fine at speed and was not - two flags with the same stripe count
+     moved no ring at all - which is why the count of *distinct* values is
+     what gets asserted rather than "it ended up different". */
+  const { context, page } = await visitor({});
+  try {
+    await page.goto(`${base}/en/`);
+    await page.waitForLoadState("networkidle");
+
+    const samples = await page.evaluate(
+      () =>
+        new Promise((resolve) => {
+          const action = document.querySelector(".cta");
+          const rings = [...document.querySelectorAll(".splash .sun i")];
+          const frames = [];
+          const started = performance.now();
+          const sample = () => {
+            frames.push({
+              at: performance.now() - started,
+              fill: getComputedStyle(action).backgroundColor,
+              rings: rings.map((ring) => getComputedStyle(ring).transform),
+            });
+            if (performance.now() - started < 9000) requestAnimationFrame(sample);
+            else resolve(frames);
+          };
+          requestAnimationFrame(sample);
+        }),
+    );
+
+    /* The fill. One flag change inside nine seconds, and the colour has to be
+       caught somewhere between the two - a registered property that stopped
+       being registered would jump, and would look identical in a screenshot. */
+    const fills = samples.map((frame) => frame.fill);
+    const distinctFills = new Set(fills);
+    assert.ok(
+      distinctFills.size >= 5,
+      `the action's colour took ${distinctFills.size} values in nine seconds, so it is switching rather than travelling`,
+    );
+
+    /* The rings. Every ring that ends somewhere other than where it started
+       has to have been caught in between, and no ring may reach its last
+       value on the first frame it moves. */
+    const ringCount = samples[0].rings.length;
+    const stills = [];
+    const jumps = [];
+    for (let ring = 0; ring < ringCount; ring += 1) {
+      const track = samples.map((frame) => frame.rings[ring]);
+      const changed = track[0] !== track[track.length - 1];
+      const distinct = new Set(track).size;
+      if (changed && distinct < 4) {
+        jumps.push(`ring ${ring} took ${distinct} values between two radii`);
+      }
+      if (distinct === 1) stills.push(ring);
+    }
+    assert.deepEqual(jumps, [], "a ring teleported between two radii");
+    /* Not every ring resizes on every change - two flags with the same stripe
+       count move none of them - so a still ring is only a defect if all of
+       them are still, which would mean the wave stopped. */
+    assert.ok(
+      stills.length < ringCount,
+      "no ring moved at all in nine seconds, so the motif's wave has stopped",
     );
   } finally {
     await context.close();
