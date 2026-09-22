@@ -1,6 +1,6 @@
 # Landing copy, English: the privacy page
 
-Source copy for the privacy page, rewritten for enGender by redesign ticket 02
+Source copy for the privacy page, rewritten for engender by redesign ticket 02
 against `.agents/product-marketing.md` v10. The landing page carries a two-sentence
 handoff; being exact about what is and is not protected takes more than a sentence,
 and this page is where it happens.
@@ -28,7 +28,7 @@ this page could mislead somebody who is relying on it.
 
 *Gate: shipped.*
 
-> **What enGender protects, and what it does not**
+> **What engender protects, and what it does not**
 >
 > This is the long answer. The short one would have to leave out the parts that matter
 > if you are deciding whether to trust this with your journal.
@@ -37,7 +37,7 @@ this page could mislead somebody who is relying on it.
 
 *Gate: shipped.*
 
-> Your journal is stored on your device. There is no enGender account, no server
+> Your journal is stored on your device. There is no engender account, no server
 > with a copy of it on, and nothing syncing in the background. An entry you write goes
 > into storage on the device you wrote it on and stays there until you export it or
 > delete it.
@@ -50,7 +50,7 @@ this page could mislead somebody who is relying on it.
 *Gate: shipped. The counterweight sentence is required by ADR-0014 and by the spec
 wherever app lock is mentioned. It is not optional wording and does not get softened.*
 
-> App lock is off until you turn it on, like every control in enGender that hides
+> App lock is off until you turn it on, like every control in engender that hides
 > something. Keeping a journal about your own life is an ordinary thing to do. Some
 > people's circumstances make it dangerous anyway, and only you know whether that is
 > yours.
@@ -138,7 +138,7 @@ tickets 11 and 13); under the v10 doctrine it publishes with the rest.*
 > password into a key. That part has to be readable without the password, so that a
 > file from a newer version can say so instead of decrypting into nonsense. Everything
 > from your journal is behind the password. Somebody who finds the file learns that it
-> is an enGender Archive, because the header names the format, and nothing about what
+> is an engender Archive, because the header names the format, and nothing about what
 > is in it.
 >
 > **If you lose an Archive password**, that file is not readable again. Other Archives
@@ -158,14 +158,14 @@ appears here unqualified.*
 > What the host does not receive is your journal. Entries, photos, notes and lab values
 > are not sent to it, because there is nowhere for them to be sent.
 >
-> You will not read "enGender makes no network requests" here, because it is not
+> You will not read "engender makes no network requests" here, because it is not
 > true. Fetching the app is a network request. Your journal going somewhere is not.
 
 *Gate: shipped. The privacy consequence of one channel, stated where a reader weighs
 what to trust; the channel list itself is the acquisition section's.*
 
 > Installing from Google Play means Google records that your account installed this
-> app. That is between you and Google, and no setting inside enGender changes it.
+> app. That is between you and Google, and no setting inside engender changes it.
 
 ### What none of this protects against
 
@@ -175,7 +175,7 @@ compromised operating system and an already unlocked app.*
 > If somebody already controls your device, none of this is what stands between them
 > and your journal. An unlocked phone in somebody else's hands, an operating system
 > that has been compromised, or the app sitting open in front of them are all outside
-> what encryption at rest can do. enGender does not claim otherwise. Be wary of
+> what encryption at rest can do. engender does not claim otherwise. Be wary of
 > anything that does.
 
 ### The policy itself
@@ -217,7 +217,7 @@ comes from.
 | An Archive's header is readable without the password, and identifies the format | ADR-0007: plaintext header carrying magic bytes, version, parameters and salt. The magic bytes are `47 44 49 41 52 59`, ASCII GDIARY, the format keeping the name it was born with |
 | A lost Archive password makes that file unreadable, and affects no other Archive | ADR-0007. Each Archive derives its key from its own password and salt |
 | The web host sees an IP address and that the app was fetched | How hosted web applications work. Required by the spec to be stated |
-| Entries are not sent to an enGender server | No server exists |
+| Entries are not sent to an engender server | No server exists |
 | "Makes no network requests" is never used unqualified | Marketing context, never-list. The Journal's own About screen currently uses it, which is that repository's problem to fix and not a licence to repeat it here |
 | Installing from Play means Google knows | Marketing context, objections |
 | Memory inspection, a compromised operating system and an already unlocked app are out of scope | Phase 2 spec, at-rest encryption, final bullet |

@@ -26,7 +26,7 @@
 </script>
 
 <svelte:head>
-  <title>enGender</title>
+  <title>engender</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={`${SITE_ORIGIN}/`} />
   {#each LOCALES as locale (locale)}
@@ -41,7 +41,7 @@
 </svelte:head>
 
 <main id="content">
-  <h1>enGender</h1>
+  <h1>engender</h1>
   <!-- No label on the nav: the only words on this page are a name and the
        two language names, each tagged with its own lang, so there is nothing
        here for a person to read in the wrong language. -->
@@ -77,7 +77,7 @@
     margin: 0;
     font-size: clamp(2rem, 6vw, 3.5rem);
     font-family: var(--font-display);
-    font-weight: 600;
+    font-weight: var(--weight-display);
     letter-spacing: var(--display-track);
     color: var(--text);
   }
@@ -95,15 +95,17 @@
   a {
     display: inline-block;
     padding: 0.6rem 1.5rem;
-    border-radius: 999px;
+    /* A badge, so a capsule, the same shape the landing page's channel
+       badges keep. */
+    border-radius: var(--radius-pill);
     border: 1px solid var(--outline);
     background: var(--surface);
-    font-weight: 500;
+    font-weight: var(--weight-medium);
     text-decoration: none;
     transition: border-color var(--dur-fast);
   }
 
   a:hover {
-    border-color: var(--outline-strong);
+    border-color: var(--accent-2);
   }
 </style>

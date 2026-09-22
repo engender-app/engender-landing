@@ -124,20 +124,32 @@
       <div class="claim">
         <p class="headline enter" style:--enter={1}>{m.hero.headline}</p>
         <p class="subheadline enter" style:--enter={2}>{m.hero.subheadline}</p>
+      </div>
+    </div>
+  </div>
 
-        <div class="actions enter" style:--enter={3}>
-          <a class="cta" href={JOURNAL_URL}>{m.startJournal}</a>
-          <ul class="badges">
-            {#each m.channels as channel (channel.name)}
-              <li>
-                <a class="badge" href={pathFor(locale)}>
-                  {#if CHANNEL_MARKS[channel.name]}
-                    <Mark name={CHANNEL_MARKS[channel.name]} size="1.6em" />
-                  {/if}
-                  {channel.name}
-                </a>
-              </li>
-            {/each}
+  <!-- Off the field and on the page. The app's own doors put the title on
+       the field and everything a person operates underneath it, and the
+       arithmetic says the same thing here: the action is painted in the live
+       flag's accent and the field is the live flag's own band, and across the
+       eight those two measure as little as 1.26:1 apart, so a button on the
+       field would be a shape nobody could find. On the page it keeps the
+       4.5:1 it was measured at. -->
+  <div class="after-field">
+    <div class="sheet">
+      <div class="actions enter" style:--enter={3}>
+        <a class="cta" href={JOURNAL_URL}>{m.startJournal}</a>
+        <ul class="badges">
+          {#each m.channels as channel (channel.name)}
+            <li>
+              <a class="badge" href={pathFor(locale)}>
+                {#if CHANNEL_MARKS[channel.name]}
+                  <Mark name={CHANNEL_MARKS[channel.name]} size="1.6em" />
+                {/if}
+                {channel.name}
+              </a>
+            </li>
+          {/each}
             <!-- The source, beside the channels rather than at the foot of the
                  page: it is one of the places a reader can go from here, and
                  the support copy's "go and look" is easier to act on when the
@@ -145,14 +157,13 @@
                  note, 2026-08-28). Labelled with the host's name rather than
                  the URL, which is a brand name and identical in both
                  languages. -->
-            <li>
-              <a class="badge" href={SOURCE_URL} rel="noopener">
-                <Mark name="github" size="1.6em" />
-                github
-              </a>
-            </li>
-          </ul>
-        </div>
+          <li>
+            <a class="badge" href={SOURCE_URL} rel="noopener">
+              <Mark name="github" size="1.6em" />
+              github
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -385,9 +396,10 @@
     padding-inline: clamp(1rem, 5vw, 4rem);
   }
 
+  /* Weight and tracking come from base.css, where every heading on the site
+     takes the app's display weight of 800 at --display-track. */
   h2 {
     font-size: clamp(2rem, 4.6vw, 4rem);
-    font-weight: 600;
     line-height: 0.98;
     margin: 0;
   }
@@ -403,18 +415,36 @@
     margin-bottom: clamp(1.75rem, 5vh, 3rem);
   }
 
+  /* The body face, not the display one. The app's rule 2: the display face is
+     for a screen's structure and content is set in the body face, always - and
+     a lede is content. It keeps its size, so it is still the loudest sentence
+     in its act; what carries it now is Nunito at the app's --weight-medium,
+     which is also the app's answer for secondary text that has to hold its own
+     against a heading at 800. */
   .lede :global(p) {
     color: var(--text);
-    font-family: var(--font-display);
     font-size: clamp(1.25rem, 2.2vw, 1.8rem);
-    font-weight: 500;
+    font-weight: var(--weight-medium);
     line-height: 1.35;
-    letter-spacing: var(--display-track);
     max-width: 34ch;
   }
 
   /* ---- Splash ---------------------------------------------------------- */
 
+  /* The splash is the site's door, and a door opens on a field: one solid
+     band of the live flag's own colour, full bleed, with the entry and the
+     claim set on it and the sun drawn on its corner. That is the app's
+     ADR-0075 taken at poster scale, and Alicja's instruction for this site
+     was to treat the whole thing as a header (2026-09-22) rather than to put
+     the headword alone on it the way a door does.
+
+     The colour is a registered property, so it travels with the flag over the
+     motif's own duration instead of switching: the header changes colour on
+     the same clock as the sun drawn on it.
+
+     One field per act is the site's rule, and this act's is this one. The
+     action and the badges are underneath it on the page, which is where the
+     app puts what a person operates too. */
   .splash {
     /* In px and vw, never rem. A rem clamp scales with the root font size, so
        at 200% text this motif's floor doubled and swallowed the nameplate - the
@@ -423,11 +453,33 @@
        the reader's text size. */
     --splash-sun: clamp(280px, 46vw, 560px);
     position: relative;
+    background: var(--field-flag);
+    color: var(--field-flag-ink);
     /* Clips the corner motif and the swirl. Only here: a clip at the body
        would hide a layout broken by long Polish strings from the test that
        looks for exactly that. */
     overflow: clip;
-    padding-block: clamp(2.5rem, 8vh, 6rem) clamp(4rem, 12vh, 9rem);
+    padding-block: clamp(2.5rem, 8vh, 6rem) clamp(2.5rem, 6vh, 4.5rem);
+  }
+
+  /* Every line on the field is the full ink. The privacy field holds its
+     secondary text back to 92% of its own foreground, and that cannot be done
+     here: across the eight bands the same mix measures 4.38 on nonbinary and
+     4.29 on genderfluid, both under the floor. So what separates a heading
+     from the line under it here is size and weight, not tint. */
+  .splash .grammar,
+  .splash .sense,
+  .splash .subheadline,
+  .splash .headword,
+  .splash .headline {
+    color: inherit;
+  }
+
+  /* No column of its own: the sheet inside it already establishes the page's
+     one column, and stating it twice indented the action past the words it
+     answers to. */
+  .after-field {
+    padding-block: clamp(2rem, 6vh, 3.5rem) clamp(4rem, 12vh, 9rem);
   }
 
   .sun-well {
@@ -518,9 +570,12 @@
        definition before it reads as a pitch. Under the craft floor's 6rem
        display ceiling. */
     font-size: clamp(2.75rem, 7.5vw, 5rem);
-    font-weight: 600;
+    font-weight: var(--weight-display);
     line-height: 1;
-    letter-spacing: -0.03em;
+    /* One step tighter than --display-track, which is what the app does to a
+       door's title at 48px and above. This is the one word on the site set
+       larger than that. */
+    letter-spacing: var(--display-track-tight);
     color: var(--text);
   }
 
@@ -552,9 +607,9 @@
     margin: 0 0 1.25rem;
     font-family: var(--font-display);
     font-size: clamp(1.75rem, 4.4vw, 3.25rem);
-    font-weight: 500;
+    font-weight: var(--weight-display);
     line-height: 1.05;
-    letter-spacing: -0.028em;
+    letter-spacing: var(--display-track);
     /* Flat --text, and specifically not the accent: the accent is spent on the
        one action and nowhere else, which is what makes the action findable
        without a word of urgency. */
@@ -563,8 +618,11 @@
     text-wrap: balance;
   }
 
+  /* Nothing follows it on the field any more - the action moved to the page
+     below - so the space it used to hold open for that is the field's own
+     bottom padding now. */
   .subheadline {
-    margin: 0 0 clamp(1.75rem, 5vh, 2.75rem);
+    margin: 0;
     font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
     color: var(--text-2);
     max-width: 46ch;
@@ -596,11 +654,14 @@
        grow with it or the label would have been squeezed against it. */
     min-height: 3.25rem;
     padding: 0.7rem 1.25rem;
+    /* The pill survives here and in one other place, for the app's own
+       reason: a badge is a capsule, one word and a mark, which is the shape
+       its --radius-pill is reserved for. */
     border-radius: var(--radius-pill);
     border: 1px solid var(--outline);
     background: var(--surface);
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: var(--weight-medium);
     text-decoration: none;
     transition:
       border-color var(--dur-fast),
@@ -608,7 +669,7 @@
   }
 
   .badge:hover {
-    border-color: var(--outline-strong);
+    border-color: var(--accent-2);
     background: var(--surface-2);
   }
 
@@ -633,8 +694,7 @@
     display: inline-flex;
     align-items: center;
     min-height: var(--target);
-    font-family: var(--font-display);
-    font-weight: 600;
+    font-weight: var(--weight-bold);
     font-size: 1.0625rem;
     text-decoration: none;
     border-bottom: 2px solid currentcolor;
@@ -733,13 +793,17 @@
     max-width: 46rem;
     margin-left: min(12vw, 9rem);
     padding-left: 1.25rem;
-    border-left: 1px solid var(--outline);
+    border-left: 1px solid var(--hairline);
   }
 
+  /* A content title: the body face at 750, not the display face, because it
+     names a body of copy rather than an act. */
   .screens-note h3 {
     margin: 0;
+    font-family: var(--font-body);
     font-size: 1.125rem;
-    font-weight: 600;
+    font-weight: var(--weight-bold);
+    letter-spacing: normal;
   }
 
   .screens-note p {
@@ -758,7 +822,7 @@
   .group {
     margin: 0;
     padding-top: clamp(1.5rem, 3vh, 2.25rem);
-    border-top: 1px solid var(--outline);
+    border-top: 1px solid var(--hairline);
   }
 
   /* No rule above the first group in a run: the act's own head is already the
@@ -779,7 +843,6 @@
   .group h3 {
     margin: 0;
     font-size: clamp(1.5rem, 3vw, 2.4rem);
-    font-weight: 600;
     line-height: 1.02;
   }
 
@@ -807,18 +870,16 @@
      none. With no boxes, weight and ink are the whole of the emphasis. */
   .entries p strong {
     color: var(--text);
-    font-weight: 600;
+    font-weight: var(--weight-bold);
   }
 
   /* A group's intro speaks for the group, not from beside it. */
   .entries p.plain {
     grid-column: 1 / -1;
     max-width: 56ch;
-    font-family: var(--font-display);
     font-size: clamp(1.125rem, 1.7vw, 1.35rem);
-    font-weight: 500;
+    font-weight: var(--weight-medium);
     line-height: 1.4;
-    letter-spacing: var(--display-track);
     color: var(--text);
     margin-bottom: 0.5rem;
   }
@@ -850,20 +911,23 @@
   .frame {
     position: relative;
     aspect-ratio: 9 / 16;
+    /* The one radius on the site that is not 6px, and it survives the budget
+       because a frame is a drawing of a device rather than a surface of this
+       site's: a phone has a corner radius out in the world. */
     border-radius: 26px;
     border: 4px solid var(--frame-ink);
-    transition: border-color var(--dur-motif) var(--ease-standard) var(--frame-delay, 0ms);
+    transition: border-color var(--dur-motif) var(--ease-out) var(--frame-delay, 0ms);
     background: var(--surface-2);
     overflow: clip;
     margin-bottom: 1rem;
   }
 
+  /* A content title, so the body face at 750 - the app's rule 2 again, and
+     the same treatment a channel's name gets below. */
   .frames h4 {
     margin: 0 0 0.4rem;
-    font-family: var(--font-display);
     font-size: 1.125rem;
-    font-weight: 600;
-    letter-spacing: var(--display-track);
+    font-weight: var(--weight-bold);
   }
 
   .frames p {
@@ -879,21 +943,32 @@
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
   }
 
+  /* Four cells held by one hairline each, not four cards. The app's rule 4
+     has three treatments and a box of surface colour is none of them: a thing
+     is flush on the page, a block of the flag's colour with a value on it, or
+     ink. A lead is a sentence with a name in front of it, so it is flush, and
+     what says where one ends and the next begins is the line above it. */
   .leads .entries p.lead-block {
-    padding: clamp(1.25rem, 2.5vw, 1.75rem);
-    border: 1px solid var(--outline);
-    border-radius: var(--radius-card);
-    background: var(--surface);
+    padding: clamp(1rem, 2vw, 1.5rem) 0 0;
+    border-top: 1px solid var(--hairline);
     max-width: none;
   }
 
   /* ---- The careful notice --------------------------------------------- */
 
+  /* The notice, flush. The app's is "text on the page between two hairlines,
+     like a list" (rule 4), after Alicja read a filled one as too loud; this
+     one was a box of --surface-2 with a 20px corner, which is the same idea
+     one step further into the world that ticket 08 leaves. */
   .careful .entries p.plain {
-    padding: clamp(1.25rem, 2.5vw, 1.75rem);
-    border: 1px solid var(--outline);
-    border-radius: var(--radius-card);
-    background: var(--surface-2);
+    /* The two rules span the whole act, the way a list's do; the sentence
+       between them keeps its 56ch measure by giving the width back as
+       padding rather than by capping the box, which would have pulled the
+       lines in with it. */
+    max-width: none;
+    padding: clamp(1rem, 2vw, 1.5rem) max(0px, calc(100% - 56ch)) clamp(1rem, 2vw, 1.5rem) 0;
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
     margin-bottom: 1rem;
   }
 
@@ -926,7 +1001,7 @@
     width: 2.5rem;
     height: 3.25rem;
     overflow: clip;
-    border-radius: 9px;
+    border-radius: var(--r-block);
     border: 1px solid var(--outline);
     transition:
       transform var(--dur-med) var(--ease-out),
@@ -938,7 +1013,7 @@
   }
 
   .swatch.active {
-    border-color: var(--outline-strong);
+    border-color: var(--text);
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -998,17 +1073,19 @@
     list-style: none;
     margin: clamp(1.5rem, 4vh, 2.5rem) 0 0;
     padding: 0;
-    border-top: 1px solid var(--outline);
+    /* A list between two hairlines with a hairline between its rows, which is
+       the app's own flush list. */
+    border-top: 1px solid var(--hairline);
   }
 
   .channels li {
     min-height: 10rem;
     padding: 1.5rem;
-    border-bottom: 1px solid var(--outline);
+    border-bottom: 1px solid var(--hairline);
   }
 
   .channels li:nth-child(odd) {
-    border-right: 1px solid var(--outline);
+    border-right: 1px solid var(--hairline);
   }
 
   .channel-head {
@@ -1022,10 +1099,8 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    font-family: var(--font-display);
     font-size: 1.125rem;
-    font-weight: 600;
-    letter-spacing: var(--display-track);
+    font-weight: var(--weight-bold);
   }
 
   .channels p {
@@ -1052,10 +1127,15 @@
 
   /* The warning is the one thing on the page a reader must not scroll past
      thinking it was decoration, so it is the page's second ink field. */
+  /* The one block on the page: a value sits on it, and the value is the one
+     sentence a reader must not scroll past thinking it was decoration. The
+     act it is in has no field, which is what keeps the site inside the
+     translated colour budget - at most one field per act, blocks only where
+     something sits on them. */
   .support :global(p:last-child) {
     margin-top: 2.5rem;
     padding: clamp(1.25rem, 3vw, 2rem);
-    border-radius: var(--radius-card);
+    border-radius: var(--r-block);
     background: var(--field-rose);
     color: var(--on-field);
   }

@@ -6,11 +6,17 @@
    and it means the picture cannot change without somebody looking at the
    change. Re-run it when the palette, the face or the motif move.
 
-   What is on the card is the wordmark and the flag sun, and nothing else. The
-   reasoning for saying no more than that is on SOCIAL_CARD in src/lib/site.ts:
-   a preview is the one surface somebody did not choose to look at, so what the
-   app is for goes in og:description, which is the part a person sharing the
-   link is choosing to send.
+   What is on the card is the mark, the wordmark and the flag sun, and nothing
+   else. The reasoning for saying no more than that is on SOCIAL_CARD in
+   src/lib/site.ts: a preview is the one surface somebody did not choose to
+   look at, so what the app is for goes in og:description, which is the part a
+   person sharing the link is choosing to send.
+
+   The mark arrived with redesign ticket 08 and is static/mark.svg, which is
+   itself a copy of the app's own generated tile. A preview at thumbnail size
+   is where an icon earns its place: the sun's arc says which product this is
+   to somebody who already knows it, and the mark says it to somebody meeting
+   it in a link.
 
    Redesign ticket 03 repainted this. It carried ticket 09's world - a
    near-black ground, three blurred aurora blobs, and the wordmark in a
@@ -23,11 +29,11 @@
    cost of the file being static, and the same is true of the flag's stripes in
    src/lib/flags.ts.
 
-   The type is Outfit now, embedded from the same woff2 the site serves. The
-   old file said the system sans was deliberate because the bundled DM Sans
-   subset was missing most of basic Latin and rendered the wordmark in per-glyph
-   serif fallback; it also said ticket 03 would take the display face when it
-   settled one. This is that. Outfit's Latin file covers U+0000-00FF, so the
+   The type is Outfit, embedded from the same woff2 the site serves, at the
+   weight and tracking the app sets its display face in: 800 at -0.045em,
+   which redesign ticket 08 took from its src/lib/theme/base.css. It was 600
+   at -0.024em, which is what ticket 03 measured Outfit at before the app
+   moved. Outfit's Latin file covers U+0000-00FF, so the
    wordmark renders in the face the site actually uses.
 
    Chromium comes from the same launcher the browser tests use, so
@@ -49,6 +55,7 @@ const SUN = 760;
 const root = new URL('../', import.meta.url);
 
 const outfit = await readFile(fileURLToPath(new URL('static/fonts/outfit-latin.woff2', root)));
+const mark = await readFile(fileURLToPath(new URL('static/mark.svg', root)));
 
 /* Trans, the app's default palette, and the same flag the site rests on
    without scripting. A card cannot cycle. */
@@ -106,15 +113,27 @@ const card = `<!doctype html>
         transform-origin: 50% 50%;
       }
 
-      /* Flat --text, in the site's display face at its own tracking. The
-         gradient this used to be is not on the site any more. */
+      /* The mark, at the size it can still be read at when the whole card is
+         300px wide. It keeps its own corner radius, which is part of the
+         drawing rather than this site's shape budget. */
+      .mark {
+        position: relative;
+        display: block;
+        width: 96px;
+        height: 96px;
+        margin-bottom: 28px;
+      }
+
+      /* Flat --text, in the site's display face at the app's own display
+         weight and tracking. The gradient this used to be is not on the site
+         any more, and neither is the 600 it was set at. */
       .wordmark {
         position: relative;
         margin: 0;
         font-family: 'Outfit', system-ui, sans-serif;
         font-size: 112px;
-        font-weight: 600;
-        letter-spacing: -0.024em;
+        font-weight: 800;
+        letter-spacing: -0.045em;
         color: #e8f1f7;
         width: fit-content;
       }
@@ -122,7 +141,8 @@ const card = `<!doctype html>
   </head>
   <body>
     <div class="sun">${stripes}</div>
-    <p class="wordmark">enGender</p>
+    <img class="mark" src="data:image/svg+xml;base64,${mark.toString('base64')}" alt="" />
+    <p class="wordmark">engender</p>
   </body>
 </html>`;
 

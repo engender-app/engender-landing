@@ -15,7 +15,7 @@ this audience searches in the mood-tracker aisle and finds nothing with a place 
 gender. So the listing spends the title, the strongest field, on the mood aisle where
 the volume is, and covers the niche transition terms in the short description and
 throughout the full description, where a low-competition term does not need title
-weight to rank. The enGender rename changed the arithmetic: the old brand carried
+weight to rank. The engender rename changed the arithmetic: the old brand carried
 "gender" and "diary" into the title for free, the new one carries only "gender", so
 the title suffix has to buy "diary" as well as the mood terms.
 

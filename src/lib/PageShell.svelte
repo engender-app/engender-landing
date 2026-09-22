@@ -49,7 +49,7 @@
     };
   });
 
-  /* The action wears the live flag's own accent pair. Both themes' pairs are
+  /* The action wears the live flag's own accent. Both themes' values are
      published and base.css picks between them, rather than this reading the
      theme: the theme can change without the flag changing, and an effect that
      had to watch both would be watching something that is only in the cascade.
@@ -58,12 +58,15 @@
      that reads them and the root is the one place they can be read from
      everywhere. */
   $effect(() => {
-    const { light, dark } = flagCycle.flag.accents;
+    const { light, dark } = flagCycle.flag.accent;
+    const { fill, ink } = flagCycle.flag.field;
     const root = document.documentElement;
-    root.style.setProperty('--flag-light-a', light[0]);
-    root.style.setProperty('--flag-light-b', light[1]);
-    root.style.setProperty('--flag-dark-a', dark[0]);
-    root.style.setProperty('--flag-dark-b', dark[1]);
+    root.style.setProperty('--flag-accent-light', light);
+    root.style.setProperty('--flag-accent-dark', dark);
+    /* The splash's field takes one value for both themes, so unlike the
+       accent there is nothing here for the cascade to pick between. */
+    root.style.setProperty('--field-flag', fill);
+    root.style.setProperty('--field-flag-ink', ink);
   });
 
   /* Only a person choosing a language is remembered, which is why this is on
@@ -155,12 +158,26 @@
      In the document after `main`, which is also the order somebody tabbing
      through the page should meet it. -->
 <footer class="bar">
-  {#if page !== 'landing'}
-    <!-- The way back, on every page that is not the one it points at. It is
-         the site's name rather than a word like "back", so it says where it
-         goes and needs no translation of its own. -->
-    <a class="brand" href={pathFor(locale)}>{m.pageTitle}</a>
-  {/if}
+  <!-- The mark and the site's name, on every page. On any page that is not
+       the landing page it is also the way back, which is why it says the
+       site's name rather than a word like "back": it says where it goes and
+       needs no translation of its own. On the landing page it is not a link,
+       because a link to the page you are on is furniture, but it is still
+       drawn - a site with no mark anywhere on its first screen is what this
+       looked like for one round.
+
+       An <img> rather than inline SVG, so the file this site serves and the
+       file the app generates are the same bytes and cannot drift. The mark is
+       its own drawing in fixed colours, it is aria-hidden because the name
+       beside it already says what it says, and nothing animates it. -->
+  <svelte:element
+    this={page === 'landing' ? 'span' : 'a'}
+    class="brand"
+    href={page === 'landing' ? undefined : pathFor(locale)}
+  >
+    <img class="brand-mark" src="/mark.svg" alt="" aria-hidden="true" width="28" height="28" />
+    {m.pageTitle}
+  </svelte:element>
 
   <a class="bar-link" href={pathFor(locale, 'guide-getting-started')}>{m.footer.guide}</a>
   <a class="bar-link" href={PORTFOLIO_URL} rel="noopener">{m.footer.portfolio}</a>

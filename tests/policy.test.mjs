@@ -106,11 +106,16 @@ test('only the known things are parsed before the policy arrives', async () => {
      stylesheet without waiting on it, and the two font preloads beside it. All
      three are written in a source file rather than acquired at run time.
 
-     Two preloads, not one, since redesign ticket 03: Outfit joined DM Sans and
-     sets the largest text on the page, so it is preloaded for the same reason
-     DM Sans is. Outfit's Latin Extended half is deliberately not up here - the
-     unicode-range in base.css fetches it when a page actually needs it, and
-     preloading it would pull 14kb to render nothing in English.
+     Two preloads, not one, since redesign ticket 03: Outfit sets the largest
+     text on the page and the body face sets the rest, so both are preloaded.
+     The body face is Nunito since redesign ticket 08, which found that the app
+     this site copies has never shipped the DM Sans that used to be here.
+     Neither Latin Extended half is up here - the unicode-range in base.css
+     fetches them when a page actually needs them, and preloading them would
+     pull 50kb to render nothing in English.
+
+     The mark's three icon links are deliberately *not* up here either: they
+     are below the head block, where the policy governs them.
 
      What this test refuses is a fourth. The region above the policy is the one
      place on the site where a resource can be added and no policy will have an
@@ -127,12 +132,17 @@ test('only the known things are parsed before the policy arrives', async () => {
 
     const links = unpoliced.match(/<link/g) ?? [];
     assert.equal(links.length, 2, `${path} loads something ungoverned beyond the two fonts`);
-    assert.match(unpoliced, /dm-sans\.woff2/, `${path}: DM Sans is not preloaded`);
+    assert.match(unpoliced, /nunito-latin\.woff2/, `${path}: Nunito is not preloaded`);
     assert.match(unpoliced, /outfit-latin\.woff2/, `${path}: Outfit is not preloaded`);
     assert.doesNotMatch(
       unpoliced,
-      /outfit-latin-ext/,
-      `${path}: Outfit's Latin Extended half is preloaded, which costs 14kb to render nothing`,
+      /-latin-ext/,
+      `${path}: a Latin Extended half is preloaded, which costs 50kb to render nothing`,
+    );
+    assert.doesNotMatch(
+      unpoliced,
+      /rel="(icon|apple-touch-icon)"/,
+      `${path}: the mark's icons are above the policy, where nothing governs them`,
     );
   }
 });

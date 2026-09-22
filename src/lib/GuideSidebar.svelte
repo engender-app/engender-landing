@@ -44,7 +44,7 @@
   .hub-label {
     margin: 0 0 0.4rem;
     font-size: 0.8rem;
-    font-weight: 600;
+    font-weight: var(--weight-bold);
     text-transform: uppercase;
     letter-spacing: 0.04em;
     color: var(--text-2);
@@ -64,6 +64,9 @@
     padding: 0.3rem 0;
     color: var(--text-2);
     text-decoration: none;
+    /* A state change moves (ADR-0078 in the app): the colour travels rather
+       than switching between two frames. */
+    transition: color var(--dur-fast) var(--ease-out);
   }
 
   a:hover {
@@ -72,6 +75,6 @@
 
   a[aria-current='page'] {
     color: var(--text);
-    font-weight: 600;
+    font-weight: var(--weight-bold);
   }
 </style>

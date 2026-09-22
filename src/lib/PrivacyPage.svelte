@@ -60,7 +60,7 @@
   .masthead {
     position: relative;
     overflow: clip;
-    border-bottom: 1px solid var(--outline);
+    border-bottom: 1px solid var(--hairline);
   }
 
   .sun-well {
@@ -76,19 +76,21 @@
     padding: clamp(2.5rem, 8vh, 5rem) clamp(1rem, 4vw, 2.5rem) clamp(2.5rem, 7vh, 4rem);
   }
 
+  /* A page's title, which is the app's door title: the display face at 800,
+     one step tighter than --display-track because it runs past 48px. */
   h1 {
     font-size: clamp(1.9rem, 4.8vw, 3.25rem);
-    font-weight: 600;
+    letter-spacing: var(--display-track-tight);
     margin: 0 0 1.5rem;
     max-width: 24ch;
   }
 
+  /* The body face: an intro is content, and content is not set in the
+     display face (the app's rule 2). */
   .intro {
-    font-family: var(--font-display);
     font-size: clamp(1.125rem, 2vw, 1.4rem);
-    font-weight: 500;
+    font-weight: var(--weight-medium);
     line-height: 1.4;
-    letter-spacing: var(--display-track);
     color: var(--text-2);
     max-width: 42ch;
     margin: 0;
@@ -116,7 +118,6 @@
 
   h2 {
     font-size: clamp(1.35rem, 2.6vw, 1.85rem);
-    font-weight: 600;
     margin: 0;
   }
 
@@ -127,6 +128,6 @@
 
   article :global(p strong) {
     color: var(--text);
-    font-weight: 600;
+    font-weight: var(--weight-bold);
   }
 </style>

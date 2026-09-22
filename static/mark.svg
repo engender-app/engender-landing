@@ -1,0 +1,7 @@
+<!-- The app's mark, copied from ../gender-diary/brand/mark/svg/trans-tile.svg
+     (ADR-0088 there). It is generated: the geometry lives in that repository's
+     scripts/render-mark.mjs and its stripes are read from its palettes.css, so a
+     change is made there and re-copied here, never edited in this file.
+     Trans is the app's default palette and the one flag this site rests on
+     without scripting, which is why it is this flag's tile and not another's. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 100 100" focusable="false" role="img" aria-label="engender"><defs><clipPath id="mark-tile"><rect x="1.5" y="1.5" width="97" height="97" rx="13.50"/></clipPath></defs><g clip-path="url(#mark-tile)"><rect width="100" height="100" fill="#FFFFFF"/><circle cx="100" cy="0" r="98.50" fill="#5BCEFA" stroke="#000" stroke-width="3"/><circle cx="100" cy="0" r="78.50" fill="#F5A9B8" stroke="#000" stroke-width="3"/><circle cx="100" cy="0" r="58.50" fill="#FFFFFF" stroke="#000" stroke-width="3"/><circle cx="100" cy="0" r="38.50" fill="#F5A9B8" stroke="#000" stroke-width="3"/><circle cx="100" cy="0" r="18.50" fill="#5BCEFA" stroke="#000" stroke-width="3"/></g><rect x="1.5" y="1.5" width="97" height="97" rx="13.50" fill="none" stroke="#000" stroke-width="3"/></svg>
