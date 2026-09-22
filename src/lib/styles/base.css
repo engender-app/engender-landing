@@ -284,9 +284,15 @@
      weight was only ever doing the work a shadow used to do.
 
      --text at low alpha rather than a mix toward the surface, so one value
-     reads over a card and over the page behind it. */
-  --hairline: color-mix(in srgb, var(--text) 14%, transparent);
-  --outline: color-mix(in srgb, var(--text) 19%, transparent);
+     reads over a card and over the page behind it.
+
+     In oklab, which is the space the app mixes them in (its
+     src/lib/theme/palettes.css, `color-mix(in oklab, var(--text) 19%,
+     transparent)` and 14% beside it). This site mixed the same percentages in
+     srgb, inherited from ticket 03, and two lines that agree on the number
+     and disagree on the space are not the same line. */
+  --hairline: color-mix(in oklab, var(--text) 14%, transparent);
+  --outline: color-mix(in oklab, var(--text) 19%, transparent);
 
   /* Accent-coloured text. --accent itself measures 4.38:1 on --bg in light,
      which fails, and the app hit the same wall: this is its --accent-ink,

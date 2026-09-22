@@ -170,17 +170,14 @@
        file the app generates are the same bytes and cannot drift. The mark is
        its own drawing in fixed colours, it is aria-hidden because the name
        beside it already says what it says, and nothing animates it. -->
-  {#if page === 'landing'}
-    <span class="brand">
-      <img class="brand-mark" src="/mark.svg" alt="" aria-hidden="true" width="28" height="28" />
-      {m.pageTitle}
-    </span>
-  {:else}
-    <a class="brand" href={pathFor(locale)}>
-      <img class="brand-mark" src="/mark.svg" alt="" aria-hidden="true" width="28" height="28" />
-      {m.pageTitle}
-    </a>
-  {/if}
+  <svelte:element
+    this={page === 'landing' ? 'span' : 'a'}
+    class="brand"
+    href={page === 'landing' ? undefined : pathFor(locale)}
+  >
+    <img class="brand-mark" src="/mark.svg" alt="" aria-hidden="true" width="28" height="28" />
+    {m.pageTitle}
+  </svelte:element>
 
   <a class="bar-link" href={pathFor(locale, 'guide-getting-started')}>{m.footer.guide}</a>
   <a class="bar-link" href={PORTFOLIO_URL} rel="noopener">{m.footer.portfolio}</a>
