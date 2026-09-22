@@ -10,20 +10,22 @@ import { FLAGS, type Flag } from '$lib/flags';
     offscreen or hidden. A page left open in a background tab for an afternoon
     should not be repainting a sun nobody is looking at.
 
-    Three seconds, which is a full turn of all eight in twenty-four. It was
-    six, on the reasoning that the point was the colour *changing*, noticed out
-    of the corner of an eye, rather than a reader being shown all eight. That
-    stopped being true when the splash became a field of the live flag
-    (redesign ticket 08): the flag is the whole of the first screen's colour
-    now, not a motif in its corner, and at forty-eight seconds a visit that
-    lasts twenty only ever saw three of the eight - which is exactly what
-    Alicja reported on the built page (2026-09-22, "the site should cycle
-    between all 8 flags, not just 3").
+    Five seconds, which is a full turn of all eight in forty. It was six, on
+    the reasoning that the point was the colour *changing*, noticed out of the
+    corner of an eye, rather than a reader being shown all eight. That stopped
+    being true when the splash became a field of the live flag (redesign
+    ticket 08): the flag is the whole of the first screen's colour now, not a
+    motif in its corner, and at forty-eight seconds a visit that lasts twenty
+    only ever saw three of the eight - which is what Alicja reported on the
+    built page (2026-09-22, "the site should cycle between all 8 flags, not
+    just 3"). It went to three and she settled it at five the same day.
 
-    Three and not less: the motif's own change takes 900ms and the rule's
-    sweep 1500, so anything under two seconds would start the next flag before
-    the last one had finished arriving. */
-const PERIOD_MS = 3000;
+    The floor is two, not five: the motif's own change takes 900ms and the
+    rule's sweep 1500, so a shorter period would start the next flag before
+    the last one had finished arriving. Five leaves 3.5 seconds of stillness
+    between changes, which is the part that decides whether a page reads as
+    alive or as restless. */
+const PERIOD_MS = 5000;
 
 let index = $state(0);
 let timer: ReturnType<typeof setInterval> | null = null;

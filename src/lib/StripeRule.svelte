@@ -18,7 +18,7 @@
      do not, so the band and the clock that handed it between rules are gone.
 
      Two layers, never more. A sweep still running when the next flag arrives is
-     finished instantly rather than queued, because the cycle is three seconds
+     finished instantly rather than queued, because the cycle is five seconds
      and the sweep is 1.5 - if that ever stops being true, the right fix is a
      slower cycle, not a queue. */
   import { FLAGS } from '$lib/flags';
