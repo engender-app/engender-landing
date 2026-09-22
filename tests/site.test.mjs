@@ -2664,16 +2664,21 @@ const hexToRgb = (hex) =>
   [1, 3, 5].map((at) => Number.parseInt(hex.slice(at, at + 2), 16));
 const asRgb = (hex) => `rgb(${hexToRgb(hex).join(", ")})`;
 
-/** The rings of one motif, outermost first, as the browser resolved them. */
+/** The rings of one motif, outermost first, as the browser resolved them.
+
+    A ring's radius is its own width, not a transform: the seam has to be a
+    true 3px on every ring and a scaled border is a scaled seam (redesign
+    ticket 08). So the scale reported here is the ring's width over the sun's,
+    which is the same number the old transform carried. */
 const ringsOf = (locator) =>
   locator.locator("i").evaluateAll((found) =>
     found.map((node) => {
       const style = getComputedStyle(node);
+      const sun = Number.parseFloat(getComputedStyle(node.parentElement).width);
       return {
         colour: style.backgroundColor,
-        scale: Number.parseFloat(
-          style.transform.match(/matrix\(([\d.]+)/)?.[1] ?? "1",
-        ),
+        scale: Number.parseFloat((Number.parseFloat(style.width) / sun).toFixed(4)),
+        seam: style.borderTopWidth,
         z: Number.parseInt(style.zIndex, 10),
       };
     }),
@@ -3447,7 +3452,7 @@ test("a flag change travels, and nothing arrives in one frame", async () => {
             frames.push({
               at: performance.now() - started,
               fill: getComputedStyle(action).backgroundColor,
-              rings: rings.map((ring) => getComputedStyle(ring).transform),
+              rings: rings.map((ring) => getComputedStyle(ring).width),
             });
             if (performance.now() - started < 9000) requestAnimationFrame(sample);
             else resolve(frames);

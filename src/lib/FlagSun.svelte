@@ -156,16 +156,39 @@
     inset: auto;
   }
 
+  /* The bands touch and each ring carries a 3px black seam: #000, never a
+     theme-mixed line, which on a dark page around a dark band reads as
+     nothing, and that is the second half of the rule (the app's DIRECTION.md
+     rule 8, as Alicja settled it on ticket 23's renders, 2026-09-07 - "a
+     fatter stroke and no emptiness between bands"). Its src/lib/styles/
+     components.css draws it as `border: 3px solid #000` with border-box
+     sizing, so the seam sits inside the ring's own box and the diameters do
+     not move.
+
+     Which is why a ring is sized here rather than scaled. This component drew
+     one full-size circle per ring and shrank it with `transform: scale()`,
+     which is cheap - seven composited transforms, no layout - and a scaled
+     border is a scaled seam. Counter-scaling the width (3px / scale) does not
+     save it either: a browser floors a border to whole pixels, so at the
+     five real radii the seams measured 3, 2.4, 3, 2.8 and 3 on the glass, and
+     an uneven seam on a drawing made of seams is the defect. Each ring is now
+     its own diameter in px with a true 3px edge, and what animates on a flag
+     change is that diameter. Seven absolutely positioned circles resizing
+     costs no layout anywhere else on the page. */
   .sun i {
     position: absolute;
-    inset: 0;
+    top: 50%;
+    left: 50%;
     display: block;
+    box-sizing: border-box;
+    width: calc(var(--sun-size) * var(--ring-scale));
+    height: calc(var(--sun-size) * var(--ring-scale));
     border-radius: 50%;
+    border: 3px solid #000;
     background: var(--ring-colour);
-    transform: scale(var(--ring-scale));
-    /* Painted from the middle out, so a ring growing back from nothing opens
-       from the centre of the sun rather than from its own top-left. */
-    transform-origin: 50% 50%;
+    /* Centred on the sun's own centre, so a ring growing back from nothing
+       opens from there rather than from its own top-left corner. */
+    transform: translate(-50%, -50%);
   }
 
   /* Only a mounted, moving sun transitions. Without this the very first
@@ -189,15 +212,16 @@
        900ms. Half the transitions looked like the animation had stopped
        (Alicja's note, 2026-08-28). One duration, one stagger, one wave. */
     transition:
-      transform var(--dur-motif) var(--ease-out),
+      width var(--dur-motif) var(--ease-out),
+      height var(--dur-motif) var(--ease-out),
       background-color var(--dur-motif) var(--ease-out);
     transition-delay: var(--ring-delay);
   }
 
   /* The pulse: a dip and a return on the `scale` property, which is its own
-     property and multiplies with the `transform` the ring's radius is set in,
-     so the two compose instead of fighting. Staggered by the same per-ring
-     delay as the radius, so both halves of the wave travel together. */
+     property and composes with the `transform` that centres the ring rather
+     than replacing it. Staggered by the same per-ring delay as the radius, so
+     both halves of the wave travel together. */
   .pulsing {
     animation: pulse var(--dur-motif) var(--ease-out) both;
     animation-delay: var(--ring-delay);

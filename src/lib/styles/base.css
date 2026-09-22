@@ -588,8 +588,8 @@ a {
    site's 6px - and it is the one element here that neither theme nor flag
    changes. */
 .brand-mark {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.75rem;
+  height: 1.75rem;
   flex: none;
 }
 

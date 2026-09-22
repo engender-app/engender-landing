@@ -153,20 +153,26 @@
      In the document after `main`, which is also the order somebody tabbing
      through the page should meet it. -->
 <footer class="bar">
-  {#if page !== 'landing'}
-    <!-- The way back, on every page that is not the one it points at. It is
-         the site's name rather than a word like "back", so it says where it
-         goes and needs no translation of its own - and since redesign ticket
-         08 it carries the app's mark beside it, which is the one place on the
-         site the mark is drawn at reading size.
+  <!-- The mark and the site's name, on every page. On any page that is not
+       the landing page it is also the way back, which is why it says the
+       site's name rather than a word like "back": it says where it goes and
+       needs no translation of its own. On the landing page it is not a link,
+       because a link to the page you are on is furniture, but it is still
+       drawn - a site with no mark anywhere on its first screen is what this
+       looked like for one round.
 
-         An <img> rather than inline SVG, so the file this site serves and the
-         file the app generates are the same bytes and cannot drift. The mark
-         is its own drawing in fixed colours and it is aria-hidden here
-         because the link already says the site's name: a reader meeting both
-         would hear the name twice. -->
+       An <img> rather than inline SVG, so the file this site serves and the
+       file the app generates are the same bytes and cannot drift. The mark is
+       its own drawing in fixed colours, it is aria-hidden because the name
+       beside it already says what it says, and nothing animates it. -->
+  {#if page === 'landing'}
+    <span class="brand">
+      <img class="brand-mark" src="/mark.svg" alt="" aria-hidden="true" width="28" height="28" />
+      {m.pageTitle}
+    </span>
+  {:else}
     <a class="brand" href={pathFor(locale)}>
-      <img class="brand-mark" src="/mark.svg" alt="" aria-hidden="true" width="24" height="24" />
+      <img class="brand-mark" src="/mark.svg" alt="" aria-hidden="true" width="28" height="28" />
       {m.pageTitle}
     </a>
   {/if}
