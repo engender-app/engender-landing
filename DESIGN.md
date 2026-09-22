@@ -655,11 +655,18 @@ Ticket 03 ran on the reverse of that.
 | 0 | `--dur-rule-sweep` 1500ms | `--ease-out-soft` | a flag sweeping over a rule |
 
 **The ambient budget is two loops**, which is one more than the app's two only
-in what it drives: the sun's 7s breath, and the 6s flag cycle, which moves the
+in what it drives: the sun's 7s breath, and the 3s flag cycle, which moves the
 motif, every section rule and the action's colour together as one event. The app
 holds itself to its sun's breath and its mood faces' gaze; this page is allowed
 more because the brief asks for a page that leaves a visitor suspecting an
 animator built it, and the number is two rather than left uncounted.
+
+Three seconds and not six, which is what it was until the splash became a field
+of the live flag. A full turn of the eight is 24 seconds now: at 48 a twenty
+second visit saw three flags and the site looked like it had three. Three is
+also the floor, because the motif's own change takes 900ms and a rule's sweep
+1500, and a shorter period would start the next flag before the last had
+arrived.
 
 ### Named Rules
 
