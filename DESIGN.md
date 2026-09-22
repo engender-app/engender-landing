@@ -19,6 +19,14 @@ colors:
   field-blue: '#0b6e9b'
   field-rose: '#a8375b'
   on-field: '#ffffff'
+  field-flag-trans: '#f5a9b8 on #101820'
+  field-flag-nonbinary: '#9354c4 on #ffffff'
+  field-flag-genderfluid: '#c011d7 on #ffffff'
+  field-flag-bisexual: '#0038a8 on #ffffff'
+  field-flag-lesbian: '#ff9a56 on #101820'
+  field-flag-pansexual: '#ffd800 on #101820'
+  field-flag-rainbow: '#004cff on #ffffff'
+  field-flag-agender: '#b9f484 on #101820'
   hairline: 'color-mix(in srgb, text 14%, transparent)'
   outline: 'color-mix(in srgb, text 19%, transparent)'
 typography:
@@ -308,11 +316,27 @@ what this was before the gradient went.
 
 ### Tertiary
 
-The two ink fields, `field-blue` and `field-rose`, are the flag family deepened
-until white holds 4.5:1 on them. Blue carries the privacy act; rose carries the
-one warning a reader must not scroll past. A third and a fourth were drafted
-from nonbinary's violet and agender's green and cut, because nothing needed them
-and a field colour with no job is a palette with no opinion.
+Three kinds of field, and they do different jobs.
+
+`field-blue` and `field-rose` are the flag family deepened until white holds
+4.5:1 on them. Blue carries the privacy act; rose carries the one warning a
+reader must not scroll past. Both are fixed: they are the same colour whatever
+flag is up and whichever theme is on.
+
+`field-flag` is the splash's own, and it cycles. The app opens every door on a
+solid band of the live flag's colour with the screen's title on it (its
+ADR-0075), and the splash is this site's door, so it wears one - with the whole
+entry on it rather than a title alone, which is Alicja's instruction for this
+site (2026-09-22: "we treat it as a header basically"). The eight bands are the
+app's own: the first inner band that is a colour and differs from the outermost,
+with the rainbow taking its blue and bisexual its dark blue, both on her word
+against a render. The ink is `#101820` or white, whichever measures higher.
+
+One of the eight is not the app's value. Nonbinary's `#9C59D1` carries white at
+4.41:1, which is exactly why the app forbids small text on a field; this site
+sets a pronunciation line and a sense there, so that band is deepened 6% toward
+black to `#9354C4` and 4.88:1 - the same margin genderfluid's purple already
+has. The rest are verbatim.
 
 ### Neutral
 
@@ -353,6 +377,12 @@ ramp.
 greyed.** On the blue field it is `on-field` mixed 92% with the field. Not less
 than 92: at 86% it measured 4.59:1, which clears the floor and leaves the field
 no room to be darkened later.
+
+**On the splash's field, every line is the full ink instead.** The same 92%
+tint measures 4.38 on nonbinary and 4.29 on genderfluid, both under the floor,
+because those two bands start at 4.88 rather than at the blue field's 9-odd. So
+what separates the headword from the pronunciation line under it there is size
+and weight, and nothing is held back.
 
 ## Typography
 
@@ -527,6 +557,21 @@ drawn round them.
 ### Inputs / Fields
 
 None. The site collects nothing.
+
+### The splash's field
+
+The site's door, and its one field. A full-bleed band of the live flag's own
+colour carrying the entry, the claim and the subheadline, with the sun drawn on
+its top-right corner and clipped by it. Its colour is a registered property, so
+it travels with the flag over `--dur-motif` rather than switching, and the
+header changes colour on the same clock as the sun drawn on it. Square, not
+rounded: the site's fields bleed to the window, so there is no corner to round.
+
+The action and the channel badges sit under it on the page, which is where the
+app puts what a person operates as well. The arithmetic says the same thing: the
+action is painted in the live flag's accent and the field is that flag's own
+band, and across the eight those two measure as little as 1.26:1 apart, so a
+button on the field would be a shape nobody could find.
 
 ### The bar
 

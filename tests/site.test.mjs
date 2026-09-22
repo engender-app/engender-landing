@@ -3158,6 +3158,111 @@ for (const scheme of ["light", "dark"]) {
   });
 }
 
+/** The band each flag lends the splash's field, and the ink that reads on it.
+    Written out rather than imported, like every other table here. Seven are
+    the app's own second colours; nonbinary's #9C59D1 is deepened 6% toward
+    black because the app only sets large text on a field and this site sets
+    the whole entry there. */
+const FIELD_BANDS = [
+  ["trans", "#F5A9B8", "#101820"],
+  ["nonbinary", "#9354C4", "#FFFFFF"],
+  ["genderfluid", "#C011D7", "#FFFFFF"],
+  ["bisexual", "#0038A8", "#FFFFFF"],
+  ["lesbian", "#FF9A56", "#101820"],
+  ["pansexual", "#FFD800", "#101820"],
+  ["rainbow", "#004CFF", "#FFFFFF"],
+  ["agender", "#B9F484", "#101820"],
+];
+
+test("every word on the splash's field holds 4.5:1, on all eight flags", async () => {
+  /* The pixel pass two sections up measures what is actually painted, and it
+     can only ever see the flag that happens to be up when the page loads -
+     trans, whose band carries black at 9.59:1 and would hide all seven of the
+     others. The field cycles, so the whole set has to be measured as values.
+
+     4.5 and not the app's 3:1. The app puts a door's title on the field and
+     nothing smaller, so it answers to the large-text floor; here the
+     pronunciation line and the sense sit on it too (Alicja, 2026-09-22: "we
+     treat it as a header basically"), and they are small text. That is the
+     whole reason nonbinary's band is deepened and the reason the secondary
+     lines are not tinted back toward the field the way the privacy field's
+     are: at 92% this measures 4.38 on nonbinary and 4.29 on genderfluid. */
+  const { context, page } = await visitor({});
+  try {
+    await page.goto(`${base}/en/`);
+
+    const worst = await page.evaluate((bands) => {
+      const paint = (value) => {
+        const canvas = document.createElement("canvas");
+        canvas.width = canvas.height = 1;
+        const context = canvas.getContext("2d", { willReadFrequently: true });
+        context.fillStyle = "#000000";
+        context.fillStyle = value;
+        context.fillRect(0, 0, 1, 1);
+        const [r, g, b] = context.getImageData(0, 0, 1, 1).data;
+        return [r, g, b];
+      };
+      const channel = (n) => {
+        const v = n / 255;
+        return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4;
+      };
+      const luminance = ([r, g, b]) =>
+        0.2126 * channel(r) + 0.7152 * channel(g) + 0.0722 * channel(b);
+      const ratio = (front, back) => {
+        const [bright, dark] = [luminance(front), luminance(back)].sort((a, b) => b - a);
+        return (bright + 0.05) / (dark + 0.05);
+      };
+
+      let low = { ratio: Infinity, flag: null };
+      for (const [flag, fill, ink] of bands) {
+        const found = ratio(paint(ink), paint(fill));
+        if (found < low.ratio) low = { ratio: found, flag, fill, ink };
+      }
+      return low;
+    }, FIELD_BANDS);
+
+    assert.ok(
+      worst.ratio >= 4.5,
+      `${worst.flag}'s field is ${worst.ratio.toFixed(2)} under ${worst.ink}, needs 4.5`,
+    );
+  } finally {
+    await context.close();
+  }
+});
+
+test("the splash is a field of the live flag's band, and it is flat", async () => {
+  /* The site's door. One field per act is the rule, so this is the splash's
+     one and the act carries no second. Flat, like everything else here: the
+     field is a solid band and not a wash. */
+  const { context, page } = await visitor({});
+  try {
+    await page.goto(`${base}/en/`);
+    const splash = await page.evaluate(() => {
+      const style = getComputedStyle(document.querySelector(".splash"));
+      const inside = [...document.querySelectorAll(".splash *")].filter((node) => {
+        const own = getComputedStyle(node).backgroundColor;
+        return own !== "rgba(0, 0, 0, 0)" && !node.closest(".sun");
+      });
+      return {
+        fill: style.backgroundColor,
+        image: style.backgroundImage,
+        ink: style.color,
+        painted: inside.map((node) => node.className),
+      };
+    });
+    assert.equal(splash.fill, asRgb("#F5A9B8"), "the splash does not open on the trans flag's band");
+    assert.equal(splash.ink, asRgb("#101820"), "the splash's ink is not the band's own");
+    assert.equal(splash.image, "none", "the field is painted through an image");
+    assert.deepEqual(
+      splash.painted,
+      [],
+      "something inside the field carries a ground of its own, which is a second field",
+    );
+  } finally {
+    await context.close();
+  }
+});
+
 test("the scrollbar goes only where the rail replaces it", async () => {
   /* The two are a pair. The rail fills as the page is read, so it is already
      saying how far through a reader is and the scrollbar beside it is noise -

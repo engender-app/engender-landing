@@ -27,6 +27,37 @@ export interface Accent {
   dark: string;
 }
 
+/** The band of a flag the splash wears as its field, and what reads on it.
+
+    The app opens every door on one of these (its ADR-0075): the first inner
+    band that is a colour and differs from the outermost, so no band is stolen
+    from the sun and the field is never white or black. Two flags name their
+    own against that arithmetic, both on Alicja's word against a render - the
+    rainbow takes its blue rather than its orange, bisexual its dark blue
+    rather than its purple - so all eight are copied from the app's own table
+    (its DIRECTION.md rule 11) rather than derived here.
+
+    One value per flag and not one per theme: ink does not change with the
+    theme, only the paper does, so the splash's header is the same colour in
+    both.
+
+    `ink` is #101820 or white, whichever measures higher, which is the app's
+    rule. The app only sets a door's title on the field and answers to 3:1;
+    this site sets the whole entry there (Alicja, 2026-09-22, "we treat it as
+    a header basically"), so every one of the eight has to clear 4.5:1 for
+    small text. Seven do outright. Nonbinary's #9C59D1 carries white at
+    4.41:1, which is why the app forbids small text on it, so the site
+    deepens that one band 6% toward black to #9354C4 and 4.88:1 - the same
+    ratio genderfluid's purple already has, and still plainly the flag's
+    colour. Tinting the secondary lines back toward the field the way the
+    privacy field does is what could not be done: at 92% nonbinary measures
+    4.38 and genderfluid 4.29, so on a field every line is the full ink and
+    what separates them is size and weight. */
+export interface Field {
+  fill: string;
+  ink: string;
+}
+
 export interface Flag {
   /** Matches the Journal's `[data-palette]` value, so the two repositories
       can be compared by eye without a translation table. */
@@ -44,6 +75,8 @@ export interface Flag {
       accent chosen to be sat on, and white or the dark paper holds 4.5:1 on
       every one of the eight - so the answer was to copy the answer. */
   accent: Accent;
+  /** The band this flag lends the splash's header, and what reads on it. */
+  field: Field;
 }
 
 export const FLAGS: Flag[] = [
@@ -51,36 +84,43 @@ export const FLAGS: Flag[] = [
     id: "trans",
     stripes: ["#5BCEFA", "#F5A9B8", "#FFFFFF", "#F5A9B8", "#5BCEFA"],
     accent: { light: "#B85272", dark: "#F0A3B6" },
+    field: { fill: "#F5A9B8", ink: "#101820" },
   },
   {
     id: "nonbinary",
     stripes: ["#FCF434", "#FFFFFF", "#9C59D1", "#2C2C2C"],
     accent: { light: "#7A3EB1", dark: "#C69DEB" },
+    field: { fill: "#9354C4", ink: "#FFFFFF" },
   },
   {
     id: "genderfluid",
     stripes: ["#FF76A4", "#FFFFFF", "#C011D7", "#2F2F2F", "#2F3CBE"],
     accent: { light: "#A31DB6", dark: "#E289F2" },
+    field: { fill: "#C011D7", ink: "#FFFFFF" },
   },
   {
     id: "bisexual",
     stripes: ["#D60270", "#D60270", "#9B4F96", "#0038A8", "#0038A8"],
     accent: { light: "#B7025F", dark: "#F272AE" },
+    field: { fill: "#0038A8", ink: "#FFFFFF" },
   },
   {
     id: "lesbian",
     stripes: ["#D52D00", "#FF9A56", "#FFFFFF", "#D362A4", "#A30262"],
     accent: { light: "#BC3907", dark: "#FF9A56" },
+    field: { fill: "#FF9A56", ink: "#101820" },
   },
   {
     id: "pansexual",
     stripes: ["#FF218C", "#FFD800", "#21B1FF"],
     accent: { light: "#D00A72", dark: "#FF74B8" },
+    field: { fill: "#FFD800", ink: "#101820" },
   },
   {
     id: "rainbow",
     stripes: ["#E40303", "#FF8C00", "#FFED00", "#008026", "#004CFF", "#732982"],
     accent: { light: "#63348F", dark: "#C09EE8" },
+    field: { fill: "#004CFF", ink: "#FFFFFF" },
   },
   {
     id: "agender",
@@ -94,6 +134,7 @@ export const FLAGS: Flag[] = [
       "#1A1A1A",
     ],
     accent: { light: "#4A7A22", dark: "#AEEB76" },
+    field: { fill: "#B9F484", ink: "#101820" },
   },
 ];
 

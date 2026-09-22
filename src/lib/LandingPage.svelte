@@ -124,20 +124,32 @@
       <div class="claim">
         <p class="headline enter" style:--enter={1}>{m.hero.headline}</p>
         <p class="subheadline enter" style:--enter={2}>{m.hero.subheadline}</p>
+      </div>
+    </div>
+  </div>
 
-        <div class="actions enter" style:--enter={3}>
-          <a class="cta" href={JOURNAL_URL}>{m.startJournal}</a>
-          <ul class="badges">
-            {#each m.channels as channel (channel.name)}
-              <li>
-                <a class="badge" href={pathFor(locale)}>
-                  {#if CHANNEL_MARKS[channel.name]}
-                    <Mark name={CHANNEL_MARKS[channel.name]} size="1.6em" />
-                  {/if}
-                  {channel.name}
-                </a>
-              </li>
-            {/each}
+  <!-- Off the field and on the page. The app's own doors put the title on
+       the field and everything a person operates underneath it, and the
+       arithmetic says the same thing here: the action is painted in the live
+       flag's accent and the field is the live flag's own band, and across the
+       eight those two measure as little as 1.26:1 apart, so a button on the
+       field would be a shape nobody could find. On the page it keeps the
+       4.5:1 it was measured at. -->
+  <div class="after-field">
+    <div class="sheet">
+      <div class="actions enter" style:--enter={3}>
+        <a class="cta" href={JOURNAL_URL}>{m.startJournal}</a>
+        <ul class="badges">
+          {#each m.channels as channel (channel.name)}
+            <li>
+              <a class="badge" href={pathFor(locale)}>
+                {#if CHANNEL_MARKS[channel.name]}
+                  <Mark name={CHANNEL_MARKS[channel.name]} size="1.6em" />
+                {/if}
+                {channel.name}
+              </a>
+            </li>
+          {/each}
             <!-- The source, beside the channels rather than at the foot of the
                  page: it is one of the places a reader can go from here, and
                  the support copy's "go and look" is easier to act on when the
@@ -145,14 +157,13 @@
                  note, 2026-08-28). Labelled with the host's name rather than
                  the URL, which is a brand name and identical in both
                  languages. -->
-            <li>
-              <a class="badge" href={SOURCE_URL} rel="noopener">
-                <Mark name="github" size="1.6em" />
-                github
-              </a>
-            </li>
-          </ul>
-        </div>
+          <li>
+            <a class="badge" href={SOURCE_URL} rel="noopener">
+              <Mark name="github" size="1.6em" />
+              github
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -420,6 +431,20 @@
 
   /* ---- Splash ---------------------------------------------------------- */
 
+  /* The splash is the site's door, and a door opens on a field: one solid
+     band of the live flag's own colour, full bleed, with the entry and the
+     claim set on it and the sun drawn on its corner. That is the app's
+     ADR-0075 taken at poster scale, and Alicja's instruction for this site
+     was to treat the whole thing as a header (2026-09-22) rather than to put
+     the headword alone on it the way a door does.
+
+     The colour is a registered property, so it travels with the flag over the
+     motif's own duration instead of switching: the header changes colour on
+     the same clock as the sun drawn on it.
+
+     One field per act is the site's rule, and this act's is this one. The
+     action and the badges are underneath it on the page, which is where the
+     app puts what a person operates too. */
   .splash {
     /* In px and vw, never rem. A rem clamp scales with the root font size, so
        at 200% text this motif's floor doubled and swallowed the nameplate - the
@@ -428,11 +453,33 @@
        the reader's text size. */
     --splash-sun: clamp(280px, 46vw, 560px);
     position: relative;
+    background: var(--field-flag);
+    color: var(--field-flag-ink);
     /* Clips the corner motif and the swirl. Only here: a clip at the body
        would hide a layout broken by long Polish strings from the test that
        looks for exactly that. */
     overflow: clip;
-    padding-block: clamp(2.5rem, 8vh, 6rem) clamp(4rem, 12vh, 9rem);
+    padding-block: clamp(2.5rem, 8vh, 6rem) clamp(2.5rem, 6vh, 4.5rem);
+  }
+
+  /* Every line on the field is the full ink. The privacy field holds its
+     secondary text back to 92% of its own foreground, and that cannot be done
+     here: across the eight bands the same mix measures 4.38 on nonbinary and
+     4.29 on genderfluid, both under the floor. So what separates a heading
+     from the line under it here is size and weight, not tint. */
+  .splash .grammar,
+  .splash .sense,
+  .splash .subheadline,
+  .splash .headword,
+  .splash .headline {
+    color: inherit;
+  }
+
+  /* No column of its own: the sheet inside it already establishes the page's
+     one column, and stating it twice indented the action past the words it
+     answers to. */
+  .after-field {
+    padding-block: clamp(2rem, 6vh, 3.5rem) clamp(4rem, 12vh, 9rem);
   }
 
   .sun-well {
@@ -571,8 +618,11 @@
     text-wrap: balance;
   }
 
+  /* Nothing follows it on the field any more - the action moved to the page
+     below - so the space it used to hold open for that is the field's own
+     bottom padding now. */
   .subheadline {
-    margin: 0 0 clamp(1.75rem, 5vh, 2.75rem);
+    margin: 0;
     font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
     color: var(--text-2);
     max-width: 46ch;

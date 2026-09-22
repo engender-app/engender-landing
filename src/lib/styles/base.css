@@ -162,8 +162,37 @@
   initial-value: #b85272;
 }
 
+/* The splash's field, and what reads on it. The app opens every door on a
+   solid band of the live flag's own colour with the screen's title on it
+   (its ADR-0075), and the splash is this site's door - Alicja, 2026-09-22:
+   "we treat it as a header basically". $lib/flags carries the eight bands,
+   which of the two inks each one takes, and why nonbinary's is deepened.
+
+   Registered for the same reason the accent is: as a plain custom property
+   the header would jump from one flag to the next, and as a colour it
+   interpolates over the motif's own duration, so the whole header changes
+   colour on the same clock as the sun drawn on it.
+
+   One pair for both themes. Ink does not change with the theme, only the
+   paper does, so this header is the same in light and dark and its contrast
+   is checked once rather than twice. */
+@property --field-flag {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f5a9b8;
+}
+
+@property --field-flag-ink {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #101820;
+}
+
 :root {
-  transition: --flag-accent var(--dur-motif) linear;
+  transition:
+    --flag-accent var(--dur-motif) linear,
+    --field-flag var(--dur-motif) linear,
+    --field-flag-ink var(--dur-motif) linear;
 }
 
 /* ---- The inks ----------------------------------------------------------- */

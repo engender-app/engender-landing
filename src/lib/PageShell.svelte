@@ -59,9 +59,14 @@
      everywhere. */
   $effect(() => {
     const { light, dark } = flagCycle.flag.accent;
+    const { fill, ink } = flagCycle.flag.field;
     const root = document.documentElement;
     root.style.setProperty('--flag-accent-light', light);
     root.style.setProperty('--flag-accent-dark', dark);
+    /* The splash's field takes one value for both themes, so unlike the
+       accent there is nothing here for the cascade to pick between. */
+    root.style.setProperty('--field-flag', fill);
+    root.style.setProperty('--field-flag-ink', ink);
   });
 
   /* Only a person choosing a language is remembered, which is why this is on
