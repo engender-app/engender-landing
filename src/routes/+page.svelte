@@ -26,7 +26,7 @@
 </script>
 
 <svelte:head>
-  <title>enGender</title>
+  <title>engender</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={`${SITE_ORIGIN}/`} />
   {#each LOCALES as locale (locale)}
@@ -41,7 +41,7 @@
 </svelte:head>
 
 <main id="content">
-  <h1>enGender</h1>
+  <h1>engender</h1>
   <!-- No label on the nav: the only words on this page are a name and the
        two language names, each tagged with its own lang, so there is nothing
        here for a person to read in the wrong language. -->

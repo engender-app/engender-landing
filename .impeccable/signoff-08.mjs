@@ -213,7 +213,7 @@ const page = `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>enGender landing - redesign ticket 08 sign-off</title>
+<title>engender landing - redesign ticket 08 sign-off</title>
 <style>
   body { margin: 0; background: #14181c; color: #e8f1f7; font: 15px/1.6 system-ui, sans-serif; }
   main { max-width: 1180px; margin: 0 auto; padding: 3rem 1.5rem 6rem; }

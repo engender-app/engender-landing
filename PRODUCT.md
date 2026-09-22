@@ -45,7 +45,7 @@ This site never renders their data and never touches their journal.
 
 ## Product Purpose
 
-enGender is a journal for tracking gender transition day by day, local-first,
+engender is a journal for tracking gender transition day by day, local-first,
 with no account and no backend. This repository is not that app. It is the
 public site that explains the app and hands a visitor to it: it says what the
 app does, what its privacy actually protects and what it does not, where to get
@@ -162,7 +162,7 @@ Undecided, each with its owner:
 
 ## Brand Commitments
 
-**The name is enGender**, always that casing, including at the start of a
+**The name is engender**, always that casing, including at the start of a
 sentence. Never Engender, EnGender or engender when naming the app. Renamed from
 the "Gender Diary" working title (Alicja's decision, 2026-08-26). The landing
 page carries a dictionary-style entry for the verb with its phonetics and says

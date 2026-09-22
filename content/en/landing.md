@@ -1,6 +1,6 @@
 # Landing copy, English
 
-Source copy for the English site, rewritten for enGender by redesign ticket 02
+Source copy for the English site, rewritten for engender by redesign ticket 02
 against `.agents/product-marketing.md` v10. Written before the visual redesign
 (ticket 03), so the design serves this rather than this being cut to fit a layout.
 
@@ -26,13 +26,14 @@ names that person. The frame itself may be stated plainly, once: one trans perso
 wrote this for other trans people. It appears in the overview and nowhere else, and
 the copy otherwise shows who wrote it by knowing things, not by claiming to.
 
-enGender is the app; your journal, lowercase, is the thing it holds. The rename
+engender is the app; your journal, lowercase, is the thing it holds. The rename
 settled the old two-senses problem, and every page uses the words in those senses.
 The one fixed wording is the Start journal button, which reads as opening yours.
 
 The app's screens say scale, so this site says scale, and never dimension or axis.
 
-enGender keeps its casing everywhere, including at the start of a sentence.
+engender is lowercase everywhere, including at the start of a sentence
+(Alicja, 2026-09-22, reversing the camel case below).
 
 ---
 
@@ -55,19 +56,20 @@ stays on the page.
 dictionary entry with phonetics, and says the pun out loud rather than winking.
 Ticket 03 designs the shape; this is the text.*
 
-> **enGender** v. /ɪnˈdʒɛndə/
+> **engender** v. /ɪnˈdʒɛndə/
 > to cause or give rise to a feeling, situation or condition.
 
 The entry is the standard dictionary sense, unedited, because the reader completing
 the thought themselves is the whole trick. No line after it explains the joke.
 
 **The headword is set in the product's own casing** (Alicja's decision,
-2026-08-28). It read `engender`, the verb, with the reader left to notice that
-the app's name is the same word. Set as `enGender` the entry is the pun rather
-than a clue to it: a dictionary page for a word that is also the thing being
-described. It is the same word either way and the sense is untouched, so nothing
-about the claim changes - what changes is whether the page says it or waits to
-be caught.
+2026-08-28, and her reversal of it on 2026-09-22). For four weeks that casing
+was `enGender`, which made the entry the pun rather than a clue to it: a
+dictionary page for a word that is also the thing being described. The name is
+lowercase now, site-wide, so the headword reads `engender` - the verb, with the
+reader left to notice that the app's name is the same word. It is the same word
+either way and the sense is untouched, so nothing about the claim changes; what
+changes is whether the page says the joke or waits to be caught, and it waits.
 
 **Set as an entry rather than as a sentence** (Alicja's decision, 2026-08-27,
 during ticket 03). The headword takes its own line and everything the entry knows
@@ -97,13 +99,13 @@ links to and why nothing else on the page competes with it.
 
 *Gate: shipped.*
 
-> enGender is a journal for tracking gender transition. An entry holds a mood, a
+> engender is a journal for tracking gender transition. An entry holds a mood, a
 > note, your scales, tags, photos, a voice recording and how your body felt, and it
 > only needs one of those to count. Write several in one day if one does not cover
 > it. Backdate one to a day you missed.
 >
 > Mood trackers are the right shape for a daily habit, and they have nowhere to put
-> gender. enGender keeps the shape and adds scales you name yourself. It records
+> gender. engender keeps the shape and adds scales you name yourself. It records
 > what you tell it and does not try to interpret any of it.
 >
 > One trans person wrote this for other trans people. It is free software, there is
@@ -114,7 +116,7 @@ links to and why nothing else on the page competes with it.
 *Gate: shipped. The full page is `privacy.md` and this is only the handoff to it.*
 
 > Your journal is stored on your device, encrypted where it sits. There is no
-> enGender account, and your entries are not sent to an enGender server, because
+> engender account, and your entries are not sent to an engender server, because
 > none exists.
 >
 > What that protects, and what it does not, is on its own page.
@@ -324,7 +326,7 @@ too, per Journal Phase 2 ticket 25. The privacy page owns the longer treatment.*
 > **App lock.** A PIN in front of the app. It stops someone picking up your unlocked
 > phone and reading it. It is not encryption of what is stored.
 >
-> **Disguise.** The browser tab says Notes instead of enGender. On Android, the app's
+> **Disguise.** The browser tab says Notes instead of engender. On Android, the app's
 > name and icon on your phone go plain too.
 >
 > **Lock on leave.** Switch away from the app and it locks itself behind you.
@@ -419,7 +421,7 @@ the most literal way this page has. The block renders inside the Support section
 for now - the old site held it entirely, so no section of its own exists - and
 ticket 03 decides whether it earns one.*
 
-> **You can read it.** enGender is free software under the GPLv3. Do not take my
+> **You can read it.** engender is free software under the GPLv3. Do not take my
 > word for anything on this page: the source is public. Go and look, or get someone you
 > trust to look.
 >

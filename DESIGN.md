@@ -1,5 +1,5 @@
 ---
-name: enGender landing
+name: engender landing
 description: The app's own printed language at poster scale, with the motion the app cannot afford.
 colors:
   paper: '#f4f8fb'
@@ -220,7 +220,7 @@ components:
     padding: '0 0.35rem'
 ---
 
-# Design System: enGender landing
+# Design System: engender landing
 
 Recorded from the built site after redesign ticket 08, not from what the ticket
 planned. Where the two differ the build wins, and three places are called out

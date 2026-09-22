@@ -142,7 +142,7 @@ const card = `<!doctype html>
   <body>
     <div class="sun">${stripes}</div>
     <img class="mark" src="data:image/svg+xml;base64,${mark.toString('base64')}" alt="" />
-    <p class="wordmark">enGender</p>
+    <p class="wordmark">engender</p>
   </body>
 </html>`;
 

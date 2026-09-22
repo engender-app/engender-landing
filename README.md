@@ -1,14 +1,14 @@
-# enGender landing site
+# engender landing site
 
-The public site that explains enGender and points people at the Journal.
+The public site that explains engender and points people at the Journal.
 
-enGender (renamed from Gender Diary on 2026-08-26) is a local-first journal for tracking gender transition. It lives in a
+engender (renamed from Gender Diary on 2026-08-26) is a local-first journal for tracking gender transition. It lives in a
 separate repository and on a separate origin, and this site never shares storage,
 a service worker or runtime code with it.
 
 ## Status
 
-Live, mid-rebrand. The English copy is rewritten for the enGender rename; the
+Live, mid-rebrand. The English copy is rewritten for the engender rename; the
 Polish still says Gender Diary and is Alicja's own translation pass. The
 redesign spec and its tickets live in `.scratch/`, which is not committed.
 

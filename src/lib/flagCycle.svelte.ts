@@ -10,12 +10,20 @@ import { FLAGS, type Flag } from '$lib/flags';
     offscreen or hidden. A page left open in a background tab for an afternoon
     should not be repainting a sun nobody is looking at.
 
-    The cycle is deliberately slow. Eight flags at six seconds is
-    forty-eight seconds for a full turn, which is longer than most visits: the
-    point is that the colour is *changing*, noticed out of the corner of an
-    eye, not that a reader gets shown all eight. A faster cycle turns the one
-    ambient thing on the page into a distraction sitting next to the copy. */
-const PERIOD_MS = 6000;
+    Three seconds, which is a full turn of all eight in twenty-four. It was
+    six, on the reasoning that the point was the colour *changing*, noticed out
+    of the corner of an eye, rather than a reader being shown all eight. That
+    stopped being true when the splash became a field of the live flag
+    (redesign ticket 08): the flag is the whole of the first screen's colour
+    now, not a motif in its corner, and at forty-eight seconds a visit that
+    lasts twenty only ever saw three of the eight - which is exactly what
+    Alicja reported on the built page (2026-09-22, "the site should cycle
+    between all 8 flags, not just 3").
+
+    Three and not less: the motif's own change takes 900ms and the rule's
+    sweep 1500, so anything under two seconds would start the next flag before
+    the last one had finished arriving. */
+const PERIOD_MS = 3000;
 
 let index = $state(0);
 let timer: ReturnType<typeof setInterval> | null = null;

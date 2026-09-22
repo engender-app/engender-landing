@@ -35,9 +35,9 @@ const SOURCE_URL = "https://github.com/barankiewicz/gender-diary";
 const PORTFOLIO_URL = "https://barankiewicz.dev/";
 
 /** The product's name as each language's pages currently render it. The
-    English pages say enGender since redesign ticket 02; the Polish pages
+    English pages say engender since redesign ticket 02; the Polish pages
     still say Gender Diary until Alicja's own translation pass. */
-const SITE_NAME = { en: "enGender", pl: "Gender Diary" };
+const SITE_NAME = { en: "engender", pl: "Gender Diary" };
 
 /** The four Android channels, in the order the page lists them. The order is
     the opinion: the three that do not report an install to Google come first,
@@ -1147,7 +1147,7 @@ test("a production build is indexable, sitemap and robots in agreement", async (
     Acquisition keeps its heading in ACQUISITION, where it already was. */
 const HEADINGS = {
   en: {
-    overview: "What enGender is",
+    overview: "What engender is",
     privacy: "What it protects, and what it doesn't",
     tour: "The screens",
     features: "What it does",
@@ -1188,7 +1188,7 @@ const sectionHeadings = (locale) =>
 /** The privacy page's own title, which is also the text of the link the
     landing page offers to it. */
 const PRIVACY_TITLE = {
-  en: "What enGender protects, and what it does not",
+  en: "What engender protects, and what it does not",
   pl: "Co Gender Diary chroni, a czego nie chroni",
 };
 
@@ -1649,7 +1649,7 @@ test("switching language on the privacy page stays on the privacy page", async (
 
 /* Until redesign ticket 02 the two languages were asserted to gate the same
    blocks in the same order. That parity is broken on purpose mid-rebrand: the
-   English copy is rewritten for enGender and the Polish waits for Alicja's own
+   English copy is rewritten for engender and the Polish waits for Alicja's own
    translation pass. When the Polish lands, restore the assertion:
 
      for (const name of Object.keys(PAGE_PATHS)) {
@@ -1801,7 +1801,7 @@ test("no title says what kind of app this is", async () => {
          test looks at is everything else in the title. */
       const beyondTheName = (await page.title())
         .replaceAll("Gender Diary", "")
-        .replaceAll("enGender", "")
+        .replaceAll("engender", "")
         .toLowerCase();
       for (const word of NOT_IN_A_TITLE) {
         assert.ok(
