@@ -63,8 +63,9 @@ a channel of its own.
 > server: it is stored on your device, encrypted, and it leaves only when you
 > export it yourself.
 >
-> So nobody can hand your journal back if the device is lost or reset. A backup you exported is the only copy that survives, so export one now
-> and then and keep it somewhere safe.
+> So nobody can hand your journal back if the device is lost or reset. A backup
+> you exported is the only copy that survives, so export one every so often and
+> keep it somewhere safe.
 
 ### Setup
 
