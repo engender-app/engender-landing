@@ -461,16 +461,165 @@
         ]
       },
       "home": {
-        "title": "Home",
-        "description": "What the mood pick, the look-back teaser, milestones and recent entries on Home do."
+        "title": "Today",
+        "description": "The first tab: what is running, what is coming up, the mood pick, pinned rows and quick add.",
+        "sections": [
+          {
+            "heading": "What Today shows",
+            "paragraphs": [
+              "Today is the first tab, and the app opens on it. It is about what is going on now and what is next.",
+              {
+                "lead": "Live tiles.",
+                "rest": " Things running right now, such as a wear timer or a dose that is due. A tile shows up when there is something to say and goes once it is dealt with."
+              },
+              {
+                "lead": "Coming up.",
+                "rest": " Dated things in the next thirty days: appointments, surgery dates, milestones, letters due to open and doses on a schedule that is not daily. It shows three and folds the rest, and it is not there at all when nothing is coming."
+              },
+              {
+                "lead": "Notices.",
+                "rest": " Short reminders you can dismiss, such as an old backup or a medication running low."
+              },
+              {
+                "lead": "How is today?",
+                "rest": " Five moods, from awful to great. Picking one starts today's entry."
+              },
+              {
+                "lead": "Pinned.",
+                "rest": " The parts of the app you keep on Today. Each row says what is next when there is something, and when you last logged it otherwise."
+              },
+              "A new journal also has a Getting started section, with a few things worth setting up early. You can ignore them and just write."
+            ]
+          },
+          {
+            "heading": "Arranging Today",
+            "paragraphs": [
+              "Tap Arrange these rows to choose what is pinned and in what order, which kinds of date Coming up shows, and which live tiles can appear. The first set of pins comes from the areas you picked during setup. After that, the app never pins or moves anything by itself."
+            ]
+          },
+          {
+            "heading": "Quick add",
+            "paragraphs": [
+              "The button in the middle of the bottom bar is quick add. It works from any screen and opens a fan of options: the five moods, an entry for an earlier day, the two tally counters, a dose, and starting or stopping a wear session. Screens that log something keep their own add button as well."
+            ]
+          },
+          {
+            "heading": "Where an entry goes",
+            "paragraphs": [
+              "An entry started from Today, from quick add or from Journal is the same kind of entry. Journal shows it on its day, and Look back counts it with the rest."
+            ]
+          }
+        ]
       },
       "calendar": {
-        "title": "Calendar",
-        "description": "The heat map, day views, search and starred entries."
+        "title": "Journal",
+        "description": "The month heat map, single days, search, starred entries and writing an entry.",
+        "sections": [
+          {
+            "heading": "The month",
+            "paragraphs": [
+              "Journal is the second tab, and it holds your own days. It opens on the month as a heat map. Days with entries are filled in, coloured by your mood or, if you switch it, by one of your gender scales, and a deeper colour means a higher value. No colour means good or bad.",
+              "Under the month are your recent entries, and the button below them shows five more days at a time."
+            ]
+          },
+          {
+            "heading": "One day",
+            "paragraphs": [
+              "Tap a day to see everything logged on it. A day can hold as many entries as you like. A day still ahead with a small mark has something planned, such as a dose or an appointment, and tapping it shows what."
+            ]
+          },
+          {
+            "heading": "Search",
+            "paragraphs": [
+              "The search icon at the top of Journal opens search. Before you type, it offers your most-used tags and recent searches. Filters narrow the results by tag, mood, dates, or starred.",
+              "Star an entry you want to find again, then filter by Starred to see all of them.",
+              "You can save a search as a question. Opening it later searches your journal as it is then, not as it was when you saved it."
+            ]
+          },
+          {
+            "heading": "Writing an entry",
+            "paragraphs": [
+              "An entry is one moment. It needs just one thing, such as a mood, a note or a photo.",
+              "The note comes first, under the date. The moods and the star sit on the save bar at the bottom. Under the note, a row of chips opens the rest one at a time: mode, gender scales, tags, the body map, and attachments such as photos and voice recordings.",
+              "The body map is where you mark how a part of your body feels. Pick a spot, then slide towards dysphoria or towards euphoria. Leaving it in the middle records nothing."
+            ]
+          }
+        ]
       },
       "stats": {
-        "title": "Stats",
-        "description": "The look-back group: correlation cards, the trend chart, Wrapped, on-this-day, body map, tally and compare."
+        "title": "Look back",
+        "description": "Choosing a stretch of time, the readings, Wrapped, On this day and the tally.",
+        "sections": [
+          {
+            "heading": "Choosing a stretch",
+            "paragraphs": [
+              "Look back is the third tab. Everything on it reads one stretch of time, which you choose on the timeline at the top: drag its two ends, or pick a stretch from the list. The timeline also shows your eras, milestones, regimen, tryouts and surgeries, and tapping one picks its dates.",
+              "Just under the timeline are the plain facts for that stretch: how many entries, the average on a scale, and which scale moved the furthest."
+            ]
+          },
+          {
+            "heading": "Readings",
+            "paragraphs": [
+              "Below that is a grid of readings. Each tile shows one figure for the stretch, and tapping it opens the full reading. A tile with nothing to show for the stretch is left out.",
+              {
+                "lead": "Day by day.",
+                "rest": " One scale or your mood across the stretch, day after day."
+              },
+              {
+                "lead": "Two scales at once.",
+                "rest": " Each day as a point on two scales, which you can play through in order."
+              },
+              {
+                "lead": "How the days fell.",
+                "rest": " How many days landed at each mood, and what you wrote about."
+              },
+              {
+                "lead": "Words that stand out.",
+                "rest": " Words that turn up more often in this stretch than in the rest of your journal."
+              },
+              {
+                "lead": "Tags, and how a scale moved.",
+                "rest": " Which tags came with a scale going up or down."
+              },
+              {
+                "lead": "Highest days.",
+                "rest": " Your highest days on a scale you choose, each one a tap from its entries."
+              },
+              {
+                "lead": "Body map.",
+                "rest": " How each part of the body has felt over the stretch, towards dysphoria or towards euphoria."
+              },
+              {
+                "lead": "Compare.",
+                "rest": " Two periods side by side. It starts with your stretch against the same length of time just before it."
+              },
+              {
+                "lead": "Affirming themes.",
+                "rest": " The tags your good and starred entries carry most."
+              }
+            ]
+          },
+          {
+            "heading": "Wrapped and On this day",
+            "paragraphs": [
+              "Two more tiles sit under the grid. You can turn either one off in Settings.",
+              {
+                "lead": "Wrapped.",
+                "rest": " A look back at a finished week, month or year, or at the stretch you picked: entries, mood, the scale that moved furthest, tags, milestones and photos. You can share it as a card, and the card never carries your writing or your photos."
+              },
+              {
+                "lead": "On this day.",
+                "rest": " A good day from a month, six months or a year ago, with any letter written or opened on it. Days that went badly are not brought back."
+              }
+            ]
+          },
+          {
+            "heading": "Tally",
+            "paragraphs": [
+              "Tally counts how often you were misgendered and how often people got it right, and shows both over time. Quick add adds to either count from anywhere."
+            ]
+          }
+        ]
       },
       "body": {
         "title": "Body",

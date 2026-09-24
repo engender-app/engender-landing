@@ -1500,9 +1500,9 @@ const guidePath = (locale, chapter) =>
 const GUIDE_TITLES = {
   en: {
     "getting-started": "Getting started",
-    home: "Home",
-    calendar: "Calendar",
-    stats: "Stats",
+    home: "Today",
+    calendar: "Journal",
+    stats: "Look back",
     body: "Body",
     health: "Health",
     transition: "Transition",
@@ -1513,9 +1513,9 @@ const GUIDE_TITLES = {
   },
   pl: {
     "getting-started": "Zaczynamy",
-    home: "Ekran główny",
-    calendar: "Kalendarz",
-    stats: "Statystyki",
+    home: "Dzisiaj",
+    calendar: "Dziennik",
+    stats: "Przegląd",
     body: "Ciało",
     health: "Zdrowie",
     transition: "Tranzycja",
@@ -1673,6 +1673,83 @@ for (const locale of ["en", "pl"]) {
       await context.close();
     }
   });
+}
+
+/** What each of the app's first three tabs holds, as the Journal's SCREENS.md
+    gives it ("The four doors" and the Today, Journal and Look back door
+    entries), in the words each chapter uses for it. The app renamed Home,
+    Calendar and Stats to Today, Journal and Look back; the routes kept their
+    old slugs. Look back's list is its reading grid in the app's own order,
+    then the two resurfacing tiles and the tally. */
+const TAB_TOUR = {
+  en: {
+    home: [
+      "Live tiles", "Coming up", "Notices", "How is today?", "Pinned", "Getting started",
+      "Arrange these rows", "quick add",
+    ],
+    calendar: [
+      "heat map", "recent entries", "search", "Starred", "as a question", "note", "star",
+      "mode", "body map",
+    ],
+    stats: [
+      "timeline", "Day by day", "Two scales at once", "How the days fell",
+      "Words that stand out", "Tags, and how a scale moved", "Highest days", "Body map",
+      "Compare", "Affirming themes", "Wrapped", "On this day", "Tally",
+    ],
+  },
+  pl: {
+    home: [
+      "Kafelki", "Nadchodzi", "Komunikaty", "Jak dziś?", "Przypięte", "Na początek",
+      "Ułóż tę listę", "szybki zapis",
+    ],
+    calendar: [
+      "mapy cieplnej", "ostatnie wpisy", "wyszukiwanie", "Ulubione", "jako pytanie",
+      "notatka", "gwiazdką", "tryb", "mapie ciała",
+    ],
+    stats: [
+      "osi czasu", "Dzień po dniu", "Dwie skale naraz", "Jak rozłożyły się dni",
+      "Słowa, które się wyróżniają", "Tagi i to, jak poruszyła się skala", "Najwyższe dni",
+      "Mapa ciała", "Porównanie okresów", "Motywy dające spokój", "Bilans", "Wspomnienia",
+      "Licznik",
+    ],
+  },
+};
+
+for (const locale of ["en", "pl"]) {
+  for (const chapter of ["home", "calendar", "stats"]) {
+    test(`${locale} guide/${chapter}: names everything its tab holds`, async () => {
+      const { context, page } = await visitor({ javaScriptEnabled: false });
+      try {
+        await page.goto(`${base}${guidePath(locale, chapter)}`);
+        const text = (await page.locator("main article").innerText()).replace(/\s+/g, " ");
+        for (const term of TAB_TOUR[locale][chapter]) {
+          assert.ok(text.includes(term), `the chapter does not name ${term}`);
+        }
+      } finally {
+        await context.close();
+      }
+    });
+
+    test(`${locale} guide/${chapter}: every shipped block is on the page, word for word`, async () => {
+      const { context, page } = await visitor({ javaScriptEnabled: false });
+      try {
+        await page.goto(`${base}${guidePath(locale, chapter)}`);
+        const text = (await page.locator("body").innerText()).replace(/\s+/g, " ");
+        const shipped = copyBlocks(locale, `guide-${chapter}`).filter((block) => block.publishes);
+        assert.ok(shipped.length > 0, "no shipped blocks, so this proved nothing");
+        for (const block of shipped) {
+          for (const paragraph of block.paragraphs) {
+            assert.ok(
+              text.includes(paragraph),
+              `shipped copy is missing or reworded: ${paragraph.slice(0, 70)}`,
+            );
+          }
+        }
+      } finally {
+        await context.close();
+      }
+    });
+  }
 }
 
 test("switching language on the privacy page stays on the privacy page", async () => {

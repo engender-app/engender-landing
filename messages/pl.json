@@ -364,16 +364,165 @@
         ]
       },
       "home": {
-        "title": "Ekran główny",
-        "description": "Co robią wybór nastroju, zapowiedź spojrzenia wstecz, kamienie milowe i ostatnie wpisy na ekranie głównym."
+        "title": "Dzisiaj",
+        "description": "Pierwsza karta: co trwa, co nadchodzi, wybór nastroju, przypięte wiersze i szybki zapis.",
+        "sections": [
+          {
+            "heading": "Co widać na karcie Dzisiaj",
+            "paragraphs": [
+              "Dzisiaj to pierwsza karta i od niej zaczyna się aplikacja. Pokazuje to, co dzieje się teraz, i to, co przed tobą.",
+              {
+                "lead": "Kafelki.",
+                "rest": " To, co dzieje się w tej chwili, na przykład sesja noszenia albo dawka do przyjęcia. Kafelek pojawia się, kiedy jest o czym powiedzieć, i znika, gdy sprawa jest załatwiona."
+              },
+              {
+                "lead": "Nadchodzi.",
+                "rest": " Rzeczy z datą w ciągu najbliższych trzydziestu dni: wizyty, operacje, kamienie milowe, listy do otwarcia i dawki przyjmowane rzadziej niż codziennie. Widać trzy, reszta jest zwinięta, a gdy nic nie nadchodzi, sekcji w ogóle nie ma."
+              },
+              {
+                "lead": "Komunikaty.",
+                "rest": " Krótkie przypomnienia, które można zamknąć, na przykład że kopia jest stara albo że kończy się lek."
+              },
+              {
+                "lead": "Jak dziś?",
+                "rest": " Pięć nastrojów, od „okropnie” do „świetnie”. Wybranie jednego zaczyna dzisiejszy wpis."
+              },
+              {
+                "lead": "Przypięte.",
+                "rest": " Części aplikacji, które chcesz mieć na tej karcie. Każdy wiersz mówi, co jest następne, a jeśli nic, to kiedy ostatnio coś tu zapisano."
+              },
+              "Nowy dziennik ma też sekcję „Na początek” z kilkoma rzeczami, które warto ustawić wcześnie. Możesz ją pominąć i po prostu pisać."
+            ]
+          },
+          {
+            "heading": "Układanie karty",
+            "paragraphs": [
+              "Pod „Ułóż tę listę” wybierasz, co jest przypięte i w jakiej kolejności, jakie daty pokazuje „Nadchodzi” i które kafelki mogą się pojawiać. Pierwszy zestaw przypiętych wierszy bierze się z obszarów wybranych przy pierwszym uruchomieniu. Potem aplikacja sama niczego nie przypina ani nie przestawia."
+            ]
+          },
+          {
+            "heading": "Szybki zapis",
+            "paragraphs": [
+              "Przycisk na środku dolnego paska to szybki zapis. Działa na każdym ekranie i rozwija wachlarz opcji: pięć nastrojów, wpis z wcześniejszego dnia, oba liczniki, dawkę oraz start albo koniec noszenia. Ekrany, na których coś się zapisuje, mają też własny przycisk dodawania."
+            ]
+          },
+          {
+            "heading": "Dokąd trafia wpis",
+            "paragraphs": [
+              "Wpis zaczęty z karty Dzisiaj, z szybkiego zapisu czy z Dziennika to ten sam wpis. Dziennik pokazuje go pod jego dniem, a Przegląd liczy go razem z resztą."
+            ]
+          }
+        ]
       },
       "calendar": {
-        "title": "Kalendarz",
-        "description": "Mapa cieplna, widoki dnia, wyszukiwanie i wpisy oznaczone gwiazdką."
+        "title": "Dziennik",
+        "description": "Mapa cieplna miesiąca, pojedyncze dni, wyszukiwanie, ulubione wpisy i pisanie wpisu.",
+        "sections": [
+          {
+            "heading": "Miesiąc",
+            "paragraphs": [
+              "Dziennik to druga karta i są na niej twoje dni. Otwiera się na miesiącu w formie mapy cieplnej. Dni z wpisami są wypełnione kolorem według nastroju albo, jeśli to przełączysz, według jednej ze skal płci. Głębszy kolor oznacza wyższą wartość. Żaden kolor nie znaczy „dobrze” ani „źle”.",
+              "Pod miesiącem są ostatnie wpisy, a przycisk pod nimi dokłada po pięć kolejnych dni."
+            ]
+          },
+          {
+            "heading": "Jeden dzień",
+            "paragraphs": [
+              "Dotknij dnia, żeby zobaczyć wszystko, co wtedy zapisano. Wpisów w jednym dniu może być dowolnie dużo. Małe oznaczenie na dniu, który jeszcze nie nadszedł, znaczy, że coś jest zaplanowane, na przykład dawka albo wizyta. Po dotknięciu widać co."
+            ]
+          },
+          {
+            "heading": "Wyszukiwanie",
+            "paragraphs": [
+              "Ikona lupy na górze karty Dziennik otwiera wyszukiwanie. Zanim cokolwiek wpiszesz, podpowiada najczęściej używane tagi i ostatnie wyszukiwania. Filtry zawężają wyniki do tagu, nastroju, zakresu dat albo ulubionych.",
+              "Wpis, do którego chcesz wrócić, oznacz gwiazdką. Filtr „Ulubione” pokaże wszystkie takie wpisy.",
+              "Wyszukiwanie możesz zapisać jako pytanie. Kiedy otworzysz je później, przeszuka dziennik w jego obecnym stanie, a nie w tym z dnia zapisania."
+            ]
+          },
+          {
+            "heading": "Pisanie wpisu",
+            "paragraphs": [
+              "Wpis to jedna chwila. Wystarczy mu jedna rzecz: nastrój, notatka albo zdjęcie.",
+              "Na górze, pod datą, jest notatka. Nastroje i gwiazdka są na pasku zapisu na dole. Pod notatką rząd przycisków otwiera resztę, po jednej sekcji naraz: tryb, skale płci, tagi, mapę ciała i załączniki, takie jak zdjęcia i nagrania głosu.",
+              "Na mapie ciała zaznaczasz, jak czujesz daną część ciała. Wybierz miejsce i przesuń suwak w stronę dysforii albo euforii. Suwak zostawiony na środku niczego nie zapisuje."
+            ]
+          }
+        ]
       },
       "stats": {
-        "title": "Statystyki",
-        "description": "Grupa spojrzenia wstecz: karty korelacji, wykres trendu, Podsumowanie, to samo dnia rok temu, mapa ciała, liczniki i porównanie."
+        "title": "Przegląd",
+        "description": "Wybór okresu, odczyty, Bilans, Wspomnienia i licznik.",
+        "sections": [
+          {
+            "heading": "Wybór okresu",
+            "paragraphs": [
+              "Przegląd to trzecia karta. Wszystko na niej dotyczy jednego okresu, który wybierasz na osi czasu u góry: przeciągnij jej końce albo wybierz okres z listy. Na osi widać też ery, kamienie milowe, kurację, próby i operacje, a dotknięcie jednej z nich ustawia jej daty.",
+              "Tuż pod osią są podstawowe liczby z tego okresu: ile było wpisów, średnia na skali i która skala ruszyła się najbardziej."
+            ]
+          },
+          {
+            "heading": "Odczyty",
+            "paragraphs": [
+              "Niżej jest siatka odczytów. Każdy kafelek pokazuje jedną liczbę z okresu, a po dotknięciu otwiera cały odczyt. Kafelka, który nie ma nic do pokazania, po prostu nie ma.",
+              {
+                "lead": "Dzień po dniu.",
+                "rest": " Jedna skala albo nastrój w wybranym okresie, dzień za dniem."
+              },
+              {
+                "lead": "Dwie skale naraz.",
+                "rest": " Każdy dzień jako punkt na dwóch skalach. Można je odtworzyć po kolei."
+              },
+              {
+                "lead": "Jak rozłożyły się dni.",
+                "rest": " Ile dni wypadło przy każdym nastroju i o czym wtedy pisano."
+              },
+              {
+                "lead": "Słowa, które się wyróżniają.",
+                "rest": " Słowa, które w tym okresie pojawiają się częściej niż w reszcie dziennika."
+              },
+              {
+                "lead": "Tagi i to, jak poruszyła się skala.",
+                "rest": " Które tagi szły w parze ze wzrostem albo spadkiem skali."
+              },
+              {
+                "lead": "Najwyższe dni.",
+                "rest": " Dni z najwyższym wynikiem na wybranej skali. Każdy otwiera się jednym dotknięciem."
+              },
+              {
+                "lead": "Mapa ciała.",
+                "rest": " Jak w tym okresie czuły się poszczególne części ciała, bliżej dysforii albo euforii."
+              },
+              {
+                "lead": "Porównanie okresów.",
+                "rest": " Dwa okresy obok siebie. Na początku wybrany okres stoi obok równie długiego odcinka tuż przed nim."
+              },
+              {
+                "lead": "Motywy dające spokój.",
+                "rest": " Tagi, które najczęściej pojawiają się przy dobrych wpisach i tych z gwiazdką."
+              }
+            ]
+          },
+          {
+            "heading": "Bilans i Wspomnienia",
+            "paragraphs": [
+              "Pod siatką są jeszcze dwa kafelki. Każdy z nich można wyłączyć w ustawieniach.",
+              {
+                "lead": "Bilans.",
+                "rest": " Podsumowanie zamkniętego tygodnia, miesiąca albo roku, lub wybranego okresu: wpisy, nastrój, skala, która ruszyła się najbardziej, tagi, kamienie milowe i zdjęcia. Możesz go udostępnić jako kartę, a na karcie nigdy nie ma twoich notatek ani zdjęć."
+              },
+              {
+                "lead": "Wspomnienia.",
+                "rest": " Dobry dzień sprzed miesiąca, pół roku albo roku, razem z listem napisanym lub otwartym tego dnia, jeśli taki jest. Złe dni nie wracają."
+              }
+            ]
+          },
+          {
+            "heading": "Licznik",
+            "paragraphs": [
+              "Licznik zbiera, ile razy ktoś cię zmisgenderował, a ile razy zwrócił się do ciebie dobrze, i pokazuje oba wyniki w czasie. Szybkim zapisem dodasz kolejny raz do każdego z nich na dowolnym ekranie."
+            ]
+          }
+        ]
       },
       "body": {
         "title": "Ciało",
