@@ -1663,6 +1663,34 @@ for (const locale of ["en", "pl"]) {
       await context.close();
     }
   });
+
+  test(`${locale}: the mobile chapter menu works without scripting at phone width and 200% zoom`, async () => {
+    const { context, page } = await visitor({ javaScriptEnabled: false });
+    try {
+      await page.setViewportSize({ width: 390, height: 844 });
+      await page.goto(`${base}${guidePath(locale, "stats")}`);
+      const selector = page.locator(".mobile-selector");
+      const summary = selector.locator("summary");
+      assert.equal(await summary.isVisible(), true);
+      assert.ok((await summary.boundingBox()).height >= 44);
+      assert.equal(await selector.getAttribute("open"), null);
+
+      await summary.click();
+      const links = selector.getByRole("link");
+      assert.equal(await links.count(), GUIDE_CHAPTERS.length);
+      assert.equal(await selector.locator('[aria-current="page"]').innerText(), GUIDE_TITLES[locale].stats);
+      for (const link of await links.all()) {
+        assert.ok((await link.boundingBox()).height >= 44);
+      }
+      assert.equal(await sidewaysOverflow(page), 0);
+
+      await page.setViewportSize({ width: 195, height: 422 });
+      assert.equal(await sidewaysOverflow(page), 0);
+      assert.ok((await summary.boundingBox()).height >= 44);
+    } finally {
+      await context.close();
+    }
+  });
 }
 
 /** Setup's nine steps, in the order the Journal's SCREENS.md gives them
@@ -2683,6 +2711,51 @@ for (const scheme of ["light", "dark"]) {
       }
     });
   }
+}
+
+for (const scheme of ["light", "dark"]) {
+  test(`${scheme}: the Guide navigation keeps text contrast on phone and desktop`, async () => {
+    const { context, page } = await visitor({ colorScheme: scheme, javaScriptEnabled: false });
+    try {
+      for (const locale of ["en", "pl"]) {
+        for (const width of [390, 1280]) {
+          await page.setViewportSize({ width, height: 900 });
+          await page.goto(`${base}${guidePath(locale, "stats")}`);
+          if (width === 390) await page.locator(".mobile-selector summary").click();
+          const ratios = await contrastTokens(page);
+          for (const pair of ["text2OnBg", "text2OnSurface", "textOnSurface", "textOnSurface2"]) {
+            assert.ok(ratios[pair] >= 4.5, `${locale} ${width}px ${pair}: ${ratios[pair]}`);
+          }
+          const colors = await page.evaluate((mobile) => {
+            const nav = document.querySelector(mobile ? ".mobile-selector nav" : ".desktop-sidebar");
+            const links = [...nav.querySelectorAll("a")];
+            const current = nav.querySelector('[aria-current="page"]');
+            const probe = document.createElement("span");
+            document.body.append(probe);
+            const token = (name, property) => {
+              probe.style[property] = `var(${name})`;
+              return getComputedStyle(probe)[property];
+            };
+            const result = {
+              link: getComputedStyle(links.find((link) => link !== current)).color,
+              current: getComputedStyle(current).color,
+              currentBackground: getComputedStyle(current).backgroundColor,
+              text2: token("--text-2", "color"),
+              text: token("--text", "color"),
+              surface2: token("--surface-2", "backgroundColor"),
+            };
+            probe.remove();
+            return result;
+          }, width === 390);
+          assert.equal(colors.link, colors.text2);
+          assert.equal(colors.current, colors.text);
+          assert.equal(colors.currentBackground, colors.surface2);
+        }
+      }
+    } finally {
+      await context.close();
+    }
+  });
 }
 
 // The motion system (ticket 17)

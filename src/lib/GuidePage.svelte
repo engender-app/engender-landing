@@ -78,9 +78,16 @@
 
   .masthead-inner {
     position: relative;
-    max-width: 48rem;
+    max-width: 64rem;
     margin: 0 auto;
     padding: clamp(2.5rem, 8vh, 5rem) clamp(1rem, 4vw, 2.5rem) clamp(2.5rem, 7vh, 4rem);
+    display: grid;
+    grid-template-columns: 14rem minmax(0, 1fr);
+    column-gap: clamp(1.5rem, 4vw, 3rem);
+  }
+
+  .masthead-inner > * {
+    grid-column: 2;
   }
 
   /* A page's title, which is the app's door title: the display face at 800,
@@ -160,8 +167,14 @@
   }
 
   @media (max-width: 45rem) {
+    .masthead-inner {
+      display: block;
+    }
+
     .body {
       grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding-top: 1.5rem;
     }
   }
 </style>
