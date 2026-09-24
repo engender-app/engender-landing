@@ -1487,6 +1487,8 @@ const GUIDE_CHAPTERS = [
   "contributing",
 ];
 
+const ILLUSTRATED_CHAPTERS = GUIDE_CHAPTERS.filter((chapter) => chapter !== "contributing");
+
 /** `/{locale}/guide/` itself is Getting started, the same way `/{locale}/` is
     the landing page - no separate index page in front of the first chapter. */
 const guidePath = (locale, chapter) =>
@@ -1559,6 +1561,39 @@ for (const locale of ["en", "pl"]) {
           await page.getAttribute("link[rel=canonical]", "href"),
           `${SITE_ORIGIN}${guidePath(locale, chapter)}`,
         );
+      } finally {
+        await context.close();
+      }
+    });
+  }
+
+  for (const chapter of ILLUSTRATED_CHAPTERS) {
+    test(`${locale} guide/${chapter}: shows local phone screenshots with useful alt text`, async () => {
+      const { context, page } = await visitor({ javaScriptEnabled: false });
+      try {
+        await page.goto(`${base}${guidePath(locale, chapter)}`);
+        const images = page.locator("main article img");
+        assert.ok(await images.count() >= 1, `${chapter} has no screenshot`);
+        if (["getting-started", "calendar", "health", "support", "privacy"].includes(chapter)) {
+          assert.ok(await images.count() >= 2, `${chapter} needs both screen states`);
+        }
+        if (chapter === "privacy") {
+          const sources = await images.evaluateAll((items) => items.map((item) => item.getAttribute("src")));
+          assert.ok(sources.some((src) => src?.endsWith("privacy-controls.webp")));
+          assert.ok(sources.some((src) => src?.endsWith("privacy-export.webp")));
+        }
+        for (const image of await images.all()) {
+          const src = await image.getAttribute("src");
+          const alt = await image.getAttribute("alt");
+          assert.ok(src?.startsWith(`/guide/${locale}-`), `${chapter} uses a screenshot from the wrong locale`);
+          assert.ok(alt?.length >= 30, `${chapter} has no descriptive alt text`);
+          assert.equal(await image.getAttribute("width"), "390");
+          assert.equal(await image.getAttribute("height"), "844");
+          const response = await page.request.get(`${base}${src}`);
+          assert.equal(response.status(), 200, `${src} is missing`);
+          assert.match(response.headers()["content-type"], /image\/webp/);
+          assert.ok((await response.body()).length < 100_000, `${src} exceeds 100 KB`);
+        }
       } finally {
         await context.close();
       }
