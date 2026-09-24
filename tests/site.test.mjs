@@ -1828,6 +1828,35 @@ for (const locale of ["en", "pl"]) {
   }
 }
 
+const SETTINGS_SECTIONS = {
+  en: ["Appearance", "Tracking", "Privacy and data"],
+  pl: ["Wygląd", "Śledzenie", "Prywatność i dane"],
+};
+
+for (const locale of ["en", "pl"]) {
+  test(`${locale} guide/settings: names every Settings section and renders shipped copy`, async () => {
+    const { context, page } = await visitor({ javaScriptEnabled: false });
+    try {
+      await page.goto(`${base}${guidePath(locale, "settings")}`);
+      const headings = await page.locator("main article h2").allInnerTexts();
+      for (const section of SETTINGS_SECTIONS[locale]) {
+        assert.ok(headings.includes(section), `the chapter does not name ${section}`);
+      }
+
+      const text = (await page.locator("main article").innerText()).replace(/\s+/g, " ");
+      const shipped = copyBlocks(locale, "guide-settings").filter((block) => block.publishes);
+      assert.ok(shipped.length > 0, "no shipped blocks, so this proved nothing");
+      for (const block of shipped) {
+        for (const paragraph of block.paragraphs) {
+          assert.ok(text.includes(paragraph), `shipped copy is missing or reworded: ${paragraph.slice(0, 70)}`);
+        }
+      }
+    } finally {
+      await context.close();
+    }
+  });
+}
+
 test("switching language on the privacy page stays on the privacy page", async () => {
   const { context, page } = await visitor({ javaScriptEnabled: false });
   try {
