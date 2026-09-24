@@ -9,31 +9,31 @@
   "meta": {
     "cardAlt": "The word engender on a dark background, with the trans flag drawn as concentric rings in the corner.",
     "landing": {
-      "description": "A journal for tracking gender transition. An entry holds a mood, a note, tags, photos and your own scales. It stays on your device, and there is no account."
+      "description": "Track your transition in a journal with custom scales, Voice benchmarks and care records. Encrypted on your device, with no account."
     },
     "privacy": {
-      "description": "Where your journal is, what app lock does and does not do, what encryption at rest covers and leaves out, and what a web host can see."
+      "description": "How engender encrypts your journal, how access and recovery keys work, what exports reveal, and what the web host sees."
     }
   },
   "hero": {
-    "headline": "A transition journal that stays on your device.",
+    "headline": "A transition tracker with a journal at its heart.",
     "definition": {
       "headword": "engender",
       "grammar": "v.",
       "phonetics": "/ɪnˈdʒɛndə/",
       "sense": "to cause or give rise to a feeling, situation or condition."
     },
-    "subheadline": "Write down how a day went, and track how your gender felt that day. No account, nothing to sync."
+    "subheadline": "Track your days with custom scales, Voice benchmarks and care records. Your journal stays on your device. No account needed."
   },
   "sectionOverview": "What engender is",
   "overview": [
-    "engender is a journal for tracking gender transition. An entry holds a mood, a note, your scales, tags, photos, a voice recording and how your body felt, and it only needs one of those to count. Write several in one day if one does not cover it. Backdate one to a day you missed.",
-    "Mood trackers are the right shape for a daily habit, and they have nowhere to put gender. engender keeps the shape and adds scales you name yourself. It records what you tell it and does not try to interpret any of it.",
+    "engender is a transition tracker built around a journal. An entry holds a mood, a note, your scales, tags, photos, a voice recording and how your body felt. One of those is enough. Write several entries in a day or backdate one to a day you missed.",
+    "You choose which parts of transition to record. Name your own scales, compare Voice benchmarks with earlier takes, or keep medication and appointment records beside your entries. The roadmap lists steps in Poland, with room for your own goals. The app does not assess your voice or give treatment advice.",
     "One trans person wrote this for other trans people. It is free software, there is no price, no plan and nothing to upsell, and it stays that way."
   ],
   "sectionPrivacy": "What it protects, and what it doesn't",
   "privacyHandoff": [
-    "Your journal is stored on your device, encrypted where it sits. There is no engender account, and your entries are not sent to an engender server, because none exists.",
+    "Your journal is encrypted on your device. There is no engender account or server holding your entries. The web host sees requests to load and update the app, but does not receive your journal.",
     "What that protects, and what it does not, is on its own page."
   ],
   "sectionTour": "The screens",
@@ -146,22 +146,26 @@
       "id": "around",
       "group": "Around the journal",
       "paragraphs": [
-        "The journal is the spine, and the rest of transition life has a place around it. None of it interprets, and none of it grades.",
-        {
-          "lead": "Body.",
-          "rest": " Progress photos, then versus now. Measurements over time. What you bought, the size, and how it fit. Hair progress staged against a published scale, and electrolysis or laser sessions, logged plainly."
-        },
+        "The Transition tab groups the tools around your journal into Health, Steps, Support and Media.",
         {
           "lead": "Health.",
-          "rest": " Lab results with no reference ranges. What you are taking and since when, every dose against its schedule, and a modelled hormone curve. Cycle events, side effects and surgery recovery, logged plainly. Questions to bring to your next appointment, and a printable summary of doses, labs and side effects for a range you choose, made only when you decide a clinician should see it."
+          "rest": " Measurements and clothing sizes, medication schedules and doses, lab results and modelled hormone curves. Keep records of changes, cycle events and surgery recovery. Prepare questions for appointments and print a summary for a clinician when you choose. The app does not interpret lab values or suggest doses."
         },
         {
-          "lead": "Transition.",
-          "rest": " A step-by-step roadmap. Letters you write now and read once their date arrives. Tryouts, for tracking how something you are trying feels over time."
+          "lead": "Steps.",
+          "rest": " Milestones, tryouts, binder and tucking wear time, hair removal and letters that open on a date you choose. The roadmap covers Poland, with social, legal, appearance and medical tracks. Add your own goals or mark a step as not for you."
         },
         {
-          "lead": "Practice.",
-          "rest": " For the days doubt is loud: the entries you starred and the ones you tagged euphoria, read back as counterevidence. Two voice recordings, side by side. Binder and tucking wear time. When you first noticed each change. Trans organisations and helplines, kept in the app."
+          "lead": "Voice benchmarks.",
+          "rest": " On the Voice screen in Steps, record the same passage and held vowel each time, then compare with your own earlier takes. Figures such as pitch, resonance and speaking rate describe the recordings without grading your voice. A benchmark belongs to a day; a voice recording in an entry is a separate memo."
+        },
+        {
+          "lead": "Support.",
+          "rest": " Safe Space brings back starred and positive entries and holds your own list of things that help. Trans organisations and helplines are listed in the app, so you can read the directory offline."
+        },
+        {
+          "lead": "Media.",
+          "rest": " Browse photos from across the journal and compare two with a slider. Make a collage or time-lapse to export. Keep documents such as referrals and court orders, linked to the goal or record they belong to."
         }
       ]
     },
@@ -175,7 +179,7 @@
         },
         {
           "lead": "Scheduled backup.",
-          "rest": " An encrypted Archive written to a folder you pick, weekly or monthly, without you remembering to."
+          "rest": " On Android, an encrypted Archive written to a folder you pick, weekly or monthly."
         },
         {
           "lead": "Coming from Daylio.",
@@ -197,7 +201,7 @@
       "paragraphs": [
         {
           "lead": "On Android.",
-          "rest": " The same journal, the same data, as an app."
+          "rest": " The same journal features as a phone app. Its data does not sync with the browser journal."
         },
         {
           "lead": "Reminders.",
@@ -221,22 +225,22 @@
       "id": "careful",
       "group": "If you need to be careful",
       "paragraphs": [
-        "Everything in this section is off until you turn it on. Keeping a journal about your own life is not something to be ashamed of, and the app does not behave as though it is. These exist because some people's circumstances are genuinely unsafe, and only you know whether that is yours.",
+        "Choose how to unlock the journal in Privacy and data. Disguise, lock on leave and quick exit stay off until you turn them on.",
         {
-          "lead": "App lock.",
-          "rest": " A PIN in front of the app. It stops someone picking up your unlocked phone and reading it. It is not encryption of what is stored."
+          "lead": "Access.",
+          "rest": " Use a passphrase, a PIN with a device key, supported biometrics or a device-bound key. The Privacy page explains what each protects and how recovery works."
         },
         {
           "lead": "Disguise.",
-          "rest": " The browser tab says Notes instead of engender. On Android, the app's name and icon on your phone go plain too."
+          "rest": " The browser tab says Notes instead of engender. On Android, the app takes a neutral name and icon too."
         },
         {
           "lead": "Lock on leave.",
-          "rest": " Switch away from the app and it locks itself behind you."
+          "rest": " The journal locks when you switch away. With a mode that asks for a secret, you need it to return."
         },
         {
           "lead": "Quick exit.",
-          "rest": " A two-finger swipe down blanks the tab, and locks it if you have app lock switched on."
+          "rest": " A two-finger swipe down covers the journal. Disguise shows a Notes screen; otherwise the tab goes blank. If your access mode asks for a secret, returning requires it."
         }
       ]
     },
@@ -300,32 +304,33 @@
   ],
   "privacyPage": {
     "title": "What engender protects, and what it does not",
-    "intro": "This is the long answer. The short one would have to leave out the parts that matter if you are deciding whether to trust this with your journal.",
+    "intro": "Your journal is encrypted on your device. How you unlock it, where you keep backups and who can use your device determine what that protects.",
     "guideLink": "Read the Privacy chapter in the Guide.",
     "sections": [
       {
         "heading": "Where your journal is",
         "paragraphs": [
-          "Your journal is stored on your device. There is no engender account, no server with a copy of it on, and nothing syncing in the background. An entry you write goes into storage on the device you wrote it on and stays there until you export it or delete it.",
-          "There is no server, so there is no server to be breached, subpoenaed or sold. What you are trusting instead is your own device and whoever else can reach it."
+          "Your journal stays on the device where you write it. There is no engender account or server holding a copy, and no background sync. The browser and Android app hold separate journals. You can move a copy yourself with an encrypted Archive.",
+          "The app does not send your entries to the web host. Loading and updating the web app still make network requests, described below."
         ]
       },
       {
-        "heading": "App lock",
+        "heading": "Unlocking your journal",
         "paragraphs": [
-          "App lock is off until you turn it on, like every control in engender that hides something. Keeping a journal about your own life is an ordinary thing to do. Some people's circumstances make it dangerous anyway, and only you know whether that is yours.",
+          "A random data key encrypts the journal. Your access mode protects that key, so changing the passphrase does not require encrypting years of entries again.",
           {
-            "lead": "What it does.",
-            "rest": " App lock puts a PIN in front of the app, so somebody who picks up your unlocked phone cannot read your journal by opening it."
+            "lead": "Passphrase.",
+            "rest": " On the web or Android, a passphrase you type opens the data key through Argon2id. Save it in a password manager. I cannot recover a forgotten passphrase."
           },
           {
-            "lead": "What it is not.",
-            "rest": " It is not the encryption of what is stored; that is the passphrase's job, below. A PIN is a gate in the interface. Four digits will stop a glance over your shoulder. It will not stop somebody with your device, time and a reason."
+            "lead": "PIN.",
+            "rest": " Four digits combine with a key tied to your device to protect the data key. A copied journal file alone is not enough to guess the PIN. On the web, a copy of the whole browser profile can expose the device secret. On Android, someone who can run their own code on the phone can ask Keystore for it. With that secret, there are only 10,000 PINs to try. Choose a passphrase if this is your concern."
           },
           {
-            "lead": "If you forget the PIN",
-            "rest": ", there is one way back in: an action on the lock screen that wipes the local journal and starts you over. There is no recovery that keeps your entries, because a PIN that could be recovered would not be protecting anything. Wrong attempts wait longer and longer before the next one is accepted, and nothing wipes your journal automatically after a set number of tries. A counter like that is one bored kid or one argument away from destroying a diary nobody decided to destroy."
-          }
+            "lead": "Biometrics and device keys.",
+            "rest": " Supported browsers can ask for your fingerprint or face before opening the journal. Web device-bound mode opens without a prompt and keeps its key in that browser profile. On Android, device-bound mode uses Keystore and the phone’s screen lock or biometrics. Android also offers a separate mode without an unlock prompt. Losing the device or browser profile can mean losing that copy of the journal."
+          },
+          "Wrong PIN attempts in the app wait longer before another try. The app does not automatically erase your journal after failed attempts. This delay does not protect against guesses made outside the app."
         ]
       },
       {
@@ -333,58 +338,48 @@
         "paragraphs": [
           {
             "lead": "What is covered.",
-            "rest": " Your journal where it is stored, the working files kept beside it, the copy taken before an upgrade changes anything, and your photos and their thumbnails."
+            "rest": " The journal database, its working files and the copy made before an upgrade are encrypted. Photos and thumbnails are encrypted separately under the same data key. Voice recordings use encrypted file storage too. Imports pass through memory rather than a temporary file."
           },
-          "Photos are files rather than rows in a database, so encrypting the database never reaches them. Each one is encrypted on its own, under the same key. An import runs through memory and never lands in a temporary file, so there is no half-imported copy of your history left on the disk afterwards.",
           {
             "lead": "What is not covered.",
-            "rest": " A few things stay outside, because the app has to be able to start and to let you unlock it: the wrapped key and the settings used to derive it; your theme, palette and language; whether lock on leave and disguise are switched on; and the timestamps that make repeated wrong PIN attempts wait longer each time. None of it is anything you wrote. Somebody reading that part of your browser profile learns which colours you chose and whether disguise is on, and learns nothing about a single entry."
-          },
-          {
-            "lead": "On the web",
-            "rest": ", you choose a passphrase. It does not encrypt the journal directly. It unlocks a random key that does, which is what lets you change the passphrase later without re-encrypting years of entries. After the browser session ends, the passphrase is needed again. No usable key is left sitting next to the data it would open."
-          },
-          {
-            "lead": "Device-bound mode",
-            "rest": " is the other way to hold that key: nothing to type on a cold start, and the key stays in the one browser profile or device you set it up in. The trade cuts both ways, and the app says so before you choose. Losing that profile or device loses the journal, with no passphrase to fall back on. And the key is not protected by anything you know, so a copy of that browser profile opens the journal with nothing typed. Tied to this device is a fact about where the key lives, not a wall."
-          },
-          {
-            "lead": "On Android",
-            "rest": ", the same random key is held by the Android Keystore rather than by a passphrase you type, and the Keystore releases it only after the phone has checked who is asking."
-          },
-          {
-            "lead": "The passphrase cannot be recovered.",
-            "rest": " Not by you and not by me. There is no reset that keeps your entries, no recovery email and no message to me that can help, because a way back in for me would be a way back in for anyone else. Put it in a password manager before you write anything you would be upset to lose. The app says this again at setup."
+            "rest": " The wrapped key and settings needed to open it stay outside the encrypted journal. So do theme, palette and language, disguise and lock-on-leave preferences, and timestamps of failed PIN attempts. These contain no journal entries."
           }
         ]
       },
       {
-        "heading": "Archives",
+        "heading": "If you lose access",
         "paragraphs": [
-          "Export packs your journal into a single Archive file, encrypted with a password you choose, before the file goes anywhere. That password is not your PIN and not your Journal passphrase. It protects that one file.",
+          "You can create an optional recovery key and save it off the device. The app shows it once. Anyone with that key and your local journal can open the journal without your usual passphrase, PIN or biometric check.",
+          "The recovery key opens only a copy whose data still exists on that device and, on the web, in that browser profile. It does not bring back a lost device, move the journal or open an Archive. I cannot recover this key or your Archive password.",
+          "Without a working access method or a saved recovery key, resetting the app erases the local journal. A saved Archive can restore the data it contains if you still know its password."
+        ]
+      },
+      {
+        "heading": "Archives and readable exports",
+        "paragraphs": [
+          "An Archive is a copy of your journal encrypted with a password you choose before saving or sharing the file. That password protects the Archive separately from the journal on your device. Scheduled backups on Android create encrypted Archives too.",
           {
-            "lead": "What an Archive gives away.",
-            "rest": " The first six bytes of the file spell GDIARY in plain text, followed by the format version and the settings used to turn your password into a key. That part has to be readable without the password, so that a file from a newer version can say so instead of decrypting into nonsense. Everything from your journal is behind the password. Somebody who finds the file learns that it is an engender Archive, because the header names the format, and nothing about what is in it."
+            "lead": "What an Archive reveals.",
+            "rest": " Its header is readable: the first six bytes spell GDIARY, followed by format and key-derivation settings. The header identifies the file as an engender Archive without revealing entries. A storage provider may also see the filename, size and access history."
           },
           {
-            "lead": "If you lose an Archive password",
-            "rest": ", that file is not readable again. Other Archives made with other passwords are unaffected."
-          }
+            "lead": "If you lose an Archive password,",
+            "rest": " that file stays unreadable. Other Archives with different passwords are unaffected."
+          },
+          "CSV and JSON exports, printable journals and clinician summaries, shared photos and other readable exports are not encrypted. Anyone who gets a file can read it. The app asks for confirmation or an explicit action before creating it. You choose where it goes."
         ]
       },
       {
         "heading": "What the web host can see",
         "paragraphs": [
-          "Opening the app in a browser means asking a web host for it, and that host can see an IP address, roughly when the request happened, and that the app was fetched. Checking for a new version is the same kind of request. This is true of every website you open, and it is true of this one.",
-          "What the host does not receive is your journal. Entries, photos, notes and lab values are not sent to it, because there is nowhere for them to be sent.",
-          "You will not read \"engender makes no network requests\" here, because it is not true. Fetching the app is a network request. Your journal going somewhere is not.",
-          "Installing from Google Play means Google records that your account installed this app. That is between you and Google, and no setting inside engender changes it."
+          "When the web app loads or checks for updates, the host sees your IP address, request time, requested files and their sizes, and User-Agent and Referer headers. It does not receive journal entries, photos, notes or lab results. After installation, you can use the journal offline.",
+          "The Android app does not request the INTERNET permission. Store operators may record downloads and updates. Installing from Google Play ties the installation to your Google account; no engender setting changes that."
         ]
       },
       {
         "heading": "What none of this protects against",
         "paragraphs": [
-          "If somebody already controls your device, none of this is what stands between them and your journal. An unlocked phone in somebody else's hands, an operating system that has been compromised, or the app sitting open in front of them are all outside what encryption at rest can do. engender does not claim otherwise. Be wary of anything that does."
+          "Encryption at rest does not protect an open journal on your screen, data read from memory or a compromised operating system. Someone who controls your device may be able to read what you open. Readable exports also need protection wherever you save or share them."
         ]
       }
     ]

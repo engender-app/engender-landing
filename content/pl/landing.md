@@ -9,10 +9,8 @@ copy and it is Polish. Everything outside one is commentary for whoever works on
 next, and it matches the English files so the two can be read side by side. Tickets 07
 and 08 can take the blockquotes alone and lose nothing they need.
 
-**Gate markers.** Same gates as the English file, block for block. `Gate: shipped`
-means a person can go and see the behaviour today. Anything else names the Journal
-ticket that has to land first. A block gated in English is gated in Polish, and a block
-that becomes publishable becomes publishable in both languages at once.
+**Gate markers.** `Gate: shipped` marks approved copy from the product spec.
+Staged copy waits for a decision, not implementation evidence.
 
 **The reader is never assigned a gender.** Polish inflects the second person in the past
 tense and in adjectives, so an ordinary sentence addressed to the reader picks a gender
@@ -48,22 +46,15 @@ decided here and recorded in `.agents/product-marketing.md`.
 
 **Headline**
 
-> Dziennik tranzycji, który zostaje na twoim urządzeniu.
+> Śledź tranzycję we własnym dzienniku.
 
-Two alternatives, if the design wants a different weight. *Zapisuj, jak ci mija dzień.
-Bez konta, bez chmury.* leads with the habit and keeps a claim, but it names the storage
-only by what it is not. *Twoja tranzycja, na twoich zasadach.* is the line that could sit
-on any product, so it is here as the one to beat.
-
-Going with the first, for the same reason the English does: it carries the claim, and
-the claim is why anyone stays on the page. The possessive in `twoim` is doing real work
-here, since the whole point is whose device it is, so it stays despite Polish normally
-dropping it.
+The headline keeps tracking and the journal together. The supporting line names
+examples and states device storage without assigning the reader a gender.
 
 **Subheadline**
 
-> Zapisz, jak minął dzień, i jak ci w nim było z własną płcią. Konta nie zakładasz,
-> synchronizować nie ma czego.
+> Zapisuj odczucia na własnych skalach, porównuj wzorce głosu i prowadź zapiski o zdrowiu.
+> Dziennik zostaje na twoim urządzeniu. Bez konta.
 
 **Primary action**
 
@@ -74,21 +65,26 @@ is not called Start journal in Polish.
 
 *Gate: shipped.*
 
-> engender to dziennik tranzycji. We wpisie mieści się nastrój, notatka, twoje
-> skale, tagi i zdjęcia, a żeby wpis się liczył, wystarczy jedno z tego. Jeśli jeden
-> wpis nie oddaje całego dnia, napisz kilka. Jeśli dzień przepadł, dopisz go z datą
-> wsteczną.
+> engender pomaga śledzić tranzycję w dzienniku. We wpisie zapiszesz nastrój, notatkę,
+> własne skale, tagi, zdjęcia, nagranie głosowe i odczucia związane z ciałem. Wystarczy
+> jedna z tych rzeczy. Możesz dodać kilka wpisów dziennie albo uzupełnić wcześniejszy
+> dzień.
 >
-> Aplikacje do notowania nastroju dobrze pasują do codziennego rytuału, tylko nie mają
-> gdzie zapisać płci. engender działa tak samo i dokłada do tego skale, które
-> nazywasz po swojemu. Zapisuje to, co jej powiesz, i niczego z tego nie interpretuje.
+> Ty wybierasz, co chcesz zapisywać. Nazwij skale po swojemu, porównuj wzorce głosu z
+> wcześniejszymi nagraniami albo notuj leki i wizyty obok codziennych wpisów. Mapa
+> tranzycji opisuje kroki w Polsce i pozwala dodać własne cele. Aplikacja nie ocenia głosu
+> ani nie doradza leczenia.
+>
+> Aplikację tworzy jedna osoba trans dla innych osób trans. To wolne oprogramowanie.
+> Korzystanie z niego jest i pozostanie bezpłatne.
 
 ### Where it stands on privacy
 
 *Gate: shipped. The full page is ticket 04 and this is only the handoff to it.*
 
-> Twój dziennik jest zapisany na twoim urządzeniu. Nie ma konta engender, a wpisy
-> nie trafiają na serwer engender.
+> Dziennik jest zaszyfrowany na twoim urządzeniu. Nie ma konta engender ani serwera z
+> twoimi wpisami. Serwer WWW widzi pobieranie i aktualizacje aplikacji, ale nie dostaje
+> dziennika.
 >
 > Co to chroni, a czego nie, jest na osobnej stronie.
 
@@ -154,17 +150,24 @@ that show written entries repeat it in short form, exactly as in English.
 
 ## Feature summary
 
-### Writing it down
+The groups follow the Journal SCREENS.md inventory reviewed on 2026-09-25.
+Voice benchmarks follow CONTEXT.md; privacy controls follow the current access
+model. Polish and English describe the same capabilities.
+
+### Zapisywanie
 
 *Gate: shipped.*
 
-> **Wpisy.** Nastrój w pięciu stopniach, notatka, tagi, zdjęcia i twoje skale. Kilka
-> dziennie albo z datą wsteczną, do dnia, który przepadł.
+> **Wpisy.** Nastrój w pięciu stopniach, notatka, tagi, zdjęcia, nagranie głosowe i twoje
+> skale. Kilka dziennie albo z datą wsteczną.
 >
-> **Skale.** Pięć jest wbudowanych, wśród nich Poczucie płci, od dysforii na jednym
-> końcu do euforii na drugim. Własną skalę ustawiasz od zera: dwie etykiety końców i
-> zakres, jaki chcesz. Te, których używasz, łączysz w zestaw, żeby ekran wpisu pytał
-> tylko o to, co faktycznie mierzysz.
+> **Skale.** Pięć jest wbudowanych, wśród nich Poczucie płci, od dysforii na jednym końcu
+> do euforii na drugim. Własną skalę ustawiasz od zera: dwie etykiety końców i zakres,
+> jaki chcesz. Te, których używasz, łączysz w zestaw, żeby ekran wpisu pytał tylko o to,
+> co faktycznie mierzysz.
+>
+> **Odczucia związane z ciałem.** Dysforię i euforię zapisujesz przy obszarach ciała,
+> których dotyczą. Osobno, bo w jednym dniu mogą pojawić się obie.
 >
 > **Tagi.** Pogrupowane, do zmiany w każdej chwili. Całą grupę można wyłączyć, kiedy
 > przestaje być na temat. Ukryty tag wbudowany znika ze wszystkich list wyboru, a wpisy,
@@ -173,39 +176,76 @@ that show written entries repeat it in short form, exactly as in English.
 > **Zdjęcia.** Trzymane w pamięci samej aplikacji. Nie trafiają do galerii telefonu, więc
 > nie wyskoczą komuś, kto akurat przewija zdjęcia.
 
-### Reading it back
+### Przeglądanie
 
 *Gate: shipped.*
 
-> **Miesiąc.** Kalendarz w jednym kolorze o różnej sile, sterowany nastrojem albo
-> wybraną skalą.
+> **Miesiąc.** Kalendarz w jednym kolorze o różnej sile, sterowany nastrojem albo wybraną
+> skalą.
 >
 > **Wyszukiwanie.** Notatki i nazwy tagów, dopasowywane w trakcie pisania, bez oglądania
-> się na polskie znaki.
+> się na polskie znaki. Wpisy i zdjęcia oznaczone gwiazdką znajdziesz w jednym miejscu.
 >
 > **Wykresy.** Jeden na skalę, w zakresie od 7 do 365 dni, z twoją serią dni z wpisem. Po
-> otwarciu wykresu widać listę wartości z datami, więc linię da się sprawdzić, a nie
-> tylko przyjąć na wiarę.
+> otwarciu wykresu widać listę wartości z datami, więc linię da się sprawdzić, a nie tylko
+> przyjąć na wiarę.
 >
-> **Tagi w liczbach.** Dla wybranej skali widać, jak wypadają dni z danym tagiem wobec
-> dni bez niego. To obserwacja, nie wyrok. Tagi z mniej niż trzema wpisami w zakresie
-> wypadają z zestawienia, bo przy takiej liczbie różnica jest szumem.
+> **Tagi w liczbach.** Dla wybranej skali widać, jak wypadają dni z danym tagiem wobec dni
+> bez niego. To obserwacja, nie wyrok. Tagi z mniej niż trzema wpisami w zakresie wypadają
+> z zestawienia, bo przy takiej liczbie różnica jest szumem.
 >
-> **Podsumowanie.** Co się złożyło na miniony miesiąc. Skończony rok dostaje własne.
+> **Podsumowanie.** Tydzień, miesiąc, rok albo wybrany okres: wpisy, serie dni, zmiany na
+> skalach, częste tagi, kamienie milowe i zdjęcia.
 >
-> **Kamienie milowe i oś czasu.** Odliczanie do tego, co przed tobą, rocznice tego, co
-> za tobą.
+> **Tego dnia.** Wpisy sprzed miesiąca, pół roku i roku. Wracają tylko dobre dni.
 >
-> **Wyniki badań.** Trzymasz własne liczby i patrzysz, jak zmieniają się w czasie. Bez
-> norm referencyjnych i bez niczego, co mówi ci, że wynik jest zły.
+> **Wtedy i teraz.** Dwa wybrane okresy obok siebie.
+>
+> **Licznik.** Zapisujesz jednym dotknięciem, kiedy ktoś zwraca się do ciebie zgodnie z
+> twoją płcią, a kiedy nie. Wykres pokazuje, jak zmieniają się te liczby.
+>
+> **Kamienie milowe i oś czasu.** Odliczanie do tego, co przed tobą, rocznice tego, co za
+> tobą.
 
-### Keeping it
+### Wokół dziennika
+
+*Gate: shipped.*
+
+> Na karcie Tranzycja znajdziesz cztery grupy narzędzi: Zdrowie, Kroki, Wsparcie i Media.
+>
+> **Zdrowie.** Pomiary ciała i rozmiary ubrań, plan leków i dawki, wyniki badań oraz
+> modelowane krzywe hormonalne. Zapisuj zauważone zmiany, zdarzenia cyklu i przebieg
+> rekonwalescencji po operacji. Przygotuj pytania na wizytę i wydrukuj podsumowanie dla
+> lekarza, jeśli chcesz. Aplikacja nie interpretuje wyników ani nie podpowiada dawek.
+>
+> **Kroki.** Kamienie milowe, próby, czas noszenia bindera i tuckingu, depilacja oraz
+> listy otwierane w wybranym dniu. Mapa tranzycji obejmuje Polskę i cztery ścieżki:
+> społeczną, prawną, wizerunkową i medyczną. Możesz dopisać własne cele albo oznaczyć krok
+> jako „nie moja droga”.
+>
+> **Wzorce głosu.** Na ekranie Głos w Krokach nagrywasz za każdym razem ten sam tekst i
+> tę samą przeciągniętą samogłoskę. Porównujesz je z własnymi wcześniejszymi nagraniami.
+> Wysokość głosu, rezonans czy tempo mówienia opisują nagrania, ale nie oceniają głosu.
+> Wzorzec zapisujesz dla wybranego dnia. Nagranie głosowe we wpisie to osobna notatka.
+>
+> **Wsparcie.** Bezpieczna przestrzeń przypomina wpisy z gwiazdką i dobrymi tagami. Jest
+> tu też twoja lista rzeczy, które pomagają. Spis organizacji trans i telefonów zaufania
+> jest wbudowany w aplikację, więc przeczytasz go bez internetu.
+>
+> **Media.** Przeglądaj zdjęcia z całego dziennika i porównuj dwa suwakiem. Przygotuj
+> kolaż albo film poklatkowy do eksportu. Przechowuj dokumenty, na przykład skierowania i
+> postanowienia sądu, powiązane z celem lub zapisem, którego dotyczą.
+
+### Archiwa i eksport
 
 *Gate: shipped.*
 
 > **Archiwa.** Eksport pakuje dziennik do jednego pliku i szyfruje go hasłem, które
-> wybierasz, zanim plik opuści aplikację. Import wkłada go z powrotem, dokładając do
-> tego, co już jest, albo zastępując całość.
+> wybierasz, zanim plik opuści aplikację. Import wkłada go z powrotem, dokładając do tego,
+> co już jest, albo zastępując całość.
+>
+> **Kopia według harmonogramu.** Na Androidzie zaszyfrowane archiwum trafia do wybranego
+> folderu co tydzień albo co miesiąc.
 >
 > **Przejście z Daylio.** Import bierze plik CSV z Daylio. Zanim cokolwiek zapisze,
 > pokazuje liczby i to, jak przełoży nastroje, a zawsze tylko dokłada do tego, co już
@@ -217,88 +257,56 @@ that show written entries repeat it in short form, exactly as in English.
 > **Kiedy minęło trochę czasu.** Jeśli ostatnie archiwum ma więcej niż 30 dni, ekran
 > główny mówi o tym raz. Można to zamknąć.
 
-### If you need to be careful
+### Na telefonie
 
-*Gate: shipped, including disguise and quick exit, which Journal ticket 15 records as
-implemented for the web today. App lock, disguise, lock on leave and quick exit all
-default to off in the Journal's preference catalogue. Every sentence here keeps the
-app-lock counterweight attached, per the marketing context. Ticket 04 owns the longer
-treatment.*
+*Gate: shipped.*
 
-> Wszystko w tej sekcji jest wyłączone, dopóki tego nie włączysz. Prowadzenie dziennika
-> o własnym życiu to nic wstydliwego i aplikacja nie zachowuje się, jakby było inaczej.
-> Te funkcje istnieją, bo bywają sytuacje naprawdę niebezpieczne, a czy twoja taka jest,
-> wiesz tylko ty.
+> **Na Androidzie.** Te same funkcje dziennika w aplikacji na telefon. Dane nie
+> synchronizują się z dziennikiem w przeglądarce.
 >
-> **Blokada aplikacji.** PIN przed wejściem do aplikacji. Zatrzymuje kogoś, kto bierze do
-> ręki odblokowany telefon i chce poczytać. Nie jest szyfrowaniem tego, co zapisane.
+> **Przypomnienia.** Leki, zastrzyki i wizyty. Jednorazowe lub powtarzalne powiadomienia
+> na telefonie.
 >
-> **Kamuflaż.** Karta przeglądarki pokazuje „Notes” zamiast engender.
+> **Codzienne pytanie.** Raz dziennie, o wybranej porze. Nie pojawia się w dni, w które
+> jest już wpis.
 >
-> **Szybkie wyjście.** Zjechanie dwoma palcami w dół wygasza kartę, a jeśli blokada
-> aplikacji jest włączona, blokuje ją.
+> **Instalacja.** Dodaj aplikację do ekranu głównego i otwieraj ją stamtąd.
+>
+> **Działa bez sieci.** Po instalacji otworzysz dziennik także bez internetu.
 
-The disguise title is the literal string `Notes`, set in the Journal's
-`src/routes/+layout.svelte` and not translated, so the Polish copy quotes it as it
-appears rather than as it would read. If that string ever gets localised, this sentence
-changes with it.
+### Jeśli musisz uważać
 
-### How it looks
+*Gate: shipped.*
+
+> W sekcji Prywatność i dane wybierasz, jak otwierać dziennik. Kamuflaż, blokada przy
+> wyjściu i szybkie wyjście pozostają wyłączone, dopóki ich nie włączysz.
+>
+> **Dostęp.** Wybierz hasło, PIN z kluczem urządzenia, obsługiwaną biometrię albo klucz
+> powiązany z urządzeniem. Strona o prywatności opisuje ochronę i odzyskiwanie dostępu.
+>
+> **Kamuflaż.** Karta przeglądarki pokazuje „Notes” zamiast engender. Na Androidzie
+> zmienia się też nazwa i ikona aplikacji na neutralne.
+>
+> **Blokada przy wyjściu.** Dziennik blokuje się, gdy przechodzisz do innej aplikacji.
+> Jeśli wybrany tryb wymaga odblokowania, trzeba je powtórzyć po powrocie.
+>
+> **Szybkie wyjście.** Przesunięcie dwoma palcami w dół zasłania dziennik. Przy włączonym
+> kamuflażu pojawia się ekran Notes, w przeciwnym razie pusta karta. Jeśli wybrany tryb
+> wymaga odblokowania, trzeba je powtórzyć po powrocie.
+
+### Wygląd
 
 *Gate: shipped.*
 
 > **Osiem palet**: transpłciowa, niebinarna, genderfluid, biseksualna, lesbijska,
-> panseksualna, agender i tęczowa. Każda przemalowuje całą aplikację, razem z wykresami
-> i kalendarzem, i każda działa w jasnym i w ciemnym motywie.
+> panseksualna, agender i tęczowa. Każda przemalowuje całą aplikację, razem z wykresami i
+> kalendarzem, i każda działa w jasnym i w ciemnym motywie.
 >
 > **Kolor niczego nie ocenia.** Nie ma czerwonego na zły dzień ani zielonego na dobry.
 > Kalendarz używa jednego koloru o różnej sile, a pusty dzień zostaje pusty.
 >
 > **Dwa języki.** Polski i angielski, do przełączenia w ustawieniach, a daty idą za
 > wybranym językiem.
-
-The palette names are English labels in the app's settings screen. On the site they are
-flag names in ordinary Polish, because here they describe the palettes rather than name
-a control the reader has to find. Polish leads with Polish in the language line, which
-the English file has no reason to do.
-
-### Staged, not published
-
-None of the blocks below may appear on the page yet, in either language. Gates match the
-English file block for block.
-
-*Gate: Journal ticket 11. There is no Android project in the repository, so no sentence
-on this site may say the app runs on Android.*
-
-> **Na Androidzie.** Ten sam dziennik, te same dane, jako aplikacja.
-
-*Gate: Journal tickets 11 and 14.*
-
-> **Przypomnienia.** Leki, zastrzyki, wizyty. Jednorazowe albo powtarzalne, jako
-> powiadomienia w telefonie.
->
-> **Codzienne pytanie.** Jedno pytanie dziennie, o porze, którą wybierasz, pomijane w
-> dni, kiedy i tak już coś zapiszesz.
-
-*Gate: Journal tickets 11 and 16.*
-
-> **Kopia według harmonogramu.** Zaszyfrowane archiwum zapisywane do wybranego folderu,
-> co tydzień albo co miesiąc, bez pamiętania o tym.
-
-*Gate: Journal ticket 03, on its evidence rather than on its status line. See the
-English file for why: the ticket reads `Status: done` over an unchecked acceptance list
-and a repository with no service worker, no manifest and no PWA plugin.*
-
-> **Instalacja.** Dodaj aplikację do ekranu głównego i otwieraj ją bez przeglądarki po
-> drodze.
->
-> **Działa bez sieci.** Po instalacji nie potrzebuje sieci, żeby się otworzyć.
-
-*Gate: Journal ticket 09 and its evidence gate. Ticket 04 owns this wording, and
-`content/pl/privacy.md` carries the Polish. Listed here only so the feature summary does
-not look complete without it.*
-
-> Szyfrowanie samego dziennika tam, gdzie jest zapisany.
 
 ---
 
@@ -409,3 +417,10 @@ Numbers and dates in Polish copy: a space as the thousands separator, a comma fo
 decimals, `24.02.2026` or `24 lutego 2026` for dates, `14:30` for times, months and
 languages in lower case. Nothing in this file needs a formatted date yet, but ticket 09
 and the Play listing will.
+
+## Search and share
+
+The description is shared by search, Open Graph and Twitter metadata.
+
+Śledź tranzycję we własnym dzienniku: skale, wzorce głosu i zapiski o zdrowiu. Dane są
+zaszyfrowane na twoim urządzeniu. Bez konta.

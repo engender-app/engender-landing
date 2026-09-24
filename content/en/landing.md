@@ -45,10 +45,10 @@ engender is lowercase everywhere, including at the start of a sentence
 
 **Headline**
 
-> A transition journal that stays on your device.
+> A transition tracker with a journal at its heart.
 
-Kept from the previous site. It carries the claim, and the claim is why anyone
-stays on the page.
+The tracker category introduces the breadth; the journal explains how it fits
+together. The supporting line names examples and keeps privacy visible.
 
 **The definition**
 
@@ -87,8 +87,8 @@ copy's shape.
 
 **Subheadline**
 
-> Write down how a day went, and track how your gender felt that day. No account,
-> nothing to sync.
+> Track your days with custom scales, Voice benchmarks and care records. Your journal
+> stays on your device. No account needed.
 
 **Primary action**
 
@@ -99,25 +99,25 @@ links to and why nothing else on the page competes with it.
 
 *Gate: shipped.*
 
-> engender is a journal for tracking gender transition. An entry holds a mood, a
-> note, your scales, tags, photos, a voice recording and how your body felt, and it
-> only needs one of those to count. Write several in one day if one does not cover
-> it. Backdate one to a day you missed.
+> engender is a transition tracker built around a journal. An entry holds a mood, a note,
+> your scales, tags, photos, a voice recording and how your body felt. One of those is
+> enough. Write several entries in a day or backdate one to a day you missed.
 >
-> Mood trackers are the right shape for a daily habit, and they have nowhere to put
-> gender. engender keeps the shape and adds scales you name yourself. It records
-> what you tell it and does not try to interpret any of it.
+> You choose which parts of transition to record. Name your own scales, compare Voice
+> benchmarks with earlier takes, or keep medication and appointment records beside your
+> entries. The roadmap lists steps in Poland, with room for your own goals. The app does
+> not assess your voice or give treatment advice.
 >
-> One trans person wrote this for other trans people. It is free software, there is
-> no price, no plan and nothing to upsell, and it stays that way.
+> One trans person wrote this for other trans people. It is free software, there is no
+> price, no plan and nothing to upsell, and it stays that way.
 
 ### Where it stands on privacy
 
 *Gate: shipped. The full page is `privacy.md` and this is only the handoff to it.*
 
-> Your journal is stored on your device, encrypted where it sits. There is no
-> engender account, and your entries are not sent to an engender server, because
-> none exists.
+> Your journal is encrypted on your device. There is no engender account or server holding
+> your entries. The web host sees requests to load and update the app, but does not
+> receive your journal.
 >
 > What that protects, and what it does not, is on its own page.
 
@@ -187,33 +187,31 @@ the ones a reader might otherwise take for someone's real diary.
 
 ## Feature summary
 
-Rebuilt against `SCREENS.md` as of 2026-08-27: the app is 61 routes now, and the
-2026-08-12 summary described perhaps half of it. The care surfaces get one group
-with four leads rather than 23 rows, because this is a summary and the four groups
-are the app's own (`/more`).
+The groups follow the Journal SCREENS.md inventory reviewed on 2026-09-25.
+Voice benchmarks follow CONTEXT.md; privacy controls follow the current access
+model. Polish and English describe the same capabilities.
 
 ### Writing it down
 
 *Gate: shipped.*
 
-> **Entries.** A mood on five levels, a note, tags, photos, a voice recording, and
-> your scales. Several a day, or backdated to a day you missed.
+> **Entries.** A mood on five levels, a note, tags, photos, a voice recording, and your
+> scales. Several a day, or backdated to a day you missed.
 >
-> **Scales.** Five come built in, among them Gender feeling, which runs from dysphoria
-> at one end to euphoria at the other. Make your own, with whatever two end labels and
-> range you want, and group the ones you use into a preset so the entry screen only
-> asks about what you actually track.
+> **Scales.** Five come built in, among them Gender feeling, which runs from dysphoria at
+> one end to euphoria at the other. Make your own, with whatever two end labels and range
+> you want, and group the ones you use into a preset so the entry screen only asks about
+> what you actually track.
 >
-> **How your body felt.** Dysphoria and euphoria, marked on the body regions they
-> belong to. Tracked separately, because they are not opposites and one day can hold
-> both.
+> **How your body felt.** Dysphoria and euphoria, marked on the body regions they belong
+> to. Tracked separately, because they are not opposites and one day can hold both.
 >
 > **Tags.** Grouped and editable. Turn a whole group off when it stops being relevant.
-> Hiding a built-in tag takes it out of every picker and leaves every entry that
-> already carries it alone.
+> Hiding a built-in tag takes it out of every picker and leaves every entry that already
+> carries it alone.
 >
-> **Photos.** Kept in the app's own storage. They never go into your phone's gallery,
-> so they do not turn up in a camera roll someone else is scrolling.
+> **Photos.** Kept in the app's own storage. They never go into your phone's gallery, so
+> they do not turn up in a camera roll someone else is scrolling.
 
 ### Reading it back
 
@@ -221,90 +219,90 @@ are the app's own (`/more`).
 
 > **The month.** A heat map in one colour, driven by mood or by a scale you pick.
 >
-> **Search.** Your notes and tag labels, matched as you type, ignoring diacritics.
-> Star what matters, and every starred entry and photo waits in one place.
+> **Search.** Your notes and tag labels, matched as you type, ignoring diacritics. Star
+> what matters, and every starred entry and photo waits in one place.
 >
-> **Charts.** One per scale, over 7 to 365 days, with your streak. Open one for the
-> dated list of values behind it, so you can check the line instead of taking it on
-> trust.
+> **Charts.** One per scale, over 7 to 365 days, with your streak. Open one for the dated
+> list of values behind it, so you can check the line instead of taking it on trust.
 >
-> **Tag insights.** For a given scale, how days with a tag compare to days without it.
-> An observation, not a verdict. Tags with fewer than three entries in that stretch
-> are left out, because at that size the difference is noise.
+> **Tag insights.** For a given scale, how days with a tag compare to days without it. An
+> observation, not a verdict. Tags with fewer than three entries in that stretch are left
+> out, because at that size the difference is noise.
 >
-> **Wrapped.** A week, a month or a year, looked back on: entries, streaks, how a
-> scale moved, top tags, milestones, photos. Or any stretch you pick yourself.
+> **Wrapped.** A week, a month or a year, looked back on: entries, streaks, how a scale
+> moved, top tags, milestones, photos. Or any stretch you pick yourself.
 >
-> **On this day.** What you logged a month, six months and a year ago. Only days that
-> were good come back.
+> **On this day.** What you logged a month, six months and a year ago. Only days that were
+> good come back.
 >
 > **Then and now.** Two stretches of time, side by side.
 >
-> **The tally.** One tap when you were misgendered, one when you were gendered right,
-> and a chart of how the counts move.
+> **The tally.** One tap when you were misgendered, one when you were gendered right, and
+> a chart of how the counts move.
 >
 > **Milestones and the timeline.** Countdowns ahead, anniversaries behind.
 
 ### Around the journal
 
-*Gate: shipped. The four leads are the More hub's own groups, and each sentence
-inside one is a hub row's own register kept: "logged plainly" is the app's phrase.
-The clinician summary is worded as the person's own printout, per the marketing
-context's word list: never clinical framing, never reporting.*
+*Gate: shipped.*
 
-> The journal is the spine, and the rest of transition life has a place around it.
-> None of it interprets, and none of it grades.
+> The Transition tab groups the tools around your journal into Health, Steps, Support and
+> Media.
 >
-> **Body.** Progress photos, then versus now. Measurements over time. What you
-> bought, the size, and how it fit. Hair progress staged against a published scale,
-> and electrolysis or laser sessions, logged plainly.
+> **Health.** Measurements and clothing sizes, medication schedules and doses, lab results
+> and modelled hormone curves. Keep records of changes, cycle events and surgery recovery.
+> Prepare questions for appointments and print a summary for a clinician when you choose.
+> The app does not interpret lab values or suggest doses.
 >
-> **Health.** Lab results with no reference ranges. What you are taking and since
-> when, every dose against its schedule, and a modelled hormone curve. Cycle events,
-> side effects and surgery recovery, logged plainly. Questions to bring to your next
-> appointment, and a printable summary of doses, labs and side effects for a range
-> you choose, made only when you decide a clinician should see it.
+> **Steps.** Milestones, tryouts, binder and tucking wear time, hair removal and letters
+> that open on a date you choose. The roadmap covers Poland, with social, legal,
+> appearance and medical tracks. Add your own goals or mark a step as not for you.
 >
-> **Transition.** A step-by-step roadmap. Letters you write now and read once their
-> date arrives. Tryouts, for tracking how something you are trying feels over time.
+> **Voice benchmarks.** On the Voice screen in Steps, record the same passage and held
+> vowel each time, then compare with your own earlier takes. Figures such as pitch,
+> resonance and speaking rate describe the recordings without grading your voice. A
+> benchmark belongs to a day; a voice recording in an entry is a separate memo.
 >
-> **Practice.** For the days doubt is loud: the entries you starred and the ones you
-> tagged euphoria, read back as counterevidence. Two voice recordings, side by side.
-> Binder and tucking wear time. When you first noticed each change. Trans
-> organisations and helplines, kept in the app.
+> **Support.** Safe Space brings back starred and positive entries and holds your own list
+> of things that help. Trans organisations and helplines are listed in the app, so you can
+> read the directory offline.
+>
+> **Media.** Browse photos from across the journal and compare two with a slider. Make a
+> collage or time-lapse to export. Keep documents such as referrals and court orders,
+> linked to the goal or record they belong to.
 
 ### Keeping it
 
 *Gate: shipped.*
 
 > **Archives.** Export packs your journal into one file, encrypted with a password you
-> choose, before it leaves the app. Import puts it back, either merged into what is
-> here or replacing it.
+> choose, before it leaves the app. Import puts it back, either merged into what is here
+> or replacing it.
 >
-> **Scheduled backup.** An encrypted Archive written to a folder you pick, weekly or
-> monthly, without you remembering to.
+> **Scheduled backup.** On Android, an encrypted Archive written to a folder you pick,
+> weekly or monthly.
 >
-> **Coming from Daylio.** Import a Daylio CSV. It shows you the counts and how the
-> moods will map before it writes anything, and it only ever merges.
+> **Coming from Daylio.** Import a Daylio CSV. It shows you the counts and how the moods
+> will map before it writes anything, and it only ever merges.
 >
-> **Plain export.** CSV or JSON, for a spreadsheet or for keeping your own copy. It is
-> not encrypted, and the app says so and makes you confirm before it writes the file.
+> **Plain export.** CSV or JSON, for a spreadsheet or for keeping your own copy. It is not
+> encrypted, and the app says so and makes you confirm before it writes the file.
 >
-> **When it has been a while.** If your last Archive is more than 30 days old, the
-> home screen says so once. You can dismiss it.
+> **When it has been a while.** If your last Archive is more than 30 days old, the home
+> screen says so once. You can dismiss it.
 
 ### On your phone
 
-*Gate: shipped. These five blocks were staged in the 2026-08-12 file; the v10
-doctrine publishes them.*
+*Gate: shipped.*
 
-> **On Android.** The same journal, the same data, as an app.
+> **On Android.** The same journal features as a phone app. Its data does not sync with
+> the browser journal.
 >
 > **Reminders.** Medication, injections, appointments. One-off or repeating, as
 > notifications on your phone.
 >
-> **The daily check-in.** One prompt a day, at a time you choose, skipped on days you
-> have already written something.
+> **The daily check-in.** One prompt a day, at a time you choose, skipped on days you have
+> already written something.
 >
 > **Install it.** Add it to your home screen and open it without a browser in the way.
 >
@@ -312,38 +310,34 @@ doctrine publishes them.*
 
 ### If you need to be careful
 
-*Gate: shipped. App lock, disguise, lock on leave and quick exit all default to off
-in the Journal's preference catalogue, so "off until you turn it on" is a checkable
-statement and not a reassurance. Every sentence here keeps the app-lock counterweight
-attached, per the marketing context. Disguise now covers the installed app identity
-too, per Journal Phase 2 ticket 25. The privacy page owns the longer treatment.*
+*Gate: shipped.*
 
-> Everything in this section is off until you turn it on. Keeping a journal about your
-> own life is not something to be ashamed of, and the app does not behave as though it
-> is. These exist because some people's circumstances are genuinely unsafe, and only
-> you know whether that is yours.
+> Choose how to unlock the journal in Privacy and data. Disguise, lock on leave and quick
+> exit stay off until you turn them on.
 >
-> **App lock.** A PIN in front of the app. It stops someone picking up your unlocked
-> phone and reading it. It is not encryption of what is stored.
+> **Access.** Use a passphrase, a PIN with a device key, supported biometrics or a
+> device-bound key. The Privacy page explains what each protects and how recovery works.
 >
-> **Disguise.** The browser tab says Notes instead of engender. On Android, the app's
-> name and icon on your phone go plain too.
+> **Disguise.** The browser tab says Notes instead of engender. On Android, the app takes
+> a neutral name and icon too.
 >
-> **Lock on leave.** Switch away from the app and it locks itself behind you.
+> **Lock on leave.** The journal locks when you switch away. With a mode that asks for a
+> secret, you need it to return.
 >
-> **Quick exit.** A two-finger swipe down blanks the tab, and locks it if you have app
-> lock switched on.
+> **Quick exit.** A two-finger swipe down covers the journal. Disguise shows a Notes
+> screen; otherwise the tab goes blank. If your access mode asks for a secret, returning
+> requires it.
 
 ### How it looks
 
 *Gate: shipped.*
 
 > **Eight palettes**, including trans, nonbinary, genderfluid, bisexual, lesbian,
-> pansexual, agender and rainbow. Each one recolours the whole app, charts and
-> calendar included, and each one works in light and dark.
+> pansexual, agender and rainbow. Each one recolours the whole app, charts and calendar
+> included, and each one works in light and dark.
 >
-> **Colour never judges.** No red for a bad day and no green for a good one. The heat
-> map is one colour at different strengths, and an empty day stays empty.
+> **Colour never judges.** No red for a bad day and no green for a good one. The heat map
+> is one colour at different strengths, and an empty day stays empty.
 >
 > **Two languages.** English and Polish, switchable in settings, with dates following
 > whichever you pick.
@@ -464,3 +458,10 @@ design.
 The Polish pass is Alicja's own, after this English lands. The grammatical-gender
 section of the marketing context applies throughout, and several sentences here
 address the reader in a way Polish cannot copy without picking a gender for them.
+
+## Search and share
+
+The description is shared by search, Open Graph and Twitter metadata.
+
+Track your transition in a journal with custom scales, Voice benchmarks and care
+records. Encrypted on your device, with no account.

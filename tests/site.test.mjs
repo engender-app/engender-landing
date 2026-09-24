@@ -56,7 +56,7 @@ const ACQUISITION = {
     heading: "Skąd je wziąć",
     action: "Otwórz dziennik",
     status: "Jeszcze niedostępne.",
-    channelsPending: "Aplikacji na Androida jeszcze nie ma.",
+    channelsPending: "odnośniki pojawią się, gdy wydania będą dostępne",
   },
 };
 
@@ -1193,17 +1193,11 @@ const PRIVACY_TITLE = {
 /** The hero headline, which is the one piece of the overview copy that is not
     inside a section and so is not covered by the heading assertions. */
 const HEADLINE = {
-  en: "A transition journal that stays on your device.",
-  pl: "Dziennik tranzycji, który zostaje na twoim urządzeniu.",
+  en: "A transition tracker with a journal at its heart.",
+  pl: "Śledź tranzycję we własnym dzienniku.",
 };
 
-/** The opening of the at-rest encryption block, and the fallback wording the
-    old claim gating used to publish in its place. The English page publishes
-    the real block since redesign ticket 02 (the claim's gate test passed in
-    the Journal repository and the v10 doctrine writes from the spec); the
-    Polish page still carries the fallback until Alicja's translation pass.
-    Naming both sentences here means an edit that swaps them has to come
-    through this file. */
+/** Both languages describe encryption and reject the retired plaintext fallback. */
 const AT_REST_OPENING = { en: "What is covered.", pl: "Co obejmuje." };
 const ENCRYPTION_FALLBACK = {
   en: "The journal is not encrypted where it is stored, yet.",
@@ -1429,36 +1423,17 @@ for (const locale of ["en", "pl"]) {
   });
 
   test(`${locale}: the privacy page tells the truth about at-rest encryption`, async () => {
-    /* The one place the two languages deliberately disagree mid-rebrand: the
-       English page publishes the real at-rest block, the Polish still carries
-       the not-encrypted-yet fallback until Alicja's translation pass. Each
-       language asserts its own state AND the other's absence, because a page
-       carrying both would contradict itself in front of somebody deciding
-       what to trust. */
     const { context, page } = await visitor({});
     try {
       await page.goto(`${base}/${locale}/privacy/`);
       const text = await page.locator("main").innerText();
 
-      if (locale === "en") {
-        assert.ok(
-          text.includes(AT_REST_OPENING.en),
-          "the English privacy page does not carry the at-rest encryption block",
-        );
-        assert.ok(
-          !text.includes(ENCRYPTION_FALLBACK.en),
-          "the English privacy page still says the journal is not encrypted",
-        );
-      } else {
-        assert.ok(
-          text.includes(ENCRYPTION_FALLBACK.pl),
-          "the Polish privacy page did not carry the fallback encryption wording",
-        );
-        assert.ok(
-          !text.includes(AT_REST_OPENING.pl),
-          "the Polish at-rest block reached the page ahead of its translation",
-        );
-      }
+      assert.ok(text.includes(AT_REST_OPENING[locale]), "missing encryption coverage");
+      assert.ok(!text.includes(ENCRYPTION_FALLBACK[locale]), "retired plaintext claim is present");
+      const recovery = locale === "en" ? "If you lose access" : "Gdy stracisz dostęp";
+      assert.ok(text.includes(recovery), "missing recovery limits");
+      const retiredPin = locale === "en" ? "A PIN is a gate in the interface" : "To bramka w interfejsie";
+      assert.ok(!text.includes(retiredPin), "retired PIN gate claim is present");
     } finally {
       await context.close();
     }
@@ -2106,17 +2081,6 @@ test("switching language on the privacy page stays on the privacy page", async (
   }
 });
 
-/* Until redesign ticket 02 the two languages were asserted to gate the same
-   blocks in the same order. That parity is broken on purpose mid-rebrand: the
-   English copy is rewritten for engender and the Polish waits for Alicja's own
-   translation pass. When the Polish lands, restore the assertion:
-
-     for (const name of Object.keys(PAGE_PATHS)) {
-       const gates = (locale) => copyBlocks(locale, name).map((block) => block.publishes);
-       assert.deepEqual(gates('pl'), gates('en'));
-     }
-*/
-
 // The head: a search result, a history entry, a link preview (ticket 07)
 
 /* Every URL the site serves as a page, including the language gateway, which
@@ -2146,13 +2110,13 @@ const TITLES = {
     the page a visitor asking for neither language is about to be sent to. */
 const DESCRIPTIONS = {
   "/en/":
-    "A journal for tracking gender transition. An entry holds a mood, a note, tags, photos and your own scales. It stays on your device, and there is no account.",
+    "Track your transition in a journal with custom scales, Voice benchmarks and care records. Encrypted on your device, with no account.",
   "/pl/":
-    "Dziennik tranzycji. We wpisie mieści się nastrój, notatka, tagi, zdjęcia i skale, które nazywasz po swojemu. Zostaje na twoim urządzeniu, konta nie zakładasz.",
+    "Śledź tranzycję we własnym dzienniku: skale, wzorce głosu i zapiski o zdrowiu. Dane są zaszyfrowane na twoim urządzeniu. Bez konta.",
   "/en/privacy/":
-    "Where your journal is, what app lock does and does not do, what encryption at rest covers and leaves out, and what a web host can see.",
+    "How engender encrypts your journal, how access and recovery keys work, what exports reveal, and what the web host sees.",
   "/pl/privacy/":
-    "Gdzie jest twój dziennik, co daje blokada aplikacji i czego nie daje, czego aplikacja jeszcze nie szyfruje i co widzi serwer WWW.",
+    "Jak engender szyfruje dziennik, czym go otworzysz i do czego służy klucz odzyskiwania. Co ujawniają eksporty i co widzi serwer WWW.",
 };
 DESCRIPTIONS["/"] = DESCRIPTIONS["/en/"];
 
