@@ -1478,10 +1478,10 @@ const GUIDE_CHAPTERS = [
   "home",
   "calendar",
   "stats",
-  "body",
   "health",
-  "transition",
-  "practice",
+  "steps",
+  "support",
+  "media",
   "settings",
   "privacy",
   "contributing",
@@ -1503,10 +1503,10 @@ const GUIDE_TITLES = {
     home: "Today",
     calendar: "Journal",
     stats: "Look back",
-    body: "Body",
     health: "Health",
-    transition: "Transition",
-    practice: "Practice",
+    steps: "Steps",
+    support: "Support",
+    media: "Media",
     settings: "Settings",
     privacy: "Privacy",
     contributing: "Contributing",
@@ -1516,10 +1516,10 @@ const GUIDE_TITLES = {
     home: "Dzisiaj",
     calendar: "Dziennik",
     stats: "Przegląd",
-    body: "Ciało",
     health: "Zdrowie",
-    transition: "Tranzycja",
-    practice: "Praktyka",
+    steps: "Kroki",
+    support: "Wsparcie",
+    media: "Media",
     settings: "Ustawienia",
     privacy: "Prywatność",
     contributing: "Współtworzenie",
@@ -1723,6 +1723,82 @@ for (const locale of ["en", "pl"]) {
         await page.goto(`${base}${guidePath(locale, chapter)}`);
         const text = (await page.locator("main article").innerText()).replace(/\s+/g, " ");
         for (const term of TAB_TOUR[locale][chapter]) {
+          assert.ok(text.includes(term), `the chapter does not name ${term}`);
+        }
+      } finally {
+        await context.close();
+      }
+    });
+
+    test(`${locale} guide/${chapter}: every shipped block is on the page, word for word`, async () => {
+      const { context, page } = await visitor({ javaScriptEnabled: false });
+      try {
+        await page.goto(`${base}${guidePath(locale, chapter)}`);
+        const text = (await page.locator("body").innerText()).replace(/\s+/g, " ");
+        const shipped = copyBlocks(locale, `guide-${chapter}`).filter((block) => block.publishes);
+        assert.ok(shipped.length > 0, "no shipped blocks, so this proved nothing");
+        for (const block of shipped) {
+          for (const paragraph of block.paragraphs) {
+            assert.ok(
+              text.includes(paragraph),
+              `shipped copy is missing or reworded: ${paragraph.slice(0, 70)}`,
+            );
+          }
+        }
+      } finally {
+        await context.close();
+      }
+    });
+  }
+}
+
+/** What each of the Transition tab's four groups holds, as the Journal's
+    SCREENS.md gives it ("The Transition door's four groups" and the Health,
+    Steps, Support and Media tables, plus what /care and /care/changes host),
+    in the words each chapter uses for it. Steps also carries CONTEXT.md's
+    roadmap vocabulary: roadmap goals, the four roadmap tracks, and "not my
+    path" for a goal nobody is taking. */
+const GROUP_TOUR = {
+  en: {
+    health: [
+      "Care", "Regimen", "Doses", "Labs", "lab draw", "Hormone curve", "Stock", "run-out day", "medication-days", "exposure history",
+      "Changes you've noticed", "Side effects", "Hair progress", "Cycle events", "Cycle tracking",
+      "Measurements and sizes", "Surgery journey", "dilation", "Appointments", "What to raise",
+      "In the room", "Behind you", "clinician visit summary",
+    ],
+    steps: [
+      "milestone", "Eras", "tryout", "voice benchmark", "Wear time", "Hair removal",
+      "transition roadmap", "roadmap goals", "roadmap tracks", "social, legal, presentation and medical",
+      "not my path", "Time-capsule letters",
+    ],
+    support: ["Safe space", "box breathing", "Good moments", "Things that help", "Support and resources", "Affirming themes"],
+    media: ["Photos", "hair progress", "compare", "collage", "timelapse", "preview", "Documents", "what each paper proves", "PDFs", "thumbnails"],
+  },
+  pl: {
+    health: [
+      "Opieka", "Kuracja", "Dawki", "Badania", "pobranie krwi", "Krzywa hormonalna", "Zapas", "dni na leku", "historia ekspozycji",
+      "Zauważone zmiany", "skutki uboczne", "Postępy włosów", "Cykl", "Śledzenia cyklu",
+      "Pomiary i rozmiary", "Operacje", "rozszerzania", "Wizyty", "Co poruszyć",
+      "Na wizycie", "Za tobą", "Podsumowanie do lekarza",
+    ],
+    steps: [
+      "Kamień milowy", "Ery", "Próba", "Wzorzec", "Czas noszenia", "Depilacja",
+      "Mapa tranzycji", "cele", "cztery ścieżki", "społeczną, prawną, wizerunkową i medyczną",
+      "nie moja droga", "Listy w kapsule czasu",
+    ],
+    support: ["Bezpieczna przestrzeń", "oddechu pudełkowego", "Dobre chwile", "Co pomaga", "Wsparcie i kontakty", "Motywy dające spokój"],
+    media: ["Zdjęcia", "postępów włosów", "porównać", "kolaż", "film poklatkowy", "podgląd", "Dokumenty", "co potwierdzają", "PDF", "miniatury"],
+  },
+};
+
+for (const locale of ["en", "pl"]) {
+  for (const chapter of ["health", "steps", "support", "media"]) {
+    test(`${locale} guide/${chapter}: names everything its group holds`, async () => {
+      const { context, page } = await visitor({ javaScriptEnabled: false });
+      try {
+        await page.goto(`${base}${guidePath(locale, chapter)}`);
+        const text = (await page.locator("main article").innerText()).replace(/\s+/g, " ");
+        for (const term of GROUP_TOUR[locale][chapter]) {
           assert.ok(text.includes(term), `the chapter does not name ${term}`);
         }
       } finally {

@@ -294,7 +294,7 @@
   "guide": {
     "sidebarLabel": "Rozdziały",
     "hubLabels": {
-      "more": "Więcej"
+      "transition": "Tranzycja"
     },
     "comingSoon": "Ten rozdział jeszcze nie powstał. Zajrzyj tu później.",
     "chapters": {
@@ -524,21 +524,199 @@
           }
         ]
       },
-      "body": {
-        "title": "Ciało",
-        "description": "Zdjęcia postępu, pomiary, rozmiary i dopasowanie ubrań, oraz skala postępu owłosienia."
-      },
       "health": {
         "title": "Zdrowie",
-        "description": "Panel opieki, wyniki badań, schemat leczenia, krzywa hormonalna, dawki, zapas, ekspozycja, wydarzenia cyklu, skutki uboczne, dziennik zabiegu chirurgicznego, przygotowanie do wizyty i podsumowanie dla lekarza."
+        "description": "Opieka i leki, pomiary i rozmiary, operacje, wizyty i podsumowanie do lekarza.",
+        "sections": [
+          {
+            "heading": "Karta Tranzycja",
+            "paragraphs": [
+              "Czwarta karta, Tranzycja, ma cztery grupy: Zdrowie, Kroki, Wsparcie i Media. Wyszukiwarka u góry znajduje wiersze po nazwie i przeszukuje tekst wpisów w dzienniku.",
+              "Zdrowie to pierwsza grupa."
+            ]
+          },
+          {
+            "heading": "Opieka",
+            "paragraphs": [
+              "W Opiece są twoje leki. Każdy lek w trwającej kuracji ma swój pas. Oś czasu zaznacza ostatnie pobranie krwi. Przy każdej kuracji widać dawkę i sposób przyjmowania, ostatnią dawkę, termin następnej i to, ile leku zostało, razem z przewidywanym dniem końca zapasu.",
+              "Z Opieki otwierają się cztery ekrany:",
+              {
+                "lead": "Kuracja.",
+                "rest": " Co bierzesz, jak i jak często, od dnia, w którym zaczynasz. Kurację można wstrzymać albo zakończyć, a zostaje w historii. Po włączeniu harmonogram zapisuje planowaną dawkę jako przyjętą po zakończeniu danego dnia. Możesz to poprawić albo oznaczyć dawkę jako pominiętą."
+              },
+              {
+                "lead": "Dawki.",
+                "rest": " Każda dawka przyjęta, pominięta albo zmieniona, z godziną, o której to było."
+              },
+              {
+                "lead": "Badania.",
+                "rest": " Twoje wyniki w takiej postaci, w jakiej je wpisujesz. Wyniki w różnych jednostkach zostają na osobnych liniach."
+              },
+              {
+                "lead": "Krzywa hormonalna.",
+                "rest": " Rysunek tego, jak dawki rosną i opadają w czasie. To nie jest przewidywanie twoich poziomów. Można ją dopasować do własnych wyników badań."
+              },
+              "Zapas to liczba, którą wpisujesz od czasu do czasu. Zapisane później dawki służą do oszacowania pozostałego zapasu i dnia, w którym może się skończyć, a także do rysowania krzywych dla obsługiwanych leków. Opieka daje znać, gdy zapas się kończy. Pokazuje też liczbę dni na leku w wybranym okresie; pełna historia ekspozycji jest w Podsumowaniu do lekarza."
+            ]
+          },
+          {
+            "heading": "Zauważone zmiany",
+            "paragraphs": [
+              "Pod lekami w Opiece są Zauważone zmiany. Wybierz zmianę z listy albo dodaj własną i zaznacz datę, kiedy pojawiła się po raz pierwszy. Tu trafiają też skutki uboczne, każdy z siłą od 1 do 5. Bardziej prywatne kategorie, na przykład zmiany w sferze intymnej i seksualnej, są na początku wyłączone.",
+              {
+                "lead": "Postępy włosów.",
+                "rest": " Stan włosów według opublikowanej skali, Norwooda-Hamiltona albo Sinclaira, lub twoimi słowami, ze zdjęciami robionymi z tego samego miejsca."
+              },
+              {
+                "lead": "Cykl.",
+                "rest": " Miesiączka, plamienie albo nic w tym miesiącu. Ta część pojawia się tylko przy trwającej kuracji testosteronem albo po włączeniu Śledzenia cyklu w Ustawieniach."
+              }
+            ]
+          },
+          {
+            "heading": "Pomiary i rozmiary",
+            "paragraphs": [
+              "Talia, biodra, klatka piersiowa i obwód pod biustem są wbudowane, a dodać można dowolny inny pomiar. Wagi i wzrostu nie ma na liście, więc jeśli ich potrzebujesz, dodaj je jako własne. Obok wykresu jest Jak mierzyć konsekwentnie, czyli jak mierzyć za każdym razem tak samo.",
+              "W rozmiarach zapisujesz, co kupujesz i jak leży: rodzaj ubrania, rozmiar, marka i notatka. Nic nie jest przeliczane między markami."
+            ]
+          },
+          {
+            "heading": "Operacje",
+            "paragraphs": [
+              "Każda operacja ma własną ścieżkę, nazwaną tak, jak chcesz. Są w niej konsultacje przed zabiegiem, data, kiedy już ją znasz, a potem licznik dni, zdjęcia, notatki i twoja własna lista.",
+              "Jeśli masz od chirurga harmonogram rozszerzania, wpisz go i zapisuj przy nim sesje."
+            ]
+          },
+          {
+            "heading": "Wizyty",
+            "paragraphs": [
+              "Wizyty zaczynają się od najbliższej wizyty i tego, ile do niej zostało. Pod nią jest Co poruszyć, twoja lista spraw, która przechodzi z jednej wizyty na następną.",
+              "W trakcie wizyty ekran Na wizycie prowadzi przez pytania po kolei i ma miejsce na to, co usłyszysz. Minione wizyty są w sekcji Za tobą, a aplikacja pyta, jak poszła każda z nich.",
+              "Podsumowanie do lekarza to strona do wydrukowania: dawki, wyniki badań i skutki uboczne z wybranego okresu. Widzisz ją dokładnie tak, jak się wydrukuje. Otworzysz ją z Opieki albo z Wizyt."
+            ]
+          },
+          {
+            "heading": "Czego Zdrowie nie robi",
+            "paragraphs": [
+              "Nic w Zdrowiu nie ocenia, czy wynik jest dobry, czy zły, nie podpowiada dawki i nie mówi, co masz zrobić. Przechowuje to, co wpisujesz, i rysuje z tego wykresy."
+            ]
+          }
+        ]
       },
-      "transition": {
-        "title": "Tranzycja",
-        "description": "Kamienie milowe, checklistę mapy drogowej, listy, próby prezentacji, prezentacje i epoki."
+      "steps": {
+        "title": "Kroki",
+        "description": "Kamienie milowe i ery, próby, głos, czas noszenia, depilacja, mapa tranzycji i listy w kapsule czasu.",
+        "sections": [
+          {
+            "heading": "Kamienie milowe i ery",
+            "paragraphs": [
+              "Kroki to druga grupa na karcie Tranzycja.",
+              "Kamień milowy to dzień, który miał znaczenie albo będzie go mieć. Ten przed tobą odlicza czas, ten za tobą wraca co roku jako rocznica. Jak się z nim czujesz, możesz zapisać przy dodawaniu i przy każdej rocznicy.",
+              "Ery to nazwane przez ciebie odcinki czasu, na przykład „zanim wszystko się zaczęło”. Widać je jako pasy za kamieniami milowymi, a Przegląd może wziąć erę jako swój okres. Tworzysz je i zmieniasz w Ustawieniach."
+            ]
+          },
+          {
+            "heading": "Próby",
+            "paragraphs": [
+              "Próba to coś, czego próbujesz: imię albo zaimki, styl, ubranie, makijaż, krok w tym, jak się pokazujesz. Ma datę początku, a gdy przestajesz, także datę końca. Jak się z nią czujesz, zapisujesz tak często, jak chcesz, i dodajesz zdjęcia. Kilka prób może trwać naraz."
+            ]
+          },
+          {
+            "heading": "Głos",
+            "paragraphs": [
+              "Ćwiczenia, wzorzec głosu i nagrania są na jednym ekranie.",
+              "Wzorzec to nagranie robione za każdym razem tak samo: ten sam tekst czytany na głos i ta sama przeciągnięta samogłoska. Dzięki temu nagrania sprzed miesięcy da się porównać. Pokazuje na przykład wysokość głosu i tempo mówienia obok twoich wcześniejszych nagrań i nie ocenia głosu."
+            ]
+          },
+          {
+            "heading": "Czas noszenia",
+            "paragraphs": [
+              "Dla bindera, tuckingu i ucisku. Włącz stoper albo wpisz sesję później, z notatką o wygodzie lub bólu. Możesz ustawić przypomnienie po wybranej liczbie godzin. Przy binderze po ośmiu godzinach pojawia się dyskretny sygnał, który można wyłączyć.",
+              "Ekran pokazuje też zasady bezpiecznego noszenia bindera i ich źródła."
+            ]
+          },
+          {
+            "heading": "Depilacja",
+            "paragraphs": [
+              "Sesje elektrolizy i lasera: obszar, metoda, ból, koszt, gabinet i zdjęcia. Ekran pokazuje, ile minęło od ostatniej sesji."
+            ]
+          },
+          {
+            "heading": "Mapa tranzycji",
+            "paragraphs": [
+              "Mapa tranzycji wypisuje kroki polskiej procedury tranzycji. Na razie jest tylko Polska. Kroki to cele, podzielone na cztery ścieżki: społeczną, prawną, wizerunkową i medyczną.",
+              "Cele można realizować w dowolnej kolejności i żadna ścieżka nie czeka na inną. Odhacz cel, gdy jest zrobiony, albo oznacz go jako „nie moja droga”. Tak samo można oznaczyć całą ścieżkę i potem ją przywrócić.",
+              "Do każdej ścieżki dodasz własne cele, a do celu możesz podpiąć dokumenty.",
+              "Mapa opisuje procedurę i nigdy nie mówi, co zrobić w twojej sprawie. Podaje datę, kiedy jej treść ostatnio sprawdzono ze źródłami."
+            ]
+          },
+          {
+            "heading": "Listy w kapsule czasu",
+            "paragraphs": [
+              "Napisz list do siebie i wybierz dzień, w którym się otworzy. Do tego dnia jest zapieczętowany, potem czytasz go, kiedy chcesz. Listy, które zaraz się otworzą, widać na karcie Dzisiaj, w sekcji Nadchodzi.",
+              "Wśród otwartych listów są też zdjęcia oznaczone gwiazdką."
+            ]
+          }
+        ]
       },
-      "practice": {
-        "title": "Praktyka",
-        "description": "Sprawdzian kontrargumentów, nagrania głosu i test głosu, śledzenie czasu noszenia, oś czasu efektów i katalog zasobów."
+      "support": {
+        "title": "Wsparcie",
+        "description": "Bezpieczna przestrzeń na trudne dni i spis organizacji oraz telefonów zaufania dla osób trans.",
+        "sections": [
+          {
+            "heading": "Bezpieczna przestrzeń",
+            "paragraphs": [
+              "Wsparcie to trzecia grupa na karcie Tranzycja.",
+              "Bezpieczna przestrzeń jest na chwile, kiedy dysforii jest za dużo. Zaczyna się od oddechu pudełkowego. Niżej są cztery rzeczy:",
+              {
+                "lead": "Dobre chwile.",
+                "rest": " Dawne wpisy z dobrym tagiem albo z gwiazdką."
+              },
+              {
+                "lead": "Co pomaga.",
+                "rest": " Twoja własna lista: do kogo napisać, gdzie się przejść, czego posłuchać. Na początku jest pusta."
+              },
+              {
+                "lead": "Wsparcie i kontakty.",
+                "rest": " Spis opisany niżej."
+              },
+              {
+                "lead": "Motywy dające spokój.",
+                "rest": " Odnośnik do odczytu w Przeglądzie, który pokazuje tagi najczęstsze w dobrych wpisach."
+              },
+              "Otwarcie Bezpiecznej przestrzeni niczego nie zapisuje w dzienniku."
+            ]
+          },
+          {
+            "heading": "Wsparcie i kontakty",
+            "paragraphs": [
+              "Spis organizacji i telefonów zaufania dla osób trans. Przy każdej pozycji jest zdanie o tym, co oferuje, oraz numer albo adres. Spis jest wbudowany w aplikację, więc można go czytać bez zasięgu. Nie zawiera ogólnych numerów alarmowych ani kryzysowych.",
+              "Ekran podaje, kiedy ostatnio sprawdzono wszystkie pozycje. Dotknięcie numeru albo adresu otwiera go w telefonie lub przeglądarce, już poza aplikacją."
+            ]
+          }
+        ]
+      },
+      "media": {
+        "title": "Media",
+        "description": "Wszystkie zdjęcia z dziennika w jednej bibliotece i dokumenty, które przechowujesz.",
+        "sections": [
+          {
+            "heading": "Zdjęcia",
+            "paragraphs": [
+              "Media to czwarta grupa na karcie Tranzycja.",
+              "Zdjęcia to wszystkie fotografie z dziennika na jednej liście według dat: z wpisów, kamieni milowych, postępów włosów, depilacji, prób i operacji. Przyciski u góry zawężają listę do jednego źródła.",
+              "Wybierz dwa zdjęcia i przeciągnij między nimi suwak, żeby porównać wcześniejsze z późniejszym. Do eksportu wybierz okres i zdjęcia, a potem zrób z nich kolaż albo film poklatkowy. Przed udostępnieniem zobaczysz podgląd.",
+              "Zdjęcia zostają w aplikacji i nigdy nie trafiają do galerii telefonu. Żeby zmienić albo usunąć zdjęcie, otwórz wpis lub zapis, do którego należy."
+            ]
+          },
+          {
+            "heading": "Dokumenty",
+            "paragraphs": [
+              "Papiery, które przechowujesz: opinie, diagnozy, skierowania, postanowienia sądu, faktury. Każdy ma datę, tytuł, który wpisujesz, i sam plik. Dokument można powiązać z celem na mapie tranzycji, kamieniem milowym, operacją albo kuracją.",
+              "Spis grupuje dokumenty według tego, co potwierdzają. Przy zdjęciach i plikach PDF są miniatury. Aplikacja nigdy nie czyta treści dokumentów, więc szukasz ich po tytule."
+            ]
+          }
+        ]
       },
       "settings": {
         "title": "Ustawienia",
