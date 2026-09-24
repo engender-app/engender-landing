@@ -3,16 +3,21 @@
   import GuideSidebar from '$lib/GuideSidebar.svelte';
   import Prose from '$lib/Prose.svelte';
   import FlagSun from '$lib/FlagSun.svelte';
+  import StripeRule from '$lib/StripeRule.svelte';
   import { guidePage, messages, type GuideChapter, type Locale } from '$lib/site';
 
   let { locale, chapter }: { locale: Locale; chapter: GuideChapter } = $props();
 
   const guide = $derived(messages[locale].guide);
   const entry = $derived(guide.chapters[chapter]);
+  /* A chapter carries `sections` once its content ticket has written it;
+     until then it has none and shows the placeholder. */
+  const sections = $derived('sections' in entry ? entry.sections : []);
 </script>
 
-<!-- Chapter content is placeholder here (ticket 01): tickets 02-07 write the
-     real English, ticket 08 the real Polish. What this component owns is the
+<!-- A chapter's content is its `sections` in the catalogue, written by
+     tickets 02-07 (and 08 for Polish); a chapter without them shows the
+     placeholder. What this component owns is the
      shell every chapter shares - the masthead, the sidebar, the reading
      column - reusing PrivacyPage's own widths and motif rather than
      inventing a second pattern for a page that is, like Privacy, a reference
@@ -31,7 +36,17 @@
   <div class="body">
     <GuideSidebar {locale} {chapter} />
     <article>
-      <Prose paragraphs={[guide.comingSoon]} />
+      {#each sections as section (section.heading)}
+        <section>
+          <div class="section-head">
+            <h2>{section.heading}</h2>
+            <StripeRule />
+          </div>
+          <Prose paragraphs={section.paragraphs} />
+        </section>
+      {:else}
+        <Prose paragraphs={[guide.comingSoon]} />
+      {/each}
     </article>
   </div>
 </PageShell>
@@ -88,9 +103,33 @@
     gap: clamp(1.5rem, 4vw, 3rem);
   }
 
+  section {
+    margin-bottom: clamp(2.5rem, 7vh, 4rem);
+  }
+
+  section:last-child {
+    margin-bottom: 0;
+  }
+
+  .section-head {
+    display: grid;
+    gap: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+    margin: 0;
+  }
+
   article :global(p) {
     max-width: 62ch;
     color: var(--text-2);
+  }
+
+  article :global(p strong) {
+    color: var(--text);
+    font-weight: var(--weight-bold);
   }
 
   @media (max-width: 45rem) {

@@ -300,7 +300,68 @@
     "chapters": {
       "getting-started": {
         "title": "Zaczynamy",
-        "description": "Instalacja Gender Diary, o co pyta wdrożenie i dlaczego nie zakładasz konta."
+        "description": "Instalacja engender, o co pyta pierwsze uruchomienie i dlaczego nie zakładasz konta.",
+        "sections": [
+          {
+            "heading": "Instalacja",
+            "paragraphs": [
+              "engender działa w przeglądarce. Otwierasz go i od razu możesz pisać, niczego nie pobierając.",
+              "Jeśli chcesz mieć go pod ręką na telefonie albo komputerze, zainstaluj go z menu przeglądarki albo dodaj do ekranu głównego. Otwiera się wtedy we własnym oknie, a po instalacji działa też bez internetu.",
+              "Jest też aplikacja na Androida. To ten sam dziennik, tylko zainstalowany jako aplikacja. Na stronie głównej znajdziesz miejsca, z których będzie można ją pobrać.",
+              "Dziennik zostaje tam, gdzie go zaczniesz. Dziennik w przeglądarce telefonu i ten w aplikacji na Androida to dwa osobne dzienniki, tak samo jak dzienniki w dwóch różnych przeglądarkach. Żeby przenieść swój, wyeksportuj kopię, a przy pierwszym uruchomieniu w nowym miejscu wybierz „Mam już kopię”."
+            ]
+          },
+          {
+            "heading": "Bez konta",
+            "paragraphs": [
+              "Nie ma rejestracji ani konta w engender. Nic, co piszesz, nie trafia na serwer. Wpisy zostają zaszyfrowane na twoim urządzeniu i opuszczają je tylko wtedy, gdy je wyeksportujesz.",
+              "Dlatego nikt nie odda ci dziennika, jeśli zgubisz urządzenie albo je wyczyścisz. Przetrwa tylko kopia, którą wcześniej wyeksportujesz, więc rób ją co jakiś czas i trzymaj w bezpiecznym miejscu."
+            ]
+          },
+          {
+            "heading": "Pierwsze uruchomienie",
+            "paragraphs": [
+              "Przy pierwszym otwarciu engender zadaje kilka pytań, zanim zobaczysz dziennik. Kroków jest dziewięć, a każdą odpowiedź możesz później zmienić.",
+              {
+                "lead": "Powitanie.",
+                "rest": " Krótko o tym, czym jest aplikacja. Jeśli masz kopię z wcześniej, możesz ją tu przywrócić zamiast zaczynać nowy dziennik."
+              },
+              {
+                "lead": "Imię.",
+                "rest": " Jak aplikacja ma się do ciebie zwracać. Służy tylko do powitania."
+              },
+              {
+                "lead": "Flaga.",
+                "rest": " Wybierasz flagę. Jej kolory barwią całą aplikację."
+              },
+              {
+                "lead": "Skale.",
+                "rest": " Które skale płci mają się pojawiać przy wpisie."
+              },
+              {
+                "lead": "Obszary.",
+                "rest": " Które części aplikacji przypiąć do ekranu Dziś, twojej strony głównej. Reszta nie znika, jest o jedno dotknięcie dalej."
+              },
+              {
+                "lead": "Blokada.",
+                "rest": " Co otwiera dziennik: na przykład hasło, PIN albo odcisk palca, o który telefon i tak pyta. Każda opcja mówi, przed czym chroni, zanim ją wybierzesz. Zapomnianego hasła ani PIN-u nikt nie odzyska."
+              },
+              {
+                "lead": "Uprawnienia.",
+                "rest": " O co aplikacja może poprosić telefon, na przykład o powiadomienia, i po co. Żadne z nich nie jest potrzebne, żeby napisać wpis."
+              },
+              {
+                "lead": "Kamuflaż.",
+                "rest": " Czy poza aplikacją ma nosić inną nazwę i ikonę. Jest wyłączony, dopóki go nie włączysz."
+              },
+              {
+                "lead": "Gotowe.",
+                "rest": " Konfiguracja się kończy, a aplikacja otwiera ekran Dziś."
+              },
+              "Na każdym kroku oprócz ostatniego możesz przejść od razu do aplikacji. Zapisze się wtedy to, co zdążysz ustawić. Większość kroków ma też przycisk Pomiń, który zostawia dane ustawienie bez zmian."
+            ]
+          }
+        ]
       },
       "home": {
         "title": "Ekran główny",

@@ -1630,6 +1630,51 @@ for (const locale of ["en", "pl"]) {
   });
 }
 
+/** Setup's nine steps, in the order the Journal's SCREENS.md gives them
+    ("First run"), as the Getting started chapter names each one: the bold
+    lead of its own paragraph, and the only bold text in the chapter. */
+const SETUP_STEPS = {
+  en: ["Welcome", "Name", "Flag", "Scales", "Areas", "Lock", "Permissions", "Disguise", "Done"],
+  pl: ["Powitanie", "Imię", "Flaga", "Skale", "Obszary", "Blokada", "Uprawnienia", "Kamuflaż", "Gotowe"],
+};
+
+for (const locale of ["en", "pl"]) {
+  test(`${locale} guide/getting-started: names setup's nine steps in order`, async () => {
+    const { context, page } = await visitor({ javaScriptEnabled: false });
+    try {
+      await page.goto(`${base}${guidePath(locale, "getting-started")}`);
+      const leads = await page
+        .locator("main article strong")
+        .evaluateAll((found) => found.map((s) => s.textContent.trim().replace(/\.$/, "")));
+      assert.deepEqual(leads, SETUP_STEPS[locale]);
+    } finally {
+      await context.close();
+    }
+  });
+
+  test(`${locale} guide/getting-started: every shipped block is on the page, word for word`, async () => {
+    const { context, page } = await visitor({ javaScriptEnabled: false });
+    try {
+      await page.goto(`${base}${guidePath(locale, "getting-started")}`);
+      const text = (await page.locator("body").innerText()).replace(/\s+/g, " ");
+      const shipped = copyBlocks(locale, "guide-getting-started").filter(
+        (block) => block.publishes,
+      );
+      assert.ok(shipped.length > 0, "no shipped blocks, so this proved nothing");
+      for (const block of shipped) {
+        for (const paragraph of block.paragraphs) {
+          assert.ok(
+            text.includes(paragraph),
+            `shipped copy is missing or reworded: ${paragraph.slice(0, 70)}`,
+          );
+        }
+      }
+    } finally {
+      await context.close();
+    }
+  });
+}
+
 test("switching language on the privacy page stays on the privacy page", async () => {
   const { context, page } = await visitor({ javaScriptEnabled: false });
   try {
