@@ -294,7 +294,7 @@
   "guide": {
     "sidebarLabel": "Rozdziały",
     "hubLabels": {
-      "more": "Więcej"
+      "transition": "Tranzycja"
     },
     "comingSoon": "Ten rozdział jeszcze nie powstał. Zajrzyj tu później.",
     "chapters": {
@@ -524,21 +524,21 @@
           }
         ]
       },
-      "body": {
-        "title": "Ciało",
-        "description": "Zdjęcia postępu, pomiary, rozmiary i dopasowanie ubrań, oraz skala postępu owłosienia."
-      },
       "health": {
         "title": "Zdrowie",
-        "description": "Panel opieki, wyniki badań, schemat leczenia, krzywa hormonalna, dawki, zapas, ekspozycja, wydarzenia cyklu, skutki uboczne, dziennik zabiegu chirurgicznego, przygotowanie do wizyty i podsumowanie dla lekarza."
+        "description": "Opieka i leki, pomiary i rozmiary, operacje, wizyty i podsumowanie do lekarza."
       },
-      "transition": {
-        "title": "Tranzycja",
-        "description": "Kamienie milowe, checklistę mapy drogowej, listy, próby prezentacji, prezentacje i epoki."
+      "steps": {
+        "title": "Kroki",
+        "description": "Kamienie milowe i ery, próby, głos, czas noszenia, depilacja, mapa tranzycji i listy w kapsule czasu."
       },
-      "practice": {
-        "title": "Praktyka",
-        "description": "Sprawdzian kontrargumentów, nagrania głosu i test głosu, śledzenie czasu noszenia, oś czasu efektów i katalog zasobów."
+      "support": {
+        "title": "Wsparcie",
+        "description": "Bezpieczna przestrzeń na trudne dni i spis organizacji oraz telefonów zaufania dla osób trans."
+      },
+      "media": {
+        "title": "Media",
+        "description": "Wszystkie zdjęcia z dziennika w jednej bibliotece i dokumenty, które przechowujesz."
       },
       "settings": {
         "title": "Ustawienia",

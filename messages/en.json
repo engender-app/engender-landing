@@ -391,7 +391,7 @@
   "guide": {
     "sidebarLabel": "Chapters",
     "hubLabels": {
-      "more": "More"
+      "transition": "Transition"
     },
     "comingSoon": "This chapter hasn't been written yet. Check back once it has.",
     "chapters": {
@@ -621,21 +621,21 @@
           }
         ]
       },
-      "body": {
-        "title": "Body",
-        "description": "Progress photos, measurements, sizes and fit, and the hair-progress scale."
-      },
       "health": {
         "title": "Health",
-        "description": "The care dashboard, labs, regimen, the hormone curve, doses, stock, exposure, cycle events, side effects, the surgery journal, appointment prep and the clinician summary."
+        "description": "Care and your medication, measurements and sizes, the surgery journey, appointments and the clinician summary."
       },
-      "transition": {
-        "title": "Transition",
-        "description": "Milestones, the roadmap checklist, letters, presentation tryouts, presentations and eras."
+      "steps": {
+        "title": "Steps",
+        "description": "Milestones and eras, tryouts, voice, wear time, hair removal, the roadmap and time-capsule letters."
       },
-      "practice": {
-        "title": "Practice",
-        "description": "The counterevidence check, voice recordings and the voice benchmark, wear-time tracking, the effects timeline and the resource directory."
+      "support": {
+        "title": "Support",
+        "description": "Safe space for the hard days, and the directory of trans organisations and helplines."
+      },
+      "media": {
+        "title": "Media",
+        "description": "Every photo in your journal in one library, and the documents you keep."
       },
       "settings": {
         "title": "Settings",

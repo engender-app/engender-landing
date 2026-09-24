@@ -2,4 +2,4 @@
   import GuidePage from '$lib/GuidePage.svelte';
 </script>
 
-<GuidePage locale="en" chapter="transition" />
+<GuidePage locale="pl" chapter="media" />
