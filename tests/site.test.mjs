@@ -1944,6 +1944,29 @@ for (const locale of ["en", "pl"]) {
       await context.close();
     }
   });
+
+  test(`${locale} guide/contributing: three on-ramps and Polish pack only`, async () => {
+    const { context, page } = await visitor({ javaScriptEnabled: false });
+    try {
+      await page.goto(`${base}${guidePath(locale, "contributing")}`);
+      const article = page.locator("main article");
+      assert.deepEqual(await article.locator("h2").allInnerTexts(), {
+        en: ["Code", "Country packs", "Translations"],
+        pl: ["Kod", "Pakiety krajowe", "Tłumaczenia"],
+      }[locale]);
+      const text = (await article.innerText()).replace(/\s+/g, " ");
+      assert.ok(text.includes(locale === "en" ? "Only the Polish pack ships today." : "Na razie dostępny jest tylko pakiet polski."));
+      const shipped = copyBlocks(locale, "guide-contributing").filter((block) => block.publishes);
+      assert.equal(shipped.length, 3);
+      for (const block of shipped) {
+        for (const paragraph of block.paragraphs) {
+          assert.ok(text.includes(paragraph), `shipped copy is missing or reworded: ${paragraph.slice(0, 70)}`);
+        }
+      }
+    } finally {
+      await context.close();
+    }
+  });
 }
 
 test("switching language on the privacy page stays on the privacy page", async () => {
