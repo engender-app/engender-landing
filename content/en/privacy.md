@@ -228,6 +228,12 @@ Ticket 03 designs this page. The four-mechanisms separation above is content, no
 layout: whatever shape the page takes, app lock, encryption at rest, the key on each
 surface and Archive passwords stay visibly distinct sections.
 
+### More detail
+
+*Gate: shipped.*
+
+> Read the Privacy chapter in the Guide.
+
 The Polish pass is Alicja's own. The security wording is the part where a translation
 that is merely grammatical is not good enough: "nie można odzyskać" has to be as final
 in Polish as "cannot be recovered" is in English, and the difference between a gate in

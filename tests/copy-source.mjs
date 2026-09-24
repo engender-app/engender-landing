@@ -51,7 +51,7 @@ export function sentences(paragraph) {
  * the gate that governs it.
  *
  * @param {'en' | 'pl'} locale
- * @param {'landing' | 'privacy' | 'guide-getting-started' | 'guide-home' | 'guide-calendar' | 'guide-stats' | 'guide-health' | 'guide-steps' | 'guide-support' | 'guide-media' | 'guide-settings'} page
+ * @param {'landing' | 'privacy' | 'guide-getting-started' | 'guide-home' | 'guide-calendar' | 'guide-stats' | 'guide-health' | 'guide-steps' | 'guide-support' | 'guide-media' | 'guide-settings' | 'guide-privacy'} page
  * @returns {{ marker: string, publishes: boolean, paragraphs: string[] }[]}
  */
 export function copyBlocks(locale, page) {

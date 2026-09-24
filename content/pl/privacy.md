@@ -276,3 +276,9 @@ with seven items in it, and it will be the paragraph that finds a layout's limit
 A Polish speaker still has to read the security, privacy and recovery wording before
 release. That box on ticket 05 is a human one and stays unchecked until somebody actually
 reads it.
+
+### Więcej szczegółów
+
+*Gate: shipped.*
+
+> Szczegóły znajdziesz w rozdziale Prywatność Przewodnika.

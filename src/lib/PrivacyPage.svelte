@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { resolve } from '$app/paths';
   import PageShell from '$lib/PageShell.svelte';
   import Prose from '$lib/Prose.svelte';
   import FlagSun from '$lib/FlagSun.svelte';
@@ -48,6 +49,7 @@
         <Prose paragraphs={section.paragraphs} reveal />
       </section>
     {/each}
+    <p class="guide-link"><a href={resolve(locale === 'en' ? '/en/guide/privacy' : '/pl/guide/privacy')}>{privacy.guideLink}</a></p>
   </article>
 </PageShell>
 
@@ -108,6 +110,15 @@
 
   section:last-child {
     margin-bottom: 0;
+  }
+
+  .guide-link {
+    margin: 2rem 0 0;
+  }
+
+  .guide-link a {
+    display: inline-block;
+    padding-block: 0.7rem;
   }
 
   .section-head {

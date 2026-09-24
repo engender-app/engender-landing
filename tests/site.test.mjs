@@ -1833,6 +1833,52 @@ const SETTINGS_SECTIONS = {
   pl: ["Wygląd", "Śledzenie", "Prywatność i dane"],
 };
 
+const PRIVACY_CLAIMS = {
+  en: [
+    "browser profiles",
+    "User-Agent and referrer headers",
+    "random data key",
+    "Argon2id",
+    "WebAuthn PRF",
+    "Android Keystore",
+    "25 characters",
+    "never touch a temporary file",
+    "INTERNET permission",
+    "no network sockets",
+    "POST_NOTIFICATIONS",
+    "AES-256-GCM",
+    "scheduled on Android",
+    "GDIARY",
+    "single-event .ics calendar files",
+    "private vulnerability reporting",
+    "Do not send journal entries",
+  ],
+  pl: [
+    "profilach przeglądarki",
+    "User-Agent i Referer",
+    "losowym kluczem do danych",
+    "Argon2id",
+    "WebAuthn PRF",
+    "Android Keystore",
+    "Ma 25 znaków",
+    "nie trafia do pliku tymczasowego",
+    "uprawnienie INTERNET",
+    "połączeń sieciowych",
+    "POST_NOTIFICATIONS",
+    "AES-256-GCM",
+    "według planu na Androidzie",
+    "GDIARY",
+    "pliki kalendarza .ics",
+    "prywatny formularz podatności",
+    "Nie wysyłaj wpisów",
+  ],
+};
+
+const PRIVACY_GUIDE_LINK = {
+  en: "Read the Privacy chapter in the Guide.",
+  pl: "Szczegóły znajdziesz w rozdziale Prywatność Przewodnika.",
+};
+
 for (const locale of ["en", "pl"]) {
   test(`${locale} guide/settings: names every Settings section and renders shipped copy`, async () => {
     const { context, page } = await visitor({ javaScriptEnabled: false });
@@ -1851,6 +1897,49 @@ for (const locale of ["en", "pl"]) {
           assert.ok(text.includes(paragraph), `shipped copy is missing or reworded: ${paragraph.slice(0, 70)}`);
         }
       }
+    } finally {
+      await context.close();
+    }
+  });
+
+  test(`${locale} guide/privacy: covers the policy's encryption, storage and export claims`, async () => {
+    const { context, page } = await visitor({ javaScriptEnabled: false });
+    try {
+      await page.goto(`${base}${guidePath(locale, "privacy")}`);
+      const article = page.locator("main article");
+      const text = (await article.innerText()).replace(/\s+/g, " ");
+      const headings = await article.locator("h2").allInnerTexts();
+      assert.deepEqual(headings, {
+        en: ["Where the journal lives", "Encryption and access", "Android and network access", "Archives and other exports", "Security reports"],
+        pl: ["Gdzie jest dziennik", "Szyfrowanie i dostęp", "Android i połączenie z siecią", "Archiwa i pozostałe eksporty", "Zgłoszenia bezpieczeństwa"],
+      }[locale]);
+      for (const claim of PRIVACY_CLAIMS[locale]) {
+        assert.ok(text.includes(claim), `the chapter does not cover the source claim: ${claim}`);
+      }
+
+      const shipped = copyBlocks(locale, "guide-privacy").filter((block) => block.publishes);
+      assert.ok(shipped.length > 0, "no shipped blocks, so this proved nothing");
+      for (const block of shipped) {
+        for (const paragraph of block.paragraphs) {
+          assert.ok(text.includes(paragraph), `shipped copy is missing or reworded: ${paragraph.slice(0, 70)}`);
+        }
+      }
+    } finally {
+      await context.close();
+    }
+  });
+
+  test(`${locale} privacy page links to its Privacy chapter exactly once`, async () => {
+    const { context, page } = await visitor({ javaScriptEnabled: false });
+    try {
+      await page.goto(`${base}/${locale}/privacy/`);
+      const link = page.getByRole("link", { name: PRIVACY_GUIDE_LINK[locale], exact: true });
+      assert.equal(await link.count(), 1);
+      const href = await link.getAttribute("href");
+      assert.equal(new URL(href, page.url()).pathname, `/${locale}/guide/privacy`);
+      await link.click();
+      await page.waitForURL(`${base}/${locale}/guide/privacy/`);
+      assert.equal(await page.locator("main h1").innerText(), GUIDE_TITLES[locale].privacy);
     } finally {
       await context.close();
     }
