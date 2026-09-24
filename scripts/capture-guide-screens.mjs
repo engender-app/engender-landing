@@ -98,8 +98,11 @@ try {
     for (const [name, route] of screens) {
       await open(page, route, locale);
       if (name === 'privacy-controls') {
-        const heading = page.getByText(locale === 'en' ? 'Privacy & data' : 'Prywatność i dane', { exact: true });
-        await heading.evaluate((node) => node.scrollIntoView({ block: 'start' }));
+        await page.getByText(
+          locale === 'en' ? 'Disguise & quick exit' : 'Kamuflaż i szybkie wyjście',
+          { exact: true }
+        ).click();
+        await page.getByRole('dialog').waitFor({ state: 'visible' });
       }
       await save(page, locale, name);
     }
