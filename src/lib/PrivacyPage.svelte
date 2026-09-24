@@ -1,10 +1,9 @@
 <script lang="ts">
-  import { resolve } from '$app/paths';
   import PageShell from '$lib/PageShell.svelte';
   import Prose from '$lib/Prose.svelte';
   import FlagSun from '$lib/FlagSun.svelte';
   import StripeRule from '$lib/StripeRule.svelte';
-  import { messages, type Locale } from '$lib/site';
+  import { messages, pathFor, type Locale } from '$lib/site';
 
   let { locale }: { locale: Locale } = $props();
 
@@ -49,7 +48,7 @@
         <Prose paragraphs={section.paragraphs} reveal />
       </section>
     {/each}
-    <p class="guide-link"><a href={resolve(locale === 'en' ? '/en/guide/privacy' : '/pl/guide/privacy')}>{privacy.guideLink}</a></p>
+    <p class="guide-link"><a href={pathFor(locale, 'guide-privacy')}>{privacy.guideLink}</a></p>
   </article>
 </PageShell>
 
