@@ -58,8 +58,8 @@ hides.
 > **Pinned.** The parts of the app you keep on Today. Each row says what is
 > next when there is something, and when you last logged it otherwise.
 >
-> A new journal shows Getting started instead, with a few things worth setting
-> up early. You can ignore them and just write.
+> A new journal also has a Getting started section, with a few things worth
+> setting up early. You can ignore them and just write.
 
 ### Arranging Today
 

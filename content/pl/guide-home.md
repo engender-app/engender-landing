@@ -44,8 +44,8 @@ opisuje kartę Dzisiaj według `SCREENS.md`, nie dawny ekran główny z ticketu.
 > **Przypięte.** Części aplikacji, które chcesz mieć na tej karcie. Każdy wiersz
 > mówi, co jest następne, a jeśli nic, to kiedy ostatnio coś tu zapisano.
 >
-> W nowym dzienniku zamiast tego jest sekcja „Na początek” z kilkoma rzeczami,
-> które warto ustawić wcześnie. Możesz ją pominąć i po prostu pisać.
+> Nowy dziennik ma też sekcję „Na początek” z kilkoma rzeczami, które warto
+> ustawić wcześnie. Możesz ją pominąć i po prostu pisać.
 
 ### Układanie karty
 

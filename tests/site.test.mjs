@@ -1683,21 +1683,34 @@ for (const locale of ["en", "pl"]) {
     then the two resurfacing tiles and the tally. */
 const TAB_TOUR = {
   en: {
-    home: ["Live tiles", "Coming up", "Notices", "How is today?", "Pinned", "Getting started", "Arrange these rows", "quick add"],
-    calendar: ["heat map", "recent entries", "search", "Starred", "as a question", "note", "star", "mode", "body map"],
+    home: [
+      "Live tiles", "Coming up", "Notices", "How is today?", "Pinned", "Getting started",
+      "Arrange these rows", "quick add",
+    ],
+    calendar: [
+      "heat map", "recent entries", "search", "Starred", "as a question", "note", "star",
+      "mode", "body map",
+    ],
     stats: [
-      "timeline", "Day by day", "Two scales at once", "How the days fell", "Words that stand out",
-      "Tags, and how a scale moved", "Highest days", "Body map", "Compare", "Affirming themes",
-      "Wrapped", "On this day", "Tally",
+      "timeline", "Day by day", "Two scales at once", "How the days fell",
+      "Words that stand out", "Tags, and how a scale moved", "Highest days", "Body map",
+      "Compare", "Affirming themes", "Wrapped", "On this day", "Tally",
     ],
   },
   pl: {
-    home: ["Kafelki", "Nadchodzi", "Komunikaty", "Jak dziś?", "Przypięte", "Na początek", "Ułóż tę listę", "szybki zapis"],
-    calendar: ["mapy cieplnej", "ostatnie wpisy", "wyszukiwanie", "Ulubione", "jako pytanie", "notatka", "gwiazdką", "tryb", "mapie ciała"],
+    home: [
+      "Kafelki", "Nadchodzi", "Komunikaty", "Jak dziś?", "Przypięte", "Na początek",
+      "Ułóż tę listę", "szybki zapis",
+    ],
+    calendar: [
+      "mapy cieplnej", "ostatnie wpisy", "wyszukiwanie", "Ulubione", "jako pytanie",
+      "notatka", "gwiazdką", "tryb", "mapie ciała",
+    ],
     stats: [
-      "osi czasu", "Dzień po dniu", "Dwie skale naraz", "Jak rozłożyły się dni", "Słowa, które się wyróżniają",
-      "Tagi i to, jak poruszyła się skala", "Najwyższe dni", "Mapa ciała", "Porównanie okresów",
-      "Motywy dające spokój", "Bilans", "Wspomnienia", "Licznik",
+      "osi czasu", "Dzień po dniu", "Dwie skale naraz", "Jak rozłożyły się dni",
+      "Słowa, które się wyróżniają", "Tagi i to, jak poruszyła się skala", "Najwyższe dni",
+      "Mapa ciała", "Porównanie okresów", "Motywy dające spokój", "Bilans", "Wspomnienia",
+      "Licznik",
     ],
   },
 };
