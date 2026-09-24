@@ -623,19 +623,197 @@
       },
       "health": {
         "title": "Health",
-        "description": "Care and your medication, measurements and sizes, the surgery journey, appointments and the clinician summary."
+        "description": "Care and your medication, measurements and sizes, the surgery journey, appointments and the clinician summary.",
+        "sections": [
+          {
+            "heading": "The Transition tab",
+            "paragraphs": [
+              "The fourth tab, Transition, has four groups: Health, Steps, Support and Media. Search at the top finds group rows by name and searches text in your journal.",
+              "Health is the first group."
+            ]
+          },
+          {
+            "heading": "Care",
+            "paragraphs": [
+              "Care is where your medication lives. Each drug in a running regimen gets its own lane. The timeline marks your latest lab draw. For each regimen, Care shows the dose and route, your last dose, when the next one is expected and how much you have left, with the projected run-out day.",
+              "Four screens open from Care:",
+              {
+                "lead": "Regimen.",
+                "rest": " What you take, how and how often, from the day you started. You can pause it or end it, and it stays in your history. If you switch it on, a schedule records an expected dose as taken after that day ends. You can correct it or mark it skipped."
+              },
+              {
+                "lead": "Doses.",
+                "rest": " Every dose taken, skipped or changed, at the time it happened."
+              },
+              {
+                "lead": "Labs.",
+                "rest": " Your results, as you entered them. Results in different units stay on separate lines."
+              },
+              {
+                "lead": "Hormone curve.",
+                "rest": " A drawing of how your doses rise and fall over time. It is not a prediction of your levels. Your own lab results can calibrate it."
+              },
+              "Stock is a count you enter now and then. Logged doses feed the stock estimate and projected run-out day, as well as supported hormone curves. Care warns when stock is running low. It also shows the running window's medication-days total; the full exposure history is in the clinician visit summary."
+            ]
+          },
+          {
+            "heading": "Changes you've noticed",
+            "paragraphs": [
+              "Under the medication, Care keeps the changes you've noticed. Pick a change from the list or add your own, and mark the day you first noticed it. Side effects go here too, each with how strong it was, from 1 to 5. The more private categories, such as genital and sexual changes, start switched off.",
+              {
+                "lead": "Hair progress.",
+                "rest": " Your hair on a published scale, Norwood-Hamilton or Sinclair, or in your own words, with photos taken from the same spot."
+              },
+              {
+                "lead": "Cycle events.",
+                "rest": " A period, spotting, or nothing this month. They only show while a testosterone regimen is running, or once you turn on Cycle tracking in Settings."
+              }
+            ]
+          },
+          {
+            "heading": "Measurements and sizes",
+            "paragraphs": [
+              "Waist, hips, chest and underbust are built in, and you can add any measurement you like. Weight and height are not built in, so add them yourself if you want them. Measuring consistently, beside the chart, says how to measure the same way each time.",
+              "Sizes are what you bought and how it fit: the kind of garment, the size, the brand and a note. Nothing is converted between brands."
+            ]
+          },
+          {
+            "heading": "Surgery journey",
+            "paragraphs": [
+              "Each surgery gets its own journey, named however you like. It holds the consults before it, the date once you have one, and afterwards a day count, photos, notes and your own checklist.",
+              "If your surgeon gave you a dilation schedule, type it in and log your sessions against it."
+            ]
+          },
+          {
+            "heading": "Appointments",
+            "paragraphs": [
+              "Appointments opens on your next visit and how far away it is. Under it is What to raise, your list of things to bring up, which carries over from one visit to the next.",
+              "At the visit, In the room goes through your questions one at a time, with space for what they said. Past visits are under Behind you, and the app asks how each one went.",
+              "The clinician visit summary is a page to print for a doctor: doses, lab results and side effects for dates you choose. You see it exactly as it will print. Open it from Care or from Appointments."
+            ]
+          },
+          {
+            "heading": "What Health does not do",
+            "paragraphs": [
+              "Nothing in Health says whether a number is good or bad, suggests a dose or tells you what to do. It keeps what you enter and draws it."
+            ]
+          }
+        ]
       },
       "steps": {
         "title": "Steps",
-        "description": "Milestones and eras, tryouts, voice, wear time, hair removal, the roadmap and time-capsule letters."
+        "description": "Milestones and eras, tryouts, voice, wear time, hair removal, the roadmap and time-capsule letters.",
+        "sections": [
+          {
+            "heading": "Milestones and eras",
+            "paragraphs": [
+              "Steps is the second group on the Transition tab.",
+              "A milestone is a day that mattered, or will. One still ahead counts down, and one behind you comes back each year as an anniversary. You can note how it felt when you add it and again on each anniversary.",
+              "Eras are stretches of time you name yourself, such as \"before I knew\". They show as bands behind your milestones, and Look back can use one as its stretch. You make and edit them in Settings."
+            ]
+          },
+          {
+            "heading": "Tryouts",
+            "paragraphs": [
+              "A tryout is something you are trying: a name or pronouns, a style, a garment, makeup, or a step in how you present. It has a start date and, once you stop, an end date. Note how it feels as often as you like, and add photos. Several can run at once."
+            ]
+          },
+          {
+            "heading": "Voice",
+            "paragraphs": [
+              "Practice, the voice benchmark and your recordings share one screen.",
+              "A benchmark is a take made the same way every time: the same passage read and the same vowel held. That keeps takes months apart comparable. It shows figures such as pitch and speaking rate next to your own earlier takes, and gives no verdict on your voice."
+            ]
+          },
+          {
+            "heading": "Wear time",
+            "paragraphs": [
+              "Wear time is for binder, tucking and compression wear. Start a timer, or fill in a session afterwards, with a note on comfort or pain. You can set a reminder for a number of hours you choose. With a binder, a quiet cue appears at eight hours, and you can turn it off.",
+              "The screen also shows binder safety guidance and its sources."
+            ]
+          },
+          {
+            "heading": "Hair removal",
+            "paragraphs": [
+              "Hair removal logs electrolysis and laser sessions, with the area, method, pain, cost, provider and photos. The screen shows how long it has been since the last one."
+            ]
+          },
+          {
+            "heading": "The roadmap",
+            "paragraphs": [
+              "The transition roadmap lists the steps of the Polish transition procedure. Poland is the only country so far. The steps are roadmap goals, grouped into four roadmap tracks: social, legal, presentation and medical.",
+              "Goals can be done in any order, and no track waits on another. Tick a goal once it is done, or mark it not my path. You can mark a whole track the same way, and put it back later.",
+              "You can add your own goals to any track, and file documents against a goal.",
+              "The roadmap describes the procedure and never says what to do in your own case. It shows the date its content was last checked against its sources."
+            ]
+          },
+          {
+            "heading": "Time-capsule letters",
+            "paragraphs": [
+              "Write a letter to yourself and pick the day it opens. It stays sealed until then, and after that you can read it whenever you like. Letters about to open show on Today, under Coming up.",
+              "The Open section also shows the photos you have starred."
+            ]
+          }
+        ]
       },
       "support": {
         "title": "Support",
-        "description": "Safe space for the hard days, and the directory of trans organisations and helplines."
+        "description": "Safe space for the hard days, and the directory of trans organisations and helplines.",
+        "sections": [
+          {
+            "heading": "Safe space",
+            "paragraphs": [
+              "Support is the third group on the Transition tab.",
+              "Safe space is for the moments when dysphoria is too much. It opens on box breathing. Below that are four things:",
+              {
+                "lead": "Good moments.",
+                "rest": " Past entries you tagged as good, or starred."
+              },
+              {
+                "lead": "Things that help.",
+                "rest": " Your own list: who to text, which walk, which song. It starts empty."
+              },
+              {
+                "lead": "Support and resources.",
+                "rest": " The directory described below."
+              },
+              {
+                "lead": "Affirming themes.",
+                "rest": " A link to the Look back reading of the tags your good entries carry most."
+              },
+              "Opening Safe space writes nothing to your journal."
+            ]
+          },
+          {
+            "heading": "Support and resources",
+            "paragraphs": [
+              "Support and resources lists trans organisations and helplines, each with a line on what it offers and a number or an address. It comes with the app, so you can read it with no signal. The list does not include general emergency or crisis numbers.",
+              "The screen says when every entry was last checked. Tapping a number or an address hands it to your phone or browser, which leaves the app."
+            ]
+          }
+        ]
       },
       "media": {
         "title": "Media",
-        "description": "Every photo in your journal in one library, and the documents you keep."
+        "description": "Every photo in your journal in one library, and the documents you keep.",
+        "sections": [
+          {
+            "heading": "Photos",
+            "paragraphs": [
+              "Media is the fourth group on the Transition tab.",
+              "Photos is every photo in your journal in one dated list: from entries, milestones, hair progress, hair removal, tryouts and surgery. The chips at the top narrow it down by where a photo came from.",
+              "Pick two photos and drag the divider across them to compare the earlier one with the later. For an export, choose a date range and make a collage or timelapse from selected photos. You can preview it before sharing.",
+              "Photos stay inside the app and never go to your phone's gallery. To change or delete one, open the entry or record it belongs to."
+            ]
+          },
+          {
+            "heading": "Documents",
+            "paragraphs": [
+              "Documents holds the papers you keep, such as opinions, diagnoses, referrals, court rulings and invoices. Each has a date, a title you write and the file itself. You can link a document to a roadmap goal, a milestone, a surgery journey or a regimen.",
+              "The index groups documents by what each paper proves. Photos and PDFs have thumbnails. The app never reads what a document says, so you find one by its title."
+            ]
+          }
+        ]
       },
       "settings": {
         "title": "Settings",
