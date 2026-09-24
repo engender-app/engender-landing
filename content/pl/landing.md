@@ -53,7 +53,7 @@ examples and states device storage without assigning the reader a gender.
 
 **Subheadline**
 
-> Zapisuj dni na własnych skalach, porównuj wzorce głosu i prowadź zapiski o zdrowiu.
+> Zapisuj odczucia na własnych skalach, porównuj wzorce głosu i prowadź zapiski o zdrowiu.
 > Dziennik zostaje na twoim urządzeniu. Bez konta.
 
 **Primary action**
@@ -223,10 +223,10 @@ model. Polish and English describe the same capabilities.
 > społeczną, prawną, wizerunkową i medyczną. Możesz dopisać własne cele albo oznaczyć krok
 > jako „nie moja droga”.
 >
-> **Wzorce głosu.** Na ekranie Głos w Krokach nagrywasz za każdym razem ten sam tekst i tę
-> samą przeciągniętą samogłoskę. Porównujesz je z własnymi wcześniejszymi nagraniami.
+> **Wzorce głosu.** Na ekranie Głos w Krokach nagrywasz za każdym razem ten sam tekst i
+> tę samą przeciągniętą samogłoskę. Porównujesz je z własnymi wcześniejszymi nagraniami.
 > Wysokość głosu, rezonans czy tempo mówienia opisują nagrania, ale nie oceniają głosu.
-> Wzorzec należy do dnia. Nagranie głosowe we wpisie to osobna notatka.
+> Wzorzec zapisujesz dla wybranego dnia. Nagranie głosowe we wpisie to osobna notatka.
 >
 > **Wsparcie.** Bezpieczna przestrzeń przypomina wpisy z gwiazdką i dobrymi tagami. Jest
 > tu też twoja lista rzeczy, które pomagają. Spis organizacji trans i telefonów zaufania
@@ -279,7 +279,7 @@ model. Polish and English describe the same capabilities.
 *Gate: shipped.*
 
 > W sekcji Prywatność i dane wybierasz, jak otwierać dziennik. Kamuflaż, blokada przy
-> wyjściu i szybkie wyjście są opcjonalne.
+> wyjściu i szybkie wyjście pozostają wyłączone, dopóki ich nie włączysz.
 >
 > **Dostęp.** Wybierz hasło, PIN z kluczem urządzenia, obsługiwaną biometrię albo klucz
 > powiązany z urządzeniem. Strona o prywatności opisuje ochronę i odzyskiwanie dostępu.

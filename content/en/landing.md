@@ -313,7 +313,7 @@ model. Polish and English describe the same capabilities.
 *Gate: shipped.*
 
 > Choose how to unlock the journal in Privacy and data. Disguise, lock on leave and quick
-> exit are optional.
+> exit stay off until you turn them on.
 >
 > **Access.** Use a passphrase, a PIN with a device key, supported biometrics or a
 > device-bound key. The Privacy page explains what each protects and how recovery works.

@@ -23,7 +23,7 @@
       "phonetics": "/ɪnˈdʒɛndə/",
       "sense": "to cause or give rise to a feeling, situation or condition."
     },
-    "subheadline": "Zapisuj dni na własnych skalach, porównuj wzorce głosu i prowadź zapiski o zdrowiu. Dziennik zostaje na twoim urządzeniu. Bez konta."
+    "subheadline": "Zapisuj odczucia na własnych skalach, porównuj wzorce głosu i prowadź zapiski o zdrowiu. Dziennik zostaje na twoim urządzeniu. Bez konta."
   },
   "sectionOverview": "Czym jest engender",
   "overview": [
@@ -157,7 +157,7 @@
         },
         {
           "lead": "Wzorce głosu.",
-          "rest": " Na ekranie Głos w Krokach nagrywasz za każdym razem ten sam tekst i tę samą przeciągniętą samogłoskę. Porównujesz je z własnymi wcześniejszymi nagraniami. Wysokość głosu, rezonans czy tempo mówienia opisują nagrania, ale nie oceniają głosu. Wzorzec należy do dnia. Nagranie głosowe we wpisie to osobna notatka."
+          "rest": " Na ekranie Głos w Krokach nagrywasz za każdym razem ten sam tekst i tę samą przeciągniętą samogłoskę. Porównujesz je z własnymi wcześniejszymi nagraniami. Wysokość głosu, rezonans czy tempo mówienia opisują nagrania, ale nie oceniają głosu. Wzorzec zapisujesz dla wybranego dnia. Nagranie głosowe we wpisie to osobna notatka."
         },
         {
           "lead": "Wsparcie.",
@@ -225,7 +225,7 @@
       "id": "careful",
       "group": "Jeśli musisz uważać",
       "paragraphs": [
-        "W sekcji Prywatność i dane wybierasz, jak otwierać dziennik. Kamuflaż, blokada przy wyjściu i szybkie wyjście są opcjonalne.",
+        "W sekcji Prywatność i dane wybierasz, jak otwierać dziennik. Kamuflaż, blokada przy wyjściu i szybkie wyjście pozostają wyłączone, dopóki ich nie włączysz.",
         {
           "lead": "Dostęp.",
           "rest": " Wybierz hasło, PIN z kluczem urządzenia, obsługiwaną biometrię albo klucz powiązany z urządzeniem. Strona o prywatności opisuje ochronę i odzyskiwanie dostępu."

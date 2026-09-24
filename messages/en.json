@@ -225,7 +225,7 @@
       "id": "careful",
       "group": "If you need to be careful",
       "paragraphs": [
-        "Choose how to unlock the journal in Privacy and data. Disguise, lock on leave and quick exit are optional.",
+        "Choose how to unlock the journal in Privacy and data. Disguise, lock on leave and quick exit stay off until you turn them on.",
         {
           "lead": "Access.",
           "rest": " Use a passphrase, a PIN with a device key, supported biometrics or a device-bound key. The Privacy page explains what each protects and how recovery works."
