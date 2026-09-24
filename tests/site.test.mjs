@@ -1600,6 +1600,65 @@ for (const locale of ["en", "pl"]) {
     });
   }
 
+  test(`${locale}: phone screenshots have cropped corners and live flag borders`, async () => {
+    const { context, page } = await visitor({});
+    try {
+      await page.setViewportSize({ width: 390, height: 844 });
+      await page.goto(`${base}${guidePath(locale, "home")}`);
+      const frame = await page.locator(".chapter-shots figure").first().evaluate((figure) => {
+        const image = figure.querySelector("img");
+        const box = figure.getBoundingClientRect();
+        const imageBox = image.getBoundingClientRect();
+        const style = getComputedStyle(figure);
+        return {
+          width: box.width,
+          height: box.height,
+          imageLeft: imageBox.left,
+          frameLeft: box.left,
+          borderWidth: style.borderTopWidth,
+          borderColor: style.borderTopColor,
+          radius: style.borderTopLeftRadius,
+          overflow: style.overflowX,
+        };
+      });
+      assert.ok(frame.height > frame.width * 2, "the screenshot lost its phone shape");
+      assert.equal(frame.borderWidth, "4px");
+      assert.equal(frame.borderColor, "rgb(91, 206, 250)");
+      assert.equal(frame.radius, "26px");
+      assert.equal(frame.overflow, "clip");
+      assert.ok(frame.imageLeft < frame.frameLeft, "the fixture's square corners were not cropped");
+    } finally {
+      await context.close();
+    }
+  });
+
+  test(`${locale}: chapter links crossfade and finish on the selected chapter`, async () => {
+    const { context, page } = await visitor({});
+    try {
+      await page.setViewportSize({ width: 390, height: 844 });
+      await page.goto(`${base}${guidePath(locale, "home")}`);
+      await page.evaluate(() => {
+        const start = document.startViewTransition?.bind(document);
+        window.guideTransitionStarts = 0;
+        if (start) document.startViewTransition = (...args) => {
+          window.guideTransitionStarts++;
+          return start(...args);
+        };
+      });
+      await page.locator(".mobile-selector summary").click();
+      await page.locator(`.mobile-selector a[href='${guidePath(locale, "calendar")}']`).click();
+      await page.waitForFunction((title) => document.querySelector("h1")?.textContent === title, GUIDE_TITLES[locale].calendar);
+      assert.equal(new URL(page.url()).pathname, guidePath(locale, "calendar"));
+      assert.equal(await page.evaluate(() => window.guideTransitionStarts), 1);
+      assert.equal(
+        await page.evaluate(() => getComputedStyle(document.documentElement, "::view-transition-new(root)").animationDuration),
+        "0.12s",
+      );
+    } finally {
+      await context.close();
+    }
+  });
+
   test(`${locale}: the footer bar carries the Guide link on every kind of page`, async () => {
     const { context, page } = await visitor({});
     try {

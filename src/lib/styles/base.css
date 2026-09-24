@@ -858,6 +858,24 @@ a {
 
 /* ---- Motion ---------------------------------------------------------- */
 
+/* Guide chapter navigation uses the native view transition API. Only opacity
+   changes, including for readers who prefer reduced motion. */
+::view-transition-old(root) {
+  animation: var(--dur-crossfade) ease-in-out both guide-fade-out;
+}
+
+::view-transition-new(root) {
+  animation: var(--dur-crossfade) ease-in-out both guide-fade-in;
+}
+
+@keyframes guide-fade-out {
+  to { opacity: 0; }
+}
+
+@keyframes guide-fade-in {
+  from { opacity: 0; }
+}
+
 /* Every keyframe on the site and every rule that moves something. A
    reduced-motion visitor gets the finished page, static, with the
    recolouring feedback intact.
