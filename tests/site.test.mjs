@@ -2031,7 +2031,7 @@ for (const locale of ["en", "pl"]) {
       const link = page.getByRole("link", { name: PRIVACY_GUIDE_LINK[locale], exact: true });
       assert.equal(await link.count(), 1);
       const href = await link.getAttribute("href");
-      assert.equal(new URL(href, page.url()).pathname, `/${locale}/guide/privacy`);
+      assert.equal(new URL(href, page.url()).pathname, `/${locale}/guide/privacy/`);
       await link.click();
       await page.waitForURL(`${base}/${locale}/guide/privacy/`);
       assert.equal(await page.locator("main h1").innerText(), GUIDE_TITLES[locale].privacy);
