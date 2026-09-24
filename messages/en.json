@@ -457,6 +457,16 @@
                 "rest": " Setup ends and opens Today."
               },
               "Every step before the last has a way straight into the app, which keeps what you have chosen so far. Most steps also have a Skip, which leaves that setting as it is."
+            ],
+            "images": [
+              {
+                "src": "/guide/en-getting-started-welcome.webp",
+                "alt": "Welcome step explains the local journal and offers setup or backup restore."
+              },
+              {
+                "src": "/guide/en-getting-started-name.webp",
+                "alt": "Name step asks what the app should call you and says the answer can be skipped."
+              }
             ]
           }
         ]
@@ -490,6 +500,12 @@
                 "rest": " The parts of the app you keep on Today. Each row says what is next when there is something, and when you last logged it otherwise."
               },
               "A new journal also has a Getting started section, with a few things worth setting up early. You can ignore them and just write."
+            ],
+            "images": [
+              {
+                "src": "/guide/en-home.webp",
+                "alt": "Today shows a binder timer, upcoming appointment and milestone, and the mood question."
+              }
             ]
           },
           {
@@ -521,12 +537,24 @@
             "paragraphs": [
               "Journal is the second tab, and it holds your own days. It opens on the month as a heat map. Days with entries are filled in, coloured by your mood or, if you switch it, by one of your gender scales, and a deeper colour means a higher value. No colour means good or bad.",
               "Under the month are your recent entries, and the button below them shows five more days at a time."
+            ],
+            "images": [
+              {
+                "src": "/guide/en-calendar-month.webp",
+                "alt": "Journal month view shows a mood heat map above recent entries."
+              }
             ]
           },
           {
             "heading": "One day",
             "paragraphs": [
               "Tap a day to see everything logged on it. A day can hold as many entries as you like. A day still ahead with a small mark has something planned, such as a dose or an appointment, and tapping it shows what."
+            ],
+            "images": [
+              {
+                "src": "/guide/en-calendar-day.webp",
+                "alt": "Day view shows one journal entry and planned doses beneath it."
+              }
             ]
           },
           {
@@ -556,6 +584,12 @@
             "paragraphs": [
               "Look back is the third tab. Everything on it reads one stretch of time, which you choose on the timeline at the top: drag its two ends, or pick a stretch from the list. The timeline also shows your eras, milestones, regimen, tryouts and surgeries, and tapping one picks its dates.",
               "Just under the timeline are the plain facts for that stretch: how many entries, the average on a scale, and which scale moved the furthest."
+            ],
+            "images": [
+              {
+                "src": "/guide/en-stats.webp",
+                "alt": "Look back shows a selected date range, entry count and reading summary."
+              }
             ]
           },
           {
@@ -655,6 +689,12 @@
                 "rest": " A drawing of how your doses rise and fall over time. It is not a prediction of your levels. Your own lab results can calibrate it."
               },
               "Stock is a count you enter now and then. Logged doses feed the stock estimate and projected run-out day, as well as supported hormone curves. Care warns when stock is running low. It also shows the running window's medication-days total; the full exposure history is in the clinician visit summary."
+            ],
+            "images": [
+              {
+                "src": "/guide/en-health.webp",
+                "alt": "Care shows medication lanes with lab draw, last dose, next dose and stock dates."
+              }
             ]
           },
           {
@@ -668,6 +708,12 @@
               {
                 "lead": "Cycle events.",
                 "rest": " A period, spotting, or nothing this month. They only show while a testosterone regimen is running, or once you turn on Cycle tracking in Settings."
+              }
+            ],
+            "images": [
+              {
+                "src": "/guide/en-health-changes.webp",
+                "alt": "Changes you have noticed shows a dated timeline of effects recorded in the journal."
               }
             ]
           },
@@ -746,6 +792,12 @@
               "Goals can be done in any order, and no track waits on another. Tick a goal once it is done, or mark it not my path. You can mark a whole track the same way, and put it back later.",
               "You can add your own goals to any track, and file documents against a goal.",
               "The roadmap describes the procedure and never says what to do in your own case. It shows the date its content was last checked against its sources."
+            ],
+            "images": [
+              {
+                "src": "/guide/en-steps.webp",
+                "alt": "Transition roadmap shows the Polish pack and checklist goals in the social track."
+              }
             ]
           },
           {
@@ -783,6 +835,12 @@
                 "rest": " A link to the Look back reading of the tags your good entries carry most."
               },
               "Opening Safe space writes nothing to your journal."
+            ],
+            "images": [
+              {
+                "src": "/guide/en-support-evidence.webp",
+                "alt": "Good moments in Safe space lists starred and tagged journal entries."
+              }
             ]
           },
           {
@@ -790,6 +848,12 @@
             "paragraphs": [
               "Support and resources lists trans organisations and helplines, each with a line on what it offers and a number or an address. It comes with the app, so you can read it with no signal. The list does not include general emergency or crisis numbers.",
               "The screen says when every entry was last checked. Tapping a number or an address hands it to your phone or browser, which leaves the app."
+            ],
+            "images": [
+              {
+                "src": "/guide/en-support.webp",
+                "alt": "Support and resources lists contacts with Poland and English-language filters."
+              }
             ]
           }
         ]
@@ -805,6 +869,12 @@
               "Photos is every photo in your journal in one dated list: from entries, milestones, hair progress, hair removal, tryouts and surgery. The chips at the top narrow it down by where a photo came from.",
               "Pick two photos and drag the divider across them to compare the earlier one with the later. For an export, choose a date range and make a collage or timelapse from selected photos. You can preview it before sharing.",
               "Photos stay inside the app and never go to your phone's gallery. To change or delete one, open the entry or record it belongs to."
+            ],
+            "images": [
+              {
+                "src": "/guide/en-media.webp",
+                "alt": "Progress photos shows source filters and a grid of dated photos."
+              }
             ]
           },
           {
@@ -825,6 +895,12 @@
             "paragraphs": [
               "Settings holds preferences and the lists those preferences draw from. You choose how the journal looks and what it asks you to track here. You make entries and read their history on the screens those records belong to.",
               "For example, Settings holds a reminder's schedule. The words and details you want to remember stay with the entry or feature the reminder is about. Doses, labs and surgery notes live in Health, not in Settings."
+            ],
+            "images": [
+              {
+                "src": "/guide/en-settings.webp",
+                "alt": "Settings shows flag palettes, mood colours and theme controls under Appearance."
+              }
             ]
           },
           {
@@ -867,6 +943,12 @@
               "The data key is random. On the web, your Journal passphrase is processed with Argon2id and used to wrap that key with AES-GCM. The database uses the data key itself, not your passphrase. This lets you change the passphrase without encrypting the journal again. The usable key stays in memory; after the browser session ends, you need the passphrase again. You can also open the web journal with a four-digit PIN and a device-bound key, biometric verification through WebAuthn PRF on a supported browser, or a device-bound key that needs no in-app prompt. That last key stays in its browser profile; clearing site storage, resetting the profile or losing the device can make the local copy unreadable.",
               "Android has four access modes: a device-bound key gated by the phone's screen lock or biometric check; an unlocked mode using SQLCipher and a Keystore key, with no in-app prompt; a four-digit PIN with a hardware-backed key; or a typed passphrase processed with Argon2id. Android Keystore releases its key only after the phone checks who is asking.",
               "A recovery key is optional. It has 25 characters and is shown once; the app does not store it off the device. It can open a web journal only on the device and browser profile that still hold the journal. On Android, it can open the journal on that device if your credentials fail. It cannot move the journal or decrypt an Archive. Without a recovery key, lost credentials cannot be recovered by the maintainer. A forgotten Archive password cannot be recovered either."
+            ],
+            "images": [
+              {
+                "src": "/guide/en-privacy-controls.webp",
+                "alt": "Settings' Disguise and quick exit panel shows disguise and lock-on-leave switches."
+              }
             ]
           },
           {
@@ -882,6 +964,12 @@
               "You choose where an exported or shared file goes. A cloud drive or document provider can see its filename, timestamp and size, along with account access records.",
               "An encrypted .ttbackup Archive, exported by you or scheduled on Android, uses chunked AES-256-GCM and a password you choose. The password protects that Archive, not the journal on your device. Its header stays readable: the first six bytes say GDIARY, followed by the format version, Argon2id settings and salt. The app needs that information to recognise the file and derive its key. The header reveals the format, not your entries. Anyone without the password cannot read the Archive.",
               "Some exports are deliberately readable: CSV and JSON data, journal books for printing or PDF, clinician summaries, photo collages and timelapses, shared Wrapped cards, saved PDFs, and single-event .ics calendar files. Anyone who receives one can read what it contains. The app asks you to confirm or take an explicit action before it makes an unencrypted file."
+            ],
+            "images": [
+              {
+                "src": "/guide/en-privacy-export.webp",
+                "alt": "Export and import shows backup age and the encrypted export form."
+              }
             ]
           },
           {

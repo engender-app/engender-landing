@@ -25,6 +25,7 @@ const CONTENT_TYPES = {
   '.css': 'text/css',
   '.json': 'application/json',
   '.png': 'image/png',
+  '.webp': 'image/webp',
   /* The mark, and the one type a browser will not sniff its way around: an
      SVG served as application/octet-stream is refused in an <img> and comes
      back as a broken-image glyph, which is how the footer's mark first

@@ -360,6 +360,16 @@
                 "rest": " Konfiguracja się kończy, a aplikacja otwiera ekran Dziś."
               },
               "Na każdym kroku oprócz ostatniego możesz przejść od razu do aplikacji. Zapisze się wtedy to, co zdążysz ustawić. Większość kroków ma też przycisk Pomiń, który zostawia dane ustawienie bez zmian."
+            ],
+            "images": [
+              {
+                "src": "/guide/pl-getting-started-welcome.webp",
+                "alt": "Ekran powitalny wyjaśnia, że dziennik zostaje na urządzeniu, i pozwala zacząć lub przywrócić kopię."
+              },
+              {
+                "src": "/guide/pl-getting-started-name.webp",
+                "alt": "Krok z imieniem pyta, jak aplikacja ma się do ciebie zwracać, i pozwala pominąć odpowiedź."
+              }
             ]
           }
         ]
@@ -393,6 +403,12 @@
                 "rest": " Części aplikacji, które chcesz mieć na tej karcie. Każdy wiersz mówi, co jest następne, a jeśli nic, to kiedy ostatnio coś tu zapisano."
               },
               "Nowy dziennik ma też sekcję „Na początek” z kilkoma rzeczami, które warto ustawić wcześnie. Możesz ją pominąć i po prostu pisać."
+            ],
+            "images": [
+              {
+                "src": "/guide/pl-home.webp",
+                "alt": "Karta Dzisiaj pokazuje licznik noszenia bindera, nadchodzącą wizytę i kamień milowy oraz pytanie o nastrój."
+              }
             ]
           },
           {
@@ -424,12 +440,24 @@
             "paragraphs": [
               "Dziennik to druga karta i są na niej twoje dni. Otwiera się na miesiącu w formie mapy cieplnej. Dni z wpisami są wypełnione kolorem według nastroju albo, jeśli to przełączysz, według jednej ze skal płci. Głębszy kolor oznacza wyższą wartość. Żaden kolor nie znaczy „dobrze” ani „źle”.",
               "Pod miesiącem są ostatnie wpisy, a przycisk pod nimi dokłada po pięć kolejnych dni."
+            ],
+            "images": [
+              {
+                "src": "/guide/pl-calendar-month.webp",
+                "alt": "Widok miesiąca w Dzienniku pokazuje mapę nastrojów nad ostatnimi wpisami."
+              }
             ]
           },
           {
             "heading": "Jeden dzień",
             "paragraphs": [
               "Dotknij dnia, żeby zobaczyć wszystko, co wtedy zapisano. Wpisów w jednym dniu może być dowolnie dużo. Małe oznaczenie na dniu, który jeszcze nie nadszedł, znaczy, że coś jest zaplanowane, na przykład dawka albo wizyta. Po dotknięciu widać co."
+            ],
+            "images": [
+              {
+                "src": "/guide/pl-calendar-day.webp",
+                "alt": "Widok dnia pokazuje wpis oraz zaplanowane dawki poniżej."
+              }
             ]
           },
           {
@@ -459,6 +487,12 @@
             "paragraphs": [
               "Przegląd to trzecia karta. Wszystko na niej dotyczy jednego okresu, który wybierasz na osi czasu u góry: przeciągnij jej końce albo wybierz okres z listy. Na osi widać też ery, kamienie milowe, kurację, próby i operacje, a dotknięcie jednej z nich ustawia jej daty.",
               "Tuż pod osią są podstawowe liczby z tego okresu: ile było wpisów, średnia na skali i która skala ruszyła się najbardziej."
+            ],
+            "images": [
+              {
+                "src": "/guide/pl-stats.webp",
+                "alt": "Przegląd pokazuje wybrany okres, liczbę wpisów i podsumowanie odczytów."
+              }
             ]
           },
           {
@@ -558,6 +592,12 @@
                 "rest": " Rysunek tego, jak dawki rosną i opadają w czasie. To nie jest przewidywanie twoich poziomów. Można ją dopasować do własnych wyników badań."
               },
               "Zapas to liczba, którą wpisujesz od czasu do czasu. Zapisane później dawki służą do oszacowania pozostałego zapasu i dnia, w którym może się skończyć, a także do rysowania krzywych dla obsługiwanych leków. Opieka daje znać, gdy zapas się kończy. Pokazuje też liczbę dni na leku w wybranym okresie; pełna historia ekspozycji jest w Podsumowaniu do lekarza."
+            ],
+            "images": [
+              {
+                "src": "/guide/pl-health.webp",
+                "alt": "Ekran Opieka pokazuje leki na osi czasu, datę badania, ostatnie i następne dawki oraz stan zapasów."
+              }
             ]
           },
           {
@@ -571,6 +611,12 @@
               {
                 "lead": "Cykl.",
                 "rest": " Miesiączka, plamienie albo nic w tym miesiącu. Ta część pojawia się tylko przy trwającej kuracji testosteronem albo po włączeniu Śledzenia cyklu w Ustawieniach."
+              }
+            ],
+            "images": [
+              {
+                "src": "/guide/pl-health-changes.webp",
+                "alt": "Zauważone zmiany pokazują oś czasu ze zmianami zapisanymi w dzienniku."
               }
             ]
           },
@@ -649,6 +695,12 @@
               "Cele można realizować w dowolnej kolejności i żadna ścieżka nie czeka na inną. Odhacz cel, gdy jest zrobiony, albo oznacz go jako „nie moja droga”. Tak samo można oznaczyć całą ścieżkę i potem ją przywrócić.",
               "Do każdej ścieżki dodasz własne cele, a do celu możesz podpiąć dokumenty.",
               "Mapa opisuje procedurę i nigdy nie mówi, co zrobić w twojej sprawie. Podaje datę, kiedy jej treść ostatnio sprawdzono ze źródłami."
+            ],
+            "images": [
+              {
+                "src": "/guide/pl-steps.webp",
+                "alt": "Mapa tranzycji pokazuje polski pakiet i cele na ścieżce społecznej."
+              }
             ]
           },
           {
@@ -686,6 +738,12 @@
                 "rest": " Odnośnik do odczytu w Przeglądzie, który pokazuje tagi najczęstsze w dobrych wpisach."
               },
               "Otwarcie Bezpiecznej przestrzeni niczego nie zapisuje w dzienniku."
+            ],
+            "images": [
+              {
+                "src": "/guide/pl-support-evidence.webp",
+                "alt": "Dobre chwile w Bezpiecznej przestrzeni pokazują wpisy oznaczone gwiazdką lub tagiem."
+              }
             ]
           },
           {
@@ -693,6 +751,12 @@
             "paragraphs": [
               "Spis organizacji i telefonów zaufania dla osób trans. Przy każdej pozycji jest zdanie o tym, co oferuje, oraz numer albo adres. Spis jest wbudowany w aplikację, więc można go czytać bez zasięgu. Nie zawiera ogólnych numerów alarmowych ani kryzysowych.",
               "Ekran podaje, kiedy ostatnio sprawdzono wszystkie pozycje. Dotknięcie numeru albo adresu otwiera go w telefonie lub przeglądarce, już poza aplikacją."
+            ],
+            "images": [
+              {
+                "src": "/guide/pl-support.webp",
+                "alt": "Lista Wsparcie i kontakty zawiera numery i adresy oraz filtry dla Polski i języka angielskiego."
+              }
             ]
           }
         ]
@@ -708,6 +772,12 @@
               "Zdjęcia to wszystkie fotografie z dziennika na jednej liście według dat: z wpisów, kamieni milowych, postępów włosów, depilacji, prób i operacji. Przyciski u góry zawężają listę do jednego źródła.",
               "Wybierz dwa zdjęcia i przeciągnij między nimi suwak, żeby porównać wcześniejsze z późniejszym. Do eksportu wybierz okres i zdjęcia, a potem zrób z nich kolaż albo film poklatkowy. Przed udostępnieniem zobaczysz podgląd.",
               "Zdjęcia zostają w aplikacji i nigdy nie trafiają do galerii telefonu. Żeby zmienić albo usunąć zdjęcie, otwórz wpis lub zapis, do którego należy."
+            ],
+            "images": [
+              {
+                "src": "/guide/pl-media.webp",
+                "alt": "Galeria zdjęć postępów pokazuje filtry źródła i zdjęcia ułożone według dat."
+              }
             ]
           },
           {
@@ -728,6 +798,12 @@
             "paragraphs": [
               "W Ustawieniach wybierasz, jak ma wyglądać dziennik i co chcesz w nim śledzić. Są tu też listy, z których korzystasz przy zapisywaniu. Same wpisy i historia zostają na ekranach poszczególnych funkcji.",
               "Na przykład tutaj ustawisz porę przypomnienia. Jego treść i szczegóły zapisujesz przy wpisie lub funkcji, której dotyczy. Dawki, wyniki badań i notatki o operacji znajdziesz w Zdrowiu."
+            ],
+            "images": [
+              {
+                "src": "/guide/pl-settings.webp",
+                "alt": "Ustawienia pokazują palety flag, kolory nastroju i wybór motywu w sekcji Wygląd."
+              }
             ]
           },
           {
@@ -770,6 +846,12 @@
               "Klucz do danych powstaje losowo. W przeglądarce hasło do dziennika jest przetwarzane przez Argon2id i służy do opakowania klucza szyfrem AES-GCM. Sama baza używa klucza do danych, nie hasła. Dzięki temu możesz zmienić hasło bez ponownego szyfrowania dziennika. Użyteczny klucz istnieje tylko w pamięci. Po zakończeniu sesji przeglądarki znów potrzebujesz hasła. Możesz też otworzyć dziennik czterocyfrowym PIN-em i kluczem powiązanym z urządzeniem, biometrią przez WebAuthn PRF w obsługiwanej przeglądarce albo kluczem powiązanym z urządzeniem, który nie wymaga dodatkowego pytania. Ten ostatni zostaje w profilu przeglądarki. Wyczyszczenie danych witryny, reset profilu albo utrata urządzenia może sprawić, że tej kopii nie da się już odczytać.",
               "Android ma cztery tryby dostępu: klucz powiązany z urządzeniem, chroniony blokadą ekranu albo biometrią; tryb bez pytania o odblokowanie, z bazą SQLCipher i kluczem z Keystore; czterocyfrowy PIN ze sprzętowym kluczem; albo wpisywane hasło przetwarzane przez Argon2id. Android Keystore wydaje klucz dopiero po sprawdzeniu przez telefon, kto prosi o dostęp.",
               "Klucz odzyskiwania jest opcjonalny. Ma 25 znaków i aplikacja pokazuje go tylko raz; sama nie zapisuje go poza urządzeniem. Dziennik w przeglądarce otworzy wyłącznie na urządzeniu i w profilu, w których ta kopia nadal jest. Na Androidzie otworzy dziennik na tym samym urządzeniu, jeśli dane logowania zawiodą. Nie przenosi dziennika ani nie odszyfrowuje archiwum. Bez klucza odzyskiwania osoba prowadząca projekt nie odzyska utraconych danych logowania. Nie odzyska też hasła do archiwum."
+            ],
+            "images": [
+              {
+                "src": "/guide/pl-privacy-controls.webp",
+                "alt": "Panel Kamuflaż i szybkie wyjście pokazuje przełączniki kamuflażu i blokady po wyjściu."
+              }
             ]
           },
           {
@@ -785,6 +867,12 @@
               "Miejsce zapisu lub udostępnienia pliku wybierasz samodzielnie. Dysk w chmurze albo dostawca dokumentów może zobaczyć nazwę i rozmiar pliku, datę zapisu oraz historię dostępu do konta.",
               "Zaszyfrowane archiwum .ttbackup, utworzone ręcznie albo według planu na Androidzie, używa szyfrowania AES-256-GCM w częściach i hasła, które wybierasz. Hasło chroni to archiwum, nie dziennik na urządzeniu. Nagłówek pozostaje czytelny, żeby aplikacja mogła rozpoznać format i wersję pliku. Pierwsze sześć bajtów to GDIARY, dalej są ustawienia Argon2id i sól. Nagłówek nie zawiera wpisów. Bez hasła nikt nie odczyta zawartości archiwum.",
               "Część eksportów jest jawna, bo służy do czytania, druku albo udostępnienia: dane CSV i JSON, książka dziennika do druku lub PDF, podsumowanie dla lekarza, kolaże i filmy poklatkowe ze zdjęć, udostępniane karty Wrapped, zapisane pliki PDF oraz pojedyncze pliki kalendarza .ics. Każda osoba, która dostanie taki plik, może przeczytać jego zawartość. Zanim aplikacja utworzy niezaszyfrowany plik, prosi o potwierdzenie albo wyraźne działanie."
+            ],
+            "images": [
+              {
+                "src": "/guide/pl-privacy-export.webp",
+                "alt": "Eksport i import pokazuje wiek ostatniej kopii oraz formularz zaszyfrowanego eksportu."
+              }
             ]
           },
           {

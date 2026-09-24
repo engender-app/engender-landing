@@ -43,6 +43,15 @@
             <StripeRule />
           </div>
           <Prose paragraphs={section.paragraphs} />
+          {#if 'images' in section}
+            <div class="chapter-shots">
+              {#each section.images as shot (shot.src)}
+                <figure>
+                  <img src={shot.src} alt={shot.alt} width="390" height="844" loading="lazy" decoding="async" />
+                </figure>
+              {/each}
+            </div>
+          {/if}
         </section>
       {:else}
         <Prose paragraphs={[guide.comingSoon]} />
@@ -130,6 +139,24 @@
   article :global(p strong) {
     color: var(--text);
     font-weight: var(--weight-bold);
+  }
+
+  .chapter-shots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  figure {
+    width: min(100%, 19rem);
+    margin: 0;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
   @media (max-width: 45rem) {
