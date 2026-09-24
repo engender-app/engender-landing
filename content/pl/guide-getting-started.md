@@ -11,8 +11,7 @@ nad cytatem mówi, czy wolno go opublikować (docs/adr/0001).
 
 **Słownictwo z aplikacji.** Nazwy kroków i przycisków wzięte z polskiego
 katalogu Journal: „Mam już kopię”, „Od razu do aplikacji”, „Dziś”, „Ustawienia”.
-Nazwa produktu to engender, małą literą, jak w wersji angielskiej. Reszta
-polskiej strony nadal mówi Gender Diary; to zmienia ticket 08.
+Nazwa produktu to engender, małą literą, jak w wersji angielskiej.
 
 **Źródła i decyzje** są te same co w `content/en/guide-getting-started.md`:
 dziewięć kroków według `SCREENS.md`, aplikacja na Androida nie jest opisana jako

@@ -1,13 +1,13 @@
 {
   "languageName": "Polski",
-  "pageTitle": "Gender Diary",
+  "pageTitle": "engender",
   "languageLabel": "Język",
   "themeLabel": "Motyw",
   "themeSystem": "Systemowy",
   "themeLight": "Jasny",
   "themeDark": "Ciemny",
   "meta": {
-    "cardAlt": "Napis Gender Diary na ciemnym tle, z flagą transpłciową narysowaną jako koncentryczne pierścienie w rogu.",
+    "cardAlt": "Napis engender na ciemnym tle, z flagą transpłciową narysowaną jako koncentryczne pierścienie w rogu.",
     "landing": {
       "description": "Dziennik tranzycji. We wpisie mieści się nastrój, notatka, tagi, zdjęcia i skale, które nazywasz po swojemu. Zostaje na twoim urządzeniu, konta nie zakładasz."
     },
@@ -25,14 +25,14 @@
     },
     "subheadline": "Zapisz, jak minął dzień, i jak ci w nim było z własną płcią. Konta nie zakładasz, synchronizować nie ma czego."
   },
-  "sectionOverview": "Czym jest Gender Diary",
+  "sectionOverview": "Czym jest engender",
   "overview": [
-    "Gender Diary to dziennik tranzycji. We wpisie mieści się nastrój, notatka, twoje skale, tagi i zdjęcia, a żeby wpis się liczył, wystarczy jedno z tego. Jeśli jeden wpis nie oddaje całego dnia, napisz kilka. Jeśli dzień przepadł, dopisz go z datą wsteczną.",
-    "Aplikacje do notowania nastroju dobrze pasują do codziennego rytuału, tylko nie mają gdzie zapisać płci. Gender Diary działa tak samo i dokłada do tego skale, które nazywasz po swojemu. Zapisuje to, co jej powiesz, i niczego z tego nie interpretuje."
+    "engender to dziennik tranzycji. We wpisie mieści się nastrój, notatka, twoje skale, tagi i zdjęcia, a żeby wpis się liczył, wystarczy jedno z tego. Jeśli jeden wpis nie oddaje całego dnia, napisz kilka. Jeśli dzień przepadł, dopisz go z datą wsteczną.",
+    "Aplikacje do notowania nastroju dobrze pasują do codziennego rytuału, tylko nie mają gdzie zapisać płci. engender działa tak samo i dokłada do tego skale, które nazywasz po swojemu. Zapisuje to, co jej powiesz, i niczego z tego nie interpretuje."
   ],
   "sectionPrivacy": "Co chroni, a czego nie",
   "privacyHandoff": [
-    "Twój dziennik jest zapisany na twoim urządzeniu. Nie ma konta Gender Diary, a wpisy nie trafiają na serwer Gender Diary.",
+    "Twój dziennik jest zapisany na twoim urządzeniu. Nie ma konta engender, a wpisy nie trafiają na serwer engender.",
     "Co to chroni, a czego nie, jest na osobnej stronie."
   ],
   "sectionTour": "Ekrany",
@@ -162,7 +162,7 @@
         },
         {
           "lead": "Kamuflaż.",
-          "rest": " Karta przeglądarki pokazuje „Notes” zamiast Gender Diary."
+          "rest": " Karta przeglądarki pokazuje „Notes” zamiast engender."
         },
         {
           "lead": "Szybkie wyjście.",
@@ -190,7 +190,7 @@
     }
   ],
   "sectionAcquisition": "Skąd je wziąć",
-  "acquisitionIntro": "Gender Diary działa w przeglądarce. Otwiera się od razu, bez instalacji i bez konta.",
+  "acquisitionIntro": "engender działa w przeglądarce. Otwiera się od razu, bez instalacji i bez konta.",
   "startJournal": "Otwórz dziennik",
   "acquisitionAndroid": "Aplikacji na Androida jeszcze nie ma. Kiedy powstanie, będzie do wzięcia z tych czterech miejsc. Google Play jest tu ostatni i nie bez powodu. Każde z nich zmieni się tutaj w link, jak tylko zacznie działać.",
   "channelStatus": "Jeszcze niedostępne.",
@@ -209,7 +209,7 @@
     },
     {
       "name": "Google Play",
-      "note": "Działa i mówi Google, że masz w telefonie aplikację dla osób trans. Żadne ustawienie w Gender Diary tego nie zmieni."
+      "note": "Działa i mówi Google, że masz w telefonie aplikację dla osób trans. Żadne ustawienie w engender tego nie zmieni."
     }
   ],
   "sectionSupport": "Pomoc",
@@ -224,21 +224,21 @@
     }
   ],
   "privacyPage": {
-    "title": "Co Gender Diary chroni, a czego nie chroni",
+    "title": "Co engender chroni, a czego nie chroni",
     "intro": "To jest ta dłuższa odpowiedź. Krótka musiałaby pominąć akurat to, co jest ważne, jeśli zastanawiasz się, czy powierzyć temu swój dziennik.",
     "guideLink": "Szczegóły znajdziesz w rozdziale Prywatność Przewodnika.",
     "sections": [
       {
         "heading": "Gdzie jest twój dziennik",
         "paragraphs": [
-          "Twój dziennik jest zapisany na twoim urządzeniu. Nie ma konta Gender Diary, nie ma nigdzie serwera z kopią, nie ma niczego, co synchronizuje się w tle. Wpis ląduje w pamięci urządzenia, na którym powstał, i zostaje tam, dopóki go nie wyeksportujesz albo nie usuniesz.",
+          "Twój dziennik jest zapisany na twoim urządzeniu. Nie ma konta engender, nie ma nigdzie serwera z kopią, nie ma niczego, co synchronizuje się w tle. Wpis ląduje w pamięci urządzenia, na którym powstał, i zostaje tam, dopóki go nie wyeksportujesz albo nie usuniesz.",
           "Serwera nie ma, więc nie ma serwera, do którego można się włamać, który można zająć nakazem albo sprzedać. Ufasz za to własnemu urządzeniu i każdemu, kto ma do niego dostęp."
         ]
       },
       {
         "heading": "Blokada aplikacji",
         "paragraphs": [
-          "Blokada aplikacji jest wyłączona, dopóki jej nie włączysz, tak jak każda funkcja w Gender Diary, która coś ukrywa. Prowadzenie dziennika o własnym życiu to zwyczajna rzecz. Bywają sytuacje, w których i tak jest to niebezpieczne, a czy twoja taka jest, wiesz tylko ty.",
+          "Blokada aplikacji jest wyłączona, dopóki jej nie włączysz, tak jak każda funkcja w engender, która coś ukrywa. Prowadzenie dziennika o własnym życiu to zwyczajna rzecz. Bywają sytuacje, w których i tak jest to niebezpieczne, a czy twoja taka jest, wiesz tylko ty.",
           {
             "lead": "Co robi.",
             "rest": " Blokada aplikacji stawia PIN przed wejściem, więc ktoś, kto weźmie do ręki twój odblokowany telefon, nie przeczyta dziennika, po prostu otwierając aplikację."
@@ -268,7 +268,7 @@
           "Eksport pakuje dziennik do jednego pliku archiwum i szyfruje go hasłem, które wybierasz, zanim plik gdziekolwiek trafi. To hasło nie jest twoim PIN-em ani hasłem do dziennika. Chroni ten jeden plik.",
           {
             "lead": "Co archiwum zdradza.",
-            "rest": " Pierwsze sześć bajtów pliku to otwartym tekstem GDIARY, dalej wersja formatu i ustawienia, z których powstaje klucz z twojego hasła. Ta część musi być czytelna bez hasła, żeby plik z nowszej wersji mógł to powiedzieć, zamiast odszyfrować się w bełkot. Wszystko z dziennika jest za hasłem. Kto znajdzie ten plik, dowie się, że masz archiwum Gender Diary, i niczego o tym, co w nim jest."
+            "rest": " Pierwsze sześć bajtów pliku to otwartym tekstem GDIARY, dalej wersja formatu i ustawienia, z których powstaje klucz z twojego hasła. Ta część musi być czytelna bez hasła, żeby plik z nowszej wersji mógł to powiedzieć, zamiast odszyfrować się w bełkot. Wszystko z dziennika jest za hasłem. Kto znajdzie ten plik, dowie się, że masz archiwum engender, i niczego o tym, co w nim jest."
           },
           {
             "lead": "Jeśli zgubisz hasło do archiwum",
@@ -281,13 +281,13 @@
         "paragraphs": [
           "Kiedy otwierasz aplikację w przeglądarce, prosisz o nią serwer WWW, a ten widzi adres IP, mniej więcej porę zapytania i to, że aplikacja została pobrana. Sprawdzenie, czy jest nowa wersja, to takie samo zapytanie. Tak działa każda strona, którą otwierasz, i ta też.",
           "Serwer WWW nie dostaje twojego dziennika. Wpisy, zdjęcia, notatki i wyniki badań nigdzie do niego nie idą, bo nie ma dokąd.",
-          "Dlatego nie przeczytasz tutaj, że „Gender Diary nie wysyła żadnych zapytań sieciowych”, bo to nieprawda. Pobranie aplikacji jest zapytaniem sieciowym. Wyjście twojego dziennika na zewnątrz to co innego."
+          "Dlatego nie przeczytasz tutaj, że „engender nie wysyła żadnych zapytań sieciowych”, bo to nieprawda. Pobranie aplikacji jest zapytaniem sieciowym. Wyjście twojego dziennika na zewnątrz to co innego."
         ]
       },
       {
         "heading": "Czego to nie chroni",
         "paragraphs": [
-          "Jeśli ktoś już panuje nad twoim urządzeniem, to nie te mechanizmy stoją między nim a twoim dziennikiem. Odblokowany telefon w cudzych rękach, przejęty system operacyjny albo otwarta aplikacja na ekranie leżą poza tym, co szyfrowanie zapisanych danych umie zrobić. Gender Diary tego nie obiecuje. Jeśli coś to obiecuje, nie wierz."
+          "Jeśli ktoś już panuje nad twoim urządzeniem, to nie te mechanizmy stoją między nim a twoim dziennikiem. Odblokowany telefon w cudzych rękach, przejęty system operacyjny albo otwarta aplikacja na ekranie leżą poza tym, co szyfrowanie zapisanych danych umie zrobić. engender tego nie obiecuje. Jeśli coś to obiecuje, nie wierz."
         ]
       }
     ]
@@ -791,7 +791,7 @@
       },
       "settings": {
         "title": "Ustawienia",
-        "description": "Co jest preferencją w Gender Diary, a co mieszka gdzie indziej.",
+        "description": "Co jest preferencją w engender, a co mieszka gdzie indziej.",
         "sections": [
           {
             "heading": "Co tu znajdziesz",

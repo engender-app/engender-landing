@@ -34,10 +34,8 @@ const SOURCE_URL = "https://github.com/barankiewicz/gender-diary";
 /* Alicja's own site, linked from the footer (her decision, 2026-08-28). */
 const PORTFOLIO_URL = "https://barankiewicz.dev/";
 
-/** The product's name as each language's pages currently render it. The
-    English pages say engender since redesign ticket 02; the Polish pages
-    still say Gender Diary until Alicja's own translation pass. */
-const SITE_NAME = { en: "engender", pl: "Gender Diary" };
+/** The product's name is lowercase in both languages. */
+const SITE_NAME = { en: "engender", pl: "engender" };
 
 /** The four Android channels, in the order the page lists them. The order is
     the opinion: the three that do not report an install to Google come first,
@@ -1155,7 +1153,7 @@ const HEADINGS = {
     support: "Support",
   },
   pl: {
-    overview: "Czym jest Gender Diary",
+    overview: "Czym jest engender",
     privacy: "Co chroni, a czego nie",
     tour: "Ekrany",
     features: "Co potrafi",
@@ -1189,7 +1187,7 @@ const sectionHeadings = (locale) =>
     landing page offers to it. */
 const PRIVACY_TITLE = {
   en: "What engender protects, and what it does not",
-  pl: "Co Gender Diary chroni, a czego nie chroni",
+  pl: "Co engender chroni, a czego nie chroni",
 };
 
 /** The hero headline, which is the one piece of the overview copy that is not
@@ -2101,7 +2099,7 @@ test("switching language on the privacy page stays on the privacy page", async (
     assert.equal(await page.locator("main h1").innerText(), PRIVACY_TITLE.pl);
 
     // And back out to the landing page in the language the reader is now in.
-    await page.getByRole("link", { name: "Gender Diary" }).click();
+    await page.getByRole("link", { name: "engender" }).click();
     await page.waitForURL(`${base}/pl/`);
   } finally {
     await context.close();
@@ -2261,7 +2259,6 @@ test("no title says what kind of app this is", async () => {
       /* The product's name is allowed to be the product's name. What the
          test looks at is everything else in the title. */
       const beyondTheName = (await page.title())
-        .replaceAll("Gender Diary", "")
         .replaceAll("engender", "")
         .toLowerCase();
       for (const word of NOT_IN_A_TITLE) {

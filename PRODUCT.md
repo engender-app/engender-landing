@@ -163,7 +163,7 @@ Undecided, each with its owner:
 ## Brand Commitments
 
 **The name is engender**, always that casing, including at the start of a
-sentence. Never Engender, EnGender or engender when naming the app. Renamed from
+sentence. Never Engender or EnGender when naming the app. Renamed from
 the "Gender Diary" working title (Alicja's decision, 2026-08-26). The landing
 page carries a dictionary-style entry for the verb with its phonetics and says
 the pun out loud rather than winking.
