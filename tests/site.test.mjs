@@ -34,10 +34,8 @@ const SOURCE_URL = "https://github.com/barankiewicz/gender-diary";
 /* Alicja's own site, linked from the footer (her decision, 2026-08-28). */
 const PORTFOLIO_URL = "https://barankiewicz.dev/";
 
-/** The product's name as each language's pages currently render it. The
-    English pages say engender since redesign ticket 02; the Polish pages
-    still say Gender Diary until Alicja's own translation pass. */
-const SITE_NAME = { en: "engender", pl: "Gender Diary" };
+/** The product's name is lowercase in both languages. */
+const SITE_NAME = { en: "engender", pl: "engender" };
 
 /** The four Android channels, in the order the page lists them. The order is
     the opinion: the three that do not report an install to Google come first,
@@ -1155,7 +1153,7 @@ const HEADINGS = {
     support: "Support",
   },
   pl: {
-    overview: "Czym jest Gender Diary",
+    overview: "Czym jest engender",
     privacy: "Co chroni, a czego nie",
     tour: "Ekrany",
     features: "Co potrafi",
@@ -1189,7 +1187,7 @@ const sectionHeadings = (locale) =>
     landing page offers to it. */
 const PRIVACY_TITLE = {
   en: "What engender protects, and what it does not",
-  pl: "Co Gender Diary chroni, a czego nie chroni",
+  pl: "Co engender chroni, a czego nie chroni",
 };
 
 /** The hero headline, which is the one piece of the overview copy that is not
@@ -1600,6 +1598,65 @@ for (const locale of ["en", "pl"]) {
     });
   }
 
+  test(`${locale}: phone screenshots have cropped corners and live flag borders`, async () => {
+    const { context, page } = await visitor({});
+    try {
+      await page.setViewportSize({ width: 390, height: 844 });
+      await page.goto(`${base}${guidePath(locale, "home")}`);
+      const frame = await page.locator(".chapter-shots figure").first().evaluate((figure) => {
+        const image = figure.querySelector("img");
+        const box = figure.getBoundingClientRect();
+        const imageBox = image.getBoundingClientRect();
+        const style = getComputedStyle(figure);
+        return {
+          width: box.width,
+          height: box.height,
+          imageLeft: imageBox.left,
+          frameLeft: box.left,
+          borderWidth: style.borderTopWidth,
+          borderColor: style.borderTopColor,
+          radius: style.borderTopLeftRadius,
+          overflow: style.overflowX,
+        };
+      });
+      assert.ok(frame.height > frame.width * 2, "the screenshot lost its phone shape");
+      assert.equal(frame.borderWidth, "4px");
+      assert.equal(frame.borderColor, "rgb(91, 206, 250)");
+      assert.equal(frame.radius, "26px");
+      assert.equal(frame.overflow, "clip");
+      assert.ok(frame.imageLeft < frame.frameLeft, "the fixture's square corners were not cropped");
+    } finally {
+      await context.close();
+    }
+  });
+
+  test(`${locale}: chapter links crossfade and finish on the selected chapter`, async () => {
+    const { context, page } = await visitor({});
+    try {
+      await page.setViewportSize({ width: 390, height: 844 });
+      await page.goto(`${base}${guidePath(locale, "home")}`);
+      await page.evaluate(() => {
+        const start = document.startViewTransition?.bind(document);
+        window.guideTransitionStarts = 0;
+        if (start) document.startViewTransition = (...args) => {
+          window.guideTransitionStarts++;
+          return start(...args);
+        };
+      });
+      await page.locator(".mobile-selector summary").click();
+      await page.locator(`.mobile-selector a[href='${guidePath(locale, "calendar")}']`).click();
+      await page.waitForFunction((title) => document.querySelector("h1")?.textContent === title, GUIDE_TITLES[locale].calendar);
+      assert.equal(new URL(page.url()).pathname, guidePath(locale, "calendar"));
+      assert.equal(await page.evaluate(() => window.guideTransitionStarts), 1);
+      assert.equal(
+        await page.evaluate(() => getComputedStyle(document.documentElement, "::view-transition-new(root)").animationDuration),
+        "0.12s",
+      );
+    } finally {
+      await context.close();
+    }
+  });
+
   test(`${locale}: the footer bar carries the Guide link on every kind of page`, async () => {
     const { context, page } = await visitor({});
     try {
@@ -1659,6 +1716,34 @@ for (const locale of ["en", "pl"]) {
         GUIDE_TITLES[locale].stats,
         "the sidebar's current chapter is not the one being viewed",
       );
+    } finally {
+      await context.close();
+    }
+  });
+
+  test(`${locale}: the mobile chapter menu works without scripting at phone width and 200% zoom`, async () => {
+    const { context, page } = await visitor({ javaScriptEnabled: false });
+    try {
+      await page.setViewportSize({ width: 390, height: 844 });
+      await page.goto(`${base}${guidePath(locale, "stats")}`);
+      const selector = page.locator(".mobile-selector");
+      const summary = selector.locator("summary");
+      assert.equal(await summary.isVisible(), true);
+      assert.ok((await summary.boundingBox()).height >= 44);
+      assert.equal(await selector.getAttribute("open"), null);
+
+      await summary.click();
+      const links = selector.getByRole("link");
+      assert.equal(await links.count(), GUIDE_CHAPTERS.length);
+      assert.equal(await selector.locator('[aria-current="page"]').innerText(), GUIDE_TITLES[locale].stats);
+      for (const link of await links.all()) {
+        assert.ok((await link.boundingBox()).height >= 44);
+      }
+      assert.equal(await sidewaysOverflow(page), 0);
+
+      await page.setViewportSize({ width: 195, height: 422 });
+      assert.equal(await sidewaysOverflow(page), 0);
+      assert.ok((await summary.boundingBox()).height >= 44);
     } finally {
       await context.close();
     }
@@ -2014,7 +2099,7 @@ test("switching language on the privacy page stays on the privacy page", async (
     assert.equal(await page.locator("main h1").innerText(), PRIVACY_TITLE.pl);
 
     // And back out to the landing page in the language the reader is now in.
-    await page.getByRole("link", { name: "Gender Diary" }).click();
+    await page.getByRole("link", { name: "engender" }).click();
     await page.waitForURL(`${base}/pl/`);
   } finally {
     await context.close();
@@ -2174,7 +2259,6 @@ test("no title says what kind of app this is", async () => {
       /* The product's name is allowed to be the product's name. What the
          test looks at is everything else in the title. */
       const beyondTheName = (await page.title())
-        .replaceAll("Gender Diary", "")
         .replaceAll("engender", "")
         .toLowerCase();
       for (const word of NOT_IN_A_TITLE) {
@@ -2683,6 +2767,51 @@ for (const scheme of ["light", "dark"]) {
       }
     });
   }
+}
+
+for (const scheme of ["light", "dark"]) {
+  test(`${scheme}: the Guide navigation keeps text contrast on phone and desktop`, async () => {
+    const { context, page } = await visitor({ colorScheme: scheme, javaScriptEnabled: false });
+    try {
+      for (const locale of ["en", "pl"]) {
+        for (const width of [390, 1280]) {
+          await page.setViewportSize({ width, height: 900 });
+          await page.goto(`${base}${guidePath(locale, "stats")}`);
+          if (width === 390) await page.locator(".mobile-selector summary").click();
+          const ratios = await contrastTokens(page);
+          for (const pair of ["text2OnBg", "text2OnSurface", "textOnSurface", "textOnSurface2"]) {
+            assert.ok(ratios[pair] >= 4.5, `${locale} ${width}px ${pair}: ${ratios[pair]}`);
+          }
+          const colors = await page.evaluate((mobile) => {
+            const nav = document.querySelector(mobile ? ".mobile-selector nav" : ".desktop-sidebar");
+            const links = [...nav.querySelectorAll("a")];
+            const current = nav.querySelector('[aria-current="page"]');
+            const probe = document.createElement("span");
+            document.body.append(probe);
+            const token = (name, property) => {
+              probe.style[property] = `var(${name})`;
+              return getComputedStyle(probe)[property];
+            };
+            const result = {
+              link: getComputedStyle(links.find((link) => link !== current)).color,
+              current: getComputedStyle(current).color,
+              currentBackground: getComputedStyle(current).backgroundColor,
+              text2: token("--text-2", "color"),
+              text: token("--text", "color"),
+              surface2: token("--surface-2", "backgroundColor"),
+            };
+            probe.remove();
+            return result;
+          }, width === 390);
+          assert.equal(colors.link, colors.text2);
+          assert.equal(colors.current, colors.text);
+          assert.equal(colors.currentBackground, colors.surface2);
+        }
+      }
+    } finally {
+      await context.close();
+    }
+  });
 }
 
 // The motion system (ticket 17)

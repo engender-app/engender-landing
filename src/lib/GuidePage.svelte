@@ -1,9 +1,11 @@
 <script lang="ts">
+  import { onNavigate } from '$app/navigation';
   import PageShell from '$lib/PageShell.svelte';
   import GuideSidebar from '$lib/GuideSidebar.svelte';
   import Prose from '$lib/Prose.svelte';
   import FlagSun from '$lib/FlagSun.svelte';
   import StripeRule from '$lib/StripeRule.svelte';
+  import { flagCycle } from '$lib/flagCycle.svelte';
   import { guidePage, messages, type GuideChapter, type Locale } from '$lib/site';
 
   let { locale, chapter }: { locale: Locale; chapter: GuideChapter } = $props();
@@ -13,6 +15,23 @@
   /* A chapter carries `sections` once its content ticket has written it;
      until then it has none and shows the placeholder. */
   const sections = $derived('sections' in entry ? entry.sections : []);
+
+  onNavigate((navigation) => {
+    if (
+      !document.startViewTransition ||
+      !navigation.to ||
+      !navigation.from ||
+      !navigation.to.url.pathname.startsWith(`/${locale}/guide/`) ||
+      navigation.to.url.pathname === navigation.from.url.pathname
+    ) return;
+
+    return new Promise<void>((resolve) => {
+      document.startViewTransition(async () => {
+        resolve();
+        await navigation.complete;
+      });
+    });
+  });
 </script>
 
 <!-- A chapter's content is its `sections` in the catalogue, written by
@@ -36,7 +55,7 @@
   <div class="body">
     <GuideSidebar {locale} {chapter} />
     <article>
-      {#each sections as section (section.heading)}
+      {#each sections as section, sectionAt (section.heading)}
         <section>
           <div class="section-head">
             <h2>{section.heading}</h2>
@@ -45,8 +64,8 @@
           <Prose paragraphs={section.paragraphs} />
           {#if 'images' in section}
             <div class="chapter-shots">
-              {#each section.images as shot (shot.src)}
-                <figure>
+              {#each section.images as shot, at (shot.src)}
+                <figure style:--frame-ink={flagCycle.flag.stripes[(sectionAt + at) % flagCycle.flag.stripes.length]}>
                   <img src={shot.src} alt={shot.alt} width="390" height="844" loading="lazy" decoding="async" />
                 </figure>
               {/each}
@@ -78,9 +97,16 @@
 
   .masthead-inner {
     position: relative;
-    max-width: 48rem;
+    max-width: 64rem;
     margin: 0 auto;
     padding: clamp(2.5rem, 8vh, 5rem) clamp(1rem, 4vw, 2.5rem) clamp(2.5rem, 7vh, 4rem);
+    display: grid;
+    grid-template-columns: 14rem minmax(0, 1fr);
+    column-gap: clamp(1.5rem, 4vw, 3rem);
+  }
+
+  .masthead-inner > * {
+    grid-column: 2;
   }
 
   /* A page's title, which is the app's door title: the display face at 800,
@@ -151,17 +177,30 @@
   figure {
     width: min(100%, 19rem);
     margin: 0;
+    border: 4px solid var(--frame-ink);
+    border-radius: 26px;
+    overflow: clip;
+    transition: border-color var(--dur-motif) var(--ease-out);
   }
 
   img {
     display: block;
-    width: 100%;
+    /* Crop 10px per edge from the 390px fixture: 390/370 wide, 10/370 inset. */
+    width: 105.405%;
+    max-width: none;
     height: auto;
+    margin: -2.7027%;
   }
 
   @media (max-width: 45rem) {
+    .masthead-inner {
+      display: block;
+    }
+
     .body {
       grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding-top: 1.5rem;
     }
   }
 </style>

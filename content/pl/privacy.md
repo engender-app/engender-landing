@@ -35,7 +35,7 @@ takes a qualifier naturally and the three secrets end up named apart without eff
 
 *Gate: shipped.*
 
-> **Co Gender Diary chroni, a czego nie chroni**
+> **Co engender chroni, a czego nie chroni**
 >
 > To jest ta dłuższa odpowiedź. Krótka musiałaby pominąć akurat to, co jest ważne, jeśli
 > zastanawiasz się, czy powierzyć temu swój dziennik.
@@ -44,7 +44,7 @@ takes a qualifier naturally and the three secrets end up named apart without eff
 
 *Gate: shipped.*
 
-> Twój dziennik jest zapisany na twoim urządzeniu. Nie ma konta Gender Diary, nie ma
+> Twój dziennik jest zapisany na twoim urządzeniu. Nie ma konta engender, nie ma
 > nigdzie serwera z kopią, nie ma niczego, co synchronizuje się w tle. Wpis ląduje w
 > pamięci urządzenia, na którym powstał, i zostaje tam, dopóki go nie wyeksportujesz albo
 > nie usuniesz.
@@ -60,7 +60,7 @@ wherever app lock is mentioned. It is not optional wording and does not get soft
 either language.*
 
 > Blokada aplikacji jest wyłączona, dopóki jej nie włączysz, tak jak każda funkcja w
-> Gender Diary, która coś ukrywa. Prowadzenie dziennika o własnym życiu to zwyczajna
+> engender, która coś ukrywa. Prowadzenie dziennika o własnym życiu to zwyczajna
 > rzecz. Bywają sytuacje, w których i tak jest to niebezpieczne, a czy twoja taka jest,
 > wiesz tylko ty.
 >
@@ -135,7 +135,7 @@ accident.*
 > wersja formatu i ustawienia, z których powstaje klucz z twojego hasła. Ta część musi
 > być czytelna bez hasła, żeby plik z nowszej wersji mógł to powiedzieć, zamiast
 > odszyfrować się w bełkot. Wszystko z dziennika jest za hasłem. Kto znajdzie ten plik,
-> dowie się, że masz archiwum Gender Diary, i niczego o tym, co w nim jest.
+> dowie się, że masz archiwum engender, i niczego o tym, co w nim jest.
 >
 > **Jeśli zgubisz hasło do archiwum**, tego pliku już się nie odczyta. Innych archiwów,
 > zrobionych z innymi hasłami, to nie dotyczy.
@@ -154,7 +154,7 @@ here unqualified, in either language.*
 > Serwer WWW nie dostaje twojego dziennika. Wpisy, zdjęcia, notatki i wyniki badań
 > nigdzie do niego nie idą, bo nie ma dokąd.
 >
-> Dlatego nie przeczytasz tutaj, że „Gender Diary nie wysyła żadnych zapytań sieciowych”,
+> Dlatego nie przeczytasz tutaj, że „engender nie wysyła żadnych zapytań sieciowych”,
 > bo to nieprawda. Pobranie aplikacji jest zapytaniem sieciowym. Wyjście twojego dziennika
 > na zewnątrz to co innego.
 
@@ -175,7 +175,7 @@ compromised operating system and an already unlocked app.*
 > Jeśli ktoś już panuje nad twoim urządzeniem, to nie te mechanizmy stoją między nim a
 > twoim dziennikiem. Odblokowany telefon w cudzych rękach, przejęty system operacyjny
 > albo otwarta aplikacja na ekranie leżą poza tym, co szyfrowanie zapisanych danych umie
-> zrobić. Gender Diary tego nie obiecuje. Jeśli coś to obiecuje, nie wierz.
+> zrobić. engender tego nie obiecuje. Jeśli coś to obiecuje, nie wierz.
 
 ### The policy itself
 

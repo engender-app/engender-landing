@@ -74,21 +74,21 @@ is not called Start journal in Polish.
 
 *Gate: shipped.*
 
-> Gender Diary to dziennik tranzycji. We wpisie mieści się nastrój, notatka, twoje
+> engender to dziennik tranzycji. We wpisie mieści się nastrój, notatka, twoje
 > skale, tagi i zdjęcia, a żeby wpis się liczył, wystarczy jedno z tego. Jeśli jeden
 > wpis nie oddaje całego dnia, napisz kilka. Jeśli dzień przepadł, dopisz go z datą
 > wsteczną.
 >
 > Aplikacje do notowania nastroju dobrze pasują do codziennego rytuału, tylko nie mają
-> gdzie zapisać płci. Gender Diary działa tak samo i dokłada do tego skale, które
+> gdzie zapisać płci. engender działa tak samo i dokłada do tego skale, które
 > nazywasz po swojemu. Zapisuje to, co jej powiesz, i niczego z tego nie interpretuje.
 
 ### Where it stands on privacy
 
 *Gate: shipped. The full page is ticket 04 and this is only the handoff to it.*
 
-> Twój dziennik jest zapisany na twoim urządzeniu. Nie ma konta Gender Diary, a wpisy
-> nie trafiają na serwer Gender Diary.
+> Twój dziennik jest zapisany na twoim urządzeniu. Nie ma konta engender, a wpisy
+> nie trafiają na serwer engender.
 >
 > Co to chroni, a czego nie, jest na osobnej stronie.
 
@@ -233,7 +233,7 @@ treatment.*
 > **Blokada aplikacji.** PIN przed wejściem do aplikacji. Zatrzymuje kogoś, kto bierze do
 > ręki odblokowany telefon i chce poczytać. Nie jest szyfrowaniem tego, co zapisane.
 >
-> **Kamuflaż.** Karta przeglądarki pokazuje „Notes” zamiast Gender Diary.
+> **Kamuflaż.** Karta przeglądarki pokazuje „Notes” zamiast engender.
 >
 > **Szybkie wyjście.** Zjechanie dwoma palcami w dół wygasza kartę, a jeśli blokada
 > aplikacji jest włączona, blokuje ją.
@@ -317,7 +317,7 @@ one, which is wrong for anyone coming back to theirs, and „Start” as a Polis
 Polish. What the link does is open the journal in the browser, so that is what it says.
 The imperative also keeps the reader ungendered, which rules out most of the alternatives
 before the meaning does. Lowercase „dziennik”, following the register the English file
-settled: the product is Gender Diary and the thing it holds is your journal.
+settled: the product is engender and the thing it holds is your journal.
 
 **Vocabulary in the channel notes.** „Wydanie” for a GitHub Release, and that is now the
 only one. „Pakiet” for the Android package and „wersja deweloperska” for a debug build
@@ -359,7 +359,7 @@ or in neither.*
 needs the Journal repository to actually be public, which is a deliberate step it has not
 taken yet.*
 
-> **Można to przeczytać.** Gender Diary jest wolnym oprogramowaniem na licencji GPLv3.
+> **Można to przeczytać.** engender jest wolnym oprogramowaniem na licencji GPLv3.
 > Nie musisz mi wierzyć na słowo: kod jest publiczny. Zajrzyj albo poproś o to kogoś,
 > komu ufasz.
 >
