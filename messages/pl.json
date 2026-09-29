@@ -9,32 +9,51 @@
   "meta": {
     "cardAlt": "Napis engender na ciemnym tle, z flagą transpłciową narysowaną jako koncentryczne pierścienie w rogu.",
     "landing": {
-      "description": "Śledź tranzycję we własnym dzienniku: skale, wzorce głosu i zapiski o zdrowiu. Dane są zaszyfrowane na twoim urządzeniu. Bez konta."
+      "description": "Cała tranzycja w jednym miejscu: dziennik, statystyki, HTZ, operacje, próby, ery, ćwiczenia głosu i podsumowanie do lekarza. Na twoim urządzeniu, bez konta i bez opłat."
     },
     "privacy": {
       "description": "Jak engender szyfruje dziennik, czym go otworzysz i do czego służy klucz odzyskiwania. Co ujawniają eksporty i co widzi serwer WWW."
     }
   },
   "hero": {
-    "headline": "Śledź tranzycję we własnym dzienniku.",
+    "headline": "Cała tranzycja w jednym miejscu, na twoim urządzeniu.",
     "definition": {
       "headword": "engender",
       "grammar": "czas.",
       "phonetics": "/ɪnˈdʒɛndə/",
       "sense": "to cause or give rise to a feeling, situation or condition."
     },
-    "subheadline": "Zapisuj odczucia na własnych skalach, porównuj wzorce głosu i prowadź zapiski o zdrowiu. Dziennik zostaje na twoim urządzeniu. Bez konta."
+    "subheadline": "Dziennik, statystyki, HTZ, operacje, próby, ery, ćwiczenia głosu i podsumowanie do lekarza. Bez konta, bez serwera, bez opłat. Aplikację tworzy jedna osoba trans dla innych osób trans."
   },
-  "sectionOverview": "Czym jest engender",
+  "promises": [
+    {
+      "heading": "Za darmo, na zawsze.",
+      "body": "Bez opłat, bez abonamentu, bez reklam. Licencji GPLv3 nie da się odwołać, więc nikt nie zacznie za to pobierać pieniędzy, ja też nie."
+    },
+    {
+      "heading": "Nie ma czego sprzedać.",
+      "body": "Nie ma konta ani serwera. Dziennik jest zapisany na twoim urządzeniu, zaszyfrowany, i nigdy go nie widzę. Nie sprzedam czegoś, czego nie mam."
+    },
+    {
+      "heading": "Wszystko w jednym miejscu.",
+      "body": "Dziennik, statystyki, HTZ, operacje, próby, ery, ćwiczenia głosu i podsumowanie do lekarza, które można wydrukować."
+    },
+    {
+      "heading": "Od osoby trans dla osób trans.",
+      "body": "Tworzy to jedna osoba. Nie stoi za tym żadna firma."
+    }
+  ],
+  "sectionOverview": "Co to jest",
   "overview": [
-    "engender pomaga śledzić tranzycję w dzienniku. We wpisie zapiszesz nastrój, notatkę, własne skale, tagi, zdjęcia, nagranie głosowe i odczucia związane z ciałem. Wystarczy jedna z tych rzeczy. Możesz dodać kilka wpisów dziennie albo uzupełnić wcześniejszy dzień.",
-    "Ty wybierasz, co chcesz zapisywać. Nazwij skale po swojemu, porównuj wzorce głosu z wcześniejszymi nagraniami albo notuj leki i wizyty obok codziennych wpisów. Mapa tranzycji opisuje kroki w Polsce i pozwala dodać własne cele. Aplikacja nie ocenia głosu ani nie doradza leczenia.",
-    "Aplikację tworzy jedna osoba trans dla innych osób trans. To wolne oprogramowanie. Korzystanie z niego jest i pozostanie bezpłatne."
+    "engender to miejsce na twoją tranzycję: jak się czujesz z dnia na dzień, co przyjmujesz, co próbujesz, co cię czeka i co już za tobą. Przede wszystkim to dziennik. Wokół niego są zapiski, które zwykle rozchodzą się po notatkach w telefonie, arkuszu, folderze ze zdjęciami i piśmie z przychodni.",
+    "Nic tu o tobie nie decyduje. Skale nazywasz po swojemu i wybierasz, co śledzić, a aplikacja rysuje to, co wpisujesz, bez wystawiania ocen. Nie podpowiada dawek, nie barwi liczb na czerwono i nie mówi, w którą stronę masz zmierzać.",
+    "To wolne oprogramowanie: bez ceny, bez abonamentu i bez niczego do dokupienia, a licencja pilnuje, żeby tak zostało."
   ],
   "sectionPrivacy": "Co chroni, a czego nie",
   "privacyHandoff": [
-    "Dziennik jest zaszyfrowany na twoim urządzeniu. Nie ma konta engender ani serwera z twoimi wpisami. Serwer WWW widzi pobieranie i aktualizacje aplikacji, ale nie dostaje dziennika.",
-    "Co to chroni, a czego nie, jest na osobnej stronie."
+    "Dziennik zostaje na twoim urządzeniu. Nie ma konta engender ani serwera, a wpisy nie mają kopii nigdzie poza miejscem, w którym je trzymasz. Nie przeczytam twojego dziennika, nie sprzedam go ani nikomu nie przekażę, bo nigdy go nie mam.",
+    "Na urządzeniu jest zaszyfrowany, a ty wybierasz, czym go otwierasz: hasłem, PIN-em, odciskiem palca lub twarzą albo blokadą samego urządzenia. Na Androidzie aplikacja nie prosi nawet o dostęp do internetu. W przeglądarce serwer WWW widzi pobieranie aplikacji i sprawdzanie aktualizacji, ale nic z tego, co piszesz.",
+    "Co to chroni, a czego nie (na przykład odblokowanego telefonu w cudzych rękach), jest na osobnej stronie."
   ],
   "sectionTour": "Ekrany",
   "tourIntro": "Wszystkie zrzuty ekranu zrobiono na zmyślonych danych. Nie ma tu niczyjego dziennika.",
@@ -72,103 +91,8 @@
       "caption": "Eksport pakuje całość do jednego archiwum i szyfruje je hasłem, które wybierasz, zanim plik gdziekolwiek trafi. Dziennik zmyślony."
     }
   ],
-  "sectionFeatures": "Co potrafi",
+  "sectionFeatures": "Co w nim jest",
   "features": [
-    {
-      "id": "writing",
-      "group": "Zapisywanie",
-      "paragraphs": [
-        {
-          "lead": "Wpisy.",
-          "rest": " Nastrój w pięciu stopniach, notatka, tagi, zdjęcia, nagranie głosowe i twoje skale. Kilka dziennie albo z datą wsteczną."
-        },
-        {
-          "lead": "Skale.",
-          "rest": " Pięć jest wbudowanych, wśród nich Poczucie płci, od dysforii na jednym końcu do euforii na drugim. Własną skalę ustawiasz od zera: dwie etykiety końców i zakres, jaki chcesz. Te, których używasz, łączysz w zestaw, żeby ekran wpisu pytał tylko o to, co faktycznie mierzysz."
-        },
-        {
-          "lead": "Odczucia związane z ciałem.",
-          "rest": " Dysforię i euforię zapisujesz przy obszarach ciała, których dotyczą. Osobno, bo w jednym dniu mogą pojawić się obie."
-        },
-        {
-          "lead": "Tagi.",
-          "rest": " Pogrupowane, do zmiany w każdej chwili. Całą grupę można wyłączyć, kiedy przestaje być na temat. Ukryty tag wbudowany znika ze wszystkich list wyboru, a wpisy, które już go mają, zostają nietknięte."
-        },
-        {
-          "lead": "Zdjęcia.",
-          "rest": " Trzymane w pamięci samej aplikacji. Nie trafiają do galerii telefonu, więc nie wyskoczą komuś, kto akurat przewija zdjęcia."
-        }
-      ]
-    },
-    {
-      "id": "reading",
-      "group": "Przeglądanie",
-      "paragraphs": [
-        {
-          "lead": "Miesiąc.",
-          "rest": " Kalendarz w jednym kolorze o różnej sile, sterowany nastrojem albo wybraną skalą."
-        },
-        {
-          "lead": "Wyszukiwanie.",
-          "rest": " Notatki i nazwy tagów, dopasowywane w trakcie pisania, bez oglądania się na polskie znaki. Wpisy i zdjęcia oznaczone gwiazdką znajdziesz w jednym miejscu."
-        },
-        {
-          "lead": "Wykresy.",
-          "rest": " Jeden na skalę, w zakresie od 7 do 365 dni, z twoją serią dni z wpisem. Po otwarciu wykresu widać listę wartości z datami, więc linię da się sprawdzić, a nie tylko przyjąć na wiarę."
-        },
-        {
-          "lead": "Tagi w liczbach.",
-          "rest": " Dla wybranej skali widać, jak wypadają dni z danym tagiem wobec dni bez niego. To obserwacja, nie wyrok. Tagi z mniej niż trzema wpisami w zakresie wypadają z zestawienia, bo przy takiej liczbie różnica jest szumem."
-        },
-        {
-          "lead": "Podsumowanie.",
-          "rest": " Tydzień, miesiąc, rok albo wybrany okres: wpisy, serie dni, zmiany na skalach, częste tagi, kamienie milowe i zdjęcia."
-        },
-        {
-          "lead": "Tego dnia.",
-          "rest": " Wpisy sprzed miesiąca, pół roku i roku. Wracają tylko dobre dni."
-        },
-        {
-          "lead": "Wtedy i teraz.",
-          "rest": " Dwa wybrane okresy obok siebie."
-        },
-        {
-          "lead": "Licznik.",
-          "rest": " Zapisujesz jednym dotknięciem, kiedy ktoś zwraca się do ciebie zgodnie z twoją płcią, a kiedy nie. Wykres pokazuje, jak zmieniają się te liczby."
-        },
-        {
-          "lead": "Kamienie milowe i oś czasu.",
-          "rest": " Odliczanie do tego, co przed tobą, rocznice tego, co za tobą."
-        }
-      ]
-    },
-    {
-      "id": "around",
-      "group": "Wokół dziennika",
-      "paragraphs": [
-        "Na karcie Tranzycja znajdziesz cztery grupy narzędzi: Zdrowie, Kroki, Wsparcie i Media.",
-        {
-          "lead": "Zdrowie.",
-          "rest": " Pomiary ciała i rozmiary ubrań, plan leków i dawki, wyniki badań oraz modelowane krzywe hormonalne. Zapisuj zauważone zmiany, zdarzenia cyklu i przebieg rekonwalescencji po operacji. Przygotuj pytania na wizytę i wydrukuj podsumowanie dla lekarza, jeśli chcesz. Aplikacja nie interpretuje wyników ani nie podpowiada dawek."
-        },
-        {
-          "lead": "Kroki.",
-          "rest": " Kamienie milowe, próby, czas noszenia bindera i tuckingu, depilacja oraz listy otwierane w wybranym dniu. Mapa tranzycji obejmuje Polskę i cztery ścieżki: społeczną, prawną, wizerunkową i medyczną. Możesz dopisać własne cele albo oznaczyć krok jako „nie moja droga”."
-        },
-        {
-          "lead": "Wzorce głosu.",
-          "rest": " Na ekranie Głos w Krokach nagrywasz za każdym razem ten sam tekst i tę samą przeciągniętą samogłoskę. Porównujesz je z własnymi wcześniejszymi nagraniami. Wysokość głosu, rezonans czy tempo mówienia opisują nagrania, ale nie oceniają głosu. Wzorzec zapisujesz dla wybranego dnia. Nagranie głosowe we wpisie to osobna notatka."
-        },
-        {
-          "lead": "Wsparcie.",
-          "rest": " Bezpieczna przestrzeń przypomina wpisy z gwiazdką i dobrymi tagami. Jest tu też twoja lista rzeczy, które pomagają. Spis organizacji trans i telefonów zaufania jest wbudowany w aplikację, więc przeczytasz go bez internetu."
-        },
-        {
-          "lead": "Media.",
-          "rest": " Przeglądaj zdjęcia z całego dziennika i porównuj dwa suwakiem. Przygotuj kolaż albo film poklatkowy do eksportu. Przechowuj dokumenty, na przykład skierowania i postanowienia sądu, powiązane z celem lub zapisem, którego dotyczą."
-        }
-      ]
-    },
     {
       "id": "keeping",
       "group": "Archiwa i eksport",
@@ -249,8 +173,8 @@
       "group": "Wygląd",
       "paragraphs": [
         {
-          "lead": "Osiem palet",
-          "rest": ": transpłciowa, niebinarna, genderfluid, biseksualna, lesbijska, panseksualna, agender i tęczowa. Każda przemalowuje całą aplikację, razem z wykresami i kalendarzem, i każda działa w jasnym i w ciemnym motywie."
+          "lead": "Szesnaście palet",
+          "rest": ", wśród nich transpłciowa, niebinarna, genderfluid, biseksualna, lesbijska, panseksualna, agender i tęczowa. Każda przemalowuje całą aplikację, razem z wykresami i kalendarzem, i każda działa w jasnym i w ciemnym motywie."
         },
         {
           "lead": "Kolor niczego nie ocenia.",
@@ -286,8 +210,14 @@
       "note": "Działa i mówi Google, że masz w telefonie aplikację dla osób trans. Żadne ustawienie w engender tego nie zmieni."
     }
   ],
-  "sectionSupport": "Pomoc",
+  "sectionSupport": "Kto to robi",
   "support": [
+    "Tworzy to jedna osoba trans, czyli ja. Nie ma firmy, więc nie ma działu pomocy i nie ma komu tego sprzedać.",
+    {
+      "lead": "Można to przeczytać.",
+      "rest": " engender jest wolnym oprogramowaniem na licencji GPLv3. Nie musisz mi wierzyć na słowo: kod jest publiczny. Zajrzyj albo poproś o to kogoś, komu ufasz."
+    },
+    "Licencja pozwala ten kod uruchamiać, zmieniać i przekazywać dalej, i nie da się jej cofnąć. Jeśli przestanę, kod może podnieść ktoś inny, a twoje archiwa mają udokumentowany format, a nie taki, który otwiera tylko ta jedna aplikacja.",
     {
       "lead": "Jeśli coś nie działa",
       "rest": ", napisz, co się dzieje i czego się spodziewasz. Zwykle to wystarczy, żeby znaleźć przyczynę."
@@ -1004,5 +934,40 @@
     "portfolio": "Portfolio",
     "guide": "Przewodnik",
     "rights": "2026 Alicja Barankiewicz"
-  }
+  },
+  "holds": [
+    {
+      "heading": "Dziennik",
+      "body": "Jak minął dzień. Nastrój, notatka, własne skale, tagi, zdjęcia, notatka głosowa i miejsce na ciele, w którym była dysforia albo euforia. Wystarczy jedna z tych rzeczy. Dzień z samym nastrojem to też dzień z wpisem."
+    },
+    {
+      "heading": "Przegląd",
+      "body": "Z dnia na dzień trudno zobaczyć, czy coś się zmienia. Po kilku miesiącach widać to od razu. Kalendarz każdego miesiąca, wykres dla każdej skali, porównanie dni z tagiem i bez niego, bilans dowolnego tygodnia, miesiąca lub roku i dobre dni sprzed miesiąca, pół roku i roku."
+    },
+    {
+      "heading": "HTZ",
+      "body": "Harmonogram leków z następną dawką i tym, ile zostało, dawki zapisywane na bieżąco, wyniki badań na wykresie i modelowana krzywa hormonalna. Aplikacja nie podpowiada dawek i nie pokazuje norm laboratoryjnych."
+    },
+    {
+      "heading": "Operacje",
+      "body": "Osobny dziennik dla każdego zabiegu: konsultacje, sam termin, rekonwalescencja, rozszerzanie tam, gdzie jest potrzebne, i zdjęcia, które zostają w aplikacji, a nie w galerii telefonu."
+    },
+    {
+      "heading": "Próby",
+      "body": "Wypróbuj imię, zaimki, styl albo ubranie. Nadaj próbie datę początku, zapisuj po drodze, jak się z tym czujesz, i zamknij ją, kiedy już wiesz."
+    },
+    {
+      "heading": "Ery",
+      "body": "Nazwij rozdziały własnej historii, czymkolwiek dla ciebie były. Ery pojawiają się jako pasy na osi czasu i przy kamieniach milowych, więc każdy zapis widać na tle rozdziału, w którym powstał."
+    },
+    {
+      "heading": "Głos",
+      "body": "Ćwicz, nagrywaj za każdym razem ten sam tekst i porównuj go z własnymi wcześniejszymi nagraniami. Wysokość, rezonans i tempo mówienia opisują nagranie, ale nie oceniają głosu."
+    },
+    {
+      "heading": "Podsumowanie do lekarza",
+      "body": "Dawki, wyniki badań, pomiary i zmiany na jednym wydruku na wizytę, za wybrany okres i tylko z wybranymi sekcjami."
+    }
+  ],
+  "holdsAlso": "Poza tym: wyszukiwanie w notatkach i tagach, licznik sytuacji, w których ktoś zwraca się do ciebie zgodnie z twoją płcią albo nie, kamienie milowe z odliczaniem i rocznicami, listy otwierane w wybranym dniu, mapa kroków prawnych i medycznych w Polsce z miejscem na własne, czas noszenia bindera i tuckingu, sesje depilacji, pomiary i rozmiary, przygotowanie do wizyty, Bezpieczna przestrzeń z dobrymi dniami i własną listą rzeczy, które pomagają, spis organizacji trans i telefonów zaufania dostępny bez internetu, jedna biblioteka zdjęć na wszystko i miejsce na skierowania i postanowienia sądu. Rok zapisków w Daylio da się zaimportować."
 }

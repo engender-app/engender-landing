@@ -43,18 +43,17 @@
     'Google Play': 'play',
   };
 
+  /* By index into `m.tour`, whose order is ticket 02's: Home, An entry, The
+     month, One day twice, Search, Six months of one scale, Milestones,
+     Export. The first seven illustrate what the grid holds, so they sit
+     together after it (ticket 10); Export stays in the group whose sentences
+     it proves. */
+  const TOUR_FRAMES = [0, 1, 2, 3, 4, 5, 6];
   const GROUP_FRAMES: Record<string, number[]> = {
-    /* By index into `m.tour`, whose order is ticket 02's: Home, An entry, The
-       month, One day twice, Search, Six months of one scale, Milestones,
-       Export. A frame keeps its own tour index as its flag, so eight frames
-       carry eight flags in either language. */
-    writing: [0, 1, 3],
-    reading: [2, 4, 5, 6],
     keeping: [7],
   };
 
   /* The groups whose presentation is not a plain list of sentences. */
-  const LEADS_GROUP = 'around';
   const CAREFUL_GROUP = 'careful';
   const PALETTE_GROUP = 'looks';
 
@@ -165,6 +164,18 @@
           </li>
         </ul>
       </div>
+      <!-- The whole argument before the first section heading (ticket 10):
+           four short claims a reader takes in before scrolling on a desktop.
+           Not headings, because they are not sections; the page's outline
+           still starts at the overview. -->
+      <ul class="promises cells">
+        {#each m.promises as promise, index (promise.heading)}
+          <li class="wipe" style:--reveal-index={index}>
+            <p class="cell-head">{promise.heading}</p>
+            <p>{promise.body}</p>
+          </li>
+        {/each}
+      </ul>
     </div>
   </div>
 
@@ -185,16 +196,29 @@
         <h2>{m.sectionFeatures}</h2>
         <StripeRule />
       </div>
+    </div>
+    <!-- What a reader came looking for, in the order Alicja gave (ticket
+         10), rather than the app's own information architecture. -->
+    <ul class="holds cells">
+      {#each m.holds as hold, index (hold.heading)}
+        <li class="wipe" style:--reveal-index={index}>
+          <h3 class="cell-head">{hold.heading}</h3>
+          <p>{hold.body}</p>
+        </li>
+      {/each}
+    </ul>
+    <div class="tour">
       <!-- The frame disclosure, and it sits here because this is where a
            reader meets the first one. `content/en/landing.md` is explicit that
            this line goes where a person meets the first screenshot and not in
-           a footnote, and with the strip dissolved the first screenshot is in
-           the group immediately below. -->
+           a footnote. -->
       <div class="screens-note reveal">
         <h3>{m.sectionTour}</h3>
         <p>{m.tourIntro}</p>
       </div>
+      {@render frames(TOUR_FRAMES, 4)}
     </div>
+    <p class="also reveal">{m.holdsAlso}</p>
 
     <div class="feature-groups">
       {#each split.before as group (group.id)}
@@ -286,10 +310,43 @@
   </section>
 </PageShell>
 
+{#snippet frames(screens: number[], across: number)}
+  <!-- The frames a run of sentences is about. Each declares the aspect ratio
+       its screenshot will have, so ticket 06 drops the pictures in and moves
+       no layout. Until then the frame is not empty and not a grey
+       placeholder: it is inked in its own flag. -->
+  <ol class="frames" style:--across={across}>
+    {#each screens as screen, at (screen)}
+      <li class="wipe" style:--reveal-index={screen}>
+        <!-- Shaped like the phone the screenshot will be of, and edged in
+             the live flag. The motif used to fill it, which read as
+             abstract art rather than as a place a picture goes; then each
+             frame was pinned to a flag of its own, which made the strip a
+             chart of all eight while everything else on the page was
+             showing one. They move together now (Alicja's note,
+             2026-08-28), so the frames belong to the same moment as the
+             motif and the rules. -->
+        <!-- A different stripe of the live flag each, so a row of three
+             is three of the flag's colours rather than three copies of one,
+             and each lands a little after the one before it (Alicja's note,
+             2026-08-28). Modulo the stripe count, so a three-stripe flag
+             repeats rather than leaving a frame with no colour. -->
+        <div
+          class="frame"
+          aria-hidden="true"
+          style:--frame-ink={flagCycle.flag.stripes[at % flagCycle.flag.stripes.length]}
+          style:--frame-delay="{at * 130}ms"
+        ></div>
+        <h4>{m.tour[screen].screen}</h4>
+        <p>{m.tour[screen].caption}</p>
+      </li>
+    {/each}
+  </ol>
+{/snippet}
+
 {#snippet featureGroup(group: (typeof messages)['en']['features'][number])}
   <article
     class="group"
-    class:leads={group.id === LEADS_GROUP}
     class:careful={group.id === CAREFUL_GROUP}
     class:palettes={group.id === PALETTE_GROUP}
   >
@@ -299,37 +356,7 @@
     </div>
 
     {#if GROUP_FRAMES[group.id]}
-      <!-- The frames this group's sentences are about. Each declares the
-           aspect ratio its screenshot will have, so ticket 06 drops the
-           pictures in and moves no layout. Until then the frame is not empty
-           and not a grey placeholder: it is inked in its own flag. -->
-      <ol class="frames" style:--across={GROUP_FRAMES[group.id].length}>
-        {#each GROUP_FRAMES[group.id] as screen, at (screen)}
-          <li class="wipe" style:--reveal-index={screen}>
-            <!-- Shaped like the phone the screenshot will be of, and edged in
-                 the live flag. The motif used to fill it, which read as
-                 abstract art rather than as a place a picture goes; then each
-                 frame was pinned to a flag of its own, which made the strip a
-                 chart of all eight while everything else on the page was
-                 showing one. They move together now (Alicja's note,
-                 2026-08-28), so the frames belong to the same moment as the
-                 motif and the rules. -->
-            <!-- A different stripe of the live flag each, so a row of three
-                 is three of the flag's colours rather than three copies of one,
-                 and each lands a little after the one before it (Alicja's note,
-                 2026-08-28). Modulo the stripe count, so a three-stripe flag
-                 repeats rather than leaving a frame with no colour. -->
-            <div
-              class="frame"
-              aria-hidden="true"
-              style:--frame-ink={flagCycle.flag.stripes[at % flagCycle.flag.stripes.length]}
-              style:--frame-delay="{at * 130}ms"
-            ></div>
-            <h4>{m.tour[screen].screen}</h4>
-            <p>{m.tour[screen].caption}</p>
-          </li>
-        {/each}
-      </ol>
+      {@render frames(GROUP_FRAMES[group.id], GROUP_FRAMES[group.id].length)}
     {/if}
 
     {#if group.id === PALETTE_GROUP}
@@ -369,11 +396,7 @@
         {#if typeof paragraph === 'string'}
           <p class="plain reveal" style:--reveal-index={entry}>{paragraph}</p>
         {:else}
-          <p
-            class="reveal"
-            class:lead-block={group.id === LEADS_GROUP}
-            style:--reveal-index={entry}
-          >
+          <p class="reveal" style:--reveal-index={entry}>
             <strong>{paragraph.lead}</strong>{paragraph.rest}
           </p>
         {/if}
@@ -937,21 +960,64 @@
     color: var(--text-2);
   }
 
-  /* ---- Around the journal: four leads as four blocks ------------------ */
+  /* ---- Cells: the promise strip and what it holds -------------------- */
 
-  .leads .entries {
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  /* Cells held by one hairline each, not cards. The app's rule 4 has three
+     treatments and a box of surface colour is none of them: a thing is flush
+     on the page, a block of the flag's colour with a value on it, or ink. A
+     cell is a sentence with a name in front of it, so it is flush, and what
+     says where one ends and the next begins is the line above it. */
+  .cells {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(1.75rem, 4vh, 2.5rem) clamp(1.5rem, 3vw, 2.5rem);
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
 
-  /* Four cells held by one hairline each, not four cards. The app's rule 4
-     has three treatments and a box of surface colour is none of them: a thing
-     is flush on the page, a block of the flag's colour with a value on it, or
-     ink. A lead is a sentence with a name in front of it, so it is flush, and
-     what says where one ends and the next begins is the line above it. */
-  .leads .entries p.lead-block {
-    padding: clamp(1rem, 2vw, 1.5rem) 0 0;
+  .cells li {
+    padding-top: clamp(1rem, 2vw, 1.5rem);
     border-top: 1px solid var(--hairline);
-    max-width: none;
+  }
+
+  .cells p {
+    margin: 0;
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    color: var(--text-2);
+  }
+
+  /* A content title, so the body face at its bold weight, the same treatment
+     a frame's caption title and a channel's name get. */
+  .cells .cell-head {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    font-weight: var(--weight-bold);
+    letter-spacing: normal;
+    line-height: 1.3;
+    color: var(--text);
+  }
+
+  .promises {
+    margin-top: clamp(2.5rem, 6vh, 4rem);
+  }
+
+  .holds {
+    margin-bottom: clamp(3.5rem, 10vh, 6rem);
+  }
+
+  .tour .screens-note {
+    margin-bottom: clamp(1.75rem, 4vh, 2.5rem);
+  }
+
+  .also {
+    max-width: 62ch;
+    margin: 0 0 clamp(3.5rem, 10vh, 7rem);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--text-2);
   }
 
   /* ---- The careful notice --------------------------------------------- */
@@ -1145,6 +1211,12 @@
 
   /* ---- Narrow --------------------------------------------------------- */
 
+  @media (max-width: 64rem) {
+    .cells {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
   @media (max-width: 60rem) {
     .overview,
     .privacy-copy,
@@ -1172,8 +1244,15 @@
   }
 
   @media (max-width: 48rem) {
+    .cells,
     .frames {
       grid-template-columns: minmax(0, 1fr);
+    }
+
+    /* Seven frames one above another would be a wall of empty phones, so the
+       tour keeps two across; a group's single frame stays single. */
+    .tour .frames {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .acquisition {
