@@ -46,20 +46,25 @@ decided here and recorded in `.agents/product-marketing.md`.
 
 **Headline**
 
-> Cała tranzycja w jednym miejscu, na twoim urządzeniu.
+> Twoja tranzycja w jednym miejscu, na własnym urządzeniu.
 
 Ticket 10, from the same decision as the English headline.
 
 **Subheadline**
 
 > Dziennik, statystyki, HTZ, operacje, próby, ery, ćwiczenia głosu i podsumowanie do
-> lekarza. Bez konta, bez serwera, bez opłat. Aplikację tworzy jedna osoba trans dla
-> innych osób trans.
+> lekarza. Bez konta, bez serwera, bez opłat. Od osób trans dla osób trans.
 
 „HTZ” is what Polish readers search with, the way English readers search "HRT".
 „Ćwiczenia głosu” follows the app's own „ćwiczenia głosu” in the microphone
 permission text, and „podsumowanie do lekarza” is the app's title for the
 clinician summary.
+
+**Tagline**
+
+> Otwarty kod, za darmo na zawsze.
+
+Alicja's line, 2026-09-29. It sits on the field under the supporting line.
 
 **Primary action**
 
@@ -79,8 +84,7 @@ is not called Start journal in Polish.
 > **Wszystko w jednym miejscu.** Dziennik, statystyki, HTZ, operacje, próby, ery,
 > ćwiczenia głosu i podsumowanie do lekarza, które można wydrukować.
 
-> **Od osoby trans dla osób trans.** Tworzy to jedna osoba. Nie stoi za tym żadna
-> firma.
+> **Od osób trans dla osób trans.** Żadnej machiny, na którą trzeba się wściekać.
 
 „Nigdy go nie widzę” and „nie sprzedam” keep the author in the present and the
 future, where Polish does not gender the first person.
@@ -124,14 +128,11 @@ reader.
 
 ## Visual tour
 
-### The line that covers the whole tour
+### No screenshot notice
 
-*Gate: shipped. Required by the spec: public screenshots use synthetic Journal data.*
-
-> Wszystkie zrzuty ekranu zrobiono na zmyślonych danych. Nie ma tu niczyjego dziennika.
-
-Place it where a person meets the first screenshot. The captions on the five screens
-that show written entries repeat it in short form, exactly as in English.
+The line saying every screenshot uses invented data, and the short "invented
+entries" tags on the captions, were cut by Alicja on 2026-09-29 (ticket 10). The
+screenshots still use invented data; the page no longer says so.
 
 ### Captions
 
@@ -141,28 +142,27 @@ that show written entries repeat it in short form, exactly as in English.
 
 > Powitanie, co przed tobą, i ostatnie siedem dni w kolorze, który wybierasz. Pasek
 > nastrojów robi wpis jednym ruchem, więc w dzień, kiedy nie masz siły pisać, nadal da
-> się coś zapisać. Wpisy zmyślone.
+> się coś zapisać.
 
 **Wpis**
 
 > Nastrój, twoje skale, tagi, notatka, zdjęcia. Wpisowi wystarczy jedno z tego, więc
-> dzień, w którym starczyło tylko na nastrój, i tak się liczy. Wpis zmyślony.
+> dzień, w którym starczyło tylko na nastrój, i tak się liczy.
 
 **Miesiąc**
 
 > Kolor bierze się z nastroju albo z dowolnej skali, którą wybierzesz. Dni bez wpisu
-> zostają neutralne, bo luka to nie jest zły dzień i kolor nigdy tego nie sugeruje.
+> zostają neutralne.
 
 **Jeden dzień, dwa wpisy**
 
 > Poczucie płci potrafi się zmieniać w ciągu dnia, więc dzień mieści tyle wpisów, ile
-> trzeba, i każdy dostaje swoją godzinę. Kolor całego dnia to ich średnia. Wpisy
-> zmyślone.
+> trzeba, i każdy dostaje swoją godzinę. Kolor całego dnia to ich średnia.
 
 **Wyszukiwanie**
 
-> Szuka w notatkach i tagach w trakcie pisania. Polskie znaki nie mają znaczenia w żadną
-> stronę: wpisz „lozko”, a znajdzie łóżko. Wpisy zmyślone.
+> Szuka w notatkach i tagach w trakcie pisania. Polskie znaki nie mają znaczenia w
+> żadną stronę: wpisz „lozko”, a znajdzie łóżko.
 
 **Pół roku jednej skali**
 
@@ -173,10 +173,15 @@ that show written entries repeat it in short form, exactly as in English.
 
 > Ważne daty, po kolei. Te przed tobą odliczają dni. Te za tobą wracają co roku.
 
+**Głos**
+
+> Ten sam tekst nagrany dziś i miesiąc temu, obok siebie. Wysokość, rezonans i tempo
+> mówienia opisują każde nagranie, ale nie oceniają głosu.
+
 **Eksport**
 
-> Eksport pakuje całość do jednego archiwum i szyfruje je hasłem, które wybierasz, zanim
-> plik gdziekolwiek trafi. Dziennik zmyślony.
+> Eksport pakuje całość do jednego archiwum i szyfruje je hasłem, które wybierasz,
+> zanim plik gdziekolwiek trafi.
 
 ---
 
@@ -205,8 +210,7 @@ address the reader in the past tense, "a day where all you managed was a mood" a
 > podpowiada dawek i nie pokazuje norm laboratoryjnych.
 
 > **Operacje** Osobny dziennik dla każdego zabiegu: konsultacje, sam termin,
-> rekonwalescencja, rozszerzanie tam, gdzie jest potrzebne, i zdjęcia, które zostają w
-> aplikacji, a nie w galerii telefonu.
+> rekonwalescencja, i zdjęcia, które zostają w aplikacji, a nie w galerii telefonu.
 
 > **Próby** Wypróbuj imię, zaimki, styl albo ubranie. Nadaj próbie datę początku,
 > zapisuj po drodze, jak się z tym czujesz, i zamknij ją, kiedy już wiesz.
@@ -243,8 +247,9 @@ address the reader in the past tense, "a day where all you managed was a mood" a
 > wybierasz, zanim plik opuści aplikację. Import wkłada go z powrotem, dokładając do tego,
 > co już jest, albo zastępując całość.
 >
-> **Kopia według harmonogramu.** Na Androidzie zaszyfrowane archiwum trafia do wybranego
-> folderu co tydzień albo co miesiąc.
+> **Automatyczne kopie.** Na Androidzie zaszyfrowane archiwum trafia co tydzień albo
+> co miesiąc do wybranego folderu, w telefonie albo u dostawcy chmury. Aplikacja
+> pokazuje, kiedy ostatnia kopia się udała, a kiedy nie.
 >
 > **Przejście z Daylio.** Import bierze plik CSV z Daylio. Zanim cokolwiek zapisze,
 > pokazuje liczby i to, jak przełoży nastroje, a zawsze tylko dokłada do tego, co już
@@ -253,8 +258,8 @@ address the reader in the past tense, "a day where all you managed was a mood" a
 > **Eksport zwykły.** CSV albo JSON, do arkusza albo na własną kopię. Taki plik nie jest
 > zaszyfrowany, aplikacja mówi to wprost i każe potwierdzić, zanim go zapisze.
 >
-> **Kiedy minęło trochę czasu.** Jeśli ostatnie archiwum ma więcej niż 30 dni, ekran
-> główny mówi o tym raz. Można to zamknąć.
+> **Przypomnienia o kopii.** Jeśli ostatnia kopia ma więcej niż 30 dni, ekran główny o
+> tym mówi i pozwala od razu ją zrobić. Można to zamknąć.
 
 ### Na telefonie
 
@@ -366,11 +371,9 @@ or in neither.*
 *Gate: shipped. Ticket 10 retitled the section „Kto to robi”, present tense, so
 the heading does not gender the author.*
 
-> Tworzy to jedna osoba trans, czyli ja, Alicja Barankiewicz. Na co dzień zajmuję się
-> inżynierią danych w Warszawie, a wywodzę się z animacji, stąd ruch na tej stronie.
+> Jestem Alicja Barankiewicz i na co dzień zajmuję się inżynierią danych w Warszawie.
 > Prowadzę też nazwozbior.pl, wyszukiwarkę wszystkich imion z rejestru PESEL dla osób,
-> które szukają imienia dla siebie. Nie ma firmy, więc nie ma działu pomocy i nie ma
-> komu tego sprzedać.
+> które szukają imienia dla siebie.
 
 ### Source
 
@@ -426,4 +429,4 @@ and the Play listing will.
 
 The description is shared by search, Open Graph and Twitter metadata.
 
-Cała tranzycja w jednym miejscu: dziennik, statystyki, HTZ, operacje, próby, ery, ćwiczenia głosu i podsumowanie do lekarza. Na twoim urządzeniu, bez konta.
+Twoja tranzycja w jednym miejscu: dziennik, statystyki, HTZ, operacje, próby, ery, ćwiczenia głosu i podsumowanie do lekarza. Na twoim urządzeniu, bez konta.

@@ -9,21 +9,22 @@
   "meta": {
     "cardAlt": "The word engender on a dark background, with the trans flag drawn as concentric rings in the corner.",
     "landing": {
-      "description": "Your whole transition in one place: journal, stats, HRT, surgeries, tryouts, eras, voice practice and a clinician summary. On your device, with no account."
+      "description": "Your transition in one place: journal, stats, HRT, surgeries, tryouts, eras, voice practice and a clinician summary. On your device, with no account."
     },
     "privacy": {
       "description": "How engender encrypts your journal, how access and recovery keys work, what exports reveal, and what the web host sees."
     }
   },
   "hero": {
-    "headline": "Your whole transition, in one place, on your own device.",
+    "headline": "Your transition, in one place, on your own device.",
     "definition": {
       "headword": "engender",
       "grammar": "v.",
       "phonetics": "/ɪnˈdʒɛndə/",
       "sense": "to cause or give rise to a feeling, situation or condition."
     },
-    "subheadline": "Journal, stats, HRT, surgeries, tryouts, eras, voice practice and a summary to hand your clinician. No account, no server, no price. One trans person wrote it for other trans people."
+    "subheadline": "Journal, stats, HRT, surgeries, tryouts, eras, voice practice and a summary to hand your clinician. No account, no server, no price. By trans people, for trans people.",
+    "tagline": "Open source and free forever."
   },
   "promises": [
     {
@@ -39,8 +40,8 @@
       "body": "Journal, stats, HRT, surgeries, tryouts, eras, voice practice and a printable summary for your clinician."
     },
     {
-      "heading": "By a trans person, for trans people.",
-      "body": "One person made this. There is no company behind it."
+      "heading": "By trans people, for trans people.",
+      "body": "No machine to rage against."
     }
   ],
   "sectionOverview": "What this is",
@@ -56,27 +57,26 @@
     "What that protects, and what it does not (an unlocked phone in someone else's hands, for one), is on its own page."
   ],
   "sectionTour": "The screens",
-  "tourIntro": "Every screenshot here was made with invented data. Nobody's journal appears on this site.",
   "tour": [
     {
       "screen": "Home",
-      "caption": "The greeting, what is coming up, and the last seven days in whatever colour you picked. The mood row logs an entry for right now in one action, so on a day when you cannot face writing, you can still log something. Invented entries."
+      "caption": "The greeting, what is coming up, and the last seven days in whatever colour you picked. The mood row logs an entry for right now in one action, so on a day when you cannot face writing, you can still log something."
     },
     {
       "screen": "An entry",
-      "caption": "Mood, your scales, tags, a note, photos. An entry needs only one of them, so a day where all you managed was a mood is still a day you logged. Invented entry."
+      "caption": "Mood, your scales, tags, a note, photos. An entry needs only one of them, so a day where all you managed was a mood is still a day you logged."
     },
     {
       "screen": "The month",
-      "caption": "Coloured by mood, or by any scale you choose. Days you did not log stay neutral, because a gap is not a bad day and the colour never says it was."
+      "caption": "Coloured by mood, or by any scale you choose. Days you did not log stay neutral."
     },
     {
       "screen": "One day, twice",
-      "caption": "Gender can shift through a day, so a day holds as many entries as it needs and stamps each one with its time. The day's own colour is their average. Invented entries."
+      "caption": "Gender can shift through a day, so a day holds as many entries as it needs and stamps each one with its time. The day's own colour is their average."
     },
     {
       "screen": "Search",
-      "caption": "Searches your notes and your tags as you type. Diacritics do not matter in either direction: type lozko and it finds łóżko. Invented entries."
+      "caption": "Searches your notes and your tags as you type. Diacritics do not matter in either direction: type lozko and it finds łóżko."
     },
     {
       "screen": "Six months of one scale",
@@ -88,7 +88,11 @@
     },
     {
       "screen": "Export",
-      "caption": "Export packs everything into one Archive, encrypted with a password you choose, before it goes anywhere. Invented journal."
+      "caption": "Export packs everything into one Archive, encrypted with a password you choose, before it goes anywhere."
+    },
+    {
+      "screen": "Voice",
+      "caption": "The same passage recorded today and a month ago, side by side. Pitch, resonance and speaking rate describe each take without grading your voice."
     }
   ],
   "sectionFeatures": "What it holds",
@@ -102,8 +106,8 @@
           "rest": " Export packs your journal into one file, encrypted with a password you choose, before it leaves the app. Import puts it back, either merged into what is here or replacing it."
         },
         {
-          "lead": "Scheduled backup.",
-          "rest": " On Android, an encrypted Archive written to a folder you pick, weekly or monthly."
+          "lead": "Automatic backups.",
+          "rest": " On Android, an encrypted Archive saved weekly or monthly to a folder you pick, on the phone or with a cloud provider. The app shows when the last one worked and when one failed."
         },
         {
           "lead": "Coming from Daylio.",
@@ -114,8 +118,8 @@
           "rest": " CSV or JSON, for a spreadsheet or for keeping your own copy. It is not encrypted, and the app says so and makes you confirm before it writes the file."
         },
         {
-          "lead": "When it has been a while.",
-          "rest": " If your last Archive is more than 30 days old, the home screen says so once. You can dismiss it."
+          "lead": "Backup reminders.",
+          "rest": " If your last backup is more than 30 days old, the home screen says so and lets you back up there and then. You can dismiss it."
         }
       ]
     },
@@ -212,7 +216,7 @@
   ],
   "sectionSupport": "Who made this",
   "support": [
-    "One trans person made this, and that person is me, Alicja Barankiewicz. I work as a data engineer in Warsaw and I come from animation, which is why this page moves the way it does. I also run nazwozbior.pl, which searches every name in the Polish PESEL registry for anyone looking for the one that fits. There is no company, so there is no support desk and nobody to sell it to.",
+    "I'm Alicja Barankiewicz, a data engineer in Warsaw. I also run nazwozbior.pl, which searches every name in the Polish PESEL registry for anyone looking for the one that fits.",
     {
       "lead": "You can read it.",
       "rest": " engender is free software under the GPLv3. The source is public."
@@ -946,7 +950,7 @@
     },
     {
       "heading": "Surgeries",
-      "body": "A journal per procedure: consults, the date itself, recovery, dilation where it applies, and photos that stay inside the app rather than in your camera roll."
+      "body": "A journal per procedure: consults, the date itself, recovery, and photos that stay inside the app rather than in your camera roll."
     },
     {
       "heading": "Tryouts",

@@ -158,13 +158,8 @@ actually ships before upload.*
 > Gender Diary jest wolnym oprogramowaniem na licencji GPLv3. Kod jest publiczny. Jeśli ten
 > projekt kiedyś stanie, kod może podnieść ktoś inny.
 
-*Gate: baseline. Synthetic-data sentence required by the spec.*
-
-> Wszystkie zrzuty ekranu zrobiono na zmyślonych danych. Nie ma tu niczyjego
-> dziennika.
-
-Bug-reporting instructions live in Play's support fields and on the site, not here,
-same as the English file.
+No screenshot notice and no journal warning, same as the English file. Bug-reporting
+instructions live in Play's support fields and on the site, not here.
 
 ---
 

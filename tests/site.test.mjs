@@ -1193,8 +1193,8 @@ const PRIVACY_TITLE = {
 /** The hero headline, which is the one piece of the overview copy that is not
     inside a section and so is not covered by the heading assertions. */
 const HEADLINE = {
-  en: "Your whole transition, in one place, on your own device.",
-  pl: "Cała tranzycja w jednym miejscu, na twoim urządzeniu.",
+  en: "Your transition, in one place, on your own device.",
+  pl: "Twoja tranzycja w jednym miejscu, na własnym urządzeniu.",
 };
 
 /** Both languages describe encryption and reject the retired plaintext fallback. */
@@ -1216,6 +1216,7 @@ const TOUR = {
     "Six months of one scale",
     "Milestones",
     "Export",
+    "Voice",
   ],
   pl: [
     "Ekran główny",
@@ -1226,6 +1227,7 @@ const TOUR = {
     "Pół roku jednej skali",
     "Kamienie milowe",
     "Eksport",
+    "Głos",
   ],
 };
 
@@ -1354,7 +1356,7 @@ for (const locale of ["en", "pl"]) {
     }
   });
 
-  test(`${locale}: the tour is eight captions and no picture`, async () => {
+  test(`${locale}: the tour is nine captions and no picture`, async () => {
     const { context, page } = await visitor({});
     try {
       await page.goto(`${base}/${locale}/`);
@@ -2108,9 +2110,9 @@ const TITLES = {
     the page a visitor asking for neither language is about to be sent to. */
 const DESCRIPTIONS = {
   "/en/":
-    "Your whole transition in one place: journal, stats, HRT, surgeries, tryouts, eras, voice practice and a clinician summary. On your device, with no account.",
+    "Your transition in one place: journal, stats, HRT, surgeries, tryouts, eras, voice practice and a clinician summary. On your device, with no account.",
   "/pl/":
-    "Cała tranzycja w jednym miejscu: dziennik, statystyki, HTZ, operacje, próby, ery, ćwiczenia głosu i podsumowanie do lekarza. Na twoim urządzeniu, bez konta.",
+    "Twoja tranzycja w jednym miejscu: dziennik, statystyki, HTZ, operacje, próby, ery, ćwiczenia głosu i podsumowanie do lekarza. Na twoim urządzeniu, bez konta.",
   "/en/privacy/":
     "How engender encrypts your journal, how access and recovery keys work, what exports reveal, and what the web host sees.",
   "/pl/privacy/":
@@ -3091,8 +3093,8 @@ for (const locale of ["en", "pl"]) {
       const frames = await page.locator(".frames li").count();
       assert.equal(
         frames,
-        8,
-        `/${locale}/ renders ${frames} frames, expected all eight`,
+        9,
+        `/${locale}/ renders ${frames} frames, expected all nine`,
       );
     } finally {
       await context.close();
@@ -3276,13 +3278,13 @@ test("the frames wear the live flag, a different stripe each", async () => {
     await page.waitForLoadState("networkidle");
 
     const frames = page.locator(".frames .frame");
-    assert.equal(await frames.count(), 8, "there are not eight frames");
+    assert.equal(await frames.count(), 9, "there are not nine frames");
 
     const edges = await frames.evaluateAll((found) =>
       found.map((node) => getComputedStyle(node).borderTopColor),
     );
 
-    /* Exactly one of the eight flags can account for all eight edges. */
+    /* One of the sixteen flags has to account for all nine edges. */
     const owners = FLAG_STRIPES.filter((stripes) => {
       const palette = new Set(stripes.map(asRgb));
       return edges.every((edge) => palette.has(edge));
@@ -4152,7 +4154,7 @@ test("the motion system ships no animation runtime at all", async () => {
 });
 
 /* Ticket 10's shape: four promises under the action, eight things the app
-   holds in the order Alicja gave, seven frames after them with Export left in
+   holds in the order Alicja gave, eight frames after them with Export left in
    its group, and the two corrections the fact check made to the copy. */
 const HOLDS = {
   en: ["Journal", "Look back", "HRT", "Surgeries", "Tryouts", "Eras", "Voice", "Clinician summary"],
@@ -4170,7 +4172,7 @@ for (const locale of ["en", "pl"]) {
         await page.locator(".features .holds h3").allInnerTexts(),
         HOLDS[locale],
       );
-      assert.equal(await page.locator(".features .tour .frames li").count(), 7);
+      assert.equal(await page.locator(".features .tour .frames li").count(), 8);
       assert.equal(await page.locator(".group .frames li").count(), 1);
       const main = await page.locator("main").innerText();
       assert.ok(main.includes(PALETTE_LEAD[locale]), "the palette count is not sixteen");

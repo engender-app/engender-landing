@@ -41,10 +41,11 @@
 
   /* By index into `m.tour`, whose order is ticket 02's: Home, An entry, The
      month, One day twice, Search, Six months of one scale, Milestones,
-     Export. The first seven illustrate what the grid holds, so they sit
+     Export, Voice. Voice was added last (ticket 10) so the indices before it
+     held; it sits after the scale chart. All but Export illustrate what the grid holds, so they sit
      together after it (ticket 10); Export stays in the group whose sentences
      it proves. */
-  const TOUR_FRAMES = [0, 1, 2, 3, 4, 5, 6];
+  const TOUR_FRAMES = [0, 1, 2, 3, 4, 5, 8, 6];
   const GROUP_FRAMES: Record<string, number[]> = {
     keeping: [7],
   };
@@ -119,6 +120,7 @@
       <div class="claim">
         <p class="headline enter" style:--enter={1}>{m.hero.headline}</p>
         <p class="subheadline enter" style:--enter={2}>{m.hero.subheadline}</p>
+        <p class="tagline enter" style:--enter={3}>{m.hero.tagline}</p>
       </div>
     </div>
   </div>
@@ -132,7 +134,7 @@
        4.5:1 it was measured at. -->
   <div class="after-field">
     <div class="sheet">
-      <div class="actions enter" style:--enter={3}>
+      <div class="actions enter" style:--enter={4}>
         <a class="cta" href={JOURNAL_URL}>{m.startJournal}</a>
         <ul class="badges">
           {#each m.channels as channel (channel.name)}
@@ -170,7 +172,7 @@
                scroll wipe: on a desktop the strip starts just above the fold,
                and a scrubbed wipe would sit there half uncovered until the
                reader scrolled (47% clipped at 1440x900). -->
-          <li class="enter" style:--enter={4 + index}>
+          <li class="enter" style:--enter={5 + index}>
             <p class="cell-head">{promise.heading}</p>
             <p>{promise.body}</p>
           </li>
@@ -208,13 +210,10 @@
       {/each}
     </ul>
     <div class="tour">
-      <!-- The frame disclosure, and it sits here because this is where a
-           reader meets the first one. `content/en/landing.md` is explicit that
-           this line goes where a person meets the first screenshot and not in
-           a footnote. -->
+      <!-- The heading alone since ticket 10: Alicja cut the invented-data
+           notice that used to sit under it. -->
       <div class="screens-note reveal">
         <h3>{m.sectionTour}</h3>
-        <p>{m.tourIntro}</p>
       </div>
       {@render frames(TOUR_FRAMES, 4)}
     </div>
@@ -493,6 +492,7 @@
   .splash .grammar,
   .splash .sense,
   .splash .subheadline,
+  .splash .tagline,
   .splash .headword,
   .splash .headline {
     color: inherit;
@@ -644,6 +644,12 @@
   /* Nothing follows it on the field any more - the action moved to the page
      below - so the space it used to hold open for that is the field's own
      bottom padding now. */
+  .tagline {
+    margin: 1rem 0 0;
+    font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
+    font-weight: var(--weight-bold);
+  }
+
   .subheadline {
     margin: 0;
     font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
@@ -808,15 +814,10 @@
     margin-bottom: clamp(2.5rem, 7vh, 4.5rem);
   }
 
-  /* The frame disclosure. Its own heading, one level under the act's, because
-     it introduces the pictures rather than a body of copy. */
+  /* The frames' heading, one level under the act's, because it introduces
+     the pictures rather than a body of copy. */
   .screens-note {
-    display: grid;
-    gap: 0.6rem;
     max-width: 46rem;
-    margin-left: min(12vw, 9rem);
-    padding-left: 1.25rem;
-    border-left: 1px solid var(--hairline);
   }
 
   /* A content title: the body face at 750, not the display face, because it
@@ -827,12 +828,6 @@
     font-size: 1.125rem;
     font-weight: var(--weight-bold);
     letter-spacing: normal;
-  }
-
-  .screens-note p {
-    margin: 0;
-    color: var(--text-2);
-    max-width: 50ch;
   }
 
   .feature-groups {
@@ -1212,10 +1207,6 @@
     .privacy-copy,
     .support-section {
       grid-template-columns: minmax(0, 1fr);
-    }
-
-    .screens-note {
-      margin-left: 0;
     }
 
     /* Four frames in a row is unreadable on a phone; two is the most that

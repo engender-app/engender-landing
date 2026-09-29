@@ -46,7 +46,7 @@ engender is lowercase everywhere, including at the start of a sentence
 
 **Headline**
 
-> Your whole transition, in one place, on your own device.
+> Your transition, in one place, on your own device.
 
 Ticket 10 replaced "A transition tracker with a journal at its heart", which
 told a first-time reader what kind of thing this is before telling them what it
@@ -92,11 +92,16 @@ copy's shape.
 **Subheadline**
 
 > Journal, stats, HRT, surgeries, tryouts, eras, voice practice and a summary to hand
-> your clinician. No account, no server, no price. One trans person wrote it for other
-> trans people.
+> your clinician. No account, no server, no price. By trans people, for trans people.
 
 "HRT" is not the app's word (it says medication, regimen, dose). It is the word
 people search with, and the marketing context says to meet them there.
+
+**Tagline**
+
+> Open source and free forever.
+
+Alicja's line, 2026-09-29. It sits on the field under the supporting line.
 
 **Primary action**
 
@@ -120,8 +125,7 @@ are not sections.
 > **All of it, in one place.** Journal, stats, HRT, surgeries, tryouts, eras, voice
 > practice and a printable summary for your clinician.
 
-> **By a trans person, for trans people.** One person made this. There is no company
-> behind it.
+> **By trans people, for trans people.** No machine to rage against.
 
 "I cannot sell what I do not have" states the mechanism instead of promising
 anything, which is how the objections table in the marketing context answers the
@@ -174,47 +178,40 @@ those.
 
 ## Visual tour
 
-### The line that covers the whole tour
+### No screenshot notice
 
-*Gate: shipped. Required by the spec: public screenshots use synthetic Journal data.*
-
-> Every screenshot here was made with invented data. Nobody's journal appears on this
-> site.
-
-Place it where a person meets the first screenshot, not in a footnote. The captions on
-the five screens that show written entries repeat it in short form, because those are
-the ones a reader might otherwise take for someone's real diary.
+The line saying every screenshot uses invented data, and the short "invented
+entries" tags on the captions, were cut by Alicja on 2026-09-29 (ticket 10). The
+screenshots still use invented data; the page no longer says so.
 
 ### Captions
 
-*Gate: shipped, all eight. Ticket 06 recaptures the screenshots; the captions hold.*
+*Gate: shipped, all nine. Ticket 06 recaptures the screenshots; the captions hold. Ticket 10 added Voice, so the tour after the grid has eight frames and Export stays in its group.*
 
 **Home**
 
 > The greeting, what is coming up, and the last seven days in whatever colour you
 > picked. The mood row logs an entry for right now in one action, so on a day when you
-> cannot face writing, you can still log something. Invented entries.
+> cannot face writing, you can still log something.
 
 **An entry**
 
 > Mood, your scales, tags, a note, photos. An entry needs only one of them, so a day
-> where all you managed was a mood is still a day you logged. Invented entry.
+> where all you managed was a mood is still a day you logged.
 
 **The month**
 
-> Coloured by mood, or by any scale you choose. Days you did not log stay neutral,
-> because a gap is not a bad day and the colour never says it was.
+> Coloured by mood, or by any scale you choose. Days you did not log stay neutral.
 
 **One day, twice**
 
 > Gender can shift through a day, so a day holds as many entries as it needs and
-> stamps each one with its time. The day's own colour is their average. Invented
-> entries.
+> stamps each one with its time. The day's own colour is their average.
 
 **Search**
 
 > Searches your notes and your tags as you type. Diacritics do not matter in either
-> direction: type lozko and it finds łóżko. Invented entries.
+> direction: type lozko and it finds łóżko.
 
 **Six months of one scale**
 
@@ -227,10 +224,15 @@ the ones a reader might otherwise take for someone's real diary.
 > Dated days that matter, in order. The ones ahead count down. The ones behind come
 > back each year.
 
+**Voice**
+
+> The same passage recorded today and a month ago, side by side. Pitch, resonance and
+> speaking rate describe each take without grading your voice.
+
 **Export**
 
 > Export packs everything into one Archive, encrypted with a password you choose,
-> before it goes anywhere. Invented journal.
+> before it goes anywhere.
 
 ---
 
@@ -257,9 +259,8 @@ The screenshot tour follows it, then one paragraph for the rest.
 > logged as you take them, lab results drawn as a chart, and a modelled hormone curve.
 > The app never suggests a dose or shows a reference range.
 
-> **Surgeries** A journal per procedure: consults, the date itself, recovery, dilation
-> where it applies, and photos that stay inside the app rather than in your camera
-> roll.
+> **Surgeries** A journal per procedure: consults, the date itself, recovery, and
+> photos that stay inside the app rather than in your camera roll.
 
 > **Tryouts** Try a name, a pronoun set, a style or a garment. Give it a start date,
 > log how it feels as you go, and close it when you know.
@@ -304,8 +305,9 @@ pitch figure may not be presented as a target.
 > choose, before it leaves the app. Import puts it back, either merged into what is here
 > or replacing it.
 >
-> **Scheduled backup.** On Android, an encrypted Archive written to a folder you pick,
-> weekly or monthly.
+> **Automatic backups.** On Android, an encrypted Archive saved weekly or monthly to a
+> folder you pick, on the phone or with a cloud provider. The app shows when the last
+> one worked and when one failed.
 >
 > **Coming from Daylio.** Import a Daylio CSV. It shows you the counts and how the moods
 > will map before it writes anything, and it only ever merges.
@@ -313,8 +315,8 @@ pitch figure may not be presented as a target.
 > **Plain export.** CSV or JSON, for a spreadsheet or for keeping your own copy. It is not
 > encrypted, and the app says so and makes you confirm before it writes the file.
 >
-> **When it has been a while.** If your last Archive is more than 30 days old, the home
-> screen says so once. You can dismiss it.
+> **Backup reminders.** If your last backup is more than 30 days old, the home screen
+> says so and lets you back up there and then. You can dismiss it.
 
 ### On your phone
 
@@ -438,11 +440,9 @@ the fact is undecided, not because anything is unshipped.*
 
 *Gate: shipped. Ticket 10 retitled the section and put the person first.*
 
-> One trans person made this, and that person is me, Alicja Barankiewicz. I work as a
-> data engineer in Warsaw and I come from animation, which is why this page moves the
-> way it does. I also run nazwozbior.pl, which searches every name in the Polish PESEL
-> registry for anyone looking for the one that fits. There is no company, so there is
-> no support desk and nobody to sell it to.
+> I'm Alicja Barankiewicz, a data engineer in Warsaw. I also run nazwozbior.pl, which
+> searches every name in the Polish PESEL registry for anyone looking for the one that
+> fits.
 
 ### Source
 
@@ -495,4 +495,4 @@ address the reader in a way Polish cannot copy without picking a gender for them
 
 The description is shared by search, Open Graph and Twitter metadata.
 
-Your whole transition in one place: journal, stats, HRT, surgeries, tryouts, eras, voice practice and a clinician summary. On your device, with no account.
+Your transition in one place: journal, stats, HRT, surgeries, tryouts, eras, voice practice and a clinician summary. On your device, with no account.
