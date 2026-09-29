@@ -21,7 +21,7 @@ Pozostałe akapity podają źródła. W katalogu tekstów rozdział jest pod
 > Zgłoszenie zmian powinno dotyczyć jednej sprawy. Napisz, co i dlaczego
 > zmieniasz oraz jakie testy udało się uruchomić. CI sprawdza każde
 > zgłoszenie, także w przeglądarce. W testach i zrzutach ekranu używaj
-> zmyślonych danych. Nie dołączaj niczyjego prawdziwego dziennika.
+> zmyślonych danych.
 
 ### Pakiety krajowe
 

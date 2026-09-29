@@ -9,55 +9,75 @@
   "meta": {
     "cardAlt": "The word engender on a dark background, with the trans flag drawn as concentric rings in the corner.",
     "landing": {
-      "description": "Track your transition in a journal with custom scales, Voice benchmarks and care records. Encrypted on your device, with no account."
+      "description": "Your transition in one place: journal, stats, HRT, surgeries, tryouts, eras, voice practice and a clinician summary. On your device, with no account."
     },
     "privacy": {
       "description": "How engender encrypts your journal, how access and recovery keys work, what exports reveal, and what the web host sees."
     }
   },
   "hero": {
-    "headline": "A transition tracker with a journal at its heart.",
+    "headline": "Your transition, in one place, on your own device.",
     "definition": {
       "headword": "engender",
       "grammar": "v.",
       "phonetics": "/ɪnˈdʒɛndə/",
       "sense": "to cause or give rise to a feeling, situation or condition."
     },
-    "subheadline": "Track your days with custom scales, Voice benchmarks and care records. Your journal stays on your device. No account needed."
+    "subheadline": "Journal, stats, HRT, surgeries, tryouts, eras, voice practice and a summary to hand your clinician. No account, no server, no price. By trans people, for trans people.",
+    "tagline": "Open source and free forever."
   },
-  "sectionOverview": "What engender is",
+  "promises": [
+    {
+      "heading": "Free, for good.",
+      "body": "No price, no plan, no ads. The licence is GPLv3, which cannot be revoked, so nobody can charge for this later, and that includes me."
+    },
+    {
+      "heading": "Nothing to sell.",
+      "body": "There is no account and no server. Your journal is stored on your device, encrypted, and I never see it. I cannot sell what I do not have."
+    },
+    {
+      "heading": "All of it, in one place.",
+      "body": "Journal, stats, HRT, surgeries, tryouts, eras, voice practice and a printable summary for your clinician."
+    },
+    {
+      "heading": "By trans people, for trans people.",
+      "body": "No machine to rage against."
+    }
+  ],
+  "sectionOverview": "What this is",
   "overview": [
-    "engender is a transition tracker built around a journal. An entry holds a mood, a note, your scales, tags, photos, a voice recording and how your body felt. One of those is enough. Write several entries in a day or backdate one to a day you missed.",
-    "You choose which parts of transition to record. Name your own scales, compare Voice benchmarks with earlier takes, or keep medication and appointment records beside your entries. The roadmap lists steps in Poland, with room for your own goals. The app does not assess your voice or give treatment advice.",
-    "One trans person wrote this for other trans people. It is free software, there is no price, no plan and nothing to upsell, and it stays that way."
+    "engender is where you keep your transition: how you feel from day to day, what you take, what you are trying, what is coming up and what has already happened. It is a journal first. Around the journal sit the records that otherwise end up spread across a notes app, a spreadsheet, a photo folder and a letter from a clinic.",
+    "Nothing in it decides anything about you. You name your own scales and pick what to track, and the app draws what you put in without grading it. It never suggests a dose, never colours a number red and never tells you which way you are meant to be going.",
+    "It is free software: there is no price, no plan and nothing to upsell, and the licence keeps it that way."
   ],
   "sectionPrivacy": "What it protects, and what it doesn't",
   "privacyHandoff": [
-    "Your journal is encrypted on your device. There is no engender account or server holding your entries. The web host sees requests to load and update the app, but does not receive your journal.",
-    "What that protects, and what it does not, is on its own page."
+    "Your journal stays on your device. There is no engender account, no server, and no copy of your entries anywhere but where you put them. I cannot read your journal, sell it or hand it over, because I never have it.",
+    "On your device it is encrypted, and you choose what opens it: a passphrase, a PIN, your fingerprint or face, or the device's own lock. On Android the app does not even ask for internet permission. In a browser, the web host sees the app being loaded and checking for updates, and nothing of what you write.",
+    "If you would rather not rely on my server at all, you can host the app yourself: every release publishes it as a bundle you can serve from your own domain, and then the only host that sees it load is yours.",
+    "What that protects, and what it does not (an unlocked phone in someone else's hands, for one), is on its own page."
   ],
   "sectionTour": "The screens",
-  "tourIntro": "Every screenshot here was made with invented data. Nobody's journal appears on this site.",
   "tour": [
     {
       "screen": "Home",
-      "caption": "The greeting, what is coming up, and the last seven days in whatever colour you picked. The mood row logs an entry for right now in one action, so on a day when you cannot face writing, you can still log something. Invented entries."
+      "caption": "The greeting, what is coming up, and the last seven days in whatever colour you picked. The mood row logs an entry for right now in one action, so on a day when you cannot face writing, you can still log something."
     },
     {
       "screen": "An entry",
-      "caption": "Mood, your scales, tags, a note, photos. An entry needs only one of them, so a day where all you managed was a mood is still a day you logged. Invented entry."
+      "caption": "Mood, your scales, tags, a note, photos. An entry needs only one of them, so a day where all you managed was a mood is still a day you logged."
     },
     {
       "screen": "The month",
-      "caption": "Coloured by mood, or by any scale you choose. Days you did not log stay neutral, because a gap is not a bad day and the colour never says it was."
+      "caption": "Coloured by mood, or by any scale you choose. Days you did not log stay neutral."
     },
     {
       "screen": "One day, twice",
-      "caption": "Gender can shift through a day, so a day holds as many entries as it needs and stamps each one with its time. The day's own colour is their average. Invented entries."
+      "caption": "Gender can shift through a day, so a day holds as many entries as it needs and stamps each one with its time. The day's own colour is their average."
     },
     {
       "screen": "Search",
-      "caption": "Searches your notes and your tags as you type. Diacritics do not matter in either direction: type lozko and it finds łóżko. Invented entries."
+      "caption": "Searches your notes and your tags as you type. Diacritics do not matter in either direction: type lozko and it finds łóżko."
     },
     {
       "screen": "Six months of one scale",
@@ -69,106 +89,15 @@
     },
     {
       "screen": "Export",
-      "caption": "Export packs everything into one Archive, encrypted with a password you choose, before it goes anywhere. Invented journal."
+      "caption": "Export packs everything into one Archive, encrypted with a password you choose, before it goes anywhere."
+    },
+    {
+      "screen": "Voice",
+      "caption": "The same passage recorded today and a month ago, side by side. Pitch, resonance and speaking rate describe each take without grading your voice."
     }
   ],
-  "sectionFeatures": "What it does",
+  "sectionFeatures": "What it holds",
   "features": [
-    {
-      "id": "writing",
-      "group": "Writing it down",
-      "paragraphs": [
-        {
-          "lead": "Entries.",
-          "rest": " A mood on five levels, a note, tags, photos, a voice recording, and your scales. Several a day, or backdated to a day you missed."
-        },
-        {
-          "lead": "Scales.",
-          "rest": " Five come built in, among them Gender feeling, which runs from dysphoria at one end to euphoria at the other. Make your own, with whatever two end labels and range you want, and group the ones you use into a preset so the entry screen only asks about what you actually track."
-        },
-        {
-          "lead": "How your body felt.",
-          "rest": " Dysphoria and euphoria, marked on the body regions they belong to. Tracked separately, because they are not opposites and one day can hold both."
-        },
-        {
-          "lead": "Tags.",
-          "rest": " Grouped and editable. Turn a whole group off when it stops being relevant. Hiding a built-in tag takes it out of every picker and leaves every entry that already carries it alone."
-        },
-        {
-          "lead": "Photos.",
-          "rest": " Kept in the app's own storage. They never go into your phone's gallery, so they do not turn up in a camera roll someone else is scrolling."
-        }
-      ]
-    },
-    {
-      "id": "reading",
-      "group": "Reading it back",
-      "paragraphs": [
-        {
-          "lead": "The month.",
-          "rest": " A heat map in one colour, driven by mood or by a scale you pick."
-        },
-        {
-          "lead": "Search.",
-          "rest": " Your notes and tag labels, matched as you type, ignoring diacritics. Star what matters, and every starred entry and photo waits in one place."
-        },
-        {
-          "lead": "Charts.",
-          "rest": " One per scale, over 7 to 365 days, with your streak. Open one for the dated list of values behind it, so you can check the line instead of taking it on trust."
-        },
-        {
-          "lead": "Tag insights.",
-          "rest": " For a given scale, how days with a tag compare to days without it. An observation, not a verdict. Tags with fewer than three entries in that stretch are left out, because at that size the difference is noise."
-        },
-        {
-          "lead": "Wrapped.",
-          "rest": " A week, a month or a year, looked back on: entries, streaks, how a scale moved, top tags, milestones, photos. Or any stretch you pick yourself."
-        },
-        {
-          "lead": "On this day.",
-          "rest": " What you logged a month, six months and a year ago. Only days that were good come back."
-        },
-        {
-          "lead": "Then and now.",
-          "rest": " Two stretches of time, side by side."
-        },
-        {
-          "lead": "The tally.",
-          "rest": " One tap when you were misgendered, one when you were gendered right, and a chart of how the counts move."
-        },
-        {
-          "lead": "Milestones and the timeline.",
-          "rest": " Countdowns ahead, anniversaries behind."
-        }
-      ]
-    },
-    {
-      "id": "around",
-      "group": "Around the journal",
-      "paragraphs": [
-        "The Transition tab groups the tools around your journal into Health, Steps, Support and Media.",
-        {
-          "lead": "Health.",
-          "rest": " Measurements and clothing sizes, medication schedules and doses, lab results and modelled hormone curves. Keep records of changes, cycle events and surgery recovery. Prepare questions for appointments and print a summary for a clinician when you choose. The app does not interpret lab values or suggest doses."
-        },
-        {
-          "lead": "Steps.",
-          "rest": " Milestones, tryouts, binder and tucking wear time, hair removal and letters that open on a date you choose. The roadmap covers Poland, with social, legal, appearance and medical tracks. Add your own goals or mark a step as not for you."
-        },
-        {
-          "lead": "Voice benchmarks.",
-          "rest": " On the Voice screen in Steps, record the same passage and held vowel each time, then compare with your own earlier takes. Figures such as pitch, resonance and speaking rate describe the recordings without grading your voice. A benchmark belongs to a day; a voice recording in an entry is a separate memo."
-        },
-        {
-          "lead": "Support.",
-          "rest": " Safe Space brings back starred and positive entries and holds your own list of things that help. Trans organisations and helplines are listed in the app, so you can read the directory offline."
-        },
-        {
-          "lead": "Media.",
-          "rest": " Browse photos from across the journal and compare two with a slider. Make a collage or time-lapse to export. Keep documents such as referrals and court orders, linked to the goal or record they belong to."
-        }
-      ]
-    },
     {
       "id": "keeping",
       "group": "Keeping it",
@@ -178,8 +107,8 @@
           "rest": " Export packs your journal into one file, encrypted with a password you choose, before it leaves the app. Import puts it back, either merged into what is here or replacing it."
         },
         {
-          "lead": "Scheduled backup.",
-          "rest": " On Android, an encrypted Archive written to a folder you pick, weekly or monthly."
+          "lead": "Automatic backups.",
+          "rest": " On Android, an encrypted Archive saved weekly or monthly to a folder you pick, on the phone or with a cloud provider. The app shows when the last one worked and when one failed."
         },
         {
           "lead": "Coming from Daylio.",
@@ -190,8 +119,8 @@
           "rest": " CSV or JSON, for a spreadsheet or for keeping your own copy. It is not encrypted, and the app says so and makes you confirm before it writes the file."
         },
         {
-          "lead": "When it has been a while.",
-          "rest": " If your last Archive is more than 30 days old, the home screen says so once. You can dismiss it."
+          "lead": "Backup reminders.",
+          "rest": " If your last backup is more than 30 days old, the home screen says so and lets you back up there and then. You can dismiss it."
         }
       ]
     },
@@ -249,8 +178,8 @@
       "group": "How it looks",
       "paragraphs": [
         {
-          "lead": "Eight palettes",
-          "rest": ", including trans, nonbinary, genderfluid, bisexual, lesbian, pansexual, agender and rainbow. Each one recolours the whole app, charts and calendar included, and each one works in light and dark."
+          "lead": "Sixteen palettes",
+          "rest": ": trans, nonbinary, genderfluid, bisexual, lesbian, pansexual, rainbow, agender, gay men, genderqueer, intersex, asexual, demiboy, demigirl, trigender and the Polish flag. Each one recolours the whole app, charts and calendar included, and each one works in light and dark."
         },
         {
           "lead": "Colour never judges.",
@@ -286,20 +215,17 @@
       "note": "Works, and tells Google you have a trans app on your phone. Nothing in engender changes that."
     }
   ],
-  "sectionSupport": "Support",
+  "sectionSupport": "Who made this",
   "support": [
+    "I'm Alicja Barankiewicz, a data engineer in Warsaw. I also run nazwozbior.pl, which searches every name in the Polish PESEL registry for anyone looking for the one that fits.",
     {
       "lead": "You can read it.",
-      "rest": " engender is free software under the GPLv3. Do not take my word for anything on this page: the source is public. Go and look, or get someone you trust to look."
+      "rest": " engender is free software under the GPLv3. The source is public."
     },
-    "The licence also means you can run it, change it and pass it on. This is one person's project, so it might stop. If it does, someone else is free to pick the code up, and your Archives are a documented format rather than something only this app can open.",
+    "The licence means you can run it, change it and pass it on, and it cannot be taken back. If I stop, someone else is free to pick the code up, and your Archives are a documented format rather than something only this app can open.",
     {
       "lead": "If something is broken",
       "rest": ", tell me what happened and what you expected instead. That is usually enough to find it."
-    },
-    {
-      "lead": "Do not send me your journal.",
-      "rest": " Not an Archive, not a screenshot with your entries in it, not a log from a session where you were writing. I will never ask for any of it. If something asks, it is not me."
     }
   ],
   "privacyPage": {
@@ -374,6 +300,14 @@
         "paragraphs": [
           "When the web app loads or checks for updates, the host sees your IP address, request time, requested files and their sizes, and User-Agent and Referer headers. It does not receive journal entries, photos, notes or lab results. After installation, you can use the journal offline.",
           "The Android app does not request the INTERNET permission. Store operators may record downloads and updates. Installing from Google Play ties the installation to your Google account; no engender setting changes that."
+        ]
+      },
+      {
+        "heading": "Hosting it yourself",
+        "paragraphs": [
+          "If you would rather no one else's server saw even that, you can host the web app yourself. Each release publishes the app as a ready bundle, so there is nothing to fork or rebuild: serve it with nginx, or run the container image, behind your own HTTPS. The requests above then reach your server and nobody else's.",
+          "It needs HTTPS and the root of an address: a subdomain works, a path under a domain does not. A journal belongs to the address it was opened on, so a journal kept on my server does not appear on yours, and changing your hostname later leaves the old journal at the old address. Move between them with an Archive: export on one, import on the other.",
+          "The Android app is not affected. It carries its own copy of the web app and never loads it from a server."
         ]
       },
       {
@@ -970,7 +904,7 @@
           {
             "heading": "Security reports",
             "paragraphs": [
-              "You can report a security problem through GitHub's private vulnerability reporting. Include the app version, device or browser, clear steps to reproduce the problem, and what you expected and saw. Use invented data for a minimal proof. Do not send journal entries, Archives, keys, screenshots with private details or logs containing journal content. Nobody needs to see your journal for support or to confirm a bug.",
+              "You can report a security problem through GitHub's private vulnerability reporting. Include the app version, device or browser, clear steps to reproduce the problem, and what you expected and saw. Use invented data for a minimal proof.",
               "One person maintains the project, so a report is read when they next sit down to work. There is no fixed response window."
             ]
           }
@@ -984,7 +918,7 @@
             "heading": "Code",
             "paragraphs": [
               "Clone the Journal repository from github.com/barankiewicz/gender-diary. Run npm install, then npm run dev to work locally. The README lists the checks; npm run check, npm test and npm run test:browser cover different parts of the app.",
-              "Keep a pull request focused. Say what changed, why it changed and which checks you ran. CI runs on each pull request, including browser checks. Use invented journal data in tests and screenshots; do not put anyone's real journal in an issue or a pull request."
+              "Keep a pull request focused. Say what changed, why it changed and which checks you ran. CI runs on each pull request, including browser checks. Use invented journal data in tests and screenshots."
             ]
           },
           {
@@ -1009,5 +943,40 @@
     "portfolio": "Portfolio",
     "guide": "Guide",
     "rights": "2026 Alicja Barankiewicz"
-  }
+  },
+  "holds": [
+    {
+      "heading": "Journal",
+      "body": "How today felt. A mood, a note, your own scales, tags, photos, a voice memo, and where in your body dysphoria or euphoria sat. One of those is enough. A day where all you managed was a mood is still a day you logged."
+    },
+    {
+      "heading": "Look back",
+      "body": "Whether anything is changing is hard to see day to day and easy to see over months. A heat map of each month, a chart for each scale, how days with a tag compare to days without, a wrapped for any week, month or year, and the good days from a month, six months and a year ago."
+    },
+    {
+      "heading": "HRT",
+      "body": "Your medication schedule with the next dose and how much is left, doses logged as you take them, lab results drawn as a chart, and a modelled hormone curve. The app never suggests a dose or shows a reference range."
+    },
+    {
+      "heading": "Surgeries",
+      "body": "A journal per procedure: consults, the date itself, recovery, and photos that stay inside the app rather than in your camera roll."
+    },
+    {
+      "heading": "Tryouts",
+      "body": "Try a name, a pronoun set, a style or a garment. Give it a start date, log how it feels as you go, and close it when you know."
+    },
+    {
+      "heading": "Eras",
+      "body": "Name the chapters of your own timeline, whatever they were for you. They draw as bands along your timeline and milestones, so a reading sits against the chapter you were in when you wrote it."
+    },
+    {
+      "heading": "Voice",
+      "body": "Practise, record the same passage each time, and compare with your own earlier takes. Pitch, resonance and speaking rate describe the recording without grading your voice."
+    },
+    {
+      "heading": "Clinician summary",
+      "body": "Bring your doses, labs, measurements and changes to an appointment as one printed summary, over a range you choose, with only the sections you choose."
+    }
+  ],
+  "holdsAlso": "Also in there: search across your notes and tags, a tally of the times you were misgendered and gendered right, milestones with countdowns ahead and anniversaries behind, letters that open on a date you choose, a roadmap of the legal and medical steps in Poland with room for your own, binder and tucking wear time, hair removal sessions, measurements and sizes, appointment prep, Safe Space with your good days and your own comfort list, a directory of trans organisations and helplines you can read offline, one photo library across all of it, and a place for referrals and court orders. If you already have a year in Daylio, it imports."
 }

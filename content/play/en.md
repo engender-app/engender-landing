@@ -184,22 +184,12 @@ source, but the gate is the repository's visibility and not the licence file.*
 
 > Free software
 >
-> engender is free software under the GPLv3. Do not take my word for anything on
-> this listing: the source is public. Go and look, or get someone you trust to look.
+> engender is free software under the GPLv3. The source is public.
 > If this project ever stops, someone else can pick the code up.
 
-*Gate: baseline. The synthetic-data sentence is required by the spec for every public
-screenshot.*
-
-> Every screenshot on this listing was made with invented data. Nobody's journal
-> appears here.
->
-> Do not send me your journal, not even to report a bug: I will never ask for it. If
-> something asks, it is not me.
-
-Bug-reporting instructions live in Play's support fields and on the site, not here.
-The journal prohibition stays, because the listing is where a person first learns what
-this project will and will not ask of them.
+No screenshot notice and no journal warning: Alicja cut both on 2026-09-29. The
+screenshots still use invented data. Bug-reporting instructions live in Play's
+support fields and on the site, not here.
 
 ---
 

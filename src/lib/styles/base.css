@@ -417,6 +417,15 @@
   box-sizing: border-box;
 }
 
+/* Anything scrolled into view - a link reached by Tab, a fragment - stops
+   above the fixed bar rather than under it. Without this a focused link at
+   the foot of the viewport sat behind the bar, and the browser tests' clicks
+   on the privacy link failed about one run in eight because the bar took the
+   pointer. */
+:root {
+  scroll-padding-bottom: calc(var(--footer-h) + 1rem);
+}
+
 body {
   margin: 0;
   background: var(--bg);

@@ -1145,20 +1145,20 @@ test("a production build is indexable, sitemap and robots in agreement", async (
     Acquisition keeps its heading in ACQUISITION, where it already was. */
 const HEADINGS = {
   en: {
-    overview: "What engender is",
+    overview: "What this is",
     privacy: "What it protects, and what it doesn't",
     tour: "The screens",
-    features: "What it does",
+    features: "What it holds",
     acquisition: ACQUISITION.en.heading,
-    support: "Support",
+    support: "Who made this",
   },
   pl: {
-    overview: "Czym jest engender",
+    overview: "Co to jest",
     privacy: "Co chroni, a czego nie",
     tour: "Ekrany",
-    features: "Co potrafi",
+    features: "Co w nim jest",
     acquisition: ACQUISITION.pl.heading,
-    support: "Pomoc",
+    support: "Kto to robi",
   },
 };
 
@@ -1193,8 +1193,8 @@ const PRIVACY_TITLE = {
 /** The hero headline, which is the one piece of the overview copy that is not
     inside a section and so is not covered by the heading assertions. */
 const HEADLINE = {
-  en: "A transition tracker with a journal at its heart.",
-  pl: "Śledź tranzycję we własnym dzienniku.",
+  en: "Your transition, in one place, on your own device.",
+  pl: "Twoja tranzycja w jednym miejscu, na własnym urządzeniu.",
 };
 
 /** Both languages describe encryption and reject the retired plaintext fallback. */
@@ -1216,6 +1216,7 @@ const TOUR = {
     "Six months of one scale",
     "Milestones",
     "Export",
+    "Voice",
   ],
   pl: [
     "Ekran główny",
@@ -1226,6 +1227,7 @@ const TOUR = {
     "Pół roku jednej skali",
     "Kamienie milowe",
     "Eksport",
+    "Głos",
   ],
 };
 
@@ -1354,7 +1356,7 @@ for (const locale of ["en", "pl"]) {
     }
   });
 
-  test(`${locale}: the tour is eight captions and no picture`, async () => {
+  test(`${locale}: the tour is nine captions and no picture`, async () => {
     const { context, page } = await visitor({});
     try {
       await page.goto(`${base}/${locale}/`);
@@ -1946,7 +1948,6 @@ const PRIVACY_CLAIMS = {
     "GDIARY",
     "single-event .ics calendar files",
     "private vulnerability reporting",
-    "Do not send journal entries",
   ],
   pl: [
     "profilach przeglądarki",
@@ -1965,7 +1966,6 @@ const PRIVACY_CLAIMS = {
     "GDIARY",
     "pliki kalendarza .ics",
     "prywatny formularz podatności",
-    "Nie wysyłaj wpisów",
   ],
 };
 
@@ -2110,9 +2110,9 @@ const TITLES = {
     the page a visitor asking for neither language is about to be sent to. */
 const DESCRIPTIONS = {
   "/en/":
-    "Track your transition in a journal with custom scales, Voice benchmarks and care records. Encrypted on your device, with no account.",
+    "Your transition in one place: journal, stats, HRT, surgeries, tryouts, eras, voice practice and a clinician summary. On your device, with no account.",
   "/pl/":
-    "Śledź tranzycję we własnym dzienniku: skale, wzorce głosu i zapiski o zdrowiu. Dane są zaszyfrowane na twoim urządzeniu. Bez konta.",
+    "Twoja tranzycja w jednym miejscu: dziennik, statystyki, HTZ, operacje, próby, ery, ćwiczenia głosu i podsumowanie do lekarza. Na twoim urządzeniu, bez konta.",
   "/en/privacy/":
     "How engender encrypts your journal, how access and recovery keys work, what exports reveal, and what the web host sees.",
   "/pl/privacy/":
@@ -3093,8 +3093,8 @@ for (const locale of ["en", "pl"]) {
       const frames = await page.locator(".frames li").count();
       assert.equal(
         frames,
-        8,
-        `/${locale}/ renders ${frames} frames, expected all eight`,
+        9,
+        `/${locale}/ renders ${frames} frames, expected all nine`,
       );
     } finally {
       await context.close();
@@ -3111,7 +3111,7 @@ for (const locale of ["en", "pl"]) {
    thing making the two products look related. And the cycle can stop, which
    nothing else on the page would reveal. */
 
-/** The eight stripe sequences the motif must be painted in, copied from the
+/** The sixteen stripe sequences the motif must be painted in, copied from the
     Journal repository's `--motif-stripes` (its src/lib/theme/palettes.css) the
     same way $lib/flags.ts copies them. Written out a second time here on
     purpose: this is the test asserting the two repositories agree, so reading
@@ -3125,6 +3125,14 @@ const FLAG_STRIPES = [
   ["#FF218C", "#FFD800", "#21B1FF"],
   ["#E40303", "#FF8C00", "#FFED00", "#008026", "#004CFF", "#732982"],
   ["#1A1A1A", "#B9B9B9", "#FFFFFF", "#B9F484", "#FFFFFF", "#B9B9B9", "#1A1A1A"],
+  ["#078D70", "#26CEAA", "#98E8C1", "#FFFFFF", "#7BADE2", "#5049CB", "#3D1A78"],
+  ["#B57EDC", "#FFFFFF", "#4A8123"],
+  ["#7902AA", "#FFD800"],
+  ["#000000", "#A3A3A3", "#FFFFFF", "#800080"],
+  ["#7F7F7F", "#C4C4C4", "#9DD7EA", "#FFFFFF", "#9DD7EA", "#C4C4C4", "#7F7F7F"],
+  ["#7F7F7F", "#C4C4C4", "#F3B5CD", "#FFFFFF", "#F3B5CD", "#C4C4C4", "#7F7F7F"],
+  ["#F5A9B8", "#B57EDC", "#5BCEFA", "#B57EDC", "#F5A9B8"],
+  ["#FFFFFF", "#DC143C"],
 ];
 
 const hexToRgb = (hex) =>
@@ -3270,13 +3278,13 @@ test("the frames wear the live flag, a different stripe each", async () => {
     await page.waitForLoadState("networkidle");
 
     const frames = page.locator(".frames .frame");
-    assert.equal(await frames.count(), 8, "there are not eight frames");
+    assert.equal(await frames.count(), 9, "there are not nine frames");
 
     const edges = await frames.evaluateAll((found) =>
       found.map((node) => getComputedStyle(node).borderTopColor),
     );
 
-    /* Exactly one of the eight flags can account for all eight edges. */
+    /* One of the sixteen flags has to account for all nine edges. */
     const owners = FLAG_STRIPES.filter((stripes) => {
       const palette = new Set(stripes.map(asRgb));
       return edges.every((edge) => palette.has(edge));
@@ -3487,6 +3495,14 @@ const FLAG_NAMES = [
   "pansexual",
   "rainbow",
   "agender",
+  "gaymen",
+  "genderqueer",
+  "intersex",
+  "asexual",
+  "demiboy",
+  "demigirl",
+  "trigender",
+  "polish",
 ];
 
 const ACTION_FILL = {
@@ -3499,6 +3515,14 @@ const ACTION_FILL = {
     "#D00A72",
     "#63348F",
     "#4A7A22",
+    "#08765F",
+    "#7944A2",
+    "#72009E",
+    "#800080",
+    "#347A98",
+    "#A94D75",
+    "#7950A4",
+    "#B30E31",
   ],
   dark: [
     "#F0A3B6",
@@ -3509,6 +3533,14 @@ const ACTION_FILL = {
     "#FF74B8",
     "#C09EE8",
     "#AEEB76",
+    "#6AD9BA",
+    "#CAA1E6",
+    "#D894F3",
+    "#D586D5",
+    "#9DD7EA",
+    "#F3B5CD",
+    "#CAA4E7",
+    "#F4748E",
   ],
 };
 
@@ -3639,9 +3671,17 @@ const FIELD_BANDS = [
   ["pansexual", "#FFD800", "#101820"],
   ["rainbow", "#004CFF", "#FFFFFF"],
   ["agender", "#B9F484", "#101820"],
+  ["gaymen", "#26CEAA", "#101820"],
+  ["genderqueer", "#4A8123", "#FFFFFF"],
+  ["intersex", "#FFD800", "#101820"],
+  ["asexual", "#800080", "#FFFFFF"],
+  ["demiboy", "#9DD7EA", "#101820"],
+  ["demigirl", "#F3B5CD", "#101820"],
+  ["trigender", "#B57EDC", "#101820"],
+  ["polish", "#DC143C", "#FFFFFF"],
 ];
 
-test("every word on the splash's field holds 4.5:1, on all eight flags", async () => {
+test("every word on the splash's field holds 4.5:1, on all sixteen flags", async () => {
   /* The pixel pass two sections up measures what is actually painted, and it
      can only ever see the flag that happens to be up when the page loads -
      trans, whose band carries black at 9.59:1 and would hide all seven of the
@@ -4112,6 +4152,36 @@ test("the motion system ships no animation runtime at all", async () => {
     );
   }
 });
+
+/* Ticket 10's shape: four promises under the action, eight things the app
+   holds in the order Alicja gave, eight frames after them with Export left in
+   its group, and the two corrections the fact check made to the copy. */
+const HOLDS = {
+  en: ["Journal", "Look back", "HRT", "Surgeries", "Tryouts", "Eras", "Voice", "Clinician summary"],
+  pl: ["Dziennik", "Przegląd", "HTZ", "Operacje", "Próby", "Ery", "Głos", "Podsumowanie do lekarza"],
+};
+const PALETTE_LEAD = { en: "Sixteen palettes", pl: "Szesnaście palet" };
+
+for (const locale of ["en", "pl"]) {
+  test(`${locale}: the promises, the eight holds and the tour sit in order`, async () => {
+    const { context, page } = await visitor({});
+    try {
+      await page.goto(`${base}/${locale}/`);
+      assert.equal(await page.locator(".after-field .promises li").count(), 4);
+      assert.deepEqual(
+        await page.locator(".features .holds h3").allInnerTexts(),
+        HOLDS[locale],
+      );
+      assert.equal(await page.locator(".features .tour .frames li").count(), 8);
+      assert.equal(await page.locator(".group .frames li").count(), 1);
+      const main = await page.locator("main").innerText();
+      assert.ok(main.includes(PALETTE_LEAD[locale]), "the palette count is not sixteen");
+      assert.ok(!/ko-fi/i.test(main), "Ko-fi is on the page before its link is live");
+    } finally {
+      await context.close();
+    }
+  });
+}
 
 for (const { name, run } of tests) {
   try {

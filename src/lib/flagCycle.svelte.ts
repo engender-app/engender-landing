@@ -1,6 +1,6 @@
 import { FLAGS, type Flag } from '$lib/flags';
 
-/** Which of the eight flags the motif is currently inked in, shared by every
+/** Which of the sixteen flags the motif is currently inked in, shared by every
     motif on the page so two of them never drift out of step.
 
     One timer for the whole document, started by the first motif that asks for
@@ -10,7 +10,8 @@ import { FLAGS, type Flag } from '$lib/flags';
     offscreen or hidden. A page left open in a background tab for an afternoon
     should not be repainting a sun nobody is looking at.
 
-    Five seconds, which is a full turn of all eight in forty. It was six, on
+    Five seconds, which was a full turn of all eight in forty and is eighty
+    for the sixteen since ticket 10. It was six, on
     the reasoning that the point was the colour *changing*, noticed out of the
     corner of an eye, rather than a reader being shown all eight. That stopped
     being true when the splash became a field of the live flag (redesign

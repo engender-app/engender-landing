@@ -21,8 +21,7 @@ copy; other text records sources. The catalogue carries these strings under
 >
 > Keep a pull request focused. Say what changed, why it changed and which
 > checks you ran. CI runs on each pull request, including browser checks. Use
-> invented journal data in tests and screenshots; do not put anyone's real
-> journal in an issue or a pull request.
+> invented journal data in tests and screenshots.
 
 ### Country packs
 

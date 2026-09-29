@@ -117,9 +117,7 @@ chapter keeps those boundaries separate.
 > You can report a security problem through GitHub's private vulnerability
 > reporting. Include the app version, device or browser, clear steps to
 > reproduce the problem, and what you expected and saw. Use invented data for
-> a minimal proof. Do not send journal entries, Archives, keys, screenshots
-> with private details or logs containing journal content. Nobody needs to
-> see your journal for support or to confirm a bug.
+> a minimal proof.
 >
 > One person maintains the project, so a report is read when they next sit
 > down to work. There is no fixed response window.

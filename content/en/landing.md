@@ -22,9 +22,10 @@ wait on a decision rather than on a release, and each says which.
 **Register decisions this file owes the rest of the site.**
 
 The project speaks as one person, in the first person singular. Nothing on the site
-names that person. The frame itself may be stated plainly, once: one trans person
-wrote this for other trans people. It appears in the overview and nowhere else, and
-the copy otherwise shows who wrote it by knowing things, not by claiming to.
+names that person. The frame itself may be stated plainly: one trans person wrote this
+for other trans people. Ticket 10 puts it in three places, the hero's supporting
+line, the promise strip and the Support section, and nowhere else. Elsewhere the
+copy shows who wrote it by knowing things, not by claiming to.
 
 engender is the app; your journal, lowercase, is the thing it holds. The rename
 settled the old two-senses problem, and every page uses the words in those senses.
@@ -45,10 +46,13 @@ engender is lowercase everywhere, including at the start of a sentence
 
 **Headline**
 
-> A transition tracker with a journal at its heart.
+> Your transition, in one place, on your own device.
 
-The tracker category introduces the breadth; the journal explains how it fits
-together. The supporting line names examples and keeps privacy visible.
+Ticket 10 replaced "A transition tracker with a journal at its heart", which
+told a first-time reader what kind of thing this is before telling them what it
+would do for them. The headline states the scope and where it lives; the
+supporting line carries the breadth, the three things it does not have and who
+wrote it, so all four messages are on the first screen.
 
 **The definition**
 
@@ -87,85 +91,132 @@ copy's shape.
 
 **Subheadline**
 
-> Track your days with custom scales, Voice benchmarks and care records. Your journal
-> stays on your device. No account needed.
+> Journal, stats, HRT, surgeries, tryouts, eras, voice practice and a summary to hand
+> your clinician. No account, no server, no price. By trans people, for trans people.
+
+"HRT" is not the app's word (it says medication, regimen, dose). It is the word
+people search with, and the marketing context says to meet them there.
+
+**Tagline**
+
+> Open source and free forever.
+
+Alicja's line, 2026-09-29. It sits on the field under the supporting line.
 
 **Primary action**
 
 Start journal. It is on the page, and the Acquisition section below says what it
 links to and why nothing else on the page competes with it.
 
-### What it is
+### The promise strip
 
 *Gate: shipped.*
 
-> engender is a transition tracker built around a journal. An entry holds a mood, a note,
-> your scales, tags, photos, a voice recording and how your body felt. One of those is
-> enough. Write several entries in a day or backdate one to a day you missed.
+Four cells under Start journal and the channel badges, so the whole argument is
+read before the first section heading. The cells are not headings, because they
+are not sections.
+
+> **Free, for good.** No price, no plan, no ads. The licence is GPLv3, which cannot be
+> revoked, so nobody can charge for this later, and that includes me.
+
+> **Nothing to sell.** There is no account and no server. Your journal is stored on
+> your device, encrypted, and I never see it. I cannot sell what I do not have.
+
+> **All of it, in one place.** Journal, stats, HRT, surgeries, tryouts, eras, voice
+> practice and a printable summary for your clinician.
+
+> **By trans people, for trans people.** No machine to rage against.
+
+"I cannot sell what I do not have" states the mechanism instead of promising
+anything, which is how the objections table in the marketing context answers the
+same worry.
+
+### What this is
+
+*Gate: shipped.*
+
+> engender is where you keep your transition: how you feel from day to day, what you
+> take, what you are trying, what is coming up and what has already happened. It is a
+> journal first. Around the journal sit the records that otherwise end up spread
+> across a notes app, a spreadsheet, a photo folder and a letter from a clinic.
 >
-> You choose which parts of transition to record. Name your own scales, compare Voice
-> benchmarks with earlier takes, or keep medication and appointment records beside your
-> entries. The roadmap lists steps in Poland, with room for your own goals. The app does
-> not assess your voice or give treatment advice.
+> Nothing in it decides anything about you. You name your own scales and pick what to
+> track, and the app draws what you put in without grading it. It never suggests a
+> dose, never colours a number red and never tells you which way you are meant to be
+> going.
 >
-> One trans person wrote this for other trans people. It is free software, there is no
-> price, no plan and nothing to upsell, and it stays that way.
+> It is free software: there is no price, no plan and nothing to upsell, and the
+> licence keeps it that way.
+
+The first paragraph answers "is this for me" rather than repeating the hero. The
+third drops the one-trans-person sentence, which now sits in the strip directly
+above.
 
 ### Where it stands on privacy
 
 *Gate: shipped. The full page is `privacy.md` and this is only the handoff to it.*
 
-> Your journal is encrypted on your device. There is no engender account or server holding
-> your entries. The web host sees requests to load and update the app, but does not
-> receive your journal.
+> Your journal stays on your device. There is no engender account, no server, and no
+> copy of your entries anywhere but where you put them. I cannot read your journal,
+> sell it or hand it over, because I never have it.
 >
-> What that protects, and what it does not, is on its own page.
+> On your device it is encrypted, and you choose what opens it: a passphrase, a PIN,
+> your fingerprint or face, or the device's own lock. On Android the app does not even
+> ask for internet permission. In a browser, the web host sees the app being loaded
+> and checking for updates, and nothing of what you write.
+>
+> If you would rather not rely on my server at all, you can host the app yourself:
+> every release publishes it as a bundle you can serve from your own domain, and then
+> the only host that sees it load is yours.
+>
+> What that protects, and what it does not (an unlocked phone in someone else's hands,
+> for one), is on its own page.
+
+Conclusion first, mechanism second, the limit in the same breath. The Android
+line is checkable by anyone: the Journal's `AndroidManifest.xml` declares no
+`INTERNET` permission, so the Play listing's permission list shows its absence.
+The web line names the service worker's update checks, because the host does see
+those. The self-hosting line follows Journal phase-13 self-hosting ticket 01
+(2026-09-29), and the privacy page carries the detail.
 
 ---
 
 ## Visual tour
 
-### The line that covers the whole tour
+### No screenshot notice
 
-*Gate: shipped. Required by the spec: public screenshots use synthetic Journal data.*
-
-> Every screenshot here was made with invented data. Nobody's journal appears on this
-> site.
-
-Place it where a person meets the first screenshot, not in a footnote. The captions on
-the five screens that show written entries repeat it in short form, because those are
-the ones a reader might otherwise take for someone's real diary.
+The line saying every screenshot uses invented data, and the short "invented
+entries" tags on the captions, were cut by Alicja on 2026-09-29 (ticket 10). The
+screenshots still use invented data; the page no longer says so.
 
 ### Captions
 
-*Gate: shipped, all eight. Ticket 06 recaptures the screenshots; the captions hold.*
+*Gate: shipped, all nine. Ticket 06 recaptures the screenshots; the captions hold. Ticket 10 added Voice, so the tour after the grid has eight frames and Export stays in its group.*
 
 **Home**
 
 > The greeting, what is coming up, and the last seven days in whatever colour you
 > picked. The mood row logs an entry for right now in one action, so on a day when you
-> cannot face writing, you can still log something. Invented entries.
+> cannot face writing, you can still log something.
 
 **An entry**
 
 > Mood, your scales, tags, a note, photos. An entry needs only one of them, so a day
-> where all you managed was a mood is still a day you logged. Invented entry.
+> where all you managed was a mood is still a day you logged.
 
 **The month**
 
-> Coloured by mood, or by any scale you choose. Days you did not log stay neutral,
-> because a gap is not a bad day and the colour never says it was.
+> Coloured by mood, or by any scale you choose. Days you did not log stay neutral.
 
 **One day, twice**
 
 > Gender can shift through a day, so a day holds as many entries as it needs and
-> stamps each one with its time. The day's own colour is their average. Invented
-> entries.
+> stamps each one with its time. The day's own colour is their average.
 
 **Search**
 
 > Searches your notes and your tags as you type. Diacritics do not matter in either
-> direction: type lozko and it finds łóżko. Invented entries.
+> direction: type lozko and it finds łóżko.
 
 **Six months of one scale**
 
@@ -178,98 +229,78 @@ the ones a reader might otherwise take for someone's real diary.
 > Dated days that matter, in order. The ones ahead count down. The ones behind come
 > back each year.
 
+**Voice**
+
+> The same passage recorded today and a month ago, side by side. Pitch, resonance and
+> speaking rate describe each take without grading your voice.
+
 **Export**
 
 > Export packs everything into one Archive, encrypted with a password you choose,
-> before it goes anywhere. Invented journal.
+> before it goes anywhere.
 
 ---
 
 ## Feature summary
 
-The groups follow the Journal SCREENS.md inventory reviewed on 2026-09-25.
-Voice benchmarks follow CONTEXT.md; privacy controls follow the current access
-model. Polish and English describe the same capabilities.
+The grid follows the order Alicja gave on 2026-09-29 (ticket 10): what a reader
+came looking for, rather than the app's own Health / Steps / Support / Media map.
+The screenshot tour follows it, then one paragraph for the rest.
 
-### Writing it down
-
-*Gate: shipped.*
-
-> **Entries.** A mood on five levels, a note, tags, photos, a voice recording, and your
-> scales. Several a day, or backdated to a day you missed.
->
-> **Scales.** Five come built in, among them Gender feeling, which runs from dysphoria at
-> one end to euphoria at the other. Make your own, with whatever two end labels and range
-> you want, and group the ones you use into a preset so the entry screen only asks about
-> what you actually track.
->
-> **How your body felt.** Dysphoria and euphoria, marked on the body regions they belong
-> to. Tracked separately, because they are not opposites and one day can hold both.
->
-> **Tags.** Grouped and editable. Turn a whole group off when it stops being relevant.
-> Hiding a built-in tag takes it out of every picker and leaves every entry that already
-> carries it alone.
->
-> **Photos.** Kept in the app's own storage. They never go into your phone's gallery, so
-> they do not turn up in a camera roll someone else is scrolling.
-
-### Reading it back
+### What it holds
 
 *Gate: shipped.*
 
-> **The month.** A heat map in one colour, driven by mood or by a scale you pick.
->
-> **Search.** Your notes and tag labels, matched as you type, ignoring diacritics. Star
-> what matters, and every starred entry and photo waits in one place.
->
-> **Charts.** One per scale, over 7 to 365 days, with your streak. Open one for the dated
-> list of values behind it, so you can check the line instead of taking it on trust.
->
-> **Tag insights.** For a given scale, how days with a tag compare to days without it. An
-> observation, not a verdict. Tags with fewer than three entries in that stretch are left
-> out, because at that size the difference is noise.
->
-> **Wrapped.** A week, a month or a year, looked back on: entries, streaks, how a scale
-> moved, top tags, milestones, photos. Or any stretch you pick yourself.
->
-> **On this day.** What you logged a month, six months and a year ago. Only days that were
-> good come back.
->
-> **Then and now.** Two stretches of time, side by side.
->
-> **The tally.** One tap when you were misgendered, one when you were gendered right, and
-> a chart of how the counts move.
->
-> **Milestones and the timeline.** Countdowns ahead, anniversaries behind.
+> **Journal** How today felt. A mood, a note, your own scales, tags, photos, a voice
+> memo, and where in your body dysphoria or euphoria sat. One of those is enough. A
+> day where all you managed was a mood is still a day you logged.
 
-### Around the journal
+> **Look back** Whether anything is changing is hard to see day to day and easy to see
+> over months. A heat map of each month, a chart for each scale, how days with a tag
+> compare to days without, a wrapped for any week, month or year, and the good days
+> from a month, six months and a year ago.
+
+> **HRT** Your medication schedule with the next dose and how much is left, doses
+> logged as you take them, lab results drawn as a chart, and a modelled hormone curve.
+> The app never suggests a dose or shows a reference range.
+
+> **Surgeries** A journal per procedure: consults, the date itself, recovery, and
+> photos that stay inside the app rather than in your camera roll.
+
+> **Tryouts** Try a name, a pronoun set, a style or a garment. Give it a start date,
+> log how it feels as you go, and close it when you know.
+
+> **Eras** Name the chapters of your own timeline, whatever they were for you. They
+> draw as bands along your timeline and milestones, so a reading sits against the
+> chapter you were in when you wrote it.
+
+> **Voice** Practise, record the same passage each time, and compare with your own
+> earlier takes. Pitch, resonance and speaking rate describe the recording without
+> grading your voice.
+
+> **Clinician summary** Bring your doses, labs, measurements and changes to an
+> appointment as one printed summary, over a range you choose, with only the sections
+> you choose.
+
+Checked against the Journal spec on 2026-09-29. There is a month heat map and no
+year one. On this day brings back only good days, from a month, six months and a
+year ago. The spec says a dose is skipped in one tap and does not say the same of
+logging one. Eras draw along the milestone and stats rails. The Voice card says
+"Voice" and "practise" because the screen is practice plus benchmarks, and the
+pitch figure may not be presented as a target.
+
+### Also in there
 
 *Gate: shipped.*
 
-> The Transition tab groups the tools around your journal into Health, Steps, Support and
-> Media.
->
-> **Health.** Measurements and clothing sizes, medication schedules and doses, lab results
-> and modelled hormone curves. Keep records of changes, cycle events and surgery recovery.
-> Prepare questions for appointments and print a summary for a clinician when you choose.
-> The app does not interpret lab values or suggest doses.
->
-> **Steps.** Milestones, tryouts, binder and tucking wear time, hair removal and letters
-> that open on a date you choose. The roadmap covers Poland, with social, legal,
-> appearance and medical tracks. Add your own goals or mark a step as not for you.
->
-> **Voice benchmarks.** On the Voice screen in Steps, record the same passage and held
-> vowel each time, then compare with your own earlier takes. Figures such as pitch,
-> resonance and speaking rate describe the recordings without grading your voice. A
-> benchmark belongs to a day; a voice recording in an entry is a separate memo.
->
-> **Support.** Safe Space brings back starred and positive entries and holds your own list
-> of things that help. Trans organisations and helplines are listed in the app, so you can
-> read the directory offline.
->
-> **Media.** Browse photos from across the journal and compare two with a slider. Make a
-> collage or time-lapse to export. Keep documents such as referrals and court orders,
-> linked to the goal or record they belong to.
+> Also in there: search across your notes and tags, a tally of the times you were
+> misgendered and gendered right, milestones with countdowns ahead and anniversaries
+> behind, letters that open on a date you choose, a roadmap of the legal and medical
+> steps in Poland with room for your own, binder and tucking wear time, hair removal
+> sessions, measurements and sizes, appointment prep, Safe Space with your good days
+> and your own comfort list, a directory of trans organisations and helplines you can
+> read offline, one photo library across all of it, and a place for referrals and
+> court orders. If you already have a year in Daylio, it imports.
 
 ### Keeping it
 
@@ -279,8 +310,9 @@ model. Polish and English describe the same capabilities.
 > choose, before it leaves the app. Import puts it back, either merged into what is here
 > or replacing it.
 >
-> **Scheduled backup.** On Android, an encrypted Archive written to a folder you pick,
-> weekly or monthly.
+> **Automatic backups.** On Android, an encrypted Archive saved weekly or monthly to a
+> folder you pick, on the phone or with a cloud provider. The app shows when the last
+> one worked and when one failed.
 >
 > **Coming from Daylio.** Import a Daylio CSV. It shows you the counts and how the moods
 > will map before it writes anything, and it only ever merges.
@@ -288,8 +320,8 @@ model. Polish and English describe the same capabilities.
 > **Plain export.** CSV or JSON, for a spreadsheet or for keeping your own copy. It is not
 > encrypted, and the app says so and makes you confirm before it writes the file.
 >
-> **When it has been a while.** If your last Archive is more than 30 days old, the home
-> screen says so once. You can dismiss it.
+> **Backup reminders.** If your last backup is more than 30 days old, the home screen
+> says so and lets you back up there and then. You can dismiss it.
 
 ### On your phone
 
@@ -332,8 +364,9 @@ model. Polish and English describe the same capabilities.
 
 *Gate: shipped.*
 
-> **Eight palettes**, including trans, nonbinary, genderfluid, bisexual, lesbian,
-> pansexual, agender and rainbow. Each one recolours the whole app, charts and calendar
+> **Sixteen palettes**: trans, nonbinary, genderfluid, bisexual, lesbian, pansexual,
+> rainbow, agender, gay men, genderqueer, intersex, asexual, demiboy, demigirl,
+> trigender and the Polish flag. Each one recolours the whole app, charts and calendar
 > included, and each one works in light and dark.
 >
 > **Colour never judges.** No red for a bad day and no green for a good one. The heat map
@@ -408,32 +441,36 @@ the fact is undecided, not because anything is unshipped.*
 
 ## Source, licence and support
 
+### Who made this
+
+*Gate: shipped. Ticket 10 retitled the section and put the person first.*
+
+> I'm Alicja Barankiewicz, a data engineer in Warsaw. I also run nazwozbior.pl, which
+> searches every name in the Polish PESEL registry for anyone looking for the one that
+> fits.
+
 ### Source
 
 *Gate: shipped. The Journal repository is public, so "go and look" is checkable in
-the most literal way this page has. The block renders inside the Support section
-for now - the old site held it entirely, so no section of its own exists - and
-ticket 03 decides whether it earns one.*
+the most literal way this page has.*
 
-> **You can read it.** engender is free software under the GPLv3. Do not take my
-> word for anything on this page: the source is public. Go and look, or get someone you
-> trust to look.
+> **You can read it.** engender is free software under the GPLv3. The source is public.
 >
-> The licence also means you can run it, change it and pass it on. This is one person's
-> project, so it might stop. If it does, someone else is free to pick the code up, and
-> your Archives are a documented format rather than something only this app can open.
+> The licence means you can run it, change it and pass it on, and it cannot be taken
+> back. If I stop, someone else is free to pick the code up, and your Archives are a
+> documented format rather than something only this app can open.
+
+No Ko-fi line. Settings has a Ko-fi row, but its link is not live yet, so a
+sentence pointing at it would be false. It can come back once the link works.
 
 ### Support
 
-*Gate: shipped. The prohibition on asking for sensitive material is required by the
-spec and is not optional wording.*
+*Gate: shipped. The paragraph telling the reader not to send their journal was cut
+by Alicja on 2026-09-29 (ticket 10), along with the same warning in the Guide and
+the Play listing.*
 
 > **If something is broken**, tell me what happened and what you expected instead. That
 > is usually enough to find it.
->
-> **Do not send me your journal.** Not an Archive, not a screenshot with your entries in
-> it, not a log from a session where you were writing. I will never ask for any of it.
-> If something asks, it is not me.
 
 ### Privacy policy and security contact
 
@@ -463,5 +500,4 @@ address the reader in a way Polish cannot copy without picking a gender for them
 
 The description is shared by search, Open Graph and Twitter metadata.
 
-Track your transition in a journal with custom scales, Voice benchmarks and care
-records. Encrypted on your device, with no account.
+Your transition in one place: journal, stats, HRT, surgeries, tryouts, eras, voice practice and a clinician summary. On your device, with no account.
