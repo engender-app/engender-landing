@@ -46,47 +46,79 @@ decided here and recorded in `.agents/product-marketing.md`.
 
 **Headline**
 
-> Śledź tranzycję we własnym dzienniku.
+> Cała tranzycja w jednym miejscu, na twoim urządzeniu.
 
-The headline keeps tracking and the journal together. The supporting line names
-examples and states device storage without assigning the reader a gender.
+Ticket 10, from the same decision as the English headline.
 
 **Subheadline**
 
-> Zapisuj odczucia na własnych skalach, porównuj wzorce głosu i prowadź zapiski o zdrowiu.
-> Dziennik zostaje na twoim urządzeniu. Bez konta.
+> Dziennik, statystyki, HTZ, operacje, próby, ery, ćwiczenia głosu i podsumowanie do
+> lekarza. Bez konta, bez serwera, bez opłat. Aplikację tworzy jedna osoba trans dla
+> innych osób trans.
+
+„HTZ” is what Polish readers search with, the way English readers search "HRT".
+„Ćwiczenia głosu” follows the app's own „ćwiczenia głosu” in the microphone
+permission text, and „podsumowanie do lekarza” is the app's title for the
+clinician summary.
 
 **Primary action**
 
 „Otwórz dziennik”, on the page today. The Acquisition section below says why the button
 is not called Start journal in Polish.
 
-### What it is
+### The promise strip
 
 *Gate: shipped.*
 
-> engender pomaga śledzić tranzycję w dzienniku. We wpisie zapiszesz nastrój, notatkę,
-> własne skale, tagi, zdjęcia, nagranie głosowe i odczucia związane z ciałem. Wystarczy
-> jedna z tych rzeczy. Możesz dodać kilka wpisów dziennie albo uzupełnić wcześniejszy
-> dzień.
+> **Za darmo, na zawsze.** Bez opłat, bez abonamentu, bez reklam. Licencji GPLv3 nie
+> da się odwołać, więc nikt nie zacznie za to pobierać pieniędzy, ja też nie.
+
+> **Nie ma czego sprzedać.** Nie ma konta ani serwera. Dziennik jest zapisany na twoim
+> urządzeniu, zaszyfrowany, i nigdy go nie widzę. Nie sprzedam czegoś, czego nie mam.
+
+> **Wszystko w jednym miejscu.** Dziennik, statystyki, HTZ, operacje, próby, ery,
+> ćwiczenia głosu i podsumowanie do lekarza, które można wydrukować.
+
+> **Od osoby trans dla osób trans.** Tworzy to jedna osoba. Nie stoi za tym żadna
+> firma.
+
+„Nigdy go nie widzę” and „nie sprzedam” keep the author in the present and the
+future, where Polish does not gender the first person.
+
+### What this is
+
+*Gate: shipped.*
+
+> engender to miejsce na twoją tranzycję: jak się czujesz z dnia na dzień, co
+> przyjmujesz, co próbujesz, co cię czeka i co już za tobą. Przede wszystkim to
+> dziennik. Wokół niego są zapiski, które zwykle rozchodzą się po notatkach w
+> telefonie, arkuszu, folderze ze zdjęciami i piśmie z przychodni.
 >
-> Ty wybierasz, co chcesz zapisywać. Nazwij skale po swojemu, porównuj wzorce głosu z
-> wcześniejszymi nagraniami albo notuj leki i wizyty obok codziennych wpisów. Mapa
-> tranzycji opisuje kroki w Polsce i pozwala dodać własne cele. Aplikacja nie ocenia głosu
-> ani nie doradza leczenia.
+> Nic tu o tobie nie decyduje. Skale nazywasz po swojemu i wybierasz, co śledzić, a
+> aplikacja rysuje to, co wpisujesz, bez wystawiania ocen. Nie podpowiada dawek, nie
+> barwi liczb na czerwono i nie mówi, w którą stronę masz zmierzać.
 >
-> Aplikację tworzy jedna osoba trans dla innych osób trans. To wolne oprogramowanie.
-> Korzystanie z niego jest i pozostanie bezpłatne.
+> To wolne oprogramowanie: bez ceny, bez abonamentu i bez niczego do dokupienia, a
+> licencja pilnuje, żeby tak zostało.
+
+„Skale nazywasz po swojemu” instead of „sam nazywasz”, which would gender the
+reader.
 
 ### Where it stands on privacy
 
-*Gate: shipped. The full page is ticket 04 and this is only the handoff to it.*
+*Gate: shipped. The full page is `privacy.md` and this is only the handoff to it.*
 
-> Dziennik jest zaszyfrowany na twoim urządzeniu. Nie ma konta engender ani serwera z
-> twoimi wpisami. Serwer WWW widzi pobieranie i aktualizacje aplikacji, ale nie dostaje
-> dziennika.
+> Dziennik zostaje na twoim urządzeniu. Nie ma konta engender ani serwera, a wpisy nie
+> mają kopii nigdzie poza miejscem, w którym je trzymasz. Nie przeczytam twojego
+> dziennika, nie sprzedam go ani nikomu nie przekażę, bo nigdy go nie mam.
 >
-> Co to chroni, a czego nie, jest na osobnej stronie.
+> Na urządzeniu jest zaszyfrowany, a ty wybierasz, czym go otwierasz: hasłem, PIN-em,
+> odciskiem palca lub twarzą albo blokadą samego urządzenia. Na Androidzie aplikacja
+> nie prosi nawet o dostęp do internetu. W przeglądarce serwer WWW widzi pobieranie
+> aplikacji i sprawdzanie aktualizacji, ale nic z tego, co piszesz.
+>
+> Co to chroni, a czego nie (na przykład odblokowanego telefonu w cudzych rękach),
+> jest na osobnej stronie.
 
 ---
 
@@ -150,91 +182,58 @@ that show written entries repeat it in short form, exactly as in English.
 
 ## Feature summary
 
-The groups follow the Journal SCREENS.md inventory reviewed on 2026-09-25.
-Voice benchmarks follow CONTEXT.md; privacy controls follow the current access
-model. Polish and English describe the same capabilities.
+Same order and same claims as the English grid (ticket 10). Two English sentences
+address the reader in the past tense, "a day where all you managed was a mood" and
+"the chapter you were in when you wrote it", so the Polish is built around them:
+„dzień z samym nastrojem to też dzień z wpisem” and „rozdziału, w którym powstał”.
 
-### Zapisywanie
-
-*Gate: shipped.*
-
-> **Wpisy.** Nastrój w pięciu stopniach, notatka, tagi, zdjęcia, nagranie głosowe i twoje
-> skale. Kilka dziennie albo z datą wsteczną.
->
-> **Skale.** Pięć jest wbudowanych, wśród nich Poczucie płci, od dysforii na jednym końcu
-> do euforii na drugim. Własną skalę ustawiasz od zera: dwie etykiety końców i zakres,
-> jaki chcesz. Te, których używasz, łączysz w zestaw, żeby ekran wpisu pytał tylko o to,
-> co faktycznie mierzysz.
->
-> **Odczucia związane z ciałem.** Dysforię i euforię zapisujesz przy obszarach ciała,
-> których dotyczą. Osobno, bo w jednym dniu mogą pojawić się obie.
->
-> **Tagi.** Pogrupowane, do zmiany w każdej chwili. Całą grupę można wyłączyć, kiedy
-> przestaje być na temat. Ukryty tag wbudowany znika ze wszystkich list wyboru, a wpisy,
-> które już go mają, zostają nietknięte.
->
-> **Zdjęcia.** Trzymane w pamięci samej aplikacji. Nie trafiają do galerii telefonu, więc
-> nie wyskoczą komuś, kto akurat przewija zdjęcia.
-
-### Przeglądanie
+### What it holds
 
 *Gate: shipped.*
 
-> **Miesiąc.** Kalendarz w jednym kolorze o różnej sile, sterowany nastrojem albo wybraną
-> skalą.
->
-> **Wyszukiwanie.** Notatki i nazwy tagów, dopasowywane w trakcie pisania, bez oglądania
-> się na polskie znaki. Wpisy i zdjęcia oznaczone gwiazdką znajdziesz w jednym miejscu.
->
-> **Wykresy.** Jeden na skalę, w zakresie od 7 do 365 dni, z twoją serią dni z wpisem. Po
-> otwarciu wykresu widać listę wartości z datami, więc linię da się sprawdzić, a nie tylko
-> przyjąć na wiarę.
->
-> **Tagi w liczbach.** Dla wybranej skali widać, jak wypadają dni z danym tagiem wobec dni
-> bez niego. To obserwacja, nie wyrok. Tagi z mniej niż trzema wpisami w zakresie wypadają
-> z zestawienia, bo przy takiej liczbie różnica jest szumem.
->
-> **Podsumowanie.** Tydzień, miesiąc, rok albo wybrany okres: wpisy, serie dni, zmiany na
-> skalach, częste tagi, kamienie milowe i zdjęcia.
->
-> **Tego dnia.** Wpisy sprzed miesiąca, pół roku i roku. Wracają tylko dobre dni.
->
-> **Wtedy i teraz.** Dwa wybrane okresy obok siebie.
->
-> **Licznik.** Zapisujesz jednym dotknięciem, kiedy ktoś zwraca się do ciebie zgodnie z
-> twoją płcią, a kiedy nie. Wykres pokazuje, jak zmieniają się te liczby.
->
-> **Kamienie milowe i oś czasu.** Odliczanie do tego, co przed tobą, rocznice tego, co za
-> tobą.
+> **Dziennik** Jak minął dzień. Nastrój, notatka, własne skale, tagi, zdjęcia, notatka
+> głosowa i miejsce na ciele, w którym była dysforia albo euforia. Wystarczy jedna z
+> tych rzeczy. Dzień z samym nastrojem to też dzień z wpisem.
 
-### Wokół dziennika
+> **Przegląd** Z dnia na dzień trudno zobaczyć, czy coś się zmienia. Po kilku
+> miesiącach widać to od razu. Kalendarz każdego miesiąca, wykres dla każdej skali,
+> porównanie dni z tagiem i bez niego, bilans dowolnego tygodnia, miesiąca lub roku i
+> dobre dni sprzed miesiąca, pół roku i roku.
+
+> **HTZ** Harmonogram leków z następną dawką i tym, ile zostało, dawki zapisywane na
+> bieżąco, wyniki badań na wykresie i modelowana krzywa hormonalna. Aplikacja nie
+> podpowiada dawek i nie pokazuje norm laboratoryjnych.
+
+> **Operacje** Osobny dziennik dla każdego zabiegu: konsultacje, sam termin,
+> rekonwalescencja, rozszerzanie tam, gdzie jest potrzebne, i zdjęcia, które zostają w
+> aplikacji, a nie w galerii telefonu.
+
+> **Próby** Wypróbuj imię, zaimki, styl albo ubranie. Nadaj próbie datę początku,
+> zapisuj po drodze, jak się z tym czujesz, i zamknij ją, kiedy już wiesz.
+
+> **Ery** Nazwij rozdziały własnej historii, czymkolwiek dla ciebie były. Ery
+> pojawiają się jako pasy na osi czasu i przy kamieniach milowych, więc każdy zapis
+> widać na tle rozdziału, w którym powstał.
+
+> **Głos** Ćwicz, nagrywaj za każdym razem ten sam tekst i porównuj go z własnymi
+> wcześniejszymi nagraniami. Wysokość, rezonans i tempo mówienia opisują nagranie, ale
+> nie oceniają głosu.
+
+> **Podsumowanie do lekarza** Dawki, wyniki badań, pomiary i zmiany na jednym wydruku
+> na wizytę, za wybrany okres i tylko z wybranymi sekcjami.
+
+### Also in there
 
 *Gate: shipped.*
 
-> Na karcie Tranzycja znajdziesz cztery grupy narzędzi: Zdrowie, Kroki, Wsparcie i Media.
->
-> **Zdrowie.** Pomiary ciała i rozmiary ubrań, plan leków i dawki, wyniki badań oraz
-> modelowane krzywe hormonalne. Zapisuj zauważone zmiany, zdarzenia cyklu i przebieg
-> rekonwalescencji po operacji. Przygotuj pytania na wizytę i wydrukuj podsumowanie dla
-> lekarza, jeśli chcesz. Aplikacja nie interpretuje wyników ani nie podpowiada dawek.
->
-> **Kroki.** Kamienie milowe, próby, czas noszenia bindera i tuckingu, depilacja oraz
-> listy otwierane w wybranym dniu. Mapa tranzycji obejmuje Polskę i cztery ścieżki:
-> społeczną, prawną, wizerunkową i medyczną. Możesz dopisać własne cele albo oznaczyć krok
-> jako „nie moja droga”.
->
-> **Wzorce głosu.** Na ekranie Głos w Krokach nagrywasz za każdym razem ten sam tekst i
-> tę samą przeciągniętą samogłoskę. Porównujesz je z własnymi wcześniejszymi nagraniami.
-> Wysokość głosu, rezonans czy tempo mówienia opisują nagrania, ale nie oceniają głosu.
-> Wzorzec zapisujesz dla wybranego dnia. Nagranie głosowe we wpisie to osobna notatka.
->
-> **Wsparcie.** Bezpieczna przestrzeń przypomina wpisy z gwiazdką i dobrymi tagami. Jest
-> tu też twoja lista rzeczy, które pomagają. Spis organizacji trans i telefonów zaufania
-> jest wbudowany w aplikację, więc przeczytasz go bez internetu.
->
-> **Media.** Przeglądaj zdjęcia z całego dziennika i porównuj dwa suwakiem. Przygotuj
-> kolaż albo film poklatkowy do eksportu. Przechowuj dokumenty, na przykład skierowania i
-> postanowienia sądu, powiązane z celem lub zapisem, którego dotyczą.
+> Poza tym: wyszukiwanie w notatkach i tagach, licznik sytuacji, w których ktoś zwraca
+> się do ciebie zgodnie z twoją płcią albo nie, kamienie milowe z odliczaniem i
+> rocznicami, listy otwierane w wybranym dniu, mapa kroków prawnych i medycznych w
+> Polsce z miejscem na własne, czas noszenia bindera i tuckingu, sesje depilacji,
+> pomiary i rozmiary, przygotowanie do wizyty, Bezpieczna przestrzeń z dobrymi dniami
+> i własną listą rzeczy, które pomagają, spis organizacji trans i telefonów zaufania
+> dostępny bez internetu, jedna biblioteka zdjęć na wszystko i miejsce na skierowania
+> i postanowienia sądu. Rok zapisków w Daylio da się zaimportować.
 
 ### Archiwa i eksport
 
@@ -298,9 +297,9 @@ model. Polish and English describe the same capabilities.
 
 *Gate: shipped.*
 
-> **Osiem palet**: transpłciowa, niebinarna, genderfluid, biseksualna, lesbijska,
-> panseksualna, agender i tęczowa. Każda przemalowuje całą aplikację, razem z wykresami i
-> kalendarzem, i każda działa w jasnym i w ciemnym motywie.
+> **Szesnaście palet**, wśród nich transpłciowa, niebinarna, genderfluid, biseksualna,
+> lesbijska, panseksualna, agender i tęczowa. Każda przemalowuje całą aplikację, razem
+> z wykresami i kalendarzem, i każda działa w jasnym i w ciemnym motywie.
 >
 > **Kolor niczego nie ocenia.** Nie ma czerwonego na zły dzień ani zielonego na dobry.
 > Kalendarz używa jednego koloru o różnej sile, a pusty dzień zostaje pusty.
@@ -361,20 +360,26 @@ or in neither.*
 
 ## Source, licence and support
 
+### Who made this
+
+*Gate: shipped. Ticket 10 retitled the section „Kto to robi”, present tense, so
+the heading does not gender the author.*
+
+> Tworzy to jedna osoba trans, czyli ja. Nie ma firmy, więc nie ma działu pomocy i nie
+> ma komu tego sprzedać.
+
 ### Source
 
-*Gate: shipped as far as the licence goes. The "you can read it" phrasing additionally
-needs the Journal repository to actually be public, which is a deliberate step it has not
-taken yet.*
+*Gate: shipped. The Journal repository is public now, which was the condition this
+block waited on.*
 
-> **Można to przeczytać.** engender jest wolnym oprogramowaniem na licencji GPLv3.
-> Nie musisz mi wierzyć na słowo: kod jest publiczny. Zajrzyj albo poproś o to kogoś,
-> komu ufasz.
+> **Można to przeczytać.** engender jest wolnym oprogramowaniem na licencji GPLv3. Nie
+> musisz mi wierzyć na słowo: kod jest publiczny. Zajrzyj albo poproś o to kogoś, komu
+> ufasz.
 >
-> Licencja znaczy też, że wolno ten kod uruchamiać, zmieniać i przekazywać dalej. To
-> projekt jednej osoby, więc może kiedyś stanąć. Wtedy ten kod może podnieść ktoś inny, a
-> twoje archiwa mają udokumentowany format, a nie taki, który otwiera tylko ta jedna
-> aplikacja.
+> Licencja pozwala ten kod uruchamiać, zmieniać i przekazywać dalej, i nie da się jej
+> cofnąć. Jeśli przestanę, kod może podnieść ktoś inny, a twoje archiwa mają
+> udokumentowany format, a nie taki, który otwiera tylko ta jedna aplikacja.
 
 ### Support
 
@@ -422,5 +427,4 @@ and the Play listing will.
 
 The description is shared by search, Open Graph and Twitter metadata.
 
-Śledź tranzycję we własnym dzienniku: skale, wzorce głosu i zapiski o zdrowiu. Dane są
-zaszyfrowane na twoim urządzeniu. Bez konta.
+Cała tranzycja w jednym miejscu: dziennik, statystyki, HTZ, operacje, próby, ery, ćwiczenia głosu i podsumowanie do lekarza. Na twoim urządzeniu, bez konta.

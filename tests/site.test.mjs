@@ -1145,20 +1145,20 @@ test("a production build is indexable, sitemap and robots in agreement", async (
     Acquisition keeps its heading in ACQUISITION, where it already was. */
 const HEADINGS = {
   en: {
-    overview: "What engender is",
+    overview: "What this is",
     privacy: "What it protects, and what it doesn't",
     tour: "The screens",
-    features: "What it does",
+    features: "What it holds",
     acquisition: ACQUISITION.en.heading,
-    support: "Support",
+    support: "Who made this",
   },
   pl: {
-    overview: "Czym jest engender",
+    overview: "Co to jest",
     privacy: "Co chroni, a czego nie",
     tour: "Ekrany",
-    features: "Co potrafi",
+    features: "Co w nim jest",
     acquisition: ACQUISITION.pl.heading,
-    support: "Pomoc",
+    support: "Kto to robi",
   },
 };
 
@@ -1193,8 +1193,8 @@ const PRIVACY_TITLE = {
 /** The hero headline, which is the one piece of the overview copy that is not
     inside a section and so is not covered by the heading assertions. */
 const HEADLINE = {
-  en: "A transition tracker with a journal at its heart.",
-  pl: "Śledź tranzycję we własnym dzienniku.",
+  en: "Your whole transition, in one place, on your own device.",
+  pl: "Cała tranzycja w jednym miejscu, na twoim urządzeniu.",
 };
 
 /** Both languages describe encryption and reject the retired plaintext fallback. */
@@ -2110,9 +2110,9 @@ const TITLES = {
     the page a visitor asking for neither language is about to be sent to. */
 const DESCRIPTIONS = {
   "/en/":
-    "Track your transition in a journal with custom scales, Voice benchmarks and care records. Encrypted on your device, with no account.",
+    "Your whole transition in one place: journal, stats, HRT, surgeries, tryouts, eras, voice practice and a clinician summary. On your device, with no account.",
   "/pl/":
-    "Śledź tranzycję we własnym dzienniku: skale, wzorce głosu i zapiski o zdrowiu. Dane są zaszyfrowane na twoim urządzeniu. Bez konta.",
+    "Cała tranzycja w jednym miejscu: dziennik, statystyki, HTZ, operacje, próby, ery, ćwiczenia głosu i podsumowanie do lekarza. Na twoim urządzeniu, bez konta.",
   "/en/privacy/":
     "How engender encrypts your journal, how access and recovery keys work, what exports reveal, and what the web host sees.",
   "/pl/privacy/":
