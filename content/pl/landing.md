@@ -297,9 +297,10 @@ address the reader in the past tense, "a day where all you managed was a mood" a
 
 *Gate: shipped.*
 
-> **Szesnaście palet**, wśród nich transpłciowa, niebinarna, genderfluid, biseksualna,
-> lesbijska, panseksualna, agender i tęczowa. Każda przemalowuje całą aplikację, razem
-> z wykresami i kalendarzem, i każda działa w jasnym i w ciemnym motywie.
+> **Szesnaście palet**: transpłciowa, niebinarna, genderfluid, biseksualna, lesbijska,
+> panseksualna, tęczowa, agender, gejowska, genderqueer, interpłciowa, aseksualna,
+> demiboy, demigirl, trigender i polska. Każda przemalowuje całą aplikację, razem z
+> wykresami i kalendarzem, i każda działa w jasnym i w ciemnym motywie.
 >
 > **Kolor niczego nie ocenia.** Nie ma czerwonego na zły dzień ani zielonego na dobry.
 > Kalendarz używa jednego koloru o różnej sile, a pusty dzień zostaje pusty.

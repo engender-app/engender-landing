@@ -1,11 +1,11 @@
-/** The eight flags the app recolours itself with, and the geometry the motif
+/** The sixteen flags the app recolours itself with, and the geometry the motif
     draws them in.
 
     The stripe sequences are copied values, not imported code: the Journal
     repository owns them as `--motif-stripes` in `src/lib/theme/palettes.css`
     and this site is not allowed to import from it (CLAUDE.md - brand tokens
     and approved wording may be copied across, a shared package may not). If a
-    ninth palette lands there, it lands here by hand.
+    seventeenth palette lands there, it lands here by hand.
 
     Two of the sequences look like mistakes and are not. Bisexual doubles its
     outer stops, which is how its 2:1:2 stripe proportion is encoded: two
@@ -34,7 +34,7 @@ export interface Accent {
     from the sun and the field is never white or black. Two flags name their
     own against that arithmetic, both on Alicja's word against a render - the
     rainbow takes its blue rather than its orange, bisexual its dark blue
-    rather than its purple - so all eight are copied from the app's own table
+    rather than its purple - so all sixteen are copied from the app's own table
     (its DIRECTION.md rule 11) rather than derived here.
 
     One value per flag and not one per theme: ink does not change with the
@@ -44,8 +44,9 @@ export interface Accent {
     `ink` is #101820 or white, whichever measures higher, which is the app's
     rule. The app only sets a door's title on the field and answers to 3:1;
     this site sets the whole entry there (Alicja, 2026-09-22, "we treat it as
-    a header basically"), so every one of the eight has to clear 4.5:1 for
-    small text. Seven do outright. Nonbinary's #9C59D1 carries white at
+    a header basically"), so every one of the sixteen has to clear 4.5:1 for
+    small text. Fifteen do outright; the eight ticket 10 added are the app's
+    own `flagField` answers unchanged, the lowest genderqueer's green at 4.71. Nonbinary's #9C59D1 carries white at
     4.41:1, which is why the app forbids small text on it, so the site
     deepens that one band 6% toward black to #9354C4 and 4.88:1 - the same
     ratio genderfluid's purple already has, and still plainly the flag's
@@ -73,7 +74,7 @@ export interface Flag {
       button, because a raw stripe held at a readable lightness is a muted
       version of itself. The app already solved this - each palette has an
       accent chosen to be sat on, and white or the dark paper holds 4.5:1 on
-      every one of the eight - so the answer was to copy the answer. */
+      every one of the sixteen - so the answer was to copy the answer. */
   accent: Accent;
   /** The band this flag lends the splash's header, and what reads on it. */
   field: Field;
@@ -135,6 +136,77 @@ export const FLAGS: Flag[] = [
     ],
     accent: { light: "#4A7A22", dark: "#AEEB76" },
     field: { fill: "#B9F484", ink: "#101820" },
+  },  {
+    id: "gaymen",
+    stripes: [
+      "#078D70",
+      "#26CEAA",
+      "#98E8C1",
+      "#FFFFFF",
+      "#7BADE2",
+      "#5049CB",
+      "#3D1A78",
+    ],
+    accent: { light: "#08765F", dark: "#6AD9BA" },
+    field: { fill: "#26CEAA", ink: "#101820" },
+  },
+  {
+    id: "genderqueer",
+    stripes: ["#B57EDC", "#FFFFFF", "#4A8123"],
+    accent: { light: "#7944A2", dark: "#CAA1E6" },
+    field: { fill: "#4A8123", ink: "#FFFFFF" },
+  },
+  {
+    id: "intersex",
+    stripes: ["#7902AA", "#FFD800"],
+    accent: { light: "#72009E", dark: "#D894F3" },
+    field: { fill: "#FFD800", ink: "#101820" },
+  },
+  {
+    id: "asexual",
+    stripes: ["#000000", "#A3A3A3", "#FFFFFF", "#800080"],
+    accent: { light: "#800080", dark: "#D586D5" },
+    field: { fill: "#800080", ink: "#FFFFFF" },
+  },
+  {
+    id: "demiboy",
+    stripes: [
+      "#7F7F7F",
+      "#C4C4C4",
+      "#9DD7EA",
+      "#FFFFFF",
+      "#9DD7EA",
+      "#C4C4C4",
+      "#7F7F7F",
+    ],
+    accent: { light: "#347A98", dark: "#9DD7EA" },
+    field: { fill: "#9DD7EA", ink: "#101820" },
+  },
+  {
+    id: "demigirl",
+    stripes: [
+      "#7F7F7F",
+      "#C4C4C4",
+      "#F3B5CD",
+      "#FFFFFF",
+      "#F3B5CD",
+      "#C4C4C4",
+      "#7F7F7F",
+    ],
+    accent: { light: "#A94D75", dark: "#F3B5CD" },
+    field: { fill: "#F3B5CD", ink: "#101820" },
+  },
+  {
+    id: "trigender",
+    stripes: ["#F5A9B8", "#B57EDC", "#5BCEFA", "#B57EDC", "#F5A9B8"],
+    accent: { light: "#7950A4", dark: "#CAA4E7" },
+    field: { fill: "#B57EDC", ink: "#101820" },
+  },
+  {
+    id: "polish",
+    stripes: ["#FFFFFF", "#DC143C"],
+    accent: { light: "#B30E31", dark: "#F4748E" },
+    field: { fill: "#DC143C", ink: "#FFFFFF" },
   },
 ];
 

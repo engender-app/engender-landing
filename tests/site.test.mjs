@@ -3109,7 +3109,7 @@ for (const locale of ["en", "pl"]) {
    thing making the two products look related. And the cycle can stop, which
    nothing else on the page would reveal. */
 
-/** The eight stripe sequences the motif must be painted in, copied from the
+/** The sixteen stripe sequences the motif must be painted in, copied from the
     Journal repository's `--motif-stripes` (its src/lib/theme/palettes.css) the
     same way $lib/flags.ts copies them. Written out a second time here on
     purpose: this is the test asserting the two repositories agree, so reading
@@ -3123,6 +3123,14 @@ const FLAG_STRIPES = [
   ["#FF218C", "#FFD800", "#21B1FF"],
   ["#E40303", "#FF8C00", "#FFED00", "#008026", "#004CFF", "#732982"],
   ["#1A1A1A", "#B9B9B9", "#FFFFFF", "#B9F484", "#FFFFFF", "#B9B9B9", "#1A1A1A"],
+  ["#078D70", "#26CEAA", "#98E8C1", "#FFFFFF", "#7BADE2", "#5049CB", "#3D1A78"],
+  ["#B57EDC", "#FFFFFF", "#4A8123"],
+  ["#7902AA", "#FFD800"],
+  ["#000000", "#A3A3A3", "#FFFFFF", "#800080"],
+  ["#7F7F7F", "#C4C4C4", "#9DD7EA", "#FFFFFF", "#9DD7EA", "#C4C4C4", "#7F7F7F"],
+  ["#7F7F7F", "#C4C4C4", "#F3B5CD", "#FFFFFF", "#F3B5CD", "#C4C4C4", "#7F7F7F"],
+  ["#F5A9B8", "#B57EDC", "#5BCEFA", "#B57EDC", "#F5A9B8"],
+  ["#FFFFFF", "#DC143C"],
 ];
 
 const hexToRgb = (hex) =>
@@ -3485,6 +3493,14 @@ const FLAG_NAMES = [
   "pansexual",
   "rainbow",
   "agender",
+  "gaymen",
+  "genderqueer",
+  "intersex",
+  "asexual",
+  "demiboy",
+  "demigirl",
+  "trigender",
+  "polish",
 ];
 
 const ACTION_FILL = {
@@ -3497,6 +3513,14 @@ const ACTION_FILL = {
     "#D00A72",
     "#63348F",
     "#4A7A22",
+    "#08765F",
+    "#7944A2",
+    "#72009E",
+    "#800080",
+    "#347A98",
+    "#A94D75",
+    "#7950A4",
+    "#B30E31",
   ],
   dark: [
     "#F0A3B6",
@@ -3507,6 +3531,14 @@ const ACTION_FILL = {
     "#FF74B8",
     "#C09EE8",
     "#AEEB76",
+    "#6AD9BA",
+    "#CAA1E6",
+    "#D894F3",
+    "#D586D5",
+    "#9DD7EA",
+    "#F3B5CD",
+    "#CAA4E7",
+    "#F4748E",
   ],
 };
 
@@ -3637,9 +3669,17 @@ const FIELD_BANDS = [
   ["pansexual", "#FFD800", "#101820"],
   ["rainbow", "#004CFF", "#FFFFFF"],
   ["agender", "#B9F484", "#101820"],
+  ["gaymen", "#26CEAA", "#101820"],
+  ["genderqueer", "#4A8123", "#FFFFFF"],
+  ["intersex", "#FFD800", "#101820"],
+  ["asexual", "#800080", "#FFFFFF"],
+  ["demiboy", "#9DD7EA", "#101820"],
+  ["demigirl", "#F3B5CD", "#101820"],
+  ["trigender", "#B57EDC", "#101820"],
+  ["polish", "#DC143C", "#FFFFFF"],
 ];
 
-test("every word on the splash's field holds 4.5:1, on all eight flags", async () => {
+test("every word on the splash's field holds 4.5:1, on all sixteen flags", async () => {
   /* The pixel pass two sections up measures what is actually painted, and it
      can only ever see the flag that happens to be up when the page loads -
      trans, whose band carries black at 9.59:1 and would hide all seven of the

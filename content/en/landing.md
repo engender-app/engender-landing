@@ -357,9 +357,10 @@ pitch figure may not be presented as a target.
 
 *Gate: shipped.*
 
-> **Sixteen palettes**, among them trans, nonbinary, genderfluid, bisexual, lesbian,
-> pansexual, agender and rainbow. Each one recolours the whole app, charts and
-> calendar included, and each one works in light and dark.
+> **Sixteen palettes**: trans, nonbinary, genderfluid, bisexual, lesbian, pansexual,
+> rainbow, agender, gay men, genderqueer, intersex, asexual, demiboy, demigirl,
+> trigender and the Polish flag. Each one recolours the whole app, charts and calendar
+> included, and each one works in light and dark.
 >
 > **Colour never judges.** No red for a bad day and no green for a good one. The heat map
 > is one colour at different strengths, and an empty day stays empty.

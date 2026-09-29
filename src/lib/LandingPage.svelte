@@ -361,12 +361,12 @@
 
     {#if group.id === PALETTE_GROUP}
       <!-- The one group the page can prove instead of assert: the sun and the
-           strip cycle the eight flags in step, and the swatch currently inking
+           strip cycle the sixteen flags in step, and the swatch currently inking
            the page lifts. Deliberately not interactive - a pointer-only
-           control is unreachable by keyboard, and giving eight swatches real
-           accessible names would mean eight new strings in the message
+           control is unreachable by keyboard, and giving sixteen swatches real
+           accessible names would mean sixteen new strings in the message
            catalogue, which is a copy change this ticket does not own. The whole
-           block is aria-hidden because every one of the eight names is already
+           block is aria-hidden because every one of the sixteen names is already
            in the paragraph beside it. -->
       <div class="palette-demo" aria-hidden="true">
         <div class="palette-sun">
