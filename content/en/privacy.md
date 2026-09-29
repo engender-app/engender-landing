@@ -113,6 +113,24 @@ terms, and privacy policy. See ticket 09 for the audit and source map.
 > downloads and updates. Installing from Google Play ties the installation to your Google
 > account; no engender setting changes that.
 
+## Hosting it yourself
+
+*Gate: shipped. From the Journal's phase-13 self-hosting ticket 01 (2026-09-29).*
+
+> If you would rather no one else's server saw even that, you can host the web app
+> yourself. Each release publishes the app as a ready bundle, so there is nothing to
+> fork or rebuild: serve it with nginx, or run the container image, behind your own
+> HTTPS. The requests above then reach your server and nobody else's.
+>
+> It needs HTTPS and the root of an address: a subdomain works, a path under a domain
+> does not. A journal belongs to the address it was opened on, so a journal kept on my
+> server does not appear on yours, and changing your hostname later leaves the old
+> journal at the old address. Move between them with an Archive: export on one, import
+> on the other.
+>
+> The Android app is not affected. It carries its own copy of the web app and never
+> loads it from a server.
+
 ## What none of this protects against
 
 *Gate: shipped.*

@@ -165,6 +165,10 @@ above.
 > ask for internet permission. In a browser, the web host sees the app being loaded
 > and checking for updates, and nothing of what you write.
 >
+> If you would rather not rely on my server at all, you can host the app yourself:
+> every release publishes it as a bundle you can serve from your own domain, and then
+> the only host that sees it load is yours.
+>
 > What that protects, and what it does not (an unlocked phone in someone else's hands,
 > for one), is on its own page.
 
@@ -172,7 +176,8 @@ Conclusion first, mechanism second, the limit in the same breath. The Android
 line is checkable by anyone: the Journal's `AndroidManifest.xml` declares no
 `INTERNET` permission, so the Play listing's permission list shows its absence.
 The web line names the service worker's update checks, because the host does see
-those.
+those. The self-hosting line follows Journal phase-13 self-hosting ticket 01
+(2026-09-29), and the privacy page carries the detail.
 
 ---
 

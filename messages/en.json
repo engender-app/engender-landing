@@ -54,6 +54,7 @@
   "privacyHandoff": [
     "Your journal stays on your device. There is no engender account, no server, and no copy of your entries anywhere but where you put them. I cannot read your journal, sell it or hand it over, because I never have it.",
     "On your device it is encrypted, and you choose what opens it: a passphrase, a PIN, your fingerprint or face, or the device's own lock. On Android the app does not even ask for internet permission. In a browser, the web host sees the app being loaded and checking for updates, and nothing of what you write.",
+    "If you would rather not rely on my server at all, you can host the app yourself: every release publishes it as a bundle you can serve from your own domain, and then the only host that sees it load is yours.",
     "What that protects, and what it does not (an unlocked phone in someone else's hands, for one), is on its own page."
   ],
   "sectionTour": "The screens",
@@ -299,6 +300,14 @@
         "paragraphs": [
           "When the web app loads or checks for updates, the host sees your IP address, request time, requested files and their sizes, and User-Agent and Referer headers. It does not receive journal entries, photos, notes or lab results. After installation, you can use the journal offline.",
           "The Android app does not request the INTERNET permission. Store operators may record downloads and updates. Installing from Google Play ties the installation to your Google account; no engender setting changes that."
+        ]
+      },
+      {
+        "heading": "Hosting it yourself",
+        "paragraphs": [
+          "If you would rather no one else's server saw even that, you can host the web app yourself. Each release publishes the app as a ready bundle, so there is nothing to fork or rebuild: serve it with nginx, or run the container image, behind your own HTTPS. The requests above then reach your server and nobody else's.",
+          "It needs HTTPS and the root of an address: a subdomain works, a path under a domain does not. A journal belongs to the address it was opened on, so a journal kept on my server does not appear on yours, and changing your hostname later leaves the old journal at the old address. Move between them with an Archive: export on one, import on the other.",
+          "The Android app is not affected. It carries its own copy of the web app and never loads it from a server."
         ]
       },
       {

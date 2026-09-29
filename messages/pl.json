@@ -54,6 +54,7 @@
   "privacyHandoff": [
     "Dziennik zostaje na twoim urządzeniu. Nie ma konta engender ani serwera, a wpisy nie mają kopii nigdzie poza miejscem, w którym je trzymasz. Nie przeczytam twojego dziennika, nie sprzedam go ani nikomu nie przekażę, bo nigdy go nie mam.",
     "Na urządzeniu jest zaszyfrowany, a ty wybierasz, czym go otwierasz: hasłem, PIN-em, odciskiem palca lub twarzą albo blokadą samego urządzenia. Na Androidzie aplikacja nie prosi nawet o dostęp do internetu. W przeglądarce serwer WWW widzi pobieranie aplikacji i sprawdzanie aktualizacji, ale nic z tego, co piszesz.",
+    "Jeśli nie chcesz polegać na moim serwerze, możesz postawić aplikację u siebie: każde wydanie publikuje ją jako paczkę do wystawienia z własnej domeny, i wtedy jedyny serwer, który widzi jej pobieranie, jest twój.",
     "Co to chroni, a czego nie (na przykład odblokowanego telefonu w cudzych rękach), jest na osobnej stronie."
   ],
   "sectionTour": "Ekrany",
@@ -299,6 +300,14 @@
         "paragraphs": [
           "Gdy aplikacja webowa się otwiera albo sprawdza aktualizacje, serwer widzi adres IP, czas zapytania, żądane pliki i ich rozmiary oraz nagłówki User-Agent i Referer. Nie dostaje wpisów, zdjęć, notatek ani wyników badań. Po instalacji dziennik działa także bez internetu.",
           "Aplikacja na Androida nie prosi o uprawnienie INTERNET. Operatorzy sklepów mogą zapisywać pobrania i aktualizacje. Instalacja z Google Play jest powiązana z twoim kontem Google. Żadne ustawienie engender tego nie zmienia."
+        ]
+      },
+      {
+        "heading": "Własny serwer",
+        "paragraphs": [
+          "Jeśli nie chcesz, żeby nawet to widział czyjś serwer, możesz postawić aplikację webową u siebie. Każde wydanie publikuje gotową paczkę, więc nie trzeba niczego forkować ani budować od nowa: wystarczy nginx albo gotowy obraz kontenera za twoim własnym HTTPS. Wtedy zapytania opisane wyżej trafiają tylko do twojego serwera.",
+          "Potrzebne jest HTTPS i główny adres domeny: subdomena działa, ścieżka w domenie nie. Dziennik należy do adresu, pod którym go otwierasz, więc dziennik z mojego serwera nie pojawi się na twoim, a zmiana adresu później zostawia stary dziennik pod starym. Przenosi się go archiwum: eksport w jednym miejscu, import w drugim.",
+          "Aplikacji na Androida to nie dotyczy. Ma własną kopię aplikacji webowej i nigdy nie pobiera jej z serwera."
         ]
       },
       {

@@ -121,6 +121,10 @@ reader.
 > nie prosi nawet o dostęp do internetu. W przeglądarce serwer WWW widzi pobieranie
 > aplikacji i sprawdzanie aktualizacji, ale nic z tego, co piszesz.
 >
+> Jeśli nie chcesz polegać na moim serwerze, możesz postawić aplikację u siebie: każde
+> wydanie publikuje ją jako paczkę do wystawienia z własnej domeny, i wtedy jedyny
+> serwer, który widzi jej pobieranie, jest twój.
+>
 > Co to chroni, a czego nie (na przykład odblokowanego telefonu w cudzych rękach),
 > jest na osobnej stronie.
 

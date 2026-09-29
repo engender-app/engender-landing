@@ -115,6 +115,23 @@ terms, and privacy policy. See ticket 09 for the audit and source map.
 > zapisywać pobrania i aktualizacje. Instalacja z Google Play jest powiązana z twoim
 > kontem Google. Żadne ustawienie engender tego nie zmienia.
 
+## Własny serwer
+
+*Gate: shipped. From the Journal's phase-13 self-hosting ticket 01 (2026-09-29).*
+
+> Jeśli nie chcesz, żeby nawet to widział czyjś serwer, możesz postawić aplikację
+> webową u siebie. Każde wydanie publikuje gotową paczkę, więc nie trzeba niczego
+> forkować ani budować od nowa: wystarczy nginx albo gotowy obraz kontenera za twoim
+> własnym HTTPS. Wtedy zapytania opisane wyżej trafiają tylko do twojego serwera.
+>
+> Potrzebne jest HTTPS i główny adres domeny: subdomena działa, ścieżka w domenie nie.
+> Dziennik należy do adresu, pod którym go otwierasz, więc dziennik z mojego serwera
+> nie pojawi się na twoim, a zmiana adresu później zostawia stary dziennik pod starym.
+> Przenosi się go archiwum: eksport w jednym miejscu, import w drugim.
+>
+> Aplikacji na Androida to nie dotyczy. Ma własną kopię aplikacji webowej i nigdy nie
+> pobiera jej z serwera.
+
 ## Czego to nie chroni
 
 *Gate: shipped.*
