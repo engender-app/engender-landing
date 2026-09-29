@@ -1946,7 +1946,6 @@ const PRIVACY_CLAIMS = {
     "GDIARY",
     "single-event .ics calendar files",
     "private vulnerability reporting",
-    "Do not send journal entries",
   ],
   pl: [
     "profilach przeglądarki",
@@ -1965,7 +1964,6 @@ const PRIVACY_CLAIMS = {
     "GDIARY",
     "pliki kalendarza .ics",
     "prywatny formularz podatności",
-    "Nie wysyłaj wpisów",
   ],
 };
 

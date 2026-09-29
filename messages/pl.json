@@ -212,19 +212,15 @@
   ],
   "sectionSupport": "Kto to robi",
   "support": [
-    "Tworzy to jedna osoba trans, czyli ja. Nie ma firmy, więc nie ma działu pomocy i nie ma komu tego sprzedać.",
+    "Tworzy to jedna osoba trans, czyli ja, Alicja Barankiewicz. Na co dzień zajmuję się inżynierią danych w Warszawie, a wywodzę się z animacji, stąd ruch na tej stronie. Prowadzę też nazwozbior.pl, wyszukiwarkę wszystkich imion z rejestru PESEL dla osób, które szukają imienia dla siebie. Nie ma firmy, więc nie ma działu pomocy i nie ma komu tego sprzedać.",
     {
       "lead": "Można to przeczytać.",
-      "rest": " engender jest wolnym oprogramowaniem na licencji GPLv3. Nie musisz mi wierzyć na słowo: kod jest publiczny. Zajrzyj albo poproś o to kogoś, komu ufasz."
+      "rest": " engender jest wolnym oprogramowaniem na licencji GPLv3. Kod jest publiczny."
     },
     "Licencja pozwala ten kod uruchamiać, zmieniać i przekazywać dalej, i nie da się jej cofnąć. Jeśli przestanę, kod może podnieść ktoś inny, a twoje archiwa mają udokumentowany format, a nie taki, który otwiera tylko ta jedna aplikacja.",
     {
       "lead": "Jeśli coś nie działa",
       "rest": ", napisz, co się dzieje i czego się spodziewasz. Zwykle to wystarczy, żeby znaleźć przyczynę."
-    },
-    {
-      "lead": "Nie przysyłaj mi swojego dziennika.",
-      "rest": " Ani archiwum, ani zrzutu ekranu z wpisami, ani logu z sesji, w której coś piszesz. Nigdy o nic z tego nie poproszę. Jeśli ktoś prosi, to nie ja."
     }
   ],
   "privacyPage": {
@@ -895,7 +891,7 @@
           {
             "heading": "Zgłoszenia bezpieczeństwa",
             "paragraphs": [
-              "Problem z bezpieczeństwem możesz zgłosić przez prywatny formularz podatności na GitHubie. Podaj wersję aplikacji, urządzenie albo przeglądarkę, jasne kroki odtworzenia błędu oraz oczekiwany i otrzymany wynik. Do minimalnego przykładu użyj zmyślonych danych. Nie wysyłaj wpisów, archiwów, kluczy, zrzutów ekranu z prywatnymi danymi ani logów z treścią dziennika. Do pomocy ani potwierdzenia błędu nikomu nie jest potrzebny twój dziennik.",
+              "Problem z bezpieczeństwem możesz zgłosić przez prywatny formularz podatności na GitHubie. Podaj wersję aplikacji, urządzenie albo przeglądarkę, jasne kroki odtworzenia błędu oraz oczekiwany i otrzymany wynik. Do minimalnego przykładu użyj zmyślonych danych.",
               "Projekt prowadzi jedna osoba. Zgłoszenie przeczyta, gdy znów usiądzie do pracy; nie ma stałego terminu odpowiedzi."
             ]
           }
@@ -909,7 +905,7 @@
             "heading": "Kod",
             "paragraphs": [
               "Sklonuj repozytorium aplikacji z github.com/barankiewicz/gender-diary. Uruchom npm install, a potem npm run dev. W README znajdziesz listę testów. npm run check, npm test i npm run test:browser sprawdzają różne części aplikacji.",
-              "Zgłoszenie zmian powinno dotyczyć jednej sprawy. Napisz, co i dlaczego zmieniasz oraz jakie testy udało się uruchomić. CI sprawdza każde zgłoszenie, także w przeglądarce. W testach i zrzutach ekranu używaj zmyślonych danych. Nie dołączaj niczyjego prawdziwego dziennika."
+              "Zgłoszenie zmian powinno dotyczyć jednej sprawy. Napisz, co i dlaczego zmieniasz oraz jakie testy udało się uruchomić. CI sprawdza każde zgłoszenie, także w przeglądarce. W testach i zrzutach ekranu używaj zmyślonych danych."
             ]
           },
           {

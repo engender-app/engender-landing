@@ -437,7 +437,10 @@ the fact is undecided, not because anything is unshipped.*
 
 *Gate: shipped. Ticket 10 retitled the section and put the person first.*
 
-> One trans person made this, and that person is me. There is no company, so there is
+> One trans person made this, and that person is me, Alicja Barankiewicz. I work as a
+> data engineer in Warsaw and I come from animation, which is why this page moves the
+> way it does. I also run nazwozbior.pl, which searches every name in the Polish PESEL
+> registry for anyone looking for the one that fits. There is no company, so there is
 > no support desk and nobody to sell it to.
 
 ### Source
@@ -445,9 +448,7 @@ the fact is undecided, not because anything is unshipped.*
 *Gate: shipped. The Journal repository is public, so "go and look" is checkable in
 the most literal way this page has.*
 
-> **You can read it.** engender is free software under the GPLv3. Do not take my word
-> for anything on this page: the source is public. Go and look, or get someone you
-> trust to look.
+> **You can read it.** engender is free software under the GPLv3. The source is public.
 >
 > The licence means you can run it, change it and pass it on, and it cannot be taken
 > back. If I stop, someone else is free to pick the code up, and your Archives are a
@@ -458,15 +459,12 @@ sentence pointing at it would be false. It can come back once the link works.
 
 ### Support
 
-*Gate: shipped. The prohibition on asking for sensitive material is required by the
-spec and is not optional wording.*
+*Gate: shipped. The paragraph telling the reader not to send their journal was cut
+by Alicja on 2026-09-29 (ticket 10), along with the same warning in the Guide and
+the Play listing.*
 
 > **If something is broken**, tell me what happened and what you expected instead. That
 > is usually enough to find it.
->
-> **Do not send me your journal.** Not an Archive, not a screenshot with your entries in
-> it, not a log from a session where you were writing. I will never ask for any of it.
-> If something asks, it is not me.
 
 ### Privacy policy and security contact
 

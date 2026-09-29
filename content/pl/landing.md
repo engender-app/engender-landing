@@ -365,17 +365,18 @@ or in neither.*
 *Gate: shipped. Ticket 10 retitled the section „Kto to robi”, present tense, so
 the heading does not gender the author.*
 
-> Tworzy to jedna osoba trans, czyli ja. Nie ma firmy, więc nie ma działu pomocy i nie
-> ma komu tego sprzedać.
+> Tworzy to jedna osoba trans, czyli ja, Alicja Barankiewicz. Na co dzień zajmuję się
+> inżynierią danych w Warszawie, a wywodzę się z animacji, stąd ruch na tej stronie.
+> Prowadzę też nazwozbior.pl, wyszukiwarkę wszystkich imion z rejestru PESEL dla osób,
+> które szukają imienia dla siebie. Nie ma firmy, więc nie ma działu pomocy i nie ma
+> komu tego sprzedać.
 
 ### Source
 
 *Gate: shipped. The Journal repository is public now, which was the condition this
 block waited on.*
 
-> **Można to przeczytać.** engender jest wolnym oprogramowaniem na licencji GPLv3. Nie
-> musisz mi wierzyć na słowo: kod jest publiczny. Zajrzyj albo poproś o to kogoś, komu
-> ufasz.
+> **Można to przeczytać.** engender jest wolnym oprogramowaniem na licencji GPLv3. Kod jest publiczny.
 >
 > Licencja pozwala ten kod uruchamiać, zmieniać i przekazywać dalej, i nie da się jej
 > cofnąć. Jeśli przestanę, kod może podnieść ktoś inny, a twoje archiwa mają
@@ -383,15 +384,12 @@ block waited on.*
 
 ### Support
 
-*Gate: shipped. The prohibition on asking for sensitive material is required by the spec
-and is not optional wording.*
+*Gate: shipped. The paragraph telling the reader not to send their journal was cut
+by Alicja on 2026-09-29 (ticket 10), along with the same warning in the Guide and
+the Play listing.*
 
 > **Jeśli coś nie działa**, napisz, co się dzieje i czego się spodziewasz. Zwykle to
 > wystarczy, żeby znaleźć przyczynę.
->
-> **Nie przysyłaj mi swojego dziennika.** Ani archiwum, ani zrzutu ekranu z wpisami, ani
-> logu z sesji, w której coś piszesz. Nigdy o nic z tego nie poproszę. Jeśli ktoś prosi,
-> to nie ja.
 
 The English asks for what happened and what the reader expected instead. Both are
 past-tense addresses to the reader in English, which in Polish would pick a gender, so

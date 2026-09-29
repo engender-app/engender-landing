@@ -212,19 +212,15 @@
   ],
   "sectionSupport": "Who made this",
   "support": [
-    "One trans person made this, and that person is me. There is no company, so there is no support desk and nobody to sell it to.",
+    "One trans person made this, and that person is me, Alicja Barankiewicz. I work as a data engineer in Warsaw and I come from animation, which is why this page moves the way it does. I also run nazwozbior.pl, which searches every name in the Polish PESEL registry for anyone looking for the one that fits. There is no company, so there is no support desk and nobody to sell it to.",
     {
       "lead": "You can read it.",
-      "rest": " engender is free software under the GPLv3. Do not take my word for anything on this page: the source is public. Go and look, or get someone you trust to look."
+      "rest": " engender is free software under the GPLv3. The source is public."
     },
     "The licence means you can run it, change it and pass it on, and it cannot be taken back. If I stop, someone else is free to pick the code up, and your Archives are a documented format rather than something only this app can open.",
     {
       "lead": "If something is broken",
       "rest": ", tell me what happened and what you expected instead. That is usually enough to find it."
-    },
-    {
-      "lead": "Do not send me your journal.",
-      "rest": " Not an Archive, not a screenshot with your entries in it, not a log from a session where you were writing. I will never ask for any of it. If something asks, it is not me."
     }
   ],
   "privacyPage": {
@@ -895,7 +891,7 @@
           {
             "heading": "Security reports",
             "paragraphs": [
-              "You can report a security problem through GitHub's private vulnerability reporting. Include the app version, device or browser, clear steps to reproduce the problem, and what you expected and saw. Use invented data for a minimal proof. Do not send journal entries, Archives, keys, screenshots with private details or logs containing journal content. Nobody needs to see your journal for support or to confirm a bug.",
+              "You can report a security problem through GitHub's private vulnerability reporting. Include the app version, device or browser, clear steps to reproduce the problem, and what you expected and saw. Use invented data for a minimal proof.",
               "One person maintains the project, so a report is read when they next sit down to work. There is no fixed response window."
             ]
           }
@@ -909,7 +905,7 @@
             "heading": "Code",
             "paragraphs": [
               "Clone the Journal repository from github.com/barankiewicz/gender-diary. Run npm install, then npm run dev to work locally. The README lists the checks; npm run check, npm test and npm run test:browser cover different parts of the app.",
-              "Keep a pull request focused. Say what changed, why it changed and which checks you ran. CI runs on each pull request, including browser checks. Use invented journal data in tests and screenshots; do not put anyone's real journal in an issue or a pull request."
+              "Keep a pull request focused. Say what changed, why it changed and which checks you ran. CI runs on each pull request, including browser checks. Use invented journal data in tests and screenshots."
             ]
           },
           {

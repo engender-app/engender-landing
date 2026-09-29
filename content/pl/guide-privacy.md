@@ -120,9 +120,7 @@ Ten rozdział zachowuje te granice.
 > Problem z bezpieczeństwem możesz zgłosić przez prywatny formularz podatności
 > na GitHubie. Podaj wersję aplikacji, urządzenie albo przeglądarkę, jasne
 > kroki odtworzenia błędu oraz oczekiwany i otrzymany wynik. Do minimalnego
-> przykładu użyj zmyślonych danych. Nie wysyłaj wpisów, archiwów, kluczy,
-> zrzutów ekranu z prywatnymi danymi ani logów z treścią dziennika. Do
-> pomocy ani potwierdzenia błędu nikomu nie jest potrzebny twój dziennik.
+> przykładu użyj zmyślonych danych.
 >
 > Projekt prowadzi jedna osoba. Zgłoszenie przeczyta, gdy znów usiądzie do
 > pracy; nie ma stałego terminu odpowiedzi.

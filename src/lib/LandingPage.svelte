@@ -1195,21 +1195,6 @@
     font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
   }
 
-  /* The warning is the one thing on the page a reader must not scroll past
-     thinking it was decoration, so it is the page's second ink field. */
-  /* The one block on the page: a value sits on it, and the value is the one
-     sentence a reader must not scroll past thinking it was decoration. The
-     act it is in has no field, which is what keeps the site inside the
-     translated colour budget - at most one field per act, blocks only where
-     something sits on them. */
-  .support :global(p:last-child) {
-    margin-top: 2.5rem;
-    padding: clamp(1.25rem, 3vw, 2rem);
-    border-radius: var(--r-block);
-    background: var(--field-rose);
-    color: var(--on-field);
-  }
-
   /* ---- Wide ----------------------------------------------------------- */
 
 
