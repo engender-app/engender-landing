@@ -1000,7 +1000,11 @@
     color: var(--text);
   }
 
+  /* Across the whole sheet, not in the text column: the after-field reuses the
+     splash's two-column sheet, and in its first column four cells were a word
+     or two wide. */
   .promises {
+    grid-column: 1 / -1;
     margin-top: clamp(2.5rem, 6vh, 4rem);
   }
 
