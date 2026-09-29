@@ -12,21 +12,17 @@
 
   const m = $derived(messages[locale]);
 
-  /* The eight screens are not a section any more. They were a sideways strip
-     of eight placeholder frames a reader had to scroll through before reaching
-     anything the frames illustrated; now each frame sits in the feature group
-     it belongs to, so a picture stands next to the sentences it proves
-     (Alicja's decision, 2026-08-27).
+  /* The eight screens are not a section of their own. They were a sideways
+     strip of eight placeholder frames a reader had to scroll through before
+     reaching anything the frames illustrated (Alicja's decision, 2026-08-27).
+     Since ticket 10 seven of them follow the grid of what the app holds, so
+     every claim is read before its picture, and Export stays in the group
+     whose sentences it proves.
 
-     Everything below keys on a group's `id`, never on its position, and that
-     is not fastidiousness: English has seven feature groups and Polish has
-     five. Polish is still the pre-rewrite copy - ticket 02 wrote English only
-     and the translation pass owns the rest - so it has no "around the journal"
-     and no "on your phone", and its "keeping it" sits where English has
-     "around". An index-based mapping is therefore wrong on one of the two
-     pages by construction, which is exactly what the first build of this
-     section did: it disabled every frame on the Polish page and dropped eight
-     approved captions with them.
+     Everything below keys on a group's `id`, never on its position. The first
+     build of this section mapped frames by index while the two languages had
+     different groups, and it disabled every frame on the Polish page and
+     dropped eight approved captions with them.
 
      The ids live in the message catalogue beside each group. They are not copy
      and never render; they exist so a renderer can ask which group this is
@@ -170,7 +166,11 @@
            still starts at the overview. -->
       <ul class="promises cells">
         {#each m.promises as promise, index (promise.heading)}
-          <li class="wipe" style:--reveal-index={index}>
+          <!-- The hero's own entrance, continuing its stagger, rather than a
+               scroll wipe: on a desktop the strip starts just above the fold,
+               and a scrubbed wipe would sit there half uncovered until the
+               reader scrolled (47% clipped at 1440x900). -->
+          <li class="enter" style:--enter={4 + index}>
             <p class="cell-head">{promise.heading}</p>
             <p>{promise.body}</p>
           </li>
@@ -326,8 +326,8 @@
              showing one. They move together now (Alicja's note,
              2026-08-28), so the frames belong to the same moment as the
              motif and the rules. -->
-        <!-- A different stripe of the live flag each, so a row of three
-             is three of the flag's colours rather than three copies of one,
+        <!-- A different stripe of the live flag each, so a row of frames
+             is several of the flag's colours rather than copies of one,
              and each lands a little after the one before it (Alicja's note,
              2026-08-28). Modulo the stripe count, so a three-stripe flag
              repeats rather than leaving a frame with no colour. -->
@@ -909,7 +909,7 @@
 
   /* ---- The frames ----------------------------------------------------- */
 
-  /* In the group they illustrate, in a plain grid. No sideways strip and no
+  /* After the claims they illustrate, in a plain grid. No sideways strip and no
      pinned pan: the strip made a reader scroll horizontally through eight
      placeholders before meeting anything they explained. */
   .frames {
@@ -1211,7 +1211,8 @@
 
   /* ---- Narrow --------------------------------------------------------- */
 
-  @media (max-width: 64rem) {
+  /* 63.99 so that 1024px itself still gets four across. */
+  @media (max-width: 63.99rem) {
     .cells {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }

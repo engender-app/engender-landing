@@ -4113,6 +4113,36 @@ test("the motion system ships no animation runtime at all", async () => {
   }
 });
 
+/* Ticket 10's shape: four promises under the action, eight things the app
+   holds in the order Alicja gave, seven frames after them with Export left in
+   its group, and the two corrections the fact check made to the copy. */
+const HOLDS = {
+  en: ["Journal", "Look back", "HRT", "Surgeries", "Tryouts", "Eras", "Voice", "Clinician summary"],
+  pl: ["Dziennik", "Przegląd", "HTZ", "Operacje", "Próby", "Ery", "Głos", "Podsumowanie do lekarza"],
+};
+const PALETTE_LEAD = { en: "Sixteen palettes", pl: "Szesnaście palet" };
+
+for (const locale of ["en", "pl"]) {
+  test(`${locale}: the promises, the eight holds and the tour sit in order`, async () => {
+    const { context, page } = await visitor({});
+    try {
+      await page.goto(`${base}/${locale}/`);
+      assert.equal(await page.locator(".after-field .promises li").count(), 4);
+      assert.deepEqual(
+        await page.locator(".features .holds h3").allInnerTexts(),
+        HOLDS[locale],
+      );
+      assert.equal(await page.locator(".features .tour .frames li").count(), 7);
+      assert.equal(await page.locator(".group .frames li").count(), 1);
+      const main = await page.locator("main").innerText();
+      assert.ok(main.includes(PALETTE_LEAD[locale]), "the palette count is not sixteen");
+      assert.ok(!/ko-fi/i.test(main), "Ko-fi is on the page before its link is live");
+    } finally {
+      await context.close();
+    }
+  });
+}
+
 for (const { name, run } of tests) {
   try {
     await run();
