@@ -1,73 +1,63 @@
-# Play listing keywords, and why each one
+# Store listing keywords, and why each one
 
-The record ticket 08 owes a later audit: which terms the listing targets, where each
-one sits, and what was rejected. Play has no hidden keyword field; everything indexed
-is visible text, the title weighs most, then the short description, then the full
-description, and Play's own guidance is natural language over density. No search
-volume data went into this: there is no paid ASO tooling on this project, so volume
-claims below are reasoning from the marketing context, not measurements. An audit
-with real Play Console search data should revisit exactly these decisions.
+Which terms the listing targets, where each one sits, and what was rejected, so
+a later audit can tell deliberate from accidental. Play has no hidden keyword
+field: everything indexed is visible text, the title weighs most, then the
+short description, then the full description, and Play's guidance is natural
+language over density. No search volume data went into this; an audit with
+real Play Console search data should revisit these decisions.
 
-## The strategy in one paragraph
+## The strategy, since 2026-10-07
 
-The marketing context settles it: "transition tracker" is a thin shelf, and most of
-this audience searches in the mood-tracker aisle and finds nothing with a place for
-gender. So the listing spends the title, the strongest field, on the mood aisle where
-the volume is, and covers the niche transition terms in the short description and
-throughout the full description, where a low-competition term does not need title
-weight to rank. The engender rename changed the arithmetic: the old brand carried
-"gender" and "diary" into the title for free, the new one carries only "gender", so
-the title suffix has to buy "diary" as well as the mood terms.
+The first plan spent the title on the mood-journal aisle ("mood journal &
+diary") and left transition terms to the descriptions. Alicja reversed that:
+the title is `engender: transition tracker`, because the app now covers far
+more than a mood journal (HRT, care records, voice practice, tryouts, a
+roadmap) and the title should say what it is. Journal and mood terms move down
+to the short and full description, where they still index.
 
 ## English (en-US)
 
 | Term | Where it sits | Why |
 |---|---|---|
-| gender | Title (brand), full description throughout | The category-defining word, free with the brand |
-| diary | Title suffix, full description | Half the aisle searches "diary" rather than "tracker". Free with the old brand, bought by the suffix since the rename |
-| mood journal / mood | Title suffix, full description | The aisle the audience actually searches, per the marketing context |
-| transition journal / transition | Short description lead, full description opening | The exact-fit term. Fits the title since the rename (28), and still loses to the aisle terms: low competition does not need title weight, and the short description leads with it |
-| dysphoria, euphoria | Full description, scales sentence | High-intent, and already how the shipped app names the ends of Gender feeling |
-| private / on your device / no account | Short and full description | The deciding concern for this audience. Stated as mechanism, never as a bare "private" adjective, per the voice rules |
-| encrypted | Full description, Archive and at-rest blocks | Real term people search; every use names what is encrypted |
-| Daylio | Full description, import sentence | Switchers search their old app's name; the import is real and merge-only |
-| mood tracker | Full description, "Mood trackers are the right shape" | The aisle named in its own words, in a sentence that is honestly about the competition's shape |
+| transition tracker / transition | Title, short description, full description opening | What the app is, in the words people search with |
+| gender | Title (brand) | Free with the name |
+| HRT | Short description, full description opening | Real search volume with exactly this audience, and the landing page now says it |
+| journal | Full description throughout | The core of the app; half the audience searches journal or diary |
+| mood | Short description, full description | The mood-tracker aisle, now below the title |
+| voice, voice practice | Short description, full description | A feature with its own searches, and one most trackers lack |
+| milestones | Short description, full description | The app's own word |
+| dysphoria, euphoria | Full description | High intent, and how the app's built-in scale names its ends |
+| offline, no account | Short and full description | The deciding concern for this audience, stated as mechanism |
+| encrypted | Full description | Every use names what is encrypted |
+| Daylio | Full description, import sentence | Switchers search their old app's name; the import is real |
 
 ## Polish (pl-PL)
 
-Play indexes per locale, and the brand's English words do nothing for Polish queries,
-so the Polish fields have to buy their own terms.
-
 | Term | Where it sits | Why |
 |---|---|---|
-| tranzycja | Title suffix, short description, full description | The highest-intent Polish term this app honestly meets, and the one the brand covers least |
-| dziennik | Short description, full description throughout | The Polish for both diary and journal, so it works twice as hard as either English token |
-| nastrój / nastroju | Short description, full description | The Polish mood aisle. "dziennik nastroju" as a title suffix needs 31 of 30 characters, so the pair lands in the short description instead |
-| dysforia, euforia | Full description, scales sentence | Same reasoning as English, same shipped labels |
-| bez konta | Short and full description | The no-account claim in the words a Polish reader would type |
-| zaszyfrowane / szyfrowanie | Full description | Same rule as English: only next to what it covers |
+| tranzycja | Short description, full description | The highest-intent Polish term. The title is English for now, so the short description carries it |
+| HTZ | Short and full description | What Polish readers search with, the same call as the landing hero |
+| dziennik | Full description | Polish for both diary and journal |
+| nastrój | Short and full description | The Polish mood aisle |
+| kamienie milowe | Short and full description | The app's own label, kept although style guides dislike it |
+| dysforia, euforia | Full description | Same reasoning as English |
+| bez konta, offline | Short and full description | The no-account claim in a reader's own words |
 | Daylio | Full description | Brand-name searches are language-independent |
 
 ## Rejected, and the reasoning
 
 | Candidate | Verdict |
 |---|---|
-| "transition journal" in the EN title | Fit changed with the rename: 32 of 30 under the old brand, 28 now. Still rejected, for the reason above: the title's weight goes to the high-volume aisle terms, and the exact-fit term is already the short description's lead |
-| "trans journal" in the EN title | Fits at 27, and was runner-up. Rejected because the site's own register is "transition journal", and the marketing context bars presuming the reader's identity; a questioning reader is exactly who "trans" might tell this is not for them. "trans" still appears in indexed text as a palette name, which is honest and costs nothing |
-| "dziennik nastroju" in the PL title | 31 of 30 with the brand. Moved to the short description |
-| "dziennik trans" in the PL title | Fits, but "trans" as a bare Polish noun reads as trance before it reads as trans, and the identity-presumption point above applies |
-| HRT / HTZ | Real search volume with exactly this audience, and rejected: the site's published copy never says HRT, and the listing may not claim or imply more than the site. If the site ever adds it, the listing should follow, not lead |
-| offline, works offline | Out of the listing for room, not for truth any more: the site claims install-and-offline since the v10 doctrine change, so a later listing pass may add it if the 4,000-character assembly can pay for it |
-| free, no ads, best | "free" and performance claims are prohibited by Play in titles and short descriptions. In the full description the facts appear as facts: free software under the GPLv3, no advertising, no telemetry |
-| tracker (self-description) | The app calls itself a diary and a journal; "mood tracker" appears once, describing the aisle. Self-describing as a tracker would trade the register the whole site keeps for one more token |
-| lgbt, lgbtq | Generic reach terms. The listing is not a community app and does not tag itself into a shelf it does not serve; the palette names already carry the specific words that are true |
-| journal intime style calques in Polish | The Polish is written as Polish; no term went in because the English had one |
+| "mood journal & diary" title | Replaced on Alicja's call: it described the aisle, not the app |
+| "trans journal" in the title | Presumes the reader's identity; a questioning reader is exactly who "trans" might turn away. The description says who made it instead |
+| "dziennik trans" in the PL title | "trans" as a bare Polish noun reads as trance first |
+| free, no ads, best | "free" and performance claims are not allowed in Play titles and short descriptions. In the full description the facts appear as facts |
+| lgbt, lgbtq | Generic reach terms for a shelf the app does not serve; palette names already carry the specific words |
+| telemetry, analytics | Not used about the app: the Android app has no internet permission, and the web app may count page loads, which a listing for the Android app should not have to qualify |
 
 ## Density note
 
-Play's NLP penalises stuffing. The check applied here was reading the assembled text
-aloud, not counting occurrences: every keyword above sits in a sentence that would
-survive with the keyword swapped out, which is what "natural" means in practice. No
-term was repeated for ranking's sake; "tranzycja" appears in the PL title and short
-description because the two fields are read separately, and that is the only
-deliberate repetition.
+Every keyword sits in a sentence that would survive with the keyword swapped
+out. "transition" repeats across the title, short description and opening
+because the three fields are read separately; nothing else repeats for ranking.
