@@ -21,34 +21,53 @@ overlay that says "private" or "secure" as a bare adjective.
 1080 x 1920 portrait PNG, at least four and at most eight per locale, the
 default trans palette in light theme, each locale shot in its own language.
 Play shows roughly the first three before scrolling, so the order is the
-argument, and the listing now leads with transition tracking rather than mood.
-Together the set has to cover what the description names: the daily journal,
-HRT and care records, the transition areas (tryouts, roadmap, voice practice)
-and looking back. Since 2026-10-07 there are seven: Today, Care, a new entry,
-the Transition roadmap, Voice on its Compare tab, Look back and Settings
-privacy. The mood calendar was dropped because it pitched a mood journal. The
-order and routes are recorded in the Journal's
-`fastlane/metadata/android/capture.json`, which the script writes.
+argument, and the listing leads with transition tracking rather than mood.
+The set covers what the description names. Since 2026-10-07 there are seven:
+
+1. Today: the greeting, the binder timer and Coming up (an appointment and a
+   milestone).
+2. Care: HRT doses, the lab draw and stock lanes. It comes second because it
+   shows "transition tracker" most plainly.
+3. A new entry: a short invented note about a new name, the dysphoria to
+   euphoria scale and the mood bar.
+4. Transition roadmap: planned steps (the Polish set shows the Polish pack).
+5. Voice, on its Compare tab: pitch over time across practice takes.
+6. Look back: the span timeline and readings.
+7. Settings, Privacy & data: lock, disguise and export, for the "On your
+   device" section.
+
+The mood calendar was dropped because it pitched a mood journal. The routes
+are recorded in the Journal's `fastlane/metadata/android/capture.json`, which
+the script writes.
 
 The first screenshot, Today, shows the demo persona's binder timer past eight
 hours with its safety note. That is a real state of the app, but it is the
 first thing a store visitor reads; whether it stays is Alicja's call on the
 41 sign-off page.
 
-Caption overlays are optional on Play and not indexed. If they are used, they
-come from the listing's own sentences, shortened, never invented fresh.
+There are no caption banners. Play does not index them, and the words are
+already in the description.
 
 ## Feature graphic
 
-1024 x 500 exactly, PNG without alpha or JPEG. It sits at the top of the
-listing and behind any featuring, often cropped, so nothing essential near the
-edges. Content: the app name and one line that follows the title, one version
-per locale, on brand colours. English: "Track your transition." Polish:
-"Zapisuj tranzycję." Both are the short description's opening words, so if
-those change, this graphic changes with them. Alicja cut a second sentence
-about the journal staying on the device on 2026-10-07. Nothing else: no device mockup
-with readable entries, no badges, stars, download figures or emoji. Legible at
-thumbnail size, which means the claim in one line and generous margins.
+1024 x 500 exactly, PNG without alpha. It sits at the top of the listing and
+behind any featuring, often cropped, so nothing essential sits near the edges.
+
+It carries the app's lockup: the trans mark (the tile from the Journal's
+`brand/mark/svg/trans-tile.svg`, the same drawing the app's rail and this
+site's header put beside the name) next to "engender" in Outfit 800, in the
+app's `.lockup` proportions. Under it is one line in Nunito 600, the way this
+site sets a lede: "Track your transition." in English and "Zapisuj
+tranzycję." in Polish. Ink and ground are the trans light theme's text and
+background colours, and the flag stripe runs along the bottom. The block sits
+72px from the left edge, centred vertically above the stripe.
+
+The line no longer follows this site's hero. It is a short claim of its own
+that fits the title, and the descriptions do not have to repeat it. Alicja cut
+a second sentence about the journal staying on the device on 2026-10-07.
+
+Nothing else goes on it: no device mockup with readable entries, no badges,
+stars, download figures or emoji. It must stay legible at thumbnail size.
 
 ## Icon
 
