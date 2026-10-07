@@ -36,10 +36,8 @@ const config = {
        static/.htaccess adds the two things a meta element cannot express.
 
        `none` by default, then back what the site actually loads: its own
-       stylesheet, its own font, its own scripts, and its own social card
-       (ticket 07). Every one of them is `self` and there is no second origin
-       in the whole policy, which is the shape the spec asks for: the site
-       loads no third-party resource until a person follows a link out of it.
+       stylesheet, font, scripts and social card. The only off-origin request
+       is the fixed page-load counter on the Journal's hosting origin.
 
        style-src-attr is the exception, and it is not one this site chose:
        ticket 09's staggered entrance carries `--enter` as a style attribute
@@ -54,7 +52,7 @@ const config = {
         'style-src-attr': ['unsafe-inline'],
         'img-src': ['self'],
         'font-src': ['self'],
-        'connect-src': ['self'],
+        'connect-src': ['self', 'https://app.engender.barankiewicz.dev/_stats/website'],
         'base-uri': ['none'],
         'form-action': ['none'],
       },

@@ -22,8 +22,9 @@ chapter keeps those boundaries separate.
 *Gate: shipped.*
 
 > The journal stays in storage on the device where you use it. There is no
-> account, profile on a server, analytics or journal upload. A browser and the
-> Android app keep separate journals; so do two browser profiles.
+> account, profile on a server or journal upload. The website and hosted app
+> keep private page-opening totals without individual visit records. A browser
+> and the Android app keep separate journals; so do two browser profiles.
 >
 > When the web app loads or updates, its host can see your IP address, the
 > time of the request, which files the browser asks for and their sizes, plus

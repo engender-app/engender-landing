@@ -22,8 +22,9 @@ someone says otherwise; the stored choice is applied before the page paints.
 Both preferences live in this origin's `localStorage` under `gd-landing-` keys
 and are invisible to the Journal.
 
-Deployment target is lh.pl managed hosting. No analytics, no cookies, no remote
-fonts, no third-party scripts.
+Deployment target is lh.pl managed hosting. Private page-opening counts go to the maintainer’s app origin. The counter
+uses no cookies, visitor identifiers or journal data. There are no remote
+fonts or third-party scripts.
 
 ## Working on it
 
@@ -71,3 +72,27 @@ to be framed. What the live site actually sends has to be read off it:
 
 GPLv3, in [LICENSE](LICENSE). The application in the sibling repository is under
 the same licence.
+
+## Page-opening counts
+
+The root layout counts one online document opening on
+`https://engender.barankiewicz.dev`. The language gateway is skipped so its
+redirect does not count twice. Internal navigation, development/preview
+origins and offline openings do not count. There is no retry or offline queue.
+
+The empty POST to `https://app.engender.barankiewicz.dev/_stats/website`
+omits credentials and referrer. The app repository owns the nginx proxy
+that strips visitor headers and supplies the fixed website label to a
+separate private GoatCounter site. The dashboard is on
+`stats.engender.barankiewicz.dev`, outside the journal's origin. Sessions
+and individual hit storage are disabled; hourly totals remain indefinitely.
+
+After a build, `node tests/page-load.test.mjs` verifies the real browser
+request, document reloads, internal navigation and offline/reconnect behaviour
+using intercepted test origins. It never sends counts to the live collector.
+
+Publication waits for the counter endpoint and the canonical bilingual
+privacy policy from the app repository. After editing that policy, run
+`node scripts/sync-privacy-policy.mjs /path/to/gender-diary` to update both
+catalogues and copy documents. The seven-day error-log limit applies to
+the app server's live files.
