@@ -9,7 +9,7 @@ text byte for byte.
 
 ## Title
 
-28 of 30 characters. Kept in English for now; whether Polish gets a localised subtitle (`engender: dziennik tranzycji`, 27) is an open decision for Alicja, recorded in the release-blockers 15 sign-off.
+28 of 30 characters. Kept in English for now; whether Polish gets a localised subtitle (`engender: dziennik tranzycji`, 27) is open for Alicja to decide, recorded on the after-release 41 sign-off page (the ticket was release-blockers 15).
 
 > engender: transition tracker
 
@@ -21,7 +21,7 @@ text byte for byte.
 
 ## Full description
 
-3182 of 4000 characters, counted over the assembled text with newlines.
+3239 of 4000 characters, counted over the assembled text with newlines.
 Same structure and claims as the English. „Kamienie milowe”, „Bezpieczna
 przestrzeń”, „bilans”, „mapa tranzycji” and „podsumowanie dla lekarza” are the
 app's own Polish labels, so a reader finds the same words in the app.
@@ -36,7 +36,7 @@ app's own Polish labels, so a reader finds the same words in the app.
 >
 > Harmonogram leków i przyjęte dawki trzymasz razem, z przypomnieniami o wybranej porze. Notuj wyniki badań i pomiary ciała, śledź zmiany włosów i zdarzenia cyklu, a operację zaplanuj z listą rzeczy do spakowania i listą na czas gojenia. Zapisuj pytania na następną wizytę, a gdy chcesz pokazać komuś swoje dane, wyeksportuj podsumowanie dla lekarza.
 >
-> engender zapisuje to, co wpiszesz. Nie stawia diagnoz, nie dobiera dawek i nie zastępuje porady medycznej. O leczeniu rozmawiaj z osobą, która ma odpowiednie kwalifikacje medyczne.
+> engender zapisuje to, co wpiszesz. Nie jest wyrobem medycznym: nie stawia diagnoz, nie leczy, nie zapobiega chorobom, nie dobiera dawek i nie zastępuje porady medycznej. O leczeniu rozmawiaj z osobą, która ma odpowiednie kwalifikacje medyczne.
 >
 > Reszta tranzycji
 >
@@ -50,7 +50,7 @@ app's own Polish labels, so a reader finds the same words in the app.
 >
 > Aplikacja na Androida działa offline. Nie ma uprawnienia do internetu, więc nie może nigdzie wysłać twojego dziennika. Nie ma konta engender ani reklam. Dziennik opuszcza telefon tylko wtedy, gdy go eksportujesz albo udostępniasz.
 >
-> Baza dziennika i zdjęcia są na urządzeniu zaszyfrowane. Poza szyfrowaniem zostają ustawienia potrzebne przy starcie, takie jak motyw i język, oraz to, czego aplikacja potrzebuje do odblokowania klucza. Nic z tego nie jest tym, co piszesz.
+> Dziennik i zdjęcia są na urządzeniu zaszyfrowane. Poza szyfrowaniem zostają ustawienia potrzebne przy starcie, takie jak motyw i język, oraz to, czego aplikacja potrzebuje do odblokowania klucza. Nic z tego nie jest tym, co piszesz.
 >
 > Dziennik otwierasz hasłem, PIN-em albo odciskiem palca, twarzą lub blokadą ekranu telefonu. Kamuflaż, jeśli go włączysz, nadaje aplikacji zwyczajną nazwę i ikonę.
 >

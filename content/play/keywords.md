@@ -22,10 +22,10 @@ to the short and full description, where they still index.
 |---|---|---|
 | transition tracker / transition | Title, short description, full description opening | What the app is, in the words people search with |
 | gender | Title (brand) | Free with the name |
-| HRT | Short description, full description opening | Real search volume with exactly this audience, and the landing page now says it |
-| journal | Full description throughout | The core of the app; half the audience searches journal or diary |
+| HRT | Short description, full description opening | Assumed to be how this audience searches (no volume data); the landing page says it too |
+| journal | Full description throughout | The core of the app, and an assumed common search word alongside diary |
 | mood | Short description, full description | The mood-tracker aisle, now below the title |
-| voice, voice practice | Short description, full description | A feature with its own searches, and one most trackers lack |
+| voice, voice practice | Short description, full description | A real feature people may search for; no volume data |
 | milestones | Short description, full description | The app's own word |
 | dysphoria, euphoria | Full description | High intent, and how the app's built-in scale names its ends |
 | offline, no account | Short and full description | The deciding concern for this audience, stated as mechanism |

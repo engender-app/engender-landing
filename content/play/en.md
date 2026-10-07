@@ -20,10 +20,12 @@ the same text byte for byte, one paragraph per line.
 
 ## Full description
 
-3007 of 4000 characters, counted over the assembled text with newlines.
+3054 of 4000 characters, counted over the assembled text with newlines.
 Plain lines are headings; Play shows the text without markup. The health
-paragraph is the disclaimer Play's health policy expects: what the app does
-not do, and who to ask instead. The privacy sentences are scoped to the
+paragraph is there for Play's health apps policy: it says the app is not a
+medical device, what it does not do, and who to ask instead. Recheck it
+against the policy text when filling in the health apps declaration. The
+privacy sentences are scoped to the
 Android app, which has no internet permission; they avoid "telemetry" and
 "analytics" because the web app may count page loads, and that is not what
 this listing describes. Every encryption sentence matches
@@ -39,7 +41,7 @@ this listing describes. Every encryption sentence matches
 >
 > Keep medication schedules and the doses you take in one place, with reminders at times you choose. Record lab results and body measurements, follow hair changes and cycle events, and plan surgeries with packing and recovery checklists. Note questions for your next appointment, and export a clinician visit summary when you want to share your records.
 >
-> engender records what you enter. It does not diagnose, recommend doses or replace medical advice. Talk to a qualified healthcare professional about treatment decisions.
+> engender records what you enter. It is not a medical device: it does not diagnose, treat or prevent any condition, recommend doses or replace medical advice. Talk to a qualified healthcare professional about treatment decisions.
 >
 > The rest of your transition
 >
@@ -53,7 +55,7 @@ this listing describes. Every encryption sentence matches
 >
 > The Android app works offline. It does not have the internet permission, so it cannot send your journal anywhere. There is no engender account and no advertising. Your journal leaves the phone only when you export or share it.
 >
-> The journal database and your photos are encrypted on the device. Startup settings such as theme and language, and what the app needs to unlock your key, stay outside that encryption. None of it is anything you wrote.
+> Your journal and photos are encrypted on the device. Startup settings such as theme and language, and what the app needs to unlock your key, stay outside that encryption. None of it is anything you wrote.
 >
 > Open your journal with a passphrase, a PIN, or your phone's fingerprint, face or screen lock. Disguise, if you turn it on, gives the app a plain name and icon.
 >
