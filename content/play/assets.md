@@ -24,11 +24,16 @@ Play shows roughly the first three before scrolling, so the order is the
 argument, and the listing now leads with transition tracking rather than mood.
 Together the set has to cover what the description names: the daily journal,
 HRT and care records, the transition areas (tryouts, roadmap, voice practice)
-and looking back. The current order and routes are recorded in the Journal's
+and looking back. Since 2026-10-07 there are seven: Today, Care, a new entry,
+the Transition roadmap, Voice on its Compare tab, Look back and Settings
+privacy. The mood calendar was dropped because it pitched a mood journal. The
+order and routes are recorded in the Journal's
 `fastlane/metadata/android/capture.json`, which the script writes.
 
-A first screenshot should not lead with a warning or an alert state from the
-demo data; a running timer's safety note is fine further down the set.
+The first screenshot, Today, shows the demo persona's binder timer past eight
+hours with its safety note. That is a real state of the app, but it is the
+first thing a store visitor reads; whether it stays is Alicja's call on the
+41 sign-off page.
 
 Caption overlays are optional on Play and not indexed. If they are used, they
 come from the listing's own sentences, shortened, never invented fresh.
@@ -37,10 +42,12 @@ come from the listing's own sentences, shortened, never invented fresh.
 
 1024 x 500 exactly, PNG without alpha or JPEG. It sits at the top of the
 listing and behind any featuring, often cropped, so nothing essential near the
-edges. Content: the app name and the landing hero's headline, one version per
-locale, on brand colours. English: "Your transition, in one place, on your own
-device." Polish: "Twoja tranzycja w jednym miejscu, na własnym urządzeniu." If
-the hero changes, this graphic changes with it. Nothing else: no device mockup
+edges. Content: the app name and one line that follows the title, one version
+per locale, on brand colours. English: "Track your transition. Your journal
+stays on your device." Polish: "Zapisuj tranzycję. Dziennik zostaje na
+urządzeniu." Both reuse the listing's own words (the short description's verb
+and the "On your device" sentence), so if those change, this graphic changes
+with them. Nothing else: no device mockup
 with readable entries, no badges, stars, download figures or emoji. Legible at
 thumbnail size, which means the claim in one line and generous margins.
 

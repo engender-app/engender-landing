@@ -20,7 +20,7 @@ the same text byte for byte, one paragraph per line.
 
 ## Full description
 
-3054 of 4000 characters, counted over the assembled text with newlines.
+3055 of 4000 characters, counted over the assembled text with newlines.
 Plain lines are headings; Play shows the text without markup. The health
 paragraph is there for Play's health apps policy: it says the app is not a
 medical device, what it does not do, and who to ask instead. Recheck it
@@ -53,7 +53,7 @@ this listing describes. Every encryption sentence matches
 >
 > On your device
 >
-> The Android app works offline. It does not have the internet permission, so it cannot send your journal anywhere. There is no engender account and no advertising. Your journal leaves the phone only when you export or share it.
+> The Android app works offline. It does not have the internet permission, so it cannot send your journal anywhere. There is no engender account and no advertising. Your journal stays on your device unless you export or share it.
 >
 > Your journal and photos are encrypted on the device. Startup settings such as theme and language, and what the app needs to unlock your key, stay outside that encryption. None of it is anything you wrote.
 >

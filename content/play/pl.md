@@ -21,7 +21,7 @@ text byte for byte.
 
 ## Full description
 
-3239 of 4000 characters, counted over the assembled text with newlines.
+3244 of 4000 characters, counted over the assembled text with newlines.
 Same structure and claims as the English. „Kamienie milowe”, „Bezpieczna
 przestrzeń”, „bilans”, „mapa tranzycji” and „podsumowanie dla lekarza” are the
 app's own Polish labels, so a reader finds the same words in the app.
@@ -48,7 +48,7 @@ app's own Polish labels, so a reader finds the same words in the app.
 >
 > Na twoim urządzeniu
 >
-> Aplikacja na Androida działa offline. Nie ma uprawnienia do internetu, więc nie może nigdzie wysłać twojego dziennika. Nie ma konta engender ani reklam. Dziennik opuszcza telefon tylko wtedy, gdy go eksportujesz albo udostępniasz.
+> Aplikacja na Androida działa offline. Nie ma uprawnienia do internetu, więc nie może nigdzie wysłać twojego dziennika. Nie ma konta engender ani reklam. Dziennik zostaje na urządzeniu, dopóki go nie wyeksportujesz albo nie udostępnisz.
 >
 > Dziennik i zdjęcia są na urządzeniu zaszyfrowane. Poza szyfrowaniem zostają ustawienia potrzebne przy starcie, takie jak motyw i język, oraz to, czego aplikacja potrzebuje do odblokowania klucza. Nic z tego nie jest tym, co piszesz.
 >
