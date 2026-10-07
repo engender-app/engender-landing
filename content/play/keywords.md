@@ -14,7 +14,9 @@ diary") and left transition terms to the descriptions. Alicja reversed that:
 the title is `engender: transition tracker`, because the app now covers far
 more than a mood journal (HRT, care records, voice practice, tryouts, a
 roadmap) and the title should say what it is. Journal and mood terms move down
-to the short and full description, where they still index.
+to the short and full description, where they still index. The Polish title is
+`engender: dziennik tranzycji` (Alicja, 2026-10-07), because English words in a
+Polish title match no Polish search.
 
 ## English (en-US)
 
@@ -36,9 +38,9 @@ to the short and full description, where they still index.
 
 | Term | Where it sits | Why |
 |---|---|---|
-| tranzycja | Short description, full description | The highest-intent Polish term. The title is English for now, so the short description carries it |
+| tranzycja | Title suffix, short description, full description | The highest-intent Polish term this app honestly meets |
 | HTZ | Short and full description | What Polish readers search with, the same call as the landing hero |
-| dziennik | Full description | Polish for both diary and journal |
+| dziennik | Title suffix, full description | Polish for both diary and journal |
 | nastrój | Short and full description | The Polish mood aisle |
 | kamienie milowe | Short and full description | The app's own label, kept although style guides dislike it |
 | dysforia, euforia | Full description | Same reasoning as English |

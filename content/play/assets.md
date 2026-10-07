@@ -24,8 +24,7 @@ Play shows roughly the first three before scrolling, so the order is the
 argument, and the listing leads with transition tracking rather than mood.
 The set covers what the description names. Since 2026-10-07 there are seven:
 
-1. Today: the greeting, the binder timer and Coming up (an appointment and a
-   milestone).
+1. Today: the greeting and Coming up (an appointment and a milestone).
 2. Care: HRT doses, the lab draw and stock lanes. It comes second because it
    shows "transition tracker" most plainly.
 3. A new entry: a short invented note about a new name, the dysphoria to
@@ -40,10 +39,9 @@ The mood calendar was dropped because it pitched a mood journal. The routes
 are recorded in the Journal's `fastlane/metadata/android/capture.json`, which
 the script writes.
 
-The first screenshot, Today, shows the demo persona's binder timer past eight
-hours with its safety note. That is a real state of the app, but it is the
-first thing a store visitor reads; whether it stays is Alicja's call on the
-41 sign-off page.
+The first screenshot must not show the binder timer's safety caution: it is
+the first thing a store visitor reads (Alicja, 2026-10-07). The demo persona's
+own records stay English in the Polish set, which she accepted the same day.
 
 There are no caption banners. Play does not index them, and the words are
 already in the description.

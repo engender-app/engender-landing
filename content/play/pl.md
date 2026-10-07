@@ -9,9 +9,9 @@ text byte for byte.
 
 ## Title
 
-28 of 30 characters. Kept in English for now; whether Polish gets a localised subtitle (`engender: dziennik tranzycji`, 27) is open for Alicja to decide, recorded on the after-release 41 sign-off page (the ticket was release-blockers 15).
+28 of 30 characters. Alicja's choice, 2026-10-07: the brand, then Polish words. Play ranks the title per locale, and "transition tracker" matches no Polish search, while "tranzycja" is the strongest Polish term this app meets.
 
-> engender: transition tracker
+> engender: dziennik tranzycji
 
 ## Short description
 

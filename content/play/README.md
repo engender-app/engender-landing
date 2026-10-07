@@ -46,22 +46,23 @@ The full description ships as plain text. Headings are plain lines.
 
 | Field | Value |
 | --- | --- |
-| App name | `engender: transition tracker` in both locales, unless Alicja picks a Polish subtitle |
+| App name | English `engender: transition tracker`, Polish `engender: dziennik tranzycji` (Alicja, 2026-10-07) |
 | Short and full description | the blockquotes in `en.md` and `pl.md` |
 | Default language | English (United States), `en-US`, the fastlane locale; Polish, `pl-PL`, as a translation |
-| Category | Lifestyle. Health & Fitness pulls in a clinical and fitness register the app refuses, and Medical implies clinical use |
+| Category | Lifestyle (Alicja, 2026-10-07). Health & Fitness pulls in a clinical and fitness register the app refuses, and Medical implies clinical use |
 | Tags | chosen from the Console's own list when filling it in: journal or diary, mood tracking, medication or health tracking |
 | Contact email | `engender-app@pm.me` |
 | Website | `https://engender.barankiewicz.dev/` |
 | Privacy policy | `https://engender.barankiewicz.dev/en/privacy/` (Polish page: `/pl/privacy/`) |
+| Target audience | All trans people from 15 or 16 up (Alicja, 2026-10-07). Pick the Console age groups that match; the listing text names no age |
 
-Data safety, the health apps declaration, content rating and target audience
-are tracked in pre-release-human 02 and follow the privacy policy, not this
+Data safety, the health apps declaration and content rating are tracked in pre-release-human 02 and follow the privacy policy, not this
 directory.
 
 ## F-Droid
 
-F-Droid takes Name, Summary, Description, release notes, icon, feature graphic
+F-Droid takes Name (the same titles as Play, per locale, by Alicja's choice),
+Summary, Description, release notes, icon, feature graphic
 and screenshots from the same fastlane directory. Its metadata file in
 fdroiddata sets only the recipe and links: source code, issue tracker,
 changelog, website and `AuthorEmail`. Category there is Writing. No
