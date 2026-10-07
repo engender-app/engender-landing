@@ -43,11 +43,10 @@ come from the listing's own sentences, shortened, never invented fresh.
 1024 x 500 exactly, PNG without alpha or JPEG. It sits at the top of the
 listing and behind any featuring, often cropped, so nothing essential near the
 edges. Content: the app name and one line that follows the title, one version
-per locale, on brand colours. English: "Track your transition. Your journal
-stays on your device." Polish: "Zapisuj tranzycję. Dziennik zostaje na
-urządzeniu." Both reuse the listing's own words (the short description's verb
-and the "On your device" sentence), so if those change, this graphic changes
-with them. Nothing else: no device mockup
+per locale, on brand colours. English: "Track your transition." Polish:
+"Zapisuj tranzycję." Both are the short description's opening words, so if
+those change, this graphic changes with them. Alicja cut a second sentence
+about the journal staying on the device on 2026-10-07. Nothing else: no device mockup
 with readable entries, no badges, stars, download figures or emoji. Legible at
 thumbnail size, which means the claim in one line and generous margins.
 
