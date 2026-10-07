@@ -22,9 +22,10 @@ Ten rozdział zachowuje te granice.
 *Gate: shipped.*
 
 > Dziennik zostaje w pamięci urządzenia, na którym go używasz. Nie ma konta,
-> profilu na serwerze, analityki ani wysyłania wpisów. Dziennik w przeglądarce
-> i ten w aplikacji na Androida to dwie osobne kopie, tak samo jak w dwóch
-> profilach przeglądarki.
+> profilu na serwerze ani wysyłania wpisów. Strona i aplikacja w przeglądarce
+> zachowują prywatne sumy otwarć bez zapisów pojedynczych odwiedzin. Dziennik
+> w przeglądarce i ten w aplikacji na Androida to dwie osobne kopie, tak samo
+> jak w dwóch profilach przeglądarki.
 >
 > Gdy aplikacja webowa się otwiera albo aktualizuje, serwer WWW widzi twój
 > adres IP, godzinę zapytania, żądane pliki i ich rozmiary, a także nagłówki

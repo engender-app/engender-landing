@@ -1186,8 +1186,8 @@ const sectionHeadings = (locale) =>
 /** The privacy page's own title, which is also the text of the link the
     landing page offers to it. */
 const PRIVACY_TITLE = {
-  en: "What engender protects, and what it does not",
-  pl: "Co engender chroni, a czego nie chroni",
+  en: "Privacy policy",
+  pl: "Polityka prywatności",
 };
 
 /** The hero headline, which is the one piece of the overview copy that is not
@@ -1198,7 +1198,7 @@ const HEADLINE = {
 };
 
 /** Both languages describe encryption and reject the retired plaintext fallback. */
-const AT_REST_OPENING = { en: "What is covered.", pl: "Co obejmuje." };
+const AT_REST_OPENING = { en: "Its database and media are encrypted at rest.", pl: "baza i media są zaszyfrowane na urządzeniu." };
 const ENCRYPTION_FALLBACK = {
   en: "The journal is not encrypted where it is stored, yet.",
   pl: "Dziennik nie jest jeszcze szyfrowany tam, gdzie jest zapisany.",
@@ -1432,7 +1432,7 @@ for (const locale of ["en", "pl"]) {
 
       assert.ok(text.includes(AT_REST_OPENING[locale]), "missing encryption coverage");
       assert.ok(!text.includes(ENCRYPTION_FALLBACK[locale]), "retired plaintext claim is present");
-      const recovery = locale === "en" ? "If you lose access" : "Gdy stracisz dostęp";
+      const recovery = locale === "en" ? "Lost keys and passwords" : "Utracone klucze i hasła";
       assert.ok(text.includes(recovery), "missing recovery limits");
       const retiredPin = locale === "en" ? "A PIN is a gate in the interface" : "To bramka w interfejsie";
       assert.ok(!text.includes(retiredPin), "retired PIN gate claim is present");

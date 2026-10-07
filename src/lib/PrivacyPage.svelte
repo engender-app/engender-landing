@@ -134,6 +134,7 @@
   article :global(p) {
     max-width: 62ch;
     color: var(--text-2);
+    overflow-wrap: anywhere;
   }
 
   article :global(p strong) {
