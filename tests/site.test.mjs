@@ -2112,7 +2112,7 @@ const DESCRIPTIONS = {
   "/en/":
     "Your transition in one place: journal, stats, HRT, surgeries, tryouts, eras, voice practice and a clinician summary. On your device, with no account.",
   "/pl/":
-    "Twoja tranzycja w jednym miejscu: dziennik, statystyki, HTZ, operacje, próby, ery, ćwiczenia głosu i podsumowanie do lekarza. Na twoim urządzeniu, bez konta.",
+    "Twoja tranzycja w jednym miejscu: dziennik, statystyki, HRT, operacje, próby, ery, ćwiczenia głosu i podsumowanie do lekarza. Na twoim urządzeniu, bez konta.",
   "/en/privacy/":
     "How engender encrypts your journal, how access and recovery keys work, what exports reveal, and what the web host sees.",
   "/pl/privacy/":
@@ -4158,7 +4158,7 @@ test("the motion system ships no animation runtime at all", async () => {
    its group, and the two corrections the fact check made to the copy. */
 const HOLDS = {
   en: ["Journal", "Look back", "HRT", "Surgeries", "Tryouts", "Eras", "Voice", "Clinician summary"],
-  pl: ["Dziennik", "Przegląd", "HTZ", "Operacje", "Próby", "Ery", "Głos", "Podsumowanie do lekarza"],
+  pl: ["Dziennik", "Przegląd", "HRT", "Operacje", "Próby", "Ery", "Głos", "Podsumowanie do lekarza"],
 };
 const PALETTE_LEAD = { en: "Sixteen palettes", pl: "Szesnaście palet" };
 
