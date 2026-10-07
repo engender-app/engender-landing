@@ -9,7 +9,7 @@
   "meta": {
     "cardAlt": "Napis engender na ciemnym tle, z flagą transpłciową narysowaną jako koncentryczne pierścienie w rogu.",
     "landing": {
-      "description": "Twoja tranzycja w jednym miejscu: dziennik, statystyki, HTZ, operacje, próby, ery, ćwiczenia głosu i podsumowanie do lekarza. Na twoim urządzeniu, bez konta."
+      "description": "Twoja tranzycja w jednym miejscu: dziennik, statystyki, HRT, operacje, próby, ery, ćwiczenia głosu i podsumowanie do lekarza. Na twoim urządzeniu, bez konta."
     },
     "privacy": {
       "description": "Jak engender szyfruje dziennik, czym go otworzysz i do czego służy klucz odzyskiwania. Co ujawniają eksporty i co widzi serwer WWW."
@@ -23,7 +23,7 @@
       "phonetics": "/ɪnˈdʒɛndə/",
       "sense": "to cause or give rise to a feeling, situation or condition."
     },
-    "subheadline": "Dziennik, statystyki, HTZ, operacje, próby, ery, ćwiczenia głosu i podsumowanie do lekarza. Bez konta, bez serwera, bez opłat. Od osób trans dla osób trans.",
+    "subheadline": "Dziennik, statystyki, HRT, operacje, próby, ery, ćwiczenia głosu i podsumowanie do lekarza. Bez konta, bez serwera, bez opłat. Od osób trans dla osób trans.",
     "tagline": "Otwarty kod, za darmo na zawsze."
   },
   "promises": [
@@ -37,7 +37,7 @@
     },
     {
       "heading": "Wszystko w jednym miejscu.",
-      "body": "Dziennik, statystyki, HTZ, operacje, próby, ery, ćwiczenia głosu i podsumowanie do lekarza, które można wydrukować."
+      "body": "Dziennik, statystyki, HRT, operacje, próby, ery, ćwiczenia głosu i podsumowanie do lekarza, które można wydrukować."
     },
     {
       "heading": "Od osób trans dla osób trans.",
@@ -1021,7 +1021,7 @@
       "body": "Z dnia na dzień trudno zobaczyć, czy coś się zmienia. Po kilku miesiącach widać to od razu. Kalendarz każdego miesiąca, wykres dla każdej skali, porównanie dni z tagiem i bez niego, bilans dowolnego tygodnia, miesiąca lub roku i dobre dni sprzed miesiąca, pół roku i roku."
     },
     {
-      "heading": "HTZ",
+      "heading": "HRT",
       "body": "Harmonogram leków z następną dawką i tym, ile zostało, dawki zapisywane na bieżąco, wyniki badań na wykresie i modelowana krzywa hormonalna. Aplikacja nie podpowiada dawek i nie pokazuje norm laboratoryjnych."
     },
     {

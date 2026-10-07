@@ -1,91 +1,80 @@
-# Play visual assets: briefs, not artwork
+# Store visual assets: briefs, not artwork
 
-What the screenshots and the feature graphic must show and must not show. The artwork
-itself is made in the Journal repository once the Android app exists, since only a
-real build can be screenshotted honestly. Specs are Play's, current as of 2026-08.
+What the icon, feature graphic and screenshots must show and must not show. The
+images are made in the Journal repository by `scripts/store-listing-assets.mjs`
+from a demo build, and Play and F-Droid both take them from its fastlane
+directory. Specs are Play's, rechecked 2026-10-07.
 
 ## The rule over all of it
 
-Every image is made from synthetic Journal data, invented for this purpose. No real
-journal, no real entry, no real photo, no real date that belongs to a person. The
-spec requires it and the listing copy states it, so an image that breaks this rule
-also falsifies a published sentence.
+Every image comes from the demo persona's invented journal. No real journal,
+entry, photo or date that belongs to a person. The script refuses to run
+against a build without demo controls, so it cannot capture a real journal.
 
-Play's own constraints: no calls to action in imagery, no time-sensitive text, no
-ranking or endorsement claims, and images must show the app as it actually works.
-The project's constraints on top: no emoji, no invented social proof, and no text
+Play's own constraints: no calls to action in imagery, no time-sensitive text,
+no ranking or endorsement claims, and images must show the app as it works. The
+project's constraints on top: no emoji, no invented social proof, and no
 overlay that says "private" or "secure" as a bare adjective.
-
-## One synthetic journal for everything
-
-Build one invented journal and shoot every asset from it, so the images agree with
-each other: a few months of entries at a believable rhythm of 3 to 5 per week with
-gaps left in, moods across the whole range, the built-in scales plus one custom scale
-with its own end labels to show that they are nameable, a handful of tags, short
-notes in the locale being shot, one or two entries with photos (stock-free, generic
-subjects: a window, a coffee, a street), a few Milestones ahead and behind, and a few
-lab results without commentary. Polish notes for the pl-PL set, English for en-US,
-dates formatted per locale. Nothing in any note that reads like a real person's
-crisis; ordinary days are the point.
 
 ## Phone screenshots
 
-1080 x 1920 portrait, PNG or JPEG, at least four and at most eight per locale. Play
-shows roughly the first three before scrolling, so the order is the argument:
+1080 x 1920 portrait PNG, at least four and at most eight per locale, the
+default trans palette in light theme, each locale shot in its own language.
+Play shows roughly the first three before scrolling, so the order is the
+argument, and the listing leads with transition tracking rather than mood.
+The set covers what the description names. Since 2026-10-07 there are seven:
 
-1. **Home.** The greeting, the last seven days coloured, the mood row. This is the
-   daily ritual the audience already knows from the mood-tracker aisle.
-2. **An entry.** Mood, scales with visible custom end labels, tags, a short note, a
-   photo. The one screen that shows gender on named scales, which no competitor
-   screenshot can show.
-3. **The month.** The one-colour heat map with visible gaps staying neutral.
-4. **Six months of one scale.** The chart for Gender feeling, long enough that a
-   shape is visible.
-5. **Search.** A query mid-type with matches. The pl-PL set uses the diacritics
-   example the site uses, "lozko" finding "łóżko"; the en-US set shows an ordinary
-   word matching notes and a tag.
-6. **Milestones.** A countdown ahead, an anniversary behind.
-7. **Export.** The Archive screen at the point where a password is being chosen,
-   because the claim "encrypted before it leaves the app" is visible there.
-8. **Settings, palettes.** The palette list open, one non-default palette applied,
-   in dark theme so the set shows both themes exist.
+1. Today: the greeting and Coming up (an appointment and a milestone).
+2. Care: HRT doses, the lab draw and stock lanes. It comes second because it
+   shows "transition tracker" most plainly.
+3. A new entry: a short invented note about a new name, the dysphoria to
+   euphoria scale and the mood bar.
+4. Transition roadmap: planned steps (the Polish set shows the Polish pack).
+5. Voice, on its Compare tab: pitch over time across practice takes.
+6. Look back: the span timeline and readings.
+7. Settings, Privacy & data: lock, disguise and export, for the "On your
+   device" section.
 
-Screens 1 to 7 in light theme with one palette applied consistently; screen 8 carries
-dark. Both locale sets show the app in that locale's language.
+The mood calendar was dropped because it pitched a mood journal. The routes
+are recorded in the Journal's `fastlane/metadata/android/capture.json`, which
+the script writes.
 
-Caption overlays are optional on Play and not indexed. If the design pass adds them,
-the text comes from the site's visual tour captions in `content/en/landing.md` and
-`content/pl/landing.md`, shortened, never invented fresh, and the synthetic-data
-short form ("Invented entries" / "Wpisy zmyślone") appears on any screen showing
-written entries.
+The first screenshot must not show the binder timer's safety caution: it is
+the first thing a store visitor reads (Alicja, 2026-10-07). The demo persona's
+own records stay English in the Polish set, which she accepted the same day.
 
-Screens gated in the listing copy are gated here the same way: no screenshot of
-Reminders or scheduled backup ships before Journal tickets 14 and 16, and none of the
-eight above depends on them, which is deliberate.
+There are no caption banners. Play does not index them, and the words are
+already in the description.
 
 ## Feature graphic
 
-1024 x 500 exactly, PNG without alpha or JPEG. It sits at the top of the listing and
-behind any featuring, often cropped, so nothing essential near the edges.
+1024 x 500 exactly, PNG without alpha. It sits at the top of the listing and
+behind any featuring, often cropped, so nothing essential sits near the edges.
 
-Content: the app name and the one-line claim, on brand colours, one version per
-locale. English: "A transition journal that stays on your device." Polish: "Dziennik
-tranzycji, który zostaje na twoim urządzeniu." Both are the site's hero lines from
-`content/en/landing.md` and `content/pl/landing.md`; if a hero ever changes, this
-graphic changes with it. Nothing else: no device mockup with
-readable entries (the same reasoning as the spec's social-card rule: this image gets
-shared and cropped out of context), no badge artwork, no stars, no download figures,
-no emoji. Legible at thumbnail size, which in practice means the claim in one line
-and generous margins.
+It carries the app's lockup: the trans mark (the tile from the Journal's
+`brand/mark/svg/trans-tile.svg`, the same drawing the app's rail and this
+site's header put beside the name) next to "engender" in Outfit 800, in the
+app's `.lockup` proportions. Under it is one line in Nunito 600, the way this
+site sets a lede: "Track your transition." in English and "Zapisuj
+tranzycję." in Polish. Ink and ground are the trans light theme's text and
+background colours, and the flag stripe runs along the bottom. The block sits
+72px from the left edge, centred vertically above the stripe.
+
+The line no longer follows this site's hero. It is a short claim of its own
+that fits the title, and the descriptions do not have to repeat it. Alicja cut
+a second sentence about the journal staying on the device on 2026-10-07.
+
+Nothing else goes on it: no device mockup with readable entries, no badges,
+stars, download figures or emoji. It must stay legible at thumbnail size.
+
+## Icon
+
+512 x 512 PNG, the trans-palette tile from the Journal's `brand/mark/`. It is
+the app's own mark, not a redesign brief.
 
 ## What is deliberately not briefed
 
-- **Preview video.** Play videos do not autoplay and few people tap them; there is
-  nothing a video shows that screenshot 2 does not. Revisit only if a real need
-  appears.
-- **Tablet and Chromebook screenshots.** Required only if those form factors are
-  targeted, which is Journal ticket 18's call, not this file's.
-- **The app icon.** It exists and belongs to the Journal repository. Play wants
-  512 x 512 PNG; that is a format note, not a redesign brief.
-- **Badge artwork.** Play's badge rules need a live listing, and the site already
-  decided to use no channel badges before launch.
+- **Preview video.** Play videos do not autoplay and few people tap them.
+- **Tablet and Chromebook screenshots.** Needed only if those form factors are
+  targeted.
+- **Badge artwork.** Play's badge rules need a live listing.

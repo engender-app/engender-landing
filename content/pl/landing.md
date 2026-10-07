@@ -52,10 +52,10 @@ Ticket 10, from the same decision as the English headline.
 
 **Subheadline**
 
-> Dziennik, statystyki, HTZ, operacje, próby, ery, ćwiczenia głosu i podsumowanie do
+> Dziennik, statystyki, HRT, operacje, próby, ery, ćwiczenia głosu i podsumowanie do
 > lekarza. Bez konta, bez serwera, bez opłat. Od osób trans dla osób trans.
 
-„HTZ” is what Polish readers search with, the way English readers search "HRT".
+„HRT”, not „HTZ”: Alicja's call on 2026-10-07, the same word the app and the store listing use.
 „Ćwiczenia głosu” follows the app's own „ćwiczenia głosu” in the microphone
 permission text, and „podsumowanie do lekarza” is the app's title for the
 clinician summary.
@@ -81,7 +81,7 @@ is not called Start journal in Polish.
 > **Nie ma czego sprzedać.** Nie ma konta ani serwera. Dziennik jest zapisany na twoim
 > urządzeniu, zaszyfrowany, i nigdy go nie widzę. Nie sprzedam czegoś, czego nie mam.
 
-> **Wszystko w jednym miejscu.** Dziennik, statystyki, HTZ, operacje, próby, ery,
+> **Wszystko w jednym miejscu.** Dziennik, statystyki, HRT, operacje, próby, ery,
 > ćwiczenia głosu i podsumowanie do lekarza, które można wydrukować.
 
 > **Od osób trans dla osób trans.** Żadnej machiny, na którą trzeba się wściekać.
@@ -209,7 +209,7 @@ address the reader in the past tense, "a day where all you managed was a mood" a
 > porównanie dni z tagiem i bez niego, bilans dowolnego tygodnia, miesiąca lub roku i
 > dobre dni sprzed miesiąca, pół roku i roku.
 
-> **HTZ** Harmonogram leków z następną dawką i tym, ile zostało, dawki zapisywane na
+> **HRT** Harmonogram leków z następną dawką i tym, ile zostało, dawki zapisywane na
 > bieżąco, wyniki badań na wykresie i modelowana krzywa hormonalna. Aplikacja nie
 > podpowiada dawek i nie pokazuje norm laboratoryjnych.
 
@@ -433,4 +433,4 @@ and the Play listing will.
 
 The description is shared by search, Open Graph and Twitter metadata.
 
-Twoja tranzycja w jednym miejscu: dziennik, statystyki, HTZ, operacje, próby, ery, ćwiczenia głosu i podsumowanie do lekarza. Na twoim urządzeniu, bez konta.
+Twoja tranzycja w jednym miejscu: dziennik, statystyki, HRT, operacje, próby, ery, ćwiczenia głosu i podsumowanie do lekarza. Na twoim urządzeniu, bez konta.
