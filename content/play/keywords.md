@@ -39,7 +39,7 @@ Polish title match no Polish search.
 | Term | Where it sits | Why |
 |---|---|---|
 | tranzycja | Title suffix, short description, full description | The highest-intent Polish term this app honestly meets |
-| HTZ | Short and full description | What Polish readers search with, the same call as the landing hero |
+| HRT | Short and full description | Alicja's call at sign-off (2026-10-07), over HTZ |
 | dziennik | Title suffix, full description | Polish for both diary and journal |
 | nastrój | Short and full description | The Polish mood aisle |
 | kamienie milowe | Short and full description | The app's own label, kept although style guides dislike it |

@@ -15,9 +15,9 @@ text byte for byte.
 
 ## Short description
 
-74 of 80 characters. F-Droid's Summary too, so no sentence punctuation. HTZ, not HRT: it is what Polish readers search with, the same call as the landing hero.
+74 of 80 characters. F-Droid's Summary too, so no sentence punctuation. HRT, not HTZ: Alicja's call at sign-off (2026-10-07).
 
-> Zapisuj tranzycję, HTZ, nastrój, głos i kamienie milowe offline, bez konta
+> Zapisuj tranzycję, HRT, nastrój, głos i kamienie milowe offline, bez konta
 
 ## Full description
 
@@ -26,7 +26,7 @@ Same structure and claims as the English. „Kamienie milowe”, „Bezpieczna
 przestrzeń”, „bilans”, „mapa tranzycji” and „podsumowanie dla lekarza” are the
 app's own Polish labels, so a reader finds the same words in the app.
 
-> engender to aplikacja do śledzenia tranzycji, którą jedna osoba trans zrobiła dla innych osób trans. Dziennik, dawki HTZ, zdjęcia, ćwiczenia głosu i plany masz w jednym miejscu. Korzystaj z tego, co pasuje do twojego życia, niezależnie od tego, czy dopiero zastanawiasz się nad swoją płcią, planujesz zmiany, czy masz za sobą lata tranzycji.
+> engender to aplikacja do śledzenia tranzycji, którą jedna osoba trans zrobiła dla innych osób trans. Dziennik, dawki HRT, zdjęcia, ćwiczenia głosu i plany masz w jednym miejscu. Korzystaj z tego, co pasuje do twojego życia, niezależnie od tego, czy dopiero zastanawiasz się nad swoją płcią, planujesz zmiany, czy masz za sobą lata tranzycji.
 >
 > Dzień po twojemu
 >
