@@ -54,7 +54,7 @@ The full description ships as plain text. Headings are plain lines.
 | Contact email | `engender-app@pm.me` |
 | Website | `https://engender.barankiewicz.dev/` |
 | Privacy policy | `https://engender.barankiewicz.dev/en/privacy/` (Polish page: `/pl/privacy/`) |
-| Target audience | All trans people from 15 or 16 up (Alicja, 2026-10-07). Pick the Console age groups that match; the listing text names no age |
+| Target audience | All trans people, 16+ (Alicja, 2026-10-07): Play age groups 16-17 and 18+. The listing text names no age |
 
 Data safety, the health apps declaration and content rating are tracked in pre-release-human 02 and follow the privacy policy, not this
 directory.
