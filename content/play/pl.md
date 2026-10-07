@@ -21,7 +21,7 @@ text byte for byte.
 
 ## Full description
 
-3191 of 4000 characters, counted over the assembled text with newlines.
+3182 of 4000 characters, counted over the assembled text with newlines.
 Same structure and claims as the English. „Kamienie milowe”, „Bezpieczna
 przestrzeń”, „bilans”, „mapa tranzycji” and „podsumowanie dla lekarza” are the
 app's own Polish labels, so a reader finds the same words in the app.
@@ -34,7 +34,7 @@ app's own Polish labels, so a reader finds the same words in the app.
 >
 > Opieka i zmiany
 >
-> Harmonogram leków i przyjęte dawki trzymasz razem, z przypomnieniami o wybranej porze. Notuj wyniki badań i pomiary ciała, śledź zmiany włosów i zdarzenia cyklu, a operację zaplanuj z listą rzeczy do spakowania i listą na czas rekonwalescencji. Zapisuj pytania na następną wizytę, a gdy chcesz pokazać komuś swoje dane, wyeksportuj podsumowanie dla lekarza.
+> Harmonogram leków i przyjęte dawki trzymasz razem, z przypomnieniami o wybranej porze. Notuj wyniki badań i pomiary ciała, śledź zmiany włosów i zdarzenia cyklu, a operację zaplanuj z listą rzeczy do spakowania i listą na czas gojenia. Zapisuj pytania na następną wizytę, a gdy chcesz pokazać komuś swoje dane, wyeksportuj podsumowanie dla lekarza.
 >
 > engender zapisuje to, co wpiszesz. Nie stawia diagnoz, nie dobiera dawek i nie zastępuje porady medycznej. O leczeniu rozmawiaj z osobą, która ma odpowiednie kwalifikacje medyczne.
 >
