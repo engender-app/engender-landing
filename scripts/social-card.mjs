@@ -62,7 +62,7 @@ const mark = await readFile(fileURLToPath(new URL('static/mark.svg', root)));
 const stripes = rings(FLAGS[0])
   .map(
     (ring, index) =>
-      `<i style="width:${SUN}px;height:${SUN}px;background:${ring.colour};transform:scale(${ring.scale});z-index:${index}"></i>`,
+      `<i style="width:${SUN * ring.scale}px;height:${SUN * ring.scale}px;background:${ring.colour};z-index:${index}"></i>`,
   )
   .join('');
 
@@ -85,6 +85,7 @@ const card = `<!doctype html>
       }
 
       body {
+        box-sizing: border-box;
         position: relative;
         overflow: hidden;
         /* --bg, dark. */
@@ -94,9 +95,8 @@ const card = `<!doctype html>
         padding-left: 96px;
       }
 
-      /* The flag sun, centred on the top-right corner: one flat ring per
-         stripe, largest painting first. No blur and no gradient anywhere,
-         which is the whole of what changed about this card. */
+      /* The flag sun sits on the top-right corner. Each stripe has the
+         site's 3px black seam, with the largest ring painted first. */
       .sun {
         position: absolute;
         top: ${-SUN / 2}px;
@@ -108,9 +108,19 @@ const card = `<!doctype html>
 
       .sun i {
         position: absolute;
-        inset: 0;
+        top: 50%;
+        left: 50%;
+        box-sizing: border-box;
         border-radius: 50%;
-        transform-origin: 50% 50%;
+        border: 3px solid #000;
+        transform: translate(-50%, -50%);
+      }
+
+      .brand {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 28px;
       }
 
       /* The mark, at the size it can still be read at when the whole card is
@@ -121,7 +131,7 @@ const card = `<!doctype html>
         display: block;
         width: 96px;
         height: 96px;
-        margin-bottom: 28px;
+        flex: none;
       }
 
       /* Flat --text, in the site's display face at the app's own display
@@ -136,13 +146,16 @@ const card = `<!doctype html>
         letter-spacing: -0.045em;
         color: #e8f1f7;
         width: fit-content;
+        white-space: nowrap;
       }
     </style>
   </head>
   <body>
     <div class="sun">${stripes}</div>
-    <img class="mark" src="data:image/svg+xml;base64,${mark.toString('base64')}" alt="" />
-    <p class="wordmark">engender</p>
+    <div class="brand">
+      <img class="mark" src="data:image/svg+xml;base64,${mark.toString('base64')}" alt="" />
+      <p class="wordmark">engender</p>
+    </div>
   </body>
 </html>`;
 
