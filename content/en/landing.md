@@ -431,17 +431,18 @@ same package, no install recorded against anybody. Calling it a separate source 
 tell somebody they were getting a different build. There is no mirror link on this page
 and there will not be one, since a reader who uses Aurora already has Aurora.
 
-### Staged: the F-Droid signing warning
+### Staged: the Play signing warning
 
-*Gate: the answer to one question the Journal repository has not written down yet:
-whether the F-Droid signature can be update-compatible with the Play one. Its Phase 2
-ticket 18 owns the answer. If the signatures are compatible, this block is never
-published. If they are not, it goes next to F-Droid. This is a staged block because
-the fact is undecided, not because anything is unshipped.*
+*Gate: Play going live. The Journal README (Android channels) settles the question this block
+used to wait on: the planned F-Droid route verifies a reproducible build and keeps the
+developer signature that GitHub and Obtainium use, while Play keeps its own app-signing key.
+So the warning belongs next to Play, not F-Droid. Switching between GitHub and F-Droid stays
+unpublished until the channel verification in the Journal's deploy notes has been done.*
 
-> F-Droid signs its own build, and Android will not install it over a build signed by
-> anyone else. Switching in either direction means exporting an Archive first, then
-> uninstalling, then installing the other build and importing the Archive back.
+> Play signs its build with its own key, and Android will not install it over the GitHub or
+> F-Droid build, or the other way round. To move between Play and the others, export an
+> Archive first and check that it opens on a spare install, then uninstall, install the
+> other build and import the Archive. Uninstalling removes the journal on that phone.
 
 ---
 

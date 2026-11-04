@@ -364,15 +364,16 @@ Play is listed last in both languages, and both say so. „Nie bez powodu” is 
 argument compressed, with the reason one line below on the Play entry itself, which is
 where a reader is looking when it matters.
 
-### Staged: the F-Droid signing warning
+### Staged: the Play signing warning
 
-*Gate: Journal ticket 18, same as the English block, published in both languages at once
-or in neither.*
+*Gate: Play going live, same as the English block, published in both languages at once or
+in neither.*
 
-> Wersję z F-Droida podpisuje F-Droid, a Android nie zainstaluje jej na miejscu wersji
-> podpisanej przez kogoś innego. Przejście w którąkolwiek stronę wygląda tak: najpierw
-> zrób archiwum, potem odinstaluj aplikację, potem zainstaluj drugą wersję i wczytaj
-> archiwum z powrotem.
+> Wersję z Google Play podpisuje Google własnym kluczem, więc Android nie zainstaluje jej
+> na miejscu wersji z GitHuba albo F-Droida ani odwrotnie. Przejście między Play a resztą
+> wygląda tak: najpierw zrób archiwum i sprawdź, czy otwiera się na zapasowej instalacji,
+> potem odinstaluj aplikację, zainstaluj drugą wersję i wczytaj archiwum z powrotem.
+> Odinstalowanie usuwa dziennik z tego telefonu.
 
 ---
 
