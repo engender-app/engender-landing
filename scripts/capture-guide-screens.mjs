@@ -37,12 +37,14 @@ const browser = await chromium.launch({
   args: ['--disable-crash-reporter']
 });
 
+// Settles by condition, as the app's store capture does: finite animations
+// done, every box still for 600ms, then two shots 500ms apart that match.
+const pause = (ms) => new Promise((done) => setTimeout(done, ms));
+const boxes = (page) => page.evaluate(() => [...document.querySelectorAll('body *')]
+  .map((node) => { const r = node.getBoundingClientRect(); return `${r.x},${r.y},${r.width},${r.height}`; }).join('|'));
+
 async function save(page, locale, name) {
   await page.evaluate(() => document.fonts.ready);
-  /* Headless Chromium denies persistent storage in a fresh profile. The app
-     reports that honestly for four seconds. Let its own toast expire before
-     capturing a screen about the app rather than this capture environment. */
-  await page.waitForTimeout(4300);
   await page.locator('[data-toast]').waitFor({ state: 'hidden', timeout: 10_000 });
   await page.evaluate(() => { document.querySelector('.demo-bar').style.display = 'none'; });
   const frame = page.locator('[data-app-viewport]');
@@ -52,7 +54,22 @@ async function save(page, locale, name) {
   }
   const png = `${out}${locale}-${name}.png`;
   const webp = `${out}${locale}-${name}.webp`;
-  await frame.screenshot({ path: png });
+  for (let attempt = 0; ; attempt++) {
+    if (attempt === 20) throw new Error(`${locale}/${name}: never settled`);
+    await page.waitForFunction(() => document.getAnimations()
+      .every((animation) => animation.effect?.getTiming().iterations === Infinity || animation.playState !== 'running'));
+    let last = await boxes(page);
+    let stillSince = Date.now();
+    while (Date.now() - stillSince < 600) {
+      await pause(100);
+      const now = await boxes(page);
+      if (now !== last) { last = now; stillSince = Date.now(); }
+    }
+    const first = await frame.screenshot({ animations: 'disabled' });
+    await pause(500);
+    const second = await frame.screenshot({ path: png, animations: 'disabled' });
+    if (first.equals(second)) break;
+  }
   await run('cwebp', ['-quiet', '-q', '82', '-m', '6', png, '-o', webp]);
   await unlink(png);
   console.log(webp);
@@ -65,13 +82,17 @@ async function open(page, route, locale) {
   const renderedLocale = await page.locator('html').getAttribute('lang');
   if (renderedLocale !== locale) throw new Error(`${route}: rendered ${renderedLocale}, expected ${locale}`);
   await page.getByRole('button', { name: 'Phone', exact: true }).click();
+  await page.waitForFunction(() => {
+    const r = document.querySelector('[data-app-viewport]')?.getBoundingClientRect();
+    return r && Math.round(r.width) === 390 && Math.round(r.height) === 844;
+  }, null, { timeout: 10_000 });
   await page.waitForFunction(() => !document.querySelector('.skeleton-stack'), null, { timeout: 30_000 });
 }
 
 try {
   for (const locale of ['en', 'pl']) {
     const context = await browser.newContext({
-      viewport: { width: 430, height: 900 },
+      viewport: { width: 430, height: 1200 },
       locale: locale === 'en' ? 'en-US' : 'pl-PL',
       colorScheme: 'light',
       deviceScaleFactor: 1,
@@ -79,6 +100,10 @@ try {
     });
     await context.addInitScript((language) => {
       localStorage.setItem('PARAGLIDE_LOCALE', language);
+      /* Headless Chromium denies persistent storage in a fresh profile, and
+         the app would cover the shot with its storage notice. */
+      navigator.storage.persist = async () => true;
+      navigator.storage.persisted = async () => true;
     }, locale);
     const page = await context.newPage();
     page.on('pageerror', (error) => console.error(`${locale}: ${error.message}`));
@@ -99,9 +124,9 @@ try {
       await open(page, route, locale);
       if (name === 'privacy-controls') {
         await page.getByText(
-          locale === 'en' ? 'Disguise & quick exit' : 'Kamuflaż i szybkie wyjście',
+          locale === 'en' ? 'Disguise app' : 'Kamuflaż aplikacji',
           { exact: true }
-        ).click();
+        ).first().click();
         await page.getByRole('dialog').waitFor({ state: 'visible' });
       }
       await save(page, locale, name);

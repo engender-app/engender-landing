@@ -468,7 +468,7 @@
             "images": [
               {
                 "src": "/guide/pl-getting-started-welcome.webp",
-                "alt": "Ekran powitalny wyjaśnia, że dziennik zostaje na urządzeniu, i pozwala zacząć lub przywrócić kopię."
+                "alt": "Ekran powitalny przedstawia engender jako prywatny dziennik tranzycji i pozwala skonfigurować aplikację, przywrócić kopię albo od razu do niej przejść."
               },
               {
                 "src": "/guide/pl-getting-started-name.webp",
@@ -783,7 +783,7 @@
             "images": [
               {
                 "src": "/guide/pl-steps.webp",
-                "alt": "Mapa tranzycji pokazuje polski pakiet i cele na ścieżce społecznej."
+                "alt": "Mapa tranzycji pokazuje przełącznik kroków prawnych w Polsce i odhaczone kroki sądowej zmiany oznaczenia płci."
               }
             ]
           },
@@ -834,7 +834,7 @@
             "images": [
               {
                 "src": "/guide/pl-support.webp",
-                "alt": "Lista Wsparcie i kontakty zawiera numery i adresy oraz filtry dla Polski i języka angielskiego."
+                "alt": "Lista Wsparcie i kontakty zawiera numery i adresy oraz zakładki Polska oraz Wielka Brytania i USA."
               }
             ]
           }
@@ -929,7 +929,7 @@
             "images": [
               {
                 "src": "/guide/pl-privacy-controls.webp",
-                "alt": "Panel Kamuflaż i szybkie wyjście pokazuje przełączniki kamuflażu i blokady po wyjściu."
+                "alt": "Panel Kamuflaż aplikacji pokazuje przełącznik kamuflażu i neutralną nazwę Notatki na karcie przeglądarki i ekranie blokady."
               }
             ]
           },
