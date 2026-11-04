@@ -65,10 +65,8 @@ hides.
 
 *Gate: shipped.*
 
-> Tap Arrange these rows to choose what is pinned and in what order, which kinds
-> of date Coming up shows, and which live tiles can appear. The first set of
-> pins comes from the areas you picked during setup. After that, the app never
-> pins or moves anything by itself.
+> Tap Arrange these rows to choose what is pinned and in what order, and which
+> live tiles can appear. The app never pins or moves anything by itself.
 
 ### Quick add
 
@@ -76,8 +74,9 @@ hides.
 
 > The button in the middle of the bottom bar is quick add. It works from any
 > screen and opens a fan of options: the five moods, an entry for an earlier
-> day, the two tally counters, a dose, and starting or stopping a wear session.
-> Screens that log something keep their own add button as well.
+> day, the two tally counters, a dose while a regimen is running, and starting
+> or stopping a wear session if you use wear time. Screens that log something
+> keep their own add button as well.
 
 ### Where an entry goes
 

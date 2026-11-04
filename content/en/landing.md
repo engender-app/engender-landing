@@ -195,13 +195,13 @@ screenshots still use invented data; the page no longer says so.
 
 **Home**
 
-> The greeting, what is coming up, and the last seven days in whatever colour you
-> picked. The mood row logs an entry for right now in one action, so on a day when you
+> The greeting, what is coming up, and the parts of the app you pinned there.
+> The mood faces log an entry for right now in one action, so on a day when you
 > cannot face writing, you can still log something.
 
 **An entry**
 
-> Mood, your scales, tags, a note, photos. An entry needs only one of them, so a day
+> Mood, your scales, tags, a note, photos. Only the mood is required, so a day
 > where all you managed was a mood is still a day you logged.
 
 **The month**
@@ -251,18 +251,20 @@ The screenshot tour follows it, then one paragraph for the rest.
 
 *Gate: shipped.*
 
-> **Journal** How today felt. A mood, a note, your own scales, tags, photos, a voice
-> memo, and where in your body dysphoria or euphoria sat. One of those is enough. A
-> day where all you managed was a mood is still a day you logged.
+> **Journal** How today felt. A mood, a note, your own scales, tags, photos, a
+> voice memo, and where in your body dysphoria or euphoria sat. The mood is the
+> only part you need. A day where all you managed was a mood is still a day you
+> logged.
 
 > **Look back** Whether anything is changing is hard to see day to day and easy to see
 > over months. A heat map of each month, a chart for each scale, how days with a tag
 > compare to days without, a wrapped for any week, month or year, and the good days
 > from a month, six months and a year ago.
 
-> **HRT** Your medication schedule with the next dose and how much is left, doses
-> logged as you take them, lab results drawn as a chart, and a modelled hormone curve.
-> The app never suggests a dose or shows a reference range.
+> **HRT** Your medication schedule with the next dose and how much is left,
+> doses logged as you take them, reminders you can answer with Taken or Skip,
+> and lab results drawn as a chart. The app never suggests a dose or shows a
+> reference range.
 
 > **Surgeries** A journal per procedure: consults, the date itself, recovery, and
 > photos that stay inside the app rather than in your camera roll.
@@ -278,9 +280,9 @@ The screenshot tour follows it, then one paragraph for the rest.
 > earlier takes. Pitch, resonance and speaking rate describe the recording without
 > grading your voice.
 
-> **Clinician summary** Bring your doses, labs, measurements and changes to an
-> appointment as one printed summary, over a range you choose, with only the sections
-> you choose.
+> **Clinician summary** Bring your doses, labs, side effects and changes to an
+> appointment as one printed summary, over a range you choose, with only the
+> sections you choose.
 
 Checked against the Journal spec on 2026-09-29. There is a month heat map and no
 year one. On this day brings back only good days, from a month, six months and a
@@ -293,14 +295,16 @@ pitch figure may not be presented as a target.
 
 *Gate: shipped.*
 
-> Also in there: search across your notes and tags, a tally of the times you were
-> misgendered and gendered right, milestones with countdowns ahead and anniversaries
-> behind, letters that open on a date you choose, a roadmap of the legal and medical
-> steps in Poland with room for your own, binder and tucking wear time, hair removal
-> sessions, measurements and sizes, appointment prep, Safe Space with your good days
-> and your own comfort list, a directory of trans organisations and helplines you can
-> read offline, one photo library across all of it, and a place for referrals and
-> court orders. If you already have a year in Daylio, it imports.
+> Also in there: search across your notes and tags, a tally of the times you
+> were misgendered and gendered right, milestones with countdowns ahead and
+> anniversaries behind, letters that open on a date you choose, a roadmap of the
+> legal steps in Poland with room for your own, the offices to update after a
+> name change, binder and tucking wear time, hair removal sessions, waiting
+> lists, notes on the people you see, what each visit or prescription cost,
+> appointment prep, Safe Space with your good days and your own comfort list, a
+> directory of trans organisations and helplines you can read offline, one photo
+> library across all of it, and a place for referrals and court orders. If you
+> already have a year in Daylio, it imports.
 
 ### Keeping it
 
@@ -310,12 +314,14 @@ pitch figure may not be presented as a target.
 > choose, before it leaves the app. Import puts it back, either merged into what is here
 > or replacing it.
 >
-> **Automatic backups.** On Android, an encrypted Archive saved weekly or monthly to a
-> folder you pick, on the phone or with a cloud provider. The app shows when the last
-> one worked and when one failed.
+> **Automatic backups.** On Android, an encrypted Archive saved weekly or
+> monthly to a folder you pick, on the phone or with a cloud provider. The app
+> shows when the last one worked and when one failed. If another phone backs up
+> to the same folder, its newer backup can be merged in when you open the app.
 >
-> **Coming from Daylio.** Import a Daylio CSV. It shows you the counts and how the moods
-> will map before it writes anything, and it only ever merges.
+> **Coming from Daylio.** Import a Daylio CSV or a Daylio backup. It shows you
+> the counts and how the moods will map before it writes anything, and it only
+> ever merges.
 >
 > **Plain export.** CSV or JSON, for a spreadsheet or for keeping your own copy. It is not
 > encrypted, and the app says so and makes you confirm before it writes the file.
@@ -330,8 +336,9 @@ pitch figure may not be presented as a target.
 > **On Android.** The same journal features as a phone app. Its data does not sync with
 > the browser journal.
 >
-> **Reminders.** Medication, injections, appointments. One-off or repeating, as
-> notifications on your phone.
+> **Reminders.** Once or repeating, as notifications on your phone. A medication
+> reminder opens that drug's dose log, with Taken and Skip on the notification
+> itself.
 >
 > **The daily check-in.** One prompt a day, at a time you choose, skipped on days you have
 > already written something.
@@ -344,21 +351,20 @@ pitch figure may not be presented as a target.
 
 *Gate: shipped.*
 
-> Choose how to unlock the journal in Privacy and data. Disguise, lock on leave and quick
-> exit stay off until you turn them on.
+> Choose how to unlock the journal in Privacy and data. Disguise stays off until
+> you turn it on, and you choose how soon the journal locks again.
 >
 > **Access.** Use a passphrase, a PIN with a device key, supported biometrics or a
 > device-bound key. The Privacy page explains what each protects and how recovery works.
 >
-> **Disguise.** The browser tab says Notes instead of engender. On Android, the app takes
-> a neutral name and icon too.
+> **Disguise.** The browser tab says Notes instead of engender. On Android, the
+> app takes a neutral name and icon, and the lock screen, widgets and
+> notifications stop naming it. Once the journal is unlocked, nothing inside
+> changes.
 >
-> **Lock on leave.** The journal locks when you switch away. With a mode that asks for a
-> secret, you need it to return.
->
-> **Quick exit.** A two-finger swipe down covers the journal. Disguise shows a Notes
-> screen; otherwise the tab goes blank. If your access mode asks for a secret, returning
-> requires it.
+> **Locking again.** The journal can lock as soon as you switch away, after one
+> or five minutes away, or only when the app restarts. With a mode that asks for
+> a secret, you need it to return.
 
 ### How it looks
 

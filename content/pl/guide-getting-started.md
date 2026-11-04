@@ -67,10 +67,10 @@ dostępna.
 >
 > **Flaga.** Wybierasz flagę. Jej kolory barwią całą aplikację.
 >
-> **Skale.** Które skale płci mają się pojawiać przy wpisie.
+> **Skale.** Które skale genderowe mają się pojawiać przy wpisie.
 >
-> **Obszary.** Które części aplikacji przypiąć do ekranu Dziś, twojej strony
-> głównej. Reszta nie znika, jest o jedno dotknięcie dalej.
+> **Funkcje.** Które części aplikacji mają być widoczne. To, czego nie
+> zaznaczysz, zostaje ukryte, dopóki nie włączysz tego w Ustawieniach.
 >
 > **Blokada.** Co otwiera dziennik: na przykład hasło, PIN albo odcisk palca,
 > o który telefon i tak pyta. Każda opcja mówi, przed czym chroni, zanim ją
@@ -79,8 +79,9 @@ dostępna.
 > **Uprawnienia.** O co aplikacja może poprosić telefon, na przykład
 > o powiadomienia, i po co. Żadne z nich nie jest potrzebne, żeby napisać wpis.
 >
-> **Kamuflaż.** Czy poza aplikacją ma nosić inną nazwę i ikonę. Jest wyłączony,
-> dopóki go nie włączysz.
+> **Kamuflaż.** Czy poza aplikacją, na przykład na ekranie głównym telefonu i na
+> ekranie blokady, ma nosić inną nazwę i ikonę. Po odblokowaniu dziennika nic
+> się nie zmienia. Jest wyłączony, dopóki go nie włączysz.
 >
 > **Gotowe.** Konfiguracja się kończy, a aplikacja otwiera ekran Dziś.
 >

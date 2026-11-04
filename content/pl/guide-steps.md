@@ -24,21 +24,21 @@ katalogu Journal, a formy zwracania się do czytelnika nie określają płci.
 > Kroki to druga grupa na karcie Tranzycja.
 >
 > Kamień milowy to dzień, który miał znaczenie albo będzie go mieć. Ten przed
-> tobą odlicza czas, ten za tobą wraca co roku jako rocznica. Jak się z nim
-> czujesz, możesz zapisać przy dodawaniu i przy każdej rocznicy.
+> tobą odlicza czas, ten za tobą wraca co roku jako rocznica. Możesz zdecydować,
+> czy aplikacja ma go świętować, kiedy przyjdzie ten dzień.
 >
 > Ery to nazwane przez ciebie odcinki czasu, na przykład „zanim wszystko się
-> zaczęło”. Widać je jako pasy za kamieniami milowymi, a Przegląd może wziąć erę
-> jako swój okres. Tworzysz je i zmieniasz w Ustawieniach.
+> zaczęło”. Widać je jako pasy za kamieniami milowymi, a Statystyki mogą wziąć
+> erę jako swój okres. Tworzysz je i zmieniasz w Ustawieniach.
 
 ### Próby
 
 *Gate: shipped.*
 
-> Próba to coś, czego próbujesz: imię albo zaimki, styl, ubranie, makijaż, krok
-> w tym, jak się pokazujesz. Ma datę początku, a gdy przestajesz, także datę
-> końca. Jak się z nią czujesz, zapisujesz tak często, jak chcesz, i dodajesz
-> zdjęcia. Kilka prób może trwać naraz.
+> Próba to coś, czego próbujesz: imię, zaimki, styl albo makijaż. Ma datę
+> początku, a gdy przestajesz, także datę końca. Jak się z nią czujesz,
+> zapisujesz tak często, jak chcesz, przy samej próbie albo we wpisie, i
+> dodajesz zdjęcia. Kilka prób może trwać naraz.
 
 ### Głos
 
@@ -66,22 +66,28 @@ katalogu Journal, a formy zwracania się do czytelnika nie określają płci.
 
 *Gate: shipped.*
 
-> Sesje elektrolizy i lasera: obszar, metoda, ból, koszt, gabinet i zdjęcia.
-> Ekran pokazuje, ile minęło od ostatniej sesji.
+> Sesje elektrolizy i lasera: obszar, metoda, czas trwania, ból, jeśli chcesz go
+> zapisać, koszt, gabinet i zdjęcia. Ekran pokazuje, ile minęło od ostatniej
+> sesji.
 
 ### Mapa tranzycji
 
 *Gate: shipped.*
 
-> Mapa tranzycji wypisuje kroki polskiej procedury tranzycji. Na razie jest
-> tylko Polska. Kroki to cele, podzielone na cztery ścieżki: społeczną, prawną,
-> wizerunkową i medyczną.
+> Mapa tranzycji wypisuje kroki polskiej procedury prawnej zmiany oznaczenia
+> płci. Są za przełącznikiem Kroki prawne w Polsce, który jest domyślnie
+> włączony, gdy aplikacja działa po polsku. Kroki to cele. Po wyroku w sekcji
+> Zmiana danych w instytucjach są miejsca, w których trzeba zaktualizować dane,
+> na przykład PESEL, dowód osobisty, paszport, bank i pracodawca. Przy każdym
+> zapiszesz, kiedy złożono wniosek, od kiedy czekasz i kiedy sprawa została
+> załatwiona, razem z dokumentami.
 >
-> Cele można realizować w dowolnej kolejności i żadna ścieżka nie czeka na inną.
-> Odhacz cel, gdy jest zrobiony, albo oznacz go jako „nie moja droga”. Tak samo
-> można oznaczyć całą ścieżkę i potem ją przywrócić.
+> Cele można realizować w dowolnej kolejności. Odhacz cel, gdy jest zrobiony,
+> albo oznacz go jako „nie moja droga”. Cel, którego nie potrzebujesz, możesz
+> ukryć i potem przywrócić.
 >
-> Do każdej ścieżki dodasz własne cele, a do celu możesz podpiąć dokumenty.
+> Możesz dodać własne kategorie z własnymi celami, niezależnie od tego, czy
+> polskie kroki są włączone, a do celu podpiąć dokumenty.
 >
 > Mapa opisuje procedurę i nigdy nie mówi, co zrobić w twojej sprawie. Podaje
 > datę, kiedy jej treść ostatnio sprawdzono ze źródłami.
@@ -93,5 +99,3 @@ katalogu Journal, a formy zwracania się do czytelnika nie określają płci.
 > Napisz list do siebie i wybierz dzień, w którym się otworzy. Do tego dnia jest
 > zapieczętowany, potem czytasz go, kiedy chcesz. Listy, które zaraz się
 > otworzą, widać na karcie Dzisiaj, w sekcji Nadchodzi.
->
-> Wśród otwartych listów są też zdjęcia oznaczone gwiazdką.

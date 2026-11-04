@@ -61,11 +61,11 @@
   "tour": [
     {
       "screen": "Home",
-      "caption": "The greeting, what is coming up, and the last seven days in whatever colour you picked. The mood row logs an entry for right now in one action, so on a day when you cannot face writing, you can still log something."
+      "caption": "The greeting, what is coming up, and the parts of the app you pinned there. The mood faces log an entry for right now in one action, so on a day when you cannot face writing, you can still log something."
     },
     {
       "screen": "An entry",
-      "caption": "Mood, your scales, tags, a note, photos. An entry needs only one of them, so a day where all you managed was a mood is still a day you logged."
+      "caption": "Mood, your scales, tags, a note, photos. Only the mood is required, so a day where all you managed was a mood is still a day you logged."
     },
     {
       "screen": "The month",
@@ -108,11 +108,11 @@
         },
         {
           "lead": "Automatic backups.",
-          "rest": " On Android, an encrypted Archive saved weekly or monthly to a folder you pick, on the phone or with a cloud provider. The app shows when the last one worked and when one failed."
+          "rest": " On Android, an encrypted Archive saved weekly or monthly to a folder you pick, on the phone or with a cloud provider. The app shows when the last one worked and when one failed. If another phone backs up to the same folder, its newer backup can be merged in when you open the app."
         },
         {
           "lead": "Coming from Daylio.",
-          "rest": " Import a Daylio CSV. It shows you the counts and how the moods will map before it writes anything, and it only ever merges."
+          "rest": " Import a Daylio CSV or a Daylio backup. It shows you the counts and how the moods will map before it writes anything, and it only ever merges."
         },
         {
           "lead": "Plain export.",
@@ -134,7 +134,7 @@
         },
         {
           "lead": "Reminders.",
-          "rest": " Medication, injections, appointments. One-off or repeating, as notifications on your phone."
+          "rest": " Once or repeating, as notifications on your phone. A medication reminder opens that drug's dose log, with Taken and Skip on the notification itself."
         },
         {
           "lead": "The daily check-in.",
@@ -154,22 +154,18 @@
       "id": "careful",
       "group": "If you need to be careful",
       "paragraphs": [
-        "Choose how to unlock the journal in Privacy and data. Disguise, lock on leave and quick exit stay off until you turn them on.",
+        "Choose how to unlock the journal in Privacy and data. Disguise stays off until you turn it on, and you choose how soon the journal locks again.",
         {
           "lead": "Access.",
           "rest": " Use a passphrase, a PIN with a device key, supported biometrics or a device-bound key. The Privacy page explains what each protects and how recovery works."
         },
         {
           "lead": "Disguise.",
-          "rest": " The browser tab says Notes instead of engender. On Android, the app takes a neutral name and icon too."
+          "rest": " The browser tab says Notes instead of engender. On Android, the app takes a neutral name and icon, and the lock screen, widgets and notifications stop naming it. Once the journal is unlocked, nothing inside changes."
         },
         {
-          "lead": "Lock on leave.",
-          "rest": " The journal locks when you switch away. With a mode that asks for a secret, you need it to return."
-        },
-        {
-          "lead": "Quick exit.",
-          "rest": " A two-finger swipe down covers the journal. Disguise shows a Notes screen; otherwise the tab goes blank. If your access mode asks for a secret, returning requires it."
+          "lead": "Locking again.",
+          "rest": " The journal can lock as soon as you switch away, after one or five minutes away, or only when the app restarts. With a mode that asks for a secret, you need it to return."
         }
       ]
     },
@@ -230,7 +226,7 @@
   ],
   "privacyPage": {
     "title": "Privacy policy",
-    "intro": "Last updated: 2026-10-07 engender is a journal for tracking a gender transition. It is made and published by Alicja Barankiewicz in Warsaw, Poland. This policy covers the hosted web app, the Android app, the website and guide, support messages, and the files you export or share.",
+    "intro": "Last updated: 2026-11-04 engender is a journal for tracking a gender transition. It is made and published by Alicja Barankiewicz in Warsaw, Poland. This policy covers the hosted web app, the Android app, the website and guide, support messages, and the files you export or share.",
     "guideLink": "Read the Privacy chapter in the Guide.",
     "sections": [
       {
@@ -247,15 +243,15 @@
         "heading": "The short version",
         "paragraphs": [
           "There is no engender account or server holding your journal. Your journal stays on your device unless you export or share it. Its database and media are encrypted at rest. The developer cannot recover it for you.",
-          "The website and hosted web app count online page openings without visitor profiles. These counts contain no journal data. Android sends no counts. Information you choose to send in a support message is handled separately, as described below."
+          "The website and hosted web app count online page openings without visitor profiles. These counts contain no journal data. Android sends no counts: it is 100% local."
         ]
       },
       {
         "heading": "What the app stores, and where",
         "paragraphs": [
-          "Everything you enter stays in the app's storage on your device: entries, notes and moods, scales, doses and regimens, lab results, measurements, appointments, milestones, letters, photos, voice and video recordings, documents you import, reminders and your settings. The journal database and your photos are encrypted at rest. None of it is sent to the developer or to anyone else.",
+          "Everything you enter stays in the app's storage on your device: entries, notes and moods, scales, doses and regimens, lab results, appointments, referrals and waiting lists, notes on the people you see, costs, name and document changes, milestones, letters, photos, voice and video recordings, documents you import, reminders and your settings. The journal database and your photos are encrypted at rest. NONE of it is sent to the developer or to anyone else.",
           "Some preferences needed before unlocking, including theme, palette, language, disguise and lock timing, are kept outside the encrypted journal. On Android, the camera app temporarily writes a photo to an unencrypted cache file before engender imports and encrypts it. Encryption at rest does not mean that every temporary file or preference is encrypted.",
-          "The web app and the Android app keep separate journals. To move a journal from one to the other, you export an encrypted backup and import it."
+          "The web app and the Android app keep separate journals. To move a journal from one to the other, you export an encrypted backup and import it. The app cannot sync a journal between two devices over your local network. On Android even a local connection needs the INTERNET permission, which the app does not request. Two Android phones can instead share a backup folder, as described under Encrypted backups."
         ]
       },
       {
@@ -267,14 +263,17 @@
           "the requested URL, including any query string, and the response size,",
           "the User-Agent and Referer headers your browser sends.",
           "The app server runs on an OVH VPS. Routine access logs are disabled. Error logs can contain an IP address and requested URL; the live server keeps them for at most seven days. Page-count requests are not logged.",
-          "The app does not upload your journal or create an account or visitor profile. Page-opening counts are described below. The app loads its fonts and its text recognition files from the same server and asks nothing of any other site. The first time you scan a lab photo, the browser downloads the text recognition engine (about 21 MB) from that server; scanning itself happens on your device.",
+          "The app does not upload your journal or create an account or visitor profile. Page-opening counts are described below. Fonts and text recognition files come from the same server. Installing the web app downloads the complete English and Polish OCR engine before it is ready offline. Scanning happens on your device, including the first scan after installation.",
+          "Android includes the English and Polish text recognition files in the APK. Its first lab scan needs no download or network connection.",
+          "Journal text fields ask the browser to turn off autofill and session restoration for their contents. This does not remove text saved by earlier app versions or control what a browser extension or your keyboard stores.",
           "On the web, the local journal opens in one of four ways:",
           "A passphrase you type, turned into a key with Argon2id.",
           "A four-digit PIN, combined with a key tied to this browser profile.",
           "Biometric verification on browsers that support the WebAuthn PRF extension (Touch ID, Windows Hello or your device lock).",
           "A key kept in this browser profile, which opens the journal without asking.",
           "PIN, biometric and device-bound access depend on keys held in that browser profile. Clearing the site's data, resetting the browser profile or losing the device makes that copy of the journal unreadable.",
-          "You can also make an optional 25-character recovery key. It opens the journal on the same device and browser profile if your passphrase, PIN or biometric authenticator stops working. It cannot move data to a new device or open an export. The app shows the key once and keeps only a sealed copy of the journal key. Keep the recovery key on paper or in a password manager on another device: anyone with it and the journal data can read the journal. It cannot bring back deleted data.",
+          "You can also make an optional 25-character recovery key. It opens the journal on the same device and browser profile if your passphrase, PIN or biometric authenticator stops working. It cannot move data to a new device or open an export. The app shows the key once, when you make it, and keeps only a sealed copy of the journal key. The one exception is a lock: if the app locks while a new key is on screen, it shows the same key again after you unlock. Until then the key is held encrypted in memory and is never saved. A new key replaces the old one only when you confirm you have written it down, and until then both open the journal. If the app closes before that, the old key keeps working and the app tells you the replacement did not finish. Keep the recovery key on paper or in a password manager on another device: anyone with it and the journal data can read the journal. It cannot bring back deleted data.",
+          "Creating or replacing a recovery key and changing access mode require the current PIN, passphrase or biometrics again. Web device-bound mode has no current secret, so its confirmation explains that the unlocked browser can make these changes. Android unlocked mode requires biometrics or the existing recovery key; without either, the change is unavailable. A recovery unlock approves one immediate protection setup, not other changes in Settings. These checks happen on your device and send no credentials to the maintainer.",
           "When you copy the recovery key in a browser, the app tries to clear it from the clipboard after one minute, if the clipboard still holds it. Browsers can refuse that, and clipboard managers or sync may already have kept a copy."
         ]
       },
@@ -298,13 +297,16 @@
         "paragraphs": [
           "Android distribution starts with APKs on GitHub. Google Play and F-Droid follow their own publication processes. A store or download service sees requests made to it and handles those under its own terms.",
           "The Android app does not request the INTERNET permission. It opens no network connections and sends nothing to any server. It also opts out of Android's cloud backup and of device-to-device transfer, so the system does not copy the app's storage to Google or to a new phone.",
+          "The app opts out of WebView diagnostic uploads to Google. Google Safe Browsing stays at WebView's enabled default. Its checks can use Google Play services' own network access.",
+          "Android always asks the keyboard not to learn words typed in the app, using IME_FLAG_NO_PERSONALIZED_LEARNING. The keyboard can ignore this request. It does not remove words the keyboard learned earlier. Your keyboard and browser can make their own network requests independently of engender.",
           "The app requests these permissions:",
           "POST_NOTIFICATIONS, SCHEDULE_EXACT_ALARM and RECEIVE_BOOT_COMPLETED, so a reminder or the daily check-in can notify you, at the time you chose rather than in a batched system window, and still fire after the phone restarts.",
+          "WAKE_LOCK, so Android can keep the CPU running while a scheduled encrypted backup is delivered to the chosen local folder. The screen can stay off.",
           "RECORD_AUDIO and MODIFY_AUDIO_SETTINGS, for voice notes, voice practice and the sound of video notes.",
           "CAMERA, for video notes and for taking a photo. A photo is taken with your phone's camera app, and the app asks for this permission before it opens it, because Android requires that of an app that declares it.",
           "USE_BIOMETRIC and USE_FINGERPRINT, which the AndroidX biometric library adds so the app can show the system's fingerprint, face or screen lock prompt before it opens the journal. The app never sees your fingerprint or face; Android only tells it whether you were verified.",
           "Android also lists dev.engender.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION. It is not something the app asks of you: AndroidX declares it so that only the app itself can send its own internal messages.",
-          "Reminder and check-in notifications show only a generic label by default, even on a locked screen. A setting under Notifications turns that off and shows the real title instead.",
+          "Reminder and check-in notifications show only a generic label by default, even on a locked screen. A setting under Notifications turns that off and shows the real title instead. If notification history is on in Android's settings, Android keeps the titles shown there for about a day after the notification goes away. The app does not turn history on and cannot clear it.",
           "When you copy the recovery key on Android 13 or later, the app marks the clipboard entry as sensitive, which asks the keyboard to leave it out of its clipboard history. The app clears the key after one minute, or when you come back if you left before then. It never clears something you copied after it.",
           "The Android journal opens in one of four ways:",
           "A key protected by Android Keystore and released after the screen lock or biometric prompt.",
@@ -315,15 +317,25 @@
         ]
       },
       {
+        "heading": "Disguise",
+        "paragraphs": [
+          "Disguise changes what other people can see of the app from the outside. The launcher icon and name become a neutral \"Notes\", and the lock screen, widgets, notifications, the names of backup and export files, printed letterheads and, on the web, the browser tab and the installed app's name stop naming engender. While disguise is on, Android also blocks screenshots and the app's preview in Recents. Once you unlock the journal, the app looks the same as without disguise.",
+          "Android still shows the real name in App info, in permission prompts, in notification headers and in the widget picker. On the web, the app's address still appears in the address bar, browser history, bookmarks and site settings. Disguise is not encryption and does not change who can read the journal."
+        ]
+      },
+      {
         "heading": "Backups, exports and shared files",
         "paragraphs": [
-          "When you export or share a file, you choose where it goes. Other apps handle shared files and links and may use the network. If you save a file to a cloud drive or another document provider, that provider can see the file's name, time, size and the access logs of your account there."
+          "When you export or share a file, you choose where it goes. Other apps handle shared files and links and may use the network. If you save a file to a cloud drive or another document provider, that provider can see the file's name, time, size and the access logs of your account there.",
+          "On Android, an unfinished manual export can leave a partial file at the chosen destination. The app keeps that file's location in private app storage until it can remove the partial file or finish the export. If the app stops during a write, it retries removal when it next starts. A provider can refuse access; the app then keeps the location for another attempt and asks you to check the destination. Clearing app storage or uninstalling also removes this record. The app cannot clean up a destination before the picker returns its location."
         ]
       },
       {
         "heading": "Encrypted backups",
         "paragraphs": [
-          "An encrypted backup (.ttbackup), whether you export it yourself or Android writes it on a schedule to a folder you picked, is encrypted with AES-GCM under a backup password you choose. Nobody can read it without that password."
+          "An encrypted backup (.ngndr), whether you export it yourself or Android writes it on a schedule to a folder you picked, is encrypted with AES-GCM under a backup password you choose. Nobody can read it without that password.",
+          "Android automatic backups require the system's local storage provider. A backup is reported complete only after the file and folder are synced and the delivered bytes are checked. The app reports incomplete delivery for other providers. It does not verify cloud uploads.",
+          "If you turn on merging backups from other devices, the Android app reads that same folder when you open it. When another device has saved a newer backup there, the app opens it with the backup password and merges it into your journal on the phone. Nothing is sent anywhere; both devices only read and write the folder you picked."
         ]
       },
       {
@@ -332,11 +344,10 @@
           "Some exports are deliberately unencrypted because they are meant to be read, shared or printed:",
           "CSV and JSON data files exported from Settings.",
           "Keepsake journal books prepared for printing or PDF.",
-          "Clinician summaries of regimens, vitals, labs and notes, to share with a healthcare provider.",
+          "Clinician summaries of regimens, labs, procedures, side effects and the changes you noticed, to share with a healthcare provider.",
           "Progress photo collages and timelapse videos.",
-          "Wrapped cards shared as images.",
           "PDF documents exported back to your device storage.",
-          "Single-event calendar files (.ics) for appointments, surgeries or milestones.",
+          "Single-event calendar files (.ics) for appointments, surgeries or the day a letter opens.",
           "Anyone who gets one of these files or a printout can read what it contains. The app asks you to confirm, or to take a deliberate step, before it writes an unencrypted file."
         ]
       },
@@ -349,11 +360,11 @@
       {
         "heading": "Deleting your data",
         "paragraphs": [
-          "The app does not send your journal to the developer. You can delete the local journal yourself. Support messages and hosting logs have the separate retention periods described in this policy:",
-          "In the app. Settings, then Privacy & data, then Delete everything. This removes the journal, photos and recordings, your settings, scheduled reminders and the keys that open the journal, and cannot be undone. If you used biometric unlock on the web, the passkey it created stays in your browser's or device's passkey list until you remove it there. It opens nothing once the journal is gone. On Android, an interrupted photo capture can leave an unencrypted file in the app’s cache. Clearing the app’s storage removes it.",
+          "The app does not send your journal to the developer or anyone else. You can delete the local journal yourself. Support messages and hosting logs have the separate retention periods described in this policy:",
+          "In the app. Settings -> Privacy & data -> Delete everything. This deletes, well, everything. If you used biometric unlock on the web, the passkey it created stays in your browser's or device's passkey list until you remove it there. It opens nothing once the journal is gone. On Android, an interrupted photo capture can leave an unencrypted file in the app’s cache. Clearing the app’s storage removes it.",
           "On Android. Uninstalling the app, or clearing its storage in the system settings, removes everything the app stored on the phone.",
           "On the web. Clearing the site data for app.engender.barankiewicz.dev in your browser removes the journal and the keys kept for it.",
-          "None of these reach files you exported or shared, including backups written on a schedule to a folder you picked. Delete those where you saved them."
+          "None of these remove completed files you exported or shared, including backups written on a schedule to a folder you picked. Delete those where you saved them."
         ]
       },
       {
@@ -365,13 +376,13 @@
       {
         "heading": "Who the app is for",
         "paragraphs": [
-          "engender is for any trans person, including teenagers. There is no minimum age for using the journal and no age-verification process. Store audience and content declarations describe the app honestly; they do not change how its local journal handles data."
+          "engender is for any trans person. There is no minimum nor maximum age for using the journal and no age-verification process."
         ]
       },
       {
         "heading": "Support messages",
         "paragraphs": [
-          "If you contact engender-app@pm.me, the maintainer receives your email address, message and any attachments through Proton Mail. These are used to answer your request. Never send a real journal, backup, password, recovery key or screenshot containing personal journal content. Support uses app and device versions, reproduction steps and invented examples instead.",
+          "If you contact engender-app@pm.me, the maintainer receives your email address, message and any attachments. These are used to answer your request. Never send a real journal, backup, password, recovery key or screenshot containing personal journal content. Support uses app and device versions, reproduction steps and invented examples instead.",
           "Private support email and downloaded copies controlled by the maintainer are deleted within 30 days after the request is resolved. Sensitive journal material sent by mistake is deleted when noticed and is not used to investigate the problem. Technical findings may remain in issue records without personal journal content. You can ask about or request deletion of correspondence through the contact address above.",
           "GitHub issues are public. Security reports use GitHub's private vulnerability reporting process. Their visibility and retention follow that service's features and policies. The maintainer cannot promise deletion from GitHub's systems, provider backups or copies held by someone else."
         ]
@@ -379,8 +390,8 @@
       {
         "heading": "Changes to this policy",
         "paragraphs": [
-          "When this policy changes, the date at the top changes with it. Every earlier version is kept in the history of https://github.com/engender-app/engender/blob/main/docs/privacy-policy.en.md.",
-          "This policy is also available in Polish (https://github.com/engender-app/engender/blob/main/docs/privacy-policy.pl.md)."
+          "When this policy changes, the date at the top changes with it. Every earlier version is kept in the history of https://github.com/engender-app/engender/blob/main/PRIVACY.md.",
+          "This policy is also available in Polish (https://github.com/engender-app/engender/blob/main/PRIVACY.pl.md)."
         ]
       }
     ]
@@ -433,8 +444,8 @@
                 "rest": " Which gender scales you want to rate when you write an entry."
               },
               {
-                "lead": "Areas.",
-                "rest": " Which parts of the app are pinned to Today, your front page. Everything else is still there, one tap further in."
+                "lead": "Features.",
+                "rest": " Which parts of the app to show. Anything you leave off stays hidden until you turn it on in Settings."
               },
               {
                 "lead": "Lock.",
@@ -446,7 +457,7 @@
               },
               {
                 "lead": "Disguise.",
-                "rest": " Whether the app shows a different name and icon outside itself. It is off unless you turn it on."
+                "rest": " Whether the app shows a different name and icon outside itself, such as on your home screen and lock screen. Inside the unlocked app nothing changes. It is off unless you turn it on."
               },
               {
                 "lead": "Done.",
@@ -507,13 +518,13 @@
           {
             "heading": "Arranging Today",
             "paragraphs": [
-              "Tap Arrange these rows to choose what is pinned and in what order, which kinds of date Coming up shows, and which live tiles can appear. The first set of pins comes from the areas you picked during setup. After that, the app never pins or moves anything by itself."
+              "Tap Arrange these rows to choose what is pinned and in what order, and which live tiles can appear. The app never pins or moves anything by itself."
             ]
           },
           {
             "heading": "Quick add",
             "paragraphs": [
-              "The button in the middle of the bottom bar is quick add. It works from any screen and opens a fan of options: the five moods, an entry for an earlier day, the two tally counters, a dose, and starting or stopping a wear session. Screens that log something keep their own add button as well."
+              "The button in the middle of the bottom bar is quick add. It works from any screen and opens a fan of options: the five moods, an entry for an earlier day, the two tally counters, a dose while a regimen is running, and starting or stopping a wear session if you use wear time. Screens that log something keep their own add button as well."
             ]
           },
           {
@@ -556,15 +567,14 @@
           {
             "heading": "Search",
             "paragraphs": [
-              "The search icon at the top of Journal opens search. Before you type, it offers your most-used tags and recent searches. Filters narrow the results by tag, mood, dates, or starred.",
-              "Star an entry you want to find again, then filter by Starred to see all of them.",
-              "You can save a search as a question. Opening it later searches your journal as it is then, not as it was when you saved it."
+              "The search icon at the top of Journal opens search. Before you type, it offers your most-used tags and recent searches. Filters narrow the results by tag, mood, mode, body region, a range on one of your scales, dates, or starred.",
+              "Star an entry you want to find again, then filter by Starred to see all of them."
             ]
           },
           {
             "heading": "Writing an entry",
             "paragraphs": [
-              "An entry is one moment. It needs just one thing, such as a mood, a note or a photo.",
+              "An entry is one moment. It needs a mood, and everything else is optional.",
               "The note comes first, under the date. The moods and the star sit on the save bar at the bottom. Under the note, a row of chips opens the rest one at a time: mode, gender scales, tags, the body map, and attachments such as photos and voice recordings.",
               "The body map is where you mark how a part of your body feels. Pick a spot, then slide towards dysphoria or towards euphoria. Leaving it in the middle records nothing."
             ]
@@ -601,20 +611,12 @@
                 "rest": " Each day as a point on two scales, which you can play through in order."
               },
               {
-                "lead": "How the days fell.",
-                "rest": " How many days landed at each mood, and what you wrote about."
-              },
-              {
-                "lead": "Words that stand out.",
-                "rest": " Words that turn up more often in this stretch than in the rest of your journal."
+                "lead": "What you write about.",
+                "rest": " The tags you used most in the stretch, on every day or only on good days."
               },
               {
                 "lead": "Tags, and how a scale moved.",
                 "rest": " Which tags came with a scale going up or down."
-              },
-              {
-                "lead": "Highest days.",
-                "rest": " Your highest days on a scale you choose, each one a tap from its entries."
               },
               {
                 "lead": "Body map.",
@@ -625,8 +627,8 @@
                 "rest": " Two periods side by side. It starts with your stretch against the same length of time just before it."
               },
               {
-                "lead": "Affirming themes.",
-                "rest": " The tags your good and starred entries carry most."
+                "lead": "What it cost.",
+                "rest": " What you recorded spending in the stretch, by area and by whether it was refunded. Each currency keeps its own total."
               }
             ]
           },
@@ -636,11 +638,11 @@
               "Two more tiles sit under the grid. You can turn either one off in Settings.",
               {
                 "lead": "Wrapped.",
-                "rest": " A look back at a finished week, month or year, or at the stretch you picked: entries, mood, the scale that moved furthest, tags, milestones and photos. You can share it as a card, and the card never carries your writing or your photos."
+                "rest": " A look back at a finished week, month or year, or at the stretch you picked: entries, mood, the scale that moved furthest, tags, milestones and photos."
               },
               {
                 "lead": "On this day.",
-                "rest": " A good day from a month, six months or a year ago, with any letter written or opened on it. Days that went badly are not brought back."
+                "rest": " A good day from a month, six months, a year or more years ago, with any letter written or opened on it. Days that went badly are not brought back."
               }
             ]
           },
@@ -654,7 +656,7 @@
       },
       "health": {
         "title": "Health",
-        "description": "Care and your medication, measurements and sizes, the surgery journey, appointments and the clinician summary.",
+        "description": "Care and your medication, changes you've noticed, the surgery journey, appointments and the clinician summary.",
         "sections": [
           {
             "heading": "The Transition tab",
@@ -667,7 +669,7 @@
             "heading": "Care",
             "paragraphs": [
               "Care is where your medication lives. Each drug in a running regimen gets its own lane. The timeline marks your latest lab draw. For each regimen, Care shows the dose and route, your last dose, when the next one is expected and how much you have left, with the projected run-out day.",
-              "Four screens open from Care:",
+              "Three screens open from Care:",
               {
                 "lead": "Regimen.",
                 "rest": " What you take, how and how often, from the day you started. You can pause it or end it, and it stays in your history. If you switch it on, a schedule records an expected dose as taken after that day ends. You can correct it or mark it skipped."
@@ -680,11 +682,7 @@
                 "lead": "Labs.",
                 "rest": " Your results, as you entered them. Results in different units stay on separate lines."
               },
-              {
-                "lead": "Hormone curve.",
-                "rest": " A drawing of how your doses rise and fall over time. It is not a prediction of your levels. Your own lab results can calibrate it."
-              },
-              "Stock is a count you enter now and then. Logged doses feed the stock estimate and projected run-out day, as well as supported hormone curves. Care warns when stock is running low. It also shows the running window's medication-days total; the full exposure history is in the clinician visit summary."
+              "Stock is a count you enter now and then. Logged doses feed the stock estimate and projected run-out day. Care warns when stock is running low. It also shows the running window's medication-days total; the full exposure history is in the clinician visit summary."
             ],
             "images": [
               {
@@ -696,10 +694,10 @@
           {
             "heading": "Changes you've noticed",
             "paragraphs": [
-              "Under the medication, Care keeps the changes you've noticed. Pick a change from the list or add your own, and mark the day you first noticed it. Side effects go here too, each with how strong it was, from 1 to 5. The more private categories, such as genital and sexual changes, start switched off.",
+              "Under the medication, Care keeps the changes you've noticed. Pick a change from the list or add your own, and mark the day you first noticed it. Side effects go here too, each with how strong it was, from 1 to 5, and whether it is ongoing or resolved. The more private categories, such as genital and sexual changes, start switched off.",
               {
                 "lead": "Hair progress.",
-                "rest": " Your hair on a published scale, Norwood-Hamilton or Sinclair, or in your own words, with photos taken from the same spot."
+                "rest": " What your hair is doing, in your own words, with photos taken from the same spot."
               },
               {
                 "lead": "Cycle events.",
@@ -714,13 +712,6 @@
             ]
           },
           {
-            "heading": "Measurements and sizes",
-            "paragraphs": [
-              "Waist, hips, chest and underbust are built in, and you can add any measurement you like. Weight and height are not built in, so add them yourself if you want them. Measuring consistently, beside the chart, says how to measure the same way each time.",
-              "Sizes are what you bought and how it fit: the kind of garment, the size, the brand and a note. Nothing is converted between brands."
-            ]
-          },
-          {
             "heading": "Surgery journey",
             "paragraphs": [
               "Each surgery gets its own journey, named however you like. It holds the consults before it, the date once you have one, and afterwards a day count, photos, notes and your own checklist.",
@@ -731,7 +722,7 @@
             "heading": "Appointments",
             "paragraphs": [
               "Appointments opens on your next visit and how far away it is. Under it is What to raise, your list of things to bring up, which carries over from one visit to the next.",
-              "At the visit, In the room goes through your questions one at a time, with space for what they said. Past visits are under Behind you, and the app asks how each one went.",
+              "At the visit, In the room goes through your questions one at a time, with space for what they said. Past visits are under Behind you, and the app asks how each one went. An appointment can also wait without a date: Waiting lists keeps referrals, the day you were referred, dated updates and how long you have waited, and never guesses when you will be seen. Who you see holds your own notes on the people you go to, and an appointment can name one of them.",
               "The clinician visit summary is a page to print for a doctor: doses, lab results and side effects for dates you choose. You see it exactly as it will print. Open it from Care or from Appointments."
             ]
           },
@@ -751,14 +742,14 @@
             "heading": "Milestones and eras",
             "paragraphs": [
               "Steps is the second group on the Transition tab.",
-              "A milestone is a day that mattered, or will. One still ahead counts down, and one behind you comes back each year as an anniversary. You can note how it felt when you add it and again on each anniversary.",
+              "A milestone is a day that mattered, or will. One still ahead counts down, and one behind you comes back each year as an anniversary. You can choose whether it is celebrated when the day comes.",
               "Eras are stretches of time you name yourself, such as \"before I knew\". They show as bands behind your milestones, and Look back can use one as its stretch. You make and edit them in Settings."
             ]
           },
           {
             "heading": "Tryouts",
             "paragraphs": [
-              "A tryout is something you are trying: a name or pronouns, a style, a garment, makeup, or a step in how you present. It has a start date and, once you stop, an end date. Note how it feels as often as you like, and add photos. Several can run at once."
+              "A tryout is something you are trying: a name, pronouns, a style or makeup. It has a start date and, once you stop, an end date. Note how it feels as often as you like, on the tryout itself or in an entry, and add photos. Several can run at once."
             ]
           },
           {
@@ -778,15 +769,15 @@
           {
             "heading": "Hair removal",
             "paragraphs": [
-              "Hair removal logs electrolysis and laser sessions, with the area, method, pain, cost, provider and photos. The screen shows how long it has been since the last one."
+              "Hair removal logs electrolysis and laser sessions, with the area, method, how long it took, pain if you want to note it, cost, provider and photos. The screen shows how long it has been since the last one."
             ]
           },
           {
             "heading": "The roadmap",
             "paragraphs": [
-              "The transition roadmap lists the steps of the Polish transition procedure. Poland is the only country so far. The steps are roadmap goals, grouped into four roadmap tracks: social, legal, presentation and medical.",
-              "Goals can be done in any order, and no track waits on another. Tick a goal once it is done, or mark it not my path. You can mark a whole track the same way, and put it back later.",
-              "You can add your own goals to any track, and file documents against a goal.",
+              "The transition roadmap holds the steps of the Polish legal procedure for changing the sex marker, behind a Polish legal steps switch that is on by default when the app is in Polish. The steps are roadmap goals. After the ruling, Name and document changes lists the institutions to update, such as PESEL, your ID card, passport, bank and employer. Each one records when you submitted the change, how long you have been waiting and when it was done, with the documents filed under it.",
+              "Goals can be done in any order. Tick a goal once it is done, or mark it not my path. You can hide a goal you do not need and bring it back later.",
+              "You can add categories of your own with goals in them, whether the Polish steps are on or not, and file documents against a goal.",
               "The roadmap describes the procedure and never says what to do in your own case. It shows the date its content was last checked against its sources."
             ],
             "images": [
@@ -799,8 +790,7 @@
           {
             "heading": "Time-capsule letters",
             "paragraphs": [
-              "Write a letter to yourself and pick the day it opens. It stays sealed until then, and after that you can read it whenever you like. Letters about to open show on Today, under Coming up.",
-              "The Open section also shows the photos you have starred."
+              "Write a letter to yourself and pick the day it opens. It stays sealed until then, and after that you can read it whenever you like. Letters about to open show on Today, under Coming up."
             ]
           }
         ]
@@ -813,7 +803,7 @@
             "heading": "Safe space",
             "paragraphs": [
               "Support is the third group on the Transition tab.",
-              "Safe space is for the moments when dysphoria is too much. It opens on box breathing. Below that are four things:",
+              "Safe space is for the moments when dysphoria is too much. It opens on box breathing. Below that are three things:",
               {
                 "lead": "Good moments.",
                 "rest": " Past entries you tagged as good, or starred."
@@ -825,10 +815,6 @@
               {
                 "lead": "Support and resources.",
                 "rest": " The directory described below."
-              },
-              {
-                "lead": "Affirming themes.",
-                "rest": " A link to the Look back reading of the tags your good entries carry most."
               },
               "Opening Safe space writes nothing to your journal."
             ],
@@ -862,7 +848,7 @@
             "heading": "Photos",
             "paragraphs": [
               "Media is the fourth group on the Transition tab.",
-              "Photos is every photo in your journal in one dated list: from entries, milestones, hair progress, hair removal, tryouts and surgery. The chips at the top narrow it down by where a photo came from.",
+              "Photos is every photo in your journal in one dated list: from entries, milestones, hair progress, hair removal, tryouts and surgery. The chips at the top narrow it down by where a photo came from, and Starred shows the photos you have starred.",
               "Pick two photos and drag the divider across them to compare the earlier one with the later. For an export, choose a date range and make a collage or timelapse from selected photos. You can preview it before sharing.",
               "Photos stay inside the app and never go to your phone's gallery. To change or delete one, open the entry or record it belongs to."
             ],
@@ -902,21 +888,21 @@
           {
             "heading": "Appearance",
             "paragraphs": [
-              "Appearance lets you choose the app's language, theme, gender palette and mood colours. The palette has eight choices; mood colours have their own presets. You can also adjust text size, legibility and motion."
+              "Appearance lets you choose the app's language, theme, gender palette and mood colours. The palette has sixteen choices; mood colours have their own presets. You can also adjust text size, legibility and motion."
             ]
           },
           {
             "heading": "Tracking",
             "paragraphs": [
-              "Tracking holds your active gender scales and the reference lists used across the journal: dimensions, body regions, affirmations, tag groups, modes, entry templates and eras. You can also set a journaling pause and choose words that Look back skips when it finds words that stand out.",
-              "Reminders set when you want a nudge. Notifications gives the app's other prompts one place to switch them on or off. Live tiles are switched in Today's editor, beside its pins and agenda kinds.",
-              "Live tiles and phone notifications share one list of kinds, even though their switches sit on different screens. A live tile appears when your journal gives it something to show. Phone notifications can arrive when you scheduled one or when an export fails. Look back offers can notify you too if you switch them on. Quiet hours hold notifications until the window ends; they do not erase them."
+              "Tracking holds your active gender scales and the reference lists used across the journal: body regions, tag groups, modes, entry templates and eras. It is also where you choose which features the app shows and switch cycle tracking on or off.",
+              "Reminders set when you want a nudge. Notifications gives the app's other prompts one place to switch them on or off. Live tiles are switched in Today's editor, beside its pins.",
+              "Live tiles and phone notifications share one list of kinds, even though their switches sit on different screens. A live tile appears when your journal gives it something to show. Phone notifications can arrive when you scheduled one or when an export fails. Quiet hours hold notifications until the window ends; they do not erase them."
             ]
           },
           {
             "heading": "Privacy and data",
             "paragraphs": [
-              "Privacy and data holds security and access choices, permissions and the disguise switch. Export is where you make or restore a backup and import from Daylio. Journal book prints a chosen range. Trash keeps deleted entries for 30 days before they are removed."
+              "Privacy and data holds security and access choices, permissions and the disguise switch. Export is where you make or restore a backup, import from Daylio and, on Android, choose a backup folder whose newer backups from your other devices are merged in. Journal book prints a chosen range. Trash keeps deleted entries for 30 days before they are removed, and you can delete one for good sooner."
             ]
           }
         ]
@@ -935,7 +921,7 @@
           {
             "heading": "Encryption and access",
             "paragraphs": [
-              "The database is encrypted as a database, including its side files and the copy made before an upgrade changes it. Photos and thumbnails sit outside it, so each file is encrypted separately with the same random data key. Imports run through memory and never touch a temporary file. Sensitive boot data is encrypted too. The app does not claim that every file on the device is encrypted: the wrapped key and the settings needed to open it, your theme, palette and language, lock-on-leave and disguise choices, and the PIN attempt timestamps remain outside. None of those items is journal content.",
+              "The database is encrypted as a database, including its side files and the copy made before an upgrade changes it. Photos and thumbnails sit outside it, so each file is encrypted separately with the same random data key. Imports run through memory and never touch a temporary file. Sensitive boot data is encrypted too. The app does not claim that every file on the device is encrypted: the wrapped key and the settings needed to open it, your theme, palette and language, lock timing and disguise choices, and the PIN attempt timestamps remain outside. None of those items is journal content.",
               "The data key is random. On the web, your Journal passphrase is processed with Argon2id and used to wrap that key with AES-GCM. The database uses the data key itself, not your passphrase. This lets you change the passphrase without encrypting the journal again. The usable key stays in memory; after the browser session ends, you need the passphrase again. You can also open the web journal with a four-digit PIN and a device-bound key, biometric verification through WebAuthn PRF on a supported browser, or a device-bound key that needs no in-app prompt. That last key stays in its browser profile; clearing site storage, resetting the profile or losing the device can make the local copy unreadable.",
               "Android has four access modes: a device-bound key gated by the phone's screen lock or biometric check; an unlocked mode using SQLCipher and a Keystore key, with no in-app prompt; a four-digit PIN with a hardware-backed key; or a typed passphrase processed with Argon2id. Android Keystore releases its key only after the phone checks who is asking.",
               "A recovery key is optional. It has 25 characters and is shown once; the app does not store it off the device. It can open a web journal only on the device and browser profile that still hold the journal. On Android, it can open the journal on that device if your credentials fail. It cannot move the journal or decrypt an Archive. Without a recovery key, lost credentials cannot be recovered by the maintainer. A forgotten Archive password cannot be recovered either."
@@ -951,15 +937,15 @@
             "heading": "Android and network access",
             "paragraphs": [
               "The Android app does not request the INTERNET permission. In normal use it opens no network sockets and sends no journal data to a server. Store operators may still record installs and updates under their own policies once Android releases are available.",
-              "Android asks for POST_NOTIFICATIONS, SCHEDULE_EXACT_ALARM and RECEIVE_BOOT_COMPLETED to deliver reminders and the daily check-in, use the time you chose, and restore them after a restart. It asks for RECORD_AUDIO and MODIFY_AUDIO_SETTINGS for voice notes, and CAMERA for video notes. A still photo opens the phone's camera app instead. Notifications show a generic label by default, including on a locked screen; you can choose to show the title. Android removes a copied recovery key from the clipboard after one minute."
+              "Android asks for POST_NOTIFICATIONS, SCHEDULE_EXACT_ALARM and RECEIVE_BOOT_COMPLETED to deliver reminders and the daily check-in, use the time you chose, and restore them after a restart. It asks for WAKE_LOCK so a scheduled backup can finish with the screen off, RECORD_AUDIO and MODIFY_AUDIO_SETTINGS for voice notes, and CAMERA for video notes and photos, which open the phone's camera app. USE_BIOMETRIC and USE_FINGERPRINT let it show the phone's own fingerprint, face or screen lock prompt. Notifications show a generic label by default, including on a locked screen; you can choose to show the title. Android removes a copied recovery key from the clipboard after one minute."
             ]
           },
           {
             "heading": "Archives and other exports",
             "paragraphs": [
               "You choose where an exported or shared file goes. A cloud drive or document provider can see its filename, timestamp and size, along with account access records.",
-              "An encrypted .ttbackup Archive, exported by you or scheduled on Android, uses chunked AES-256-GCM and a password you choose. The password protects that Archive, not the journal on your device. Its header stays readable: the first six bytes say GDIARY, followed by the format version, Argon2id settings and salt. The app needs that information to recognise the file and derive its key. The header reveals the format, not your entries. Anyone without the password cannot read the Archive.",
-              "Some exports are deliberately readable: CSV and JSON data, journal books for printing or PDF, clinician summaries, photo collages and timelapses, shared Wrapped cards, saved PDFs, and single-event .ics calendar files. Anyone who receives one can read what it contains. The app asks you to confirm or take an explicit action before it makes an unencrypted file."
+              "An encrypted .ngndr Archive, exported by you or scheduled on Android, uses chunked AES-256-GCM and a password you choose. The password protects that Archive, not the journal on your device. Its header stays readable: the first six bytes say GDIARY, followed by the format version, Argon2id settings and salt. The app needs that information to recognise the file and derive its key. The header reveals the format, not your entries. Anyone without the password cannot read the Archive.",
+              "Some exports are deliberately readable: CSV and JSON data, journal books for printing or PDF, clinician summaries, photo collages and timelapses, saved PDFs, and single-event .ics calendar files. Anyone who receives one can read what it contains. The app asks you to confirm or take an explicit action before it makes an unencrypted file."
             ],
             "images": [
               {
@@ -979,19 +965,19 @@
       },
       "contributing": {
         "title": "Contributing",
-        "description": "Code, country packs and translations - three ways to help.",
+        "description": "Code, country packs and translations: three ways to help.",
         "sections": [
           {
             "heading": "Code",
             "paragraphs": [
-              "Clone the Journal repository from github.com/barankiewicz/gender-diary. Run npm install, then npm run dev to work locally. The README lists the checks; npm run check, npm test and npm run test:browser cover different parts of the app.",
+              "Clone the Journal repository from github.com/engender-app/engender. Run npm install, then npm run dev to work locally. The README lists the checks; npm run check, npm test and npm run test:browser cover different parts of the app.",
               "Keep a pull request focused. Say what changed, why it changed and which checks you ran. CI runs on each pull request, including browser checks. Use invented journal data in tests and screenshots."
             ]
           },
           {
             "heading": "Country packs",
             "paragraphs": [
-              "You don't need to write code to help with a country pack. A pack is bundled into the app and describes one country's transition procedure as roadmap goals. Each goal sits in one of four roadmap tracks: social, legal, presentational or medical. Only the Polish pack ships today.",
+              "You don't need to write code to help with a country pack. A pack is bundled into the app and describes one country's transition procedure as roadmap goals. Only the Polish pack ships today. It covers the legal procedure and the institutions to update after it.",
               "Cite sources for each goal you propose and record when you checked them; the pack's reviewedOn date is shown in the app because procedures change. Describe what a step involves, never what someone should do in their own case. You can send sourced corrections or draft goals without editing the app."
             ]
           },
@@ -1014,7 +1000,7 @@
   "holds": [
     {
       "heading": "Journal",
-      "body": "How today felt. A mood, a note, your own scales, tags, photos, a voice memo, and where in your body dysphoria or euphoria sat. One of those is enough. A day where all you managed was a mood is still a day you logged."
+      "body": "How today felt. A mood, a note, your own scales, tags, photos, a voice memo, and where in your body dysphoria or euphoria sat. The mood is the only part you need. A day where all you managed was a mood is still a day you logged."
     },
     {
       "heading": "Look back",
@@ -1022,7 +1008,7 @@
     },
     {
       "heading": "HRT",
-      "body": "Your medication schedule with the next dose and how much is left, doses logged as you take them, lab results drawn as a chart, and a modelled hormone curve. The app never suggests a dose or shows a reference range."
+      "body": "Your medication schedule with the next dose and how much is left, doses logged as you take them, reminders you can answer with Taken or Skip, and lab results drawn as a chart. The app never suggests a dose or shows a reference range."
     },
     {
       "heading": "Surgeries",
@@ -1042,8 +1028,8 @@
     },
     {
       "heading": "Clinician summary",
-      "body": "Bring your doses, labs, measurements and changes to an appointment as one printed summary, over a range you choose, with only the sections you choose."
+      "body": "Bring your doses, labs, side effects and changes to an appointment as one printed summary, over a range you choose, with only the sections you choose."
     }
   ],
-  "holdsAlso": "Also in there: search across your notes and tags, a tally of the times you were misgendered and gendered right, milestones with countdowns ahead and anniversaries behind, letters that open on a date you choose, a roadmap of the legal and medical steps in Poland with room for your own, binder and tucking wear time, hair removal sessions, measurements and sizes, appointment prep, Safe Space with your good days and your own comfort list, a directory of trans organisations and helplines you can read offline, one photo library across all of it, and a place for referrals and court orders. If you already have a year in Daylio, it imports."
+  "holdsAlso": "Also in there: search across your notes and tags, a tally of the times you were misgendered and gendered right, milestones with countdowns ahead and anniversaries behind, letters that open on a date you choose, a roadmap of the legal steps in Poland with room for your own, the offices to update after a name change, binder and tucking wear time, hair removal sessions, waiting lists, notes on the people you see, what each visit or prescription cost, appointment prep, Safe Space with your good days and your own comfort list, a directory of trans organisations and helplines you can read offline, one photo library across all of it, and a place for referrals and court orders. If you already have a year in Daylio, it imports."
 }

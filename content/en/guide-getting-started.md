@@ -83,8 +83,8 @@ a channel of its own.
 >
 > **Scales.** Which gender scales you want to rate when you write an entry.
 >
-> **Areas.** Which parts of the app are pinned to Today, your front page.
-> Everything else is still there, one tap further in.
+> **Features.** Which parts of the app to show. Anything you leave off stays
+> hidden until you turn it on in Settings.
 >
 > **Lock.** What opens your journal, such as a passphrase, a PIN or the
 > fingerprint your phone already asks for. Each option says what it protects
@@ -93,8 +93,9 @@ a channel of its own.
 > **Permissions.** What the app may ask your phone for, such as notifications,
 > each with a reason. You do not need any of it to write an entry.
 >
-> **Disguise.** Whether the app shows a different name and icon outside itself.
-> It is off unless you turn it on.
+> **Disguise.** Whether the app shows a different name and icon outside itself,
+> such as on your home screen and lock screen. Inside the unlocked app nothing
+> changes. It is off unless you turn it on.
 >
 > **Done.** Setup ends and opens Today.
 >

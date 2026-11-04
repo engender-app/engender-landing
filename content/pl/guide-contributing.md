@@ -13,10 +13,9 @@ Pozostałe akapity podają źródła. W katalogu tekstów rozdział jest pod
 
 *Gate: shipped.*
 
-> Sklonuj repozytorium aplikacji z github.com/barankiewicz/gender-diary.
-> Uruchom npm install, a potem npm run dev. W README znajdziesz listę
-> testów. npm run check, npm test i npm run test:browser sprawdzają różne
-> części aplikacji.
+> Sklonuj repozytorium aplikacji z github.com/engender-app/engender. Uruchom npm
+> install, a potem npm run dev. W README znajdziesz listę testów. npm run check,
+> npm test i npm run test:browser sprawdzają różne części aplikacji.
 >
 > Zgłoszenie zmian powinno dotyczyć jednej sprawy. Napisz, co i dlaczego
 > zmieniasz oraz jakie testy udało się uruchomić. CI sprawdza każde
@@ -27,11 +26,10 @@ Pozostałe akapity podają źródła. W katalogu tekstów rozdział jest pod
 
 *Gate: shipped.*
 
-> Nie musisz pisać kodu, żeby pomóc przy pakiecie krajowym. Pakiet jest
-> częścią aplikacji i opisuje procedury związane z tranzycją w jednym kraju
-> jako cele planu. Każdy cel należy do jednej z czterech ścieżek:
-> społecznej, prawnej, związanej z wyglądem albo medycznej. Na razie
-> dostępny jest tylko pakiet polski.
+> Nie musisz pisać kodu, żeby pomóc przy pakiecie krajowym. Pakiet jest częścią
+> aplikacji i opisuje procedury związane z tranzycją w jednym kraju jako cele
+> planu. Na razie dostępny jest tylko pakiet polski. Obejmuje procedurę prawną i
+> instytucje, w których po niej trzeba zmienić dane.
 >
 > Do każdego proponowanego celu podaj źródła i zapisz datę ich sprawdzenia.
 > Data reviewedOn jest widoczna w aplikacji, bo procedury się zmieniają.

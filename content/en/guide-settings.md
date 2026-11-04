@@ -31,35 +31,36 @@ The current screen has three sections: Appearance, Tracking, Privacy and data.
 
 *Gate: shipped.*
 
-> Appearance lets you choose the app's language, theme, gender palette and
-> mood colours. The palette has eight choices; mood colours have their own
-> presets. You can also adjust text size, legibility and motion.
+> Appearance lets you choose the app's language, theme, gender palette and mood
+> colours. The palette has sixteen choices; mood colours have their own presets.
+> You can also adjust text size, legibility and motion.
 
 ### Tracking
 
 *Gate: shipped.*
 
-> Tracking holds your active gender scales and the reference lists used
-> across the journal: dimensions, body regions, affirmations, tag groups,
-> modes, entry templates and eras. You can also set a journaling pause and
-> choose words that Look back skips when it finds words that stand out.
+> Tracking holds your active gender scales and the reference lists used across
+> the journal: body regions, tag groups, modes, entry templates and eras. It is
+> also where you choose which features the app shows and switch cycle tracking
+> on or off.
 >
 > Reminders set when you want a nudge. Notifications gives the app's other
-> prompts one place to switch them on or off. Live tiles are switched in
-> Today's editor, beside its pins and agenda kinds.
+> prompts one place to switch them on or off. Live tiles are switched in Today's
+> editor, beside its pins.
 >
-> Live tiles and phone notifications share one list of kinds, even though
-> their switches sit on different screens. A live tile appears when your
-> journal gives it something to show. Phone notifications can arrive when
-> you scheduled one or when an export fails. Look back offers can notify you
-> too if you switch them on. Quiet hours hold notifications until the window
-> ends; they do not erase them.
+> Live tiles and phone notifications share one list of kinds, even though their
+> switches sit on different screens. A live tile appears when your journal gives
+> it something to show. Phone notifications can arrive when you scheduled one or
+> when an export fails. Quiet hours hold notifications until the window ends;
+> they do not erase them.
 
 ### Privacy and data
 
 *Gate: shipped.*
 
 > Privacy and data holds security and access choices, permissions and the
-> disguise switch. Export is where you make or restore a backup and import
-> from Daylio. Journal book prints a chosen range. Trash keeps deleted
-> entries for 30 days before they are removed.
+> disguise switch. Export is where you make or restore a backup, import from
+> Daylio and, on Android, choose a backup folder whose newer backups from your
+> other devices are merged in. Journal book prints a chosen range. Trash keeps
+> deleted entries for 30 days before they are removed, and you can delete one
+> for good sooner.

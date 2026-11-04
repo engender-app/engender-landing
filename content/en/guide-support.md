@@ -38,7 +38,7 @@ counterevidence pool qualifies an entry beyond "a good tag or a star".
 > Support is the third group on the Transition tab.
 >
 > Safe space is for the moments when dysphoria is too much. It opens on box
-> breathing. Below that are four things:
+> breathing. Below that are three things:
 >
 > **Good moments.** Past entries you tagged as good, or starred.
 >
@@ -46,9 +46,6 @@ counterevidence pool qualifies an entry beyond "a good tag or a star".
 > starts empty.
 >
 > **Support and resources.** The directory described below.
->
-> **Affirming themes.** A link to the Look back reading of the tags your good
-> entries carry most.
 >
 > Opening Safe space writes nothing to your journal.
 

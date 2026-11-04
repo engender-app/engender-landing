@@ -55,7 +55,7 @@ you've noticed. Those details go beyond finding your way around.
 > shows the dose and route, your last dose, when the next one is expected and
 > how much you have left, with the projected run-out day.
 >
-> Four screens open from Care:
+> Three screens open from Care:
 >
 > **Regimen.** What you take, how and how often, from the day you started. You
 > can pause it or end it, and it stays in your history. If you switch it on, a
@@ -67,13 +67,10 @@ you've noticed. Those details go beyond finding your way around.
 > **Labs.** Your results, as you entered them. Results in different units stay
 > on separate lines.
 >
-> **Hormone curve.** A drawing of how your doses rise and fall over time. It is
-> not a prediction of your levels. Your own lab results can calibrate it.
->
 > Stock is a count you enter now and then. Logged doses feed the stock estimate
-> and projected run-out day, as well as supported hormone curves. Care warns
-> when stock is running low. It also shows the running window's medication-days
-> total; the full exposure history is in the clinician visit summary.
+> and projected run-out day. Care warns when stock is running low. It also shows
+> the running window's medication-days total; the full exposure history is in
+> the clinician visit summary.
 
 ### Changes you've noticed
 
@@ -81,27 +78,16 @@ you've noticed. Those details go beyond finding your way around.
 
 > Under the medication, Care keeps the changes you've noticed. Pick a change
 > from the list or add your own, and mark the day you first noticed it. Side
-> effects go here too, each with how strong it was, from 1 to 5. The more
-> private categories, such as genital and sexual changes, start switched off.
+> effects go here too, each with how strong it was, from 1 to 5, and whether it
+> is ongoing or resolved. The more private categories, such as genital and
+> sexual changes, start switched off.
 >
-> **Hair progress.** Your hair on a published scale, Norwood-Hamilton or
-> Sinclair, or in your own words, with photos taken from the same spot.
+> **Hair progress.** What your hair is doing, in your own words, with photos
+> taken from the same spot.
 >
 > **Cycle events.** A period, spotting, or nothing this month. They only show
 > while a testosterone regimen is running, or once you turn on Cycle tracking in
 > Settings.
-
-### Measurements and sizes
-
-*Gate: shipped.*
-
-> Waist, hips, chest and underbust are built in, and you can add any measurement
-> you like. Weight and height are not built in, so add them yourself if you want
-> them. Measuring consistently, beside the chart, says how to measure the same
-> way each time.
->
-> Sizes are what you bought and how it fit: the kind of garment, the size, the
-> brand and a note. Nothing is converted between brands.
 
 ### Surgery journey
 
@@ -124,7 +110,10 @@ you've noticed. Those details go beyond finding your way around.
 >
 > At the visit, In the room goes through your questions one at a time, with
 > space for what they said. Past visits are under Behind you, and the app asks
-> how each one went.
+> how each one went. An appointment can also wait without a date: Waiting lists
+> keeps referrals, the day you were referred, dated updates and how long you
+> have waited, and never guesses when you will be seen. Who you see holds your
+> own notes on the people you go to, and an appointment can name one of them.
 >
 > The clinician visit summary is a page to print for a doctor: doses, lab
 > results and side effects for dates you choose. You see it exactly as it will

@@ -36,14 +36,14 @@ chapter keeps those boundaries separate.
 
 *Gate: shipped.*
 
-> The database is encrypted as a database, including its side files and the
-> copy made before an upgrade changes it. Photos
-> and thumbnails sit outside it, so each file is encrypted separately with
-> the same random data key. Imports run through memory and never touch a
-> temporary file. Sensitive boot data is encrypted too. The app does not claim
-> that every file on the device is encrypted: the wrapped key and the settings needed to open it, your theme,
-> palette and language, lock-on-leave and disguise choices, and the PIN
-> attempt timestamps remain outside. None of those items is journal content.
+> The database is encrypted as a database, including its side files and the copy
+> made before an upgrade changes it. Photos and thumbnails sit outside it, so
+> each file is encrypted separately with the same random data key. Imports run
+> through memory and never touch a temporary file. Sensitive boot data is
+> encrypted too. The app does not claim that every file on the device is
+> encrypted: the wrapped key and the settings needed to open it, your theme,
+> palette and language, lock timing and disguise choices, and the PIN attempt
+> timestamps remain outside. None of those items is journal content.
 >
 > The data key is random. On the web, your Journal passphrase is processed
 > with Argon2id and used to wrap that key with AES-GCM. The database uses the
@@ -81,13 +81,15 @@ chapter keeps those boundaries separate.
 > once Android releases are available.
 >
 > Android asks for POST_NOTIFICATIONS, SCHEDULE_EXACT_ALARM and
-> RECEIVE_BOOT_COMPLETED to deliver reminders and the daily check-in, use
-> the time you chose, and restore them after a restart. It asks for
-> RECORD_AUDIO and MODIFY_AUDIO_SETTINGS for voice notes, and CAMERA for
-> video notes. A still photo opens the phone's camera app instead.
-> Notifications show a generic label by default, including on a locked screen; you can
-> choose to show the title. Android removes a copied recovery key from the
-> clipboard after one minute.
+> RECEIVE_BOOT_COMPLETED to deliver reminders and the daily check-in, use the
+> time you chose, and restore them after a restart. It asks for WAKE_LOCK so a
+> scheduled backup can finish with the screen off, RECORD_AUDIO and
+> MODIFY_AUDIO_SETTINGS for voice notes, and CAMERA for video notes and photos,
+> which open the phone's camera app. USE_BIOMETRIC and USE_FINGERPRINT let it
+> show the phone's own fingerprint, face or screen lock prompt. Notifications
+> show a generic label by default, including on a locked screen; you can choose
+> to show the title. Android removes a copied recovery key from the clipboard
+> after one minute.
 
 ### Archives and other exports
 
@@ -97,19 +99,19 @@ chapter keeps those boundaries separate.
 > provider can see its filename, timestamp and size, along with account access
 > records.
 >
-> An encrypted .ttbackup Archive, exported by you or scheduled on Android,
-> uses chunked AES-256-GCM and a password you choose.
-> The password protects that Archive, not the journal on your device. Its
-> header stays readable: the first six bytes say GDIARY, followed by the
-> format version, Argon2id settings and salt. The app needs that information
-> to recognise the file and derive its key. The header reveals the format,
-> not your entries. Anyone without the password cannot read the Archive.
+> An encrypted .ngndr Archive, exported by you or scheduled on Android, uses
+> chunked AES-256-GCM and a password you choose. The password protects that
+> Archive, not the journal on your device. Its header stays readable: the first
+> six bytes say GDIARY, followed by the format version, Argon2id settings and
+> salt. The app needs that information to recognise the file and derive its key.
+> The header reveals the format, not your entries. Anyone without the password
+> cannot read the Archive.
 >
-> Some exports are deliberately readable: CSV and JSON data, journal books
-> for printing or PDF, clinician summaries, photo collages and timelapses,
-> shared Wrapped cards, saved PDFs, and single-event .ics calendar files. Anyone
-> who receives one can read what it contains. The app asks you to confirm or
-> take an explicit action before it makes an unencrypted file.
+> Some exports are deliberately readable: CSV and JSON data, journal books for
+> printing or PDF, clinician summaries, photo collages and timelapses, saved
+> PDFs, and single-event .ics calendar files. Anyone who receives one can read
+> what it contains. The app asks you to confirm or take an explicit action
+> before it makes an unencrypted file.
 
 ### Security reports
 

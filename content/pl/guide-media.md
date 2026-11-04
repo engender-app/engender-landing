@@ -25,7 +25,8 @@ katalogu Journal, a formy zwracania się do czytelnika nie określają płci.
 >
 > Zdjęcia to wszystkie fotografie z dziennika na jednej liście według dat: z
 > wpisów, kamieni milowych, postępów włosów, depilacji, prób i operacji.
-> Przyciski u góry zawężają listę do jednego źródła.
+> Przyciski u góry zawężają listę do jednego źródła, a Ulubione pokazują zdjęcia
+> oznaczone gwiazdką.
 >
 > Wybierz dwa zdjęcia i przeciągnij między nimi suwak, żeby porównać
 > wcześniejsze z późniejszym. Do eksportu wybierz okres i zdjęcia, a potem

@@ -36,7 +36,7 @@ katalogu Journal, a formy zwracania się do czytelnika nie określają płci.
 > przyjmowania, ostatnią dawkę, termin następnej i to, ile leku zostało, razem
 > z przewidywanym dniem końca zapasu.
 >
-> Z Opieki otwierają się cztery ekrany:
+> Z Opieki otwierają się trzy ekrany:
 >
 > **Kuracja.** Co bierzesz, jak i jak często, od dnia, w którym zaczynasz.
 > Kurację można wstrzymać albo zakończyć, a zostaje w historii. Po włączeniu
@@ -49,15 +49,10 @@ katalogu Journal, a formy zwracania się do czytelnika nie określają płci.
 > **Badania.** Twoje wyniki w takiej postaci, w jakiej je wpisujesz. Wyniki w
 > różnych jednostkach zostają na osobnych liniach.
 >
-> **Krzywa hormonalna.** Rysunek tego, jak dawki rosną i opadają w czasie. To
-> nie jest przewidywanie twoich poziomów. Można ją dopasować do własnych wyników
-> badań.
->
 > Zapas to liczba, którą wpisujesz od czasu do czasu. Zapisane później dawki
-> służą do oszacowania pozostałego zapasu i dnia, w którym może się skończyć, a
-> także do rysowania krzywych dla obsługiwanych leków. Opieka daje znać, gdy
-> zapas się kończy. Pokazuje też liczbę dni na leku w wybranym okresie; pełna
-> historia ekspozycji jest w Podsumowaniu do lekarza.
+> służą do oszacowania pozostałego zapasu i dnia, w którym może się skończyć.
+> Opieka daje znać, gdy zapas się kończy. Pokazuje też liczbę dni na leku w
+> wybranym okresie; pełna historia ekspozycji jest w Podsumowaniu do lekarza.
 
 ### Zauważone zmiany
 
@@ -65,28 +60,16 @@ katalogu Journal, a formy zwracania się do czytelnika nie określają płci.
 
 > Pod lekami w Opiece są Zauważone zmiany. Wybierz zmianę z listy albo dodaj
 > własną i zaznacz datę, kiedy pojawiła się po raz pierwszy. Tu trafiają też
-> skutki uboczne, każdy z siłą od 1 do 5. Bardziej prywatne kategorie, na
-> przykład zmiany w sferze intymnej i seksualnej, są na początku wyłączone.
+> skutki uboczne, każdy z siłą od 1 do 5 i informacją, czy trwa, czy minął.
+> Bardziej prywatne kategorie, na przykład zmiany w sferze intymnej i
+> seksualnej, są na początku wyłączone.
 >
-> **Postępy włosów.** Stan włosów według opublikowanej skali, Norwooda-Hamiltona
-> albo Sinclaira, lub twoimi słowami, ze zdjęciami robionymi z tego samego
-> miejsca.
+> **Postępy włosów.** Stan włosów opisany twoimi słowami, ze zdjęciami robionymi
+> z tego samego miejsca.
 >
 > **Cykl.** Miesiączka, plamienie albo nic w tym miesiącu. Ta część pojawia się
 > tylko przy trwającej kuracji testosteronem albo po włączeniu Śledzenia cyklu w
 > Ustawieniach.
-
-### Pomiary i rozmiary
-
-*Gate: shipped.*
-
-> Talia, biodra, klatka piersiowa i obwód pod biustem są wbudowane, a dodać
-> można dowolny inny pomiar. Wagi i wzrostu nie ma na liście, więc jeśli ich
-> potrzebujesz, dodaj je jako własne. Obok wykresu jest Jak mierzyć
-> konsekwentnie, czyli jak mierzyć za każdym razem tak samo.
->
-> W rozmiarach zapisujesz, co kupujesz i jak leży: rodzaj ubrania, rozmiar,
-> marka i notatka. Nic nie jest przeliczane między markami.
 
 ### Operacje
 
@@ -109,7 +92,11 @@ katalogu Journal, a formy zwracania się do czytelnika nie określają płci.
 >
 > W trakcie wizyty ekran Na wizycie prowadzi przez pytania po kolei i ma miejsce
 > na to, co usłyszysz. Minione wizyty są w sekcji Za tobą, a aplikacja pyta, jak
-> poszła każda z nich.
+> poszła każda z nich. Wizyta może też czekać bez daty: w Kolejkach są
+> skierowania, dzień skierowania, kolejne zmiany z datami i to, jak długo już
+> czekasz, bez zgadywania, kiedy przyjdzie termin. W sekcji Do kogo chodzisz
+> masz własne notatki o osobach, do których chodzisz, a wizyta może wskazać
+> jedną z nich.
 >
 > Podsumowanie do lekarza to strona do wydrukowania: dawki, wyniki badań i
 > skutki uboczne z wybranego okresu. Widzisz ją dokładnie tak, jak się

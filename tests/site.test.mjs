@@ -29,7 +29,7 @@ const JOURNAL_URL = "https://app.gender-diary.barankiewicz.dev/";
 /* The public source, written out here for the same reason as the Journal above:
    the string is the assertion. It is the only link on the site that goes
    anywhere but this origin and the Journal's. */
-const SOURCE_URL = "https://github.com/barankiewicz/gender-diary";
+const SOURCE_URL = "https://github.com/engender-app/engender";
 
 /* Alicja's own site, linked from the footer (her decision, 2026-08-28). */
 const PORTFOLIO_URL = "https://barankiewicz.dev/";
@@ -1492,7 +1492,7 @@ const GUIDE_TITLES = {
     "getting-started": "Zaczynamy",
     home: "Dzisiaj",
     calendar: "Dziennik",
-    stats: "Przegląd",
+    stats: "Statystyki",
     health: "Zdrowie",
     steps: "Kroki",
     support: "Wsparcie",
@@ -1731,8 +1731,8 @@ for (const locale of ["en", "pl"]) {
     ("First run"), as the Getting started chapter names each one: the bold
     lead of its own paragraph, and the only bold text in the chapter. */
 const SETUP_STEPS = {
-  en: ["Welcome", "Name", "Flag", "Scales", "Areas", "Lock", "Permissions", "Disguise", "Done"],
-  pl: ["Powitanie", "Imię", "Flaga", "Skale", "Obszary", "Blokada", "Uprawnienia", "Kamuflaż", "Gotowe"],
+  en: ["Welcome", "Name", "Flag", "Scales", "Features", "Lock", "Permissions", "Disguise", "Done"],
+  pl: ["Powitanie", "Imię", "Flaga", "Skale", "Funkcje", "Blokada", "Uprawnienia", "Kamuflaż", "Gotowe"],
 };
 
 for (const locale of ["en", "pl"]) {
@@ -1785,13 +1785,13 @@ const TAB_TOUR = {
       "Arrange these rows", "quick add",
     ],
     calendar: [
-      "heat map", "recent entries", "search", "Starred", "as a question", "note", "star",
+      "heat map", "recent entries", "search", "Starred", "body region", "note", "star",
       "mode", "body map",
     ],
     stats: [
-      "timeline", "Day by day", "Two scales at once", "How the days fell",
-      "Words that stand out", "Tags, and how a scale moved", "Highest days", "Body map",
-      "Compare", "Affirming themes", "Wrapped", "On this day", "Tally",
+      "timeline", "Day by day", "Two scales at once", "What you write about",
+      "Tags, and how a scale moved", "Body map", "Compare", "What it cost",
+      "Wrapped", "On this day", "Tally",
     ],
   },
   pl: {
@@ -1800,14 +1800,13 @@ const TAB_TOUR = {
       "Ułóż tę listę", "szybki zapis",
     ],
     calendar: [
-      "mapy cieplnej", "ostatnie wpisy", "wyszukiwanie", "Ulubione", "jako pytanie",
+      "mapy cieplnej", "ostatnie wpisy", "wyszukiwanie", "Ulubione", "obszaru ciała",
       "notatka", "gwiazdką", "tryb", "mapie ciała",
     ],
     stats: [
-      "osi czasu", "Dzień po dniu", "Dwie skale naraz", "Jak rozłożyły się dni",
-      "Słowa, które się wyróżniają", "Tagi i to, jak poruszyła się skala", "Najwyższe dni",
-      "Mapa ciała", "Porównanie okresów", "Motywy dające spokój", "Bilans", "Wspomnienia",
-      "Licznik",
+      "osi czasu", "Dzień po dniu", "Dwie skale naraz", "O czym piszesz",
+      "Tagi i to, jak poruszyła się skala", "Mapa ciała", "Porównanie okresów",
+      "Ile to kosztowało", "Bilans", "Wspomnienia", "Licznik",
     ],
   },
 };
@@ -1853,37 +1852,37 @@ for (const locale of ["en", "pl"]) {
     SCREENS.md gives it ("The Transition door's four groups" and the Health,
     Steps, Support and Media tables, plus what /care and /care/changes host),
     in the words each chapter uses for it. Steps also carries CONTEXT.md's
-    roadmap vocabulary: roadmap goals, the four roadmap tracks, and "not my
-    path" for a goal nobody is taking. */
+    roadmap vocabulary: roadmap goals, the Polish legal steps, the institutions
+    list and "not my path" for a goal nobody is taking. */
 const GROUP_TOUR = {
   en: {
     health: [
-      "Care", "Regimen", "Doses", "Labs", "lab draw", "Hormone curve", "Stock", "run-out day", "medication-days", "exposure history",
+      "Care", "Regimen", "Doses", "Labs", "lab draw", "Stock", "run-out day", "medication-days", "exposure history",
       "Changes you've noticed", "Side effects", "Hair progress", "Cycle events", "Cycle tracking",
-      "Measurements and sizes", "Surgery journey", "dilation", "Appointments", "What to raise",
-      "In the room", "Behind you", "clinician visit summary",
+      "Surgery journey", "dilation", "Appointments", "What to raise",
+      "In the room", "Behind you", "Waiting lists", "Who you see", "clinician visit summary",
     ],
     steps: [
       "milestone", "Eras", "tryout", "voice benchmark", "Wear time", "Hair removal",
-      "transition roadmap", "roadmap goals", "roadmap tracks", "social, legal, presentation and medical",
+      "transition roadmap", "roadmap goals", "Polish legal steps", "Name and document changes",
       "not my path", "Time-capsule letters",
     ],
-    support: ["Safe space", "box breathing", "Good moments", "Things that help", "Support and resources", "Affirming themes"],
+    support: ["Safe space", "box breathing", "Good moments", "Things that help", "Support and resources"],
     media: ["Photos", "hair progress", "compare", "collage", "timelapse", "preview", "Documents", "what each paper proves", "PDFs", "thumbnails"],
   },
   pl: {
     health: [
-      "Opieka", "Kuracja", "Dawki", "Badania", "pobranie krwi", "Krzywa hormonalna", "Zapas", "dni na leku", "historia ekspozycji",
+      "Opieka", "Kuracja", "Dawki", "Badania", "pobranie krwi", "Zapas", "dni na leku", "historia ekspozycji",
       "Zauważone zmiany", "skutki uboczne", "Postępy włosów", "Cykl", "Śledzenia cyklu",
-      "Pomiary i rozmiary", "Operacje", "rozszerzania", "Wizyty", "Co poruszyć",
-      "Na wizycie", "Za tobą", "Podsumowanie do lekarza",
+      "Operacje", "rozszerzania", "Wizyty", "Co poruszyć",
+      "Na wizycie", "Za tobą", "Kolejkach", "Do kogo chodzisz", "Podsumowanie do lekarza",
     ],
     steps: [
       "Kamień milowy", "Ery", "Próba", "Wzorzec", "Czas noszenia", "Depilacja",
-      "Mapa tranzycji", "cele", "cztery ścieżki", "społeczną, prawną, wizerunkową i medyczną",
+      "Mapa tranzycji", "cele", "Kroki prawne w Polsce", "Zmiana danych w instytucjach",
       "nie moja droga", "Listy w kapsule czasu",
     ],
-    support: ["Bezpieczna przestrzeń", "oddechu pudełkowego", "Dobre chwile", "Co pomaga", "Wsparcie i kontakty", "Motywy dające spokój"],
+    support: ["Bezpieczna przestrzeń", "oddechu pudełkowego", "Dobre chwile", "Co pomaga", "Wsparcie i kontakty"],
     media: ["Zdjęcia", "postępów włosów", "porównać", "kolaż", "film poklatkowy", "podgląd", "Dokumenty", "co potwierdzają", "PDF", "miniatury"],
   },
 };
@@ -4158,7 +4157,7 @@ test("the motion system ships no animation runtime at all", async () => {
    its group, and the two corrections the fact check made to the copy. */
 const HOLDS = {
   en: ["Journal", "Look back", "HRT", "Surgeries", "Tryouts", "Eras", "Voice", "Clinician summary"],
-  pl: ["Dziennik", "Przegląd", "HRT", "Operacje", "Próby", "Ery", "Głos", "Podsumowanie do lekarza"],
+  pl: ["Dziennik", "Statystyki", "HRT", "Operacje", "Próby", "Ery", "Głos", "Podsumowanie do lekarza"],
 };
 const PALETTE_LEAD = { en: "Sixteen palettes", pl: "Szesnaście palet" };
 

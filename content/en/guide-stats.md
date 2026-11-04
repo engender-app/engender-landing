@@ -55,17 +55,11 @@ not say where it opens from.
 > **Two scales at once.** Each day as a point on two scales, which you can play
 > through in order.
 >
-> **How the days fell.** How many days landed at each mood, and what you
-> wrote about.
->
-> **Words that stand out.** Words that turn up more often in this stretch than
-> in the rest of your journal.
+> **What you write about.** The tags you used most in the stretch, on every day
+> or only on good days.
 >
 > **Tags, and how a scale moved.** Which tags came with a scale going up or
 > down.
->
-> **Highest days.** Your highest days on a scale you choose, each one a tap
-> from its entries.
 >
 > **Body map.** How each part of the body has felt over the stretch, towards
 > dysphoria or towards euphoria.
@@ -73,7 +67,8 @@ not say where it opens from.
 > **Compare.** Two periods side by side. It starts with your stretch against the
 > same length of time just before it.
 >
-> **Affirming themes.** The tags your good and starred entries carry most.
+> **What it cost.** What you recorded spending in the stretch, by area and by
+> whether it was refunded. Each currency keeps its own total.
 
 ### Wrapped and On this day
 
@@ -82,12 +77,12 @@ not say where it opens from.
 > Two more tiles sit under the grid. You can turn either one off in Settings.
 >
 > **Wrapped.** A look back at a finished week, month or year, or at the stretch
-> you picked: entries, mood, the scale that moved furthest, tags, milestones
-> and photos. You can share it as a card, and the card never carries your
-> writing or your photos.
+> you picked: entries, mood, the scale that moved furthest, tags, milestones and
+> photos.
 >
-> **On this day.** A good day from a month, six months or a year ago, with any
-> letter written or opened on it. Days that went badly are not brought back.
+> **On this day.** A good day from a month, six months, a year or more years
+> ago, with any letter written or opened on it. Days that went badly are not
+> brought back.
 
 ### Tally
 

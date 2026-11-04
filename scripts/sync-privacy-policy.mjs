@@ -4,7 +4,7 @@ import { resolve } from 'node:path';
 
 const journal = resolve(process.argv[2] ?? '../gender-diary');
 for (const locale of ['en', 'pl']) {
-  const source = readFileSync(`${journal}/docs/privacy-policy.${locale}.md`, 'utf8');
+  const source = readFileSync(`${journal}/${locale === 'en' ? 'PRIVACY.md' : 'PRIVACY.pl.md'}`, 'utf8');
   if (source.includes('[OPEN:')) throw new Error('Resolve policy placeholders before publishing');
   const plain = text => text.replaceAll('**', '').replaceAll('`', '')
     .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1 ($2)').replace(/\s+/g, ' ').trim();

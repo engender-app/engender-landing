@@ -38,7 +38,8 @@ Settings, so neither has a place here. The routes follow the app's groups.
 >
 > Photos is every photo in your journal in one dated list: from entries,
 > milestones, hair progress, hair removal, tryouts and surgery. The chips at the
-> top narrow it down by where a photo came from.
+> top narrow it down by where a photo came from, and Starred shows the photos
+> you have starred.
 >
 > Pick two photos and drag the divider across them to compare the earlier one
 > with the later. For an export, choose a date range and make a collage or

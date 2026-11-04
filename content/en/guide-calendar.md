@@ -59,20 +59,16 @@ mode, so the chapter says mode.
 
 > The search icon at the top of Journal opens search. Before you type, it offers
 > your most-used tags and recent searches. Filters narrow the results by tag,
-> mood, dates, or starred.
+> mood, mode, body region, a range on one of your scales, dates, or starred.
 >
 > Star an entry you want to find again, then filter by Starred to see all of
 > them.
->
-> You can save a search as a question. Opening it later searches your journal
-> as it is then, not as it was when you saved it.
 
 ### Writing an entry
 
 *Gate: shipped.*
 
-> An entry is one moment. It needs just one thing, such as a mood, a note or a
-> photo.
+> An entry is one moment. It needs a mood, and everything else is optional.
 >
 > The note comes first, under the date. The moods and the star sit on the save
 > bar at the bottom. Under the note, a row of chips opens the rest one at a

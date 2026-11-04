@@ -1,4 +1,4 @@
-# Guide copy, Polish: Przegląd
+# Guide copy, Polish: Statystyki
 
 Polska wersja rozdziału o trzeciej karcie aplikacji, napisana w guide ticket 03
 obok angielskiej i przepuszczona przez `humanizer-pl`.
@@ -7,7 +7,7 @@ obok angielskiej i przepuszczona przez `humanizer-pl`.
 tekstem jest wszystko w cytacie blokowym, reszta to komentarz, a kursywny znacznik
 nad cytatem mówi, czy wolno go opublikować (docs/adr/0001).
 
-**Słownictwo z aplikacji.** Z polskiego katalogu Journal: karta „Przegląd”,
+**Słownictwo z aplikacji.** Z polskiego katalogu Journal: karta „Statystyki”,
 „Odczyty”, nazwy odczytów („Dzień po dniu”, „Dwie skale naraz”, „Jak rozłożyły
 się dni”, „Słowa, które się wyróżniają”, „Tagi i to, jak poruszyła się skala”,
 „Najwyższe dni”, „Mapa ciała”, „Porównanie okresów”, „Motywy dające spokój”),
@@ -24,10 +24,10 @@ okresem („Początek okresu”, „Wybierz okres z listy”), więc tekst też.
 
 *Gate: shipped.*
 
-> Przegląd to trzecia karta. Wszystko na niej dotyczy jednego okresu, który
-> wybierasz na osi czasu u góry: przeciągnij jej końce albo wybierz okres
-> z listy. Na osi widać też ery, kamienie milowe, kurację, próby i operacje,
-> a dotknięcie jednej z nich ustawia jej daty.
+> Statystyki to trzecia karta. Wszystko na niej dotyczy jednego okresu, który
+> wybierasz na osi czasu u góry: przeciągnij jej końce albo wybierz okres z
+> listy. Na osi widać też ery, kamienie milowe, kurację, próby i operacje, a
+> dotknięcie jednej z nich ustawia jej daty.
 >
 > Tuż pod osią są podstawowe liczby z tego okresu: ile było wpisów, średnia na
 > skali i która skala ruszyła się najbardziej.
@@ -46,17 +46,11 @@ okresem („Początek okresu”, „Wybierz okres z listy”), więc tekst też.
 > **Dwie skale naraz.** Każdy dzień jako punkt na dwóch skalach. Można je
 > odtworzyć po kolei.
 >
-> **Jak rozłożyły się dni.** Ile dni wypadło przy każdym nastroju i o czym
-> wtedy pisano.
->
-> **Słowa, które się wyróżniają.** Słowa, które w tym okresie pojawiają się
-> częściej niż w reszcie dziennika.
+> **O czym piszesz.** Tagi, których w tym okresie używasz najczęściej, ze
+> wszystkich dni albo tylko z dobrych.
 >
 > **Tagi i to, jak poruszyła się skala.** Które tagi szły w parze ze wzrostem
 > albo spadkiem skali.
->
-> **Najwyższe dni.** Dni z najwyższym wynikiem na wybranej skali. Każdy otwiera
-> się jednym dotknięciem.
 >
 > **Mapa ciała.** Jak w tym okresie czuły się poszczególne części ciała,
 > bliżej dysforii albo euforii.
@@ -64,8 +58,8 @@ okresem („Początek okresu”, „Wybierz okres z listy”), więc tekst też.
 > **Porównanie okresów.** Dwa okresy obok siebie. Na początku wybrany okres stoi
 > obok równie długiego odcinka tuż przed nim.
 >
-> **Motywy dające spokój.** Tagi, które najczęściej pojawiają się przy dobrych
-> wpisach i tych z gwiazdką.
+> **Ile to kosztowało.** Wydatki zapisane w tym okresie, według obszaru i tego,
+> czy zostały zwrócone. Każda waluta ma osobną sumę.
 
 ### Bilans i Wspomnienia
 
@@ -76,11 +70,10 @@ okresem („Początek okresu”, „Wybierz okres z listy”), więc tekst też.
 >
 > **Bilans.** Podsumowanie zamkniętego tygodnia, miesiąca albo roku, lub
 > wybranego okresu: wpisy, nastrój, skala, która ruszyła się najbardziej, tagi,
-> kamienie milowe i zdjęcia. Możesz go udostępnić jako kartę, a na karcie nigdy
-> nie ma twoich notatek ani zdjęć.
+> kamienie milowe i zdjęcia.
 >
-> **Wspomnienia.** Dobry dzień sprzed miesiąca, pół roku albo roku, razem
-> z listem napisanym lub otwartym tego dnia, jeśli taki jest. Złe dni nie
+> **Wspomnienia.** Dobry dzień sprzed miesiąca, pół roku, roku albo kilku lat,
+> razem z listem napisanym lub otwartym tego dnia, jeśli taki jest. Złe dni nie
 > wracają.
 
 ### Licznik

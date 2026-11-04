@@ -37,16 +37,14 @@ Ten rozdział zachowuje te granice.
 
 *Gate: shipped.*
 
-> Baza jest szyfrowana w całości, razem z plikami pomocniczymi i kopią
-> tworzoną przed aktualizacją. Zdjęcia i
-> miniatury leżą poza bazą, więc każde szyfruje się osobno tym samym losowym
-> kluczem do danych. Import przechodzi przez pamięć i nie trafia do pliku
-> tymczasowego. Zaszyfrowane są też wrażliwe dane potrzebne przy uruchamianiu.
-> Aplikacja nie obiecuje, że szyfruje każdy plik
-> na urządzeniu. Poza szyfrowaniem zostają opakowany klucz i ustawienia do
-> jego otwarcia, motyw, paleta i język, wybór blokady przy wyjściu i kamuflażu
-> oraz znaczniki czasu błędnych prób PIN-u. Żadna z tych rzeczy nie jest
-> treścią dziennika.
+> Baza jest szyfrowana w całości, razem z plikami pomocniczymi i kopią tworzoną
+> przed aktualizacją. Zdjęcia i miniatury leżą poza bazą, więc każde szyfruje
+> się osobno tym samym losowym kluczem do danych. Import przechodzi przez pamięć
+> i nie trafia do pliku tymczasowego. Zaszyfrowane są też wrażliwe dane
+> potrzebne przy uruchamianiu. Aplikacja nie obiecuje, że szyfruje każdy plik na
+> urządzeniu. Poza szyfrowaniem zostają opakowany klucz i ustawienia do jego
+> otwarcia, motyw, paleta i język, czas blokady i wybór kamuflażu oraz znaczniki
+> czasu błędnych prób PIN-u. Żadna z tych rzeczy nie jest treścią dziennika.
 >
 > Klucz do danych powstaje losowo. W przeglądarce hasło do dziennika jest
 > przetwarzane przez Argon2id i służy do opakowania klucza szyfrem AES-GCM.
@@ -85,12 +83,14 @@ Ten rozdział zachowuje te granice.
 >
 > Android prosi o POST_NOTIFICATIONS, SCHEDULE_EXACT_ALARM i
 > RECEIVE_BOOT_COMPLETED, by wysyłać przypomnienia oraz codzienne pytanie,
-> używać wybranej pory i przywracać je po restarcie telefonu. Prosi o
-> RECORD_AUDIO i MODIFY_AUDIO_SETTINGS do notatek głosowych, a o CAMERA
-> do notatek wideo. Zwykłe zdjęcie robi aplikacja aparatu w telefonie.
-> Powiadomienia domyślnie pokazują ogólny tytuł, także na zablokowanym ekranie. Możesz
-> włączyć wyświetlanie prawdziwego tytułu. Po skopiowaniu klucza odzyskiwania
-> aplikacja usuwa go ze schowka po minucie.
+> używać wybranej pory i przywracać je po restarcie telefonu. Prosi o WAKE_LOCK,
+> żeby zaplanowana kopia mogła się zapisać przy wyłączonym ekranie, o
+> RECORD_AUDIO i MODIFY_AUDIO_SETTINGS do notatek głosowych, a o CAMERA do
+> notatek wideo i zdjęć, które robi aplikacja aparatu w telefonie. USE_BIOMETRIC
+> i USE_FINGERPRINT pozwalają pokazać systemowe pytanie o odcisk palca, twarz
+> albo blokadę ekranu. Powiadomienia domyślnie pokazują ogólny tytuł, także na
+> zablokowanym ekranie. Możesz włączyć wyświetlanie prawdziwego tytułu. Po
+> skopiowaniu klucza odzyskiwania aplikacja usuwa go ze schowka po minucie.
 
 ### Archiwa i pozostałe eksporty
 
@@ -100,19 +100,19 @@ Ten rozdział zachowuje te granice.
 > chmurze albo dostawca dokumentów może zobaczyć nazwę i rozmiar pliku, datę
 > zapisu oraz historię dostępu do konta.
 >
-> Zaszyfrowane archiwum .ttbackup, utworzone ręcznie albo według planu na
+> Zaszyfrowane archiwum .ngndr, utworzone ręcznie albo według planu na
 > Androidzie, używa szyfrowania AES-256-GCM w częściach i hasła, które
-> wybierasz. Hasło chroni to archiwum, nie dziennik na urządzeniu.
-> Nagłówek pozostaje czytelny, żeby aplikacja mogła rozpoznać format i wersję
-> pliku. Pierwsze sześć bajtów to GDIARY, dalej są ustawienia Argon2id i sól.
-> Nagłówek nie zawiera wpisów. Bez hasła nikt nie odczyta zawartości archiwum.
+> wybierasz. Hasło chroni to archiwum, nie dziennik na urządzeniu. Nagłówek
+> pozostaje czytelny, żeby aplikacja mogła rozpoznać format i wersję pliku.
+> Pierwsze sześć bajtów to GDIARY, dalej są ustawienia Argon2id i sól. Nagłówek
+> nie zawiera wpisów. Bez hasła nikt nie odczyta zawartości archiwum.
 >
 > Część eksportów jest jawna, bo służy do czytania, druku albo udostępnienia:
-> dane CSV i JSON, książka dziennika do druku lub PDF, podsumowanie dla
-> lekarza, kolaże i filmy poklatkowe ze zdjęć, udostępniane karty Wrapped,
-> zapisane pliki PDF oraz pojedyncze pliki kalendarza .ics. Każda osoba, która
-> dostanie taki plik, może przeczytać jego zawartość. Zanim aplikacja utworzy
-> niezaszyfrowany plik, prosi o potwierdzenie albo wyraźne działanie.
+> dane CSV i JSON, książka dziennika do druku lub PDF, podsumowanie dla lekarza,
+> kolaże i filmy poklatkowe ze zdjęć, zapisane pliki PDF oraz pojedyncze pliki
+> kalendarza .ics. Każda osoba, która dostanie taki plik, może przeczytać jego
+> zawartość. Zanim aplikacja utworzy niezaszyfrowany plik, prosi o potwierdzenie
+> albo wyraźne działanie.
 
 ### Zgłoszenia bezpieczeństwa
 

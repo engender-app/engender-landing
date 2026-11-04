@@ -24,7 +24,7 @@ katalogu Journal, a formy zwracania się do czytelnika nie określają płci.
 > Wsparcie to trzecia grupa na karcie Tranzycja.
 >
 > Bezpieczna przestrzeń jest na chwile, kiedy dysforii jest za dużo. Zaczyna się
-> od oddechu pudełkowego. Niżej są cztery rzeczy:
+> od oddechu pudełkowego. Niżej są trzy rzeczy:
 >
 > **Dobre chwile.** Dawne wpisy z dobrym tagiem albo z gwiazdką.
 >
@@ -32,9 +32,6 @@ katalogu Journal, a formy zwracania się do czytelnika nie określają płci.
 > posłuchać. Na początku jest pusta.
 >
 > **Wsparcie i kontakty.** Spis opisany niżej.
->
-> **Motywy dające spokój.** Odnośnik do odczytu w Przeglądzie, który pokazuje
-> tagi najczęstsze w dobrych wpisach.
 >
 > Otwarcie Bezpiecznej przestrzeni niczego nie zapisuje w dzienniku.
 

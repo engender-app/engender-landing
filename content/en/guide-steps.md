@@ -40,8 +40,8 @@ and the roadmap's individual Polish goals, which belong to the app.
 > Steps is the second group on the Transition tab.
 >
 > A milestone is a day that mattered, or will. One still ahead counts down, and
-> one behind you comes back each year as an anniversary. You can note how it
-> felt when you add it and again on each anniversary.
+> one behind you comes back each year as an anniversary. You can choose whether
+> it is celebrated when the day comes.
 >
 > Eras are stretches of time you name yourself, such as "before I knew". They
 > show as bands behind your milestones, and Look back can use one as its
@@ -51,10 +51,10 @@ and the roadmap's individual Polish goals, which belong to the app.
 
 *Gate: shipped.*
 
-> A tryout is something you are trying: a name or pronouns, a style, a garment,
-> makeup, or a step in how you present. It has a start date and, once you stop,
-> an end date. Note how it feels as often as you like, and add photos. Several
-> can run at once.
+> A tryout is something you are trying: a name, pronouns, a style or makeup. It
+> has a start date and, once you stop, an end date. Note how it feels as often
+> as you like, on the tryout itself or in an entry, and add photos. Several can
+> run at once.
 
 ### Voice
 
@@ -82,23 +82,27 @@ and the roadmap's individual Polish goals, which belong to the app.
 
 *Gate: shipped.*
 
-> Hair removal logs electrolysis and laser sessions, with the area, method,
-> pain, cost, provider and photos. The screen shows how long it has been since
-> the last one.
+> Hair removal logs electrolysis and laser sessions, with the area, method, how
+> long it took, pain if you want to note it, cost, provider and photos. The
+> screen shows how long it has been since the last one.
 
 ### The roadmap
 
 *Gate: shipped.*
 
-> The transition roadmap lists the steps of the Polish transition procedure.
-> Poland is the only country so far. The steps are roadmap goals, grouped into
-> four roadmap tracks: social, legal, presentation and medical.
+> The transition roadmap holds the steps of the Polish legal procedure for
+> changing the sex marker, behind a Polish legal steps switch that is on by
+> default when the app is in Polish. The steps are roadmap goals. After the
+> ruling, Name and document changes lists the institutions to update, such as
+> PESEL, your ID card, passport, bank and employer. Each one records when you
+> submitted the change, how long you have been waiting and when it was done,
+> with the documents filed under it.
 >
-> Goals can be done in any order, and no track waits on another. Tick a goal
-> once it is done, or mark it not my path. You can mark a whole track the same
-> way, and put it back later.
+> Goals can be done in any order. Tick a goal once it is done, or mark it not my
+> path. You can hide a goal you do not need and bring it back later.
 >
-> You can add your own goals to any track, and file documents against a goal.
+> You can add categories of your own with goals in them, whether the Polish
+> steps are on or not, and file documents against a goal.
 >
 > The roadmap describes the procedure and never says what to do in your own
 > case. It shows the date its content was last checked against its sources.
@@ -110,5 +114,3 @@ and the roadmap's individual Polish goals, which belong to the app.
 > Write a letter to yourself and pick the day it opens. It stays sealed until
 > then, and after that you can read it whenever you like. Letters about to open
 > show on Today, under Coming up.
->
-> The Open section also shows the photos you have starred.

@@ -32,7 +32,7 @@ export const SITE_ORIGIN = 'https://gender-diary.barankiewicz.dev';
     not copy and needs no translation, and a reader deciding whether to trust
     this page is better served by seeing where the link goes than by being
     invited to click something. */
-export const SOURCE_URL = 'https://github.com/barankiewicz/gender-diary';
+export const SOURCE_URL = 'https://github.com/engender-app/engender';
 
 /** Alicja's own site, linked from the footer. The apex of the domain this site
     and the Journal are subdomains of (her decision, 2026-08-28). */

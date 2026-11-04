@@ -51,23 +51,24 @@ opisuje kartę Dzisiaj według `SCREENS.md`, nie dawny ekran główny z ticketu.
 
 *Gate: shipped.*
 
-> Pod „Ułóż tę listę” wybierasz, co jest przypięte i w jakiej kolejności, jakie
-> daty pokazuje „Nadchodzi” i które kafelki mogą się pojawiać. Pierwszy zestaw
-> przypiętych wierszy bierze się z obszarów wybranych przy pierwszym
-> uruchomieniu. Potem aplikacja sama niczego nie przypina ani nie przestawia.
+> Pod „Ułóż tę listę” wybierasz, co jest przypięte i w jakiej kolejności, i
+> które kafelki mogą się pojawiać. Aplikacja sama niczego nie przypina ani nie
+> przestawia.
 
 ### Szybki zapis
 
 *Gate: shipped.*
 
-> Przycisk na środku dolnego paska to szybki zapis. Działa na każdym ekranie
-> i rozwija wachlarz opcji: pięć nastrojów, wpis z wcześniejszego dnia, oba
-> liczniki, dawkę oraz start albo koniec noszenia. Ekrany, na których coś się
-> zapisuje, mają też własny przycisk dodawania.
+> Przycisk na środku dolnego paska to szybki zapis. Działa na każdym ekranie i
+> rozwija wachlarz opcji: pięć nastrojów, wpis z wcześniejszego dnia, oba
+> liczniki, dawkę, gdy trwa kuracja, oraz start albo koniec noszenia, jeśli
+> zapisujesz czas noszenia. Ekrany, na których coś się zapisuje, mają też własny
+> przycisk dodawania.
 
 ### Dokąd trafia wpis
 
 *Gate: shipped.*
 
 > Wpis zaczęty z karty Dzisiaj, z szybkiego zapisu czy z Dziennika to ten sam
-> wpis. Dziennik pokazuje go pod jego dniem, a Przegląd liczy go razem z resztą.
+> wpis. Dziennik pokazuje go pod jego dniem, a Statystyki liczą go razem z
+> resztą.

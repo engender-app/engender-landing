@@ -144,14 +144,14 @@ screenshots still use invented data; the page no longer says so.
 
 **Ekran główny**
 
-> Powitanie, co przed tobą, i ostatnie siedem dni w kolorze, który wybierasz. Pasek
-> nastrojów robi wpis jednym ruchem, więc w dzień, kiedy nie masz siły pisać, nadal da
-> się coś zapisać.
+> Powitanie, co przed tobą, i części aplikacji, które tam przypinasz. Wybór
+> nastroju robi wpis jednym ruchem, więc w dzień, kiedy nie masz siły pisać,
+> nadal da się coś zapisać.
 
 **Wpis**
 
-> Nastrój, twoje skale, tagi, notatka, zdjęcia. Wpisowi wystarczy jedno z tego, więc
-> dzień, w którym starczyło tylko na nastrój, i tak się liczy.
+> Nastrój, twoje skale, tagi, notatka, zdjęcia. Nastrój jest obowiązkowy, reszta
+> nie, więc dzień, w którym starczyło tylko na nastrój, i tak się liczy.
 
 **Miesiąc**
 
@@ -200,18 +200,19 @@ address the reader in the past tense, "a day where all you managed was a mood" a
 
 *Gate: shipped.*
 
-> **Dziennik** Jak minął dzień. Nastrój, notatka, własne skale, tagi, zdjęcia, notatka
-> głosowa i miejsce na ciele, w którym była dysforia albo euforia. Wystarczy jedna z
-> tych rzeczy. Dzień z samym nastrojem to też dzień z wpisem.
+> **Dziennik** Jak minął dzień. Nastrój, notatka, własne skale, tagi, zdjęcia,
+> notatka głosowa i miejsce na ciele, w którym była dysforia albo euforia.
+> Wymagany jest tylko nastrój. Dzień z samym nastrojem to też dzień z wpisem.
 
-> **Przegląd** Z dnia na dzień trudno zobaczyć, czy coś się zmienia. Po kilku
-> miesiącach widać to od razu. Kalendarz każdego miesiąca, wykres dla każdej skali,
-> porównanie dni z tagiem i bez niego, bilans dowolnego tygodnia, miesiąca lub roku i
-> dobre dni sprzed miesiąca, pół roku i roku.
+> **Statystyki** Z dnia na dzień trudno zobaczyć, czy coś się zmienia. Po kilku
+> miesiącach widać to od razu. Kalendarz każdego miesiąca, wykres dla każdej
+> skali, porównanie dni z tagiem i bez niego, bilans dowolnego tygodnia,
+> miesiąca lub roku i dobre dni sprzed miesiąca, pół roku i roku.
 
-> **HRT** Harmonogram leków z następną dawką i tym, ile zostało, dawki zapisywane na
-> bieżąco, wyniki badań na wykresie i modelowana krzywa hormonalna. Aplikacja nie
-> podpowiada dawek i nie pokazuje norm laboratoryjnych.
+> **HRT** Harmonogram leków z następną dawką i tym, ile zostało, dawki
+> zapisywane na bieżąco, przypomnienia z przyciskami Przyjęto i Pomiń oraz
+> wyniki badań na wykresie. Aplikacja nie podpowiada dawek i nie pokazuje norm
+> laboratoryjnych.
 
 > **Operacje** Osobny dziennik dla każdego zabiegu: konsultacje, sam termin,
 > rekonwalescencja, i zdjęcia, które zostają w aplikacji, a nie w galerii telefonu.
@@ -227,21 +228,24 @@ address the reader in the past tense, "a day where all you managed was a mood" a
 > wcześniejszymi nagraniami. Wysokość, rezonans i tempo mówienia opisują nagranie, ale
 > nie oceniają głosu.
 
-> **Podsumowanie do lekarza** Dawki, wyniki badań, pomiary i zmiany na jednym wydruku
-> na wizytę, za wybrany okres i tylko z wybranymi sekcjami.
+> **Podsumowanie do lekarza** Dawki, wyniki badań, skutki uboczne i zmiany na
+> jednym wydruku na wizytę, za wybrany okres i tylko z wybranymi sekcjami.
 
 ### Also in there
 
 *Gate: shipped.*
 
-> Poza tym: wyszukiwanie w notatkach i tagach, licznik sytuacji, w których ktoś zwraca
-> się do ciebie zgodnie z twoją płcią albo nie, kamienie milowe z odliczaniem i
-> rocznicami, listy otwierane w wybranym dniu, mapa kroków prawnych i medycznych w
-> Polsce z miejscem na własne, czas noszenia bindera i tuckingu, sesje depilacji,
-> pomiary i rozmiary, przygotowanie do wizyty, Bezpieczna przestrzeń z dobrymi dniami
-> i własną listą rzeczy, które pomagają, spis organizacji trans i telefonów zaufania
-> dostępny bez internetu, jedna biblioteka zdjęć na wszystko i miejsce na skierowania
-> i postanowienia sądu. Rok zapisków w Daylio da się zaimportować.
+> Poza tym: wyszukiwanie w notatkach i tagach, licznik sytuacji, w których ktoś
+> zwraca się do ciebie zgodnie z twoją płcią albo nie, kamienie milowe z
+> odliczaniem i rocznicami, listy otwierane w wybranym dniu, mapa kroków
+> prawnych w Polsce z miejscem na własne, instytucje, w których po wyroku trzeba
+> zmienić dane, czas noszenia bindera i tuckingu, sesje depilacji, kolejki do
+> specjalistów, notatki o osobach, do których chodzisz, koszt każdej wizyty i
+> recepty, przygotowanie do wizyty, Bezpieczna przestrzeń z dobrymi dniami i
+> własną listą rzeczy, które pomagają, spis organizacji trans i telefonów
+> zaufania dostępny bez internetu, jedna biblioteka zdjęć na wszystko i miejsce
+> na skierowania i postanowienia sądu. Rok zapisków w Daylio da się
+> zaimportować.
 
 ### Archiwa i eksport
 
@@ -251,13 +255,15 @@ address the reader in the past tense, "a day where all you managed was a mood" a
 > wybierasz, zanim plik opuści aplikację. Import wkłada go z powrotem, dokładając do tego,
 > co już jest, albo zastępując całość.
 >
-> **Automatyczne kopie.** Na Androidzie zaszyfrowane archiwum trafia co tydzień albo
-> co miesiąc do wybranego folderu, w telefonie albo u dostawcy chmury. Aplikacja
-> pokazuje, kiedy ostatnia kopia się udała, a kiedy nie.
+> **Automatyczne kopie.** Na Androidzie zaszyfrowane archiwum trafia co tydzień
+> albo co miesiąc do wybranego folderu, w telefonie albo u dostawcy chmury.
+> Aplikacja pokazuje, kiedy ostatnia kopia się udała, a kiedy nie. Jeśli inny
+> telefon zapisuje kopie w tym samym folderze, nowsza z nich może zostać
+> dołączona przy otwarciu aplikacji.
 >
-> **Przejście z Daylio.** Import bierze plik CSV z Daylio. Zanim cokolwiek zapisze,
-> pokazuje liczby i to, jak przełoży nastroje, a zawsze tylko dokłada do tego, co już
-> masz.
+> **Przejście z Daylio.** Import bierze plik CSV albo kopię zapasową z Daylio.
+> Zanim cokolwiek zapisze, pokazuje liczby i to, jak przełoży nastroje, a zawsze
+> tylko dokłada do tego, co już masz.
 >
 > **Eksport zwykły.** CSV albo JSON, do arkusza albo na własną kopię. Taki plik nie jest
 > zaszyfrowany, aplikacja mówi to wprost i każe potwierdzić, zanim go zapisze.
@@ -272,8 +278,9 @@ address the reader in the past tense, "a day where all you managed was a mood" a
 > **Na Androidzie.** Te same funkcje dziennika w aplikacji na telefon. Dane nie
 > synchronizują się z dziennikiem w przeglądarce.
 >
-> **Przypomnienia.** Leki, zastrzyki i wizyty. Jednorazowe lub powtarzalne powiadomienia
-> na telefonie.
+> **Przypomnienia.** Jednorazowe lub powtarzalne powiadomienia na telefonie.
+> Przypomnienie o leku otwiera zapis dawek tego leku, a na samym powiadomieniu
+> są przyciski Przyjęto i Pomiń.
 >
 > **Codzienne pytanie.** Raz dziennie, o wybranej porze. Nie pojawia się w dni, w które
 > jest już wpis.
@@ -286,21 +293,22 @@ address the reader in the past tense, "a day where all you managed was a mood" a
 
 *Gate: shipped.*
 
-> W sekcji Prywatność i dane wybierasz, jak otwierać dziennik. Kamuflaż, blokada przy
-> wyjściu i szybkie wyjście pozostają wyłączone, dopóki ich nie włączysz.
+> W sekcji Prywatność i dane wybierasz, jak otwierać dziennik. Kamuflaż jest
+> wyłączony, dopóki go nie włączysz, a ty decydujesz, jak szybko dziennik znów
+> się blokuje.
 >
 > **Dostęp.** Wybierz hasło, PIN z kluczem urządzenia, obsługiwaną biometrię albo klucz
 > powiązany z urządzeniem. Strona o prywatności opisuje ochronę i odzyskiwanie dostępu.
 >
-> **Kamuflaż.** Karta przeglądarki pokazuje „Notes” zamiast engender. Na Androidzie
-> zmienia się też nazwa i ikona aplikacji na neutralne.
+> **Kamuflaż.** Karta przeglądarki pokazuje „Notatki” zamiast engender. Na
+> Androidzie aplikacja dostaje neutralną nazwę i ikonę, a ekran blokady, widżety
+> i powiadomienia przestają ją nazywać. Po odblokowaniu dziennika w środku nic
+> się nie zmienia.
 >
-> **Blokada przy wyjściu.** Dziennik blokuje się, gdy przechodzisz do innej aplikacji.
-> Jeśli wybrany tryb wymaga odblokowania, trzeba je powtórzyć po powrocie.
->
-> **Szybkie wyjście.** Przesunięcie dwoma palcami w dół zasłania dziennik. Przy włączonym
-> kamuflażu pojawia się ekran Notes, w przeciwnym razie pusta karta. Jeśli wybrany tryb
-> wymaga odblokowania, trzeba je powtórzyć po powrocie.
+> **Ponowna blokada.** Dziennik może się zablokować od razu po przejściu do
+> innej aplikacji, po minucie albo pięciu minutach albo dopiero po ponownym
+> uruchomieniu. Jeśli wybrany tryb wymaga odblokowania, trzeba je powtórzyć po
+> powrocie.
 
 ### Wygląd
 

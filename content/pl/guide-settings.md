@@ -31,7 +31,7 @@ ekran ma trzy sekcje: Appearance, Tracking, Privacy and data.
 
 *Gate: shipped.*
 
-> W Wyglądzie wybierasz język, motyw i jedną z ośmiu palet. Kolory nastroju
+> W Wyglądzie wybierasz język, motyw i jedną z szesnastu palet. Kolory nastroju
 > mają osobne zestawy. Możesz też zmienić rozmiar tekstu, zwiększyć jego
 > czytelność i ograniczyć ruch na ekranie.
 
@@ -39,20 +39,19 @@ ekran ma trzy sekcje: Appearance, Tracking, Privacy and data.
 
 *Gate: shipped.*
 
-> Tu wybierasz aktywne skale płci i porządkujesz listy używane w całym
-> dzienniku: własne skale, obszary ciała, afirmacje, grupy tagów, tryby, szablony
-> wpisów i ery. Możesz też zrobić przerwę w pisaniu i wskazać słowa, które
-> Przegląd ma pomijać przy wyszukiwaniu wyróżniających się słów.
+> Tu wybierasz aktywne skale genderowe i porządkujesz listy używane w całym
+> dzienniku: obszary ciała, grupy tagów, tryby, szablony wpisów i ery. Tu też
+> decydujesz, które funkcje aplikacja pokazuje, i włączasz albo wyłączasz
+> śledzenie cyklu.
 >
 > W Przypomnieniach ustalasz, kiedy aplikacja ma się odezwać. Pozostałe
-> podpowiedzi włączasz i wyłączasz w Powiadomieniach. Kafelki na ekranie
-> Dzisiaj ustawiasz w edytorze tego ekranu, obok przypiętych rzeczy i planu.
+> podpowiedzi włączasz i wyłączasz w Powiadomieniach. Kafelki na ekranie Dzisiaj
+> ustawiasz w edytorze tego ekranu, obok przypiętych rzeczy.
 >
 > Kafelki i powiadomienia telefonu korzystają z jednej listy rodzajów
-> komunikatów, choć ich przełączniki są w różnych miejscach. Kafelek pojawia
-> się wtedy, gdy jest co pokazać w dzienniku. Powiadomienie może przyjść o
-> wybranej przez ciebie porze albo gdy nie uda się zrobić eksportu. Może też
-> przypomnieć o wspomnieniu z Przeglądu, jeśli to włączysz. Godziny ciszy
+> komunikatów, choć ich przełączniki są w różnych miejscach. Kafelek pojawia się
+> wtedy, gdy jest co pokazać w dzienniku. Powiadomienie może przyjść o wybranej
+> przez ciebie porze albo gdy nie uda się zrobić eksportu. Godziny ciszy
 > odkładają powiadomienia na później. Nic przez to nie przepada.
 
 ### Prywatność i dane
@@ -60,6 +59,8 @@ ekran ma trzy sekcje: Appearance, Tracking, Privacy and data.
 *Gate: shipped.*
 
 > Tu zmieniasz sposób zabezpieczenia dziennika, uprawnienia i tryb ukrycia
-> aplikacji. W Eksporcie robisz lub przywracasz kopię oraz importujesz dane z
-> Daylio. Dziennik do druku obejmuje wybrany okres. Kosz
-> przechowuje usunięte wpisy przez 30 dni, zanim znikną na stałe.
+> aplikacji. W Eksporcie robisz lub przywracasz kopię, importujesz dane z
+> Daylio, a na Androidzie wybierasz folder na kopie, z którego dołączane są
+> nowsze kopie z innych urządzeń. Dziennik do druku obejmuje wybrany okres. Kosz
+> przechowuje usunięte wpisy przez 30 dni, zanim znikną na stałe, a wcześniej
+> możesz usunąć wpis na zawsze.

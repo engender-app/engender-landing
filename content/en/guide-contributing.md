@@ -14,10 +14,9 @@ copy; other text records sources. The catalogue carries these strings under
 
 *Gate: shipped.*
 
-> Clone the Journal repository from github.com/barankiewicz/gender-diary. Run
-> npm install, then npm run dev to work locally. The README lists the checks;
-> npm run check, npm test and npm run test:browser cover different parts of the
-> app.
+> Clone the Journal repository from github.com/engender-app/engender. Run npm
+> install, then npm run dev to work locally. The README lists the checks; npm
+> run check, npm test and npm run test:browser cover different parts of the app.
 >
 > Keep a pull request focused. Say what changed, why it changed and which
 > checks you ran. CI runs on each pull request, including browser checks. Use
@@ -29,8 +28,8 @@ copy; other text records sources. The catalogue carries these strings under
 
 > You don't need to write code to help with a country pack. A pack is bundled
 > into the app and describes one country's transition procedure as roadmap
-> goals. Each goal sits in one of four roadmap tracks: social, legal,
-> presentational or medical. Only the Polish pack ships today.
+> goals. Only the Polish pack ships today. It covers the legal procedure and the
+> institutions to update after it.
 >
 > Cite sources for each goal you propose and record when you checked them;
 > the pack's reviewedOn date is shown in the app because procedures change.
