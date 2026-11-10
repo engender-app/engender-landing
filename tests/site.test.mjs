@@ -1193,8 +1193,8 @@ const PRIVACY_TITLE = {
 /** The hero headline, which is the one piece of the overview copy that is not
     inside a section and so is not covered by the heading assertions. */
 const HEADLINE = {
-  en: "Track your gender over time, and learn things about it you did not know.",
-  pl: "Zapisuj swój gender dzień po dniu i dowiedz się o nim czegoś nowego.",
+  en: "Learn about your gender from your own entries.",
+  pl: "Poznaj swój gender z własnych wpisów.",
 };
 
 /** Both languages describe encryption and reject the retired plaintext fallback. */
@@ -2109,9 +2109,9 @@ const TITLES = {
     the page a visitor asking for neither language is about to be sent to. */
 const DESCRIPTIONS = {
   "/en/":
-    "Track your gender over time on scales you name, then look back and learn things about it. Also HRT, surgeries and voice practice. On your device, no account.",
+    "Track how your gender feels day by day and learn about it from your own entries. Also HRT, surgeries and voice practice. On your device, with no account.",
   "/pl/":
-    "Zapisuj swój gender na własnych skalach i zobacz, czego się o nim dowiesz. Do tego HRT, operacje i ćwiczenia głosu. Na twoim urządzeniu, bez konta.",
+    "Trackuj swój gender dzień po dniu i dowiedz się o nim więcej z własnych wpisów. Do tego HRT, operacje i ćwiczenia głosu. Na twoim urządzeniu, bez konta.",
   "/en/privacy/":
     "How engender encrypts your journal, how access and recovery keys work, what exports reveal, and what the web host sees.",
   "/pl/privacy/":

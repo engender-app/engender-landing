@@ -46,15 +46,16 @@ engender is lowercase everywhere, including at the start of a sentence
 
 **Headline**
 
-> Track your gender over time, and learn things about it you did not know.
+> Learn about your gender from your own entries.
 
 Journal tester-report-02 ticket 06 (Alicja, 2026-11-10) replaced "Your
 transition, in one place, on your own device." The lead is now what the
-record gives back rather than where it is kept: you track your gender over
-time and learn things about it. The headline promises only what the person
-does; the app draws, the person notices. Candidates and the reason for this
-one are on that ticket's sign-off page. The tester's story the lead is
-written from is not on the page until he agrees to it.
+entries give back, where it used to be where they are kept. The headline is
+the promise and names its source, your own entries; the supporting line
+carries the mechanism. Nothing in either has the app do the learning: the
+person marks, looks back and notices. The other candidates are on that
+ticket's sign-off page. The tester's story the lead is written from stays
+off the page until he agrees to it.
 
 Before that, ticket 10 replaced "A transition tracker with a journal at its heart", which
 told a first-time reader what kind of thing this is before telling them what it
@@ -99,14 +100,15 @@ copy's shape.
 
 **Subheadline**
 
-> Mark how your gender feels each day, on scales you name, then look back over weeks
-> or months and see where your days actually fell. No account, no server, no price. By
-> trans people, for trans people.
+> Mark how your gender feels each day, on scales you name. Then look back over a month
+> or a year, and you might notice something no single day showed you. No account, no
+> server, no price. By trans people, for trans people.
 
 Since tester-report-02 ticket 06 the supporting line carries the mechanism
-behind the headline (scales you name, Look back) and the three things it does
-not have, and who wrote it. The breadth list moved out of it; the promise
-strip's third cell still carries it on the first screen.
+behind the headline (scales you name, then looking back over a month or a
+year), the three things the app does not have, and who wrote it. "You might
+notice" is as far as the promise goes. The breadth list moved out of the
+line; the promise strip's third cell still carries it on the first screen.
 
 Ticket 10's line was "Journal, stats, HRT, surgeries, tryouts, eras, voice
 practice and a summary to hand your clinician. No account, no server, no
@@ -153,9 +155,11 @@ same worry.
 
 *Gate: shipped.*
 
-> engender is a journal for how your gender feels, day by day, on scales you name
-> yourself. Over weeks and months, Look back lays those days side by side, and things
-> show up that you cannot see from inside a single day.
+> engender is a journal for how your gender feels. Each day you mark it on scales you
+> name yourself, which takes a moment and gives you a reason to stop and check in. The
+> entries stay, so after a month or a year you can look at them together: one scale
+> day by day, or two scales against each other. You might find your days were not
+> where you would have guessed.
 >
 > Around the journal sit the records that otherwise end up spread across a notes app,
 > a spreadsheet, a photo folder and a letter from a clinic: what you take, what you
@@ -169,9 +173,11 @@ same worry.
 > It is free software: there is no price, no plan and nothing to upsell, and the
 > licence keeps it that way.
 
-The first paragraph answers "is this for me" with the lead: what Look back
-gives back from the scales (tester-report-02 ticket 06). The second keeps the
-records ticket 10's first paragraph listed. The
+The first paragraph answers "is this for me" with the lead
+(tester-report-02 ticket 06): marking the day is a check-in, and the entries
+can be read together later. Its two readings are Look back's Day by day and
+Two scales at once. The second keeps the records ticket 10's first paragraph
+listed. The
 third drops the one-trans-person sentence, which now sits in the strip directly
 above.
 
@@ -530,4 +536,4 @@ address the reader in a way Polish cannot copy without picking a gender for them
 
 The description is shared by search, Open Graph and Twitter metadata.
 
-Your transition in one place: journal, stats, HRT, surgeries, tryouts, eras, voice practice and a clinician summary. On your device, with no account.
+Track how your gender feels day by day and learn about it from your own entries. Also HRT, surgeries and voice practice. On your device, with no account.

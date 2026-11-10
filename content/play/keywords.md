@@ -21,10 +21,11 @@ Polish title match no Polish search.
 ## Since 2026-11-10
 
 The short descriptions lead with learning about your gender from what you
-track (Journal tester-report-02 ticket 06): "Track your gender over time and
-learn things about it you didn't know" and "Zapisuj swój gender dzień po dniu
-i dowiedz się o nim czegoś nowego". Both carry "gender"; neither carries HRT,
-mood or "transition" any more. "Transition" stays in the title, and HRT and
+track (Journal tester-report-02 ticket 06): "Track how your gender feels day
+by day and learn about it from your own entries" and "Trackuj swój gender
+dzień po dniu i dowiedz się o nim więcej z własnych wpisów". Both carry
+"gender" and the tracking verb; neither carries HRT, mood or "transition" any
+more. "Transition" stays in the title, and HRT and
 mood move to the full description. The rows that say "short description"
 below record the 2026-10-07 plan; where they disagree with this paragraph,
 this paragraph is current.

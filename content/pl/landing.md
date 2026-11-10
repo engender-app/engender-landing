@@ -46,20 +46,24 @@ decided here and recorded in `.agents/product-marketing.md`.
 
 **Headline**
 
-> Zapisuj swój gender dzień po dniu i dowiedz się o nim czegoś nowego.
+> Poznaj swój gender z własnych wpisów.
 
 Tester-report-02 ticket 06, from the same decision as the English headline.
-The imperative keeps the reader ungendered. Ticket 10's line was „Twoja
+The imperative keeps the reader ungendered, and „poznaj” is the Polish verb
+for getting to know something, which „dowiedz się o” says at twice the
+length. Ticket 10's line was „Twoja
 tranzycja w jednym miejscu, na własnym urządzeniu.”
 
 **Subheadline**
 
-> Zaznaczaj, jak czujesz swój gender, na skalach nazwanych po swojemu. Po kilku
-> tygodniach zobaczysz, gdzie naprawdę wypadały twoje dni. Bez konta, bez serwera, bez
-> opłat. Od osób trans dla osób trans.
+> Zaznaczaj codziennie, jak przeżywasz swój gender, na skalach nazwanych po swojemu.
+> Po miesiącu albo roku spójrz na te dni razem. Może zauważysz coś, czego z jednego
+> dnia nie widać. Bez konta, bez serwera, bez opłat. Od osób trans dla osób trans.
 
 Since tester-report-02 ticket 06 the breadth list sits only in the promise
-strip, as in English. „Zobaczysz” is future tense, so it genders nobody.
+strip, as in English. „Jak przeżywasz swój gender” is the app's own phrase
+(a tag description in `messages/pl.json`). „Może zauważysz” is future tense,
+so it genders nobody.
 
 „HRT”, not „HTZ”: Alicja's call on 2026-10-07, the same word the app and the store listing use.
 „Ćwiczenia głosu” follows the app's own „ćwiczenia głosu” in the microphone
@@ -99,9 +103,11 @@ future, where Polish does not gender the first person.
 
 *Gate: shipped.*
 
-> engender to dziennik tego, jak czujesz swój gender, dzień po dniu, na skalach
-> nazwanych po swojemu. Po tygodniach i miesiącach Statystyki układają te dni obok
-> siebie i wychodzi na jaw coś, czego nie zauważysz, patrząc na jeden dzień.
+> engender to dziennik tego, jak przeżywasz swój gender. Codziennie zaznaczasz to na
+> skalach nazwanych po swojemu. Zajmuje to chwilę i daje pretekst, żeby się zatrzymać
+> i sprawdzić, co u ciebie. Wpisy zostają, więc po miesiącu albo roku możesz spojrzeć
+> na nie razem: jedna skala dzień po dniu albo dwie skale na jednym wykresie. Może się
+> okazać, że twoje dni wyglądały inaczej, niż ci się wydawało.
 >
 > Wokół dziennika są zapiski, które zwykle rozchodzą się po notatkach w telefonie,
 > arkuszu, folderze ze zdjęciami i piśmie z przychodni: co przyjmujesz, co próbujesz,
@@ -451,4 +457,4 @@ and the Play listing will.
 
 The description is shared by search, Open Graph and Twitter metadata.
 
-Twoja tranzycja w jednym miejscu: dziennik, statystyki, HRT, operacje, próby, ery, ćwiczenia głosu i podsumowanie do lekarza. Na twoim urządzeniu, bez konta.
+Trackuj swój gender dzień po dniu i dowiedz się o nim więcej z własnych wpisów. Do tego HRT, operacje i ćwiczenia głosu. Na twoim urządzeniu, bez konta.
