@@ -21,19 +21,24 @@ overlay that says "private" or "secure" as a bare adjective.
 1080 x 1920 portrait PNG, at least four and at most eight per locale, the
 default trans palette in light theme, each locale shot in its own language.
 Play shows roughly the first three before scrolling, so the order is the
-argument, and the listing leads with transition tracking rather than mood.
-The set covers what the description names. Since 2026-10-07 there are seven:
+argument. Since 2026-11-10 (Journal tester-report-02 ticket 06) the listing
+leads with learning about your gender from what you track, so the first two
+shots are a scale being set and what Look back makes of it. The set covers
+what the description names. There are seven, renamed rather than recaptured:
 
-1. Today: the greeting and Coming up (an appointment and a milestone).
-2. Care: HRT doses, the lab draw and stock lanes. It comes second because it
-   shows "transition tracker" most plainly.
-3. A new entry: a short invented note about a new name, the dysphoria to
+1. A new entry: a short invented note about a new name, the dysphoria to
    euphoria scale and the mood bar.
-4. Transition roadmap: planned steps (the Polish set shows the Polish pack).
+2. Look back: the span timeline, the span's facts (including the scale that
+   moved furthest) and the mood strip.
+3. Today: the greeting and Coming up (an appointment and a milestone).
+4. Care: HRT doses, the lab draw and stock lanes.
 5. Voice, on its Compare tab: pitch over time across practice takes.
-6. Look back: the span timeline and readings.
+6. Transition roadmap: planned steps (the Polish set shows the Polish pack).
 7. Settings, Privacy & data: lock, disguise and export, for the "On your
    device" section.
+
+Until 2026-11-10 Today led and Care came second, because together they showed
+"transition tracker" most plainly.
 
 The mood calendar was dropped because it pitched a mood journal. The routes
 are recorded in the Journal's `fastlane/metadata/android/capture.json`, which

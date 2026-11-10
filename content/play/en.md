@@ -14,23 +14,29 @@ the same text byte for byte, one paragraph per line.
 
 ## Short description
 
-68 of 80 characters.
+69 of 80 characters.
 F-Droid reads this as its Summary, which must have no sentence punctuation.
 
-> Track your transition and HRT in a journal that stays on your device
+> Track your gender over time and learn things about it you didn't know
 
 ## Full description
 
-3564 of 4000 characters.
+3914 of 4000 characters.
 Plain lines are headings; Play shows the text without markup.
 
-> Keep a record of your transition you can return to. Write down how a new name feels or what's changed since starting HRT, with photos and care records alongside your notes.
+> Track your gender over time and learn things about it you didn't know. Each day, mark how it feels on scales you name yourself, such as femininity, masculinity or dysphoria to euphoria. Marking the day is quick, and it gives you a moment to check in with yourself. Weeks later, Look back puts those days side by side, and you might notice something about your gender that no single day showed you.
 >
 > engender is made by a trans person for other trans people. Use whichever parts fit your life, whether you're questioning, planning your next step or years into transition. It's free, with no ads, subscriptions or accounts to create.
 >
-> Room for how you feel
+> Your gender, day by day
 >
-> A mood is enough for an entry. When you have more to say, add a note, photo or voice recording. Or record how your gender feels using gender scales. You can write several times a day and use tags to find things later. Give dysphoria, euphoria and other feelings their own scales, with names and endpoints you choose. You can also record how you feel about different parts of your body.
+> Give each scale the name and endpoints you choose, and tick the ones that fit. A mood is enough for an entry. When you have more to say, add a note, photo or voice recording. You can write several times a day and use tags to find things later. You can also record how you feel about different parts of your body.
+>
+> Look back
+>
+> Drag the ends of your timeline to choose a stretch, like a month or the time since you started HRT. Follow a scale day by day, put a second one beside it, or plot two scales against each other. See which scale moved furthest, which tags came with a change, and how a week, month or year went. engender draws what you entered and doesn't interpret it.
+>
+> Browse your calendar or search your notes and tags when you want a particular moment. Safe Space keeps favourite entries and your own list of things that help within reach on harder days.
 >
 > Keep your care records together
 >
@@ -41,10 +47,6 @@ Plain lines are headings; Play shows the text without markup.
 > The things you want to try and remember
 >
 > Trying a name, different pronouns or a new look? Note how it feels over time. Record voice practice and compare it with your earlier recordings. Keep track of hair removal and time spent binding or tucking. Mark your milestones, plan your next steps and follow a name change through each office that needs it. Or write yourself a letter to open on a date you choose.
->
-> See what has changed
->
-> Put photos side by side, follow your scales on charts or revisit a week, month or year. Browse your calendar whenever you want; days without entries stay empty. Search your notes and tags when you want to find a particular moment. Safe Space keeps favourite entries and your own list of things that help within reach on harder days.
 >
 > Your journal stays with you
 >
