@@ -158,8 +158,8 @@ same worry.
 > engender is a journal for how your gender feels. Each day you mark it on scales you
 > name yourself, which takes a moment and gives you a reason to stop and check in. The
 > entries stay, so after a month or a year you can look at them together: one scale
-> day by day, or two scales against each other. You might find your days were not
-> where you would have guessed.
+> day by day, or two scales against each other. What you see there may not be what you
+> expected.
 >
 > Around the journal sit the records that otherwise end up spread across a notes app,
 > a spreadsheet, a photo folder and a letter from a clinic: what you take, what you

@@ -106,8 +106,8 @@ future, where Polish does not gender the first person.
 > engender to dziennik tego, jak przeżywasz swój gender. Codziennie zaznaczasz to na
 > skalach nazwanych po swojemu. Zajmuje to chwilę i daje pretekst, żeby się zatrzymać
 > i sprawdzić, co u ciebie. Wpisy zostają, więc po miesiącu albo roku możesz spojrzeć
-> na nie razem: jedna skala dzień po dniu albo dwie skale na jednym wykresie. Może się
-> okazać, że twoje dni wyglądały inaczej, niż ci się wydawało.
+> na nie razem: jedna skala dzień po dniu albo dwie skale na jednym wykresie. Bywa, że
+> widać tam coś innego, niż się spodziewasz.
 >
 > Wokół dziennika są zapiski, które zwykle rozchodzą się po notatkach w telefonie,
 > arkuszu, folderze ze zdjęciami i piśmie z przychodni: co przyjmujesz, co próbujesz,
