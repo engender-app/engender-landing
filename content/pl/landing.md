@@ -74,7 +74,7 @@ clinician summary.
 
 **Tagline**
 
-> Za darmo. Bez konta. Wszystko zostaje na twoim urządzeniu.
+> Za darmo. Bez konta. Dziennik zostaje na twoim urządzeniu.
 
 The cue beside the action since tester-report-02 ticket 06; it replaced
 Alicja's 2026-09-29 line „Otwarty kod, za darmo na zawsze.” „Urządzeniu”, not

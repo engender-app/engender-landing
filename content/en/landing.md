@@ -122,7 +122,7 @@ people search with, and the marketing context says to meet them there.
 
 **Tagline**
 
-> Free. No account. Everything stays on your device.
+> Free. No account. Your journal stays on your device.
 
 The cue beside the action (tester-report-02 ticket 06, 2026-11-11): the three
 things a trans reader checks before pressing anything. "Device", not "phone",
