@@ -46,9 +46,17 @@ engender is lowercase everywhere, including at the start of a sentence
 
 **Headline**
 
-> Your transition, in one place, on your own device.
+> Track your gender over time, and learn things about it you did not know.
 
-Ticket 10 replaced "A transition tracker with a journal at its heart", which
+Journal tester-report-02 ticket 06 (Alicja, 2026-11-10) replaced "Your
+transition, in one place, on your own device." The lead is now what the
+record gives back rather than where it is kept: you track your gender over
+time and learn things about it. The headline promises only what the person
+does; the app draws, the person notices. Candidates and the reason for this
+one are on that ticket's sign-off page. The tester's story the lead is
+written from is not on the page until he agrees to it.
+
+Before that, ticket 10 replaced "A transition tracker with a journal at its heart", which
 told a first-time reader what kind of thing this is before telling them what it
 would do for them. The headline states the scope and where it lives; the
 supporting line carries the breadth, the three things it does not have and who
@@ -91,8 +99,18 @@ copy's shape.
 
 **Subheadline**
 
-> Journal, stats, HRT, surgeries, tryouts, eras, voice practice and a summary to hand
-> your clinician. No account, no server, no price. By trans people, for trans people.
+> Mark how your gender feels each day, on scales you name, then look back over weeks
+> or months and see where your days actually fell. No account, no server, no price. By
+> trans people, for trans people.
+
+Since tester-report-02 ticket 06 the supporting line carries the mechanism
+behind the headline (scales you name, Look back) and the three things it does
+not have, and who wrote it. The breadth list moved out of it; the promise
+strip's third cell still carries it on the first screen.
+
+Ticket 10's line was "Journal, stats, HRT, surgeries, tryouts, eras, voice
+practice and a summary to hand your clinician. No account, no server, no
+price. By trans people, for trans people."
 
 "HRT" is not the app's word (it says medication, regimen, dose). It is the word
 people search with, and the marketing context says to meet them there.
@@ -135,10 +153,13 @@ same worry.
 
 *Gate: shipped.*
 
-> engender is where you keep your transition: how you feel from day to day, what you
-> take, what you are trying, what is coming up and what has already happened. It is a
-> journal first. Around the journal sit the records that otherwise end up spread
-> across a notes app, a spreadsheet, a photo folder and a letter from a clinic.
+> engender is a journal for how your gender feels, day by day, on scales you name
+> yourself. Over weeks and months, Look back lays those days side by side, and things
+> show up that you cannot see from inside a single day.
+>
+> Around the journal sit the records that otherwise end up spread across a notes app,
+> a spreadsheet, a photo folder and a letter from a clinic: what you take, what you
+> are trying, what is coming up and what has already happened.
 >
 > Nothing in it decides anything about you. You name your own scales and pick what to
 > track, and the app draws what you put in without grading it. It never suggests a
@@ -148,7 +169,9 @@ same worry.
 > It is free software: there is no price, no plan and nothing to upsell, and the
 > licence keeps it that way.
 
-The first paragraph answers "is this for me" rather than repeating the hero. The
+The first paragraph answers "is this for me" with the lead: what Look back
+gives back from the scales (tester-report-02 ticket 06). The second keeps the
+records ticket 10's first paragraph listed. The
 third drops the one-trans-person sentence, which now sits in the strip directly
 above.
 

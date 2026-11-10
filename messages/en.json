@@ -9,21 +9,21 @@
   "meta": {
     "cardAlt": "The word engender on a dark background, with the trans flag drawn as concentric rings in the corner.",
     "landing": {
-      "description": "Your transition in one place: journal, stats, HRT, surgeries, tryouts, eras, voice practice and a clinician summary. On your device, with no account."
+      "description": "Track your gender over time on scales you name, then look back and learn things about it. Also HRT, surgeries and voice practice. On your device, no account."
     },
     "privacy": {
       "description": "How engender encrypts your journal, how access and recovery keys work, what exports reveal, and what the web host sees."
     }
   },
   "hero": {
-    "headline": "Your transition, in one place, on your own device.",
+    "headline": "Track your gender over time, and learn things about it you did not know.",
     "definition": {
       "headword": "engender",
       "grammar": "v.",
       "phonetics": "/ɪnˈdʒɛndə/",
       "sense": "to cause or give rise to a feeling, situation or condition."
     },
-    "subheadline": "Journal, stats, HRT, surgeries, tryouts, eras, voice practice and a summary to hand your clinician. No account, no server, no price. By trans people, for trans people.",
+    "subheadline": "Mark how your gender feels each day, on scales you name, then look back over weeks or months and see where your days actually fell. No account, no server, no price. By trans people, for trans people.",
     "tagline": "Open source and free forever."
   },
   "promises": [
@@ -46,7 +46,8 @@
   ],
   "sectionOverview": "What this is",
   "overview": [
-    "engender is where you keep your transition: how you feel from day to day, what you take, what you are trying, what is coming up and what has already happened. It is a journal first. Around the journal sit the records that otherwise end up spread across a notes app, a spreadsheet, a photo folder and a letter from a clinic.",
+    "engender is a journal for how your gender feels, day by day, on scales you name yourself. Over weeks and months, Look back lays those days side by side, and things show up that you cannot see from inside a single day.",
+    "Around the journal sit the records that otherwise end up spread across a notes app, a spreadsheet, a photo folder and a letter from a clinic: what you take, what you are trying, what is coming up and what has already happened.",
     "Nothing in it decides anything about you. You name your own scales and pick what to track, and the app draws what you put in without grading it. It never suggests a dose, never colours a number red and never tells you which way you are meant to be going.",
     "It is free software: there is no price, no plan and nothing to upsell, and the licence keeps it that way."
   ],

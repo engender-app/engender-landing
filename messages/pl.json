@@ -9,21 +9,21 @@
   "meta": {
     "cardAlt": "Napis engender na ciemnym tle, z flagą transpłciową narysowaną jako koncentryczne pierścienie w rogu.",
     "landing": {
-      "description": "Twoja tranzycja w jednym miejscu: dziennik, statystyki, HRT, operacje, próby, ery, ćwiczenia głosu i podsumowanie do lekarza. Na twoim urządzeniu, bez konta."
+      "description": "Zapisuj swój gender na własnych skalach i zobacz, czego się o nim dowiesz. Do tego HRT, operacje i ćwiczenia głosu. Na twoim urządzeniu, bez konta."
     },
     "privacy": {
       "description": "Jak engender szyfruje dziennik, czym go otworzysz i do czego służy klucz odzyskiwania. Co ujawniają eksporty i co widzi serwer WWW."
     }
   },
   "hero": {
-    "headline": "Twoja tranzycja w jednym miejscu, na własnym urządzeniu.",
+    "headline": "Zapisuj swój gender dzień po dniu i dowiedz się o nim czegoś nowego.",
     "definition": {
       "headword": "engender",
       "grammar": "czas.",
       "phonetics": "/ɪnˈdʒɛndə/",
       "sense": "to cause or give rise to a feeling, situation or condition."
     },
-    "subheadline": "Dziennik, statystyki, HRT, operacje, próby, ery, ćwiczenia głosu i podsumowanie do lekarza. Bez konta, bez serwera, bez opłat. Od osób trans dla osób trans.",
+    "subheadline": "Zaznaczaj, jak czujesz swój gender, na skalach nazwanych po swojemu. Po kilku tygodniach zobaczysz, gdzie naprawdę wypadały twoje dni. Bez konta, bez serwera, bez opłat. Od osób trans dla osób trans.",
     "tagline": "Otwarty kod, za darmo na zawsze."
   },
   "promises": [
@@ -46,7 +46,8 @@
   ],
   "sectionOverview": "Co to jest",
   "overview": [
-    "engender to miejsce na twoją tranzycję: jak się czujesz z dnia na dzień, co przyjmujesz, co próbujesz, co cię czeka i co już za tobą. Przede wszystkim to dziennik. Wokół niego są zapiski, które zwykle rozchodzą się po notatkach w telefonie, arkuszu, folderze ze zdjęciami i piśmie z przychodni.",
+    "engender to dziennik tego, jak czujesz swój gender, dzień po dniu, na skalach nazwanych po swojemu. Po tygodniach i miesiącach Statystyki układają te dni obok siebie i wychodzi na jaw coś, czego nie zauważysz, patrząc na jeden dzień.",
+    "Wokół dziennika są zapiski, które zwykle rozchodzą się po notatkach w telefonie, arkuszu, folderze ze zdjęciami i piśmie z przychodni: co przyjmujesz, co próbujesz, co cię czeka i co już za tobą.",
     "Nic tu o tobie nie decyduje. Skale nazywasz po swojemu i wybierasz, co śledzić, a aplikacja rysuje to, co wpisujesz, bez wystawiania ocen. Nie podpowiada dawek, nie barwi liczb na czerwono i nie mówi, w którą stronę masz zmierzać.",
     "To wolne oprogramowanie: bez ceny, bez abonamentu i bez niczego do dokupienia, a licencja pilnuje, żeby tak zostało."
   ],

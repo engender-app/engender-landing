@@ -46,14 +46,20 @@ decided here and recorded in `.agents/product-marketing.md`.
 
 **Headline**
 
-> Twoja tranzycja w jednym miejscu, na własnym urządzeniu.
+> Zapisuj swój gender dzień po dniu i dowiedz się o nim czegoś nowego.
 
-Ticket 10, from the same decision as the English headline.
+Tester-report-02 ticket 06, from the same decision as the English headline.
+The imperative keeps the reader ungendered. Ticket 10's line was „Twoja
+tranzycja w jednym miejscu, na własnym urządzeniu.”
 
 **Subheadline**
 
-> Dziennik, statystyki, HRT, operacje, próby, ery, ćwiczenia głosu i podsumowanie do
-> lekarza. Bez konta, bez serwera, bez opłat. Od osób trans dla osób trans.
+> Zaznaczaj, jak czujesz swój gender, na skalach nazwanych po swojemu. Po kilku
+> tygodniach zobaczysz, gdzie naprawdę wypadały twoje dni. Bez konta, bez serwera, bez
+> opłat. Od osób trans dla osób trans.
+
+Since tester-report-02 ticket 06 the breadth list sits only in the promise
+strip, as in English. „Zobaczysz” is future tense, so it genders nobody.
 
 „HRT”, not „HTZ”: Alicja's call on 2026-10-07, the same word the app and the store listing use.
 „Ćwiczenia głosu” follows the app's own „ćwiczenia głosu” in the microphone
@@ -93,10 +99,13 @@ future, where Polish does not gender the first person.
 
 *Gate: shipped.*
 
-> engender to miejsce na twoją tranzycję: jak się czujesz z dnia na dzień, co
-> przyjmujesz, co próbujesz, co cię czeka i co już za tobą. Przede wszystkim to
-> dziennik. Wokół niego są zapiski, które zwykle rozchodzą się po notatkach w
-> telefonie, arkuszu, folderze ze zdjęciami i piśmie z przychodni.
+> engender to dziennik tego, jak czujesz swój gender, dzień po dniu, na skalach
+> nazwanych po swojemu. Po tygodniach i miesiącach Statystyki układają te dni obok
+> siebie i wychodzi na jaw coś, czego nie zauważysz, patrząc na jeden dzień.
+>
+> Wokół dziennika są zapiski, które zwykle rozchodzą się po notatkach w telefonie,
+> arkuszu, folderze ze zdjęciami i piśmie z przychodni: co przyjmujesz, co próbujesz,
+> co cię czeka i co już za tobą.
 >
 > Nic tu o tobie nie decyduje. Skale nazywasz po swojemu i wybierasz, co śledzić, a
 > aplikacja rysuje to, co wpisujesz, bez wystawiania ocen. Nie podpowiada dawek, nie
