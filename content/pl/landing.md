@@ -46,24 +46,26 @@ decided here and recorded in `.agents/product-marketing.md`.
 
 **Headline**
 
-> Poznaj swój gender z własnych wpisów.
+> Nieważne, czy znasz już swój gender. Pora go zrozumieć.
 
-Tester-report-02 ticket 06, from the same decision as the English headline.
-The imperative keeps the reader ungendered, and „poznaj” is the Polish verb
-for getting to know something, which „dowiedz się o” says at twice the
-length. Ticket 10's line was „Twoja
+Alicja's own line, 2026-11-11 (tester-report-02 ticket 06), not to be
+reworded. An earlier draft read „Poznaj swój gender z własnych wpisów.”; she
+rejected it, and its store twin „dowiedz się o nim więcej z własnych wpisów”
+as form-letter Polish. Ticket 10's line was „Twoja
 tranzycja w jednym miejscu, na własnym urządzeniu.”
 
 **Subheadline**
 
-> Zaznaczaj codziennie, jak przeżywasz swój gender, na skalach nazwanych po swojemu.
-> Po miesiącu albo roku spójrz na te dni razem. Może zauważysz coś, czego z jednego
-> dnia nie widać. Bez konta, bez serwera, bez opłat. Od osób trans dla osób trans.
+> Zaznaczaj euforię, dysforię i co tylko chcesz, na skalach, które nazywasz po
+> swojemu. Po miesiącu albo po roku spójrz wstecz. Zobaczysz to, czego z jednego dnia
+> nie widać.
 
-Since tester-report-02 ticket 06 the breadth list sits only in the promise
-strip, as in English. „Jak przeżywasz swój gender” is the app's own phrase
-(a tag description in `messages/pl.json`). „Może zauważysz” is future tense,
-so it genders nobody.
+Since tester-report-02 ticket 06 the line is the mechanism only, as in
+English, written first in Polish and not translated. Euphoria and dysphoria
+are the scales it names (Alicja, 2026-11-11). „Zobaczysz” is future tense, so
+it genders nobody. The breadth list, „Bez konta, bez serwera, bez opłat” and
+„Od osób trans dla osób trans” left the line for the tagline and the promise
+strip.
 
 „HRT”, not „HTZ”: Alicja's call on 2026-10-07, the same word the app and the store listing use.
 „Ćwiczenia głosu” follows the app's own „ćwiczenia głosu” in the microphone
@@ -72,14 +74,17 @@ clinician summary.
 
 **Tagline**
 
-> Otwarty kod, za darmo na zawsze.
+> Za darmo. Bez konta. Wszystko zostaje na twoim urządzeniu.
 
-Alicja's line, 2026-09-29. It sits on the field under the supporting line.
+The cue beside the action since tester-report-02 ticket 06; it replaced
+Alicja's 2026-09-29 line „Otwarty kod, za darmo na zawsze.” „Urządzeniu”, not
+„telefonie”, because the action opens the journal in a browser. It sits on the
+field under the supporting line.
 
 **Primary action**
 
-„Otwórz dziennik”, on the page today. The Acquisition section below says why the button
-is not called Start journal in Polish.
+„Zacznij od dziś” since tester-report-02 ticket 06 (2026-11-11); „Otwórz dziennik”
+until then. The Acquisition section below has the earlier reasoning.
 
 ### The promise strip
 
@@ -103,11 +108,15 @@ future, where Polish does not gender the first person.
 
 *Gate: shipped.*
 
-> engender to dziennik tego, jak przeżywasz swój gender. Codziennie zaznaczasz to na
-> skalach nazwanych po swojemu. Zajmuje to chwilę i daje pretekst, żeby się zatrzymać
-> i sprawdzić, co u ciebie. Wpisy zostają, więc po miesiącu albo roku możesz spojrzeć
-> na nie razem: jedna skala dzień po dniu albo dwie skale na jednym wykresie. Bywa, że
-> widać tam coś innego, niż się spodziewasz.
+> Ile dziś euforii? Ile dysforii? A tydzień temu? Na dwa pierwsze pytania odpowiesz od
+> ręki. Tydzień temu to już tylko ogólne wrażenie. Trudno zrozumieć swój gender, kiedy
+> znasz go tylko z dzisiaj.
+>
+> W engender zaznaczasz to codziennie, na skalach nazwanych po swojemu. Zajmuje to
+> chwilę i jest dobrym pretekstem, żeby sprawdzić, co u ciebie. Potem bierzesz miesiąc
+> albo rok i patrzysz na wszystko razem: jedna skala dzień po dniu albo dwie skale na
+> jednym wykresie. Nie musisz wiedzieć, kim jesteś, żeby zacząć. Bywa, że po kilku
+> miesiącach widać we wpisach coś innego, niż się spodziewasz.
 >
 > Wokół dziennika są zapiski, które zwykle rozchodzą się po notatkach w telefonie,
 > arkuszu, folderze ze zdjęciami i piśmie z przychodni: co przyjmujesz, co próbujesz,
@@ -351,7 +360,10 @@ and 11, exactly as in the English file.*
 same keys as the English, and it is on the page today. The English file explains why: a
 string that already ships gets one home, not two.
 
-**The button is called „Otwórz dziennik”.** The spec fixes the English wording and fixes
+**The button is called „Zacznij od dziś”** since tester-report-02 ticket 06. It
+starts nothing new for someone coming back: today is where every visit starts.
+What follows is why it was „Otwórz dziennik” before, and it still explains
+why „Zacznij dziennik” is wrong. The spec fixes the English wording and fixes
 nothing in Polish, and this is where that was open. „Zacznij dziennik” says start a new
 one, which is wrong for anyone coming back to theirs, and „Start” as a Polish verb is not
 Polish. What the link does is open the journal in the browser, so that is what it says.
@@ -457,4 +469,4 @@ and the Play listing will.
 
 The description is shared by search, Open Graph and Twitter metadata.
 
-Trackuj swój gender dzień po dniu i dowiedz się o nim więcej z własnych wpisów. Do tego HRT, operacje i ćwiczenia głosu. Na twoim urządzeniu, bez konta.
+Nieważne, czy znasz już swój gender. Pora go zrozumieć. Zaznaczaj euforię i dysforię dzień po dniu i patrz wstecz. Za darmo, bez konta, na twoim urządzeniu.

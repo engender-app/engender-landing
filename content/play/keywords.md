@@ -18,14 +18,15 @@ to the short and full description, where they still index. The Polish title is
 `engender: dziennik tranzycji` (Alicja, 2026-10-07), because English words in a
 Polish title match no Polish search.
 
-## Since 2026-11-10
+## Since 2026-11-11
 
-The short descriptions lead with learning about your gender from what you
-track (Journal tester-report-02 ticket 06): "Track how your gender feels day
-by day and learn about it from your own entries" and "Trackuj swój gender
-dzień po dniu i dowiedz się o nim więcej z własnych wpisów". Both carry
-"gender" and the tracking verb; neither carries HRT, mood or "transition" any
-more. "Transition" stays in the title, and HRT and
+The short descriptions are the landing headline as one phrase (Journal
+tester-report-02 ticket 06, Alicja's line of 2026-11-11): "Whether you know
+your gender or not, it's time to understand it" and "Nieważne, czy znasz już
+swój gender, pora go zrozumieć". The Polish takes a comma where the headline
+has a full stop, because F-Droid's summary rule allows no sentence
+punctuation. Both carry "gender"; neither carries a tracking verb, HRT, mood
+or "transition" any more. "Transition" stays in the title, and HRT and
 mood move to the full description. The rows that say "short description"
 below record the 2026-10-07 plan; where they disagree with this paragraph,
 this paragraph is current.

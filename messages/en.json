@@ -9,22 +9,22 @@
   "meta": {
     "cardAlt": "The word engender on a dark background, with the trans flag drawn as concentric rings in the corner.",
     "landing": {
-      "description": "Track how your gender feels day by day and learn about it from your own entries. Also HRT, surgeries and voice practice. On your device, with no account."
+      "description": "Whether you know your gender or not, it's time to understand it. Mark euphoria and dysphoria day by day, then look back. Free, no account, on your device."
     },
     "privacy": {
       "description": "How engender encrypts your journal, how access and recovery keys work, what exports reveal, and what the web host sees."
     }
   },
   "hero": {
-    "headline": "Learn about your gender from your own entries.",
+    "headline": "Whether you know your gender or not, it's time to understand it.",
     "definition": {
       "headword": "engender",
       "grammar": "v.",
       "phonetics": "/ɪnˈdʒɛndə/",
       "sense": "to cause or give rise to a feeling, situation or condition."
     },
-    "subheadline": "Mark how your gender feels each day, on scales you name. Then look back over a month or a year, and you might notice something no single day showed you. No account, no server, no price. By trans people, for trans people.",
-    "tagline": "Open source and free forever."
+    "subheadline": "Mark euphoria, dysphoria and anything else on scales you name yourself. A month or a year on, look back. You'll see what no single day shows.",
+    "tagline": "Free. No account. Everything stays on your device."
   },
   "promises": [
     {
@@ -46,7 +46,8 @@
   ],
   "sectionOverview": "What this is",
   "overview": [
-    "engender is a journal for how your gender feels. Each day you mark it on scales you name yourself, which takes a moment and gives you a reason to stop and check in. The entries stay, so after a month or a year you can look at them together: one scale day by day, or two scales against each other. What you see there may not be what you expected.",
+    "How much euphoria today? How much dysphoria? And a week ago? The first two you can answer on the spot. A week ago is already a blur. It is hard to understand your gender when today is all you have of it.",
+    "In engender you mark it every day, on scales you name yourself. It takes a moment, and it is a reason to stop and check in. Later you take a month or a year and look at all of it at once: one scale day by day, or two scales against each other. You don't have to know who you are to start. After a few months, what you see in your entries may not be what you expected.",
     "Around the journal sit the records that otherwise end up spread across a notes app, a spreadsheet, a photo folder and a letter from a clinic: what you take, what you are trying, what is coming up and what has already happened.",
     "Nothing in it decides anything about you. You name your own scales and pick what to track, and the app draws what you put in without grading it. It never suggests a dose, never colours a number red and never tells you which way you are meant to be going.",
     "It is free software: there is no price, no plan and nothing to upsell, and the licence keeps it that way."
@@ -191,7 +192,7 @@
   ],
   "sectionAcquisition": "How to get it",
   "acquisitionIntro": "engender runs in a browser. It opens straight away, with nothing to install and no account to make.",
-  "startJournal": "Start journal",
+  "startJournal": "Start with today",
   "acquisitionAndroid": "The Android app is the same journal as an app. These are the four places to get it, and each becomes a link as it goes live. Google Play is last for a reason.",
   "channelStatus": "Not available yet.",
   "channels": [

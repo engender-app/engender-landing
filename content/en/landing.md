@@ -29,7 +29,7 @@ copy shows who wrote it by knowing things, not by claiming to.
 
 engender is the app; your journal, lowercase, is the thing it holds. The rename
 settled the old two-senses problem, and every page uses the words in those senses.
-The one fixed wording is the Start journal button, which reads as opening yours.
+The action's wording is fixed: "Start with today" since tester-report-02 ticket 06, "Start journal" before it.
 
 The app's screens say scale, so this site says scale, and never dimension or axis.
 
@@ -46,16 +46,18 @@ engender is lowercase everywhere, including at the start of a sentence
 
 **Headline**
 
-> Learn about your gender from your own entries.
+> Whether you know your gender or not, it's time to understand it.
 
-Journal tester-report-02 ticket 06 (Alicja, 2026-11-10) replaced "Your
-transition, in one place, on your own device." The lead is now what the
-entries give back, where it used to be where they are kept. The headline is
-the promise and names its source, your own entries; the supporting line
-carries the mechanism. Nothing in either has the app do the learning: the
-person marks, looks back and notices. The other candidates are on that
-ticket's sign-off page. The tester's story the lead is written from stays
-off the page until he agrees to it.
+Alicja's own line, 2026-11-11 (Journal tester-report-02 ticket 06), and not to
+be reworded. It replaced "Your transition, in one place, on your own device."
+The promise is understanding, and the person does the understanding: the app
+shows, and nothing on the page has it interpret. "Whether you know your gender
+or not" keeps a questioning reader in the sentence.
+
+An earlier draft of that ticket read "Learn about your gender from your own
+entries." She rejected it: it describes the mechanism and gives nobody a reason
+to care. Do not return to it. The tester's story the lead grew from stays off
+the page until he agrees to it.
 
 Before that, ticket 10 replaced "A transition tracker with a journal at its heart", which
 told a first-time reader what kind of thing this is before telling them what it
@@ -100,15 +102,16 @@ copy's shape.
 
 **Subheadline**
 
-> Mark how your gender feels each day, on scales you name. Then look back over a month
-> or a year, and you might notice something no single day showed you. No account, no
-> server, no price. By trans people, for trans people.
+> Mark euphoria, dysphoria and anything else on scales you name yourself. A month or a
+> year on, look back. You'll see what no single day shows.
 
-Since tester-report-02 ticket 06 the supporting line carries the mechanism
-behind the headline (scales you name, then looking back over a month or a
-year), the three things the app does not have, and who wrote it. "You might
-notice" is as far as the promise goes. The breadth list moved out of the
-line; the promise strip's third cell still carries it on the first screen.
+Since tester-report-02 ticket 06 the supporting line is the mechanism behind
+the headline and nothing else: mark, look back, see. The scales it names are
+euphoria and dysphoria (Alicja, 2026-11-11), not masculinity and femininity.
+"You'll see what no single day shows" is a fact about a month of entries, not
+a promise about what they mean. The breadth list, "No account, no server, no
+price" and "By trans people, for trans people" left the line; the tagline
+under it and the promise strip carry them on the first screen.
 
 Ticket 10's line was "Journal, stats, HRT, surgeries, tryouts, eras, voice
 practice and a summary to hand your clinician. No account, no server, no
@@ -119,14 +122,23 @@ people search with, and the marketing context says to meet them there.
 
 **Tagline**
 
-> Open source and free forever.
+> Free. No account. Everything stays on your device.
 
-Alicja's line, 2026-09-29. It sits on the field under the supporting line.
+The cue beside the action (tester-report-02 ticket 06, 2026-11-11): the three
+things a trans reader checks before pressing anything. "Device", not "phone",
+because the action opens the journal in whatever browser the reader is in. It
+replaced Alicja's 2026-09-29 line "Open source and free forever."; the first
+promise cell still says free for good and names the licence. It sits on the
+field under the supporting line.
 
 **Primary action**
 
-Start journal. It is on the page, and the Acquisition section below says what it
-links to and why nothing else on the page competes with it.
+"Start with today" (tester-report-02 ticket 06, 2026-11-11; "Start journal"
+until then). It answers the headline's "it's time", and it is true for someone
+coming back as well as someone new. It is on the page, and the Acquisition
+section below says what it links to and why nothing else on the page competes
+with it. That section and the tests still call the action Start journal, which
+is its name in `messages/*.json` (`startJournal`).
 
 ### The promise strip
 
@@ -155,11 +167,15 @@ same worry.
 
 *Gate: shipped.*
 
-> engender is a journal for how your gender feels. Each day you mark it on scales you
-> name yourself, which takes a moment and gives you a reason to stop and check in. The
-> entries stay, so after a month or a year you can look at them together: one scale
-> day by day, or two scales against each other. What you see there may not be what you
-> expected.
+> How much euphoria today? How much dysphoria? And a week ago? The first two you can
+> answer on the spot. A week ago is already a blur. It is hard to understand your
+> gender when today is all you have of it.
+>
+> In engender you mark it every day, on scales you name yourself. It takes a moment,
+> and it is a reason to stop and check in. Later you take a month or a year and look
+> at all of it at once: one scale day by day, or two scales against each other. You
+> don't have to know who you are to start. After a few months, what you see in your
+> entries may not be what you expected.
 >
 > Around the journal sit the records that otherwise end up spread across a notes app,
 > a spreadsheet, a photo folder and a letter from a clinic: what you take, what you
@@ -173,12 +189,15 @@ same worry.
 > It is free software: there is no price, no plan and nothing to upsell, and the
 > licence keeps it that way.
 
-The first paragraph answers "is this for me" with the lead
-(tester-report-02 ticket 06): marking the day is a check-in, and the entries
-can be read together later. Its two readings are Look back's Day by day and
-Two scales at once. The second keeps the records ticket 10's first paragraph
+The first two paragraphs are the problem and the mechanism
+(tester-report-02 ticket 06, round 2). The first asks the reader three
+questions and lets the third one fail, which is the case for keeping entries
+at all. The second says what the app is, that marking the day is a check-in,
+and names two readings a person can make (Look back's Day by day and Two
+scales at once). "You don't have to know who you are to start" is there for a
+questioning reader. The third keeps the records ticket 10's first paragraph
 listed. The
-third drops the one-trans-person sentence, which now sits in the strip directly
+fourth drops the one-trans-person sentence, which now sits in the strip directly
 above.
 
 ### Where it stands on privacy
@@ -536,4 +555,4 @@ address the reader in a way Polish cannot copy without picking a gender for them
 
 The description is shared by search, Open Graph and Twitter metadata.
 
-Track how your gender feels day by day and learn about it from your own entries. Also HRT, surgeries and voice practice. On your device, with no account.
+Whether you know your gender or not, it's time to understand it. Mark euphoria and dysphoria day by day, then look back. Free, no account, on your device.

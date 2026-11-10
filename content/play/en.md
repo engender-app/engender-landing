@@ -14,17 +14,17 @@ the same text byte for byte, one paragraph per line.
 
 ## Short description
 
-79 of 80 characters.
+63 of 80 characters.
 F-Droid reads this as its Summary, which must have no sentence punctuation.
 
-> Track how your gender feels day by day and learn about it from your own entries
+> Whether you know your gender or not, it's time to understand it
 
 ## Full description
 
-3972 of 4000 characters.
+3914 of 4000 characters.
 Plain lines are headings; Play shows the text without markup.
 
-> Track how your gender feels day by day, and learn about it from your own entries. Each day, mark where you are on scales you name yourself, like femininity, masculinity or dysphoria to euphoria. It takes a moment, and it's a small check-in with yourself. After a few weeks, Look back shows those days together, and you might notice something about your gender that no single day showed you.
+> Whether you know your gender or not, it's time to understand it. How much euphoria today? How much dysphoria? And a week ago? Mark it each day on scales you name yourself. It takes a moment, and it's a small check-in with yourself. After a few weeks, open Look back and see those days together. They show you what no single day can.
 >
 > engender is made by a trans person for other trans people. Use whichever parts fit your life, whether you're questioning, planning your next step or years into transition. It's free, with no ads, subscriptions or accounts to create.
 >

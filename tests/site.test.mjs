@@ -48,13 +48,13 @@ const CHANNELS = ["Aurora", "F-Droid", "Obtainium", "Google Play"];
 const ACQUISITION = {
   en: {
     heading: "How to get it",
-    action: "Start journal",
+    action: "Start with today",
     status: "Not available yet.",
     channelsPending: "each becomes a link as it goes live",
   },
   pl: {
     heading: "Skąd je wziąć",
-    action: "Otwórz dziennik",
+    action: "Zacznij od dziś",
     status: "Jeszcze niedostępne.",
     channelsPending: "odnośniki pojawią się, gdy wydania będą dostępne",
   },
@@ -1193,8 +1193,8 @@ const PRIVACY_TITLE = {
 /** The hero headline, which is the one piece of the overview copy that is not
     inside a section and so is not covered by the heading assertions. */
 const HEADLINE = {
-  en: "Learn about your gender from your own entries.",
-  pl: "Poznaj swój gender z własnych wpisów.",
+  en: "Whether you know your gender or not, it's time to understand it.",
+  pl: "Nieważne, czy znasz już swój gender. Pora go zrozumieć.",
 };
 
 /** Both languages describe encryption and reject the retired plaintext fallback. */
@@ -2109,9 +2109,9 @@ const TITLES = {
     the page a visitor asking for neither language is about to be sent to. */
 const DESCRIPTIONS = {
   "/en/":
-    "Track how your gender feels day by day and learn about it from your own entries. Also HRT, surgeries and voice practice. On your device, with no account.",
+    "Whether you know your gender or not, it's time to understand it. Mark euphoria and dysphoria day by day, then look back. Free, no account, on your device.",
   "/pl/":
-    "Trackuj swój gender dzień po dniu i dowiedz się o nim więcej z własnych wpisów. Do tego HRT, operacje i ćwiczenia głosu. Na twoim urządzeniu, bez konta.",
+    "Nieważne, czy znasz już swój gender. Pora go zrozumieć. Zaznaczaj euforię i dysforię dzień po dniu i patrz wstecz. Za darmo, bez konta, na twoim urządzeniu.",
   "/en/privacy/":
     "How engender encrypts your journal, how access and recovery keys work, what exports reveal, and what the web host sees.",
   "/pl/privacy/":
