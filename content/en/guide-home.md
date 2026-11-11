@@ -29,6 +29,11 @@ for a limited window, and explained better in the Health chapter), the
 coming-back screen, Safe Space (the Practice chapter's), and what disguise
 hides.
 
+**Rechecked 2026-11-11.** The chapter below was checked against the Journal's
+`functional-audit` branch, the 1.0.0 candidate: its catalogues, routes and
+`CHANGELOG.md`. Where the notes above describe an older app, the chapter is
+what is current.
+
 ---
 
 ## The chapter
@@ -37,8 +42,9 @@ hides.
 
 *Gate: shipped.*
 
-> Today is the first tab, and the app opens on it. It is about what is going on
-> now and what is next.
+> Today is the first tab, and the app opens on it. It shows what is going on
+> now and what is next. It greets you by name at the top, and the gear beside
+> the greeting opens Settings.
 >
 > **Live tiles.** Things running right now, such as a wear timer or a dose that
 > is due. A tile shows up when there is something to say and goes once it is
@@ -49,11 +55,11 @@ hides.
 > daily. It shows three and folds the rest, and it is not there at all when
 > nothing is coming.
 >
+> **How is today?** Five moods, from awful to great. Picking one opens a new
+> entry with that mood already chosen.
+>
 > **Notices.** Short reminders you can dismiss, such as an old backup or a
 > medication running low.
->
-> **How is today?** Five moods, from awful to great. Picking one starts
-> today's entry.
 >
 > **Pinned.** The parts of the app you keep on Today. Each row says what is
 > next when there is something, and when you last logged it otherwise.
@@ -66,7 +72,8 @@ hides.
 *Gate: shipped.*
 
 > Tap Arrange these rows to choose what is pinned and in what order, and which
-> live tiles can appear. The app never pins or moves anything by itself.
+> live tiles can appear. A new journal starts with a few rows pinned. Once you
+> have arranged them, the app never pins or moves anything by itself.
 
 ### Quick add
 

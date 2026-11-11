@@ -15,6 +15,11 @@ nad cytatem mówi, czy wolno go opublikować (docs/adr/0001).
 **Źródła i decyzje** są te same co w `content/en/guide-home.md`: rozdział
 opisuje kartę Dzisiaj według `SCREENS.md`, nie dawny ekran główny z ticketu.
 
+**Sprawdzone 2026-11-11.** Rozdział poniżej sprawdzono z gałęzią
+`functional-audit` aplikacji, czyli kandydatem na 1.0.0: z katalogami, ekranami
+i `CHANGELOG.md`. Tam, gdzie notatki powyżej opisują starszą aplikację, aktualny
+jest rozdział.
+
 ---
 
 ## Rozdział
@@ -24,22 +29,23 @@ opisuje kartę Dzisiaj według `SCREENS.md`, nie dawny ekran główny z ticketu.
 *Gate: shipped.*
 
 > Dzisiaj to pierwsza karta i od niej zaczyna się aplikacja. Pokazuje to, co
-> dzieje się teraz, i to, co przed tobą.
+> dzieje się teraz, i to, co przed tobą. Na górze wita cię po imieniu, a koło
+> zębate obok powitania otwiera Ustawienia.
 >
 > **Kafelki.** To, co dzieje się w tej chwili, na przykład sesja noszenia albo
 > dawka do przyjęcia. Kafelek pojawia się, kiedy jest o czym powiedzieć,
 > i znika, gdy sprawa jest załatwiona.
 >
-> **Nadchodzi.** Rzeczy z datą w ciągu najbliższych trzydziestu dni: wizyty,
+> **Nadchodzące.** Rzeczy z datą w ciągu najbliższych trzydziestu dni: wizyty,
 > operacje, kamienie milowe, listy do otwarcia i dawki przyjmowane rzadziej niż
 > codziennie. Widać trzy, reszta jest zwinięta, a gdy nic nie nadchodzi, sekcji
 > w ogóle nie ma.
 >
+> **Jak się czujesz?** Pięć nastrojów, od „okropnie” do „świetnie”. Wybranie
+> jednego otwiera nowy wpis z tym nastrojem już zaznaczonym.
+>
 > **Komunikaty.** Krótkie przypomnienia, które można zamknąć, na przykład że
 > kopia jest stara albo że kończy się lek.
->
-> **Jak dziś?** Pięć nastrojów, od „okropnie” do „świetnie”. Wybranie jednego
-> zaczyna dzisiejszy wpis.
 >
 > **Przypięte.** Części aplikacji, które chcesz mieć na tej karcie. Każdy wiersz
 > mówi, co jest następne, a jeśli nic, to kiedy ostatnio coś tu zapisano.
@@ -51,16 +57,17 @@ opisuje kartę Dzisiaj według `SCREENS.md`, nie dawny ekran główny z ticketu.
 
 *Gate: shipped.*
 
-> Pod „Ułóż tę listę” wybierasz, co jest przypięte i w jakiej kolejności, i
-> które kafelki mogą się pojawiać. Aplikacja sama niczego nie przypina ani nie
-> przestawia.
+> Pod „Ułóż tę listę” wybierasz, co jest przypięte i w jakiej kolejności,
+> i które kafelki mogą się pojawiać. Nowy dziennik ma na start kilka
+> przypiętych wierszy. Kiedy ułożysz je po swojemu, aplikacja sama niczego już
+> nie przypina ani nie przestawia.
 
 ### Szybki zapis
 
 *Gate: shipped.*
 
-> Przycisk na środku dolnego paska to szybki zapis. Działa na każdym ekranie i
-> rozwija wachlarz opcji: pięć nastrojów, wpis z wcześniejszego dnia, oba
+> Przycisk na środku dolnego paska to szybki zapis. Działa na każdym ekranie
+> i rozwija wachlarz opcji: pięć nastrojów, wpis z wcześniejszego dnia, oba
 > liczniki, dawkę, gdy trwa kuracja, oraz start albo koniec noszenia, jeśli
 > zapisujesz czas noszenia. Ekrany, na których coś się zapisuje, mają też własny
 > przycisk dodawania.
@@ -70,5 +77,5 @@ opisuje kartę Dzisiaj według `SCREENS.md`, nie dawny ekran główny z ticketu.
 *Gate: shipped.*
 
 > Wpis zaczęty z karty Dzisiaj, z szybkiego zapisu czy z Dziennika to ten sam
-> wpis. Dziennik pokazuje go pod jego dniem, a Statystyki liczą go razem z
-> resztą.
+> wpis. Dziennik pokazuje go pod jego dniem, a Statystyki liczą go razem
+> z resztą.

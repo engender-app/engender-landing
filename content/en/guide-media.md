@@ -26,6 +26,11 @@ Settings, so neither has a place here. The routes follow the app's groups.
 
 **Left out on purpose.** The source chips' exact grouping.
 
+**Rechecked 2026-11-11.** The chapter below was checked against the Journal's
+`functional-audit` branch, the 1.0.0 candidate: its catalogues, routes and
+`CHANGELOG.md`. Where the notes above describe an older app, the chapter is
+what is current.
+
 ---
 
 ## The chapter
@@ -34,19 +39,24 @@ Settings, so neither has a place here. The routes follow the app's groups.
 
 *Gate: shipped.*
 
-> Media is the fourth group on the Transition tab.
+> Media is the fifth group on the Transition tab.
 >
 > Photos is every photo in your journal in one dated list: from entries,
-> milestones, hair progress, hair removal, tryouts and surgery. The chips at the
-> top narrow it down by where a photo came from, and Starred shows the photos
+> milestones, hair progress, hair removal, tryouts, surgery, progress photos
+> and video notes. Once the photos come from more than one place, chips at the
+> top narrow the list by where a photo came from, and Starred shows the ones
 > you have starred.
 >
-> Pick two photos and drag the divider across them to compare the earlier one
-> with the later. For an export, choose a date range and make a collage or
-> timelapse from selected photos. You can preview it before sharing.
+> Select photos to delete them. A deleted photo goes from everywhere it
+> appears, and you can undo that for 10 seconds. Open record takes you to the
+> entry or record a photo belongs to.
 >
-> Photos stay inside the app and never go to your phone's gallery. To change or
-> delete one, open the entry or record it belongs to.
+> Make a collage or timelapse, at the bottom of the list, builds one from the
+> photos in a date range. Tap a photo to leave it out, and preview the result
+> before you save or share it. The file you save is not encrypted. To compare
+> two photos, use Progress photos in the Body group.
+>
+> Photos stay inside the app and never go to your phone's gallery.
 
 ### Documents
 
@@ -54,9 +64,10 @@ Settings, so neither has a place here. The routes follow the app's groups.
 
 > Documents holds the papers you keep, such as opinions, diagnoses, referrals,
 > court rulings and invoices. Each has a date, a title you write and the file
-> itself. You can link a document to a roadmap goal, a milestone, a surgery
-> journey or a regimen.
+> itself: a PDF or an image, up to 25 MB. You can link a document to a roadmap
+> step, a milestone, a surgery journey or a regimen.
 >
-> The index groups documents by what each paper proves. Photos and PDFs have
-> thumbnails. The app never reads what a document says, so you find one by its
+> The list groups documents by what they are linked to, with unlinked ones
+> last. Photos and PDFs have thumbnails. Share or save makes a copy that is not
+> encrypted. The app never reads what a document says, so you find one by its
 > title.

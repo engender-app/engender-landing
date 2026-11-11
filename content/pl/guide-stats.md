@@ -16,6 +16,11 @@ okresem („Początek okresu”, „Wybierz okres z listy”), więc tekst też.
 
 **Źródła i decyzje** są te same co w `content/en/guide-stats.md`.
 
+**Sprawdzone 2026-11-11.** Rozdział poniżej sprawdzono z gałęzią
+`functional-audit` aplikacji, czyli kandydatem na 1.0.0: z katalogami, ekranami
+i `CHANGELOG.md`. Tam, gdzie notatki powyżej opisują starszą aplikację, aktualny
+jest rozdział.
+
 ---
 
 ## Rozdział
@@ -25,12 +30,13 @@ okresem („Początek okresu”, „Wybierz okres z listy”), więc tekst też.
 *Gate: shipped.*
 
 > Statystyki to trzecia karta. Wszystko na niej dotyczy jednego okresu, który
-> wybierasz na osi czasu u góry: przeciągnij jej końce albo wybierz okres z
-> listy. Na osi widać też ery, kamienie milowe, kurację, próby i operacje, a
-> dotknięcie jednej z nich ustawia jej daty.
+> wybierasz na osi czasu u góry: przeciągnij jej końce albo wybierz okres
+> z listy. Na osi widać też ery, kamienie milowe, kurację, próby i operacje,
+> a dotknięcie jednej z nich ustawia jej daty.
 >
 > Tuż pod osią są podstawowe liczby z tego okresu: ile było wpisów, średnia na
-> skali i która skala ruszyła się najbardziej.
+> skali, która skala ruszyła się najbardziej i ile dni wypadło przy każdym
+> nastroju.
 
 ### Odczyty
 
@@ -41,7 +47,7 @@ okresem („Początek okresu”, „Wybierz okres z listy”), więc tekst też.
 > po prostu nie ma.
 >
 > **Dzień po dniu.** Jedna skala albo nastrój w wybranym okresie, dzień za
-> dniem.
+> dniem. Można dołożyć drugą skalę.
 >
 > **Dwie skale naraz.** Każdy dzień jako punkt na dwóch skalach. Można je
 > odtworzyć po kolei.
@@ -49,14 +55,18 @@ okresem („Początek okresu”, „Wybierz okres z listy”), więc tekst też.
 > **O czym piszesz.** Tagi, których w tym okresie używasz najczęściej, ze
 > wszystkich dni albo tylko z dobrych.
 >
-> **Tagi i to, jak poruszyła się skala.** Które tagi szły w parze ze wzrostem
-> albo spadkiem skali.
+> **Tagi a zmiany na skali.** Które tagi szły w parze ze wzrostem albo spadkiem
+> skali.
 >
 > **Mapa ciała.** Jak w tym okresie czuły się poszczególne części ciała,
 > bliżej dysforii albo euforii.
 >
 > **Porównanie okresów.** Dwa okresy obok siebie. Na początku wybrany okres stoi
 > obok równie długiego odcinka tuż przed nim.
+>
+> **Licznik.** Ile razy ktoś cię zmisgenderował, a ile razy zwrócił się do
+> ciebie dobrze, pokazane w czasie. Szybkim zapisem dodasz kolejny raz do
+> każdego z tych wyników na dowolnym ekranie.
 >
 > **Ile to kosztowało.** Wydatki zapisane w tym okresie, według obszaru i tego,
 > czy zostały zwrócone. Każda waluta ma osobną sumę.
@@ -66,20 +76,11 @@ okresem („Początek okresu”, „Wybierz okres z listy”), więc tekst też.
 *Gate: shipped.*
 
 > Pod siatką są jeszcze dwa kafelki. Każdy z nich można wyłączyć
-> w ustawieniach.
+> w Ustawieniach.
 >
-> **Bilans.** Podsumowanie zamkniętego tygodnia, miesiąca albo roku, lub
-> wybranego okresu: wpisy, nastrój, skala, która ruszyła się najbardziej, tagi,
-> kamienie milowe i zdjęcia.
+> **Bilans.** Podsumowanie zamkniętego tygodnia, miesiąca albo roku: wpisy,
+> nastrój, skala, która ruszyła się najbardziej, tagi, kamienie milowe, zdjęcia
+> i listy.
 >
-> **Wspomnienia.** Dobry dzień sprzed miesiąca, pół roku, roku albo kilku lat,
-> razem z listem napisanym lub otwartym tego dnia, jeśli taki jest. Złe dni nie
-> wracają.
-
-### Licznik
-
-*Gate: shipped.*
-
-> Licznik zbiera, ile razy ktoś cię zmisgenderował, a ile razy zwrócił się do
-> ciebie dobrze, i pokazuje oba wyniki w czasie. Szybkim zapisem dodasz kolejny
-> raz do każdego z nich na dowolnym ekranie.
+> **Wspomnienia.** Dobry dzień sprzed miesiąca, pół roku, roku albo kilku lat
+> albo dzień z listem, napisanym lub otwartym. Zły dzień bez listu nie wraca.

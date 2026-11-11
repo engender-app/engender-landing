@@ -27,25 +27,37 @@ Settings, so neither has a place here. The routes follow the app's groups.
 **Left out on purpose.** The Safe space nudge live tile, and how the
 counterevidence pool qualifies an entry beyond "a good tag or a star".
 
+**Rechecked 2026-11-11.** The chapter below was checked against the Journal's
+`functional-audit` branch, the 1.0.0 candidate: its catalogues, routes and
+`CHANGELOG.md`. Where the notes above describe an older app, the chapter is
+what is current.
+
 ---
 
 ## The chapter
+
+### Time-capsule letters
+
+*Gate: shipped.*
+
+> Support is the fourth group on the Transition tab. It holds Time-capsule
+> letters, Safe space, and Support and resources.
+>
+> Write a letter to yourself and pick the day it opens. It stays sealed until
+> then, and after that you can read it whenever you like. Letters about to open
+> show on Today, under Coming up.
 
 ### Safe space
 
 *Gate: shipped.*
 
-> Support is the third group on the Transition tab.
+> Safe space is for the moments when dysphoria is too much. At the top is
+> Things that help, your own list: who to text, which walk, which song. It
+> starts empty. Under it is box breathing.
 >
-> Safe space is for the moments when dysphoria is too much. It opens on box
-> breathing. Below that are three things:
->
-> **Good moments.** Past entries you tagged as good, or starred.
->
-> **Things that help.** Your own list: who to text, which walk, which song. It
-> starts empty.
->
-> **Support and resources.** The directory described below.
+> Below the breathing are two rows. Support and resources opens the directory
+> described below. Good moments shows past entries you tagged as good, or
+> starred, and appears once you have one.
 >
 > Opening Safe space writes nothing to your journal.
 
@@ -53,10 +65,11 @@ counterevidence pool qualifies an entry beyond "a good tag or a star".
 
 *Gate: shipped.*
 
-> Support and resources lists trans organisations and helplines, each with a
-> line on what it offers and a number or an address. It comes with the app, so
-> you can read it with no signal. The list does not include general emergency or
-> crisis numbers.
+> Support and resources lists helplines and support organisations in two
+> groups: Poland, and UK and US. Each has a line on what it offers and a number
+> or an address, and there is some reading as well. It comes with the app, so
+> you can read it with no signal. Some of the helplines are general ones, open
+> to anyone. Emergency numbers such as 112 are not on the list.
 >
-> The screen says when every entry was last checked. Tapping a number or an
+> The screen says when the entries were last checked. Tapping a number or an
 > address hands it to your phone or browser, which leaves the app.

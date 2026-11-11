@@ -32,6 +32,11 @@ first as universal and the second as "most steps", which is true under both.
 four channels as not live yet, and this chapter points there rather than naming
 a channel of its own.
 
+**Rechecked 2026-11-11.** The chapter below was checked against the Journal's
+`functional-audit` branch, the 1.0.0 candidate: its catalogues, routes and
+`CHANGELOG.md`. Where the notes above describe an older app, the chapter is
+what is current.
+
 ---
 
 ## The chapter
@@ -40,65 +45,69 @@ a channel of its own.
 
 *Gate: shipped.*
 
-> engender runs in a browser. Open it and you can start writing straight away,
-> with nothing to download.
+> engender runs in a browser or as an Android app. In a browser there is
+> nothing to download: open it and start writing. The Android app has to be
+> installed first, and the home page lists where to get it.
 >
-> To keep it on your phone or computer, use your browser's option to install it or
-> add it to your home screen. It then opens in its own window, and once it is
-> installed it opens without a network connection.
+> You can also install the browser version from your browser's menu, or add it
+> to your home screen. It then opens in its own window and works without a
+> network connection.
 >
-> There is also an Android app. It is the same journal, installed as an app, and
-> the home page lists where you will be able to get it.
->
-> Your journal lives where you start it. A journal in your phone's browser and one
-> in the Android app are two separate journals, and so are two browsers. To move
-> yours from one to the other, export a backup and choose "I already have a
-> backup" when you open the other one for the first time.
+> Your journal lives where you start it. The Android app and your phone's
+> browser hold two separate journals, and so do two browsers. To move a
+> journal, export a backup, then choose "I already have a backup" the first
+> time you open engender in the new place.
 
 ### No account
 
 *Gate: shipped.*
 
 > There is no sign-up and no engender account. Nothing you write goes to a
-> server: it is stored on your device, encrypted, and it leaves only when you
-> export it yourself.
+> server. It is stored encrypted on your device and leaves only when you export
+> it.
 >
-> So nobody can hand your journal back if the device is lost or reset. A backup
-> you exported is the only copy that survives, so export one every so often and
+> That also means nobody can hand your journal back if the device is lost or
+> reset. Only a backup you exported survives, so export one every so often and
 > keep it somewhere safe.
 
 ### Setup
 
 *Gate: shipped.*
 
-> The first time you open engender, it asks a few questions before you reach your
-> journal. There are nine steps, and you can change every answer later.
+> The first time you open engender, it asks a few questions before you reach
+> your journal. A new journal has nine steps, and you can change every answer
+> later.
 >
-> **Welcome.** What the app is. If you have a backup from before, restore it
-> from here instead of starting a new journal.
+> **Welcome.** What the app is. If you have a backup, choose "I already have a
+> backup" here instead of starting a new journal.
 >
-> **Name.** What the app should call you. It is only used to greet you.
+> **Name.** What the app should call you. It greets you with the name, and the
+> name is saved in your backups.
 >
 > **Flag.** Pick a flag. Its colours run through the whole app.
 >
 > **Scales.** Which gender scales you want to rate when you write an entry.
 >
-> **Features.** Which parts of the app to show. Anything you leave off stays
-> hidden until you turn it on in Settings.
+> **Features.** Which parts of the app to show. The everyday ones are already
+> on, and anything you leave off stays hidden until you turn it on in Settings.
 >
-> **Lock.** What opens your journal, such as a passphrase, a PIN or the
-> fingerprint your phone already asks for. Each option says what it protects
+> **Lock.** How your journal opens: with a passphrase, a PIN, your device's own
+> unlock, or without asking. Each option says what you gain and what you risk
 > before you choose it. Nobody can recover a forgotten passphrase or PIN.
 >
 > **Permissions.** What the app may ask your phone for, such as notifications,
 > each with a reason. You do not need any of it to write an entry.
 >
-> **Disguise.** Whether the app shows a different name and icon outside itself,
-> such as on your home screen and lock screen. Inside the unlocked app nothing
-> changes. It is off unless you turn it on.
+> **Disguise.** Whether the app goes by Notes, with a different icon, outside
+> itself: on your home screen and lock screen, for example. Inside the unlocked
+> app nothing changes. It is off unless you turn it on.
 >
-> **Done.** Setup ends and opens Today.
+> **Done.** Setup is over, and Go to Today opens your journal.
 >
-> Every step before the last has a way straight into the app, which keeps what
-> you have chosen so far. Most steps also have a Skip, which leaves that setting
-> as it is.
+> Most steps have Straight to the app, which ends setup early and keeps what
+> you have chosen so far, and a Skip, which leaves that one setting as it was.
+> Lock has neither, because the journal needs a way to open.
+>
+> Setup is shorter when you restore a backup. The backup already holds your
+> name, flag, scales and features, so once it is restored you are only asked
+> about the lock, permissions and disguise.

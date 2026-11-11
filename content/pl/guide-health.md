@@ -13,6 +13,11 @@ katalogu Journal, a formy zwracania się do czytelnika nie określają płci.
 
 **Źródła i decyzje** są te same co w `content/en/guide-health.md`.
 
+**Sprawdzone 2026-11-11.** Rozdział poniżej sprawdzono z gałęzią
+`functional-audit` aplikacji, czyli kandydatem na 1.0.0: z katalogami, ekranami
+i `CHANGELOG.md`. Tam, gdzie notatki powyżej opisują starszą aplikację, aktualny
+jest rozdział.
+
 ---
 
 ## Rozdział
@@ -21,55 +26,48 @@ katalogu Journal, a formy zwracania się do czytelnika nie określają płci.
 
 *Gate: shipped.*
 
-> Czwarta karta, Tranzycja, ma cztery grupy: Zdrowie, Kroki, Wsparcie i Media.
-> Wyszukiwarka u góry znajduje wiersze po nazwie i przeszukuje tekst wpisów w
-> dzienniku.
+> Czwarta karta, Tranzycja, ma pięć grup: Zdrowie, Ciało, Kroki, Wsparcie
+> i Media. Wyszukiwarka u góry znajduje wiersze po nazwie i przeszukuje tekst
+> wpisów w dzienniku.
 >
-> Zdrowie to pierwsza grupa.
+> Ten rozdział opisuje dwie pierwsze grupy, Zdrowie i Ciało.
 
-### Opieka
+### Leki
 
 *Gate: shipped.*
 
-> W Opiece są twoje leki. Każdy lek w trwającej kuracji ma swój pas. Oś czasu
-> zaznacza ostatnie pobranie krwi. Przy każdej kuracji widać dawkę i sposób
-> przyjmowania, ostatnią dawkę, termin następnej i to, ile leku zostało, razem
-> z przewidywanym dniem końca zapasu.
->
-> Z Opieki otwierają się trzy ekrany:
+> W Lekach jest wszystko o tym, co bierzesz. Każdy lek w trwającej kuracji ma
+> swój pas. Oś czasu zaznacza ostatnie pobranie krwi. Przy każdej kuracji widać
+> dawkę i sposób przyjmowania, ostatnią dawkę, termin następnej, to, ile leku
+> zostało, z przewidywanym dniem końca zapasu, oraz ile leku przyjęto przez
+> ostatnie 90 dni.
 >
 > **Kuracja.** Co bierzesz, jak i jak często, od dnia, w którym zaczynasz.
-> Kurację można wstrzymać albo zakończyć, a zostaje w historii. Po włączeniu
-> harmonogram zapisuje planowaną dawkę jako przyjętą po zakończeniu danego dnia.
-> Możesz to poprawić albo oznaczyć dawkę jako pominiętą.
+> Zmienisz ją po dotknięciu pasa. Kurację można wstrzymać albo zakończyć,
+> a zostaje w historii. Po włączeniu harmonogram zapisuje planowaną dawkę jako
+> przyjętą po zakończeniu danego dnia. Możesz to poprawić albo oznaczyć dawkę
+> jako pominiętą.
 >
 > **Dawki.** Każda dawka przyjęta, pominięta albo zmieniona, z godziną, o której
-> to było.
+> to było. Możesz je oglądać tak, jak zostały zapisane, albo na tle
+> harmonogramu.
 >
-> **Badania.** Twoje wyniki w takiej postaci, w jakiej je wpisujesz. Wyniki w
-> różnych jednostkach zostają na osobnych liniach.
+> **Wyniki badań.** Twoje wyniki w takiej postaci, w jakiej je wpisujesz.
+> „Import ze zdjęcia” odczytuje wynik z aparatu albo z galerii. Zdjęcie jest
+> odczytywane na twoim urządzeniu, a wynik zachowuje wartość i jednostkę
+> z wydruku. Wyniki w różnych jednostkach zostają na osobnych liniach.
 >
-> Zapas to liczba, którą wpisujesz od czasu do czasu. Zapisane później dawki
-> służą do oszacowania pozostałego zapasu i dnia, w którym może się skończyć.
-> Opieka daje znać, gdy zapas się kończy. Pokazuje też liczbę dni na leku w
-> wybranym okresie; pełna historia ekspozycji jest w Podsumowaniu do lekarza.
+> **Zapas leków.** Liczba, którą wpisujesz od czasu do czasu. Zapisane później
+> dawki służą do oszacowania, ile zostało i kiedy zapas może się skończyć,
+> a aplikacja daje znać, gdy się kończy.
 
-### Zauważone zmiany
+### Cykl
 
 *Gate: shipped.*
 
-> Pod lekami w Opiece są Zauważone zmiany. Wybierz zmianę z listy albo dodaj
-> własną i zaznacz datę, kiedy pojawiła się po raz pierwszy. Tu trafiają też
-> skutki uboczne, każdy z siłą od 1 do 5 i informacją, czy trwa, czy minął.
-> Bardziej prywatne kategorie, na przykład zmiany w sferze intymnej i
-> seksualnej, są na początku wyłączone.
->
-> **Postępy włosów.** Stan włosów opisany twoimi słowami, ze zdjęciami robionymi
-> z tego samego miejsca.
->
-> **Cykl.** Miesiączka, plamienie albo nic w tym miesiącu. Ta część pojawia się
-> tylko przy trwającej kuracji testosteronem albo po włączeniu Śledzenia cyklu w
-> Ustawieniach.
+> W Cyklu zapisujesz krwawienie, plamienie albo to, że w tym miesiącu nic nie
+> było. Ten wiersz pojawia się tylko przy trwającej kuracji testosteronem albo
+> po włączeniu Śledzenia cyklu w Ustawieniach.
 
 ### Operacje
 
@@ -79,8 +77,8 @@ katalogu Journal, a formy zwracania się do czytelnika nie określają płci.
 > konsultacje przed zabiegiem, data, kiedy już ją znasz, a potem licznik dni,
 > zdjęcia, notatki i twoja własna lista.
 >
-> Jeśli masz od chirurga harmonogram rozszerzania, wpisz go i zapisuj przy nim
-> sesje.
+> Rozszerzanie staje się osobnym wierszem, gdy wymaga go któraś operacja. Wpisz
+> harmonogram od chirurga i zapisuj przy nim sesje.
 
 ### Wizyty
 
@@ -98,14 +96,69 @@ katalogu Journal, a formy zwracania się do czytelnika nie określają płci.
 > masz własne notatki o osobach, do których chodzisz, a wizyta może wskazać
 > jedną z nich.
 >
-> Podsumowanie do lekarza to strona do wydrukowania: dawki, wyniki badań i
-> skutki uboczne z wybranego okresu. Widzisz ją dokładnie tak, jak się
-> wydrukuje. Otworzysz ją z Opieki albo z Wizyt.
+> Podsumowanie dla osoby lekarskiej to strona do wydrukowania, z wybranego
+> okresu. Może zawierać kurację, łączną ekspozycję, wyniki badań, skutki
+> uboczne, zauważone zmiany i zabiegi, a ty wybierasz, które sekcje się w niej
+> znajdą. Widzisz ją dokładnie tak, jak się wydrukuje. Otworzysz ją z Leków
+> albo z Wizyt.
 
-### Czego Zdrowie nie robi
+### Zdjęcia postępów
 
 *Gate: shipped.*
 
-> Nic w Zdrowiu nie ocenia, czy wynik jest dobry, czy zły, nie podpowiada dawki
-> i nie mówi, co masz zrobić. Przechowuje to, co wpisujesz, i rysuje z tego
-> wykresy.
+> Ciało to druga grupa, a Zdjęcia postępów to jej pierwszy wiersz. Są tu
+> zdjęcia robione w tej samej pozie. Wybierz dwa i przeciągnij między nimi
+> suwak, żeby porównać wcześniejsze z późniejszym.
+
+### Zauważone zmiany
+
+*Gate: shipped.*
+
+> Wybierz zmianę z listy albo dodaj własną i zaznacz datę, kiedy pojawiła się
+> po raz pierwszy. Tu trafiają też skutki uboczne, każdy z siłą od 1 do 5
+> i informacją, czy trwa, czy minął. Bardziej prywatne kategorie, na przykład
+> zmiany w sferze intymnej i seksualnej, są na początku wyłączone.
+>
+> „Co mówi literatura” pokazuje, kiedy dana zmiana zwykle się pojawia, według
+> SOC8 albo badań, na które się powołuje.
+>
+> **Zmiany włosów.** Stan włosów opisany twoimi słowami, ze zdjęciami robionymi
+> pod tym samym kątem.
+
+### Depilacja
+
+*Gate: shipped.*
+
+> Sesje elektrolizy i lasera: obszar, metoda, czas trwania, ból, jeśli chcesz go
+> zapisać, koszt, gabinet i zdjęcia. Ekran pokazuje, ile minęło od ostatniej
+> sesji.
+
+### Czas noszenia
+
+*Gate: shipped.*
+
+> Dla bindera, tuckingu i ucisku. Włącz stoper albo wpisz sesję później,
+> z notatką o wygodzie lub bólu. Możesz ustawić przypomnienie po wybranej
+> liczbie godzin. Przy binderze po ośmiu godzinach pojawia się dyskretny sygnał,
+> który można wyłączyć. Ekran pokazuje też godziny noszenia w każdym tygodniu.
+>
+> Na tym samym ekranie są zasady bezpiecznego noszenia bindera i ich źródła.
+
+### Głos
+
+*Gate: shipped.*
+
+> Głos ma cztery zakładki: Próbka, Ćwicz, Porównaj i Nagrania.
+>
+> Próbka to nagranie robione za każdym razem tak samo: czytasz ten sam tekst
+> i przeciągasz te same trzy samogłoski. Dzięki temu nagrania sprzed miesięcy
+> da się porównać. Próbka pokazuje na przykład wysokość głosu i tempo mówienia,
+> a Porównaj zestawia dwie próbki obok siebie. Głosu nikt tu nie ocenia.
+
+### Czego Zdrowie i Ciało nie robią
+
+*Gate: shipped.*
+
+> Nic w tych dwóch grupach nie ocenia, czy wynik jest dobry, czy zły, nie
+> podpowiada dawki i nie mówi, co masz zrobić. Przechowują to, co wpisujesz,
+> i rysują z tego wykresy.

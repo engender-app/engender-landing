@@ -29,16 +29,48 @@ Settings, so neither has a place here. The routes follow the app's groups.
 quality floor, the reasons tucking and compression get no duration cue (ADR-0064),
 and the roadmap's individual Polish goals, which belong to the app.
 
+**Rechecked 2026-11-11.** The chapter below was checked against the Journal's
+`functional-audit` branch, the 1.0.0 candidate: its catalogues, routes and
+`CHANGELOG.md`. Where the notes above describe an older app, the chapter is
+what is current.
+
 ---
 
 ## The chapter
+
+### The roadmap
+
+*Gate: shipped.*
+
+> Steps is the third group on the Transition tab. It holds the transition
+> roadmap, milestones and tryouts.
+>
+> The roadmap comes with two groups of steps, each behind its own switch.
+> Social and presentation has eight steps, such as telling family, your name
+> and pronouns, clothes and voice. Polish legal steps holds the Polish legal
+> procedure for changing the sex marker, and is on by default when the app is
+> in Polish.
+>
+> After the ruling, Name and document changes lists the institutions to update,
+> such as PESEL, your ID card, passport, bank and employer, and you can add
+> your own. Each one records when you submitted the change, how long you have
+> been waiting and when it was done, with the documents filed under it.
+>
+> Steps can be done in any order. Tick a step once it is done, or mark it not
+> my path. You can hide a step you do not need and bring it back later. With
+> Offer a milestone switched on, ticking a step asks whether to add it to your
+> milestones.
+>
+> You can add categories of your own with steps in them, whether the built-in
+> groups are on or not, and file documents against a step.
+>
+> The roadmap describes the procedure and never says what to do in your own
+> case. It shows the date its content was last checked against its sources.
 
 ### Milestones and eras
 
 *Gate: shipped.*
 
-> Steps is the second group on the Transition tab.
->
 > A milestone is a day that mattered, or will. One still ahead counts down, and
 > one behind you comes back each year as an anniversary. You can choose whether
 > it is celebrated when the day comes.
@@ -54,63 +86,5 @@ and the roadmap's individual Polish goals, which belong to the app.
 > A tryout is something you are trying: a name, pronouns, a style or makeup. It
 > has a start date and, once you stop, an end date. Note how it feels as often
 > as you like, on the tryout itself or in an entry, and add photos. Several can
-> run at once.
-
-### Voice
-
-*Gate: shipped.*
-
-> Practice, the voice benchmark and your recordings share one screen.
->
-> A benchmark is a take made the same way every time: the same passage read and
-> the same vowel held. That keeps takes months apart comparable. It shows
-> figures such as pitch and speaking rate next to your own earlier takes, and
-> gives no verdict on your voice.
-
-### Wear time
-
-*Gate: shipped.*
-
-> Wear time is for binder, tucking and compression wear. Start a timer, or fill
-> in a session afterwards, with a note on comfort or pain. You can set a
-> reminder for a number of hours you choose. With a binder, a quiet cue appears
-> at eight hours, and you can turn it off.
->
-> The screen also shows binder safety guidance and its sources.
-
-### Hair removal
-
-*Gate: shipped.*
-
-> Hair removal logs electrolysis and laser sessions, with the area, method, how
-> long it took, pain if you want to note it, cost, provider and photos. The
-> screen shows how long it has been since the last one.
-
-### The roadmap
-
-*Gate: shipped.*
-
-> The transition roadmap holds the steps of the Polish legal procedure for
-> changing the sex marker, behind a Polish legal steps switch that is on by
-> default when the app is in Polish. The steps are roadmap goals. After the
-> ruling, Name and document changes lists the institutions to update, such as
-> PESEL, your ID card, passport, bank and employer. Each one records when you
-> submitted the change, how long you have been waiting and when it was done,
-> with the documents filed under it.
->
-> Goals can be done in any order. Tick a goal once it is done, or mark it not my
-> path. You can hide a goal you do not need and bring it back later.
->
-> You can add categories of your own with goals in them, whether the Polish
-> steps are on or not, and file documents against a goal.
->
-> The roadmap describes the procedure and never says what to do in your own
-> case. It shows the date its content was last checked against its sources.
-
-### Time-capsule letters
-
-*Gate: shipped.*
-
-> Write a letter to yourself and pick the day it opens. It stays sealed until
-> then, and after that you can read it whenever you like. Letters about to open
-> show on Today, under Coming up.
+> run at once. If one sticks, you can adopt it: the tryout ends, and a name you
+> adopt can become the name the app calls you.

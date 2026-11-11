@@ -13,6 +13,11 @@ katalogu Journal, a formy zwracania się do czytelnika nie określają płci.
 
 **Źródła i decyzje** są te same co w `content/en/guide-media.md`.
 
+**Sprawdzone 2026-11-11.** Rozdział poniżej sprawdzono z gałęzią
+`functional-audit` aplikacji, czyli kandydatem na 1.0.0: z katalogami, ekranami
+i `CHANGELOG.md`. Tam, gdzie notatki powyżej opisują starszą aplikację, aktualny
+jest rozdział.
+
 ---
 
 ## Rozdział
@@ -21,30 +26,35 @@ katalogu Journal, a formy zwracania się do czytelnika nie określają płci.
 
 *Gate: shipped.*
 
-> Media to czwarta grupa na karcie Tranzycja.
+> Media to piąta grupa na karcie Tranzycja.
 >
-> Zdjęcia to wszystkie fotografie z dziennika na jednej liście według dat: z
-> wpisów, kamieni milowych, postępów włosów, depilacji, prób i operacji.
-> Przyciski u góry zawężają listę do jednego źródła, a Ulubione pokazują zdjęcia
-> oznaczone gwiazdką.
+> W Zdjęciach są wszystkie zdjęcia z dziennika na jednej liście według dat:
+> z wpisów, kamieni milowych, zmian włosów, depilacji, prób, operacji, zdjęć
+> postępów i notatek wideo. Gdy zdjęcia pochodzą z więcej niż jednego miejsca,
+> przyciski u góry zawężają listę do jednego źródła, a Ulubione pokazują
+> zdjęcia oznaczone gwiazdką.
 >
-> Wybierz dwa zdjęcia i przeciągnij między nimi suwak, żeby porównać
-> wcześniejsze z późniejszym. Do eksportu wybierz okres i zdjęcia, a potem
-> zrób z nich kolaż albo film poklatkowy. Przed udostępnieniem zobaczysz
-> podgląd.
+> Zaznacz zdjęcia, żeby je usunąć. Usunięte zdjęcie znika ze wszystkich miejsc,
+> w których jest, a przez 10 sekund możesz to cofnąć. „Otwórz zapis” prowadzi
+> do wpisu lub zapisu, do którego zdjęcie należy.
 >
-> Zdjęcia zostają w aplikacji i nigdy nie trafiają do galerii telefonu. Żeby
-> zmienić albo usunąć zdjęcie, otwórz wpis lub zapis, do którego należy.
+> „Zrób kolaż albo film poklatkowy” na dole listy składa go ze zdjęć
+> z wybranego okresu. Dotknij zdjęcia, żeby je pominąć, a zanim zapiszesz albo
+> udostępnisz wynik, zobaczysz podgląd. Zapisany plik nie jest zaszyfrowany.
+> Żeby porównać dwa zdjęcia, zajrzyj do Zdjęć postępów w grupie Ciało.
+>
+> Zdjęcia zostają w aplikacji i nigdy nie trafiają do galerii telefonu.
 
 ### Dokumenty
 
 *Gate: shipped.*
 
 > Papiery, które przechowujesz: opinie, diagnozy, skierowania, postanowienia
-> sądu, faktury. Każdy ma datę, tytuł, który wpisujesz, i sam plik. Dokument
-> można powiązać z celem na mapie tranzycji, kamieniem milowym, operacją albo
-> kuracją.
+> sądu, faktury. Każdy ma datę, tytuł, który wpisujesz, i sam plik: PDF albo
+> obraz, do 25 MB. Dokument można powiązać z krokiem z mapy tranzycji,
+> kamieniem milowym, operacją albo kuracją.
 >
-> Spis grupuje dokumenty według tego, co potwierdzają. Przy zdjęciach i plikach
-> PDF są miniatury. Aplikacja nigdy nie czyta treści dokumentów, więc szukasz
-> ich po tytule.
+> Lista grupuje dokumenty według tego, z czym są powiązane, a te bez
+> powiązania są na końcu. Przy zdjęciach i plikach PDF są miniatury.
+> „Udostępnij albo zapisz” tworzy kopię, która nie jest zaszyfrowana.
+> Aplikacja nigdy nie czyta treści dokumentów, więc szukasz ich po tytule.

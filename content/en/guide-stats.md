@@ -26,6 +26,11 @@ day" standing where the trend chart was.
 tally mark on a day or a chart rather than from the grid, so the chapter does
 not say where it opens from.
 
+**Rechecked 2026-11-11.** The chapter below was checked against the Journal's
+`functional-audit` branch, the 1.0.0 candidate: its catalogues, routes and
+`CHANGELOG.md`. Where the notes above describe an older app, the chapter is
+what is current.
+
 ---
 
 ## The chapter
@@ -40,7 +45,8 @@ not say where it opens from.
 > tryouts and surgeries, and tapping one picks its dates.
 >
 > Just under the timeline are the plain facts for that stretch: how many
-> entries, the average on a scale, and which scale moved the furthest.
+> entries, the average on a scale, which scale moved the furthest, and how
+> many days fell at each mood.
 
 ### Readings
 
@@ -50,7 +56,8 @@ not say where it opens from.
 > and tapping it opens the full reading. A tile with nothing to show for the
 > stretch is left out.
 >
-> **Day by day.** One scale or your mood across the stretch, day after day.
+> **Day by day.** One scale or your mood across the stretch, day after day. You
+> can add a second scale to it.
 >
 > **Two scales at once.** Each day as a point on two scales, which you can play
 > through in order.
@@ -64,8 +71,11 @@ not say where it opens from.
 > **Body map.** How each part of the body has felt over the stretch, towards
 > dysphoria or towards euphoria.
 >
-> **Compare.** Two periods side by side. It starts with your stretch against the
-> same length of time just before it.
+> **Compare periods.** Two periods side by side. It starts with your stretch
+> against the same length of time just before it.
+>
+> **Tally.** How often you were misgendered and how often people got it right,
+> over time. Quick add adds to either count from any screen.
 >
 > **What it cost.** What you recorded spending in the stretch, by area and by
 > whether it was refunded. Each currency keeps its own total.
@@ -76,17 +86,9 @@ not say where it opens from.
 
 > Two more tiles sit under the grid. You can turn either one off in Settings.
 >
-> **Wrapped.** A look back at a finished week, month or year, or at the stretch
-> you picked: entries, mood, the scale that moved furthest, tags, milestones and
-> photos.
+> **Wrapped.** A look back at a finished week, month or year: entries, mood,
+> the scale that moved furthest, tags, milestones, photos and letters.
 >
 > **On this day.** A good day from a month, six months, a year or more years
-> ago, with any letter written or opened on it. Days that went badly are not
-> brought back.
-
-### Tally
-
-*Gate: shipped.*
-
-> Tally counts how often you were misgendered and how often people got it right,
-> and shows both over time. Quick add adds to either count from anywhere.
+> ago, or a day with a letter written or opened on it. A day that went badly
+> and has no letter is not brought back.

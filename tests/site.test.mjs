@@ -1480,7 +1480,7 @@ const GUIDE_TITLES = {
     home: "Today",
     calendar: "Journal",
     stats: "Look back",
-    health: "Health",
+    health: "Health and body",
     steps: "Steps",
     support: "Support",
     media: "Media",
@@ -1493,7 +1493,7 @@ const GUIDE_TITLES = {
     home: "Dzisiaj",
     calendar: "Dziennik",
     stats: "Statystyki",
-    health: "Zdrowie",
+    health: "Zdrowie i ciało",
     steps: "Kroki",
     support: "Wsparcie",
     media: "Media",
@@ -1796,7 +1796,7 @@ const TAB_TOUR = {
   },
   pl: {
     home: [
-      "Kafelki", "Nadchodzi", "Komunikaty", "Jak dziś?", "Przypięte", "Na początek",
+      "Kafelki", "Nadchodzące", "Komunikaty", "Jak się czujesz?", "Przypięte", "Na początek",
       "Ułóż tę listę", "szybki zapis",
     ],
     calendar: [
@@ -1805,7 +1805,7 @@ const TAB_TOUR = {
     ],
     stats: [
       "osi czasu", "Dzień po dniu", "Dwie skale naraz", "O czym piszesz",
-      "Tagi i to, jak poruszyła się skala", "Mapa ciała", "Porównanie okresów",
+      "Tagi a zmiany na skali", "Mapa ciała", "Porównanie okresów",
       "Ile to kosztowało", "Bilans", "Wspomnienia", "Licznik",
     ],
   },
@@ -1848,7 +1848,8 @@ for (const locale of ["en", "pl"]) {
   }
 }
 
-/** What each of the Transition tab's four groups holds, as the Journal's
+/** What each of the Transition tab's five groups holds, in four chapters (Health
+    and Body share one), as the Journal's
     SCREENS.md gives it ("The Transition door's four groups" and the Health,
     Steps, Support and Media tables, plus what /care and /care/changes host),
     in the words each chapter uses for it. Steps also carries CONTEXT.md's
@@ -1857,33 +1858,39 @@ for (const locale of ["en", "pl"]) {
 const GROUP_TOUR = {
   en: {
     health: [
-      "Care", "Regimen", "Doses", "Labs", "lab draw", "Stock", "run-out day", "medication-days", "exposure history",
-      "Changes you've noticed", "Side effects", "Hair progress", "Cycle events", "Cycle tracking",
-      "Surgery journey", "dilation", "Appointments", "What to raise",
+      "Meds", "Regimen", "Dose log", "Lab results", "lab draw", "Medication stock", "run-out day",
+      "Cycle", "Cycle tracking", "Surgery journey", "Dilation", "Appointments", "What to raise",
       "In the room", "Behind you", "Waiting lists", "Who you see", "clinician visit summary",
+      "Progress photos", "Changes you've noticed", "Side effects", "Hair progress",
+      "Hair removal", "Wear log", "Voice", "Benchmark",
     ],
     steps: [
-      "milestone", "Eras", "tryout", "voice benchmark", "Wear time", "Hair removal",
-      "transition roadmap", "roadmap goals", "Polish legal steps", "Name and document changes",
-      "not my path", "Time-capsule letters",
+      "transition roadmap", "Social and presentation", "Polish legal steps",
+      "Name and document changes", "not my path", "milestone", "Eras", "tryout",
     ],
-    support: ["Safe space", "box breathing", "Good moments", "Things that help", "Support and resources"],
-    media: ["Photos", "hair progress", "compare", "collage", "timelapse", "preview", "Documents", "what each paper proves", "PDFs", "thumbnails"],
+    support: [
+      "Time-capsule letters", "Safe space", "box breathing", "Good moments", "Things that help",
+      "Support and resources",
+    ],
+    media: ["Photos", "hair progress", "Starred", "collage", "timelapse", "preview", "Documents", "PDFs", "thumbnails"],
   },
   pl: {
     health: [
-      "Opieka", "Kuracja", "Dawki", "Badania", "pobranie krwi", "Zapas", "dni na leku", "historia ekspozycji",
-      "Zauważone zmiany", "skutki uboczne", "Postępy włosów", "Cykl", "Śledzenia cyklu",
-      "Operacje", "rozszerzania", "Wizyty", "Co poruszyć",
-      "Na wizycie", "Za tobą", "Kolejkach", "Do kogo chodzisz", "Podsumowanie do lekarza",
+      "Leki", "Kuracja", "Dawki", "Wyniki badań", "pobranie krwi", "Zapas leków",
+      "Cykl", "Śledzenia cyklu", "Operacje", "Rozszerzanie", "Wizyty", "Co poruszyć",
+      "Na wizycie", "Za tobą", "Kolejkach", "Do kogo chodzisz", "Podsumowanie dla osoby lekarskiej",
+      "Zdjęcia postępów", "Zauważone zmiany", "skutki uboczne", "Zmiany włosów",
+      "Depilacja", "Czas noszenia", "Głos", "Próbka",
     ],
     steps: [
-      "Kamień milowy", "Ery", "Próba", "Wzorzec", "Czas noszenia", "Depilacja",
-      "Mapa tranzycji", "cele", "Kroki prawne w Polsce", "Zmiana danych w instytucjach",
-      "nie moja droga", "Listy w kapsule czasu",
+      "Mapa tranzycji", "Społeczne i prezentacyjne", "Kroki prawne w Polsce",
+      "Zmiana danych w instytucjach", "nie moja droga", "Kamień milowy", "Ery", "Próba",
     ],
-    support: ["Bezpieczna przestrzeń", "oddechu pudełkowego", "Dobre chwile", "Co pomaga", "Wsparcie i kontakty"],
-    media: ["Zdjęcia", "postępów włosów", "porównać", "kolaż", "film poklatkowy", "podgląd", "Dokumenty", "co potwierdzają", "PDF", "miniatury"],
+    support: [
+      "Listy w kapsule czasu", "Bezpieczna przestrzeń", "oddechu pudełkowego", "Dobre chwile",
+      "Co pomaga", "Wsparcie i kontakty",
+    ],
+    media: ["Zdjęcia", "zmian włosów", "Ulubione", "kolaż", "film poklatkowy", "podgląd", "Dokumenty", "PDF", "miniatury"],
   },
 };
 
@@ -1925,8 +1932,8 @@ for (const locale of ["en", "pl"]) {
 }
 
 const SETTINGS_SECTIONS = {
-  en: ["Appearance", "Tracking", "Privacy and data"],
-  pl: ["Wygląd", "Śledzenie", "Prywatność i dane"],
+  en: ["Appearance", "Tracking", "Reminders & prompts", "Your lists", "Privacy & data"],
+  pl: ["Wygląd", "Śledzenie", "Przypomnienia i podpowiedzi", "Twoje listy", "Prywatność i dane"],
 };
 
 const PRIVACY_CLAIMS = {
@@ -1938,12 +1945,12 @@ const PRIVACY_CLAIMS = {
     "WebAuthn PRF",
     "Android Keystore",
     "25 characters",
-    "never touch a temporary file",
+    "unencrypted temporary file",
     "INTERNET permission",
     "no network sockets",
     "POST_NOTIFICATIONS",
     "AES-256-GCM",
-    "scheduled on Android",
+    "Auto-export",
     "GDIARY",
     "single-event .ics calendar files",
     "private vulnerability reporting",
@@ -1956,12 +1963,12 @@ const PRIVACY_CLAIMS = {
     "WebAuthn PRF",
     "Android Keystore",
     "Ma 25 znaków",
-    "nie trafia do pliku tymczasowego",
+    "niezaszyfrowanego pliku tymczasowego",
     "uprawnienie INTERNET",
     "połączeń sieciowych",
     "POST_NOTIFICATIONS",
     "AES-256-GCM",
-    "według planu na Androidzie",
+    "Eksport automatyczny",
     "GDIARY",
     "pliki kalendarza .ics",
     "prywatny formularz podatności",
@@ -2004,8 +2011,8 @@ for (const locale of ["en", "pl"]) {
       const text = (await article.innerText()).replace(/\s+/g, " ");
       const headings = await article.locator("h2").allInnerTexts();
       assert.deepEqual(headings, {
-        en: ["Where the journal lives", "Encryption and access", "Android and network access", "Archives and other exports", "Security reports"],
-        pl: ["Gdzie jest dziennik", "Szyfrowanie i dostęp", "Android i połączenie z siecią", "Archiwa i pozostałe eksporty", "Zgłoszenia bezpieczeństwa"],
+        en: ["Where the journal lives", "Encryption and access", "What other people can see", "Android and network access", "Archives and other exports", "Deleting everything", "Security reports"],
+        pl: ["Gdzie jest dziennik", "Szyfrowanie i dostęp", "Co widzą inni", "Android i połączenie z siecią", "Archiwa i pozostałe eksporty", "Usuwanie wszystkiego", "Zgłoszenia bezpieczeństwa"],
       }[locale]);
       for (const claim of PRIVACY_CLAIMS[locale]) {
         assert.ok(text.includes(claim), `the chapter does not cover the source claim: ${claim}`);
@@ -2039,19 +2046,19 @@ for (const locale of ["en", "pl"]) {
     }
   });
 
-  test(`${locale} guide/contributing: three on-ramps and Polish pack only`, async () => {
+  test(`${locale} guide/contributing: four on-ramps and Polish pack only`, async () => {
     const { context, page } = await visitor({ javaScriptEnabled: false });
     try {
       await page.goto(`${base}${guidePath(locale, "contributing")}`);
       const article = page.locator("main article");
       assert.deepEqual(await article.locator("h2").allInnerTexts(), {
-        en: ["Code", "Country packs", "Translations"],
-        pl: ["Kod", "Pakiety krajowe", "Tłumaczenia"],
+        en: ["Reporting a problem", "Code", "Country packs", "Translations"],
+        pl: ["Zgłaszanie problemów", "Kod", "Pakiety krajowe", "Tłumaczenia"],
       }[locale]);
       const text = (await article.innerText()).replace(/\s+/g, " ");
       assert.ok(text.includes(locale === "en" ? "Only the Polish pack ships today." : "Na razie dostępny jest tylko pakiet polski."));
       const shipped = copyBlocks(locale, "guide-contributing").filter((block) => block.publishes);
-      assert.equal(shipped.length, 3);
+      assert.equal(shipped.length, 4);
       for (const block of shipped) {
         for (const paragraph of block.paragraphs) {
           assert.ok(text.includes(paragraph), `shipped copy is missing or reworded: ${paragraph.slice(0, 70)}`);

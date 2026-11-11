@@ -327,30 +327,29 @@
           {
             "heading": "Instalacja",
             "paragraphs": [
-              "engender działa w przeglądarce. Otwierasz go i od razu możesz pisać, niczego nie pobierając.",
-              "Jeśli chcesz mieć go pod ręką na telefonie albo komputerze, zainstaluj go z menu przeglądarki albo dodaj do ekranu głównego. Otwiera się wtedy we własnym oknie, a po instalacji działa też bez internetu.",
-              "Jest też aplikacja na Androida. To ten sam dziennik, tylko zainstalowany jako aplikacja. Na stronie głównej znajdziesz miejsca, z których będzie można ją pobrać.",
-              "Dziennik zostaje tam, gdzie go zaczniesz. Dziennik w przeglądarce telefonu i ten w aplikacji na Androida to dwa osobne dzienniki, tak samo jak dzienniki w dwóch różnych przeglądarkach. Żeby przenieść swój, wyeksportuj kopię, a przy pierwszym uruchomieniu w nowym miejscu wybierz „Mam już kopię”."
+              "engender działa w przeglądarce albo jako aplikacja na Androida. W przeglądarce niczego nie pobierasz: otwierasz dziennik i od razu możesz pisać. Aplikację na Androida trzeba najpierw zainstalować, a skąd ją pobrać, przeczytasz na stronie głównej.",
+              "Wersję z przeglądarki też możesz zainstalować, z menu przeglądarki albo dodając ją do ekranu głównego. Otwiera się wtedy we własnym oknie i działa bez internetu.",
+              "Dziennik zostaje tam, gdzie go zaczniesz. Aplikacja na Androida i przeglądarka w telefonie mają dwa osobne dzienniki, tak samo jak dwie różne przeglądarki. Żeby przenieść dziennik, wyeksportuj kopię zapasową, a przy pierwszym uruchomieniu engender w nowym miejscu wybierz „Mam już kopię zapasową”."
             ]
           },
           {
             "heading": "Bez konta",
             "paragraphs": [
-              "Nie ma rejestracji ani konta w engender. Nic, co piszesz, nie trafia na serwer. Wpisy zostają zaszyfrowane na twoim urządzeniu i opuszczają je tylko wtedy, gdy je wyeksportujesz.",
+              "Nie ma rejestracji ani konta w engender. Nic, co piszesz, nie trafia na serwer. Wpisy są zaszyfrowane na twoim urządzeniu i opuszczają je tylko wtedy, gdy je wyeksportujesz.",
               "Dlatego nikt nie odda ci dziennika, jeśli zgubisz urządzenie albo je wyczyścisz. Przetrwa tylko kopia, którą wcześniej wyeksportujesz, więc rób ją co jakiś czas i trzymaj w bezpiecznym miejscu."
             ]
           },
           {
             "heading": "Pierwsze uruchomienie",
             "paragraphs": [
-              "Przy pierwszym otwarciu engender zadaje kilka pytań, zanim zobaczysz dziennik. Kroków jest dziewięć, a każdą odpowiedź możesz później zmienić.",
+              "Przy pierwszym otwarciu engender zadaje kilka pytań, zanim zobaczysz dziennik. W nowym dzienniku kroków jest dziewięć, a każdą odpowiedź możesz później zmienić.",
               {
                 "lead": "Powitanie.",
-                "rest": " Krótko o tym, czym jest aplikacja. Jeśli masz kopię z wcześniej, możesz ją tu przywrócić zamiast zaczynać nowy dziennik."
+                "rest": " Krótko o tym, czym jest aplikacja. Jeśli masz kopię zapasową, wybierz tu „Mam już kopię zapasową” zamiast zaczynać nowy dziennik."
               },
               {
                 "lead": "Imię.",
-                "rest": " Jak aplikacja ma się do ciebie zwracać. Służy tylko do powitania."
+                "rest": " Jak aplikacja ma się do ciebie zwracać. Będzie cię tak witać, a imię trafia też do kopii zapasowych."
               },
               {
                 "lead": "Flaga.",
@@ -362,11 +361,11 @@
               },
               {
                 "lead": "Funkcje.",
-                "rest": " Które części aplikacji mają być widoczne. To, czego nie zaznaczysz, zostaje ukryte, dopóki nie włączysz tego w Ustawieniach."
+                "rest": " Które części aplikacji mają być widoczne. Te najczęściej używane są już włączone, a to, co zostawisz wyłączone, będzie ukryte, dopóki nie włączysz tego w Ustawieniach."
               },
               {
                 "lead": "Blokada.",
-                "rest": " Co otwiera dziennik: na przykład hasło, PIN albo odcisk palca, o który telefon i tak pyta. Każda opcja mówi, przed czym chroni, zanim ją wybierzesz. Zapomnianego hasła ani PIN-u nikt nie odzyska."
+                "rest": " Jak otwiera się dziennik: hasłem, PIN-em, blokadą urządzenia albo bez pytania. Przy każdej opcji jest napisane, co zyskujesz i czym ryzykujesz, zanim ją wybierzesz. Zapomnianego hasła ani PIN-u nikt nie odzyska."
               },
               {
                 "lead": "Uprawnienia.",
@@ -374,13 +373,14 @@
               },
               {
                 "lead": "Kamuflaż.",
-                "rest": " Czy poza aplikacją, na przykład na ekranie głównym telefonu i na ekranie blokady, ma nosić inną nazwę i ikonę. Po odblokowaniu dziennika nic się nie zmienia. Jest wyłączony, dopóki go nie włączysz."
+                "rest": " Czy poza aplikacją, na przykład na ekranie głównym telefonu i na ekranie blokady, ma się nazywać Notatki i mieć inną ikonę. Po odblokowaniu dziennika nic się nie zmienia. Jest wyłączony, dopóki go nie włączysz."
               },
               {
                 "lead": "Gotowe.",
-                "rest": " Konfiguracja się kończy, a aplikacja otwiera ekran Dziś."
+                "rest": " Konfiguracja skończona, a „Otwórz Dziś” przenosi cię do dziennika."
               },
-              "Na każdym kroku oprócz ostatniego możesz przejść od razu do aplikacji. Zapisze się wtedy to, co zdążysz ustawić. Większość kroków ma też przycisk Pomiń, który zostawia dane ustawienie bez zmian."
+              "Większość kroków ma przycisk „Od razu do aplikacji”, który kończy konfigurację wcześniej i zachowuje to, co już wybrano, oraz „Pomiń”, który zostawia jedno ustawienie bez zmian. Blokada nie ma żadnego z nich, bo dziennik musi się jakoś otwierać.",
+              "Po przywróceniu kopii zapasowej konfiguracja jest krótsza. Imię, flaga, skale i funkcje są już w kopii, więc aplikacja pyta tylko o blokadę, uprawnienia i kamuflaż."
             ],
             "images": [
               {
@@ -402,22 +402,22 @@
           {
             "heading": "Co widać na karcie Dzisiaj",
             "paragraphs": [
-              "Dzisiaj to pierwsza karta i od niej zaczyna się aplikacja. Pokazuje to, co dzieje się teraz, i to, co przed tobą.",
+              "Dzisiaj to pierwsza karta i od niej zaczyna się aplikacja. Pokazuje to, co dzieje się teraz, i to, co przed tobą. Na górze wita cię po imieniu, a koło zębate obok powitania otwiera Ustawienia.",
               {
                 "lead": "Kafelki.",
                 "rest": " To, co dzieje się w tej chwili, na przykład sesja noszenia albo dawka do przyjęcia. Kafelek pojawia się, kiedy jest o czym powiedzieć, i znika, gdy sprawa jest załatwiona."
               },
               {
-                "lead": "Nadchodzi.",
+                "lead": "Nadchodzące.",
                 "rest": " Rzeczy z datą w ciągu najbliższych trzydziestu dni: wizyty, operacje, kamienie milowe, listy do otwarcia i dawki przyjmowane rzadziej niż codziennie. Widać trzy, reszta jest zwinięta, a gdy nic nie nadchodzi, sekcji w ogóle nie ma."
+              },
+              {
+                "lead": "Jak się czujesz?",
+                "rest": " Pięć nastrojów, od „okropnie” do „świetnie”. Wybranie jednego otwiera nowy wpis z tym nastrojem już zaznaczonym."
               },
               {
                 "lead": "Komunikaty.",
                 "rest": " Krótkie przypomnienia, które można zamknąć, na przykład że kopia jest stara albo że kończy się lek."
-              },
-              {
-                "lead": "Jak dziś?",
-                "rest": " Pięć nastrojów, od „okropnie” do „świetnie”. Wybranie jednego zaczyna dzisiejszy wpis."
               },
               {
                 "lead": "Przypięte.",
@@ -435,7 +435,7 @@
           {
             "heading": "Układanie karty",
             "paragraphs": [
-              "Pod „Ułóż tę listę” wybierasz, co jest przypięte i w jakiej kolejności, i które kafelki mogą się pojawiać. Aplikacja sama niczego nie przypina ani nie przestawia."
+              "Pod „Ułóż tę listę” wybierasz, co jest przypięte i w jakiej kolejności, i które kafelki mogą się pojawiać. Nowy dziennik ma na start kilka przypiętych wierszy. Kiedy ułożysz je po swojemu, aplikacja sama niczego już nie przypina ani nie przestawia."
             ]
           },
           {
@@ -459,7 +459,7 @@
           {
             "heading": "Miesiąc",
             "paragraphs": [
-              "Dziennik to druga karta i są na niej twoje dni. Otwiera się na miesiącu w formie mapy cieplnej. Dni z wpisami są wypełnione kolorem według nastroju albo, jeśli to przełączysz, według jednej ze skal genderowych. Głębszy kolor oznacza wyższą wartość. Żaden kolor nie znaczy „dobrze” ani „źle”.",
+              "Dziennik to druga karta i są na niej twoje dni. Na górze jest miesiąc, zwinięty do paska. „Pokaż miesiąc” rozwija go do mapy cieplnej: dni z wpisami są wypełnione kolorem według nastroju albo, jeśli to przełączysz, według jednej ze skal genderowych. Głębszy kolor oznacza wyższą wartość. Żaden kolor nie znaczy „dobrze” ani „źle”.",
               "Pod miesiącem są ostatnie wpisy, a przycisk pod nimi dokłada po pięć kolejnych dni."
             ],
             "images": [
@@ -472,7 +472,7 @@
           {
             "heading": "Jeden dzień",
             "paragraphs": [
-              "Dotknij dnia, żeby zobaczyć wszystko, co wtedy zapisano. Wpisów w jednym dniu może być dowolnie dużo. Małe oznaczenie na dniu, który jeszcze nie nadszedł, znaczy, że coś jest zaplanowane, na przykład dawka albo wizyta. Po dotknięciu widać co."
+              "Dotknij dnia, żeby zobaczyć wszystko, co wtedy zapisano. Wpisów w jednym dniu może być dowolnie dużo, a dotknięcie pustego dnia z przeszłości zaczyna wpis z tego dnia. Małe oznaczenie na dniu, który jeszcze nie nadszedł, znaczy, że coś jest zaplanowane, na przykład wizyta albo list do otwarcia. Po dotknięciu widać co."
             ],
             "images": [
               {
@@ -484,7 +484,8 @@
           {
             "heading": "Wyszukiwanie",
             "paragraphs": [
-              "Ikona lupy na górze karty Dziennik otwiera wyszukiwanie. Zanim cokolwiek wpiszesz, podpowiada najczęściej używane tagi i ostatnie wyszukiwania. Filtry zawężają wyniki do tagu, nastroju, trybu, obszaru ciała, zakresu na jednej ze skal, zakresu dat albo ulubionych.",
+              "Ikona lupy na górze karty Dziennik otwiera wyszukiwanie. Zanim cokolwiek wpiszesz, podpowiada najczęściej używane tagi i ostatnie wyszukiwania. Filtry zawężają wyniki do tagu, nastroju, trybu, obszaru ciała, zakresu na jednej ze skal, zakresu dat, ulubionych albo wpisów z notatką lub ze zdjęciem.",
+              "Wyszukiwanie zagląda też poza wpisy, na przykład do tytułów dokumentów. To, co tam znajdzie, pokazuje w sekcji „Poza wpisami”.",
               "Wpis, do którego chcesz wrócić, oznacz gwiazdką. Filtr „Ulubione” pokaże wszystkie takie wpisy."
             ]
           },
@@ -492,7 +493,8 @@
             "heading": "Pisanie wpisu",
             "paragraphs": [
               "Wpis to jedna chwila. Potrzebuje nastroju, a cała reszta jest dowolna.",
-              "Na górze, pod datą, jest notatka. Nastroje i gwiazdka są na pasku zapisu na dole. Pod notatką rząd przycisków otwiera resztę, po jednej sekcji naraz: tryb, skale genderowe, tagi, mapę ciała i załączniki, takie jak zdjęcia i nagrania głosu.",
+              "Nowy wpis zaczyna się od pytania „Jak się czujesz?”, z pięcioma nastrojami i twoimi skalami genderowymi. „Zapisz wpis” kończy w tym miejscu i to już jest pełny wpis. „Dodaj notatkę, tagi lub zdjęcia” prowadzi do całej strony wpisu.",
+              "Tam na górze, pod datą, jest notatka, a pod nią tryb i skale genderowe. Nastroje i gwiazdka są na pasku zapisu na dole. Rząd przycisków otwiera resztę, po jednej sekcji naraz: tagi, mapę ciała, zdjęcia, głos i wideo. Zapisany wpis otwiera się do edycji od razu na tej stronie.",
               "Na mapie ciała zaznaczasz, jak czujesz daną część ciała. Wybierz miejsce i przesuń suwak w stronę dysforii albo euforii. Suwak zostawiony na środku niczego nie zapisuje."
             ]
           }
@@ -500,13 +502,13 @@
       },
       "stats": {
         "title": "Statystyki",
-        "description": "Wybór okresu, odczyty, Bilans, Wspomnienia i licznik.",
+        "description": "Wybór okresu, odczyty, licznik, Bilans i Wspomnienia.",
         "sections": [
           {
             "heading": "Wybór okresu",
             "paragraphs": [
               "Statystyki to trzecia karta. Wszystko na niej dotyczy jednego okresu, który wybierasz na osi czasu u góry: przeciągnij jej końce albo wybierz okres z listy. Na osi widać też ery, kamienie milowe, kurację, próby i operacje, a dotknięcie jednej z nich ustawia jej daty.",
-              "Tuż pod osią są podstawowe liczby z tego okresu: ile było wpisów, średnia na skali i która skala ruszyła się najbardziej."
+              "Tuż pod osią są podstawowe liczby z tego okresu: ile było wpisów, średnia na skali, która skala ruszyła się najbardziej i ile dni wypadło przy każdym nastroju."
             ],
             "images": [
               {
@@ -521,7 +523,7 @@
               "Niżej jest siatka odczytów. Każdy kafelek pokazuje jedną liczbę z okresu, a po dotknięciu otwiera cały odczyt. Kafelka, który nie ma nic do pokazania, po prostu nie ma.",
               {
                 "lead": "Dzień po dniu.",
-                "rest": " Jedna skala albo nastrój w wybranym okresie, dzień za dniem."
+                "rest": " Jedna skala albo nastrój w wybranym okresie, dzień za dniem. Można dołożyć drugą skalę."
               },
               {
                 "lead": "Dwie skale naraz.",
@@ -532,7 +534,7 @@
                 "rest": " Tagi, których w tym okresie używasz najczęściej, ze wszystkich dni albo tylko z dobrych."
               },
               {
-                "lead": "Tagi i to, jak poruszyła się skala.",
+                "lead": "Tagi a zmiany na skali.",
                 "rest": " Które tagi szły w parze ze wzrostem albo spadkiem skali."
               },
               {
@@ -544,6 +546,10 @@
                 "rest": " Dwa okresy obok siebie. Na początku wybrany okres stoi obok równie długiego odcinka tuż przed nim."
               },
               {
+                "lead": "Licznik.",
+                "rest": " Ile razy ktoś cię zmisgenderował, a ile razy zwrócił się do ciebie dobrze, pokazane w czasie. Szybkim zapisem dodasz kolejny raz do każdego z tych wyników na dowolnym ekranie."
+              },
+              {
                 "lead": "Ile to kosztowało.",
                 "rest": " Wydatki zapisane w tym okresie, według obszaru i tego, czy zostały zwrócone. Każda waluta ma osobną sumę."
               }
@@ -552,73 +558,93 @@
           {
             "heading": "Bilans i Wspomnienia",
             "paragraphs": [
-              "Pod siatką są jeszcze dwa kafelki. Każdy z nich można wyłączyć w ustawieniach.",
+              "Pod siatką są jeszcze dwa kafelki. Każdy z nich można wyłączyć w Ustawieniach.",
               {
                 "lead": "Bilans.",
-                "rest": " Podsumowanie zamkniętego tygodnia, miesiąca albo roku, lub wybranego okresu: wpisy, nastrój, skala, która ruszyła się najbardziej, tagi, kamienie milowe i zdjęcia."
+                "rest": " Podsumowanie zamkniętego tygodnia, miesiąca albo roku: wpisy, nastrój, skala, która ruszyła się najbardziej, tagi, kamienie milowe, zdjęcia i listy."
               },
               {
                 "lead": "Wspomnienia.",
-                "rest": " Dobry dzień sprzed miesiąca, pół roku, roku albo kilku lat, razem z listem napisanym lub otwartym tego dnia, jeśli taki jest. Złe dni nie wracają."
+                "rest": " Dobry dzień sprzed miesiąca, pół roku, roku albo kilku lat albo dzień z listem, napisanym lub otwartym. Zły dzień bez listu nie wraca."
               }
-            ]
-          },
-          {
-            "heading": "Licznik",
-            "paragraphs": [
-              "Licznik zbiera, ile razy ktoś cię zmisgenderował, a ile razy zwrócił się do ciebie dobrze, i pokazuje oba wyniki w czasie. Szybkim zapisem dodasz kolejny raz do każdego z nich na dowolnym ekranie."
             ]
           }
         ]
       },
       "health": {
-        "title": "Zdrowie",
-        "description": "Opieka i leki, zauważone zmiany, operacje, wizyty i podsumowanie do lekarza.",
+        "title": "Zdrowie i ciało",
+        "description": "Leki, cykl, operacje i wizyty, a potem grupa Ciało: zdjęcia postępów, zauważone zmiany, depilacja, czas noszenia i głos.",
         "sections": [
           {
             "heading": "Karta Tranzycja",
             "paragraphs": [
-              "Czwarta karta, Tranzycja, ma cztery grupy: Zdrowie, Kroki, Wsparcie i Media. Wyszukiwarka u góry znajduje wiersze po nazwie i przeszukuje tekst wpisów w dzienniku.",
-              "Zdrowie to pierwsza grupa."
+              "Czwarta karta, Tranzycja, ma pięć grup: Zdrowie, Ciało, Kroki, Wsparcie i Media. Wyszukiwarka u góry znajduje wiersze po nazwie i przeszukuje tekst wpisów w dzienniku.",
+              "Ten rozdział opisuje dwie pierwsze grupy, Zdrowie i Ciało."
             ]
           },
           {
-            "heading": "Opieka",
+            "heading": "Leki",
             "paragraphs": [
-              "W Opiece są twoje leki. Każdy lek w trwającej kuracji ma swój pas. Oś czasu zaznacza ostatnie pobranie krwi. Przy każdej kuracji widać dawkę i sposób przyjmowania, ostatnią dawkę, termin następnej i to, ile leku zostało, razem z przewidywanym dniem końca zapasu.",
-              "Z Opieki otwierają się trzy ekrany:",
+              "W Lekach jest wszystko o tym, co bierzesz. Każdy lek w trwającej kuracji ma swój pas. Oś czasu zaznacza ostatnie pobranie krwi. Przy każdej kuracji widać dawkę i sposób przyjmowania, ostatnią dawkę, termin następnej, to, ile leku zostało, z przewidywanym dniem końca zapasu, oraz ile leku przyjęto przez ostatnie 90 dni.",
               {
                 "lead": "Kuracja.",
-                "rest": " Co bierzesz, jak i jak często, od dnia, w którym zaczynasz. Kurację można wstrzymać albo zakończyć, a zostaje w historii. Po włączeniu harmonogram zapisuje planowaną dawkę jako przyjętą po zakończeniu danego dnia. Możesz to poprawić albo oznaczyć dawkę jako pominiętą."
+                "rest": " Co bierzesz, jak i jak często, od dnia, w którym zaczynasz. Zmienisz ją po dotknięciu pasa. Kurację można wstrzymać albo zakończyć, a zostaje w historii. Po włączeniu harmonogram zapisuje planowaną dawkę jako przyjętą po zakończeniu danego dnia. Możesz to poprawić albo oznaczyć dawkę jako pominiętą."
               },
               {
                 "lead": "Dawki.",
-                "rest": " Każda dawka przyjęta, pominięta albo zmieniona, z godziną, o której to było."
+                "rest": " Każda dawka przyjęta, pominięta albo zmieniona, z godziną, o której to było. Możesz je oglądać tak, jak zostały zapisane, albo na tle harmonogramu."
               },
               {
-                "lead": "Badania.",
-                "rest": " Twoje wyniki w takiej postaci, w jakiej je wpisujesz. Wyniki w różnych jednostkach zostają na osobnych liniach."
+                "lead": "Wyniki badań.",
+                "rest": " Twoje wyniki w takiej postaci, w jakiej je wpisujesz. „Import ze zdjęcia” odczytuje wynik z aparatu albo z galerii. Zdjęcie jest odczytywane na twoim urządzeniu, a wynik zachowuje wartość i jednostkę z wydruku. Wyniki w różnych jednostkach zostają na osobnych liniach."
               },
-              "Zapas to liczba, którą wpisujesz od czasu do czasu. Zapisane później dawki służą do oszacowania pozostałego zapasu i dnia, w którym może się skończyć. Opieka daje znać, gdy zapas się kończy. Pokazuje też liczbę dni na leku w wybranym okresie; pełna historia ekspozycji jest w Podsumowaniu do lekarza."
+              {
+                "lead": "Zapas leków.",
+                "rest": " Liczba, którą wpisujesz od czasu do czasu. Zapisane później dawki służą do oszacowania, ile zostało i kiedy zapas może się skończyć, a aplikacja daje znać, gdy się kończy."
+              }
             ],
             "images": [
               {
                 "src": "/guide/pl-health.webp",
-                "alt": "Ekran Opieka pokazuje leki na osi czasu, datę badania, ostatnie i następne dawki oraz stan zapasów."
+                "alt": "Ekran Leki pokazuje leki na osi czasu, datę badania, ostatnie i następne dawki oraz stan zapasów."
               }
+            ]
+          },
+          {
+            "heading": "Cykl",
+            "paragraphs": [
+              "W Cyklu zapisujesz krwawienie, plamienie albo to, że w tym miesiącu nic nie było. Ten wiersz pojawia się tylko przy trwającej kuracji testosteronem albo po włączeniu Śledzenia cyklu w Ustawieniach."
+            ]
+          },
+          {
+            "heading": "Operacje",
+            "paragraphs": [
+              "Każda operacja ma własną ścieżkę, nazwaną tak, jak chcesz. Są w niej konsultacje przed zabiegiem, data, kiedy już ją znasz, a potem licznik dni, zdjęcia, notatki i twoja własna lista.",
+              "Rozszerzanie staje się osobnym wierszem, gdy wymaga go któraś operacja. Wpisz harmonogram od chirurga i zapisuj przy nim sesje."
+            ]
+          },
+          {
+            "heading": "Wizyty",
+            "paragraphs": [
+              "Wizyty zaczynają się od najbliższej wizyty i tego, ile do niej zostało. Pod nią jest Co poruszyć, twoja lista spraw, która przechodzi z jednej wizyty na następną.",
+              "W trakcie wizyty ekran Na wizycie prowadzi przez pytania po kolei i ma miejsce na to, co usłyszysz. Minione wizyty są w sekcji Za tobą, a aplikacja pyta, jak poszła każda z nich. Wizyta może też czekać bez daty: w Kolejkach są skierowania, dzień skierowania, kolejne zmiany z datami i to, jak długo już czekasz, bez zgadywania, kiedy przyjdzie termin. W sekcji Do kogo chodzisz masz własne notatki o osobach, do których chodzisz, a wizyta może wskazać jedną z nich.",
+              "Podsumowanie dla osoby lekarskiej to strona do wydrukowania, z wybranego okresu. Może zawierać kurację, łączną ekspozycję, wyniki badań, skutki uboczne, zauważone zmiany i zabiegi, a ty wybierasz, które sekcje się w niej znajdą. Widzisz ją dokładnie tak, jak się wydrukuje. Otworzysz ją z Leków albo z Wizyt."
+            ]
+          },
+          {
+            "heading": "Zdjęcia postępów",
+            "paragraphs": [
+              "Ciało to druga grupa, a Zdjęcia postępów to jej pierwszy wiersz. Są tu zdjęcia robione w tej samej pozie. Wybierz dwa i przeciągnij między nimi suwak, żeby porównać wcześniejsze z późniejszym."
             ]
           },
           {
             "heading": "Zauważone zmiany",
             "paragraphs": [
-              "Pod lekami w Opiece są Zauważone zmiany. Wybierz zmianę z listy albo dodaj własną i zaznacz datę, kiedy pojawiła się po raz pierwszy. Tu trafiają też skutki uboczne, każdy z siłą od 1 do 5 i informacją, czy trwa, czy minął. Bardziej prywatne kategorie, na przykład zmiany w sferze intymnej i seksualnej, są na początku wyłączone.",
+              "Wybierz zmianę z listy albo dodaj własną i zaznacz datę, kiedy pojawiła się po raz pierwszy. Tu trafiają też skutki uboczne, każdy z siłą od 1 do 5 i informacją, czy trwa, czy minął. Bardziej prywatne kategorie, na przykład zmiany w sferze intymnej i seksualnej, są na początku wyłączone.",
+              "„Co mówi literatura” pokazuje, kiedy dana zmiana zwykle się pojawia, według SOC8 albo badań, na które się powołuje.",
               {
-                "lead": "Postępy włosów.",
-                "rest": " Stan włosów opisany twoimi słowami, ze zdjęciami robionymi z tego samego miejsca."
-              },
-              {
-                "lead": "Cykl.",
-                "rest": " Miesiączka, plamienie albo nic w tym miesiącu. Ta część pojawia się tylko przy trwającej kuracji testosteronem albo po włączeniu Śledzenia cyklu w Ustawieniach."
+                "lead": "Zmiany włosów.",
+                "rest": " Stan włosów opisany twoimi słowami, ze zdjęciami robionymi pod tym samym kątem."
               }
             ],
             "images": [
@@ -629,72 +655,45 @@
             ]
           },
           {
-            "heading": "Operacje",
-            "paragraphs": [
-              "Każda operacja ma własną ścieżkę, nazwaną tak, jak chcesz. Są w niej konsultacje przed zabiegiem, data, kiedy już ją znasz, a potem licznik dni, zdjęcia, notatki i twoja własna lista.",
-              "Jeśli masz od chirurga harmonogram rozszerzania, wpisz go i zapisuj przy nim sesje."
-            ]
-          },
-          {
-            "heading": "Wizyty",
-            "paragraphs": [
-              "Wizyty zaczynają się od najbliższej wizyty i tego, ile do niej zostało. Pod nią jest Co poruszyć, twoja lista spraw, która przechodzi z jednej wizyty na następną.",
-              "W trakcie wizyty ekran Na wizycie prowadzi przez pytania po kolei i ma miejsce na to, co usłyszysz. Minione wizyty są w sekcji Za tobą, a aplikacja pyta, jak poszła każda z nich. Wizyta może też czekać bez daty: w Kolejkach są skierowania, dzień skierowania, kolejne zmiany z datami i to, jak długo już czekasz, bez zgadywania, kiedy przyjdzie termin. W sekcji Do kogo chodzisz masz własne notatki o osobach, do których chodzisz, a wizyta może wskazać jedną z nich.",
-              "Podsumowanie do lekarza to strona do wydrukowania: dawki, wyniki badań i skutki uboczne z wybranego okresu. Widzisz ją dokładnie tak, jak się wydrukuje. Otworzysz ją z Opieki albo z Wizyt."
-            ]
-          },
-          {
-            "heading": "Czego Zdrowie nie robi",
-            "paragraphs": [
-              "Nic w Zdrowiu nie ocenia, czy wynik jest dobry, czy zły, nie podpowiada dawki i nie mówi, co masz zrobić. Przechowuje to, co wpisujesz, i rysuje z tego wykresy."
-            ]
-          }
-        ]
-      },
-      "steps": {
-        "title": "Kroki",
-        "description": "Kamienie milowe i ery, próby, głos, czas noszenia, depilacja, mapa tranzycji i listy w kapsule czasu.",
-        "sections": [
-          {
-            "heading": "Kamienie milowe i ery",
-            "paragraphs": [
-              "Kroki to druga grupa na karcie Tranzycja.",
-              "Kamień milowy to dzień, który miał znaczenie albo będzie go mieć. Ten przed tobą odlicza czas, ten za tobą wraca co roku jako rocznica. Możesz zdecydować, czy aplikacja ma go świętować, kiedy przyjdzie ten dzień.",
-              "Ery to nazwane przez ciebie odcinki czasu, na przykład „zanim wszystko się zaczęło”. Widać je jako pasy za kamieniami milowymi, a Statystyki mogą wziąć erę jako swój okres. Tworzysz je i zmieniasz w Ustawieniach."
-            ]
-          },
-          {
-            "heading": "Próby",
-            "paragraphs": [
-              "Próba to coś, czego próbujesz: imię, zaimki, styl albo makijaż. Ma datę początku, a gdy przestajesz, także datę końca. Jak się z nią czujesz, zapisujesz tak często, jak chcesz, przy samej próbie albo we wpisie, i dodajesz zdjęcia. Kilka prób może trwać naraz."
-            ]
-          },
-          {
-            "heading": "Głos",
-            "paragraphs": [
-              "Ćwiczenia, wzorzec głosu i nagrania są na jednym ekranie.",
-              "Wzorzec to nagranie robione za każdym razem tak samo: ten sam tekst czytany na głos i ta sama przeciągnięta samogłoska. Dzięki temu nagrania sprzed miesięcy da się porównać. Pokazuje na przykład wysokość głosu i tempo mówienia obok twoich wcześniejszych nagrań i nie ocenia głosu."
-            ]
-          },
-          {
-            "heading": "Czas noszenia",
-            "paragraphs": [
-              "Dla bindera, tuckingu i ucisku. Włącz stoper albo wpisz sesję później, z notatką o wygodzie lub bólu. Możesz ustawić przypomnienie po wybranej liczbie godzin. Przy binderze po ośmiu godzinach pojawia się dyskretny sygnał, który można wyłączyć.",
-              "Ekran pokazuje też zasady bezpiecznego noszenia bindera i ich źródła."
-            ]
-          },
-          {
             "heading": "Depilacja",
             "paragraphs": [
               "Sesje elektrolizy i lasera: obszar, metoda, czas trwania, ból, jeśli chcesz go zapisać, koszt, gabinet i zdjęcia. Ekran pokazuje, ile minęło od ostatniej sesji."
             ]
           },
           {
+            "heading": "Czas noszenia",
+            "paragraphs": [
+              "Dla bindera, tuckingu i ucisku. Włącz stoper albo wpisz sesję później, z notatką o wygodzie lub bólu. Możesz ustawić przypomnienie po wybranej liczbie godzin. Przy binderze po ośmiu godzinach pojawia się dyskretny sygnał, który można wyłączyć. Ekran pokazuje też godziny noszenia w każdym tygodniu.",
+              "Na tym samym ekranie są zasady bezpiecznego noszenia bindera i ich źródła."
+            ]
+          },
+          {
+            "heading": "Głos",
+            "paragraphs": [
+              "Głos ma cztery zakładki: Próbka, Ćwicz, Porównaj i Nagrania.",
+              "Próbka to nagranie robione za każdym razem tak samo: czytasz ten sam tekst i przeciągasz te same trzy samogłoski. Dzięki temu nagrania sprzed miesięcy da się porównać. Próbka pokazuje na przykład wysokość głosu i tempo mówienia, a Porównaj zestawia dwie próbki obok siebie. Głosu nikt tu nie ocenia."
+            ]
+          },
+          {
+            "heading": "Czego Zdrowie i Ciało nie robią",
+            "paragraphs": [
+              "Nic w tych dwóch grupach nie ocenia, czy wynik jest dobry, czy zły, nie podpowiada dawki i nie mówi, co masz zrobić. Przechowują to, co wpisujesz, i rysują z tego wykresy."
+            ]
+          }
+        ]
+      },
+      "steps": {
+        "title": "Kroki",
+        "description": "Mapa tranzycji, kamienie milowe i ery oraz próby.",
+        "sections": [
+          {
             "heading": "Mapa tranzycji",
             "paragraphs": [
-              "Mapa tranzycji wypisuje kroki polskiej procedury prawnej zmiany oznaczenia płci. Są za przełącznikiem Kroki prawne w Polsce, który jest domyślnie włączony, gdy aplikacja działa po polsku. Kroki to cele. Po wyroku w sekcji Zmiana danych w instytucjach są miejsca, w których trzeba zaktualizować dane, na przykład PESEL, dowód osobisty, paszport, bank i pracodawca. Przy każdym zapiszesz, kiedy złożono wniosek, od kiedy czekasz i kiedy sprawa została załatwiona, razem z dokumentami.",
-              "Cele można realizować w dowolnej kolejności. Odhacz cel, gdy jest zrobiony, albo oznacz go jako „nie moja droga”. Cel, którego nie potrzebujesz, możesz ukryć i potem przywrócić.",
-              "Możesz dodać własne kategorie z własnymi celami, niezależnie od tego, czy polskie kroki są włączone, a do celu podpiąć dokumenty.",
+              "Kroki to trzecia grupa na karcie Tranzycja. Są w niej Mapa tranzycji, Kamienie milowe i Próby.",
+              "Mapa ma na start dwie grupy kroków, każdą z własnym przełącznikiem. Społeczne i prezentacyjne to osiem kroków, na przykład rozmowa z rodziną, imię i zaimki, ubrania i głos. Kroki prawne w Polsce to polska procedura prawna zmiany oznaczenia płci. Są domyślnie włączone, gdy aplikacja działa po polsku.",
+              "Po wyroku w sekcji Zmiana danych w instytucjach są miejsca, w których trzeba zaktualizować dane, na przykład PESEL, dowód osobisty, paszport, bank i pracodawca. Możesz dodać własne. Przy każdym zapiszesz, kiedy złożono wniosek, od kiedy czekasz i kiedy sprawa została załatwiona, razem z dokumentami.",
+              "Kroki można robić w dowolnej kolejności. Odhacz krok, gdy jest zrobiony, albo oznacz go jako „nie moja droga”. Krok, którego nie potrzebujesz, możesz ukryć i potem przywrócić. Przy włączonym „Proponuj kamień milowy” po odhaczeniu kroku aplikacja pyta, czy dodać go do kamieni milowych.",
+              "Możesz dodać własne kategorie z własnymi krokami, niezależnie od tego, czy wbudowane grupy są włączone, a do kroku podpiąć dokumenty.",
               "Mapa opisuje procedurę i nigdy nie mówi, co zrobić w twojej sprawie. Podaje datę, kiedy jej treść ostatnio sprawdzono ze źródłami."
             ],
             "images": [
@@ -705,34 +704,36 @@
             ]
           },
           {
-            "heading": "Listy w kapsule czasu",
+            "heading": "Kamienie milowe i ery",
             "paragraphs": [
-              "Napisz list do siebie i wybierz dzień, w którym się otworzy. Do tego dnia jest zapieczętowany, potem czytasz go, kiedy chcesz. Listy, które zaraz się otworzą, widać na karcie Dzisiaj, w sekcji Nadchodzi."
+              "Kamień milowy to dzień, który miał znaczenie albo będzie go mieć. Ten przed tobą odlicza czas, ten za tobą wraca co roku jako rocznica. Możesz zdecydować, czy aplikacja ma go świętować, kiedy przyjdzie ten dzień.",
+              "Ery to nazwane przez ciebie odcinki czasu, na przykład „zanim wszystko się zaczęło”. Widać je jako pasy za kamieniami milowymi, a Statystyki mogą wziąć erę jako swój okres. Tworzysz je i zmieniasz w Ustawieniach."
+            ]
+          },
+          {
+            "heading": "Próby",
+            "paragraphs": [
+              "Próba to coś, czego próbujesz: imię, zaimki, styl albo makijaż. Ma datę początku, a gdy przestajesz, także datę końca. Jak się z nią czujesz, zapisujesz tak często, jak chcesz, przy samej próbie albo we wpisie, i dodajesz zdjęcia. Kilka prób może trwać naraz. Jeśli coś zostaje z tobą na dobre, możesz zachować zmianę na stałe: próba się kończy, a zachowane imię może stać się tym, którym zwraca się do ciebie aplikacja."
             ]
           }
         ]
       },
       "support": {
         "title": "Wsparcie",
-        "description": "Bezpieczna przestrzeń na trudne dni i spis organizacji oraz telefonów zaufania dla osób trans.",
+        "description": "Listy w kapsule czasu, Bezpieczna przestrzeń na trudne dni oraz spis telefonów zaufania i organizacji wsparcia.",
         "sections": [
+          {
+            "heading": "Listy w kapsule czasu",
+            "paragraphs": [
+              "Wsparcie to czwarta grupa na karcie Tranzycja. Są w niej Listy w kapsule czasu, Bezpieczna przestrzeń oraz Wsparcie i kontakty.",
+              "Napisz list do siebie i wybierz dzień, w którym się otworzy. Do tego dnia jest zapieczętowany, potem czytasz go, kiedy chcesz. Listy, które zaraz się otworzą, widać na karcie Dzisiaj, w sekcji Nadchodzące."
+            ]
+          },
           {
             "heading": "Bezpieczna przestrzeń",
             "paragraphs": [
-              "Wsparcie to trzecia grupa na karcie Tranzycja.",
-              "Bezpieczna przestrzeń jest na chwile, kiedy dysforii jest za dużo. Zaczyna się od oddechu pudełkowego. Niżej są trzy rzeczy:",
-              {
-                "lead": "Dobre chwile.",
-                "rest": " Dawne wpisy z dobrym tagiem albo z gwiazdką."
-              },
-              {
-                "lead": "Co pomaga.",
-                "rest": " Twoja własna lista: do kogo napisać, gdzie się przejść, czego posłuchać. Na początku jest pusta."
-              },
-              {
-                "lead": "Wsparcie i kontakty.",
-                "rest": " Spis opisany niżej."
-              },
+              "Bezpieczna przestrzeń jest na chwile, kiedy dysforii jest za dużo. Na górze jest Co pomaga, twoja własna lista: do kogo napisać, gdzie się przejść, czego posłuchać. Na początku jest pusta. Pod nią jest ćwiczenie oddechu pudełkowego.",
+              "Niżej są dwa wiersze. Wsparcie i kontakty otwiera spis opisany poniżej. Dobre chwile pokazują dawne wpisy z dobrym tagiem albo z gwiazdką i pojawiają się, gdy masz już choć jeden taki wpis.",
               "Otwarcie Bezpiecznej przestrzeni niczego nie zapisuje w dzienniku."
             ],
             "images": [
@@ -745,8 +746,8 @@
           {
             "heading": "Wsparcie i kontakty",
             "paragraphs": [
-              "Spis organizacji i telefonów zaufania dla osób trans. Przy każdej pozycji jest zdanie o tym, co oferuje, oraz numer albo adres. Spis jest wbudowany w aplikację, więc można go czytać bez zasięgu. Nie zawiera ogólnych numerów alarmowych ani kryzysowych.",
-              "Ekran podaje, kiedy ostatnio sprawdzono wszystkie pozycje. Dotknięcie numeru albo adresu otwiera go w telefonie lub przeglądarce, już poza aplikacją."
+              "Spis telefonów zaufania i organizacji wsparcia w dwóch grupach: Polska oraz Wielka Brytania i USA. Przy każdej pozycji jest zdanie o tym, co oferuje, oraz numer albo adres. Jest tu też trochę rzeczy do czytania. Spis jest wbudowany w aplikację, więc można go czytać bez zasięgu. Część telefonów zaufania jest ogólna, dla każdego. Numerów alarmowych, takich jak 112, w spisie nie ma.",
+              "Ekran podaje, kiedy ostatnio sprawdzono pozycje. Dotknięcie numeru albo adresu otwiera go w telefonie lub przeglądarce, już poza aplikacją."
             ],
             "images": [
               {
@@ -759,15 +760,16 @@
       },
       "media": {
         "title": "Media",
-        "description": "Wszystkie zdjęcia z dziennika w jednej bibliotece i dokumenty, które przechowujesz.",
+        "description": "Wszystkie zdjęcia z dziennika na jednej liście i dokumenty, które przechowujesz.",
         "sections": [
           {
             "heading": "Zdjęcia",
             "paragraphs": [
-              "Media to czwarta grupa na karcie Tranzycja.",
-              "Zdjęcia to wszystkie fotografie z dziennika na jednej liście według dat: z wpisów, kamieni milowych, postępów włosów, depilacji, prób i operacji. Przyciski u góry zawężają listę do jednego źródła, a Ulubione pokazują zdjęcia oznaczone gwiazdką.",
-              "Wybierz dwa zdjęcia i przeciągnij między nimi suwak, żeby porównać wcześniejsze z późniejszym. Do eksportu wybierz okres i zdjęcia, a potem zrób z nich kolaż albo film poklatkowy. Przed udostępnieniem zobaczysz podgląd.",
-              "Zdjęcia zostają w aplikacji i nigdy nie trafiają do galerii telefonu. Żeby zmienić albo usunąć zdjęcie, otwórz wpis lub zapis, do którego należy."
+              "Media to piąta grupa na karcie Tranzycja.",
+              "W Zdjęciach są wszystkie zdjęcia z dziennika na jednej liście według dat: z wpisów, kamieni milowych, zmian włosów, depilacji, prób, operacji, zdjęć postępów i notatek wideo. Gdy zdjęcia pochodzą z więcej niż jednego miejsca, przyciski u góry zawężają listę do jednego źródła, a Ulubione pokazują zdjęcia oznaczone gwiazdką.",
+              "Zaznacz zdjęcia, żeby je usunąć. Usunięte zdjęcie znika ze wszystkich miejsc, w których jest, a przez 10 sekund możesz to cofnąć. „Otwórz zapis” prowadzi do wpisu lub zapisu, do którego zdjęcie należy.",
+              "„Zrób kolaż albo film poklatkowy” na dole listy składa go ze zdjęć z wybranego okresu. Dotknij zdjęcia, żeby je pominąć, a zanim zapiszesz albo udostępnisz wynik, zobaczysz podgląd. Zapisany plik nie jest zaszyfrowany. Żeby porównać dwa zdjęcia, zajrzyj do Zdjęć postępów w grupie Ciało.",
+              "Zdjęcia zostają w aplikacji i nigdy nie trafiają do galerii telefonu."
             ],
             "images": [
               {
@@ -779,21 +781,21 @@
           {
             "heading": "Dokumenty",
             "paragraphs": [
-              "Papiery, które przechowujesz: opinie, diagnozy, skierowania, postanowienia sądu, faktury. Każdy ma datę, tytuł, który wpisujesz, i sam plik. Dokument można powiązać z celem na mapie tranzycji, kamieniem milowym, operacją albo kuracją.",
-              "Spis grupuje dokumenty według tego, co potwierdzają. Przy zdjęciach i plikach PDF są miniatury. Aplikacja nigdy nie czyta treści dokumentów, więc szukasz ich po tytule."
+              "Papiery, które przechowujesz: opinie, diagnozy, skierowania, postanowienia sądu, faktury. Każdy ma datę, tytuł, który wpisujesz, i sam plik: PDF albo obraz, do 25 MB. Dokument można powiązać z krokiem z mapy tranzycji, kamieniem milowym, operacją albo kuracją.",
+              "Lista grupuje dokumenty według tego, z czym są powiązane, a te bez powiązania są na końcu. Przy zdjęciach i plikach PDF są miniatury. „Udostępnij albo zapisz” tworzy kopię, która nie jest zaszyfrowana. Aplikacja nigdy nie czyta treści dokumentów, więc szukasz ich po tytule."
             ]
           }
         ]
       },
       "settings": {
         "title": "Ustawienia",
-        "description": "Co jest preferencją w engender, a co mieszka gdzie indziej.",
+        "description": "Pięć sekcji Ustawień i to, co mieszka gdzie indziej.",
         "sections": [
           {
             "heading": "Co tu znajdziesz",
             "paragraphs": [
-              "W Ustawieniach wybierasz, jak ma wyglądać dziennik i co chcesz w nim śledzić. Są tu też listy, z których korzystasz przy zapisywaniu. Same wpisy i historia zostają na ekranach poszczególnych funkcji.",
-              "Na przykład tutaj ustawisz porę przypomnienia. Jego treść i szczegóły zapisujesz przy wpisie lub funkcji, której dotyczy. Dawki, wyniki badań i notatki o operacji znajdziesz w Zdrowiu."
+              "W Ustawieniach wybierasz, jak ma wyglądać dziennik, co chcesz w nim śledzić i kiedy ma ci o czymś przypominać. Są tu też listy, z których korzystasz przy zapisywaniu. To, co zapisujesz, zostaje na swoim ekranie: dawki, wyniki badań i notatki o operacji znajdziesz na karcie Tranzycja.",
+              "Ustawienia otwiera koło zębate na górze karty Dzisiaj. Mają pięć sekcji."
             ],
             "images": [
               {
@@ -805,43 +807,66 @@
           {
             "heading": "Wygląd",
             "paragraphs": [
-              "W Wyglądzie wybierasz język, motyw i jedną z szesnastu palet. Kolory nastroju mają osobne zestawy. Możesz też zmienić rozmiar tekstu, zwiększyć jego czytelność i ograniczyć ruch na ekranie."
+              "W Wyglądzie wybierasz język, motyw i jedną z szesnastu palet. Kolory nastroju mają osobne zestawy. Możesz też powiększyć tekst, wyostrzyć tekst i obramowania oraz ograniczyć ruch na ekranie. Na Androidzie zmienisz tu też ikonę aplikacji."
             ]
           },
           {
             "heading": "Śledzenie",
             "paragraphs": [
-              "Tu wybierasz aktywne skale genderowe i porządkujesz listy używane w całym dzienniku: obszary ciała, grupy tagów, tryby, szablony wpisów i ery. Tu też decydujesz, które funkcje aplikacja pokazuje, i włączasz albo wyłączasz śledzenie cyklu.",
-              "W Przypomnieniach ustalasz, kiedy aplikacja ma się odezwać. Pozostałe podpowiedzi włączasz i wyłączasz w Powiadomieniach. Kafelki na ekranie Dzisiaj ustawiasz w edytorze tego ekranu, obok przypiętych rzeczy.",
-              "Kafelki i powiadomienia telefonu korzystają z jednej listy rodzajów komunikatów, choć ich przełączniki są w różnych miejscach. Kafelek pojawia się wtedy, gdy jest co pokazać w dzienniku. Powiadomienie może przyjść o wybranej przez ciebie porze albo gdy nie uda się zrobić eksportu. Godziny ciszy odkładają powiadomienia na później. Nic przez to nie przepada."
+              "W Śledzeniu są Skale genderowe, Grupy tagów i Widoczne funkcje. W Widocznych funkcjach wybierasz, które części aplikacji mają się pokazywać, i tam jest przełącznik śledzenia cyklu."
+            ]
+          },
+          {
+            "heading": "Przypomnienia i podpowiedzi",
+            "paragraphs": [
+              "W Przypomnieniach ustalasz, kiedy aplikacja ma się odezwać. W Komunikatach i powiadomieniach włączasz i wyłączasz pozostałe podpowiedzi oraz ustawiasz godziny ciszy, w których żadne powiadomienie nie przychodzi. Przypomnienie, które wypada w godzinach ciszy, czeka do ich końca. Powiadomienia w telefonie działają tylko w aplikacji na Androida.",
+              "Kafelków tu nie ma. Ustawiasz je w edytorze karty Dzisiaj, obok przypiętych wierszy."
+            ]
+          },
+          {
+            "heading": "Twoje listy",
+            "paragraphs": [
+              "W Twoich listach są listy używane w całym dzienniku: tryby, szablony wpisów, obszary ciała i ery."
             ]
           },
           {
             "heading": "Prywatność i dane",
             "paragraphs": [
-              "Tu zmieniasz sposób zabezpieczenia dziennika, uprawnienia i tryb ukrycia aplikacji. W Eksporcie robisz lub przywracasz kopię, importujesz dane z Daylio, a na Androidzie wybierasz folder na kopie, z którego dołączane są nowsze kopie z innych urządzeń. Dziennik do druku obejmuje wybrany okres. Kosz przechowuje usunięte wpisy przez 30 dni, zanim znikną na stałe, a wcześniej możesz usunąć wpis na zawsze."
+              "W Blokadzie i odzyskiwaniu ustawiasz, jak otwiera się dziennik i kiedy się blokuje, i tam jest klucz odzyskiwania. W tej sekcji są też Uprawnienia i Kamuflaż aplikacji.",
+              "W Eksporcie / imporcie robisz lub przywracasz kopię zapasową, eksportujesz dane do CSV albo JSON i importujesz je z Daylio. Na Androidzie wybierasz tam też folder na kopie, a nowsze kopie zapisane w nim przez twoje inne urządzenia mogą być dołączane do dziennika.",
+              "Dziennik do druku obejmuje wybrany okres. Kosz przechowuje usunięte wpisy przez 30 dni, a wcześniej możesz usunąć wpis na zawsze. Usuń wszystko kasuje dziennik z tego urządzenia.",
+              "Pod sekcjami jest O aplikacji: wersja oraz linki do tego przewodnika, polityki prywatności i kodu źródłowego."
             ]
           }
         ]
       },
       "privacy": {
         "title": "Prywatność",
-        "description": "Gdzie są dane dziennika, jak są szyfrowane i co dzieje się z eksportowanymi plikami.",
+        "description": "Gdzie jest dziennik, jak jest szyfrowany i otwierany, co widzą inni i co dzieje się z eksportowanymi plikami.",
         "sections": [
           {
             "heading": "Gdzie jest dziennik",
             "paragraphs": [
-              "Dziennik zostaje w pamięci urządzenia, na którym go używasz. Nie ma konta, profilu na serwerze ani wysyłania wpisów. Strona i aplikacja w przeglądarce zachowują prywatne sumy otwarć bez zapisów pojedynczych odwiedzin. Dziennik w przeglądarce i ten w aplikacji na Androida to dwie osobne kopie, tak samo jak w dwóch profilach przeglądarki.",
-              "Gdy aplikacja webowa się otwiera albo aktualizuje, serwer WWW widzi twój adres IP, godzinę zapytania, żądane pliki i ich rozmiary, a także nagłówki User-Agent i Referer. To ruch związany z aplikacją. Wpisy, zdjęcia, notatki i wyniki badań nie trafiają na serwer. Aplikacja webowa wysyła zapytania potrzebne do pobrania i aktualizacji. Dane dziennika zostają na urządzeniu."
+              "Dziennik zostaje w pamięci urządzenia, na którym go używasz. Nie ma konta ani profilu na serwerze i nic, co piszesz, nie jest nigdzie wysyłane. Aplikacja na Androida i przeglądarka mają osobne dzienniki, tak samo jak dzienniki w dwóch profilach przeglądarki.",
+              "Aplikację w przeglądarce trzeba jednak skądś pobrać. Gdy się otwiera albo aktualizuje, serwer widzi twój adres IP, godzinę zapytania, żądane pliki i ich rozmiary, a także nagłówki User-Agent i Referer. Wpisów, zdjęć, notatek ani wyników badań w tym ruchu nie ma. Strona i aplikacja w przeglądarce liczą też swoje otwarcia, jako sumy bez zapisów pojedynczych odwiedzin. Szczegóły są w polityce prywatności."
             ]
           },
           {
             "heading": "Szyfrowanie i dostęp",
             "paragraphs": [
-              "Baza jest szyfrowana w całości, razem z plikami pomocniczymi i kopią tworzoną przed aktualizacją. Zdjęcia i miniatury leżą poza bazą, więc każde szyfruje się osobno tym samym losowym kluczem do danych. Import przechodzi przez pamięć i nie trafia do pliku tymczasowego. Zaszyfrowane są też wrażliwe dane potrzebne przy uruchamianiu. Aplikacja nie obiecuje, że szyfruje każdy plik na urządzeniu. Poza szyfrowaniem zostają opakowany klucz i ustawienia do jego otwarcia, motyw, paleta i język, czas blokady i wybór kamuflażu oraz znaczniki czasu błędnych prób PIN-u. Żadna z tych rzeczy nie jest treścią dziennika.",
-              "Klucz do danych powstaje losowo. W przeglądarce hasło do dziennika jest przetwarzane przez Argon2id i służy do opakowania klucza szyfrem AES-GCM. Sama baza używa klucza do danych, nie hasła. Dzięki temu możesz zmienić hasło bez ponownego szyfrowania dziennika. Użyteczny klucz istnieje tylko w pamięci. Po zakończeniu sesji przeglądarki znów potrzebujesz hasła. Możesz też otworzyć dziennik czterocyfrowym PIN-em i kluczem powiązanym z urządzeniem, biometrią przez WebAuthn PRF w obsługiwanej przeglądarce albo kluczem powiązanym z urządzeniem, który nie wymaga dodatkowego pytania. Ten ostatni zostaje w profilu przeglądarki. Wyczyszczenie danych witryny, reset profilu albo utrata urządzenia może sprawić, że tej kopii nie da się już odczytać.",
-              "Android ma cztery tryby dostępu: klucz powiązany z urządzeniem, chroniony blokadą ekranu albo biometrią; tryb bez pytania o odblokowanie, z bazą SQLCipher i kluczem z Keystore; czterocyfrowy PIN ze sprzętowym kluczem; albo wpisywane hasło przetwarzane przez Argon2id. Android Keystore wydaje klucz dopiero po sprawdzeniu przez telefon, kto prosi o dostęp.",
-              "Klucz odzyskiwania jest opcjonalny. Ma 25 znaków i aplikacja pokazuje go tylko raz; sama nie zapisuje go poza urządzeniem. Dziennik w przeglądarce otworzy wyłącznie na urządzeniu i w profilu, w których ta kopia nadal jest. Na Androidzie otworzy dziennik na tym samym urządzeniu, jeśli dane logowania zawiodą. Nie przenosi dziennika ani nie odszyfrowuje archiwum. Bez klucza odzyskiwania osoba prowadząca projekt nie odzyska utraconych danych logowania. Nie odzyska też hasła do archiwum."
+              "Baza jest szyfrowana w całości, razem z plikami pomocniczymi i kopią tworzoną przed aktualizacją. Zdjęcia i miniatury leżą poza bazą, więc każde szyfruje się osobno tym samym losowym kluczem do danych.",
+              "Kilka rzeczy nie jest zaszyfrowanych i żadna z nich nie jest treścią dziennika: opakowany klucz i ustawienia do jego otwarcia, motyw, paleta i język, czas blokady, wybór kamuflażu oraz godziny błędnych prób PIN-u. Na Androidzie zrobione zdjęcie trafia też najpierw do niezaszyfrowanego pliku tymczasowego, zanim aplikacja je zaimportuje i zaszyfruje.",
+              "To, jak otwiera się dziennik, wybierasz w Ustawieniach, w Blokadzie i odzyskiwaniu. W przeglądarce może to być hasło, czterocyfrowy PIN razem z kluczem trzymanym w profilu przeglądarki, odblokowanie urządzenia przez WebAuthn PRF w przeglądarce, która je obsługuje, albo tryb bez blokady, z kluczem w profilu przeglądarki i bez pytania. Na Androidzie: blokada ekranu albo biometria przez Android Keystore, czterocyfrowy PIN z kluczem z Keystore, hasło albo tryb bez blokady, z kluczem z Keystore i bez pytania.",
+              "Hasło przechodzi przez Argon2id i opakowuje klucz do danych szyfrem AES-GCM, więc możesz je zmienić bez ponownego szyfrowania dziennika. Pozostałe tryby zależą od klucza w profilu przeglądarki albo w Android Keystore. Po wyczyszczeniu danych witryny, resecie profilu, wyczyszczeniu danych aplikacji albo utracie urządzenia tej kopii dziennika nie da się już odczytać.",
+              "W tym samym miejscu ustawiasz, kiedy dziennik się blokuje: od razu, po minucie, po 5 minutach albo dopiero po ponownym uruchomieniu aplikacji.",
+              "Klucz odzyskiwania jest opcjonalny. Ma 25 znaków i aplikacja pokazuje go raz, przy tworzeniu. Gdy hasło, PIN albo biometria przestaną działać, otworzy dziennik na urządzeniu, a w przeglądarce także w profilu, w których ta kopia nadal jest. Nie przenosi dziennika i nie otwiera Archiwum. Bez klucza odzyskiwania nikt nie odzyska utraconych danych logowania. Zapomnianego hasła do Archiwum też nikt nie odzyska. Po skopiowaniu klucza aplikacja po minucie usuwa go ze schowka, o ile system na to pozwala."
+            ]
+          },
+          {
+            "heading": "Co widzą inni",
+            "paragraphs": [
+              "Kamuflaż aplikacji zmienia to, co widzi ktoś obok twojego telefonu. Ikona i nazwa w launcherze zmieniają się w Notatki, a ekran blokady, widżety, powiadomienia oraz, w przeglądarce, ikona i tytuł karty przestają nazywać engender. Na Androidzie kamuflaż blokuje też zrzuty ekranu i podgląd na liście ostatnio używanych aplikacji. Po odblokowaniu dziennika nic się nie zmienia. Kamuflaż to nie szyfrowanie, a Android nadal pokazuje prawdziwą nazwę w informacjach o aplikacji i przy prośbach o uprawnienia.",
+              "Powiadomienia ukrywają wrażliwe tytuły, dopóki nie wyłączysz opcji „Ukryj wrażliwe tytuły”. Godziny przypomnień i codzienne pytanie nadal widać na zablokowanym ekranie."
             ],
             "images": [
               {
@@ -853,16 +878,17 @@
           {
             "heading": "Android i połączenie z siecią",
             "paragraphs": [
-              "Aplikacja na Androida nie prosi o uprawnienie INTERNET. Podczas zwykłego używania nie otwiera połączeń sieciowych i nie wysyła danych dziennika na serwer. Gdy wydania na Androida będą dostępne, operatorzy sklepów mogą zapisywać instalacje i aktualizacje na zasadach ze swoich regulaminów.",
-              "Android prosi o POST_NOTIFICATIONS, SCHEDULE_EXACT_ALARM i RECEIVE_BOOT_COMPLETED, by wysyłać przypomnienia oraz codzienne pytanie, używać wybranej pory i przywracać je po restarcie telefonu. Prosi o WAKE_LOCK, żeby zaplanowana kopia mogła się zapisać przy wyłączonym ekranie, o RECORD_AUDIO i MODIFY_AUDIO_SETTINGS do notatek głosowych, a o CAMERA do notatek wideo i zdjęć, które robi aplikacja aparatu w telefonie. USE_BIOMETRIC i USE_FINGERPRINT pozwalają pokazać systemowe pytanie o odcisk palca, twarz albo blokadę ekranu. Powiadomienia domyślnie pokazują ogólny tytuł, także na zablokowanym ekranie. Możesz włączyć wyświetlanie prawdziwego tytułu. Po skopiowaniu klucza odzyskiwania aplikacja usuwa go ze schowka po minucie."
+              "Aplikacja na Androida nie prosi o uprawnienie INTERNET. Nie otwiera połączeń sieciowych i nie wysyła danych dziennika na serwer. Wyłącza też kopię zapasową Androida w chmurze i przenoszenie danych między telefonami. Sklep, z którego ją instalujesz, może zapisywać instalacje i aktualizacje na własnych zasadach.",
+              "Android prosi o POST_NOTIFICATIONS, SCHEDULE_EXACT_ALARM i RECEIVE_BOOT_COMPLETED, żeby przypomnienia i codzienne pytanie przychodziły o wybranej porze i wracały po restarcie telefonu. WAKE_LOCK pozwala zaplanowanej kopii zapisać się przy wyłączonym ekranie. RECORD_AUDIO i MODIFY_AUDIO_SETTINGS służą do notatek głosowych, a CAMERA do notatek wideo i zdjęć, które robi aplikacja aparatu w telefonie. USE_BIOMETRIC i USE_FINGERPRINT pozwalają pokazać systemowe pytanie o odcisk palca, twarz albo blokadę ekranu."
             ]
           },
           {
             "heading": "Archiwa i pozostałe eksporty",
             "paragraphs": [
               "Miejsce zapisu lub udostępnienia pliku wybierasz samodzielnie. Dysk w chmurze albo dostawca dokumentów może zobaczyć nazwę i rozmiar pliku, datę zapisu oraz historię dostępu do konta.",
-              "Zaszyfrowane archiwum .ngndr, utworzone ręcznie albo według planu na Androidzie, używa szyfrowania AES-256-GCM w częściach i hasła, które wybierasz. Hasło chroni to archiwum, nie dziennik na urządzeniu. Nagłówek pozostaje czytelny, żeby aplikacja mogła rozpoznać format i wersję pliku. Pierwsze sześć bajtów to GDIARY, dalej są ustawienia Argon2id i sól. Nagłówek nie zawiera wpisów. Bez hasła nikt nie odczyta zawartości archiwum.",
-              "Część eksportów jest jawna, bo służy do czytania, druku albo udostępnienia: dane CSV i JSON, książka dziennika do druku lub PDF, podsumowanie dla lekarza, kolaże i filmy poklatkowe ze zdjęć, zapisane pliki PDF oraz pojedyncze pliki kalendarza .ics. Każda osoba, która dostanie taki plik, może przeczytać jego zawartość. Zanim aplikacja utworzy niezaszyfrowany plik, prosi o potwierdzenie albo wyraźne działanie."
+              "Zaszyfrowane Archiwum .ttbackup używa szyfrowania AES-256-GCM w częściach i hasła, które wybierasz. Hasło chroni to Archiwum, nie dziennik na urządzeniu. Nagłówek pozostaje czytelny: pierwsze sześć bajtów to GDIARY, dalej są wersja formatu, ustawienia Argon2id i sól. Aplikacja potrzebuje ich, żeby rozpoznać plik i wyprowadzić klucz. Nagłówek zdradza format, nie wpisy, a reszty bez hasła nikt nie odczyta.",
+              "Na Androidzie Eksport automatyczny zapisuje Archiwum w wybranym folderze, co tydzień albo co miesiąc. Przy włączonej opcji „Dołączaj kopie z innych urządzeń” aplikacja przy otwarciu zagląda do tego folderu i dołącza nowsze Archiwum, które inne urządzenie zapisało tam z tym samym hasłem. Nic nie jest nigdzie wysyłane. Oba urządzenia tylko czytają i zapisują ten folder.",
+              "Część eksportów jest jawna, bo służy do czytania, druku albo udostępnienia: dane CSV i JSON, książka dziennika do druku lub PDF, podsumowanie dla osoby lekarskiej, kolaże i filmy poklatkowe ze zdjęć, zapisane pliki PDF oraz pojedyncze pliki kalendarza .ics. Każda osoba, która dostanie taki plik, może przeczytać jego zawartość. Zanim aplikacja utworzy niezaszyfrowany plik, prosi o potwierdzenie albo wyraźne działanie."
             ],
             "images": [
               {
@@ -872,37 +898,49 @@
             ]
           },
           {
+            "heading": "Usuwanie wszystkiego",
+            "paragraphs": [
+              "„Usuń wszystko” w Ustawieniach, w sekcji Prywatność i dane, kasuje z tego urządzenia dziennik, zdjęcia i nagrania, ustawienia i klucze. Tego nie da się cofnąć, a aplikacja proponuje najpierw zrobić kopię zapasową. To samo usuwa odinstalowanie aplikacji na Androidzie albo wyczyszczenie danych witryny w przeglądarce. Pliki, które już zostały wyeksportowane, zostają tam, gdzie je zapisano."
+            ]
+          },
+          {
             "heading": "Zgłoszenia bezpieczeństwa",
             "paragraphs": [
               "Problem z bezpieczeństwem możesz zgłosić przez prywatny formularz podatności na GitHubie. Podaj wersję aplikacji, urządzenie albo przeglądarkę, jasne kroki odtworzenia błędu oraz oczekiwany i otrzymany wynik. Do minimalnego przykładu użyj zmyślonych danych.",
-              "Projekt prowadzi jedna osoba. Zgłoszenie przeczyta, gdy znów usiądzie do pracy; nie ma stałego terminu odpowiedzi."
+              "Projekt prowadzi jedna osoba. Zgłoszenie przeczyta, gdy znów usiądzie do pracy. Nie ma stałego terminu odpowiedzi."
             ]
           }
         ]
       },
       "contributing": {
         "title": "Współtworzenie",
-        "description": "Kod, pakiety krajowe i tłumaczenia: trzy sposoby, żeby pomóc.",
+        "description": "Zgłaszanie problemów, kod, pakiety krajowe i tłumaczenia.",
         "sections": [
+          {
+            "heading": "Zgłaszanie problemów",
+            "paragraphs": [
+              "Błąd zgłosisz w zgłoszeniach na github.com/engender-app/engender. Napisz, jaką masz wersję (Ustawienia, potem O aplikacji), czy to Android, czy przeglądarka, i jakie kroki prowadzą do problemu. Zgłoszenia są publiczne, więc opisz problem na zmyślonych danych i nie wklejaj niczego z dziennika."
+            ]
+          },
           {
             "heading": "Kod",
             "paragraphs": [
-              "Sklonuj repozytorium aplikacji z github.com/engender-app/engender. Uruchom npm install, a potem npm run dev. W README znajdziesz listę testów. npm run check, npm test i npm run test:browser sprawdzają różne części aplikacji.",
-              "Zgłoszenie zmian powinno dotyczyć jednej sprawy. Napisz, co i dlaczego zmieniasz oraz jakie testy udało się uruchomić. CI sprawdza każde zgłoszenie, także w przeglądarce. W testach i zrzutach ekranu używaj zmyślonych danych."
+              "engender to wolne oprogramowanie na licencji GPLv3. Sklonuj repozytorium aplikacji z github.com/engender-app/engender. Mając Node.js 24, uruchom npm ci, a potem npm run dev. W README znajdziesz listę testów: npm run check, npm test i npm run test:browser sprawdzają różne części aplikacji, a dwa pierwsze potrzebują jednego builda w świeżo sklonowanym repozytorium.",
+              "Zgłoszenie zmian powinno dotyczyć jednej sprawy i wychodzić z gałęzi aktualnej względem main. CI sprawdza każde zgłoszenie, także w przeglądarce, i musi przejść przed scaleniem. W testach i zrzutach ekranu używaj zmyślonych danych."
             ]
           },
           {
             "heading": "Pakiety krajowe",
             "paragraphs": [
-              "Nie musisz pisać kodu, żeby pomóc przy pakiecie krajowym. Pakiet jest częścią aplikacji i opisuje procedury związane z tranzycją w jednym kraju jako cele planu. Na razie dostępny jest tylko pakiet polski. Obejmuje procedurę prawną i instytucje, w których po niej trzeba zmienić dane.",
-              "Do każdego proponowanego celu podaj źródła i zapisz datę ich sprawdzenia. Data reviewedOn jest widoczna w aplikacji, bo procedury się zmieniają. Opisuj, na czym polega dany krok, bez radzenia komuś, co ma zrobić we własnej sprawie. Możesz przesłać źródła, poprawki albo szkic celów bez edytowania aplikacji."
+              "Nie musisz pisać kodu, żeby pomóc przy pakiecie krajowym. Pakiet jest częścią aplikacji i opisuje procedury związane z tranzycją w jednym kraju jako kroki na mapie tranzycji. Na razie dostępny jest tylko pakiet polski. Obejmuje procedurę prawną i instytucje, w których po niej trzeba zmienić dane.",
+              "Do każdego proponowanego kroku podaj źródła i zapisz datę ich sprawdzenia. Mapa pokazuje, kiedy jej treść ostatnio sprawdzono, bo procedury się zmieniają. Opisuj, na czym polega dany krok, bez radzenia komuś, co ma zrobić we własnej sprawie. Możesz przesłać źródła, poprawki albo szkic kroków bez edytowania aplikacji."
             ]
           },
           {
             "heading": "Tłumaczenia",
             "paragraphs": [
-              "Teksty ekranów aplikacji są w plikach messages/en.json i messages/pl.json. Dodanie języka wymaga osobnego katalogu tekstów i sprawdzenia ekranów z prawdziwymi napisami, także z długimi etykietami na małym telefonie.",
-              "Przed pisaniem zajrzyj do docs/ui-copy.md w repozytorium aplikacji. Są tam zasady języka używanego w etykietach, wyjaśnieniach i na ekranach dotyczących ryzyka. Zachowaj sens, ale napisz tekst naturalnie w nowym języku. Dziś aplikacja obsługuje angielski i polski. Kolejny język potrzebuje pełnego opracowania."
+              "Teksty ekranów aplikacji są w plikach messages/en.json i messages/pl.json, a npm run strings otwiera edytor obu. Dziś aplikacja obsługuje angielski i polski. Kolejny język potrzebuje własnego katalogu tekstów, kilku zmian w kodzie, który wymienia języki, i sprawdzenia każdego ekranu z prawdziwymi napisami, także z długimi etykietami na małym telefonie.",
+              "Tłumacz sens, a potem poprawiaj, aż tekst będzie brzmiał naturalnie w nowym języku."
             ]
           }
         ]

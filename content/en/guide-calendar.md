@@ -29,6 +29,11 @@ chapter follows the ADR.
 **Mode.** `CONTEXT.md` calls it a presentation and says screens call it a
 mode, so the chapter says mode.
 
+**Rechecked 2026-11-11.** The chapter below was checked against the Journal's
+`functional-audit` branch, the 1.0.0 candidate: its catalogues, routes and
+`CHANGELOG.md`. Where the notes above describe an older app, the chapter is
+what is current.
+
 ---
 
 ## The chapter
@@ -37,10 +42,11 @@ mode, so the chapter says mode.
 
 *Gate: shipped.*
 
-> Journal is the second tab, and it holds your own days. It opens on the month
-> as a heat map. Days with entries are filled in, coloured by your mood or, if
-> you switch it, by one of your gender scales, and a deeper colour means a
-> higher value. No colour means good or bad.
+> Journal is the second tab, and it holds your own days. The month sits at the
+> top, folded into a strip. Show month opens it as a heat map: days with
+> entries are filled in, coloured by your mood or, if you switch it, by one of
+> your gender scales, and a deeper colour means a higher value. No colour means
+> good or bad.
 >
 > Under the month are your recent entries, and the button below them shows
 > five more days at a time.
@@ -50,8 +56,9 @@ mode, so the chapter says mode.
 *Gate: shipped.*
 
 > Tap a day to see everything logged on it. A day can hold as many entries as
-> you like. A day still ahead with a small mark has something planned, such as
-> a dose or an appointment, and tapping it shows what.
+> you like, and tapping an empty day in the past starts an entry for it. A day
+> still ahead with a small mark has something planned, such as an appointment
+> or a letter due to open, and tapping it shows what.
 
 ### Search
 
@@ -59,7 +66,11 @@ mode, so the chapter says mode.
 
 > The search icon at the top of Journal opens search. Before you type, it offers
 > your most-used tags and recent searches. Filters narrow the results by tag,
-> mood, mode, body region, a range on one of your scales, dates, or starred.
+> mood, mode, body region, a range on one of your scales, dates, starred, or
+> whether an entry has a note or a photo.
+>
+> Search also looks outside your entries, at document titles for example, and
+> lists what it finds under Elsewhere in the journal.
 >
 > Star an entry you want to find again, then filter by Starred to see all of
 > them.
@@ -70,10 +81,14 @@ mode, so the chapter says mode.
 
 > An entry is one moment. It needs a mood, and everything else is optional.
 >
-> The note comes first, under the date. The moods and the star sit on the save
-> bar at the bottom. Under the note, a row of chips opens the rest one at a
-> time: mode, gender scales, tags, the body map, and attachments such as photos
-> and voice recordings.
+> A new entry opens on How is today?, with the five moods and your gender
+> scales. Save entry stops there, and that is a complete entry. Add a note,
+> tags, photos goes on to the full page.
+>
+> On the full page the note comes first, under the date, then mode and the
+> gender scales. The moods and the star sit on the save bar at the bottom. A
+> row of chips opens the rest one at a time: tags, the body map, photos, voice
+> and video. Editing a saved entry opens this page straight away.
 >
 > The body map is where you mark how a part of your body feels. Pick a spot,
 > then slide towards dysphoria or towards euphoria. Leaving it in the middle

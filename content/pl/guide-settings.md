@@ -11,6 +11,11 @@ notatki. Kursywą przed cytatem oznaczono, czy tekst może się ukazać
 quiet hours”, ADR-0036 z poprawką ADR-0084 oraz rejestr powiadomień. Obecny
 ekran ma trzy sekcje: Appearance, Tracking, Privacy and data.
 
+**Sprawdzone 2026-11-11.** Rozdział poniżej sprawdzono z gałęzią
+`functional-audit` aplikacji, czyli kandydatem na 1.0.0: z katalogami, ekranami
+i `CHANGELOG.md`. Tam, gdzie notatki powyżej opisują starszą aplikację, aktualny
+jest rozdział.
+
 ---
 
 ## Rozdział
@@ -19,48 +24,66 @@ ekran ma trzy sekcje: Appearance, Tracking, Privacy and data.
 
 *Gate: shipped.*
 
-> W Ustawieniach wybierasz, jak ma wyglądać dziennik i co chcesz w nim
-> śledzić. Są tu też listy, z których korzystasz przy zapisywaniu. Same wpisy
-> i historia zostają na ekranach poszczególnych funkcji.
+> W Ustawieniach wybierasz, jak ma wyglądać dziennik, co chcesz w nim śledzić
+> i kiedy ma ci o czymś przypominać. Są tu też listy, z których korzystasz przy
+> zapisywaniu. To, co zapisujesz, zostaje na swoim ekranie: dawki, wyniki badań
+> i notatki o operacji znajdziesz na karcie Tranzycja.
 >
-> Na przykład tutaj ustawisz porę przypomnienia. Jego treść i szczegóły
-> zapisujesz przy wpisie lub funkcji, której dotyczy. Dawki, wyniki badań i
-> notatki o operacji znajdziesz w Zdrowiu.
+> Ustawienia otwiera koło zębate na górze karty Dzisiaj. Mają pięć sekcji.
 
 ### Wygląd
 
 *Gate: shipped.*
 
 > W Wyglądzie wybierasz język, motyw i jedną z szesnastu palet. Kolory nastroju
-> mają osobne zestawy. Możesz też zmienić rozmiar tekstu, zwiększyć jego
-> czytelność i ograniczyć ruch na ekranie.
+> mają osobne zestawy. Możesz też powiększyć tekst, wyostrzyć tekst
+> i obramowania oraz ograniczyć ruch na ekranie. Na Androidzie zmienisz tu też
+> ikonę aplikacji.
 
 ### Śledzenie
 
 *Gate: shipped.*
 
-> Tu wybierasz aktywne skale genderowe i porządkujesz listy używane w całym
-> dzienniku: obszary ciała, grupy tagów, tryby, szablony wpisów i ery. Tu też
-> decydujesz, które funkcje aplikacja pokazuje, i włączasz albo wyłączasz
-> śledzenie cyklu.
+> W Śledzeniu są Skale genderowe, Grupy tagów i Widoczne funkcje. W Widocznych
+> funkcjach wybierasz, które części aplikacji mają się pokazywać, i tam jest
+> przełącznik śledzenia cyklu.
+
+### Przypomnienia i podpowiedzi
+
+*Gate: shipped.*
+
+> W Przypomnieniach ustalasz, kiedy aplikacja ma się odezwać. W Komunikatach
+> i powiadomieniach włączasz i wyłączasz pozostałe podpowiedzi oraz ustawiasz
+> godziny ciszy, w których żadne powiadomienie nie przychodzi. Przypomnienie,
+> które wypada w godzinach ciszy, czeka do ich końca. Powiadomienia w telefonie
+> działają tylko w aplikacji na Androida.
 >
-> W Przypomnieniach ustalasz, kiedy aplikacja ma się odezwać. Pozostałe
-> podpowiedzi włączasz i wyłączasz w Powiadomieniach. Kafelki na ekranie Dzisiaj
-> ustawiasz w edytorze tego ekranu, obok przypiętych rzeczy.
->
-> Kafelki i powiadomienia telefonu korzystają z jednej listy rodzajów
-> komunikatów, choć ich przełączniki są w różnych miejscach. Kafelek pojawia się
-> wtedy, gdy jest co pokazać w dzienniku. Powiadomienie może przyjść o wybranej
-> przez ciebie porze albo gdy nie uda się zrobić eksportu. Godziny ciszy
-> odkładają powiadomienia na później. Nic przez to nie przepada.
+> Kafelków tu nie ma. Ustawiasz je w edytorze karty Dzisiaj, obok przypiętych
+> wierszy.
+
+### Twoje listy
+
+*Gate: shipped.*
+
+> W Twoich listach są listy używane w całym dzienniku: tryby, szablony wpisów,
+> obszary ciała i ery.
 
 ### Prywatność i dane
 
 *Gate: shipped.*
 
-> Tu zmieniasz sposób zabezpieczenia dziennika, uprawnienia i tryb ukrycia
-> aplikacji. W Eksporcie robisz lub przywracasz kopię, importujesz dane z
-> Daylio, a na Androidzie wybierasz folder na kopie, z którego dołączane są
-> nowsze kopie z innych urządzeń. Dziennik do druku obejmuje wybrany okres. Kosz
-> przechowuje usunięte wpisy przez 30 dni, zanim znikną na stałe, a wcześniej
-> możesz usunąć wpis na zawsze.
+> W Blokadzie i odzyskiwaniu ustawiasz, jak otwiera się dziennik i kiedy się
+> blokuje, i tam jest klucz odzyskiwania. W tej sekcji są też Uprawnienia
+> i Kamuflaż aplikacji.
+>
+> W Eksporcie / imporcie robisz lub przywracasz kopię zapasową, eksportujesz
+> dane do CSV albo JSON i importujesz je z Daylio. Na Androidzie wybierasz tam
+> też folder na kopie, a nowsze kopie zapisane w nim przez twoje inne
+> urządzenia mogą być dołączane do dziennika.
+>
+> Dziennik do druku obejmuje wybrany okres. Kosz przechowuje usunięte wpisy
+> przez 30 dni, a wcześniej możesz usunąć wpis na zawsze. Usuń wszystko kasuje
+> dziennik z tego urządzenia.
+>
+> Pod sekcjami jest O aplikacji: wersja oraz linki do tego przewodnika,
+> polityki prywatności i kodu źródłowego.
