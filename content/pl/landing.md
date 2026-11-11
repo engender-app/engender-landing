@@ -109,14 +109,14 @@ future, where Polish does not gender the first person.
 *Gate: shipped.*
 
 > Ile dziś euforii? Dysforii? A tydzień temu? Na dwa pierwsze pytania odpowiesz od
-> ręki. Tydzień temu to już tylko ogólne wrażenie. Trudno rozgryźć swój gender, kiedy
-> masz przed oczami tylko dzisiejszy dzień.
+> ręki. Z trzecim jest gorzej, bo po tygodniu zostaje już tylko mgliste wrażenie. A
+> gender trudno rozgryźć, kiedy masz przed oczami tylko dzisiejszy dzień.
 >
-> W engender zaznaczasz to codziennie. Zajmuje to chwilę i jest dobrym pretekstem,
-> żeby sprawdzić, co u ciebie. Potem bierzesz miesiąc albo rok i patrzysz na wszystko
-> razem: jedna skala dzień po dniu albo dwie skale na jednym wykresie. Nie musisz
-> wiedzieć, kim jesteś, żeby zacząć. Bywa, że po kilku miesiącach widać we wpisach coś
-> innego, niż się spodziewasz.
+> Dlatego w engender zaznaczasz to codziennie. Trwa to chwilę, a przy okazji
+> zatrzymujesz się i sprawdzasz, jak się dziś czujesz. Potem wybierasz odcinek czasu,
+> choćby ostatnie pół roku, i oglądasz go w całości: jedną skalę dzień po dniu albo
+> dwie na jednym wykresie. Żeby zacząć, nie musisz wiedzieć, kim jesteś. A po kilku
+> miesiącach wpisy potrafią zaskoczyć.
 >
 > Wokół dziennika są zapiski, które zwykle rozchodzą się po notatkach w telefonie,
 > arkuszu, folderze ze zdjęciami i piśmie z przychodni: co przyjmujesz, co próbujesz,
@@ -469,4 +469,4 @@ and the Play listing will.
 
 The description is shared by search, Open Graph and Twitter metadata.
 
-engender to dziennik, w którym codziennie zaznaczasz euforię, dysforię i co tylko chcesz, a po miesiącach patrzysz na wszystko razem. Za darmo, bez konta.
+Dziennik genderu i tranzycji. Codziennie zaznaczasz, ile czujesz euforii i dysforii, a po kilku miesiącach widzisz to wszystko razem. Za darmo, bez konta.
