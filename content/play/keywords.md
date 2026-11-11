@@ -20,16 +20,18 @@ Polish title match no Polish search.
 
 ## Since 2026-11-11
 
-The short descriptions are the landing headline as one phrase (Journal
-tester-report-02 ticket 06, Alicja's line of 2026-11-11): "Whether you know
-your gender or not, it's time to understand it" and "Nieważne, czy znasz już
-swój gender, pora go zrozumieć". The Polish takes a comma where the headline
-has a full stop, because F-Droid's summary rule allows no sentence
-punctuation. Both carry "gender"; neither carries a tracking verb, HRT, mood
-or "transition" any more. "Transition" stays in the title, and HRT and
-mood move to the full description. The rows that say "short description"
-below record the 2026-10-07 plan; where they disagree with this paragraph,
-this paragraph is current.
+The short descriptions are Alicja's signed line with "gender" and "private"
+added (Journal tester-report-02 ticket 06, her decision of 2026-11-11): "Track
+gender, transition and HRT in a private journal that stays on your device" and
+"Trackuj gender, tranzycję i HRT w prywatnym dzienniku na twoim urządzeniu".
+Her Polish wording ends "który zostaje na twoim urządzeniu", which is 88
+characters against a limit of 80, so the built line is a trim that is still
+hers to confirm. For a few hours on 2026-11-11 the short description was the
+landing headline as one phrase; she rejected that, because the headline is
+said once, on the landing. Both lines carry "gender", "transition" and "HRT"
+and a tracking verb. Mood, voice and milestones are in the full description
+only. The rows that say "short description" below record the 2026-10-07 plan;
+where they disagree with this paragraph, this paragraph is current.
 
 ## English (en-US)
 
