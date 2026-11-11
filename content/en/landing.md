@@ -102,8 +102,9 @@ copy's shape.
 
 **Subheadline**
 
-> Mark euphoria, dysphoria and anything else on scales you name yourself. A month or a
-> year on, look back. You'll see what no single day shows.
+> Give time and context to your feelings. Keep a diary and track your gender with either
+> proposed or custom-made scales. After a while, check out the statistics and learn
+> something new about your gender!
 
 Since tester-report-02 ticket 06 the supporting line is the mechanism behind
 the headline and nothing else: mark, look back, see. The scales it names are
@@ -149,16 +150,18 @@ Four cells under Start journal and the channel badges, so the whole argument is
 read before the first section heading. The cells are not headings, because they
 are not sections.
 
-> **Free, for good.** No price, no plan, no ads. The licence is GPLv3, which cannot be
-> revoked, so nobody can charge for this later, and that includes me.
+> **Free, for good.** No price, no plan, no ads. The app is available at GPLv3 license.
+> It's also open source, which means you'll never see an ad or a paid subscription here.
 
-> **Nothing to sell.** There is no account and no server. Your journal is stored on
-> your device, encrypted, and I never see it. I cannot sell what I do not have.
+> **Nothing to sell.** The app has no backend or a concept of an account. Your journal
+> is stored solely on your device, encrypted. You don't have to trust anyone not to sell
+> your most intimate data - I cannot sell what I do not have.
 
 > **All of it, in one place.** Journal, stats, HRT, surgeries, tryouts, eras, voice
 > practice and a printable summary for your clinician.
 
-> **By trans people, for trans people.** No machine to rage against.
+> **By trans people, for trans people.** The app is made by one trans person from
+> Warsaw, Poland. There is no company or corporation behind it.
 
 "I cannot sell what I do not have" states the mechanism instead of promising
 anything, which is how the objections table in the marketing context answers the
@@ -168,15 +171,16 @@ same worry.
 
 *Gate: shipped.*
 
-> engender is where you keep your transition: how you feel from day to day, what you
-> take, what you are trying, what is coming up and what has already happened. It is a
-> journal first. Around the journal sit the records that otherwise end up spread
-> across a notes app, a spreadsheet, a photo folder and a letter from a clinic.
+> engender is where you keep your transition: how you feel from day to day, what HRT you
+> take, what you are trying out (such as a name or pronouns), what is coming up
+> (surgeries, appointments) and what has already happened (milestones, eras). It is a
+> journal first. Around it are several modules focused on various aspects of a gender
+> transition.
 >
 > Nothing in it decides anything about you. You name your own scales and pick what to
-> track, and the app draws what you put in without grading it. It never suggests a
-> dose, never colours a number red and never tells you which way you are meant to be
-> going.
+> track, and the app will never judge you for anything. engender knows, that every
+> transition is different - that's why in settings you can set which features/modules
+> are of interest for you and which can be hidden.
 >
 > It is free software: there is no price, no plan and nothing to upsell, and the
 > licence keeps it that way.
@@ -239,7 +243,7 @@ screenshots still use invented data; the page no longer says so.
 
 **The month**
 
-> Coloured by mood, or by any scale you choose. Days you did not log stay neutral.
+> Coloured by mood, or by any scale you choose.
 
 **One day, twice**
 
@@ -248,8 +252,7 @@ screenshots still use invented data; the page no longer says so.
 
 **Search**
 
-> Searches your notes and your tags as you type. Diacritics do not matter in either
-> direction: type lozko and it finds łóżko.
+> Search your notes and your tags as you type.
 
 **Six months of one scale**
 
@@ -280,19 +283,19 @@ The grid follows the order Alicja gave on 2026-09-29 (ticket 10): what a reader
 came looking for, rather than the app's own Health / Steps / Support / Media map.
 The screenshot tour follows it, then one paragraph for the rest.
 
-### What it holds
+### Features
 
 *Gate: shipped.*
 
-> **Journal** How today felt. A mood, a note, your own scales, tags, photos, a
-> voice memo, and where in your body dysphoria or euphoria sat. The mood is the
-> only part you need. A day where all you managed was a mood is still a day you
-> logged.
+> **Journal** How today felt. A mood, a note, your own scales, tags, photos, a voice
+> memo, and where in your body dysphoria or euphoria sat. The mood is the only part you
+> need.
 
-> **Look back** Whether anything is changing is hard to see day to day and easy to see
-> over months. A heat map of each month, a chart for each scale, how days with a tag
-> compare to days without, a wrapped for any week, month or year, and the good days
-> from a month, six months and a year ago.
+> **Look back** Whether anything is changing is hard to see day to day. Looking at a few
+> months on one chart, everything is much more obvious. Look back is just for that - it
+> lets you take an analytical look at your gender in order to understand it better.
+> Charts allow you to notice correlations such as how your dysphoria levels change
+> depending on various factors.
 
 > **HRT** Your medication schedule with the next dose and how much is left,
 > doses logged as you take them, reminders you can answer with Taken or Skip,
@@ -302,14 +305,14 @@ The screenshot tour follows it, then one paragraph for the rest.
 > **Surgeries** A journal per procedure: consults, the date itself, recovery, and
 > photos that stay inside the app rather than in your camera roll.
 
-> **Tryouts** Try a name, a pronoun set, a style or a garment. Give it a start date,
-> log how it feels as you go, and close it when you know.
+> **Tryouts** Try a name, a pronoun set, a style or a garment. Give it a start date, log
+> how it feels as you go, and close it when you know to either reject it or accept it
+> for good.
 
-> **Eras** Name the chapters of your own timeline, whatever they were for you. They
-> draw as bands along your timeline and milestones, so a reading sits against the
-> chapter you were in when you wrote it.
+> **Eras** Name the chapters of your own timeline. They are marked along your timeline
+> and milestones, so a reading sits against the era you were in when you wrote it.
 
-> **Voice** Practise, record the same passage each time, and compare with your own
+> **Voice** Practice, record the same passage each time, and compare with your own
 > earlier takes. Pitch, resonance and speaking rate describe the recording without
 > grading your voice.
 
@@ -328,46 +331,41 @@ pitch figure may not be presented as a target.
 
 *Gate: shipped.*
 
-> Also in there: search across your notes and tags, a tally of the times you
-> were misgendered and gendered right, milestones with countdowns ahead and
-> anniversaries behind, letters that open on a date you choose, a roadmap of the
-> legal steps in Poland with room for your own, the offices to update after a
-> name change, binder and tucking wear time, hair removal sessions, waiting
-> lists, notes on the people you see, what each visit or prescription cost,
-> appointment prep, Safe Space with your good days and your own comfort list, a
-> directory of trans organisations and helplines you can read offline, one photo
-> library across all of it, and a place for referrals and court orders. If you
-> already have a year in Daylio, it imports.
+> Also in there: search across your notes and tags, a tally of the times you were
+> misgendered and gendered right, milestones with countdowns ahead and anniversaries
+> behind, letters that open on a date you choose, a roadmap of the legal steps in Poland
+> with room for your own, the offices to update after a name change, binder and tucking
+> wear time, hair removal sessions, waiting lists, notes on the people you see, what
+> each visit or prescription cost, appointment prep, Safe Space with your good days and
+> your own comfort list, a directory of trans organisations and helplines you can read
+> offline, one photo library across all of it, and a place for referrals and court
+> orders. If you already have a diary in Daylio, it imports.
 
 ### Keeping it
 
 *Gate: shipped.*
 
 > **Archives.** Export packs your journal into one file, encrypted with a password you
-> choose, before it leaves the app. Import puts it back, either merged into what is here
-> or replacing it.
+> choose Import puts it back, either merged into what is here or replacing it.
 >
-> **Automatic backups.** On Android, an encrypted Archive saved weekly or
-> monthly to a folder you pick, on the phone or with a cloud provider. The app
-> shows when the last one worked and when one failed. If another phone backs up
-> to the same folder, its newer backup can be merged in when you open the app.
+> **Automatic backups.** On Android, an encrypted Archive saved weekly or monthly to a
+> folder you pick, on the phone or with a cloud provider. The app shows when the last
+> one worked and when one failed.
 >
-> **Coming from Daylio.** Import a Daylio CSV or a Daylio backup. It shows you
-> the counts and how the moods will map before it writes anything, and it only
-> ever merges.
+> **Coming from Daylio.** Import a Daylio CSV or a Daylio backup. It shows you the
+> counts and how the moods will map before it writes anything.
 >
-> **Plain export.** CSV or JSON, for a spreadsheet or for keeping your own copy. It is not
-> encrypted, and the app says so and makes you confirm before it writes the file.
+> **Plain export.** CSV or JSON. It is not encrypted, so use at your own discretion!
 >
-> **Backup reminders.** If your last backup is more than 30 days old, the home screen
-> says so and lets you back up there and then. You can dismiss it.
+> **Backup reminders.** If your last backup is more than 30 days old, the app will
+> remind you to make a backup. Can be turned off.
 
 ### On your phone
 
 *Gate: shipped.*
 
-> **On Android.** The same journal features as a phone app. Its data does not sync with
-> the browser journal.
+> **On Android.** It works offline and never even asks for internet permission, so the
+> app has no way to send your journal anywhere.
 >
 > **Reminders.** Once or repeating, as notifications on your phone. A medication
 > reminder opens that drug's dose log, with Taken and Skip on the notification
@@ -380,24 +378,25 @@ pitch figure may not be presented as a target.
 >
 > **Works offline.** Once it is installed it does not need the network to open.
 
-### If you need to be careful
+### If you need privacy
 
 *Gate: shipped.*
 
-> Choose how to unlock the journal in Privacy and data. Disguise stays off until
-> you turn it on, and you choose how soon the journal locks again.
+> Choose how to unlock the journal in Privacy and data. The journal can stay fully
+> unlocked, but you can also lock it with PIN, password or a fingerprint. You can also
+> use a disguise function that changes your lock screen, the app icon and it's name in
+> the app drawer to neutral ones.
 >
 > **Access.** Use a passphrase, a PIN with a device key, supported biometrics or a
-> device-bound key. The Privacy page explains what each protects and how recovery works.
+> device-bound key.
 >
 > **Disguise.** The browser tab says Notes instead of engender. On Android, the
 > app takes a neutral name and icon, and the lock screen, widgets and
 > notifications stop naming it. Once the journal is unlocked, nothing inside
 > changes.
 >
-> **Locking again.** The journal can lock as soon as you switch away, after one
-> or five minutes away, or only when the app restarts. With a mode that asks for
-> a secret, you need it to return.
+> **Locking again.** The journal can lock as soon as you switch away, after one or five
+> minutes away, or only when the app restarts.
 
 ### How it looks
 
@@ -405,14 +404,9 @@ pitch figure may not be presented as a target.
 
 > **Sixteen palettes**: trans, nonbinary, genderfluid, bisexual, lesbian, pansexual,
 > rainbow, agender, gay men, genderqueer, intersex, asexual, demiboy, demigirl,
-> trigender and the Polish flag. Each one recolours the whole app, charts and calendar
-> included, and each one works in light and dark.
+> trigender and the Polish flag.
 >
-> **Colour never judges.** No red for a bad day and no green for a good one. The heat map
-> is one colour at different strengths, and an empty day stays empty.
->
-> **Two languages.** English and Polish, switchable in settings, with dates following
-> whichever you pick.
+> **Two languages.** English and Polish
 
 ---
 

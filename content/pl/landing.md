@@ -56,9 +56,9 @@ tranzycja w jednym miejscu, na własnym urządzeniu.”
 
 **Subheadline**
 
-> Zaznaczaj euforię, dysforię i co tylko chcesz na skalach, które nazywasz po swojemu.
-> Po miesiącu albo po roku spójrz wstecz. Zobaczysz to, czego z pojedynczego dnia nie
-> widać.
+> Nadaj swoim uczuciom czas i kontekst. Prowadź swój dziennik i trackuj swój gender za
+> pomocą proponowanych lub zdefiniowanych przez Ciebie skal, a po jakimś czasie wejdź w
+> statystyki i dowiedz się czegoś nowego o sobie!
 
 Since tester-report-02 ticket 06 the line is the mechanism only, as in
 English, written first in Polish and not translated. Euphoria and dysphoria
@@ -91,16 +91,21 @@ until then. The Acquisition section below has the earlier reasoning.
 
 *Gate: shipped.*
 
-> **Za darmo, na zawsze.** Bez opłat, bez abonamentu, bez reklam. Licencji GPLv3 nie
-> da się odwołać, więc nikt nie zacznie za to pobierać pieniędzy, ja też nie.
+> **Za darmo, na zawsze.** Bez opłat, bez abonamentu, bez reklam. Aplikacja jest
+> dostępna na licencji GPLv3, a jej kod jest otwarty, więc nigdy nie zobaczysz w
+> engender reklamy czy płatnej subskrypcji.
 
-> **Nie ma czego sprzedać.** Nie ma konta ani serwera. Dziennik jest zapisany na twoim
-> urządzeniu, zaszyfrowany, i nigdy go nie widzę. Nie sprzedam czegoś, czego nie mam.
+> **Nic na sprzedaż.** Aplikacja nie posiada serwera ani koncepcji konta. Dziennik
+> jest zapisany tylko i wyłącznie na twoim urządzeniu, zaszyfrowany. Nie musisz ufać
+> nikomu, że nie sprzeda Twoich najbardziej intymnych danych - ponieważ zwyczajnie nie
+> mam do nich dostępu.
 
-> **Wszystko w jednym miejscu.** Dziennik, statystyki, HRT, operacje, próby, ery,
-> ćwiczenia głosu i podsumowanie do lekarza, które można wydrukować.
+> **Wszystko w jednym miejscu.** Dziennik, statystyki, HRT, operacje, próby genderowe
+> (zaimki, imię, prezentacja), ery (np przed coming out, po HRT), ćwiczenia głosu i
+> podsumowanie do lekarza, które można wydrukować. To tylko wierzchołek góry lodowej!
 
-> **Od osób trans dla osób trans.** Żadnej machiny, na którą trzeba się wściekać.
+> **Od osób trans dla osób trans.** Aplikacja jest napisana przez pojedynczą trans
+> programistkę z Warszawy. Nie stoi za nią żadna korporacja.
 
 „Nigdy go nie widzę” and „nie sprzedam” keep the author in the present and the
 future, where Polish does not gender the first person.
@@ -109,17 +114,17 @@ future, where Polish does not gender the first person.
 
 *Gate: shipped.*
 
-> engender to miejsce na twoją tranzycję: jak się czujesz z dnia na dzień, co
-> przyjmujesz, co próbujesz, co cię czeka i co już za tobą. Przede wszystkim to
-> dziennik. Wokół niego są zapiski, które zwykle rozchodzą się po notatkach w
-> telefonie, arkuszu, folderze ze zdjęciami i piśmie z przychodni.
+> engender to miejsce na twoją tranzycję: jak się czujesz z dnia na dzień, jakie leki
+> przyjmujesz, co próbujesz (np imię czy zaimki), co cię czeka (wizyty, operacje) i co
+> już za tobą (kamienie milowe, ery). Rdzeniem aplikacji jest dziennik. Wokół niego jest
+> kilkanaście modułów poświęconych różnym aspektom tranzycji.
 >
-> Nic tu o tobie nie decyduje. Skale nazywasz po swojemu i wybierasz, co śledzić, a
-> aplikacja rysuje to, co wpisujesz, bez wystawiania ocen. Nie podpowiada dawek, nie
-> barwi liczb na czerwono i nie mówi, w którą stronę masz zmierzać.
+> Nic o tobie nie decyduje. Skale nazywasz po swojemu i wybierasz, co trackować, a
+> aplikacja nigdy cię nie oceni. engender wie, że każda tranzycja jest inna - dlatego w
+> ustawieniach możesz samx wybrać, które funkcjonalności cię interesują, a które nie.
 >
-> To wolne oprogramowanie: bez ceny, bez abonamentu i bez niczego do dokupienia, a
-> licencja pilnuje, żeby tak zostało.
+> To wolne oprogramowanie: bez ceny, subskrypcji ani reklam. Licencja GPLv3 pilnuje,
+> żeby tak zostało.
 
 „Skale nazywasz po swojemu” instead of „sam nazywasz”, which would gender the
 reader.
@@ -160,34 +165,31 @@ screenshots still use invented data; the page no longer says so.
 
 **Ekran główny**
 
-> Powitanie, co przed tobą, i części aplikacji, które tam przypinasz. Wybór
-> nastroju robi wpis jednym ruchem, więc w dzień, kiedy nie masz siły pisać,
-> nadal da się coś zapisać.
+> Powitanie, co przed tobą (dawki leków, wizyty, kamienie milowe), szybkie dodanie
+> nastroju oraz przypięte moduły aplikacji.
 
 **Wpis**
 
-> Nastrój, twoje skale, tagi, notatka, zdjęcia. Nastrój jest obowiązkowy, reszta
-> nie, więc dzień, w którym starczyło tylko na nastrój, i tak się liczy.
+> Nastrój, twoje skale, tagi, notatka, zdjęcia. Nastrój jest obowiązkowy, reszta nie,
+> więc dzień, w którym energii starczyło tylko na nastrój, i tak się liczy.
 
 **Miesiąc**
 
-> Kolor bierze się z nastroju albo z dowolnej skali, którą wybierzesz. Dni bez wpisu
-> zostają neutralne.
+> Dni pokolorowane według nastroju lub innej skali, którą wybierzesz.
 
 **Jeden dzień, dwa wpisy**
 
-> Poczucie płci potrafi się zmieniać w ciągu dnia, więc dzień mieści tyle wpisów, ile
-> trzeba, i każdy dostaje swoją godzinę. Kolor całego dnia to ich średnia.
+> Gender jest zmienny w czasie, czasem mniej lub bardziej dynamicznie, więc możesz dodać
+> tyle wpisów w ciągu dnia, ile potrzebujesz. Przy wyświetlaniu dnia aplikacja uśrednia
+> do jednej wartości.
 
 **Wyszukiwanie**
 
-> Szuka w notatkach i tagach w trakcie pisania. Polskie znaki nie mają znaczenia w
-> żadną stronę: wpisz „lozko”, a znajdzie łóżko.
+> Szukaj w notatkach i tagach w trakcie pisania.
 
 **Pół roku jednej skali**
 
-> Każda skala ma swój wykres i swoją średnią z okresu, który wybierzesz. Dni z kilkoma
-> wpisami liczą się jako średnia, a po otwarciu wykresu widać, które to dni.
+> Każda skala ma swój wykres i swoją średnią z okresu, który wybierzesz.
 
 **Kamienie milowe**
 
@@ -212,87 +214,82 @@ address the reader in the past tense, "a day where all you managed was a mood" a
 "the chapter you were in when you wrote it", so the Polish is built around them:
 „dzień z samym nastrojem to też dzień z wpisem” and „rozdziału, w którym powstał”.
 
-### What it holds
+### Features
 
 *Gate: shipped.*
 
-> **Dziennik** Jak minął dzień. Nastrój, notatka, własne skale, tagi, zdjęcia,
-> notatka głosowa i miejsce na ciele, w którym była dysforia albo euforia.
-> Wymagany jest tylko nastrój. Dzień z samym nastrojem to też dzień z wpisem.
+> **Dziennik** Jak minął twój dzień. Nastrój, notatka, własne skale, tagi, zdjęcia,
+> notatka głosowa i miejsce na ciele, w którym odczułeś dysforię albo euforię. Wymagany
+> jest tylko nastrój.
 
-> **Statystyki** Z dnia na dzień trudno zobaczyć, czy coś się zmienia. Po kilku
-> miesiącach widać to od razu. Kalendarz każdego miesiąca, wykres dla każdej
-> skali, porównanie dni z tagiem i bez niego, bilans dowolnego tygodnia,
-> miesiąca lub roku i dobre dni sprzed miesiąca, pół roku i roku.
+> **Statystyki** Z dnia na dzień trudno zobaczyć, czy coś się zmienia. Patrząc na kilka
+> miesięcy widać to od razu. Statystyki są właśnie po to - pozwalają spojrzeć na swój
+> gender analitycznie, aby zrozumieć go jak najlepiej. Statystyki pozwalają na
+> dostrzeżenie korelacji, np zależności poziomów dysforii od różnych czynników.
 
-> **HRT** Harmonogram leków z następną dawką i tym, ile zostało, dawki
-> zapisywane na bieżąco, przypomnienia z przyciskami Przyjęto i Pomiń oraz
-> wyniki badań na wykresie. Aplikacja nie podpowiada dawek i nie pokazuje norm
-> laboratoryjnych.
+> **HRT** Harmonogram przyjmowanych leków z przypomnieniem o następnej dawce i kończącym
+> się zapasie, oraz wynikami badań na wykresie. Aplikacja nie podpowiada dawek i nie
+> pokazuje norm laboratoryjnych.
 
-> **Operacje** Osobny dziennik dla każdego zabiegu: konsultacje, sam termin,
+> **Operacje** Osobny dziennik dla każdego zabiegu: konsultacje, termin,
 > rekonwalescencja, i zdjęcia, które zostają w aplikacji, a nie w galerii telefonu.
 
-> **Próby** Wypróbuj imię, zaimki, styl albo ubranie. Nadaj próbie datę początku,
-> zapisuj po drodze, jak się z tym czujesz, i zamknij ją, kiedy już wiesz.
+> **Próbowanie** Wypróbuj imię, zaimki, styl albo ubranie. Nadaj próbie datę początku,
+> zapisuj po drodze, jak się z nią czujesz, i zamknij ją, kiedy już wiesz czy ją
+> odrzucić, czy przyjąć na dobre.
 
-> **Ery** Nazwij rozdziały własnej historii, czymkolwiek dla ciebie były. Ery
-> pojawiają się jako pasy na osi czasu i przy kamieniach milowych, więc każdy zapis
-> widać na tle rozdziału, w którym powstał.
+> **Ery** Nazwij rozdziały własnej historii. Ery są zaznaczane na osi czasu i przy
+> kamieniach milowych, więc każdy zapis widać na tle ery, w której powstał.
 
 > **Głos** Ćwicz, nagrywaj za każdym razem ten sam tekst i porównuj go z własnymi
 > wcześniejszymi nagraniami. Wysokość, rezonans i tempo mówienia opisują nagranie, ale
 > nie oceniają głosu.
 
-> **Podsumowanie do lekarza** Dawki, wyniki badań, skutki uboczne i zmiany na
+> **Podsumowanie do lekarza** Dawki, wyniki badań, skutki uboczne i zauważone zmiany na
 > jednym wydruku na wizytę, za wybrany okres i tylko z wybranymi sekcjami.
 
 ### Also in there
 
 *Gate: shipped.*
 
-> Poza tym: wyszukiwanie w notatkach i tagach, licznik sytuacji, w których ktoś
-> zwraca się do ciebie zgodnie z twoją płcią albo nie, kamienie milowe z
-> odliczaniem i rocznicami, listy otwierane w wybranym dniu, mapa kroków
-> prawnych w Polsce z miejscem na własne, instytucje, w których po wyroku trzeba
-> zmienić dane, czas noszenia bindera i tuckingu, sesje depilacji, kolejki do
-> specjalistów, notatki o osobach, do których chodzisz, koszt każdej wizyty i
-> recepty, przygotowanie do wizyty, Bezpieczna przestrzeń z dobrymi dniami i
-> własną listą rzeczy, które pomagają, spis organizacji trans i telefonów
-> zaufania dostępny bez internetu, jedna biblioteka zdjęć na wszystko i miejsce
-> na skierowania i postanowienia sądu. Rok zapisków w Daylio da się
+> Poza tym: wyszukiwanie w notatkach i tagach, licznik sytuacji, w których ktoś zwraca
+> się do ciebie zgodnie z twoim genderem albo nie, kamienie milowe z odliczaniem i
+> rocznicami, listy do siebie, mapa kroków prawnych w Polsce z miejscem na własne,
+> instytucje, w których po wyroku trzeba zmienić dane, czas noszenia bindera i tuckingu,
+> sesje depilacji, kolejki do specjalistów, notatki o lekarzach, do których chodzisz,
+> koszt każdej wizyty i recepty, przygotowanie do wizyty, Bezpieczna przestrzeń z
+> dobrymi dniami i własną listą rzeczy, które pomagają, spis organizacji trans i
+> telefonów zaufania dostępny bez internetu, jedna biblioteka zdjęć na wszystko i
+> miejsce na skierowania i postanowienia sądu. Rok zapisków w Daylio da się
 > zaimportować.
 
 ### Archiwa i eksport
 
 *Gate: shipped.*
 
-> **Archiwa.** Eksport pakuje dziennik do jednego pliku i szyfruje go hasłem, które
-> wybierasz, zanim plik opuści aplikację. Import wkłada go z powrotem, dokładając do tego,
-> co już jest, albo zastępując całość.
+> **Archiwa.** Eksport pakuje dziennik do jednego pliku i szyfruje go wybranym przez
+> ciebie hasłem. Import działa w jednym z dwóch trybów - dopisanie (dopisuje
+> zaimportowane wpisy do istniejącego dziennika) lub nadpisanie
 >
-> **Automatyczne kopie.** Na Androidzie zaszyfrowane archiwum trafia co tydzień
-> albo co miesiąc do wybranego folderu, w telefonie albo u dostawcy chmury.
-> Aplikacja pokazuje, kiedy ostatnia kopia się udała, a kiedy nie. Jeśli inny
-> telefon zapisuje kopie w tym samym folderze, nowsza z nich może zostać
-> dołączona przy otwarciu aplikacji.
+> **Automatyczne kopie.** Na Androidzie zaszyfrowane archiwum trafia co tydzień albo co
+> miesiąc do wybranego folderu. Aplikacja pokazuje, kiedy ostatnia kopia się udała, a
+> kiedy nie.
 >
-> **Przejście z Daylio.** Import bierze plik CSV albo kopię zapasową z Daylio.
-> Zanim cokolwiek zapisze, pokazuje liczby i to, jak przełoży nastroje, a zawsze
-> tylko dokłada do tego, co już masz.
+> **Przejście z Daylio.** Import z pliku CSV lub kopii zapasowej z Daylio. Zanim
+> cokolwiek zapisze, pokazuje podsumowanie.
 >
-> **Eksport zwykły.** CSV albo JSON, do arkusza albo na własną kopię. Taki plik nie jest
-> zaszyfrowany, aplikacja mówi to wprost i każe potwierdzić, zanim go zapisze.
+> **Eksport.** CSV albo JSON. Taki plik nie jest zaszyfrowany, więc używaj na własną
+> odpowiedzialność!
 >
-> **Przypomnienia o kopii.** Jeśli ostatnia kopia ma więcej niż 30 dni, ekran główny o
-> tym mówi i pozwala od razu ją zrobić. Można to zamknąć.
+> **Przypomnienia o kopii.** Jeśli ostatnia kopia ma więcej niż 30 dni, aplikacja
+> przypomina o zrobieniu kopii. Można wyłączyć w ustawieniach.
 
 ### Na telefonie
 
 *Gate: shipped.*
 
-> **Na Androidzie.** Te same funkcje dziennika w aplikacji na telefon. Dane nie
-> synchronizują się z dziennikiem w przeglądarce.
+> **Na Androidzie.** Działa bez sieci i nawet nie prosi o dostęp do internetu, więc nie
+> ma jak nigdzie wysłać twojego dziennika.
 >
 > **Przypomnienia.** Jednorazowe lub powtarzalne powiadomienia na telefonie.
 > Przypomnienie o leku otwiera zapis dawek tego leku, a na samym powiadomieniu
@@ -305,26 +302,24 @@ address the reader in the past tense, "a day where all you managed was a mood" a
 >
 > **Działa bez sieci.** Po instalacji otworzysz dziennik także bez internetu.
 
-### Jeśli musisz uważać
+### Jeśli potrzebujesz prywatności
 
 *Gate: shipped.*
 
-> W sekcji Prywatność i dane wybierasz, jak otwierać dziennik. Kamuflaż jest
-> wyłączony, dopóki go nie włączysz, a ty decydujesz, jak szybko dziennik znów
-> się blokuje.
+> W sekcji Prywatność i dane wybierasz, jak otwierać dziennik. Może być stale
+> odblokowany, ale może również korzystać z PINu, hasła czy odcisku palca. Możesz
+> również skorzystać z opcji kamuflażu, który zmieni ekran blokady, ikonę oraz nazwę
+> aplikacji w systemie na neutralną.
 >
-> **Dostęp.** Wybierz hasło, PIN z kluczem urządzenia, obsługiwaną biometrię albo klucz
-> powiązany z urządzeniem. Strona o prywatności opisuje ochronę i odzyskiwanie dostępu.
+> **Dostęp.** Hasło, PIN lub biometria.
 >
-> **Kamuflaż.** Karta przeglądarki pokazuje „Notatki” zamiast engender. Na
-> Androidzie aplikacja dostaje neutralną nazwę i ikonę, a ekran blokady, widżety
-> i powiadomienia przestają ją nazywać. Po odblokowaniu dziennika w środku nic
-> się nie zmienia.
+> **Kamuflaż.** Karta przeglądarki pokazuje „Notatki” zamiast engender. Na Androidzie
+> aplikacja dostaje neutralną nazwę i ikonę, a ekran blokady, widżety i powiadomienia
+> zmieniają nazwy na neutralne. Po odblokowaniu dziennika w środku aplikacja nie zmienia
+> się w ogóle.
 >
-> **Ponowna blokada.** Dziennik może się zablokować od razu po przejściu do
-> innej aplikacji, po minucie albo pięciu minutach albo dopiero po ponownym
-> uruchomieniu. Jeśli wybrany tryb wymaga odblokowania, trzeba je powtórzyć po
-> powrocie.
+> **Ponowna blokada.** Dziennik może się blokować od razu po wyjściu z aplikacji, po
+> minucie, pięciu minutach albo dopiero po ponownym uruchomieniu.
 
 ### Wygląd
 
@@ -332,14 +327,9 @@ address the reader in the past tense, "a day where all you managed was a mood" a
 
 > **Szesnaście palet**: transpłciowa, niebinarna, genderfluid, biseksualna, lesbijska,
 > panseksualna, tęczowa, agender, gejowska, genderqueer, interpłciowa, aseksualna,
-> demiboy, demigirl, trigender i polska. Każda przemalowuje całą aplikację, razem z
-> wykresami i kalendarzem, i każda działa w jasnym i w ciemnym motywie.
+> demiboy, demigirl, trigender i polska.
 >
-> **Kolor niczego nie ocenia.** Nie ma czerwonego na zły dzień ani zielonego na dobry.
-> Kalendarz używa jednego koloru o różnej sile, a pusty dzień zostaje pusty.
->
-> **Dwa języki.** Polski i angielski, do przełączenia w ustawieniach, a daty idą za
-> wybranym językiem.
+> **Dwa języki.** Polski i angielski
 
 ---
 

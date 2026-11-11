@@ -1148,7 +1148,7 @@ const HEADINGS = {
     overview: "What this is",
     privacy: "What it protects, and what it doesn't",
     tour: "The screens",
-    features: "What it holds",
+    features: "Features",
     acquisition: ACQUISITION.en.heading,
     support: "Who made this",
   },
@@ -1156,7 +1156,7 @@ const HEADINGS = {
     overview: "Co to jest",
     privacy: "Co chroni, a czego nie",
     tour: "Ekrany",
-    features: "Co w nim jest",
+    features: "Funkcje",
     acquisition: ACQUISITION.pl.heading,
     support: "Kto to robi",
   },
@@ -4157,7 +4157,7 @@ test("the motion system ships no animation runtime at all", async () => {
    its group, and the two corrections the fact check made to the copy. */
 const HOLDS = {
   en: ["Journal", "Look back", "HRT", "Surgeries", "Tryouts", "Eras", "Voice", "Clinician summary"],
-  pl: ["Dziennik", "Statystyki", "HRT", "Operacje", "Próby", "Ery", "Głos", "Podsumowanie do lekarza"],
+  pl: ["Dziennik", "Statystyki", "HRT", "Operacje", "Próbowanie", "Ery", "Głos", "Podsumowanie do lekarza"],
 };
 const PALETTE_LEAD = { en: "Sixteen palettes", pl: "Szesnaście palet" };
 
