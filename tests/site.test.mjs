@@ -1194,7 +1194,7 @@ const PRIVACY_TITLE = {
     inside a section and so is not covered by the heading assertions. */
 const HEADLINE = {
   en: "Whether you know your gender or not, it's time to understand it.",
-  pl: "Nieważne, czy znasz już swój gender. Pora go zrozumieć.",
+  pl: "Nieważne, czy znasz swój gender. Pora go zrozumieć.",
 };
 
 /** Both languages describe encryption and reject the retired plaintext fallback. */

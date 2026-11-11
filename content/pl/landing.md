@@ -46,10 +46,10 @@ decided here and recorded in `.agents/product-marketing.md`.
 
 **Headline**
 
-> Nieważne, czy znasz już swój gender. Pora go zrozumieć.
+> Nieważne, czy znasz swój gender. Pora go zrozumieć.
 
 Alicja's own line, 2026-11-11 (tester-report-02 ticket 06), not to be
-reworded. An earlier draft read „Poznaj swój gender z własnych wpisów.”; she
+reworded. It read „czy znasz już swój gender” until she dropped „już” the same day. An earlier draft read „Poznaj swój gender z własnych wpisów.”; she
 rejected it, and its store twin „dowiedz się o nim więcej z własnych wpisów”
 as form-letter Polish. Ticket 10's line was „Twoja
 tranzycja w jednym miejscu, na własnym urządzeniu.”

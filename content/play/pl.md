@@ -14,10 +14,10 @@ the same text byte for byte, one paragraph per line.
 
 ## Short description
 
-54 of 80 characters.
+50 of 80 characters.
 F-Droid reads this as its Summary, which must have no sentence punctuation.
 
-> Nieważne, czy znasz już swój gender, pora go zrozumieć
+> Nieważne, czy znasz swój gender, pora go zrozumieć
 
 ## Full description
 
