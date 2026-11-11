@@ -20,18 +20,16 @@ Polish title match no Polish search.
 
 ## Since 2026-11-11
 
-The short descriptions are Alicja's signed line with "gender" and "private"
-added (Journal tester-report-02 ticket 06, her decision of 2026-11-11): "Track
-gender, transition and HRT in a private journal that stays on your device" and
-"Trackuj gender, tranzycję i HRT w prywatnym dzienniku na twoim urządzeniu".
-Her Polish wording ends "który zostaje na twoim urządzeniu", which is 88
-characters against a limit of 80, so the built line is a trim that is still
-hers to confirm. For a few hours on 2026-11-11 the short description was the
-landing headline as one phrase; she rejected that, because the headline is
-said once, on the landing. Both lines carry "gender", "transition" and "HRT"
-and a tracking verb. Mood, voice and milestones are in the full description
-only. The rows that say "short description" below record the 2026-10-07 plan;
-where they disagree with this paragraph, this paragraph is current.
+The short descriptions are Alicja's signed line with "gender" added (Journal
+tester-report-02 ticket 06, her decision of 2026-11-11): "Track your gender,
+transition and HRT in a journal that stays on your device" and "Trackuj
+gender, tranzycję i HRT w dzienniku, który zostaje na twoim urządzeniu". For a
+few hours that day the short description was the landing headline as one
+phrase; she rejected that, because the headline is said once, on the landing.
+Both lines carry "gender", "transition", "HRT" and a tracking verb. Mood,
+voice and milestones are in the full description only. The rows that say
+"short description" below record the 2026-10-07 plan; where they disagree
+with this paragraph, this paragraph is current.
 
 ## English (en-US)
 

@@ -32,7 +32,7 @@ Play counts characters, newlines included, not bytes, so a Polish diacritic
 costs one. Title 30, short description 80, full description 4,000, release notes
 500. F-Droid allows a 50-character name, an 80-character summary, a
 4,000-character description and 500-character release notes. Current counts:
-title 28 and 28, short description 79 and 73, full description 3,801 and
+title 28 and 28, short description 76 and 78, full description 3,801 and
 3,943 for English and Polish. The Journal's
 `tests/store-listing-assets.test.ts` checks the limits on every test run.
 

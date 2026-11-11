@@ -14,10 +14,10 @@ the same text byte for byte, one paragraph per line.
 
 ## Short description
 
-73 of 80 characters.
+78 of 80 characters.
 F-Droid reads this as its Summary, which must have no sentence punctuation.
 
-> Trackuj gender, tranzycję i HRT w prywatnym dzienniku na twoim urządzeniu
+> Trackuj gender, tranzycję i HRT w dzienniku, który zostaje na twoim urządzeniu
 
 ## Full description
 
