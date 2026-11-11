@@ -26,7 +26,7 @@ jest rozdział.
 
 *Gate: shipped.*
 
-> Media to piąta grupa. W Zdjęciach są wszystkie zdjęcia z dziennika na jednej liście według dat. Przyciski u góry zawężają ją do jednego źródła, na przykład zmian włosów albo operacji, a Ulubione pokazują zdjęcia z gwiazdką. Zaznacz zdjęcia, żeby je usunąć, albo otwórz zapis, do którego zdjęcie należy.
+> Piąta grupa to Media. W Zdjęciach są wszystkie zdjęcia z dziennika na jednej liście według dat. Przyciski u góry zawężają ją do jednego źródła, na przykład zmian włosów albo operacji, a Ulubione pokazują zdjęcia z gwiazdką. Zaznacz zdjęcia, żeby je usunąć, albo otwórz zapis, do którego zdjęcie należy.
 >
 > „Zrób kolaż albo film poklatkowy” składa go ze zdjęć z wybranego okresu i pokazuje podgląd. Zapisany plik nie jest zaszyfrowany. Zdjęcia nigdy nie trafiają do galerii telefonu.
 

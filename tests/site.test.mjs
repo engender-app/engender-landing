@@ -1489,7 +1489,7 @@ const GUIDE_TITLES = {
     contributing: "Contributing",
   },
   pl: {
-    "getting-started": "Zaczynamy",
+    "getting-started": "Na początek",
     home: "Dzisiaj",
     calendar: "Dziennik",
     stats: "Statystyki",

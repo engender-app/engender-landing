@@ -322,7 +322,7 @@
     "chapters": {
       "getting-started": {
         "title": "Getting started",
-        "description": "Installing engender, what onboarding asks, and why there's no account.",
+        "description": "Installing engender and first steps.",
         "sections": [
           {
             "heading": "Installing",
@@ -719,7 +719,7 @@
       },
       "media": {
         "title": "Media",
-        "description": "Every photo in your journal in one list, and the documents you keep.",
+        "description": "Every photo and the documents, all in one place.",
         "sections": [
           {
             "heading": "Photos",

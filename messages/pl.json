@@ -321,8 +321,8 @@
     "comingSoon": "Ten rozdział jeszcze nie powstał. Zajrzyj tu później.",
     "chapters": {
       "getting-started": {
-        "title": "Zaczynamy",
-        "description": "Instalacja engender, o co pyta pierwsze uruchomienie i dlaczego nie zakładasz konta.",
+        "title": "Na początek",
+        "description": "Instalacja engender oraz pierwsze kroki w aplikacji.",
         "sections": [
           {
             "heading": "Instalacja",
@@ -719,12 +719,12 @@
       },
       "media": {
         "title": "Media",
-        "description": "Wszystkie zdjęcia z dziennika na jednej liście i dokumenty, które przechowujesz.",
+        "description": "Wszystkie zdjęcia i dokumenty, w jednym miejscu.",
         "sections": [
           {
             "heading": "Zdjęcia",
             "paragraphs": [
-              "Media to piąta grupa. W Zdjęciach są wszystkie zdjęcia z dziennika na jednej liście według dat. Przyciski u góry zawężają ją do jednego źródła, na przykład zmian włosów albo operacji, a Ulubione pokazują zdjęcia z gwiazdką. Zaznacz zdjęcia, żeby je usunąć, albo otwórz zapis, do którego zdjęcie należy.",
+              "Piąta grupa to Media. W Zdjęciach są wszystkie zdjęcia z dziennika na jednej liście według dat. Przyciski u góry zawężają ją do jednego źródła, na przykład zmian włosów albo operacji, a Ulubione pokazują zdjęcia z gwiazdką. Zaznacz zdjęcia, żeby je usunąć, albo otwórz zapis, do którego zdjęcie należy.",
               "„Zrób kolaż albo film poklatkowy” składa go ze zdjęć z wybranego okresu i pokazuje podgląd. Zapisany plik nie jest zaszyfrowany. Zdjęcia nigdy nie trafiają do galerii telefonu."
             ],
             "images": [

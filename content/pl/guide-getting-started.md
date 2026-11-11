@@ -1,4 +1,4 @@
-# Guide copy, Polish: Zaczynamy
+# Guide copy, Polish: Na początek
 
 Polska wersja pierwszego rozdziału Przewodnika, napisana w guide ticket 02 obok
 angielskiej (Alicja poprosiła o obie wersje w tym tickecie, choć spec odkładał
