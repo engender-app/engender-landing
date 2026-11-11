@@ -26,35 +26,12 @@ jest rozdział.
 
 *Gate: shipped.*
 
-> Media to piąta grupa na karcie Tranzycja.
+> Media to piąta grupa. W Zdjęciach są wszystkie zdjęcia z dziennika na jednej liście według dat. Przyciski u góry zawężają ją do jednego źródła, na przykład zmian włosów albo operacji, a Ulubione pokazują zdjęcia z gwiazdką. Zaznacz zdjęcia, żeby je usunąć, albo otwórz zapis, do którego zdjęcie należy.
 >
-> W Zdjęciach są wszystkie zdjęcia z dziennika na jednej liście według dat:
-> z wpisów, kamieni milowych, zmian włosów, depilacji, prób, operacji, zdjęć
-> postępów i notatek wideo. Gdy zdjęcia pochodzą z więcej niż jednego miejsca,
-> przyciski u góry zawężają listę do jednego źródła, a Ulubione pokazują
-> zdjęcia oznaczone gwiazdką.
->
-> Zaznacz zdjęcia, żeby je usunąć. Usunięte zdjęcie znika ze wszystkich miejsc,
-> w których jest, a przez 10 sekund możesz to cofnąć. „Otwórz zapis” prowadzi
-> do wpisu lub zapisu, do którego zdjęcie należy.
->
-> „Zrób kolaż albo film poklatkowy” na dole listy składa go ze zdjęć
-> z wybranego okresu. Dotknij zdjęcia, żeby je pominąć, a zanim zapiszesz albo
-> udostępnisz wynik, zobaczysz podgląd. Zapisany plik nie jest zaszyfrowany.
-> Żeby porównać dwa zdjęcia, zajrzyj do Zdjęć postępów w grupie Ciało.
->
-> Zdjęcia zostają w aplikacji i nigdy nie trafiają do galerii telefonu.
+> „Zrób kolaż albo film poklatkowy” składa go ze zdjęć z wybranego okresu i pokazuje podgląd. Zapisany plik nie jest zaszyfrowany. Zdjęcia nigdy nie trafiają do galerii telefonu.
 
 ### Dokumenty
 
 *Gate: shipped.*
 
-> Papiery, które przechowujesz: opinie, diagnozy, skierowania, postanowienia
-> sądu, faktury. Każdy ma datę, tytuł, który wpisujesz, i sam plik: PDF albo
-> obraz, do 25 MB. Dokument można powiązać z krokiem z mapy tranzycji,
-> kamieniem milowym, operacją albo kuracją.
->
-> Lista grupuje dokumenty według tego, z czym są powiązane, a te bez
-> powiązania są na końcu. Przy zdjęciach i plikach PDF są miniatury.
-> „Udostępnij albo zapisz” tworzy kopię, która nie jest zaszyfrowana.
-> Aplikacja nigdy nie czyta treści dokumentów, więc szukasz ich po tytule.
+> Papiery, które przechowujesz, na przykład opinie, skierowania i postanowienia sądu: pliki PDF albo obrazy, każdy z datą i tytułem. Dokument można powiązać z krokiem z mapy tranzycji, kamieniem milowym, operacją albo kuracją, a lista jest pogrupowana według tych powiązań. Aplikacja nie czyta dokumentów, więc szukasz ich po tytule.

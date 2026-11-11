@@ -39,56 +39,36 @@ what is current.
 
 *Gate: shipped.*
 
-> Look back is the third tab. Everything on it reads one stretch of time, which
-> you choose on the timeline at the top: drag its two ends, or pick a stretch
-> from the list. The timeline also shows your eras, milestones, regimen,
-> tryouts and surgeries, and tapping one picks its dates.
+> Look back is the third tab. Everything on it reads one stretch of time, chosen on the timeline at the top: drag its ends, pick from the list, or tap an era, milestone, regimen, tryout or surgery shown on it.
 >
-> Just under the timeline are the plain facts for that stretch: how many
-> entries, the average on a scale, which scale moved the furthest, and how
-> many days fell at each mood.
+> Under the timeline are the basic figures: entries, the average on a scale, the scale that moved furthest, and days at each mood.
 
 ### Readings
 
 *Gate: shipped.*
 
-> Below that is a grid of readings. Each tile shows one figure for the stretch,
-> and tapping it opens the full reading. A tile with nothing to show for the
-> stretch is left out.
+> Each tile shows one figure for the stretch and opens the full reading. A tile with nothing to show is left out.
 >
-> **Day by day.** One scale or your mood across the stretch, day after day. You
-> can add a second scale to it.
+> **Day by day.** One or two scales, or your mood, across the stretch.
 >
-> **Two scales at once.** Each day as a point on two scales, which you can play
-> through in order.
+> **Two scales at once.** Each day as a point on two scales.
 >
-> **What you write about.** The tags you used most in the stretch, on every day
-> or only on good days.
+> **What you write about.** Your most-used tags, on every day or only on good days.
 >
-> **Tags, and how a scale moved.** Which tags came with a scale going up or
-> down.
+> **Tags, and how a scale moved.** Which tags came with a scale going up or down.
 >
-> **Body map.** How each part of the body has felt over the stretch, towards
-> dysphoria or towards euphoria.
+> **Body map.** How each part of the body felt, towards dysphoria or euphoria.
 >
-> **Compare periods.** Two periods side by side. It starts with your stretch
-> against the same length of time just before it.
+> **Compare periods.** Your stretch against the same length of time just before it, or any two periods.
 >
-> **Tally.** How often you were misgendered and how often people got it right,
-> over time. Quick add adds to either count from any screen.
+> **Tally.** How often you were misgendered and how often people got it right.
 >
-> **What it cost.** What you recorded spending in the stretch, by area and by
-> whether it was refunded. Each currency keeps its own total.
+> **What it cost.** Spending by area and by whether it was refunded, each currency separately.
 
 ### Wrapped and On this day
 
 *Gate: shipped.*
 
-> Two more tiles sit under the grid. You can turn either one off in Settings.
+> **Wrapped.** A summary of a finished week, month or year.
 >
-> **Wrapped.** A look back at a finished week, month or year: entries, mood,
-> the scale that moved furthest, tags, milestones, photos and letters.
->
-> **On this day.** A good day from a month, six months, a year or more years
-> ago, or a day with a letter written or opened on it. A day that went badly
-> and has no letter is not brought back.
+> **On this day.** A good day, or a day with a letter, from a month, six months, a year or more ago.

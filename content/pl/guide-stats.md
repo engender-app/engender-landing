@@ -29,58 +29,36 @@ jest rozdział.
 
 *Gate: shipped.*
 
-> Statystyki to trzecia karta. Wszystko na niej dotyczy jednego okresu, który
-> wybierasz na osi czasu u góry: przeciągnij jej końce albo wybierz okres
-> z listy. Na osi widać też ery, kamienie milowe, kurację, próby i operacje,
-> a dotknięcie jednej z nich ustawia jej daty.
+> Statystyki to trzecia karta. Wszystko na niej dotyczy jednego okresu, który wybierasz na osi czasu u góry: przeciągnij jej końce, wybierz okres z listy albo dotknij ery, kamienia milowego, kuracji, próby lub operacji.
 >
-> Tuż pod osią są podstawowe liczby z tego okresu: ile było wpisów, średnia na
-> skali, która skala ruszyła się najbardziej i ile dni wypadło przy każdym
-> nastroju.
+> Pod osią są podstawowe liczby: wpisy, średnia na skali, skala, która ruszyła się najbardziej, i dni przy każdym nastroju.
 
 ### Odczyty
 
 *Gate: shipped.*
 
-> Niżej jest siatka odczytów. Każdy kafelek pokazuje jedną liczbę z okresu,
-> a po dotknięciu otwiera cały odczyt. Kafelka, który nie ma nic do pokazania,
-> po prostu nie ma.
+> Każdy kafelek pokazuje jedną liczbę z okresu i otwiera cały odczyt. Kafelka, który nie ma nic do pokazania, nie ma.
 >
-> **Dzień po dniu.** Jedna skala albo nastrój w wybranym okresie, dzień za
-> dniem. Można dołożyć drugą skalę.
+> **Dzień po dniu.** Jedna albo dwie skale, albo nastrój, w wybranym okresie.
 >
-> **Dwie skale naraz.** Każdy dzień jako punkt na dwóch skalach. Można je
-> odtworzyć po kolei.
+> **Dwie skale naraz.** Każdy dzień jako punkt na dwóch skalach.
 >
-> **O czym piszesz.** Tagi, których w tym okresie używasz najczęściej, ze
-> wszystkich dni albo tylko z dobrych.
+> **O czym piszesz.** Najczęściej używane tagi, ze wszystkich dni albo tylko z dobrych.
 >
-> **Tagi a zmiany na skali.** Które tagi szły w parze ze wzrostem albo spadkiem
-> skali.
+> **Tagi a zmiany na skali.** Które tagi szły w parze ze wzrostem albo spadkiem skali.
 >
-> **Mapa ciała.** Jak w tym okresie czuły się poszczególne części ciała,
-> bliżej dysforii albo euforii.
+> **Mapa ciała.** Jak czuły się poszczególne części ciała, bliżej dysforii albo euforii.
 >
-> **Porównanie okresów.** Dwa okresy obok siebie. Na początku wybrany okres stoi
-> obok równie długiego odcinka tuż przed nim.
+> **Porównanie okresów.** Wybrany okres obok równie długiego odcinka tuż przed nim albo dowolne dwa okresy.
 >
-> **Licznik.** Ile razy ktoś cię zmisgenderował, a ile razy zwrócił się do
-> ciebie dobrze, pokazane w czasie. Szybkim zapisem dodasz kolejny raz do
-> każdego z tych wyników na dowolnym ekranie.
+> **Licznik.** Ile razy ktoś cię zmisgenderował, a ile razy zwrócił się do ciebie dobrze.
 >
-> **Ile to kosztowało.** Wydatki zapisane w tym okresie, według obszaru i tego,
-> czy zostały zwrócone. Każda waluta ma osobną sumę.
+> **Ile to kosztowało.** Wydatki według obszaru i tego, czy zostały zwrócone, każda waluta osobno.
 
 ### Bilans i Wspomnienia
 
 *Gate: shipped.*
 
-> Pod siatką są jeszcze dwa kafelki. Każdy z nich można wyłączyć
-> w Ustawieniach.
+> **Bilans.** Podsumowanie zamkniętego tygodnia, miesiąca albo roku.
 >
-> **Bilans.** Podsumowanie zamkniętego tygodnia, miesiąca albo roku: wpisy,
-> nastrój, skala, która ruszyła się najbardziej, tagi, kamienie milowe, zdjęcia
-> i listy.
->
-> **Wspomnienia.** Dobry dzień sprzed miesiąca, pół roku, roku albo kilku lat
-> albo dzień z listem, napisanym lub otwartym. Zły dzień bez listu nie wraca.
+> **Wspomnienia.** Dobry dzień albo dzień z listem sprzed miesiąca, pół roku, roku lub kilku lat.

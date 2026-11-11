@@ -45,69 +45,38 @@ what is current.
 
 *Gate: shipped.*
 
-> engender runs in a browser or as an Android app. In a browser there is
-> nothing to download: open it and start writing. The Android app has to be
-> installed first, and the home page lists where to get it.
+> engender runs in a browser or as an Android app. In a browser there is nothing to download: open it and start writing. You can install it from the browser's menu, so it opens in its own window and works offline. The home page says where to get the Android app.
 >
-> You can also install the browser version from your browser's menu, or add it
-> to your home screen. It then opens in its own window and works without a
-> network connection.
->
-> Your journal lives where you start it. The Android app and your phone's
-> browser hold two separate journals, and so do two browsers. To move a
-> journal, export a backup, then choose "I already have a backup" the first
-> time you open engender in the new place.
+> Your journal lives where you start it. The Android app and each browser hold separate journals. To move one, export a backup and choose "I already have a backup" when you first open engender in the new place.
 
 ### No account
 
 *Gate: shipped.*
 
-> There is no sign-up and no engender account. Nothing you write goes to a
-> server. It is stored encrypted on your device and leaves only when you export
-> it.
->
-> That also means nobody can hand your journal back if the device is lost or
-> reset. Only a backup you exported survives, so export one every so often and
-> keep it somewhere safe.
+> There is no sign-up and no server. What you write is stored encrypted on your device and leaves only when you export it. So nobody can hand your journal back if the device is lost. Export a backup every so often and keep it somewhere safe.
 
 ### Setup
 
 *Gate: shipped.*
 
-> The first time you open engender, it asks a few questions before you reach
-> your journal. A new journal has nine steps, and you can change every answer
-> later.
+> A new journal asks nine things first. You can change every answer later.
 >
-> **Welcome.** What the app is. If you have a backup, choose "I already have a
-> backup" here instead of starting a new journal.
+> **Welcome.** Start a new journal, or choose "I already have a backup".
 >
-> **Name.** What the app should call you. It greets you with the name, and the
-> name is saved in your backups.
+> **Name.** What the app calls you. It is also saved in your backups.
 >
-> **Flag.** Pick a flag. Its colours run through the whole app.
+> **Flag.** Its colours run through the whole app.
 >
-> **Scales.** Which gender scales you want to rate when you write an entry.
+> **Scales.** Which gender scales you rate in an entry.
 >
-> **Features.** Which parts of the app to show. The everyday ones are already
-> on, and anything you leave off stays hidden until you turn it on in Settings.
+> **Features.** Which parts of the app to show. The rest stay hidden until you turn them on in Settings.
 >
-> **Lock.** How your journal opens: with a passphrase, a PIN, your device's own
-> unlock, or without asking. Each option says what you gain and what you risk
-> before you choose it. Nobody can recover a forgotten passphrase or PIN.
+> **Lock.** How your journal opens: a passphrase, a PIN, your device's own unlock, or without asking. Nobody can recover a forgotten passphrase or PIN.
 >
-> **Permissions.** What the app may ask your phone for, such as notifications,
-> each with a reason. You do not need any of it to write an entry.
+> **Permissions.** What the app may ask your phone for, such as notifications. None is needed to write.
 >
-> **Disguise.** Whether the app goes by Notes, with a different icon, outside
-> itself: on your home screen and lock screen, for example. Inside the unlocked
-> app nothing changes. It is off unless you turn it on.
+> **Disguise.** Whether the app shows as Notes, with a different icon, on your home screen and lock screen. It is off unless you turn it on.
 >
-> **Done.** Setup is over, and Go to Today opens your journal.
+> **Done.** Go to Today opens your journal.
 >
-> Most steps have Straight to the app, which ends setup early and keeps what
-> you have chosen so far, and a Skip, which leaves that one setting as it was.
-> Lock has neither, because the journal needs a way to open.
->
-> Setup is shorter when you restore a backup. The backup already holds your
-> name, flag, scales and features, so once it is restored you are only asked
-> about the lock, permissions and disguise.
+> Every step except Lock can be skipped, and Straight to the app ends setup early and keeps what you chose. After restoring a backup you are only asked about the lock, permissions and disguise.

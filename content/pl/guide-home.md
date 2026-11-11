@@ -28,54 +28,28 @@ jest rozdział.
 
 *Gate: shipped.*
 
-> Dzisiaj to pierwsza karta i od niej zaczyna się aplikacja. Pokazuje to, co
-> dzieje się teraz, i to, co przed tobą. Na górze wita cię po imieniu, a koło
-> zębate obok powitania otwiera Ustawienia.
+> Dzisiaj to pierwsza karta i od niej zaczyna się aplikacja. Koło zębate na górze otwiera Ustawienia.
 >
-> **Kafelki.** To, co dzieje się w tej chwili, na przykład sesja noszenia albo
-> dawka do przyjęcia. Kafelek pojawia się, kiedy jest o czym powiedzieć,
-> i znika, gdy sprawa jest załatwiona.
+> **Kafelki.** To, co dzieje się w tej chwili, na przykład sesja noszenia albo dawka do przyjęcia.
 >
-> **Nadchodzące.** Rzeczy z datą w ciągu najbliższych trzydziestu dni: wizyty,
-> operacje, kamienie milowe, listy do otwarcia i dawki przyjmowane rzadziej niż
-> codziennie. Widać trzy, reszta jest zwinięta, a gdy nic nie nadchodzi, sekcji
-> w ogóle nie ma.
+> **Nadchodzące.** Rzeczy z datą w ciągu najbliższych trzydziestu dni: wizyty, operacje, kamienie milowe, listy do otwarcia i dawki przyjmowane rzadziej niż codziennie. Widać trzy, reszta jest zwinięta.
 >
-> **Jak się czujesz?** Pięć nastrojów, od „okropnie” do „świetnie”. Wybranie
-> jednego otwiera nowy wpis z tym nastrojem już zaznaczonym.
+> **Jak się czujesz?** Pięć nastrojów. Wybranie jednego otwiera nowy wpis z tym nastrojem.
 >
-> **Komunikaty.** Krótkie przypomnienia, które można zamknąć, na przykład że
-> kopia jest stara albo że kończy się lek.
+> **Komunikaty.** Przypomnienia, które można zamknąć, na przykład że kopia jest stara albo że kończy się lek.
 >
-> **Przypięte.** Części aplikacji, które chcesz mieć na tej karcie. Każdy wiersz
-> mówi, co jest następne, a jeśli nic, to kiedy ostatnio coś tu zapisano.
+> **Przypięte.** Części aplikacji, które chcesz mieć na tej karcie. Każda pokazuje, co jest następne albo kiedy ostatnio coś tu zapisano.
 >
-> Nowy dziennik ma też sekcję „Na początek” z kilkoma rzeczami, które warto
-> ustawić wcześnie. Możesz ją pominąć i po prostu pisać.
+> Nowy dziennik ma też sekcję „Na początek”. Możesz ją pominąć i po prostu pisać.
 
 ### Układanie karty
 
 *Gate: shipped.*
 
-> Pod „Ułóż tę listę” wybierasz, co jest przypięte i w jakiej kolejności,
-> i które kafelki mogą się pojawiać. Nowy dziennik ma na start kilka
-> przypiętych wierszy. Kiedy ułożysz je po swojemu, aplikacja sama niczego już
-> nie przypina ani nie przestawia.
+> Pod „Ułóż tę listę” wybierasz, co jest przypięte, w jakiej kolejności i które kafelki mogą się pojawiać. Nowy dziennik ma na start kilka przypiętych wierszy. Potem aplikacja sama niczego nie przypina ani nie przestawia.
 
 ### Szybki zapis
 
 *Gate: shipped.*
 
-> Przycisk na środku dolnego paska to szybki zapis. Działa na każdym ekranie
-> i rozwija wachlarz opcji: pięć nastrojów, wpis z wcześniejszego dnia, oba
-> liczniki, dawkę, gdy trwa kuracja, oraz start albo koniec noszenia, jeśli
-> zapisujesz czas noszenia. Ekrany, na których coś się zapisuje, mają też własny
-> przycisk dodawania.
-
-### Dokąd trafia wpis
-
-*Gate: shipped.*
-
-> Wpis zaczęty z karty Dzisiaj, z szybkiego zapisu czy z Dziennika to ten sam
-> wpis. Dziennik pokazuje go pod jego dniem, a Statystyki liczą go razem
-> z resztą.
+> Przycisk na środku dolnego paska to szybki zapis. Działa na każdym ekranie: pięć nastrojów, wpis z wcześniejszego dnia, oba liczniki, dawka, gdy trwa kuracja, oraz start albo koniec noszenia.

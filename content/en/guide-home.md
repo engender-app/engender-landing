@@ -42,52 +42,28 @@ what is current.
 
 *Gate: shipped.*
 
-> Today is the first tab, and the app opens on it. It shows what is going on
-> now and what is next. It greets you by name at the top, and the gear beside
-> the greeting opens Settings.
+> Today is the first tab, and the app opens on it. The gear at the top opens Settings.
 >
-> **Live tiles.** Things running right now, such as a wear timer or a dose that
-> is due. A tile shows up when there is something to say and goes once it is
-> dealt with.
+> **Live tiles.** Things running right now, such as a wear timer or a dose that is due.
 >
-> **Coming up.** Dated things in the next thirty days: appointments, surgery
-> dates, milestones, letters due to open and doses on a schedule that is not
-> daily. It shows three and folds the rest, and it is not there at all when
-> nothing is coming.
+> **Coming up.** Dated things in the next thirty days: appointments, surgery dates, milestones, letters due to open and doses that are not daily. It shows three and folds the rest.
 >
-> **How is today?** Five moods, from awful to great. Picking one opens a new
-> entry with that mood already chosen.
+> **How is today?** Five moods. Picking one opens a new entry with that mood chosen.
 >
-> **Notices.** Short reminders you can dismiss, such as an old backup or a
-> medication running low.
+> **Notices.** Reminders you can dismiss, such as an old backup or a medication running low.
 >
-> **Pinned.** The parts of the app you keep on Today. Each row says what is
-> next when there is something, and when you last logged it otherwise.
+> **Pinned.** The parts of the app you keep on Today, each with what is next or when you last logged it.
 >
-> A new journal also has a Getting started section, with a few things worth
-> setting up early. You can ignore them and just write.
+> A new journal also has a Getting started section. You can ignore it and just write.
 
 ### Arranging Today
 
 *Gate: shipped.*
 
-> Tap Arrange these rows to choose what is pinned and in what order, and which
-> live tiles can appear. A new journal starts with a few rows pinned. Once you
-> have arranged them, the app never pins or moves anything by itself.
+> Arrange these rows chooses what is pinned, in what order, and which live tiles can appear. A new journal starts with a few rows pinned. After that the app never pins or moves anything by itself.
 
 ### Quick add
 
 *Gate: shipped.*
 
-> The button in the middle of the bottom bar is quick add. It works from any
-> screen and opens a fan of options: the five moods, an entry for an earlier
-> day, the two tally counters, a dose while a regimen is running, and starting
-> or stopping a wear session if you use wear time. Screens that log something
-> keep their own add button as well.
-
-### Where an entry goes
-
-*Gate: shipped.*
-
-> An entry started from Today, from quick add or from Journal is the same kind
-> of entry. Journal shows it on its day, and Look back counts it with the rest.
+> The button in the middle of the bottom bar is quick add. It works from any screen: the five moods, an entry for an earlier day, the two tally counters, a dose while a regimen is running, and starting or stopping a wear session.

@@ -39,35 +39,12 @@ what is current.
 
 *Gate: shipped.*
 
-> Media is the fifth group on the Transition tab.
+> Media is the fifth group. Photos is every photo in your journal in one dated list, with chips to narrow it by where a photo came from, such as hair progress or surgery, and Starred. Select photos to delete them, or open the record one belongs to.
 >
-> Photos is every photo in your journal in one dated list: from entries,
-> milestones, hair progress, hair removal, tryouts, surgery, progress photos
-> and video notes. Once the photos come from more than one place, chips at the
-> top narrow the list by where a photo came from, and Starred shows the ones
-> you have starred.
->
-> Select photos to delete them. A deleted photo goes from everywhere it
-> appears, and you can undo that for 10 seconds. Open record takes you to the
-> entry or record a photo belongs to.
->
-> Make a collage or timelapse, at the bottom of the list, builds one from the
-> photos in a date range. Tap a photo to leave it out, and preview the result
-> before you save or share it. The file you save is not encrypted. To compare
-> two photos, use Progress photos in the Body group.
->
-> Photos stay inside the app and never go to your phone's gallery.
+> Make a collage or timelapse builds one from a date range, with a preview. The file you save is not encrypted. Photos never go to your phone's gallery.
 
 ### Documents
 
 *Gate: shipped.*
 
-> Documents holds the papers you keep, such as opinions, diagnoses, referrals,
-> court rulings and invoices. Each has a date, a title you write and the file
-> itself: a PDF or an image, up to 25 MB. You can link a document to a roadmap
-> step, a milestone, a surgery journey or a regimen.
->
-> The list groups documents by what they are linked to, with unlinked ones
-> last. Photos and PDFs have thumbnails. Share or save makes a copy that is not
-> encrypted. The app never reads what a document says, so you find one by its
-> title.
+> Documents holds the papers you keep, such as opinions, referrals and court rulings: PDFs or images, each with a date and a title. You can link one to a roadmap step, a milestone, a surgery or a regimen, and the list is grouped by those links. The app never reads a document, so you find it by its title.

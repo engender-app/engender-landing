@@ -40,36 +40,16 @@ what is current.
 
 *Gate: shipped.*
 
-> Support is the fourth group on the Transition tab. It holds Time-capsule
-> letters, Safe space, and Support and resources.
->
-> Write a letter to yourself and pick the day it opens. It stays sealed until
-> then, and after that you can read it whenever you like. Letters about to open
-> show on Today, under Coming up.
+> Support is the fourth group. Write a letter to yourself and pick the day it opens. It stays sealed until then.
 
 ### Safe space
 
 *Gate: shipped.*
 
-> Safe space is for the moments when dysphoria is too much. At the top is
-> Things that help, your own list: who to text, which walk, which song. It
-> starts empty. Under it is box breathing.
->
-> Below the breathing are two rows. Support and resources opens the directory
-> described below. Good moments shows past entries you tagged as good, or
-> starred, and appears once you have one.
->
-> Opening Safe space writes nothing to your journal.
+> Safe space is for the moments when dysphoria is too much. It has Things that help, your own list of who to text or which song to play; box breathing; Good moments, the entries you tagged as good or starred; and a way into Support and resources. Opening it writes nothing to your journal.
 
 ### Support and resources
 
 *Gate: shipped.*
 
-> Support and resources lists helplines and support organisations in two
-> groups: Poland, and UK and US. Each has a line on what it offers and a number
-> or an address, and there is some reading as well. It comes with the app, so
-> you can read it with no signal. Some of the helplines are general ones, open
-> to anyone. Emergency numbers such as 112 are not on the list.
->
-> The screen says when the entries were last checked. Tapping a number or an
-> address hands it to your phone or browser, which leaves the app.
+> Helplines and support organisations for Poland, the UK and the US, each with what it offers and a number or an address. The list comes with the app, so it works with no signal. Emergency numbers such as 112 are not on it. Tapping a number or an address leaves the app.

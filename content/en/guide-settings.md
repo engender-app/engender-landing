@@ -24,63 +24,36 @@ what is current.
 
 *Gate: shipped.*
 
-> Settings holds preferences and the lists those preferences draw from: how the
-> journal looks, what it asks you to track and when it reminds you. What you
-> record stays on its own screen. Doses, lab results and surgery notes are on
-> the Transition tab, not here.
->
-> The gear at the top of Today opens Settings. It has five sections.
+> Settings holds preferences: how the journal looks, what it tracks and when it reminds you. What you record stays on its own screen. The gear at the top of Today opens Settings.
 
 ### Appearance
 
 *Gate: shipped.*
 
-> Appearance holds the app's language, theme, gender palette and mood colours.
-> There are sixteen palettes, and mood colours have their own presets. You can
-> also make text larger, make text and borders clearer, and reduce motion. On
-> Android you can change the app icon here too.
+> Language, theme, one of sixteen palettes and mood colours. You can also make text larger, make text and borders clearer, and reduce motion.
 
 ### Tracking
 
 *Gate: shipped.*
 
-> Tracking holds Gender scales, Tag groups and Features to show. Features to
-> show is where you choose which parts of the app appear, and it has the switch
-> for cycle tracking.
+> Gender scales, Tag groups and Features to show, which decides which parts of the app appear and holds the switch for cycle tracking.
 
 ### Reminders & prompts
 
 *Gate: shipped.*
 
-> Reminders is where you set when the app should nudge you. Notices and
-> notifications switches the app's other prompts on or off and sets quiet
-> hours, a stretch when no notification arrives. A reminder due in quiet hours
-> waits until they end. Phone notifications need the Android app.
->
-> Live tiles are not here. You switch them in Today's editor, beside its pins.
+> Reminders sets when the app nudges you. Notices and notifications switches the other prompts and sets quiet hours. Phone notifications need the Android app.
 
 ### Your lists
 
 *Gate: shipped.*
 
-> Your lists holds the lists used across the journal: modes, entry templates,
-> body regions and eras.
+> Modes, entry templates, body regions and eras.
 
 ### Privacy & data
 
 *Gate: shipped.*
 
-> Lock & recovery holds how your journal opens, when it locks and the recovery
-> key. Permissions and Disguise app are in this section too.
+> Lock & recovery sets how your journal opens, when it locks and the recovery key. Permissions and Disguise app are here too.
 >
-> Export / import is where you make or restore a backup, export plain CSV or
-> JSON and import from Daylio. On Android it is also where you choose a backup
-> folder, and newer backups that your other devices save there can be merged
-> in.
->
-> Journal book prints a range you choose. Trash keeps deleted entries for 30
-> days, and you can delete one for good sooner. Delete everything erases the
-> journal from this device.
->
-> Below the sections, About shows the app's version and links to this guide,
-> the privacy policy and the source code.
+> Export / import makes or restores a backup, imports from Daylio and, on Android, sets a backup folder. Journal book prints a range. Trash keeps deleted entries for 30 days. Delete everything erases the journal from this device.

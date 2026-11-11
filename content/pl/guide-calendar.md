@@ -28,56 +28,28 @@ jest rozdział.
 
 *Gate: shipped.*
 
-> Dziennik to druga karta i są na niej twoje dni. Na górze jest miesiąc,
-> zwinięty do paska. „Pokaż miesiąc” rozwija go do mapy cieplnej: dni z wpisami
-> są wypełnione kolorem według nastroju albo, jeśli to przełączysz, według
-> jednej ze skal genderowych. Głębszy kolor oznacza wyższą wartość. Żaden kolor
-> nie znaczy „dobrze” ani „źle”.
+> Dziennik to druga karta. Na górze jest miesiąc zwinięty do paska, a „Pokaż miesiąc” rozwija go do mapy cieplnej: dni z wpisami mają kolor według nastroju albo jednej ze skal genderowych, głębszy przy wyższej wartości. Żaden kolor nie znaczy „dobrze” ani „źle”.
 >
-> Pod miesiącem są ostatnie wpisy, a przycisk pod nimi dokłada po pięć
-> kolejnych dni.
+> Pod spodem są ostatnie wpisy.
 
 ### Jeden dzień
 
 *Gate: shipped.*
 
-> Dotknij dnia, żeby zobaczyć wszystko, co wtedy zapisano. Wpisów w jednym dniu
-> może być dowolnie dużo, a dotknięcie pustego dnia z przeszłości zaczyna wpis
-> z tego dnia. Małe oznaczenie na dniu, który jeszcze nie nadszedł, znaczy, że
-> coś jest zaplanowane, na przykład wizyta albo list do otwarcia. Po dotknięciu
-> widać co.
+> Dotknij dnia, żeby zobaczyć wszystko, co wtedy zapisano, albo zacząć wpis z pustego dnia w przeszłości. Oznaczony dzień, który jeszcze nie nadszedł, ma coś zaplanowanego. Po dotknięciu widać co.
 
 ### Wyszukiwanie
 
 *Gate: shipped.*
 
-> Ikona lupy na górze karty Dziennik otwiera wyszukiwanie. Zanim cokolwiek
-> wpiszesz, podpowiada najczęściej używane tagi i ostatnie wyszukiwania. Filtry
-> zawężają wyniki do tagu, nastroju, trybu, obszaru ciała, zakresu na jednej ze
-> skal, zakresu dat, ulubionych albo wpisów z notatką lub ze zdjęciem.
->
-> Wyszukiwanie zagląda też poza wpisy, na przykład do tytułów dokumentów.
-> To, co tam znajdzie, pokazuje w sekcji „Poza wpisami”.
->
-> Wpis, do którego chcesz wrócić, oznacz gwiazdką. Filtr „Ulubione” pokaże
-> wszystkie takie wpisy.
+> Ikona lupy otwiera wyszukiwanie z filtrami: tag, nastrój, tryb, obszar ciała, zakres na skali, daty, Ulubione oraz to, czy wpis ma notatkę albo zdjęcie. Znajduje też rzeczy spoza wpisów, na przykład dokumenty po tytule.
 
 ### Pisanie wpisu
 
 *Gate: shipped.*
 
-> Wpis to jedna chwila. Potrzebuje nastroju, a cała reszta jest dowolna.
+> Wpis potrzebuje nastroju, a reszta jest dowolna. Nowy wpis zaczyna się od pytania „Jak się czujesz?”, z nastrojami i twoimi skalami genderowymi. „Zapisz wpis” kończy w tym miejscu. „Dodaj notatkę, tagi lub zdjęcia” prowadzi do całej strony.
 >
-> Nowy wpis zaczyna się od pytania „Jak się czujesz?”, z pięcioma nastrojami
-> i twoimi skalami genderowymi. „Zapisz wpis” kończy w tym miejscu i to już
-> jest pełny wpis. „Dodaj notatkę, tagi lub zdjęcia” prowadzi do całej strony
-> wpisu.
+> Tam najpierw jest notatka, potem tryb i skale. Przyciski otwierają resztę: tagi, mapę ciała, zdjęcia, głos i wideo. Gwiazdka jest na pasku zapisu.
 >
-> Tam na górze, pod datą, jest notatka, a pod nią tryb i skale genderowe.
-> Nastroje i gwiazdka są na pasku zapisu na dole. Rząd przycisków otwiera
-> resztę, po jednej sekcji naraz: tagi, mapę ciała, zdjęcia, głos i wideo.
-> Zapisany wpis otwiera się do edycji od razu na tej stronie.
->
-> Na mapie ciała zaznaczasz, jak czujesz daną część ciała. Wybierz miejsce
-> i przesuń suwak w stronę dysforii albo euforii. Suwak zostawiony na środku
-> niczego nie zapisuje.
+> Na mapie ciała wybierz miejsce i przesuń suwak w stronę dysforii albo euforii. Środek niczego nie zapisuje.

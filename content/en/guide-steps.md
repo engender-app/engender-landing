@@ -42,49 +42,22 @@ what is current.
 
 *Gate: shipped.*
 
-> Steps is the third group on the Transition tab. It holds the transition
-> roadmap, milestones and tryouts.
+> Steps is the third group. The transition roadmap comes with two sets of steps, each with its own switch: Social and presentation, and Polish legal steps, the court procedure for changing the sex marker. You can add categories and steps of your own.
 >
-> The roadmap comes with two groups of steps, each behind its own switch.
-> Social and presentation has eight steps, such as telling family, your name
-> and pronouns, clothes and voice. Polish legal steps holds the Polish legal
-> procedure for changing the sex marker, and is on by default when the app is
-> in Polish.
+> Tick a step when it is done, mark it not my path, or hide it. Steps can be done in any order. After the ruling, Name and document changes tracks each institution you need to update: submitted, waiting, done.
 >
-> After the ruling, Name and document changes lists the institutions to update,
-> such as PESEL, your ID card, passport, bank and employer, and you can add
-> your own. Each one records when you submitted the change, how long you have
-> been waiting and when it was done, with the documents filed under it.
->
-> Steps can be done in any order. Tick a step once it is done, or mark it not
-> my path. You can hide a step you do not need and bring it back later. With
-> Offer a milestone switched on, ticking a step asks whether to add it to your
-> milestones.
->
-> You can add categories of your own with steps in them, whether the built-in
-> groups are on or not, and file documents against a step.
->
-> The roadmap describes the procedure and never says what to do in your own
-> case. It shows the date its content was last checked against its sources.
+> The roadmap describes the procedure and never says what to do in your own case. It shows when its content was last checked against its sources.
 
 ### Milestones and eras
 
 *Gate: shipped.*
 
-> A milestone is a day that mattered, or will. One still ahead counts down, and
-> one behind you comes back each year as an anniversary. You can choose whether
-> it is celebrated when the day comes.
+> A milestone is a day that mattered, or will. One ahead counts down, and one behind you comes back each year.
 >
-> Eras are stretches of time you name yourself, such as "before I knew". They
-> show as bands behind your milestones, and Look back can use one as its
-> stretch. You make and edit them in Settings.
+> Eras are stretches of time you name yourself. They show as bands behind your milestones, and Look back can use one as its stretch.
 
 ### Tryouts
 
 *Gate: shipped.*
 
-> A tryout is something you are trying: a name, pronouns, a style or makeup. It
-> has a start date and, once you stop, an end date. Note how it feels as often
-> as you like, on the tryout itself or in an entry, and add photos. Several can
-> run at once. If one sticks, you can adopt it: the tryout ends, and a name you
-> adopt can become the name the app calls you.
+> A tryout is something you are trying: a name, pronouns, a style or makeup. Note how it feels as often as you like. Several can run at once, and you can adopt one that sticks.

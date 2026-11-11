@@ -42,54 +42,28 @@ what is current.
 
 *Gate: shipped.*
 
-> Journal is the second tab, and it holds your own days. The month sits at the
-> top, folded into a strip. Show month opens it as a heat map: days with
-> entries are filled in, coloured by your mood or, if you switch it, by one of
-> your gender scales, and a deeper colour means a higher value. No colour means
-> good or bad.
+> Journal is the second tab. The month sits at the top as a strip, and Show month opens it as a heat map: days with entries are coloured by mood or by one of your gender scales, deeper for a higher value. No colour means good or bad.
 >
-> Under the month are your recent entries, and the button below them shows
-> five more days at a time.
+> Under it are your recent entries.
 
 ### One day
 
 *Gate: shipped.*
 
-> Tap a day to see everything logged on it. A day can hold as many entries as
-> you like, and tapping an empty day in the past starts an entry for it. A day
-> still ahead with a small mark has something planned, such as an appointment
-> or a letter due to open, and tapping it shows what.
+> Tap a day to see everything logged on it, or to start an entry on an empty day in the past. A marked day ahead has something planned, and tapping it shows what.
 
 ### Search
 
 *Gate: shipped.*
 
-> The search icon at the top of Journal opens search. Before you type, it offers
-> your most-used tags and recent searches. Filters narrow the results by tag,
-> mood, mode, body region, a range on one of your scales, dates, starred, or
-> whether an entry has a note or a photo.
->
-> Search also looks outside your entries, at document titles for example, and
-> lists what it finds under Elsewhere in the journal.
->
-> Star an entry you want to find again, then filter by Starred to see all of
-> them.
+> The search icon filters entries by tag, mood, mode, body region, a range on a scale, dates, Starred, and whether an entry has a note or a photo. It also finds things outside entries, such as documents by title.
 
 ### Writing an entry
 
 *Gate: shipped.*
 
-> An entry is one moment. It needs a mood, and everything else is optional.
+> An entry needs a mood, and everything else is optional. A new entry opens on How is today?, with the moods and your gender scales. Save entry stops there. Add a note, tags, photos goes on to the full page.
 >
-> A new entry opens on How is today?, with the five moods and your gender
-> scales. Save entry stops there, and that is a complete entry. Add a note,
-> tags, photos goes on to the full page.
+> On the full page the note comes first, then mode and the scales. Chips open the rest: tags, the body map, photos, voice and video. The star is on the save bar.
 >
-> On the full page the note comes first, under the date, then mode and the
-> gender scales. The moods and the star sit on the save bar at the bottom. A
-> row of chips opens the rest one at a time: tags, the body map, photos, voice
-> and video. Editing a saved entry opens this page straight away.
->
-> The body map is where you mark how a part of your body feels. Pick a spot,
-> then slide towards dysphoria or towards euphoria. Leaving it in the middle
-> records nothing.
+> On the body map, pick a spot and slide towards dysphoria or euphoria. The middle records nothing.

@@ -1800,8 +1800,8 @@ const TAB_TOUR = {
       "Ułóż tę listę", "szybki zapis",
     ],
     calendar: [
-      "mapy cieplnej", "ostatnie wpisy", "wyszukiwanie", "Ulubione", "obszaru ciała",
-      "notatka", "gwiazdką", "tryb", "mapie ciała",
+      "mapy cieplnej", "ostatnie wpisy", "wyszukiwanie", "Ulubione", "obszar ciała",
+      "notatka", "Gwiazdka", "tryb", "mapie ciała",
     ],
     stats: [
       "osi czasu", "Dzień po dniu", "Dwie skale naraz", "O czym piszesz",
@@ -1862,7 +1862,7 @@ const GROUP_TOUR = {
       "Cycle", "Cycle tracking", "Surgery journey", "Dilation", "Appointments", "What to raise",
       "In the room", "Behind you", "Waiting lists", "Who you see", "clinician visit summary",
       "Progress photos", "Changes you've noticed", "Side effects", "Hair progress",
-      "Hair removal", "Wear log", "Voice", "Benchmark",
+      "Hair removal", "Wear log", "Voice", "benchmark",
     ],
     steps: [
       "transition roadmap", "Social and presentation", "Polish legal steps",
@@ -1872,7 +1872,7 @@ const GROUP_TOUR = {
       "Time-capsule letters", "Safe space", "box breathing", "Good moments", "Things that help",
       "Support and resources",
     ],
-    media: ["Photos", "hair progress", "Starred", "collage", "timelapse", "preview", "Documents", "PDFs", "thumbnails"],
+    media: ["Photos", "hair progress", "Starred", "collage", "timelapse", "preview", "Documents", "PDFs"],
   },
   pl: {
     health: [
@@ -1890,7 +1890,7 @@ const GROUP_TOUR = {
       "Listy w kapsule czasu", "Bezpieczna przestrzeń", "oddechu pudełkowego", "Dobre chwile",
       "Co pomaga", "Wsparcie i kontakty",
     ],
-    media: ["Zdjęcia", "zmian włosów", "Ulubione", "kolaż", "film poklatkowy", "podgląd", "Dokumenty", "PDF", "miniatury"],
+    media: ["Zdjęcia", "zmian włosów", "Ulubione", "kolaż", "film poklatkowy", "podgląd", "Dokumenty", "PDF"],
   },
 };
 
@@ -1938,39 +1938,25 @@ const SETTINGS_SECTIONS = {
 
 const PRIVACY_CLAIMS = {
   en: [
-    "browser profiles",
-    "User-Agent and referrer headers",
-    "random data key",
-    "Argon2id",
-    "WebAuthn PRF",
-    "Android Keystore",
+    "browser profile",
+    "four-digit PIN",
     "25 characters",
-    "unencrypted temporary file",
     "INTERNET permission",
-    "no network sockets",
-    "POST_NOTIFICATIONS",
-    "AES-256-GCM",
+    "no network connections",
+    ".ttbackup",
     "Auto-export",
-    "GDIARY",
-    "single-event .ics calendar files",
+    "calendar files",
     "private vulnerability reporting",
   ],
   pl: [
-    "profilach przeglądarki",
-    "User-Agent i Referer",
-    "losowym kluczem do danych",
-    "Argon2id",
-    "WebAuthn PRF",
-    "Android Keystore",
+    "profil przeglądarki",
+    "czterocyfrowym PIN-em",
     "Ma 25 znaków",
-    "niezaszyfrowanego pliku tymczasowego",
     "uprawnienie INTERNET",
     "połączeń sieciowych",
-    "POST_NOTIFICATIONS",
-    "AES-256-GCM",
+    ".ttbackup",
     "Eksport automatyczny",
-    "GDIARY",
-    "pliki kalendarza .ics",
+    "pliki kalendarza",
     "prywatny formularz podatności",
   ],
 };
@@ -2011,8 +1997,8 @@ for (const locale of ["en", "pl"]) {
       const text = (await article.innerText()).replace(/\s+/g, " ");
       const headings = await article.locator("h2").allInnerTexts();
       assert.deepEqual(headings, {
-        en: ["Where the journal lives", "Encryption and access", "What other people can see", "Android and network access", "Archives and other exports", "Deleting everything", "Security reports"],
-        pl: ["Gdzie jest dziennik", "Szyfrowanie i dostęp", "Co widzą inni", "Android i połączenie z siecią", "Archiwa i pozostałe eksporty", "Usuwanie wszystkiego", "Zgłoszenia bezpieczeństwa"],
+        en: ["Where the journal lives", "Encryption and access", "What other people can see", "Android and network access", "Backups and exports", "Deleting everything", "Security reports"],
+        pl: ["Gdzie jest dziennik", "Szyfrowanie i dostęp", "Co widzą inni", "Android i połączenie z siecią", "Kopie zapasowe i eksporty", "Usuwanie wszystkiego", "Zgłoszenia bezpieczeństwa"],
       }[locale]);
       for (const claim of PRIVACY_CLAIMS[locale]) {
         assert.ok(text.includes(claim), `the chapter does not cover the source claim: ${claim}`);

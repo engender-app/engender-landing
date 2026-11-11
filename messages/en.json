@@ -327,60 +327,57 @@
           {
             "heading": "Installing",
             "paragraphs": [
-              "engender runs in a browser or as an Android app. In a browser there is nothing to download: open it and start writing. The Android app has to be installed first, and the home page lists where to get it.",
-              "You can also install the browser version from your browser's menu, or add it to your home screen. It then opens in its own window and works without a network connection.",
-              "Your journal lives where you start it. The Android app and your phone's browser hold two separate journals, and so do two browsers. To move a journal, export a backup, then choose \"I already have a backup\" the first time you open engender in the new place."
+              "engender runs in a browser or as an Android app. In a browser there is nothing to download: open it and start writing. You can install it from the browser's menu, so it opens in its own window and works offline. The home page says where to get the Android app.",
+              "Your journal lives where you start it. The Android app and each browser hold separate journals. To move one, export a backup and choose \"I already have a backup\" when you first open engender in the new place."
             ]
           },
           {
             "heading": "No account",
             "paragraphs": [
-              "There is no sign-up and no engender account. Nothing you write goes to a server. It is stored encrypted on your device and leaves only when you export it.",
-              "That also means nobody can hand your journal back if the device is lost or reset. Only a backup you exported survives, so export one every so often and keep it somewhere safe."
+              "There is no sign-up and no server. What you write is stored encrypted on your device and leaves only when you export it. So nobody can hand your journal back if the device is lost. Export a backup every so often and keep it somewhere safe."
             ]
           },
           {
             "heading": "Setup",
             "paragraphs": [
-              "The first time you open engender, it asks a few questions before you reach your journal. A new journal has nine steps, and you can change every answer later.",
+              "A new journal asks nine things first. You can change every answer later.",
               {
                 "lead": "Welcome.",
-                "rest": " What the app is. If you have a backup, choose \"I already have a backup\" here instead of starting a new journal."
+                "rest": " Start a new journal, or choose \"I already have a backup\"."
               },
               {
                 "lead": "Name.",
-                "rest": " What the app should call you. It greets you with the name, and the name is saved in your backups."
+                "rest": " What the app calls you. It is also saved in your backups."
               },
               {
                 "lead": "Flag.",
-                "rest": " Pick a flag. Its colours run through the whole app."
+                "rest": " Its colours run through the whole app."
               },
               {
                 "lead": "Scales.",
-                "rest": " Which gender scales you want to rate when you write an entry."
+                "rest": " Which gender scales you rate in an entry."
               },
               {
                 "lead": "Features.",
-                "rest": " Which parts of the app to show. The everyday ones are already on, and anything you leave off stays hidden until you turn it on in Settings."
+                "rest": " Which parts of the app to show. The rest stay hidden until you turn them on in Settings."
               },
               {
                 "lead": "Lock.",
-                "rest": " How your journal opens: with a passphrase, a PIN, your device's own unlock, or without asking. Each option says what you gain and what you risk before you choose it. Nobody can recover a forgotten passphrase or PIN."
+                "rest": " How your journal opens: a passphrase, a PIN, your device's own unlock, or without asking. Nobody can recover a forgotten passphrase or PIN."
               },
               {
                 "lead": "Permissions.",
-                "rest": " What the app may ask your phone for, such as notifications, each with a reason. You do not need any of it to write an entry."
+                "rest": " What the app may ask your phone for, such as notifications. None is needed to write."
               },
               {
                 "lead": "Disguise.",
-                "rest": " Whether the app goes by Notes, with a different icon, outside itself: on your home screen and lock screen, for example. Inside the unlocked app nothing changes. It is off unless you turn it on."
+                "rest": " Whether the app shows as Notes, with a different icon, on your home screen and lock screen. It is off unless you turn it on."
               },
               {
                 "lead": "Done.",
-                "rest": " Setup is over, and Go to Today opens your journal."
+                "rest": " Go to Today opens your journal."
               },
-              "Most steps have Straight to the app, which ends setup early and keeps what you have chosen so far, and a Skip, which leaves that one setting as it was. Lock has neither, because the journal needs a way to open.",
-              "Setup is shorter when you restore a backup. The backup already holds your name, flag, scales and features, so once it is restored you are only asked about the lock, permissions and disguise."
+              "Every step except Lock can be skipped, and Straight to the app ends setup early and keeps what you chose. After restoring a backup you are only asked about the lock, permissions and disguise."
             ],
             "images": [
               {
@@ -402,28 +399,28 @@
           {
             "heading": "What Today shows",
             "paragraphs": [
-              "Today is the first tab, and the app opens on it. It shows what is going on now and what is next. It greets you by name at the top, and the gear beside the greeting opens Settings.",
+              "Today is the first tab, and the app opens on it. The gear at the top opens Settings.",
               {
                 "lead": "Live tiles.",
-                "rest": " Things running right now, such as a wear timer or a dose that is due. A tile shows up when there is something to say and goes once it is dealt with."
+                "rest": " Things running right now, such as a wear timer or a dose that is due."
               },
               {
                 "lead": "Coming up.",
-                "rest": " Dated things in the next thirty days: appointments, surgery dates, milestones, letters due to open and doses on a schedule that is not daily. It shows three and folds the rest, and it is not there at all when nothing is coming."
+                "rest": " Dated things in the next thirty days: appointments, surgery dates, milestones, letters due to open and doses that are not daily. It shows three and folds the rest."
               },
               {
                 "lead": "How is today?",
-                "rest": " Five moods, from awful to great. Picking one opens a new entry with that mood already chosen."
+                "rest": " Five moods. Picking one opens a new entry with that mood chosen."
               },
               {
                 "lead": "Notices.",
-                "rest": " Short reminders you can dismiss, such as an old backup or a medication running low."
+                "rest": " Reminders you can dismiss, such as an old backup or a medication running low."
               },
               {
                 "lead": "Pinned.",
-                "rest": " The parts of the app you keep on Today. Each row says what is next when there is something, and when you last logged it otherwise."
+                "rest": " The parts of the app you keep on Today, each with what is next or when you last logged it."
               },
-              "A new journal also has a Getting started section, with a few things worth setting up early. You can ignore them and just write."
+              "A new journal also has a Getting started section. You can ignore it and just write."
             ],
             "images": [
               {
@@ -435,19 +432,13 @@
           {
             "heading": "Arranging Today",
             "paragraphs": [
-              "Tap Arrange these rows to choose what is pinned and in what order, and which live tiles can appear. A new journal starts with a few rows pinned. Once you have arranged them, the app never pins or moves anything by itself."
+              "Arrange these rows chooses what is pinned, in what order, and which live tiles can appear. A new journal starts with a few rows pinned. After that the app never pins or moves anything by itself."
             ]
           },
           {
             "heading": "Quick add",
             "paragraphs": [
-              "The button in the middle of the bottom bar is quick add. It works from any screen and opens a fan of options: the five moods, an entry for an earlier day, the two tally counters, a dose while a regimen is running, and starting or stopping a wear session if you use wear time. Screens that log something keep their own add button as well."
-            ]
-          },
-          {
-            "heading": "Where an entry goes",
-            "paragraphs": [
-              "An entry started from Today, from quick add or from Journal is the same kind of entry. Journal shows it on its day, and Look back counts it with the rest."
+              "The button in the middle of the bottom bar is quick add. It works from any screen: the five moods, an entry for an earlier day, the two tally counters, a dose while a regimen is running, and starting or stopping a wear session."
             ]
           }
         ]
@@ -459,8 +450,8 @@
           {
             "heading": "The month",
             "paragraphs": [
-              "Journal is the second tab, and it holds your own days. The month sits at the top, folded into a strip. Show month opens it as a heat map: days with entries are filled in, coloured by your mood or, if you switch it, by one of your gender scales, and a deeper colour means a higher value. No colour means good or bad.",
-              "Under the month are your recent entries, and the button below them shows five more days at a time."
+              "Journal is the second tab. The month sits at the top as a strip, and Show month opens it as a heat map: days with entries are coloured by mood or by one of your gender scales, deeper for a higher value. No colour means good or bad.",
+              "Under it are your recent entries."
             ],
             "images": [
               {
@@ -472,7 +463,7 @@
           {
             "heading": "One day",
             "paragraphs": [
-              "Tap a day to see everything logged on it. A day can hold as many entries as you like, and tapping an empty day in the past starts an entry for it. A day still ahead with a small mark has something planned, such as an appointment or a letter due to open, and tapping it shows what."
+              "Tap a day to see everything logged on it, or to start an entry on an empty day in the past. A marked day ahead has something planned, and tapping it shows what."
             ],
             "images": [
               {
@@ -484,18 +475,15 @@
           {
             "heading": "Search",
             "paragraphs": [
-              "The search icon at the top of Journal opens search. Before you type, it offers your most-used tags and recent searches. Filters narrow the results by tag, mood, mode, body region, a range on one of your scales, dates, starred, or whether an entry has a note or a photo.",
-              "Search also looks outside your entries, at document titles for example, and lists what it finds under Elsewhere in the journal.",
-              "Star an entry you want to find again, then filter by Starred to see all of them."
+              "The search icon filters entries by tag, mood, mode, body region, a range on a scale, dates, Starred, and whether an entry has a note or a photo. It also finds things outside entries, such as documents by title."
             ]
           },
           {
             "heading": "Writing an entry",
             "paragraphs": [
-              "An entry is one moment. It needs a mood, and everything else is optional.",
-              "A new entry opens on How is today?, with the five moods and your gender scales. Save entry stops there, and that is a complete entry. Add a note, tags, photos goes on to the full page.",
-              "On the full page the note comes first, under the date, then mode and the gender scales. The moods and the star sit on the save bar at the bottom. A row of chips opens the rest one at a time: tags, the body map, photos, voice and video. Editing a saved entry opens this page straight away.",
-              "The body map is where you mark how a part of your body feels. Pick a spot, then slide towards dysphoria or towards euphoria. Leaving it in the middle records nothing."
+              "An entry needs a mood, and everything else is optional. A new entry opens on How is today?, with the moods and your gender scales. Save entry stops there. Add a note, tags, photos goes on to the full page.",
+              "On the full page the note comes first, then mode and the scales. Chips open the rest: tags, the body map, photos, voice and video. The star is on the save bar.",
+              "On the body map, pick a spot and slide towards dysphoria or euphoria. The middle records nothing."
             ]
           }
         ]
@@ -507,8 +495,8 @@
           {
             "heading": "Choosing a stretch",
             "paragraphs": [
-              "Look back is the third tab. Everything on it reads one stretch of time, which you choose on the timeline at the top: drag its two ends, or pick a stretch from the list. The timeline also shows your eras, milestones, regimen, tryouts and surgeries, and tapping one picks its dates.",
-              "Just under the timeline are the plain facts for that stretch: how many entries, the average on a scale, which scale moved the furthest, and how many days fell at each mood."
+              "Look back is the third tab. Everything on it reads one stretch of time, chosen on the timeline at the top: drag its ends, pick from the list, or tap an era, milestone, regimen, tryout or surgery shown on it.",
+              "Under the timeline are the basic figures: entries, the average on a scale, the scale that moved furthest, and days at each mood."
             ],
             "images": [
               {
@@ -520,18 +508,18 @@
           {
             "heading": "Readings",
             "paragraphs": [
-              "Below that is a grid of readings. Each tile shows one figure for the stretch, and tapping it opens the full reading. A tile with nothing to show for the stretch is left out.",
+              "Each tile shows one figure for the stretch and opens the full reading. A tile with nothing to show is left out.",
               {
                 "lead": "Day by day.",
-                "rest": " One scale or your mood across the stretch, day after day. You can add a second scale to it."
+                "rest": " One or two scales, or your mood, across the stretch."
               },
               {
                 "lead": "Two scales at once.",
-                "rest": " Each day as a point on two scales, which you can play through in order."
+                "rest": " Each day as a point on two scales."
               },
               {
                 "lead": "What you write about.",
-                "rest": " The tags you used most in the stretch, on every day or only on good days."
+                "rest": " Your most-used tags, on every day or only on good days."
               },
               {
                 "lead": "Tags, and how a scale moved.",
@@ -539,33 +527,32 @@
               },
               {
                 "lead": "Body map.",
-                "rest": " How each part of the body has felt over the stretch, towards dysphoria or towards euphoria."
+                "rest": " How each part of the body felt, towards dysphoria or euphoria."
               },
               {
                 "lead": "Compare periods.",
-                "rest": " Two periods side by side. It starts with your stretch against the same length of time just before it."
+                "rest": " Your stretch against the same length of time just before it, or any two periods."
               },
               {
                 "lead": "Tally.",
-                "rest": " How often you were misgendered and how often people got it right, over time. Quick add adds to either count from any screen."
+                "rest": " How often you were misgendered and how often people got it right."
               },
               {
                 "lead": "What it cost.",
-                "rest": " What you recorded spending in the stretch, by area and by whether it was refunded. Each currency keeps its own total."
+                "rest": " Spending by area and by whether it was refunded, each currency separately."
               }
             ]
           },
           {
             "heading": "Wrapped and On this day",
             "paragraphs": [
-              "Two more tiles sit under the grid. You can turn either one off in Settings.",
               {
                 "lead": "Wrapped.",
-                "rest": " A look back at a finished week, month or year: entries, mood, the scale that moved furthest, tags, milestones, photos and letters."
+                "rest": " A summary of a finished week, month or year."
               },
               {
                 "lead": "On this day.",
-                "rest": " A good day from a month, six months, a year or more years ago, or a day with a letter written or opened on it. A day that went badly and has no letter is not brought back."
+                "rest": " A good day, or a day with a letter, from a month, six months, a year or more ago."
               }
             ]
           }
@@ -578,29 +565,28 @@
           {
             "heading": "The Transition tab",
             "paragraphs": [
-              "The fourth tab, Transition, has five groups: Health, Body, Steps, Support and Media. Search at the top finds a row by name and searches the text of your journal.",
-              "This chapter covers the first two groups, Health and Body."
+              "The fourth tab has five groups: Health, Body, Steps, Support and Media. Search at the top finds a row by name. This chapter covers Health and Body. Nothing in them says whether a number is good or bad, or suggests a dose."
             ]
           },
           {
             "heading": "Meds",
             "paragraphs": [
-              "Meds is where your medication lives. Each drug in a running regimen gets its own lane. The timeline marks your latest lab draw. For each regimen, Meds shows the dose and route, your last dose, when the next one is expected, how much you have left with the projected run-out day, and how much of the drug you took in the last 90 days.",
+              "Each drug in a running regimen gets a lane with its dose, your last and next dose, what you have left with the projected run-out day, and the total for the last 90 days. The timeline marks your latest lab draw.",
               {
                 "lead": "Regimen.",
-                "rest": " What you take, how and how often, from the day you started. Tap a lane to change it. You can pause a regimen or end it, and it stays in your history. If you switch it on, a schedule records an expected dose as taken after that day ends. You can correct it or mark it skipped."
+                "rest": " What you take, how and how often. You can pause or end it, and it stays in your history. A schedule can record expected doses as taken, and you can correct one or mark it skipped."
               },
               {
                 "lead": "Dose log.",
-                "rest": " Every dose taken, skipped or changed, at the time it happened. You can read it as logged or against the schedule."
+                "rest": " Every dose taken, skipped or changed."
               },
               {
                 "lead": "Lab results.",
-                "rest": " Your results, as you entered them. Import from photo reads a lab slip from your camera or gallery. The photo is read on your device, and the result keeps the slip's own value and unit. Results in different units stay on separate lines."
+                "rest": " Typed in, or read on your device from a photo of the slip, keeping the slip's own units."
               },
               {
                 "lead": "Medication stock.",
-                "rest": " A count you enter now and then. Logged doses feed the estimate of what is left and the projected run-out day, and the app tells you when stock is running low."
+                "rest": " A count you enter now and then. Logged doses keep the estimate going."
               }
             ],
             "images": [
@@ -613,38 +599,44 @@
           {
             "heading": "Cycle",
             "paragraphs": [
-              "Cycle logs a period, spotting, or nothing this month. The row only shows while a testosterone regimen is running, or once you turn on Cycle tracking in Settings."
+              "A period, spotting, or nothing this month. The row shows while a testosterone regimen is running, or once you turn on Cycle tracking in Settings."
             ]
           },
           {
             "heading": "Surgery journey",
             "paragraphs": [
-              "Each surgery gets its own journey, named however you like. It holds the consults before it, the date once you have one, and afterwards a day count, photos, notes and your own checklist.",
-              "Dilation becomes a row of its own once a surgery calls for it. Type in the schedule your surgeon gave you and log your sessions against it."
+              "Each surgery holds its consults, the date, and afterwards a day count, photos, notes and a checklist. Dilation becomes a row of its own once a surgery calls for it, with your surgeon's schedule and your sessions."
             ]
           },
           {
             "heading": "Appointments",
             "paragraphs": [
-              "Appointments opens on your next visit and how far away it is. Under it is What to raise, your list of things to bring up, which carries over from one visit to the next.",
-              "At the visit, In the room goes through your questions one at a time, with space for what they said. Past visits are under Behind you, and the app asks how each one went. An appointment can also wait without a date: Waiting lists keeps referrals, the day you were referred, dated updates and how long you have waited, and never guesses when you will be seen. Who you see holds your own notes on the people you go to, and an appointment can name one of them.",
-              "The clinician visit summary is a page to print for a doctor, for dates you choose. It can include your regimen, cumulative exposure, lab results, side effects, the changes you noticed and procedures, and you pick which sections go in. You see it exactly as it will print. Open it from Meds or from Appointments."
+              "Appointments opens on your next visit. What to raise is your list of things to bring up, and In the room goes through it at the visit, with space for the answers. Past visits are under Behind you. Waiting lists keeps referrals that have no date yet and how long you have waited. Who you see holds your notes on the people you go to.",
+              "The clinician visit summary is a page to print for a doctor. You pick the dates and the sections."
             ]
           },
           {
-            "heading": "Progress photos",
+            "heading": "Body",
             "paragraphs": [
-              "Body is the second group, and Progress photos is its first row. It keeps photos taken in the same pose. Pick two and drag the divider across them to compare an earlier one with a later one."
-            ]
-          },
-          {
-            "heading": "Changes you've noticed",
-            "paragraphs": [
-              "Pick a change from the list or add your own, and mark the day you first noticed it. Side effects go here too, each with how strong it was, from 1 to 5, and whether it is ongoing or resolved. The more private categories, such as genital and sexual changes, start switched off.",
-              "What the literature says shows when a change is usually reported, taken from SOC8 or the studies it cites.",
               {
-                "lead": "Hair progress.",
-                "rest": " What your hair is doing, in your own words, with photos taken from the same angle."
+                "lead": "Progress photos.",
+                "rest": " Photos in the same pose. Pick two and drag the divider to compare them."
+              },
+              {
+                "lead": "Changes you've noticed.",
+                "rest": " Pick a change or add your own, with the day you first noticed it. Side effects go here too, with a strength from 1 to 5. The more private categories start switched off. Hair progress is here as well."
+              },
+              {
+                "lead": "Hair removal.",
+                "rest": " Electrolysis and laser sessions: area, method, length, pain, cost, provider and photos."
+              },
+              {
+                "lead": "Wear log.",
+                "rest": " Binder, tucking and compression wear, by timer or filled in afterwards. With a binder, a cue appears at eight hours. Binder safety guidance is on the same screen."
+              },
+              {
+                "lead": "Voice.",
+                "rest": " A benchmark is the same passage and the same three vowels every time, so takes months apart can be compared. It shows figures such as pitch and gives no verdict on your voice."
               }
             ],
             "images": [
@@ -652,32 +644,6 @@
                 "src": "/guide/en-health-changes.webp",
                 "alt": "Changes you have noticed shows a dated timeline of effects recorded in the journal."
               }
-            ]
-          },
-          {
-            "heading": "Hair removal",
-            "paragraphs": [
-              "Hair removal logs electrolysis and laser sessions, with the area, method, how long it took, pain if you want to note it, cost, provider and photos. The screen shows how long it has been since the last one."
-            ]
-          },
-          {
-            "heading": "Wear log",
-            "paragraphs": [
-              "Wear log is for binder, tucking and compression wear. Start a timer, or fill in a session afterwards, with a note on comfort or pain. You can set a reminder for a number of hours you choose. With a binder, a quiet cue appears at eight hours, and you can turn it off. The screen also shows the hours worn each week.",
-              "Binder safety guidance and its sources are on the same screen."
-            ]
-          },
-          {
-            "heading": "Voice",
-            "paragraphs": [
-              "Voice has four tabs: Benchmark, Practise, Compare and Recordings.",
-              "A benchmark is a take made the same way every time: you read the same passage and hold the same three vowels. That keeps takes months apart comparable. It shows figures such as pitch and speaking rate, and Compare puts two benchmarks side by side. It gives no verdict on your voice."
-            ]
-          },
-          {
-            "heading": "What Health and Body do not do",
-            "paragraphs": [
-              "Nothing in these two groups says whether a number is good or bad, suggests a dose or tells you what to do. They keep what you enter and draw it."
             ]
           }
         ]
@@ -689,12 +655,9 @@
           {
             "heading": "The roadmap",
             "paragraphs": [
-              "Steps is the third group on the Transition tab. It holds the transition roadmap, milestones and tryouts.",
-              "The roadmap comes with two groups of steps, each behind its own switch. Social and presentation has eight steps, such as telling family, your name and pronouns, clothes and voice. Polish legal steps holds the Polish legal procedure for changing the sex marker, and is on by default when the app is in Polish.",
-              "After the ruling, Name and document changes lists the institutions to update, such as PESEL, your ID card, passport, bank and employer, and you can add your own. Each one records when you submitted the change, how long you have been waiting and when it was done, with the documents filed under it.",
-              "Steps can be done in any order. Tick a step once it is done, or mark it not my path. You can hide a step you do not need and bring it back later. With Offer a milestone switched on, ticking a step asks whether to add it to your milestones.",
-              "You can add categories of your own with steps in them, whether the built-in groups are on or not, and file documents against a step.",
-              "The roadmap describes the procedure and never says what to do in your own case. It shows the date its content was last checked against its sources."
+              "Steps is the third group. The transition roadmap comes with two sets of steps, each with its own switch: Social and presentation, and Polish legal steps, the court procedure for changing the sex marker. You can add categories and steps of your own.",
+              "Tick a step when it is done, mark it not my path, or hide it. Steps can be done in any order. After the ruling, Name and document changes tracks each institution you need to update: submitted, waiting, done.",
+              "The roadmap describes the procedure and never says what to do in your own case. It shows when its content was last checked against its sources."
             ],
             "images": [
               {
@@ -706,14 +669,14 @@
           {
             "heading": "Milestones and eras",
             "paragraphs": [
-              "A milestone is a day that mattered, or will. One still ahead counts down, and one behind you comes back each year as an anniversary. You can choose whether it is celebrated when the day comes.",
-              "Eras are stretches of time you name yourself, such as \"before I knew\". They show as bands behind your milestones, and Look back can use one as its stretch. You make and edit them in Settings."
+              "A milestone is a day that mattered, or will. One ahead counts down, and one behind you comes back each year.",
+              "Eras are stretches of time you name yourself. They show as bands behind your milestones, and Look back can use one as its stretch."
             ]
           },
           {
             "heading": "Tryouts",
             "paragraphs": [
-              "A tryout is something you are trying: a name, pronouns, a style or makeup. It has a start date and, once you stop, an end date. Note how it feels as often as you like, on the tryout itself or in an entry, and add photos. Several can run at once. If one sticks, you can adopt it: the tryout ends, and a name you adopt can become the name the app calls you."
+              "A tryout is something you are trying: a name, pronouns, a style or makeup. Note how it feels as often as you like. Several can run at once, and you can adopt one that sticks."
             ]
           }
         ]
@@ -725,16 +688,13 @@
           {
             "heading": "Time-capsule letters",
             "paragraphs": [
-              "Support is the fourth group on the Transition tab. It holds Time-capsule letters, Safe space, and Support and resources.",
-              "Write a letter to yourself and pick the day it opens. It stays sealed until then, and after that you can read it whenever you like. Letters about to open show on Today, under Coming up."
+              "Support is the fourth group. Write a letter to yourself and pick the day it opens. It stays sealed until then."
             ]
           },
           {
             "heading": "Safe space",
             "paragraphs": [
-              "Safe space is for the moments when dysphoria is too much. At the top is Things that help, your own list: who to text, which walk, which song. It starts empty. Under it is box breathing.",
-              "Below the breathing are two rows. Support and resources opens the directory described below. Good moments shows past entries you tagged as good, or starred, and appears once you have one.",
-              "Opening Safe space writes nothing to your journal."
+              "Safe space is for the moments when dysphoria is too much. It has Things that help, your own list of who to text or which song to play; box breathing; Good moments, the entries you tagged as good or starred; and a way into Support and resources. Opening it writes nothing to your journal."
             ],
             "images": [
               {
@@ -746,8 +706,7 @@
           {
             "heading": "Support and resources",
             "paragraphs": [
-              "Support and resources lists helplines and support organisations in two groups: Poland, and UK and US. Each has a line on what it offers and a number or an address, and there is some reading as well. It comes with the app, so you can read it with no signal. Some of the helplines are general ones, open to anyone. Emergency numbers such as 112 are not on the list.",
-              "The screen says when the entries were last checked. Tapping a number or an address hands it to your phone or browser, which leaves the app."
+              "Helplines and support organisations for Poland, the UK and the US, each with what it offers and a number or an address. The list comes with the app, so it works with no signal. Emergency numbers such as 112 are not on it. Tapping a number or an address leaves the app."
             ],
             "images": [
               {
@@ -765,11 +724,8 @@
           {
             "heading": "Photos",
             "paragraphs": [
-              "Media is the fifth group on the Transition tab.",
-              "Photos is every photo in your journal in one dated list: from entries, milestones, hair progress, hair removal, tryouts, surgery, progress photos and video notes. Once the photos come from more than one place, chips at the top narrow the list by where a photo came from, and Starred shows the ones you have starred.",
-              "Select photos to delete them. A deleted photo goes from everywhere it appears, and you can undo that for 10 seconds. Open record takes you to the entry or record a photo belongs to.",
-              "Make a collage or timelapse, at the bottom of the list, builds one from the photos in a date range. Tap a photo to leave it out, and preview the result before you save or share it. The file you save is not encrypted. To compare two photos, use Progress photos in the Body group.",
-              "Photos stay inside the app and never go to your phone's gallery."
+              "Media is the fifth group. Photos is every photo in your journal in one dated list, with chips to narrow it by where a photo came from, such as hair progress or surgery, and Starred. Select photos to delete them, or open the record one belongs to.",
+              "Make a collage or timelapse builds one from a date range, with a preview. The file you save is not encrypted. Photos never go to your phone's gallery."
             ],
             "images": [
               {
@@ -781,8 +737,7 @@
           {
             "heading": "Documents",
             "paragraphs": [
-              "Documents holds the papers you keep, such as opinions, diagnoses, referrals, court rulings and invoices. Each has a date, a title you write and the file itself: a PDF or an image, up to 25 MB. You can link a document to a roadmap step, a milestone, a surgery journey or a regimen.",
-              "The list groups documents by what they are linked to, with unlinked ones last. Photos and PDFs have thumbnails. Share or save makes a copy that is not encrypted. The app never reads what a document says, so you find one by its title."
+              "Documents holds the papers you keep, such as opinions, referrals and court rulings: PDFs or images, each with a date and a title. You can link one to a roadmap step, a milestone, a surgery or a regimen, and the list is grouped by those links. The app never reads a document, so you find it by its title."
             ]
           }
         ]
@@ -794,8 +749,7 @@
           {
             "heading": "What belongs here",
             "paragraphs": [
-              "Settings holds preferences and the lists those preferences draw from: how the journal looks, what it asks you to track and when it reminds you. What you record stays on its own screen. Doses, lab results and surgery notes are on the Transition tab, not here.",
-              "The gear at the top of Today opens Settings. It has five sections."
+              "Settings holds preferences: how the journal looks, what it tracks and when it reminds you. What you record stays on its own screen. The gear at the top of Today opens Settings."
             ],
             "images": [
               {
@@ -807,66 +761,58 @@
           {
             "heading": "Appearance",
             "paragraphs": [
-              "Appearance holds the app's language, theme, gender palette and mood colours. There are sixteen palettes, and mood colours have their own presets. You can also make text larger, make text and borders clearer, and reduce motion. On Android you can change the app icon here too."
+              "Language, theme, one of sixteen palettes and mood colours. You can also make text larger, make text and borders clearer, and reduce motion."
             ]
           },
           {
             "heading": "Tracking",
             "paragraphs": [
-              "Tracking holds Gender scales, Tag groups and Features to show. Features to show is where you choose which parts of the app appear, and it has the switch for cycle tracking."
+              "Gender scales, Tag groups and Features to show, which decides which parts of the app appear and holds the switch for cycle tracking."
             ]
           },
           {
             "heading": "Reminders & prompts",
             "paragraphs": [
-              "Reminders is where you set when the app should nudge you. Notices and notifications switches the app's other prompts on or off and sets quiet hours, a stretch when no notification arrives. A reminder due in quiet hours waits until they end. Phone notifications need the Android app.",
-              "Live tiles are not here. You switch them in Today's editor, beside its pins."
+              "Reminders sets when the app nudges you. Notices and notifications switches the other prompts and sets quiet hours. Phone notifications need the Android app."
             ]
           },
           {
             "heading": "Your lists",
             "paragraphs": [
-              "Your lists holds the lists used across the journal: modes, entry templates, body regions and eras."
+              "Modes, entry templates, body regions and eras."
             ]
           },
           {
             "heading": "Privacy & data",
             "paragraphs": [
-              "Lock & recovery holds how your journal opens, when it locks and the recovery key. Permissions and Disguise app are in this section too.",
-              "Export / import is where you make or restore a backup, export plain CSV or JSON and import from Daylio. On Android it is also where you choose a backup folder, and newer backups that your other devices save there can be merged in.",
-              "Journal book prints a range you choose. Trash keeps deleted entries for 30 days, and you can delete one for good sooner. Delete everything erases the journal from this device.",
-              "Below the sections, About shows the app's version and links to this guide, the privacy policy and the source code."
+              "Lock & recovery sets how your journal opens, when it locks and the recovery key. Permissions and Disguise app are here too.",
+              "Export / import makes or restores a backup, imports from Daylio and, on Android, sets a backup folder. Journal book prints a range. Trash keeps deleted entries for 30 days. Delete everything erases the journal from this device."
             ]
           }
         ]
       },
       "privacy": {
         "title": "Privacy",
-        "description": "Where the journal lives, how it is encrypted and opened, what other people can see, and what happens to files you export.",
+        "description": "Where the journal lives, how it opens, what other people can see, and backups and exports.",
         "sections": [
           {
             "heading": "Where the journal lives",
             "paragraphs": [
-              "Your journal stays in storage on the device where you use it. There is no account and no profile on a server, and nothing you write is uploaded. The Android app and a browser keep separate journals, and so do two browser profiles.",
-              "The web app still has to come from a server. When it loads or updates, its host can see your IP address, the time of the request, which files the browser asks for and their sizes, plus the User-Agent and referrer headers. Entries, photos, notes and lab results are never part of that. The website and the web app also count how often they are opened, as totals with no record of individual visits. The privacy policy has the details."
+              "Your journal stays on the device where you use it. There is no account, and nothing you write is uploaded. The Android app and each browser profile hold separate journals. The privacy policy says what the web app's server and the website can see."
             ]
           },
           {
             "heading": "Encryption and access",
             "paragraphs": [
-              "The database is encrypted whole, including its side files and the copy made before an upgrade changes it. Photos and thumbnails sit outside the database, so each file is encrypted separately with the same random data key.",
-              "A few things are not encrypted, and none of them is journal content: the wrapped key and the settings needed to open it, your theme, palette and language, lock timing, the disguise choice, and the times of wrong PIN attempts. On Android, a photo you take also passes through an unencrypted temporary file before the app imports and encrypts it.",
-              "How your journal opens is your choice, under Lock & recovery in Settings. On the web it can be a passphrase, a four-digit PIN together with a key kept in the browser profile, your device unlock through WebAuthn PRF on a browser that supports it, or unlocked, with a key in the browser profile and no prompt. On Android it can be your screen lock or biometrics through Android Keystore, a four-digit PIN with a Keystore key, a passphrase, or unlocked, with a Keystore key and no prompt.",
-              "A passphrase goes through Argon2id and wraps the data key with AES-GCM, so you can change it without encrypting the journal again. The other modes depend on a key held in the browser profile or in Android Keystore. Clearing the site's data, resetting the profile, clearing the app's data or losing the device makes that copy of the journal unreadable.",
-              "The same screen sets when your journal locks: immediately, after 1 minute, after 5 minutes, or only when the app restarts.",
-              "A recovery key is optional. It has 25 characters and is shown once, when you make it. If your passphrase, PIN or biometrics stop working, it opens the journal on the device, and on the web the browser profile, that still holds it. It cannot move the journal or open an Archive. Without a recovery key, nobody can recover lost credentials, and nobody can recover a forgotten Archive password either. After you copy the key, the app clears it from the clipboard a minute later where the system lets it."
+              "The journal's database and media are encrypted. A few settings the app needs before it unlocks are not, and none of them is journal content.",
+              "Lock & recovery in Settings sets how the journal opens: a passphrase, a four-digit PIN, your device's unlock, or without asking. The same screen sets when it locks. The journal and its keys live only on this device or in this browser profile, so clearing the app's or the site's data removes that journal for good.",
+              "A recovery key is optional. It has 25 characters and is shown once. It opens the journal where it already is if your passphrase, PIN or biometrics fail. It cannot move the journal or open a backup. Without one, nobody can recover lost credentials."
             ]
           },
           {
             "heading": "What other people can see",
             "paragraphs": [
-              "Disguise app changes what someone near your phone sees. The launcher icon and name become Notes, and the lock screen, widgets, notifications and, on the web, the tab's icon and title stop naming engender. On Android it also blocks screenshots and the preview in Recents. Inside the unlocked app nothing changes. Disguise is not encryption, and Android still shows the real name in App info and in permission prompts.",
-              "Notifications hide sensitive titles unless you switch Hide sensitive titles off. Reminder times and the daily check-in question still show on a locked screen."
+              "Disguise app renames the app to Notes on the launcher, lock screen, widgets, notifications and the browser tab, and on Android it blocks screenshots. It is not encryption, and Android still shows the real name in App info. Notifications hide sensitive titles unless you turn that off."
             ],
             "images": [
               {
@@ -878,17 +824,14 @@
           {
             "heading": "Android and network access",
             "paragraphs": [
-              "The Android app does not request the INTERNET permission. It opens no network sockets and sends no journal data to a server. It also opts out of Android's cloud backup and device-to-device transfer. A store you install it from can still record installs and updates under its own policies.",
-              "Android asks for POST_NOTIFICATIONS, SCHEDULE_EXACT_ALARM and RECEIVE_BOOT_COMPLETED so reminders and the daily check-in arrive at the time you chose and come back after a restart. WAKE_LOCK lets a scheduled backup finish with the screen off. RECORD_AUDIO and MODIFY_AUDIO_SETTINGS are for voice notes, and CAMERA is for video notes and for photos, which open the phone's camera app. USE_BIOMETRIC and USE_FINGERPRINT let it show the phone's own fingerprint, face or screen lock prompt."
+              "The Android app does not request the INTERNET permission. It opens no network connections, and it opts out of Android's cloud backup. The privacy policy lists its permissions."
             ]
           },
           {
-            "heading": "Archives and other exports",
+            "heading": "Backups and exports",
             "paragraphs": [
-              "You choose where an exported or shared file goes. A cloud drive or document provider can see its filename, timestamp and size, along with account access records.",
-              "An encrypted .ttbackup Archive uses chunked AES-256-GCM and a password you choose. The password protects that Archive, not the journal on your device. Its header stays readable: the first six bytes say GDIARY, followed by the format version, Argon2id settings and salt. The app needs those to recognise the file and derive its key. The header reveals the format, not your entries, and nobody without the password can read the rest.",
-              "On Android, Auto-export writes an Archive to a folder you pick, every week or every month. With Merge backups from other devices switched on, the app looks in that folder when you open it and merges in a newer Archive that another device saved there with the same password. Nothing is sent anywhere. Both devices only read and write the folder.",
-              "Some exports are deliberately readable: CSV and JSON data, journal books for printing or PDF, clinician summaries, photo collages and timelapses, saved PDFs, and single-event .ics calendar files. Anyone who receives one can read what it contains. The app asks you to confirm or take an explicit action before it makes an unencrypted file."
+              "An encrypted backup (.ttbackup) can only be opened with the password you chose for it, and nobody can recover that password. On Android, Auto-export writes one to a folder you pick every week or month, and Merge backups from other devices merges in newer ones your other devices saved there.",
+              "Other exports are meant to be read and are not encrypted: CSV and JSON, journal books, clinician summaries, collages and timelapses, PDFs and calendar files. The app asks before it makes one."
             ],
             "images": [
               {
@@ -900,14 +843,13 @@
           {
             "heading": "Deleting everything",
             "paragraphs": [
-              "Delete everything, under Privacy & data in Settings, erases the journal, its photos and recordings, your settings and the keys from this device. It cannot be undone, and the app offers to back up first. Uninstalling the Android app, or clearing the site's data in a browser, removes the same things. Files you already exported stay wherever you saved them."
+              "Delete everything, under Privacy & data, erases the journal and its keys from this device and cannot be undone. Uninstalling the app or clearing the site's data does the same. Files you exported stay where you saved them."
             ]
           },
           {
             "heading": "Security reports",
             "paragraphs": [
-              "You can report a security problem through GitHub's private vulnerability reporting. Include the app version, device or browser, clear steps to reproduce the problem, and what you expected and saw. Use invented data for a minimal proof.",
-              "One person maintains the project, so a report is read when they next sit down to work. There is no fixed response window."
+              "Report a security problem through GitHub's private vulnerability reporting, with the app version, your device or browser, and steps to reproduce it using invented data. One person maintains the project, so there is no fixed response window."
             ]
           }
         ]
@@ -919,28 +861,25 @@
           {
             "heading": "Reporting a problem",
             "paragraphs": [
-              "Report a bug in the issues at github.com/engender-app/engender. Say which version you have (Settings, then About), whether you are on Android or in a browser, and the steps that lead to the problem. Issues are public, so describe the problem with invented data and never paste anything from your journal."
+              "Report a bug at github.com/engender-app/engender with your version (Settings, then About), whether it is Android or a browser, and the steps. Issues are public, so never paste anything from your journal."
             ]
           },
           {
             "heading": "Code",
             "paragraphs": [
-              "engender is free software under GPLv3. Clone the Journal repository from github.com/engender-app/engender. With Node.js 24, run npm ci, then npm run dev to work locally. The README lists the checks: npm run check, npm test and npm run test:browser cover different parts of the app, and the first two need one build on a fresh checkout.",
-              "Keep a pull request to one change, on a branch that is up to date with main. CI runs on each pull request, including browser checks, and has to pass before a merge. Use invented journal data in tests and screenshots."
+              "engender is free software under GPLv3. Clone the repository and, with Node.js 24, run npm ci, then npm run dev. The README lists the checks. Keep a pull request to one change. CI has to pass before a merge."
             ]
           },
           {
             "heading": "Country packs",
             "paragraphs": [
-              "You don't need to write code to help with a country pack. A pack is bundled into the app and describes one country's transition procedure as roadmap steps. Only the Polish pack ships today. It covers the legal procedure and the institutions to update after it.",
-              "Cite sources for each step you propose and record when you checked them. The roadmap shows the date its content was last checked, because procedures change. Describe what a step involves, never what someone should do in their own case. You can send sourced corrections or draft steps without editing the app."
+              "A pack describes one country's transition procedure as roadmap steps. Only the Polish pack ships today. You can help without code: send sourced corrections or draft steps, with the date you checked each source. Describe what a step involves, never what someone should do in their own case."
             ]
           },
           {
             "heading": "Translations",
             "paragraphs": [
-              "The Journal keeps screen text in messages/en.json and messages/pl.json, and npm run strings opens an editor for both. The app supports English and Polish today. Another language needs its own catalogue, some changes in the code that lists the languages, and a check of each screen with the real text, including long labels on small phones.",
-              "Translate the meaning, then edit until it reads naturally in the new language."
+              "Screen text is in messages/en.json and messages/pl.json, and npm run strings opens an editor for both. The app supports English and Polish. Another language needs its own catalogue and a check of every screen with the real text."
             ]
           }
         ]
