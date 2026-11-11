@@ -21,7 +21,7 @@ F-Droid reads this as its Summary, which must have no sentence punctuation.
 
 ## Full description
 
-3943 of 4000 characters.
+3957 of 4000 characters.
 Plain lines are headings; Play shows the text without markup.
 
 > Ile dziś euforii? Dysforii? A tydzień temu? Zaznaczaj to codziennie na własnych skalach. Zajmuje to chwilę, a przy okazji sprawdzasz, jak ci dziś jest. Po kilku tygodniach zajrzyj do Statystyk i zobacz, jak to wygląda razem.
@@ -34,7 +34,7 @@ Plain lines are headings; Play shows the text without markup.
 >
 > Z perspektywy czasu
 >
-> W Statystykach wybierasz, jaki czas chcesz zobaczyć, na przykład miesiąc albo wszystko od początku HRT. Skalę obejrzysz dzień po dniu, samą albo z drugą obok. Jest też wykres dwóch skal naraz: jedna w poziomie, druga w pionie. Widać średnią każdej skali i to, która zmieniła się najbardziej. Widać też, przy których tagach skala wypadała wyżej albo niżej. engender rysuje to, co wpisujesz, a wnioski zostawia tobie.
+> W Statystykach wybierasz, jaki czas chcesz zobaczyć, na przykład miesiąc albo wszystko od początku HRT. Skalę obejrzysz dzień po dniu, samą albo z drugą obok. Jest też wykres dwóch skal naraz: jedna w poziomie, druga w pionie. Widać średnią każdej skali i to, która zmieniła się najbardziej. Dla każdego tagu porównasz średnią skali we wpisach z tym tagiem i bez niego. engender rysuje to, co wpisujesz, a wnioski zostawia tobie.
 >
 > Zestaw zdjęcia obok siebie albo wróć do podsumowania tygodnia, miesiąca czy roku. Konkretny dzień znajdziesz w kalendarzu albo wyszukasz po notatkach i tagach. Na trudniejsze dni jest Bezpieczna przestrzeń, gdzie masz pod ręką ulubione wpisy i własną listę rzeczy, które pomagają.
 >
