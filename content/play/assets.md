@@ -64,8 +64,8 @@ site sets a lede: "Oswajaj swój gender" in Polish (Alicja's choice) and
 "Get comfortable with your gender" in English (proposed, hers to confirm)
 since Journal tester-report-02 ticket 06 (2026-11-11; "Your
 transition, in one place" and "Twoja tranzycja w jednym miejscu" before it).
-The Journal's script carries the new pair; the two PNGs still show the old
-line until they are regenerated. Ink and ground are the trans light theme's text and
+The Journal's script carries the new pair and both PNGs were regenerated
+from it on 2026-11-11. Ink and ground are the trans light theme's text and
 background colours, and the flag stripe runs along the bottom. The block sits
 72px from the left edge, centred vertically above the stripe.
 
