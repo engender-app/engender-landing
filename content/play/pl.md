@@ -21,10 +21,10 @@ F-Droid reads this as its Summary, which must have no sentence punctuation.
 
 ## Full description
 
-3947 of 4000 characters.
+3835 of 4000 characters.
 Plain lines are headings; Play shows the text without markup.
 
-> Nieważne, czy znasz już swój gender. Pora go zrozumieć. Ile dziś euforii? Ile dysforii? A tydzień temu? Zaznaczaj to codziennie na skalach, które nazywasz po swojemu. To chwila, a przy okazji sprawdzasz, co u ciebie. Po kilku tygodniach zajrzyj do Statystyk i zobacz te dni razem. Zobaczysz tam to, czego z jednego dnia nie widać.
+> Ile dziś euforii? Dysforii? A tydzień temu? Zaznaczaj to codziennie na własnych skalach. To chwila, a przy okazji sprawdzasz, co u ciebie. Po kilku tygodniach zajrzyj do Statystyk i zobacz wszystkie te dni obok siebie.
 >
 > To dziennik tranzycji od osoby trans dla innych osób trans. Wybierz te części aplikacji, które ci się przydadzą, niezależnie od tego, czy dopiero zastanawiasz się nad swoim genderem, planujesz kolejne kroki, czy masz za sobą lata tranzycji. Aplikacja jest darmowa, bez reklam i subskrypcji. Konta nie trzeba zakładać, a nawet się nie da.
 >

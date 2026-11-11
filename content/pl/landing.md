@@ -56,9 +56,9 @@ tranzycja w jednym miejscu, na własnym urządzeniu.”
 
 **Subheadline**
 
-> Zaznaczaj euforię, dysforię i co tylko chcesz, na skalach, które nazywasz po
-> swojemu. Po miesiącu albo po roku spójrz wstecz. Zobaczysz to, czego z jednego dnia
-> nie widać.
+> Zaznaczaj euforię, dysforię i co tylko chcesz na skalach, które nazywasz po swojemu.
+> Po miesiącu albo po roku spójrz wstecz. Zobaczysz to, czego z pojedynczego dnia nie
+> widać.
 
 Since tester-report-02 ticket 06 the line is the mechanism only, as in
 English, written first in Polish and not translated. Euphoria and dysphoria
@@ -83,7 +83,7 @@ field under the supporting line.
 
 **Primary action**
 
-„Zacznij od dziś” since tester-report-02 ticket 06 (2026-11-11); „Otwórz dziennik”
+„Zacznij dziś” since tester-report-02 ticket 06 (2026-11-11); „Otwórz dziennik”
 until then. The Acquisition section below has the earlier reasoning.
 
 ### The promise strip
@@ -108,15 +108,15 @@ future, where Polish does not gender the first person.
 
 *Gate: shipped.*
 
-> Ile dziś euforii? Ile dysforii? A tydzień temu? Na dwa pierwsze pytania odpowiesz od
-> ręki. Tydzień temu to już tylko ogólne wrażenie. Trudno zrozumieć swój gender, kiedy
+> Ile dziś euforii? Dysforii? A tydzień temu? Na dwa pierwsze pytania odpowiesz od
+> ręki. Tydzień temu to już tylko ogólne wrażenie. Trudno rozgryźć swój gender, kiedy
 > masz przed oczami tylko dzisiejszy dzień.
 >
-> W engender zaznaczasz to codziennie, na skalach nazwanych po swojemu. Zajmuje to
-> chwilę i jest dobrym pretekstem, żeby sprawdzić, co u ciebie. Potem bierzesz miesiąc
-> albo rok i patrzysz na wszystko razem: jedna skala dzień po dniu albo dwie skale na
-> jednym wykresie. Nie musisz wiedzieć, kim jesteś, żeby zacząć. Bywa, że po kilku
-> miesiącach widać we wpisach coś innego, niż się spodziewasz.
+> W engender zaznaczasz to codziennie. Zajmuje to chwilę i jest dobrym pretekstem,
+> żeby sprawdzić, co u ciebie. Potem bierzesz miesiąc albo rok i patrzysz na wszystko
+> razem: jedna skala dzień po dniu albo dwie skale na jednym wykresie. Nie musisz
+> wiedzieć, kim jesteś, żeby zacząć. Bywa, że po kilku miesiącach widać we wpisach coś
+> innego, niż się spodziewasz.
 >
 > Wokół dziennika są zapiski, które zwykle rozchodzą się po notatkach w telefonie,
 > arkuszu, folderze ze zdjęciami i piśmie z przychodni: co przyjmujesz, co próbujesz,
@@ -360,7 +360,7 @@ and 11, exactly as in the English file.*
 same keys as the English, and it is on the page today. The English file explains why: a
 string that already ships gets one home, not two.
 
-**The button is called „Zacznij od dziś”** since tester-report-02 ticket 06. It
+**The button is called „Zacznij dziś”** since tester-report-02 ticket 06. It
 starts nothing new for someone coming back: today is where every visit starts.
 What follows is why it was „Otwórz dziennik” before, and it still explains
 why „Zacznij dziennik” is wrong. The spec fixes the English wording and fixes
@@ -469,4 +469,4 @@ and the Play listing will.
 
 The description is shared by search, Open Graph and Twitter metadata.
 
-Nieważne, czy znasz już swój gender. Pora go zrozumieć. Zaznaczaj euforię i dysforię dzień po dniu i patrz wstecz. Za darmo, bez konta, na twoim urządzeniu.
+engender to dziennik, w którym codziennie zaznaczasz euforię, dysforię i co tylko chcesz, a po miesiącach patrzysz na wszystko razem. Za darmo, bez konta.

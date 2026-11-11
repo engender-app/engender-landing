@@ -21,10 +21,10 @@ F-Droid reads this as its Summary, which must have no sentence punctuation.
 
 ## Full description
 
-3914 of 4000 characters.
+3801 of 4000 characters.
 Plain lines are headings; Play shows the text without markup.
 
-> Whether you know your gender or not, it's time to understand it. How much euphoria today? How much dysphoria? And a week ago? Mark it each day on scales you name yourself. It takes a moment, and it's a small check-in with yourself. After a few weeks, open Look back and see those days together. They show you what no single day can.
+> How much euphoria today? Dysphoria? And a week ago? Mark it each day on your own scales. It takes a moment, and it's a small check-in with yourself. After a few weeks, open Look back and see all those days side by side.
 >
 > engender is made by a trans person for other trans people. Use whichever parts fit your life, whether you're questioning, planning your next step or years into transition. It's free, with no ads, subscriptions or accounts to create.
 >

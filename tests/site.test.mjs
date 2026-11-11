@@ -48,13 +48,13 @@ const CHANNELS = ["Aurora", "F-Droid", "Obtainium", "Google Play"];
 const ACQUISITION = {
   en: {
     heading: "How to get it",
-    action: "Start with today",
+    action: "Start today",
     status: "Not available yet.",
     channelsPending: "each becomes a link as it goes live",
   },
   pl: {
     heading: "Skąd je wziąć",
-    action: "Zacznij od dziś",
+    action: "Zacznij dziś",
     status: "Jeszcze niedostępne.",
     channelsPending: "odnośniki pojawią się, gdy wydania będą dostępne",
   },
@@ -2109,9 +2109,9 @@ const TITLES = {
     the page a visitor asking for neither language is about to be sent to. */
 const DESCRIPTIONS = {
   "/en/":
-    "Whether you know your gender or not, it's time to understand it. Mark euphoria and dysphoria day by day, then look back. Free, no account, on your device.",
+    "engender is a journal where you mark euphoria, dysphoria and anything else each day, then look at months of it together. Free, with no account.",
   "/pl/":
-    "Nieważne, czy znasz już swój gender. Pora go zrozumieć. Zaznaczaj euforię i dysforię dzień po dniu i patrz wstecz. Za darmo, bez konta, na twoim urządzeniu.",
+    "engender to dziennik, w którym codziennie zaznaczasz euforię, dysforię i co tylko chcesz, a po miesiącach patrzysz na wszystko razem. Za darmo, bez konta.",
   "/en/privacy/":
     "How engender encrypts your journal, how access and recovery keys work, what exports reveal, and what the web host sees.",
   "/pl/privacy/":

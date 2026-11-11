@@ -29,7 +29,7 @@ copy shows who wrote it by knowing things, not by claiming to.
 
 engender is the app; your journal, lowercase, is the thing it holds. The rename
 settled the old two-senses problem, and every page uses the words in those senses.
-The action's wording is fixed: "Start with today" since tester-report-02 ticket 06, "Start journal" before it.
+The action's wording is fixed: "Start today" since tester-report-02 ticket 06, "Start journal" before it.
 
 The app's screens say scale, so this site says scale, and never dimension or axis.
 
@@ -133,7 +133,7 @@ field under the supporting line.
 
 **Primary action**
 
-"Start with today" (tester-report-02 ticket 06, 2026-11-11; "Start journal"
+"Start today" (tester-report-02 ticket 06, 2026-11-11; "Start journal"
 until then). It answers the headline's "it's time", and it is true for someone
 coming back as well as someone new. It is on the page, and the Acquisition
 section below says what it links to and why nothing else on the page competes
@@ -168,15 +168,15 @@ same worry.
 
 *Gate: shipped.*
 
-> How much euphoria today? How much dysphoria? And a week ago? The first two you can
-> answer on the spot. A week ago is already a blur. It is hard to understand your
-> gender when today is all you have of it.
+> How much euphoria today? Dysphoria? And a week ago? The first two you can answer on
+> the spot. A week ago is already a blur. It is hard to make sense of your gender when
+> today is all you have of it.
 >
-> In engender you mark it every day, on scales you name yourself. It takes a moment,
-> and it is a reason to stop and check in. Later you take a month or a year and look
-> at all of it at once: one scale day by day, or two scales against each other. You
-> don't have to know who you are to start. After a few months, what you see in your
-> entries may not be what you expected.
+> In engender you mark it every day. It takes a moment, and it is a reason to stop and
+> check in. Later you take a month or a year and look at all of it at once: one scale
+> day by day, or two scales against each other. You don't have to know who you are to
+> start. After a few months, what you see in your entries may not be what you
+> expected.
 >
 > Around the journal sit the records that otherwise end up spread across a notes app,
 > a spreadsheet, a photo folder and a letter from a clinic: what you take, what you
@@ -556,4 +556,4 @@ address the reader in a way Polish cannot copy without picking a gender for them
 
 The description is shared by search, Open Graph and Twitter metadata.
 
-Whether you know your gender or not, it's time to understand it. Mark euphoria and dysphoria day by day, then look back. Free, no account, on your device.
+engender is a journal where you mark euphoria, dysphoria and anything else each day, then look at months of it together. Free, with no account.

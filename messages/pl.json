@@ -9,7 +9,7 @@
   "meta": {
     "cardAlt": "Napis engender na ciemnym tle, z flagą transpłciową narysowaną jako koncentryczne pierścienie w rogu.",
     "landing": {
-      "description": "Nieważne, czy znasz już swój gender. Pora go zrozumieć. Zaznaczaj euforię i dysforię dzień po dniu i patrz wstecz. Za darmo, bez konta, na twoim urządzeniu."
+      "description": "engender to dziennik, w którym codziennie zaznaczasz euforię, dysforię i co tylko chcesz, a po miesiącach patrzysz na wszystko razem. Za darmo, bez konta."
     },
     "privacy": {
       "description": "Jak engender szyfruje dziennik, czym go otworzysz i do czego służy klucz odzyskiwania. Co ujawniają eksporty i co widzi serwer WWW."
@@ -23,7 +23,7 @@
       "phonetics": "/ɪnˈdʒɛndə/",
       "sense": "to cause or give rise to a feeling, situation or condition."
     },
-    "subheadline": "Zaznaczaj euforię, dysforię i co tylko chcesz, na skalach, które nazywasz po swojemu. Po miesiącu albo po roku spójrz wstecz. Zobaczysz to, czego z jednego dnia nie widać.",
+    "subheadline": "Zaznaczaj euforię, dysforię i co tylko chcesz na skalach, które nazywasz po swojemu. Po miesiącu albo po roku spójrz wstecz. Zobaczysz to, czego z pojedynczego dnia nie widać.",
     "tagline": "Za darmo. Bez konta. Dziennik zostaje na twoim urządzeniu."
   },
   "promises": [
@@ -46,8 +46,8 @@
   ],
   "sectionOverview": "Co to jest",
   "overview": [
-    "Ile dziś euforii? Ile dysforii? A tydzień temu? Na dwa pierwsze pytania odpowiesz od ręki. Tydzień temu to już tylko ogólne wrażenie. Trudno zrozumieć swój gender, kiedy masz przed oczami tylko dzisiejszy dzień.",
-    "W engender zaznaczasz to codziennie, na skalach nazwanych po swojemu. Zajmuje to chwilę i jest dobrym pretekstem, żeby sprawdzić, co u ciebie. Potem bierzesz miesiąc albo rok i patrzysz na wszystko razem: jedna skala dzień po dniu albo dwie skale na jednym wykresie. Nie musisz wiedzieć, kim jesteś, żeby zacząć. Bywa, że po kilku miesiącach widać we wpisach coś innego, niż się spodziewasz.",
+    "Ile dziś euforii? Dysforii? A tydzień temu? Na dwa pierwsze pytania odpowiesz od ręki. Tydzień temu to już tylko ogólne wrażenie. Trudno rozgryźć swój gender, kiedy masz przed oczami tylko dzisiejszy dzień.",
+    "W engender zaznaczasz to codziennie. Zajmuje to chwilę i jest dobrym pretekstem, żeby sprawdzić, co u ciebie. Potem bierzesz miesiąc albo rok i patrzysz na wszystko razem: jedna skala dzień po dniu albo dwie skale na jednym wykresie. Nie musisz wiedzieć, kim jesteś, żeby zacząć. Bywa, że po kilku miesiącach widać we wpisach coś innego, niż się spodziewasz.",
     "Wokół dziennika są zapiski, które zwykle rozchodzą się po notatkach w telefonie, arkuszu, folderze ze zdjęciami i piśmie z przychodni: co przyjmujesz, co próbujesz, co cię czeka i co już za tobą.",
     "Nic tu o tobie nie decyduje. Skale nazywasz po swojemu i wybierasz, co śledzić, a aplikacja rysuje to, co wpisujesz, bez wystawiania ocen. Nie podpowiada dawek, nie barwi liczb na czerwono i nie mówi, w którą stronę masz zmierzać.",
     "To wolne oprogramowanie: bez ceny, bez abonamentu i bez niczego do dokupienia, a licencja pilnuje, żeby tak zostało."
@@ -192,7 +192,7 @@
   ],
   "sectionAcquisition": "Skąd je wziąć",
   "acquisitionIntro": "engender działa w przeglądarce. Otwiera się od razu, bez instalacji i bez konta.",
-  "startJournal": "Zacznij od dziś",
+  "startJournal": "Zacznij dziś",
   "acquisitionAndroid": "Aplikacja na Androida ma te same funkcje dziennika. Poniżej są cztery miejsca pobrania; odnośniki pojawią się, gdy wydania będą dostępne. Google Play jest na końcu z powodu opisanego poniżej.",
   "channelStatus": "Jeszcze niedostępne.",
   "channels": [
