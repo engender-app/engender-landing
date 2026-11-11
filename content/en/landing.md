@@ -122,12 +122,12 @@ people search with, and the marketing context says to meet them there.
 
 **Tagline**
 
-> Free. No account. Your journal stays on your device.
+> Free. No account. 100% local.
 
 The cue beside the action (tester-report-02 ticket 06, 2026-11-11): the three
-things a trans reader checks before pressing anything. "Device", not "phone",
-because the action opens the journal in whatever browser the reader is in. It
-replaced Alicja's 2026-09-29 line "Open source and free forever."; the first
+things a trans reader checks before pressing anything. "100% local" is
+Alicja's wording, chosen over "Your journal stays on your device." It
+replaced her 2026-09-29 line "Open source and free forever."; the first
 promise cell still says free for good and names the licence. It sits on the
 field under the supporting line.
 
@@ -168,9 +168,9 @@ same worry.
 
 *Gate: shipped.*
 
-> How much euphoria today? Dysphoria? And a week ago? The first two you can answer on
-> the spot. A week ago is already a blur. It is hard to make sense of your gender when
-> today is all you have of it.
+> How masculine or feminine are you feeling today? Any dysphoria? Today you can answer
+> on the spot. A month ago is already a blur. It is hard to make sense of your gender
+> when today is all you have of it.
 >
 > In engender you mark it every day. It takes a moment, and it is a reason to stop and
 > check in. Later you take a month or a year and look at all of it at once: one scale
@@ -554,6 +554,8 @@ address the reader in a way Polish cannot copy without picking a gender for them
 
 ## Search and share
 
-The description is shared by search, Open Graph and Twitter metadata.
+The description is shared by search, Open Graph and Twitter metadata. Since
+2026-11-11 it is the opening of the store's full description, cut at the last
+whole sentence inside 160 characters (Alicja's choice).
 
-engender is a journal where you mark euphoria, dysphoria and anything else each day, then look at months of it together. Free, with no account.
+How masculine or feminine are you feeling today? Any dysphoria? Mark those and anything you want on your own scales.

@@ -9,7 +9,7 @@
   "meta": {
     "cardAlt": "The word engender on a dark background, with the trans flag drawn as concentric rings in the corner.",
     "landing": {
-      "description": "engender is a journal where you mark euphoria, dysphoria and anything else each day, then look at months of it together. Free, with no account."
+      "description": "How masculine or feminine are you feeling today? Any dysphoria? Mark those and anything you want on your own scales."
     },
     "privacy": {
       "description": "How engender encrypts your journal, how access and recovery keys work, what exports reveal, and what the web host sees."
@@ -24,7 +24,7 @@
       "sense": "to cause or give rise to a feeling, situation or condition."
     },
     "subheadline": "Mark euphoria, dysphoria and anything else on scales you name yourself. A month or a year on, look back. You'll see what no single day shows.",
-    "tagline": "Free. No account. Your journal stays on your device."
+    "tagline": "Free. No account. 100% local."
   },
   "promises": [
     {
@@ -46,7 +46,7 @@
   ],
   "sectionOverview": "What this is",
   "overview": [
-    "How much euphoria today? Dysphoria? And a week ago? The first two you can answer on the spot. A week ago is already a blur. It is hard to make sense of your gender when today is all you have of it.",
+    "How masculine or feminine are you feeling today? Any dysphoria? Today you can answer on the spot. A month ago is already a blur. It is hard to make sense of your gender when today is all you have of it.",
     "In engender you mark it every day. It takes a moment, and it is a reason to stop and check in. Later you take a month or a year and look at all of it at once: one scale day by day, or two scales against each other. You don't have to know who you are to start. After a few months, what you see in your entries may not be what you expected.",
     "Around the journal sit the records that otherwise end up spread across a notes app, a spreadsheet, a photo folder and a letter from a clinic: what you take, what you are trying, what is coming up and what has already happened.",
     "Nothing in it decides anything about you. You name your own scales and pick what to track, and the app draws what you put in without grading it. It never suggests a dose, never colours a number red and never tells you which way you are meant to be going.",

@@ -9,7 +9,7 @@
   "meta": {
     "cardAlt": "Napis engender na ciemnym tle, z flagą transpłciową narysowaną jako koncentryczne pierścienie w rogu.",
     "landing": {
-      "description": "Dziennik genderu i tranzycji. Codziennie zaznaczasz, ile czujesz euforii i dysforii, a po kilku miesiącach widzisz to wszystko razem. Za darmo, bez konta."
+      "description": "Czujesz się dziś męsko czy kobieco? Jest dziś bardziej dysforycznie czy euforycznie? Trackuj to oraz cokolwiek zechcesz za pomocą skal, które definiujesz samx."
     },
     "privacy": {
       "description": "Jak engender szyfruje dziennik, czym go otworzysz i do czego służy klucz odzyskiwania. Co ujawniają eksporty i co widzi serwer WWW."
@@ -24,7 +24,7 @@
       "sense": "to cause or give rise to a feeling, situation or condition."
     },
     "subheadline": "Zaznaczaj euforię, dysforię i co tylko chcesz na skalach, które nazywasz po swojemu. Po miesiącu albo po roku spójrz wstecz. Zobaczysz to, czego z pojedynczego dnia nie widać.",
-    "tagline": "Za darmo. Bez konta. Dziennik zostaje na twoim urządzeniu."
+    "tagline": "Za darmo. Bez konta. 100% lokalnie."
   },
   "promises": [
     {
@@ -46,7 +46,7 @@
   ],
   "sectionOverview": "Co to jest",
   "overview": [
-    "Ile dziś euforii? Dysforii? A tydzień temu? Na dwa pierwsze pytania odpowiesz od ręki. Z trzecim jest gorzej, bo po tygodniu zostaje już tylko mgliste wrażenie. A gender trudno rozgryźć, kiedy masz przed oczami tylko dzisiejszy dzień.",
+    "Czujesz się dziś męsko czy kobieco? Jest dziś bardziej dysforycznie czy euforycznie? Na dziś odpowiesz od ręki. A jak było miesiąc temu? Tu jest już gorzej, bo po miesiącu zostaje tylko mgliste wrażenie. A gender trudno rozgryźć, kiedy masz przed oczami tylko dzisiejszy dzień.",
     "Dlatego w engender zaznaczasz to codziennie. Trwa to chwilę, a przy okazji zatrzymujesz się i sprawdzasz, jak się dziś czujesz. Potem wybierasz odcinek czasu, choćby ostatnie pół roku, i oglądasz go w całości: jedną skalę dzień po dniu albo dwie na jednym wykresie. Żeby zacząć, nie musisz wiedzieć, kim jesteś. A po kilku miesiącach wpisy potrafią zaskoczyć.",
     "Wokół dziennika są zapiski, które zwykle rozchodzą się po notatkach w telefonie, arkuszu, folderze ze zdjęciami i piśmie z przychodni: co przyjmujesz, co próbujesz, co cię czeka i co już za tobą.",
     "Nic tu o tobie nie decyduje. Skale nazywasz po swojemu i wybierasz, co śledzić, a aplikacja rysuje to, co wpisujesz, bez wystawiania ocen. Nie podpowiada dawek, nie barwi liczb na czerwono i nie mówi, w którą stronę masz zmierzać.",

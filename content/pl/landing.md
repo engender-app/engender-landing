@@ -74,11 +74,12 @@ clinician summary.
 
 **Tagline**
 
-> Za darmo. Bez konta. Dziennik zostaje na twoim urządzeniu.
+> Za darmo. Bez konta. 100% lokalnie.
 
 The cue beside the action since tester-report-02 ticket 06; it replaced
-Alicja's 2026-09-29 line „Otwarty kod, za darmo na zawsze.” „Urządzeniu”, not
-„telefonie”, because the action opens the journal in a browser. It sits on the
+Alicja's 2026-09-29 line „Otwarty kod, za darmo na zawsze.” „100% lokalnie”
+is her wording (2026-11-11), chosen over „Dziennik zostaje na twoim
+urządzeniu.” It sits on the
 field under the supporting line.
 
 **Primary action**
@@ -108,9 +109,10 @@ future, where Polish does not gender the first person.
 
 *Gate: shipped.*
 
-> Ile dziś euforii? Dysforii? A tydzień temu? Na dwa pierwsze pytania odpowiesz od
-> ręki. Z trzecim jest gorzej, bo po tygodniu zostaje już tylko mgliste wrażenie. A
-> gender trudno rozgryźć, kiedy masz przed oczami tylko dzisiejszy dzień.
+> Czujesz się dziś męsko czy kobieco? Jest dziś bardziej dysforycznie czy euforycznie?
+> Na dziś odpowiesz od ręki. A jak było miesiąc temu? Tu jest już gorzej, bo po
+> miesiącu zostaje tylko mgliste wrażenie. A gender trudno rozgryźć, kiedy masz przed
+> oczami tylko dzisiejszy dzień.
 >
 > Dlatego w engender zaznaczasz to codziennie. Trwa to chwilę, a przy okazji
 > zatrzymujesz się i sprawdzasz, jak się dziś czujesz. Potem wybierasz odcinek czasu,
@@ -467,6 +469,9 @@ and the Play listing will.
 
 ## Search and share
 
-The description is shared by search, Open Graph and Twitter metadata.
+The description is shared by search, Open Graph and Twitter metadata. Since
+2026-11-11 it is the opening of the store's full description, cut at the last
+whole sentence inside 160 characters (Alicja's choice). „Samx” stands where
+her text had „sam”, which would gender the reader; it is hers to confirm.
 
-Dziennik genderu i tranzycji. Codziennie zaznaczasz, ile czujesz euforii i dysforii, a po kilku miesiącach widzisz to wszystko razem. Za darmo, bez konta.
+Czujesz się dziś męsko czy kobieco? Jest dziś bardziej dysforycznie czy euforycznie? Trackuj to oraz cokolwiek zechcesz za pomocą skal, które definiujesz samx.
