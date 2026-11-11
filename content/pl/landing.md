@@ -133,21 +133,17 @@ reader.
 
 *Gate: shipped. The full page is `privacy.md` and this is only the handoff to it.*
 
-> Dziennik zostaje na twoim urządzeniu. Nie ma konta engender ani serwera, a wpisy nie
-> mają kopii nigdzie poza miejscem, w którym je trzymasz. Nie przeczytam twojego
-> dziennika, nie sprzedam go ani nikomu nie przekażę, bo nigdy go nie mam.
+> Dziennik zostaje tylko na twoim urządzeniu, chyba że samx go wyeksportujesz. To
+> oznacza, że nikt nie sprzeda Twoich danych, ale oznacza również, że nie da się
+> odzyskać dziennika, do którego dostęp stracisz.
 >
 > Na urządzeniu jest zaszyfrowany, a ty wybierasz, czym go otwierasz: hasłem, PIN-em,
-> odciskiem palca lub twarzą albo blokadą samego urządzenia. Na Androidzie aplikacja
-> nie prosi nawet o dostęp do internetu. W przeglądarce serwer WWW widzi pobieranie
-> aplikacji i sprawdzanie aktualizacji, ale nic z tego, co piszesz.
+> odciskiem palca lub twarzą albo blokadą samego urządzenia. Na Androidzie aplikacja nie
+> prosi nawet o dostęp do internetu. W przeglądarce serwer WWW widzi pobieranie
+> aplikacji i sprawdzanie aktualizacji, ale nie ma dostępu do dziennika.
 >
-> Jeśli nie chcesz polegać na moim serwerze, możesz postawić aplikację u siebie: każde
-> wydanie publikuje ją jako paczkę do wystawienia z własnej domeny, i wtedy jedyny
-> serwer, który widzi jej pobieranie, jest twój.
->
-> Co to chroni, a czego nie (na przykład odblokowanego telefonu w cudzych rękach),
-> jest na osobnej stronie.
+> Jeśli nie chcesz polegać na moim serwerze, możesz postawić aplikację u siebie: każdy
+> release publikuje ją jako bundle do wystawienia z własnego serwera.
 
 ---
 
@@ -193,17 +189,17 @@ screenshots still use invented data; the page no longer says so.
 
 **Kamienie milowe**
 
-> Ważne daty, po kolei. Te przed tobą odliczają dni. Te za tobą wracają co roku.
+> Twoje ważne dni. Te przed tobą odliczają czas. Te za tobą wracają co roku jako
+> przypomnienia dobrych chwil.
 
 **Głos**
 
-> Ten sam tekst nagrany dziś i miesiąc temu, obok siebie. Wysokość, rezonans i tempo
-> mówienia opisują każde nagranie, ale nie oceniają głosu.
+> Ten sam tekst przeczytany dziś i miesiąc temu, obok siebie. Wysokość, rezonans i tempo
+> mówienia opisują każde nagranie.
 
 **Eksport**
 
-> Eksport pakuje całość do jednego archiwum i szyfruje je hasłem, które wybierasz,
-> zanim plik gdziekolwiek trafi.
+> Eksport pakuje dziennik do jednego pliku i szyfruje go wybranym hasłem.
 
 ---
 
@@ -393,20 +389,21 @@ in neither.*
 *Gate: shipped. Ticket 10 retitled the section „Kto to robi”, present tense, so
 the heading does not gender the author.*
 
-> Jestem Alicja Barankiewicz i na co dzień zajmuję się inżynierią danych w Warszawie.
-> Prowadzę też nazwozbior.pl, wyszukiwarkę wszystkich imion z rejestru PESEL dla osób,
-> które szukają imienia dla siebie.
+> Nazywam się Alicja Barankiewicz i na co dzień zajmuję się inżynierią danych w
+> Warszawie. Prowadzę też nazwozbior.pl, wyszukiwarkę wszystkich imion z rejestru PESEL
+> dla osób, które szukają imienia dla siebie.
 
 ### Source
 
 *Gate: shipped. The Journal repository is public now, which was the condition this
 block waited on.*
 
-> **Można to przeczytać.** engender jest wolnym oprogramowaniem na licencji GPLv3. Kod jest publiczny.
+> **Otwarty kod** engender jest wolnym oprogramowaniem na licencji GPLv3. Kod jest
+> publiczny.
 >
 > Licencja pozwala ten kod uruchamiać, zmieniać i przekazywać dalej, i nie da się jej
-> cofnąć. Jeśli przestanę, kod może podnieść ktoś inny, a twoje archiwa mają
-> udokumentowany format, a nie taki, który otwiera tylko ta jedna aplikacja.
+> cofnąć. Jeśli przestanę, kod może przejąć ktoś inny, a twój dziennik ma udokumentowany
+> format, a nie taki, który otwiera tylko ta jedna aplikacja.
 
 ### Support
 
@@ -414,8 +411,6 @@ block waited on.*
 by Alicja on 2026-09-29 (ticket 10), along with the same warning in the Guide and
 the Play listing.*
 
-> **Jeśli coś nie działa**, napisz, co się dzieje i czego się spodziewasz. Zwykle to
-> wystarczy, żeby znaleźć przyczynę.
 
 The English asks for what happened and what the reader expected instead. Both are
 past-tense addresses to the reader in English, which in Polish would pick a gender, so

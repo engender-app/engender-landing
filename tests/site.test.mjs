@@ -53,7 +53,7 @@ const ACQUISITION = {
     channelsPending: "each becomes a link as it goes live",
   },
   pl: {
-    heading: "Skąd je wziąć",
+    heading: "Jak pobrać",
     action: "Zacznij dziś",
     status: "Jeszcze niedostępne.",
     channelsPending: "odnośniki pojawią się, gdy wydania będą dostępne",
@@ -1146,7 +1146,7 @@ test("a production build is indexable, sitemap and robots in agreement", async (
 const HEADINGS = {
   en: {
     overview: "What this is",
-    privacy: "What it protects, and what it doesn't",
+    privacy: "What it protects from, and what it doesn't",
     tour: "The screens",
     features: "Features",
     acquisition: ACQUISITION.en.heading,
@@ -1154,7 +1154,7 @@ const HEADINGS = {
   },
   pl: {
     overview: "Co to jest",
-    privacy: "Co chroni, a czego nie",
+    privacy: "Przed czym chroni, a przed czym nie",
     tour: "Ekrany",
     features: "Funkcje",
     acquisition: ACQUISITION.pl.heading,

@@ -194,20 +194,16 @@ above.
 *Gate: shipped. The full page is `privacy.md` and this is only the handoff to it.*
 
 > Your journal stays on your device. There is no engender account, no server, and no
-> copy of your entries anywhere but where you put them. I cannot read your journal,
-> sell it or hand it over, because I never have it.
+> copy of your entries anywhere but where you put them. I cannot read your journal, but
+> I also cannot recover it.
 >
 > On your device it is encrypted, and you choose what opens it: a passphrase, a PIN,
 > your fingerprint or face, or the device's own lock. On Android the app does not even
 > ask for internet permission. In a browser, the web host sees the app being loaded
 > and checking for updates, and nothing of what you write.
 >
-> If you would rather not rely on my server at all, you can host the app yourself:
-> every release publishes it as a bundle you can serve from your own domain, and then
-> the only host that sees it load is yours.
->
-> What that protects, and what it does not (an unlocked phone in someone else's hands,
-> for one), is on its own page.
+> If you would rather not rely on my server at all, you can host the app yourself: every
+> release publishes it as a bundle you can serve from your own server.
 
 Conclusion first, mechanism second, the limit in the same breath. The Android
 line is checkable by anyone: the Journal's `AndroidManifest.xml` declares no
@@ -257,23 +253,20 @@ screenshots still use invented data; the page no longer says so.
 **Six months of one scale**
 
 > Every scale gets its own chart and its own average over however many days you pick.
-> Days with more than one entry are averaged, and the list behind the chart says which
-> days those were.
 
 **Milestones**
 
-> Dated days that matter, in order. The ones ahead count down. The ones behind come
-> back each year.
+> Dated days that matter, in order. The ones ahead count down. The ones behind come back
+> each year as a reminder of good times.
 
 **Voice**
 
 > The same passage recorded today and a month ago, side by side. Pitch, resonance and
-> speaking rate describe each take without grading your voice.
+> speaking rate describe each take.
 
 **Export**
 
-> Export packs everything into one Archive, encrypted with a password you choose,
-> before it goes anywhere.
+> Export packs everything into one Archive, encrypted with a password you choose.
 
 ---
 
@@ -503,8 +496,6 @@ sentence pointing at it would be false. It can come back once the link works.
 by Alicja on 2026-09-29 (ticket 10), along with the same warning in the Guide and
 the Play listing.*
 
-> **If something is broken**, tell me what happened and what you expected instead. That
-> is usually enough to find it.
 
 ### Privacy policy and security contact
 

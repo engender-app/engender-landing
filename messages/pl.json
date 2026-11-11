@@ -52,10 +52,9 @@
   ],
   "sectionPrivacy": "Przed czym chroni, a przed czym nie",
   "privacyHandoff": [
-    "Dziennik zostaje na twoim urządzeniu. Nie ma konta engender ani serwera, a wpisy nie mają kopii nigdzie poza miejscem, w którym je trzymasz. Nie przeczytam twojego dziennika, nie sprzedam go ani nikomu nie przekażę, bo nigdy go nie mam.",
-    "Na urządzeniu jest zaszyfrowany, a ty wybierasz, czym go otwierasz: hasłem, PIN-em, odciskiem palca lub twarzą albo blokadą samego urządzenia. Na Androidzie aplikacja nie prosi nawet o dostęp do internetu. W przeglądarce serwer WWW widzi pobieranie aplikacji i sprawdzanie aktualizacji, ale nic z tego, co piszesz.",
-    "Jeśli nie chcesz polegać na moim serwerze, możesz postawić aplikację u siebie: każde wydanie publikuje ją jako paczkę do wystawienia z własnej domeny, i wtedy jedyny serwer, który widzi jej pobieranie, jest twój.",
-    "Co to chroni, a czego nie (na przykład odblokowanego telefonu w cudzych rękach), jest na osobnej stronie."
+    "Dziennik zostaje tylko na twoim urządzeniu, chyba że samx go wyeksportujesz. To oznacza, że nikt nie sprzeda Twoich danych, ale oznacza również, że nie da się odzyskać dziennika, do którego dostęp stracisz.",
+    "Na urządzeniu jest zaszyfrowany, a ty wybierasz, czym go otwierasz: hasłem, PIN-em, odciskiem palca lub twarzą albo blokadą samego urządzenia. Na Androidzie aplikacja nie prosi nawet o dostęp do internetu. W przeglądarce serwer WWW widzi pobieranie aplikacji i sprawdzanie aktualizacji, ale nie ma dostępu do dziennika.",
+    "Jeśli nie chcesz polegać na moim serwerze, możesz postawić aplikację u siebie: każdy release publikuje ją jako bundle do wystawienia z własnego serwera."
   ],
   "sectionTour": "Ekrany",
   "tour": [
@@ -184,10 +183,10 @@
       ]
     }
   ],
-  "sectionAcquisition": "Skąd je wziąć",
+  "sectionAcquisition": "Jak pobrać",
   "acquisitionIntro": "engender działa w przeglądarce. Otwiera się od razu, bez instalacji i bez konta.",
   "startJournal": "Zacznij dziś",
-  "acquisitionAndroid": "Aplikacja na Androida ma te same funkcje dziennika. Poniżej są cztery miejsca pobrania; odnośniki pojawią się, gdy wydania będą dostępne. Google Play jest na końcu z powodu opisanego poniżej.",
+  "acquisitionAndroid": "Aplikacja na Androida ma te same funkcje, co appka webowa. Poniżej są cztery miejsca pobrania; odnośniki pojawią się, gdy wydania będą dostępne.",
   "channelStatus": "Jeszcze niedostępne.",
   "channels": [
     {
@@ -196,7 +195,7 @@
     },
     {
       "name": "F-Droid",
-      "note": "Buduje aplikację u siebie z kodu źródłowego, więc nie musisz ufać plikowi, który przyszedł ode mnie."
+      "note": "Buduje aplikację u siebie z kodu źródłowego, więc nie musisz ufać plikowi stworzonemu przeze mnie."
     },
     {
       "name": "Obtainium",
@@ -204,21 +203,17 @@
     },
     {
       "name": "Google Play",
-      "note": "Działa i mówi Google, że masz w telefonie aplikację dla osób trans. Żadne ustawienie w engender tego nie zmieni."
+      "note": "Informuje Google, że masz w telefonie aplikację dla osób trans. Żadne ustawienie w engender tego nie zmieni."
     }
   ],
   "sectionSupport": "Kto to robi",
   "support": [
-    "Jestem Alicja Barankiewicz i na co dzień zajmuję się inżynierią danych w Warszawie. Prowadzę też nazwozbior.pl, wyszukiwarkę wszystkich imion z rejestru PESEL dla osób, które szukają imienia dla siebie.",
+    "Nazywam się Alicja Barankiewicz i na co dzień zajmuję się inżynierią danych w Warszawie. Prowadzę też nazwozbior.pl, wyszukiwarkę wszystkich imion z rejestru PESEL dla osób, które szukają imienia dla siebie.",
     {
-      "lead": "Można to przeczytać.",
+      "lead": "Otwarty kod",
       "rest": " engender jest wolnym oprogramowaniem na licencji GPLv3. Kod jest publiczny."
     },
-    "Licencja pozwala ten kod uruchamiać, zmieniać i przekazywać dalej, i nie da się jej cofnąć. Jeśli przestanę, kod może podnieść ktoś inny, a twoje archiwa mają udokumentowany format, a nie taki, który otwiera tylko ta jedna aplikacja.",
-    {
-      "lead": "Jeśli coś nie działa",
-      "rest": ", napisz, co się dzieje i czego się spodziewasz. Zwykle to wystarczy, żeby znaleźć przyczynę."
-    }
+    "Licencja pozwala ten kod uruchamiać, zmieniać i przekazywać dalej, i nie da się jej cofnąć. Jeśli przestanę, kod może przejąć ktoś inny, a twój dziennik ma udokumentowany format, a nie taki, który otwiera tylko ta jedna aplikacja."
   ],
   "privacyPage": {
     "title": "Polityka prywatności",

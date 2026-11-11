@@ -52,10 +52,9 @@
   ],
   "sectionPrivacy": "What it protects from, and what it doesn't",
   "privacyHandoff": [
-    "Your journal stays on your device. There is no engender account, no server, and no copy of your entries anywhere but where you put them. I cannot read your journal, sell it or hand it over, because I never have it.",
+    "Your journal stays on your device. There is no engender account, no server, and no copy of your entries anywhere but where you put them. I cannot read your journal, but I also cannot recover it.",
     "On your device it is encrypted, and you choose what opens it: a passphrase, a PIN, your fingerprint or face, or the device's own lock. On Android the app does not even ask for internet permission. In a browser, the web host sees the app being loaded and checking for updates, and nothing of what you write.",
-    "If you would rather not rely on my server at all, you can host the app yourself: every release publishes it as a bundle you can serve from your own domain, and then the only host that sees it load is yours.",
-    "What that protects, and what it does not (an unlocked phone in someone else's hands, for one), is on its own page."
+    "If you would rather not rely on my server at all, you can host the app yourself: every release publishes it as a bundle you can serve from your own server."
   ],
   "sectionTour": "The screens",
   "tour": [
@@ -214,11 +213,7 @@
       "lead": "You can read it.",
       "rest": " engender is free software under the GPLv3. The source is public."
     },
-    "The licence means you can run it, change it and pass it on, and it cannot be taken back. If I stop, someone else is free to pick the code up, and your Archives are a documented format rather than something only this app can open.",
-    {
-      "lead": "If something is broken",
-      "rest": ", tell me what happened and what you expected instead. That is usually enough to find it."
-    }
+    "The licence means you can run it, change it and pass it on, and it cannot be taken back. If I stop, someone else is free to pick the code up, and your Archives are a documented format rather than something only this app can open."
   ],
   "privacyPage": {
     "title": "Privacy policy",
