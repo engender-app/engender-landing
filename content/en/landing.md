@@ -137,8 +137,9 @@ field under the supporting line.
 until then). It answers the headline's "it's time", and it is true for someone
 coming back as well as someone new. It is on the page, and the Acquisition
 section below says what it links to and why nothing else on the page competes
-with it. That section and the tests still call the action Start journal, which
-is its name in `messages/*.json` (`startJournal`).
+with it. Only the label changed. Commentary, comments and tests across this
+repository still refer to the action by its name, Start journal, and its
+message key is still `startJournal`.
 
 ### The promise strip
 

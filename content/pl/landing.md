@@ -110,7 +110,7 @@ future, where Polish does not gender the first person.
 
 > Ile dziś euforii? Ile dysforii? A tydzień temu? Na dwa pierwsze pytania odpowiesz od
 > ręki. Tydzień temu to już tylko ogólne wrażenie. Trudno zrozumieć swój gender, kiedy
-> znasz go tylko z dzisiaj.
+> masz przed oczami tylko dzisiejszy dzień.
 >
 > W engender zaznaczasz to codziennie, na skalach nazwanych po swojemu. Zajmuje to
 > chwilę i jest dobrym pretekstem, żeby sprawdzić, co u ciebie. Potem bierzesz miesiąc
