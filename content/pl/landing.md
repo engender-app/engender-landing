@@ -109,20 +109,10 @@ future, where Polish does not gender the first person.
 
 *Gate: shipped.*
 
-> Czujesz się dziś męsko czy kobieco? Jest dziś bardziej dysforycznie czy euforycznie?
-> Na dziś odpowiesz od ręki. A jak było miesiąc temu? Tu jest już gorzej, bo po
-> miesiącu zostaje tylko mgliste wrażenie. A gender trudno rozgryźć, kiedy masz przed
-> oczami tylko dzisiejszy dzień.
->
-> Dlatego w engender zaznaczasz to codziennie. Trwa to chwilę, a przy okazji
-> zatrzymujesz się i sprawdzasz, jak się dziś czujesz. Potem wybierasz odcinek czasu,
-> choćby ostatnie pół roku, i oglądasz go w całości: jedną skalę dzień po dniu albo
-> dwie na jednym wykresie. Żeby zacząć, nie musisz wiedzieć, kim jesteś. A po kilku
-> miesiącach wpisy potrafią zaskoczyć.
->
-> Wokół dziennika są zapiski, które zwykle rozchodzą się po notatkach w telefonie,
-> arkuszu, folderze ze zdjęciami i piśmie z przychodni: co przyjmujesz, co próbujesz,
-> co cię czeka i co już za tobą.
+> engender to miejsce na twoją tranzycję: jak się czujesz z dnia na dzień, co
+> przyjmujesz, co próbujesz, co cię czeka i co już za tobą. Przede wszystkim to
+> dziennik. Wokół niego są zapiski, które zwykle rozchodzą się po notatkach w
+> telefonie, arkuszu, folderze ze zdjęciami i piśmie z przychodni.
 >
 > Nic tu o tobie nie decyduje. Skale nazywasz po swojemu i wybierasz, co śledzić, a
 > aplikacja rysuje to, co wpisujesz, bez wystawiania ocen. Nie podpowiada dawek, nie

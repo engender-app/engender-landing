@@ -168,19 +168,10 @@ same worry.
 
 *Gate: shipped.*
 
-> How masculine or feminine are you feeling today? Any dysphoria? Today you can answer
-> on the spot. A month ago is already a blur. It is hard to make sense of your gender
-> when today is all you have of it.
->
-> In engender you mark it every day. It takes a moment, and it is a reason to stop and
-> check in. Later you take a month or a year and look at all of it at once: one scale
-> day by day, or two scales against each other. You don't have to know who you are to
-> start. After a few months, what you see in your entries may not be what you
-> expected.
->
-> Around the journal sit the records that otherwise end up spread across a notes app,
-> a spreadsheet, a photo folder and a letter from a clinic: what you take, what you
-> are trying, what is coming up and what has already happened.
+> engender is where you keep your transition: how you feel from day to day, what you
+> take, what you are trying, what is coming up and what has already happened. It is a
+> journal first. Around the journal sit the records that otherwise end up spread
+> across a notes app, a spreadsheet, a photo folder and a letter from a clinic.
 >
 > Nothing in it decides anything about you. You name your own scales and pick what to
 > track, and the app draws what you put in without grading it. It never suggests a
@@ -190,15 +181,8 @@ same worry.
 > It is free software: there is no price, no plan and nothing to upsell, and the
 > licence keeps it that way.
 
-The first two paragraphs are the problem and the mechanism
-(tester-report-02 ticket 06, round 2). The first asks the reader three
-questions and lets the third one fail, which is the case for keeping entries
-at all. The second says what the app is, that marking the day is a check-in,
-and names two readings a person can make (Look back's Day by day and Two
-scales at once). "You don't have to know who you are to start" is there for a
-questioning reader. The third keeps the records ticket 10's first paragraph
-listed. The
-fourth drops the one-trans-person sentence, which now sits in the strip directly
+The first paragraph answers "is this for me" rather than repeating the hero. The
+third drops the one-trans-person sentence, which now sits in the strip directly
 above.
 
 ### Where it stands on privacy
