@@ -4,8 +4,8 @@ import { fileURLToPath } from 'node:url';
 import { launchChromium, serveBuild } from './browser-harness.mjs';
 
 const { server, base } = await serveBuild(fileURLToPath(new URL('../build', import.meta.url)));
-const production = 'https://engender.barankiewicz.dev';
-const endpoint = 'https://app.engender.barankiewicz.dev/_stats/website';
+const production = 'https://engender.app';
+const endpoint = 'https://journal.engender.app/_stats/website';
 const browser = await launchChromium({ args: ['--disable-crash-reporter', '--disable-breakpad'] });
 const context = await browser.newContext();
 const counts = [];
@@ -13,7 +13,7 @@ await context.route(`${production}/**`, async route => {
   const url = new URL(route.request().url());
   await route.fulfill({ response: await route.fetch({ url: `${base}${url.pathname}${url.search}` }) });
 });
-await context.route('https://app.engender.barankiewicz.dev/**', async route => {
+await context.route('https://journal.engender.app/**', async route => {
   const request = route.request();
   counts.push({ url: request.url(), method: request.method(), body: request.postData(), headers: request.headers() });
   await route.fulfill({ status: 204, headers: { 'Access-Control-Allow-Origin': production } });

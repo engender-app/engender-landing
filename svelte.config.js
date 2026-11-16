@@ -52,7 +52,7 @@ const config = {
         'style-src-attr': ['unsafe-inline'],
         'img-src': ['self'],
         'font-src': ['self'],
-        'connect-src': ['self', 'https://app.engender.barankiewicz.dev/_stats/website'],
+        'connect-src': ['self', 'https://journal.engender.app/_stats/website'],
         'base-uri': ['none'],
         'form-action': ['none'],
       },

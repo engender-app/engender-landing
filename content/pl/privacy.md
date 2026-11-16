@@ -62,7 +62,7 @@ Copied from the Journal canonical policy. Run `node scripts/sync-privacy-policy.
 
 *Gate: shipped.*
 
-> Aplikacja w przeglądarce działa pod adresem app.engender.barankiewicz.dev, na serwerze w OVH. Dziennik zostaje w przeglądarce i nigdy nie jest wysyłany. Wczytanie aplikacji albo aktualizacji to zwykłe żądanie internetowe, więc serwer widzi adres IP, czas, żądany adres oraz nagłówki User-Agent i Referer wysłane przez przeglądarkę. Dzienniki dostępu są wyłączone. Dzienniki błędów mogą zawierać adres IP i żądany adres, a serwer trzyma je najwyżej siedem dni.
+> Aplikacja w przeglądarce działa pod adresem journal.engender.app, na serwerze w OVH. Dziennik zostaje w przeglądarce i nigdy nie jest wysyłany. Wczytanie aplikacji albo aktualizacji to zwykłe żądanie internetowe, więc serwer widzi adres IP, czas, żądany adres oraz nagłówki User-Agent i Referer wysłane przez przeglądarkę. Dzienniki dostępu są wyłączone. Dzienniki błędów mogą zawierać adres IP i żądany adres, a serwer trzyma je najwyżej siedem dni.
 >
 > Czcionki i pliki do rozpoznawania tekstu pochodzą z tego samego serwera. Wynik badań skanuje się na twoim urządzeniu.
 
@@ -70,7 +70,7 @@ Copied from the Journal canonical policy. Run `node scripts/sync-privacy-policy.
 
 *Gate: shipped.*
 
-> Strona, przewodnik i ta polityka pod adresem engender.barankiewicz.dev korzystają z hostingu lh.pl, który prowadzi dzienniki dostępu i błędów. Mogą one zawierać adresy IP, żądane adresy i nagłówki przeglądarki. Strona zapamiętuje język i motyw w lokalnej pamięci przeglądarki.
+> Strona, przewodnik i ta polityka pod adresem engender.app korzystają z hostingu lh.pl, który prowadzi dzienniki dostępu i błędów. Mogą one zawierać adresy IP, żądane adresy i nagłówki przeglądarki. Strona zapamiętuje język i motyw w lokalnej pamięci przeglądarki.
 
 ## Licznik otwarć
 
@@ -94,7 +94,7 @@ Copied from the Journal canonical policy. Run `node scripts/sync-privacy-policy.
 >
 > Na Androidzie: odinstaluj aplikację albo wyczyść jej dane w ustawieniach systemu.
 >
-> W przeglądarce: wyczyść dane strony app.engender.barankiewicz.dev.
+> W przeglądarce: wyczyść dane strony journal.engender.app.
 >
 > Żaden z tych sposobów nie usuwa plików, które już zostały wyeksportowane albo zapisane jako kopia zapasowa. Usuń je tam, gdzie leżą.
 

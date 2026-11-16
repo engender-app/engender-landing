@@ -1,27 +1,24 @@
 import en from '../../messages/en.json' with { type: 'json' };
 import pl from '../../messages/pl.json' with { type: 'json' };
 
-/** Where the site is served from. Alicja created this subdomain on the lh.pl
-    account on 2026-08-12 and it is what ticket 11 deploys to, so it is a real
-    address rather than the placeholder it started as - but still a working
-    identity, not a launch decision. Ticket 12 is where a chosen name lands,
-    and it weighs what a domain says about its reader in a browser history.
+/** Where the site is served from: the project's own domain, bought in
+    November 2026 and hosted on the lh.pl account.
 
     The canonical link, both alternates, `x-default`, the sitemap and the
     robots policy are all derived from this, so it changes here once. The copy
     in tests/site.test.mjs is deliberate and changes with it. */
-export const SITE_ORIGIN = 'https://gender-diary.barankiewicz.dev';
+export const SITE_ORIGIN = 'https://engender.app';
 
 /** The production Journal, which has an origin of its own and shares nothing
-    with this one (ADR-0019 in the Journal repository). Provisional in the same
-    way as the origin above, and settled by that repository's ticket 01.
+    with this one (ADR-0019 in the Journal repository). A journal belongs to
+    its origin, so this host does not change once people keep journals there.
 
     The trailing slash is deliberate and the whole URL is the point: Start
     journal is a plain link to this and nothing else. No campaign parameter, no
     referral identifier, and none of this site's language or theme state. The
     browser tests assert it character for character, so changing it is a
     deliberate edit here as well as in tests/site.test.mjs. */
-  export const JOURNAL_URL = 'https://app.gender-diary.barankiewicz.dev/';
+  export const JOURNAL_URL = 'https://journal.engender.app/';
 
 /** The public source, which the support section's copy invites a reader to go
     and read. Named in `.agents/product-marketing.md` under Evidence, and the
@@ -34,8 +31,7 @@ export const SITE_ORIGIN = 'https://gender-diary.barankiewicz.dev';
     invited to click something. */
 export const SOURCE_URL = 'https://github.com/engender-app/engender';
 
-/** Alicja's own site, linked from the footer. The apex of the domain this site
-    and the Journal are subdomains of (her decision, 2026-08-28). */
+/** Alicja's own site, linked from the footer (her decision, 2026-08-28). */
 export const PORTFOLIO_URL = 'https://barankiewicz.dev';
 
 export const LOCALES = ['en', 'pl'] as const;

@@ -66,7 +66,7 @@ than only as a response header, because managed hosting can ignore an
 meta element cannot carry: the referrer policy as a real header, and a refusal
 to be framed. What the live site actually sends has to be read off it:
 
-    curl -sSI https://gender-diary.barankiewicz.dev/
+    curl -sSI https://engender.app/
 
 ## License
 
@@ -76,15 +76,15 @@ the same licence.
 ## Page-opening counts
 
 The root layout counts one online document opening on
-`https://engender.barankiewicz.dev`. The language gateway is skipped so its
+`https://engender.app`. The language gateway is skipped so its
 redirect does not count twice. Internal navigation, development/preview
 origins and offline openings do not count. There is no retry or offline queue.
 
-The empty POST to `https://app.engender.barankiewicz.dev/_stats/website`
+The empty POST to `https://journal.engender.app/_stats/website`
 omits credentials and referrer. The app repository owns the nginx proxy
 that strips visitor headers and supplies the fixed website label to a
 separate private GoatCounter site. The dashboard is on
-`stats.engender.barankiewicz.dev`, outside the journal's origin. Sessions
+`stats.engender.app`, outside the journal's origin. Sessions
 and individual hit storage are disabled; hourly totals remain indefinitely.
 
 After a build, `node tests/page-load.test.mjs` verifies the real browser

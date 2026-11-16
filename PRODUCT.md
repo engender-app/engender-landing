@@ -145,10 +145,6 @@ dimension, Archive not backup, app lock never the passphrase.
 
 Undecided, each with its owner:
 
-- **The domain.** The site is served from `gender-diary.barankiewicz.dev` and
-  the Journal from `app.gender-diary.barankiewicz.dev`, both still carrying the
-  pre-rename name. Ticket 05 owns the move and it needs a human decision about
-  what a domain says about its reader in a browser history.
 - **The acquisition channels.** Google Play, F-Droid, Aurora and Obtainium
   render as a name plus a status rather than a dead link. What flips each one
   live is ticket 04, reading the Journal repository's release state.

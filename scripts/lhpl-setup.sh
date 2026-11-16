@@ -243,7 +243,7 @@ if [[ -n "$RESOLVED" ]]; then
   note "the parent domain will answer here too, which looks the same and is not."
 else
   warn "$DOMAIN does not resolve yet."
-  step "At the registrar or DNS provider for barankiewicz.dev, add the record"
+  step "At the registrar or DNS provider for the domain, add the record"
   step "  the lh.pl panel names for this account, then wait for it to spread."
 fi
 pause

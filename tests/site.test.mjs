@@ -18,13 +18,13 @@ import { copyBlocks, sentences } from "./copy-source.mjs";
 /* The origin the built pages name in their canonical and alternate links. It
    is provisional (spec, further notes), and changing it should be a deliberate
    edit here as well as in src/lib/site.ts. */
-const SITE_ORIGIN = "https://gender-diary.barankiewicz.dev";
+const SITE_ORIGIN = "https://engender.app";
 
 /* The production Journal, on the origin it has to itself. Provisional in the
    same way, and decided by the Journal repository's ticket 01. The exact
    string is the assertion, for the reason given on JOURNAL_URL in
   src/lib/site.ts, and changing it there means changing it here. */
-const JOURNAL_URL = "https://app.gender-diary.barankiewicz.dev/";
+const JOURNAL_URL = "https://journal.engender.app/";
 
 /* The public source, written out here for the same reason as the Journal above:
    the string is the assertion. It is the only link on the site that goes

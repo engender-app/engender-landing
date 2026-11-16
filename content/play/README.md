@@ -52,8 +52,8 @@ The full description ships as plain text. Headings are plain lines.
 | Category | Lifestyle (Alicja, 2026-10-07). Health & Fitness pulls in a clinical and fitness register the app refuses, and Medical implies clinical use |
 | Tags | chosen from the Console's own list when filling it in: journal or diary, mood tracking, medication or health tracking |
 | Contact email | `engender-app@pm.me` |
-| Website | `https://engender.barankiewicz.dev/` |
-| Privacy policy | `https://engender.barankiewicz.dev/en/privacy/` (Polish page: `/pl/privacy/`) |
+| Website | `https://engender.app/` |
+| Privacy policy | `https://engender.app/en/privacy/` (Polish page: `/pl/privacy/`) |
 | Target audience | All trans people, 16+ (Alicja, 2026-10-07): Play age groups 16-17 and 18+. The listing text names no age |
 
 Data safety, the health apps declaration and content rating are tracked in pre-release-human 02 and follow the privacy policy, not this

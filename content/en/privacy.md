@@ -62,7 +62,7 @@ Copied from the Journal canonical policy. Run `node scripts/sync-privacy-policy.
 
 *Gate: shipped.*
 
-> The web app is served from app.engender.barankiewicz.dev, on an OVH server. Your journal stays in your browser and is never uploaded. Loading the app or an update is an ordinary web request, so the server sees your IP address, the time, the address requested and the User-Agent and Referer headers your browser sends. Access logs are turned off. Error logs can hold an IP address and the address requested, and are kept for at most seven days.
+> The web app is served from journal.engender.app, on an OVH server. Your journal stays in your browser and is never uploaded. Loading the app or an update is an ordinary web request, so the server sees your IP address, the time, the address requested and the User-Agent and Referer headers your browser sends. Access logs are turned off. Error logs can hold an IP address and the address requested, and are kept for at most seven days.
 >
 > Fonts and the files for text recognition come from the same server. Scanning a lab result happens on your device.
 
@@ -70,7 +70,7 @@ Copied from the Journal canonical policy. Run `node scripts/sync-privacy-policy.
 
 *Gate: shipped.*
 
-> The website, the guide and this policy at engender.barankiewicz.dev are hosted by lh.pl, which keeps access and error logs. Those can include IP addresses, requested addresses and browser headers. The site remembers your language and theme in your browser's local storage.
+> The website, the guide and this policy at engender.app are hosted by lh.pl, which keeps access and error logs. Those can include IP addresses, requested addresses and browser headers. The site remembers your language and theme in your browser's local storage.
 
 ## Page-opening counts
 
@@ -94,7 +94,7 @@ Copied from the Journal canonical policy. Run `node scripts/sync-privacy-policy.
 >
 > On Android: uninstall the app, or clear its storage in the system settings.
 >
-> On the web: clear the site data for app.engender.barankiewicz.dev in your browser.
+> On the web: clear the site data for journal.engender.app in your browser.
 >
 > None of these removes files you have already exported or backed up. Delete those where you saved them.
 

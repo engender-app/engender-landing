@@ -6,11 +6,11 @@ export function countPageLoad(): void {
   attempted = true;
   if (
     !import.meta.env.PROD ||
-    location.origin !== 'https://engender.barankiewicz.dev' ||
+    location.origin !== 'https://engender.app' ||
     location.pathname === '/' || !navigator.onLine
   ) return;
 
-  void fetch('https://app.engender.barankiewicz.dev/_stats/website', {
+  void fetch('https://journal.engender.app/_stats/website', {
     method: 'POST',
     credentials: 'omit',
     referrerPolicy: 'no-referrer',
