@@ -31,6 +31,17 @@ export const SITE_ORIGIN = 'https://engender.app';
     invited to click something. */
 export const SOURCE_URL = 'https://github.com/engender-app/engender';
 
+/** This site's IndexNow key. IndexNow is how Bing, Yandex and the engines
+    built on them hear that a page changed without waiting for a crawl, and
+    Bing's index is the one several AI answer engines search. The key is
+    public by design: production builds serve it at `/<key>.txt` to prove the
+    site owns it, and the deploy names it when it pings. Changing it is safe;
+    the next deploy simply proves the new one. */
+export const INDEXNOW_KEY = '7839d22266f407bd356c523bb17e7908';
+
+/** The licence the promise strip names, as the text a machine can follow. */
+export const LICENSE_URL = 'https://www.gnu.org/licenses/gpl-3.0.html';
+
 export const LOCALES = ['en', 'pl'] as const;
 export type Locale = (typeof LOCALES)[number];
 
@@ -202,29 +213,32 @@ export function socialTags(preview: {
   };
 }
 
-/** What the landing page says about the app, as the JSON-LD block that page's
-    head carries.
+/** What the site says about itself and the app, as the one JSON-LD block a
+    page's head carries: the gateway and both landing pages, nowhere else.
 
     Every property is a claim the page makes in words a visitor can read,
-    which is the whole rule for this block. There are five of them, and what
-    is missing is the point. The vocabulary offers a rating, an offer, a
-    review count and an aggregate of the three, and this project has none of
-    them, so a listing that showed stars would be an invention in the format
-    most likely to be believed. Refusing the offer costs the
-    software-application rich result, which needs a price.
+    which is the whole rule for this block, and what is missing is the point.
+    The vocabulary offers a rating, an offer, a review count and an aggregate
+    of the three, and this project has none of them, so a listing that showed
+    stars would be an invention in the format most likely to be believed.
+    Refusing the offer costs the software-application rich result, which
+    needs a price. Nobody is named as an author or a publisher, which is the
+    site's rule about its own author rather than an oversight.
+
+    `WebSite` is the site's name and nothing else. Google reads it from the
+    home page to show "engender" above a result instead of the bare domain,
+    so the gateway at `/` carries it too.
 
     `WebApplication` rather than the wider `SoftwareApplication`, because
-    `url` points at the web Journal and this block describes the application
-    living there; the Android app is the acquisition section's story, and the
-    channels there get their own markup when ticket 04 makes them live. There
-    is no `operatingSystem` and no `applicationCategory`, recommended though
-    they are, because the page never puts the app in a category and this
-    block says only what the page says. `url` is the Journal, since that is
-    where the application is; this
-    page is where it is described. Nobody is named as an author or a
-    publisher, which is the site's rule about its own author rather than an
-    oversight. No screenshot, until ticket 15 captures the tour from invented
-    data.
+    `url` points at the web Journal. The four properties after `inLanguage`
+    each have a sentence on the page behind them (search and AI discovery
+    ticket 01): "Free" in the tagline, GPLv3 in the promise strip, "runs
+    in a browser" in the acquisition section, the public source in the
+    support section. Android joins `operatingSystem` when a channel there
+    goes live. No `applicationCategory`, because the
+    page names none and the nearest one in the vocabulary is a health
+    category this site does not claim. No screenshot, until ticket 15
+    captures the tour from invented data.
 
     It reaches the page through `{@html}` because Svelte compiles a `<script>`
     written in markup as the component's own script, which is why the language
@@ -232,16 +246,31 @@ export function socialTags(preview: {
     safe: nothing here comes from a visitor, but a `<` reaching the document
     as itself is how a string ends a script block early, so none does. The
     indentation stays, because this site's argument is that a reader can check
-    it, and somebody checking reads this in view-source. */
-export function structuredDataScript(locale: Locale): string {
-  const data = {
-    '@context': 'https://schema.org',
-    '@type': 'WebApplication',
-    name: messages[locale].pageTitle,
-    url: JOURNAL_URL,
-    description: messages[locale].meta.landing.description,
+    it, and somebody checking reads this in view-source.
+
+    With no locale this is the gateway's block, the site's name alone. */
+export function structuredDataScript(locale?: Locale): string {
+  const website = {
+    '@type': 'WebSite',
+    name: messages[locale ?? FALLBACK_LOCALE].pageTitle,
+    url: `${SITE_ORIGIN}/`,
     inLanguage: [...LOCALES],
   };
+  const graph: object[] = [website];
+  if (locale) {
+    graph.push({
+      '@type': 'WebApplication',
+      name: messages[locale].pageTitle,
+      url: JOURNAL_URL,
+      description: messages[locale].meta.landing.description,
+      inLanguage: [...LOCALES],
+      operatingSystem: 'Web browser',
+      isAccessibleForFree: true,
+      license: LICENSE_URL,
+      sameAs: [SOURCE_URL],
+    });
+  }
+  const data = { '@context': 'https://schema.org', '@graph': graph };
   const json = JSON.stringify(data, null, 2).replace(/</g, '\\u003c');
   return `<script type="application/ld+json">${json}</script>`;
 }

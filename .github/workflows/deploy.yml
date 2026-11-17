@@ -155,3 +155,11 @@ jobs:
           security: strict
           port: 21
           state-name: .ftp-deploy-sync-state.json
+
+      # Search and AI discovery ticket 01. Only after the upload, because
+      # IndexNow fetches the key file from the live site to check the ping
+      # came from its owner. A refusal here leaves a published site that is
+      # simply crawled on the engines' own schedule, so it never fails the run.
+      - name: Tell IndexNow the pages changed
+        continue-on-error: true
+        run: node scripts/indexnow.mjs

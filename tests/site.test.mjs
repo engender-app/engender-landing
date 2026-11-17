@@ -31,6 +31,9 @@ const JOURNAL_URL = "https://journal.engender.app/";
    anywhere but this origin and the Journal's. */
 const SOURCE_URL = "https://github.com/engender-app/engender";
 
+/* The IndexNow key, written out for the reason SITE_ORIGIN is. */
+const INDEXNOW_KEY = "7839d22266f407bd356c523bb17e7908";
+
 /** The product's name is lowercase in both languages. */
 const SITE_NAME = { en: "engender", pl: "engender" };
 
@@ -1065,6 +1068,11 @@ test("a build not marked production is excluded from indexing", async () => {
   );
 
   assert.equal(
+    (await fetchText(`/${INDEXNOW_KEY}.txt`)).status,
+    404,
+    "a preview build kept the IndexNow key",
+  );
+  assert.equal(
     (await fetchText("/sitemap.xml")).status,
     404,
     "a preview build kept a sitemap",
@@ -1098,6 +1106,21 @@ test("a production build is indexable, sitemap and robots in agreement", async (
       robots.body.includes(`Sitemap: ${SITE_ORIGIN}/sitemap.xml`),
       "robots.txt does not point at the sitemap",
     );
+
+    /* Search and AI discovery ticket 01: the AI crawlers are named and let
+       in, search and training alike, in one group that allows everything. */
+    for (const agent of ["OAI-SearchBot", "GPTBot", "Claude-SearchBot", "ClaudeBot", "PerplexityBot", "Google-Extended"]) {
+      assert.ok(
+        new RegExp(`^User-agent: ${agent}$`, "m").test(robots.body),
+        `robots.txt does not name ${agent}`,
+      );
+    }
+    assert.ok(/^Allow: \/$/m.test(robots.body), "the AI crawler group allows nothing");
+
+    // IndexNow checks the key against this file before it trusts a ping.
+    const key = await fetchText(`/${INDEXNOW_KEY}.txt`);
+    assert.equal(key.status, 200, "production does not serve its IndexNow key");
+    assert.equal(key.body, INDEXNOW_KEY);
 
     const sitemap = await fetchText("/sitemap.xml");
     assert.equal(sitemap.status, 200, "production build has no sitemap");
@@ -2081,14 +2104,16 @@ const HEAD_PAGES = ["/", "/en/", "/pl/", "/en/privacy/", "/pl/privacy/"];
     purpose and ticket 07 settled that they stay short: a title is the one
     piece of metadata a reader did not ask for, since it lands in their
     history, their tabs, their bookmarks and the first line of any preview.
-    So it carries the product's name, and on the privacy page that page's own
-    heading, and nothing about what kind of app this is. */
+    So it carries the product's name, on the other pages after that page's
+    own heading, and nothing about what kind of app this is. */
 const TITLES = {
   "/": SITE_NAME.en,
   "/en/": SITE_NAME.en,
   "/pl/": SITE_NAME.pl,
-  "/en/privacy/": PRIVACY_TITLE.en,
-  "/pl/privacy/": PRIVACY_TITLE.pl,
+  /* Every page but the landing ends in the product's name (search and AI
+     discovery ticket 01), so a result reads as this site's. */
+  "/en/privacy/": `${PRIVACY_TITLE.en} · ${SITE_NAME.en}`,
+  "/pl/privacy/": `${PRIVACY_TITLE.pl} · ${SITE_NAME.pl}`,
 };
 
 /** The description of each page, character for character. This is where the
@@ -2148,15 +2173,17 @@ const SOCIAL_CARD = {
 const NOT_IN_STRUCTURED_DATA = [
   "rating",
   "review",
+  "reviews",
   "offer",
+  "offers",
   "price",
   "aggregate",
   "author",
   "publisher",
   "testimonial",
-  "interactioncount",
-  "downloadcount",
-  "installcount",
+  "interaction",
+  "download",
+  "install",
 ];
 
 /** Every meta tag on a page, keyed by whichever of `property` and `name` it
@@ -2250,7 +2277,9 @@ test("a shared link previews as this app, from a picture on this origin", async 
         {
           type: "website",
           siteName: SITE_NAME[locale],
-          title: TITLES[path],
+          /* og:site_name already names the product, so the card's title is
+             the page's own, without the name the tab title adds. */
+          title: TITLES[path].replace(` · ${SITE_NAME[locale]}`, ""),
           description: DESCRIPTIONS[path],
           url: SITE_ORIGIN + path,
           locale: locale === "pl" ? "pl_PL" : "en_GB",
@@ -2312,6 +2341,70 @@ test("the social card is a real picture of the size its tags claim", async () =>
   }
 });
 
+// Markdown copies and llms.txt (search and AI discovery ticket 01)
+
+test("every page has a markdown copy that says what the page says, and llms.txt lists them", async () => {
+  const { context, page } = await visitor({ javaScriptEnabled: false });
+  try {
+    const llms = await fetchText("/llms.txt");
+    assert.equal(llms.status, 200, "no llms.txt");
+    assert.ok(llms.body.startsWith(`# ${SITE_NAME.en}\n`), "llms.txt does not open with the name");
+
+    const pages = (await builtPagePaths()).filter((path) => path !== "/");
+    for (const path of pages) {
+      await page.goto(base + path);
+      const heading = (await page.locator("h1").first().textContent()).trim();
+      const linked = await page
+        .locator('link[rel="alternate"][type="text/markdown"]')
+        .getAttribute("href");
+      assert.equal(linked, `${SITE_ORIGIN}${path}index.md`, `${path}: wrong markdown link`);
+
+      const response = await fetch(`${base}${path}index.md`);
+      assert.equal(response.status, 200, `${path}: no markdown copy`);
+      assert.match(response.headers.get("content-type"), /^text\/markdown; charset=utf-8/);
+      const md = await response.text();
+      assert.ok(md.startsWith(`# ${heading}\n`), `${path}: the copy does not open with the page's heading`);
+      /* The motif and the chrome stay out: no markup, and no ring of the sun. */
+      assert.ok(!/<[a-z]/i.test(md), `${path}: markup leaked into the copy`);
+      /* Every paragraph the page shows in its article is in the copy. */
+      const paragraphs = await page
+        .locator("main article p, main section p")
+        .evaluateAll((found) => found.map((p) => p.textContent.replace(/\s+/g, " ").trim()).filter(Boolean));
+      const plain = md.replace(/\*\*|`|\*/g, "").replace(/\[([^\]]*)\]\([^)]*\)/g, "$1");
+      for (const paragraph of paragraphs) {
+        assert.ok(plain.includes(paragraph), `${path}: the copy lost "${paragraph.slice(0, 60)}"`);
+      }
+      assert.ok(llms.body.includes(`(${SITE_ORIGIN}${path}index.md)`), `llms.txt does not list ${path}`);
+    }
+  } finally {
+    await context.close();
+  }
+});
+
+const WEBSITE_NODE = {
+  "@type": "WebSite",
+  name: SITE_NAME.en,
+  url: `${SITE_ORIGIN}/`,
+  inLanguage: ["en", "pl"],
+};
+
+/* Belt as well as braces, and the braces are the exact comparisons: a
+   property added anywhere in a block, at any depth, is read against the list
+   of what this site may not say about itself. */
+function assertNothingInvented(data, where) {
+  /* Words, not substrings: `operatingSystem` is not a rating, while
+     `aggregateRating` splits into one. */
+  const words = new Set(
+    JSON.stringify(data)
+      .replace(/([a-z])([A-Z])/g, "$1 $2")
+      .toLowerCase()
+      .split(/[^a-z]+/),
+  );
+  for (const word of NOT_IN_STRUCTURED_DATA) {
+    assert.ok(!words.has(word), `${where}: the structured data mentions "${word}"`);
+  }
+}
+
 test("structured data describes the app, and claims nothing the page does not", async () => {
   const { context, page } = await visitor({ javaScriptEnabled: false });
   try {
@@ -2332,29 +2425,37 @@ test("structured data describes the app, and claims nothing the page does not", 
          page behind it fails this rather than passing a subset check. */
       assert.deepEqual(data, {
         "@context": "https://schema.org",
-        "@type": "WebApplication",
-        name: SITE_NAME[locale],
-        url: JOURNAL_URL,
-        description: DESCRIPTIONS[`/${locale}/`],
-        inLanguage: ["en", "pl"],
+        "@graph": [
+          WEBSITE_NODE,
+          {
+            "@type": "WebApplication",
+            name: SITE_NAME[locale],
+            url: JOURNAL_URL,
+            description: DESCRIPTIONS[`/${locale}/`],
+            inLanguage: ["en", "pl"],
+            operatingSystem: "Web browser",
+            isAccessibleForFree: true,
+            license: "https://www.gnu.org/licenses/gpl-3.0.html",
+            sameAs: [SOURCE_URL],
+          },
+        ],
       });
-
-      /* Belt as well as braces, and the braces are the comparison above: a
-         property added anywhere in the block, at any depth, is read against
-         the list of what this site may not say about itself. */
-      const seen = JSON.stringify(data).toLowerCase();
-      for (const word of NOT_IN_STRUCTURED_DATA) {
-        assert.ok(
-          !seen.includes(word),
-          `/${locale}/: the structured data mentions "${word}"`,
-        );
-      }
+      assertNothingInvented(data, `/${locale}/`);
     }
 
-    /* The pages that describe no application carry no listing for one. The
-       privacy page says what the app does not do, and the gateway shows a
-       name and two links. */
-    for (const path of ["/", "/en/privacy/", "/pl/privacy/"]) {
+    /* The gateway is the home page a search engine reads the site's name
+       from, so it names the site and nothing else. */
+    await page.goto(`${base}/`);
+    const gateway = await page
+      .locator('script[type="application/ld+json"]')
+      .evaluateAll((found) => found.map((script) => JSON.parse(script.textContent)));
+    assert.deepEqual(gateway, [
+      { "@context": "https://schema.org", "@graph": [WEBSITE_NODE] },
+    ]);
+    assertNothingInvented(gateway, "/");
+
+    /* The privacy page says what the app does not do, which is no listing. */
+    for (const path of ["/en/privacy/", "/pl/privacy/"]) {
       await page.goto(base + path);
       assert.equal(
         await page.locator('script[type="application/ld+json"]').count(),

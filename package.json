@@ -10,7 +10,7 @@
   "scripts": {
     "prepare": "svelte-kit sync",
     "dev": "vite dev",
-    "build": "vite build && node scripts/crawl-policy.mjs",
+    "build": "vite build && node scripts/crawl-policy.mjs && node scripts/markdown-copies.mjs",
     "build:production": "SITE_ENV=production npm run build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
