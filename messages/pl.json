@@ -206,6 +206,18 @@
       "note": "Informuje Google, że masz w telefonie aplikację dla osób trans. Żadne ustawienie w engender tego nie zmieni."
     }
   ],
+  "signatureLead": "Podróbka może skopiować nazwę i ikonę, ale nie podpis. Prawdziwa aplikacja to dev.engender.app, a odcisk SHA-256 jej certyfikatu podpisu to:",
+  "signatures": [
+    {
+      "source": "GitHub, Obtainium i F-Droid",
+      "sha256": "093e1e2967ca72559e0bef57e0a99d2584f08b4ba4c662ffbca7101ac4446f86"
+    },
+    {
+      "source": "Google Play i Aurora",
+      "sha256": "8fa369eb5555ade56c58622738f4f3f6f79b74926ac042340374dc73c86f0f05"
+    }
+  ],
+  "signatureCheck": "Na telefonie porówna je za ciebie AppVerifier.",
   "sectionSupport": "Kto to robi",
   "support": [
     "Nazywam się Alicja Barankiewicz i na co dzień zajmuję się inżynierią danych w Warszawie. Prowadzę też nazwozbior.pl, wyszukiwarkę wszystkich imion z rejestru PESEL dla osób, które szukają imienia dla siebie.",

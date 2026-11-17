@@ -295,6 +295,20 @@
           </li>
         {/each}
       </ul>
+
+      <!-- How to tell this app from a copy. Two certificates because Play
+           re-signs with its own key; content/en/landing.md says why the
+           fingerprints are spelled out here rather than linked. -->
+      <div class="signature reveal">
+        <p>{m.signatureLead}</p>
+        <dl>
+          {#each m.signatures as signature (signature.sha256)}
+            <dt>{signature.source}</dt>
+            <dd><code>{signature.sha256}</code></dd>
+          {/each}
+        </dl>
+        <p>{m.signatureCheck}</p>
+      </div>
     </div>
   </section>
 
@@ -1118,7 +1132,8 @@
   }
 
   .android,
-  .channels {
+  .channels,
+  .signature {
     grid-column: 1 / -1;
   }
 
@@ -1173,6 +1188,37 @@
     font-size: 1rem;
     margin: 0.6rem 0 0;
     max-width: 44ch;
+  }
+
+  .signature {
+    margin-top: clamp(2rem, 6vh, 3.5rem);
+    max-width: 60ch;
+    color: var(--text-2);
+    font-size: 1rem;
+  }
+
+  .signature p {
+    margin: 0;
+  }
+
+  .signature dl {
+    margin: 0.9rem 0;
+  }
+
+  .signature dt {
+    color: var(--text);
+    font-weight: var(--weight-bold);
+  }
+
+  .signature dd {
+    margin: 0.2rem 0 0.8rem;
+  }
+
+  /* 64 hex digits have no break opportunity, so without this they push the
+     page wider than a phone. */
+  .signature code {
+    font-size: 0.875rem;
+    overflow-wrap: anywhere;
   }
 
   /* ---- Support -------------------------------------------------------- */

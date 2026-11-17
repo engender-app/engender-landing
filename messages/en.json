@@ -206,6 +206,18 @@
       "note": "Works, and tells Google you have a trans app on your phone. Nothing in engender changes that."
     }
   ],
+  "signatureLead": "A copy can take the name and the icon, but not the signature. The real app is dev.engender.app, and the SHA-256 of its signing certificate is:",
+  "signatures": [
+    {
+      "source": "GitHub, Obtainium and F-Droid",
+      "sha256": "093e1e2967ca72559e0bef57e0a99d2584f08b4ba4c662ffbca7101ac4446f86"
+    },
+    {
+      "source": "Google Play and Aurora",
+      "sha256": "8fa369eb5555ade56c58622738f4f3f6f79b74926ac042340374dc73c86f0f05"
+    }
+  ],
+  "signatureCheck": "AppVerifier compares them on the phone.",
   "sectionSupport": "Who made this",
   "support": [
     "I'm Alicja Barankiewicz, a data engineer in Warsaw. I also run nazwozbior.pl, which searches every name in the Polish PESEL registry for anyone looking for the one that fits.",

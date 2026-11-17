@@ -449,6 +449,14 @@ same package, no install recorded against anybody. Calling it a separate source 
 tell somebody they were getting a different build. There is no mirror link on this page
 and there will not be one, since a reader who uses Aurora already has Aurora.
 
+**The signing fingerprints are spelled out under the channels.** A copy of the app can
+reuse the name and the icon; it cannot reuse the certificate. The strings are
+`signatureLead`, `signatures` and `signatureCheck` in `messages/*.json`. There are two
+because Play re-signs with Google's key (`8fa369eb...`), while GitHub, Obtainium and the
+reproducible F-Droid build carry the developer key (`093e1e29...`). Both values come
+from the Journal's pre-release-human ticket 14 and its release artifacts. If either key
+ever changes, these strings change in the same commit as the Journal's `SECURITY.md`.
+
 ### Staged: the Play signing warning
 
 *Gate: Play going live. The Journal README (Android channels) settles the question this block
