@@ -31,9 +31,6 @@ export const SITE_ORIGIN = 'https://engender.app';
     invited to click something. */
 export const SOURCE_URL = 'https://github.com/engender-app/engender';
 
-/** Alicja's own site, linked from the footer (her decision, 2026-08-28). */
-export const PORTFOLIO_URL = 'https://barankiewicz.dev';
-
 export const LOCALES = ['en', 'pl'] as const;
 export type Locale = (typeof LOCALES)[number];
 

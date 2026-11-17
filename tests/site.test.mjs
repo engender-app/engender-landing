@@ -31,9 +31,6 @@ const JOURNAL_URL = "https://journal.engender.app/";
    anywhere but this origin and the Journal's. */
 const SOURCE_URL = "https://github.com/engender-app/engender";
 
-/* Alicja's own site, linked from the footer (her decision, 2026-08-28). */
-const PORTFOLIO_URL = "https://barankiewicz.dev/";
-
 /** The product's name is lowercase in both languages. */
 const SITE_NAME = { en: "engender", pl: "engender" };
 
@@ -661,16 +658,15 @@ test("the site keeps to its own origin and its own storage", async () => {
        it carries rel="noopener" and no referrer - the document-wide referrer
        policy in app.html is what makes that true of every link here, so
        following it tells GitHub nothing about which page it came from. */
-    /* Five now, and every one deliberate: Start journal twice, the source
-       beside the channels and again in the footer, and Alicja's own site in the
-       footer. All three destinations carry rel="noopener", and the
-       document-wide referrer policy in app.html means following any of them
-       tells the far end nothing about which page it came from. */
+    /* Four, and every one deliberate: Start journal twice, and the source
+       beside the channels and again in the footer. Both destinations carry
+       rel="noopener", and the document-wide referrer policy in app.html means
+       following either tells the far end nothing about which page it came
+       from. */
     assert.deepEqual(outbound, [
       JOURNAL_URL,
       SOURCE_URL,
       JOURNAL_URL,
-      PORTFOLIO_URL,
       SOURCE_URL,
     ]);
 

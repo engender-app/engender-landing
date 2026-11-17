@@ -581,8 +581,8 @@ something, and a header spent the top of every viewport on them - the most
 valuable band on a page whose first screen is a dictionary entry.
 
 It carries, left to right: the way back on any page that is not the landing
-page - the app's mark and the site's name - the Guide, the portfolio and source
-links, the rights line, then the language and theme switches pushed right.
+page - the app's mark and the site's name - the Guide and source links, the
+rights line, then the language and theme switches pushed right.
 Opaque, hairline top edge, no shadow, and the document reserves `--footer-h`
 plus a line of air at its foot so nothing is ever under it. Below 40rem the
 labels and the rights line leave the layout - not the accessibility tree - and

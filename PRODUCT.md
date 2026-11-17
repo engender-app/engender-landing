@@ -199,7 +199,7 @@ nazwozbior.pl reference that the previous visual pass worked from is dropped.
 
 ## Evidence on Hand
 
-- **The source code**, public and GPLv3, at `github.com/barankiewicz/gender-diary`.
+- **The source code**, public and GPLv3, at `github.com/engender-app/engender`.
   "Go and look" is a sentence this site can say literally.
 - **A documented, versioned Archive format**, so the export is not a black box.
 - **A site that loads no third-party resource**, checkable in a network tab.

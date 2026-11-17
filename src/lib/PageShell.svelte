@@ -9,7 +9,6 @@
   import {
     LANGUAGE_KEY,
     LOCALES,
-    PORTFOLIO_URL,
     SITE_ORIGIN,
     SOURCE_URL,
     defaultPathFor,
@@ -180,7 +179,6 @@
   </svelte:element>
 
   <a class="bar-link" href={pathFor(locale, 'guide-getting-started')}>{m.footer.guide}</a>
-  <a class="bar-link" href={PORTFOLIO_URL} rel="noopener">{m.footer.portfolio}</a>
   <a class="bar-link" href={SOURCE_URL} rel="noopener">
     <Mark name="github" size="1.05em" />
     github
