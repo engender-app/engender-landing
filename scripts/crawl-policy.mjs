@@ -1,6 +1,7 @@
 /* Writes the crawl policy beside the built pages, as the last step of
-   `npm run build`: robots.txt always, sitemap.xml when the build is
-   production, and a robots noindex in every page when it is not.
+   `npm run build`: robots.txt always, sitemap.xml and the IndexNow key file
+   when the build is production, and a robots noindex in every page when it
+   is not.
 
    SITE_ENV decides which build this is, and unset means preview, so a build
    is excluded from indexing unless the deploy making it says
@@ -18,7 +19,7 @@
    single build both ways and rely on that. */
 import { readdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
-import { SITE_ORIGIN } from '../src/lib/site.ts';
+import { INDEXNOW_KEY, SITE_ORIGIN } from '../src/lib/site.ts';
 
 const production = process.env.SITE_ENV === 'production';
 const buildDirectory = fileURLToPath(new URL('../build', import.meta.url));
@@ -45,8 +46,37 @@ for (const path of pages) {
   if (flavoured !== html) await writeFile(file, flavoured);
 }
 
+/* The crawlers behind AI search and AI assistants, named although `*`
+   already lets them in. Naming them puts the choice on record (Alicja,
+   2026-11-18: all of them, training included, because a model that has read
+   this site can recommend the app), and it survives a later `*` rule that
+   was meant for somebody else. Each vendor splits search, a user's own
+   fetch and training into separate names, and all three are welcome. */
+const AI_CRAWLERS = [
+  'OAI-SearchBot',
+  'ChatGPT-User',
+  'GPTBot',
+  'Claude-SearchBot',
+  'Claude-User',
+  'ClaudeBot',
+  'PerplexityBot',
+  'Perplexity-User',
+  'Google-Extended',
+  'Applebot-Extended',
+  'CCBot',
+];
+
 const robots = production
-  ? `User-agent: *\nDisallow:\n\nSitemap: ${SITE_ORIGIN}/sitemap.xml\n`
+  ? [
+      'User-agent: *',
+      'Disallow:',
+      '',
+      ...AI_CRAWLERS.map((agent) => `User-agent: ${agent}`),
+      'Allow: /',
+      '',
+      `Sitemap: ${SITE_ORIGIN}/sitemap.xml`,
+      '',
+    ].join('\n')
   : [
       '# Preview build. Every page carries a robots noindex, and crawling stays',
       '# open so it can be read. Production builds set SITE_ENV=production.',
@@ -65,8 +95,10 @@ if (production) {
     '',
   ].join('\n');
   await writeFile(`${buildDirectory}/sitemap.xml`, sitemap);
+  await writeFile(`${buildDirectory}/${INDEXNOW_KEY}.txt`, INDEXNOW_KEY);
 } else {
   await rm(`${buildDirectory}/sitemap.xml`, { force: true });
+  await rm(`${buildDirectory}/${INDEXNOW_KEY}.txt`, { force: true });
 }
 
 console.log(

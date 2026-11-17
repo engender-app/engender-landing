@@ -34,6 +34,8 @@ const CONTENT_TYPES = {
   '.svg': 'image/svg+xml',
   '.woff2': 'font/woff2',
   '.txt': 'text/plain; charset=utf-8',
+  /* static/.htaccess asks Apache for the same. */
+  '.md': 'text/markdown; charset=utf-8',
 };
 
 /* Serves the built directory the way the managed host will: a directory URL

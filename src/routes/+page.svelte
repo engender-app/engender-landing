@@ -1,6 +1,14 @@
 <script lang="ts">
   import { GATEWAY_REDIRECT } from '$lib/gateway-redirect';
-  import { FALLBACK_LOCALE, LOCALES, SITE_ORIGIN, messages, pathFor, socialTags } from '$lib/site';
+  import {
+    FALLBACK_LOCALE,
+    LOCALES,
+    SITE_ORIGIN,
+    messages,
+    pathFor,
+    socialTags,
+    structuredDataScript,
+  } from '$lib/site';
 
   /* The redirect reaches the page through `{@html}`, which is safe here and
      only here: src/lib/gateway-redirect.ts is a literal with nothing
@@ -14,8 +22,9 @@
      one without a language in it, so it is the URL most likely to be pasted
      into a chat and the one whose preview gets looked at. The card is the
      fallback locale's, which is also the page a visitor asking for neither
-     language is about to be sent to. No structured data: this page shows a
-     name and two language links, and there is nothing here to describe. */
+     language is about to be sent to. Its structured data is the site's name
+     alone: this is the home page a search engine reads that name from, and
+     it shows a name and two language links, with no application to describe. */
   const description = messages[FALLBACK_LOCALE].meta.landing.description;
   const gateway = socialTags({
     locale: FALLBACK_LOCALE,
@@ -37,6 +46,7 @@
     <meta {property} {content} />
   {/each}
   <meta name="twitter:card" content="summary_large_image" />
+  {@html structuredDataScript()}
   {@html redirect}
 </svelte:head>
 

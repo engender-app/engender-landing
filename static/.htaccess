@@ -41,3 +41,12 @@
     Require all denied
   </Files>
 </IfModule>
+
+# Search and AI discovery ticket 01. Every page has a markdown copy beside it
+# for assistants that fetch pages to answer a question, and llms.txt lists
+# them. Apache's default types serve .md as a download or as Latin-1, which
+# turns every Polish letter into two wrong ones.
+<IfModule mod_mime.c>
+  AddType text/markdown .md
+  AddCharset utf-8 .md .txt
+</IfModule>

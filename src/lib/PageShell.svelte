@@ -82,20 +82,24 @@
 </script>
 
 <svelte:head>
-  <!-- The title is the page's own name and stays that short deliberately.
-       It is the one piece of metadata a reader cannot avoid: it goes into a
-       browser history entry, a tab, a bookmark and the top line of a
-       preview, none of which they chose. So it says the product's name, or
-       on the privacy page that page's own heading, and it does not say what
-       kind of app this is. An SEO pass would want "a transition journal that
-       stays on your device" up here, where the words a person searches with
-       carry the most weight; that is the cost, and it is paid on purpose
-       (spec story 37). The description below carries those words instead,
-       because no browser ever puts a description in a history entry. -->
-  <title>{title}</title>
+  <!-- The title is the page's name, followed on every page but the landing
+       by the product's name. It never says what kind of app this is (spec
+       story 37): a title lands in history, tabs and bookmarks the reader did
+       not choose. The description below carries the search words instead,
+       because no browser puts a description in a history entry.
+
+       The product's name after the page's own is Alicja's call of 2026-11-18
+       (search and AI discovery ticket 01). A search result or a chatbot
+       cannot place "Health and body" alone, and the history entry already
+       stores the name in its URL. -->
+  <title>{page === 'landing' ? title : `${title} · ${m.pageTitle}`}</title>
   <meta name="description" content={description} />
 
   <link rel="canonical" href={canonical} />
+  <!-- The same page as markdown, for assistants that fetch a page to answer
+       a question: about a fifth of the bytes and none of the motif.
+       scripts/markdown-copies.mjs writes it from this page's built HTML. -->
+  <link rel="alternate" type="text/markdown" href={`${canonical}index.md`} />
   {#each LOCALES as alternate (alternate)}
     <link rel="alternate" hreflang={alternate} href={SITE_ORIGIN + pathFor(alternate, page)} />
   {/each}
