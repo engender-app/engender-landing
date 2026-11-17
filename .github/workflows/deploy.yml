@@ -31,8 +31,8 @@ jobs:
     name: types and browser tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: '24'
           cache: npm
@@ -54,8 +54,8 @@ jobs:
     # that is worth being told loudly and separately.
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: '24'
           cache: npm
@@ -67,8 +67,8 @@ jobs:
     if: github.ref != 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: '24'
           cache: npm
@@ -78,7 +78,7 @@ jobs:
       # is in the files themselves, so it survives being downloaded, unzipped
       # and served from anywhere.
       - run: npm run build
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: preview-${{ github.sha }}
           path: build/
@@ -92,8 +92,8 @@ jobs:
     needs: check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: '24'
           cache: npm
@@ -140,17 +140,18 @@ jobs:
       # build/ is the whole payload and nothing else: adapter-static writes the
       # public files there and no source, README or tooling ever reaches it, so
       # there is no staging copy to keep in step with the repository.
-      - uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - uses: SamKirkland/FTP-Deploy-Action@8e83cea8672e3fbcbb9fdafff34debf6ae4c5f65 # v4.3.5
         with:
-          server: ${{ secrets.FTP_SERVER }}
+          # The account's own host name, not the site's domain: lh.pl's
+          # certificate is *.lh.pl, so only this name lets the TLS check be
+          # strict. With loose, anyone on the path could present any
+          # certificate and read the FTP password.
+          server: serwer441858.lh.pl
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ${{ vars.FTP_SERVER_DIR }}
           local-dir: ./build/
-          # lh.pl answers FTPS on 21 and its certificate does not match the
-          # hostname, which is why the check is loose here as it is for the
-          # other sites on this account.
           protocol: ftps
-          security: loose
+          security: strict
           port: 21
           state-name: .ftp-deploy-sync-state.json
