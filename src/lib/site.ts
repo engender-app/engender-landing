@@ -269,6 +269,16 @@ export function structuredDataScript(locale?: Locale): string {
       license: LICENSE_URL,
       sameAs: [SOURCE_URL],
     });
+    /* The questions section, word for word, so a search engine or an
+       assistant reads each answer as the answer to that question. */
+    graph.push({
+      '@type': 'FAQPage',
+      mainEntity: messages[locale].questions.map(({ question, answer }) => ({
+        '@type': 'Question',
+        name: question,
+        acceptedAnswer: { '@type': 'Answer', text: answer },
+      })),
+    });
   }
   const data = { '@context': 'https://schema.org', '@graph': graph };
   const json = JSON.stringify(data, null, 2).replace(/</g, '\\u003c');

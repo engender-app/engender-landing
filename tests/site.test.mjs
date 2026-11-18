@@ -1169,6 +1169,7 @@ const HEADINGS = {
     tour: "The screens",
     features: "Features",
     acquisition: ACQUISITION.en.heading,
+    questions: "Questions",
     support: "Who made this",
   },
   pl: {
@@ -1177,6 +1178,7 @@ const HEADINGS = {
     tour: "Ekrany",
     features: "Funkcje",
     acquisition: ACQUISITION.pl.heading,
+    questions: "Pytania",
     support: "Kto to robi",
   },
 };
@@ -1197,6 +1199,7 @@ const SECTION_ORDER = [
   "features",
   "privacy",
   "acquisition",
+  "questions",
   "support",
 ];
 const sectionHeadings = (locale) =>
@@ -2419,6 +2422,15 @@ test("structured data describes the app, and claims nothing the page does not", 
         `/${locale}/: expected exactly one JSON-LD block`,
       );
 
+      /* The questions as the page shows them, so the FAQPage node is held to
+         the visible section rather than to the catalogue it was built from. */
+      const questions = await page
+        .locator(".questions-section .question")
+        .evaluateAll((items) =>
+          items.map((item) => [item.querySelector("h3").textContent, item.querySelector("p").textContent]),
+        );
+      assert.equal(questions.length, 6, `/${locale}/: expected six questions on the page`);
+
       const data = JSON.parse(blocks[0]);
       /* Exhaustive on purpose: the assertion is as much about what is absent
          as about what is here, and a property added without a sentence on the
@@ -2437,6 +2449,14 @@ test("structured data describes the app, and claims nothing the page does not", 
             isAccessibleForFree: true,
             license: "https://www.gnu.org/licenses/gpl-3.0.html",
             sameAs: [SOURCE_URL],
+          },
+          {
+            "@type": "FAQPage",
+            mainEntity: questions.map(([question, answer]) => ({
+              "@type": "Question",
+              name: question,
+              acceptedAnswer: { "@type": "Answer", text: answer },
+            })),
           },
         ],
       });

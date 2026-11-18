@@ -472,6 +472,34 @@ unpublished until the channel verification in the Journal's deploy notes has bee
 
 ---
 
+## Questions
+
+*Gate: shipped. Search and AI discovery ticket 02 (2026-11-18). Each answer is the
+first thing a search result or an assistant quotes, so it opens with the answer and
+stays under 40 words. The spec section behind each claim is in the ticket's
+`faq-copy.md`. Daylio and the Polish roadmap are left out because "Also in there"
+already says them.*
+
+> **Is engender free?**
+> Yes. engender is free software under the GPLv3 licence. It costs nothing and has no subscription and no ads.
+
+> **Where is my journal stored, and can anyone read it?**
+> On your device, encrypted. engender has no account and no server that holds your entries, so I cannot read them.
+
+> **Does engender work on iPhone?**
+> There is no iPhone app and none is planned. engender is an Android app and a web app that opens in a browser.
+
+> **What happens if I lose my phone or forget my PIN?**
+> I cannot recover either. A journal on a lost phone is gone unless you exported an Archive, an encrypted file you keep somewhere else. A forgotten PIN needs the recovery key, if you made one beforehand.
+
+> **Does engender need an internet connection?**
+> No. The Android app does not even ask for internet permission. The web app loads from the server the first time, and once installed it opens offline.
+
+> **Does engender give medical advice?**
+> No. engender never suggests a dose and shows no reference ranges. Lab results go on a chart, and the app does not interpret them.
+
+---
+
 ## Source, licence and support
 
 ### Who made this
