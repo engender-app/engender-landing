@@ -218,6 +218,33 @@
     }
   ],
   "signatureCheck": "AppVerifier compares them on the phone.",
+  "sectionQuestions": "Questions",
+  "questions": [
+    {
+      "question": "Is engender free?",
+      "answer": "Yes. engender is free software under the GPLv3 licence. It costs nothing and has no subscription and no ads."
+    },
+    {
+      "question": "Where is my journal stored, and can anyone read it?",
+      "answer": "On your device, encrypted. engender has no account and no server that holds your entries, so I cannot read them."
+    },
+    {
+      "question": "Does engender work on iPhone?",
+      "answer": "There is no iPhone app and none is planned. engender is an Android app and a web app that opens in a browser."
+    },
+    {
+      "question": "What happens if I lose my phone or forget my PIN?",
+      "answer": "I cannot recover either. A journal on a lost phone is gone unless you exported an Archive, an encrypted file you keep somewhere else. A forgotten PIN needs the recovery key, if you made one beforehand."
+    },
+    {
+      "question": "Does engender need an internet connection?",
+      "answer": "No. The Android app does not even ask for internet permission. The web app loads from the server the first time, and once installed it opens offline."
+    },
+    {
+      "question": "Does engender give medical advice?",
+      "answer": "No. engender never suggests a dose and shows no reference ranges. Lab results go on a chart, and the app does not interpret them."
+    }
+  ],
   "sectionSupport": "Who made this",
   "support": [
     "I'm Alicja Barankiewicz, a data engineer in Warsaw. I also run nazwozbior.pl, which searches every name in the Polish PESEL registry for anyone looking for the one that fits.",

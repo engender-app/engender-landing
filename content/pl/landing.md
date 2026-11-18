@@ -382,6 +382,31 @@ in neither.*
 
 ---
 
+## Pytania
+
+*Gate: shipped. Ticket 02 wyszukiwania i AI (2026-11-18), napisane po polsku, nie
+tłumaczone. Źródła twierdzeń są w `faq-copy.md` tego ticketu.*
+
+> **Czy engender jest za darmo?**
+> Tak. engender to wolne oprogramowanie na licencji GPLv3. Nic nie kosztuje, nie ma abonamentu ani reklam.
+
+> **Gdzie jest zapisany mój dziennik i kto może go przeczytać?**
+> Na twoim urządzeniu, zaszyfrowany. engender nie ma kont ani serwera, na którym leżałyby wpisy, więc nie mogę ich przeczytać.
+
+> **Czy engender działa na iPhonie?**
+> Aplikacji na iPhone'a nie ma i nie jest planowana. Jest aplikacja na Androida i wersja, którą otwiera się w przeglądarce.
+
+> **Co, jeśli zgubię telefon albo zapomnę PIN-u?**
+> Nie odzyskam ani dziennika, ani PIN-u. Dziennik ze zgubionego telefonu przepada, chyba że masz archiwum: zaszyfrowany plik wyeksportowany wcześniej i trzymany gdzie indziej. Na zapomniany PIN pomaga klucz odzyskiwania, ale trzeba go utworzyć zawczasu.
+
+> **Czy engender potrzebuje internetu?**
+> Nie. Aplikacja na Androida nawet nie prosi o dostęp do internetu. Wersja w przeglądarce pobiera się z serwera za pierwszym razem, a po instalacji otwiera się bez sieci.
+
+> **Czy engender udziela porad medycznych?**
+> Nie. engender nie podpowiada dawek i nie pokazuje norm laboratoryjnych. Wyniki badań rysuje na wykresie i ich nie interpretuje.
+
+---
+
 ## Source, licence and support
 
 ### Who made this

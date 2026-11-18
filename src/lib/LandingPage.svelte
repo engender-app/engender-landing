@@ -312,6 +312,24 @@
     </div>
   </section>
 
+  <!-- The questions a reader asks before trying the app, each answered in
+       its first words, which is the sentence a search result or an assistant
+       quotes. A heading per question so both can find it. -->
+  <section class="questions-section">
+    <div class="section-head reveal">
+      <h2>{m.sectionQuestions}</h2>
+      <StripeRule />
+    </div>
+    <div class="questions">
+      {#each m.questions as item, index (item.question)}
+        <div class="question reveal" style:--reveal-index={index}>
+          <h3>{item.question}</h3>
+          <p>{item.answer}</p>
+        </div>
+      {/each}
+    </div>
+  </section>
+
   <section class="support-section">
     <div class="section-head reveal">
       <h2>{m.sectionSupport}</h2>
@@ -424,6 +442,7 @@
   .overview,
   .features,
   .acquisition-wrap,
+  .questions-section,
   .support-section,
   .field-inner,
   .sheet {
@@ -1221,8 +1240,31 @@
     overflow-wrap: anywhere;
   }
 
+  /* ---- Questions ------------------------------------------------------ */
+
+  .questions {
+    display: grid;
+    gap: clamp(1.5rem, 4vh, 2.25rem);
+  }
+
+  /* The body face, as in .screens-note h3: a question is read, not
+     scanned, and the display face's tracking runs words together at this
+     size. */
+  .question h3 {
+    margin: 0 0 0.375rem;
+    font-family: var(--font-body);
+    font-size: clamp(1.125rem, 1.8vw, 1.375rem);
+    font-weight: var(--weight-bold);
+    letter-spacing: normal;
+  }
+
+  .question p {
+    margin: 0;
+  }
+
   /* ---- Support -------------------------------------------------------- */
 
+  .questions-section,
   .support-section {
     display: grid;
     grid-template-columns: minmax(0, 0.6fr) minmax(0, 1.4fr);
@@ -1230,7 +1272,14 @@
     padding-block: clamp(5rem, 14vh, 9rem);
   }
 
+  /* The questions share the support section's grid and measure, so the two
+     reference sections before the footer read as one register. The bottom
+     padding goes to "Who made this", which opens with its own. */
+  .questions-section {
+    padding-bottom: 0;
+  }
 
+  .question p,
   .support :global(p) {
     max-width: 52ch;
     font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
@@ -1251,6 +1300,7 @@
   @media (max-width: 60rem) {
     .overview,
     .privacy-copy,
+    .questions-section,
     .support-section {
       grid-template-columns: minmax(0, 1fr);
     }

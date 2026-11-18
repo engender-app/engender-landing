@@ -218,6 +218,33 @@
     }
   ],
   "signatureCheck": "Na telefonie porówna je za ciebie AppVerifier.",
+  "sectionQuestions": "Pytania",
+  "questions": [
+    {
+      "question": "Czy engender jest za darmo?",
+      "answer": "Tak. engender to wolne oprogramowanie na licencji GPLv3. Nic nie kosztuje, nie ma abonamentu ani reklam."
+    },
+    {
+      "question": "Gdzie jest zapisany mój dziennik i kto może go przeczytać?",
+      "answer": "Na twoim urządzeniu, zaszyfrowany. engender nie ma kont ani serwera, na którym leżałyby wpisy, więc nie mogę ich przeczytać."
+    },
+    {
+      "question": "Czy engender działa na iPhonie?",
+      "answer": "Aplikacji na iPhone'a nie ma i nie jest planowana. Jest aplikacja na Androida i wersja, którą otwiera się w przeglądarce."
+    },
+    {
+      "question": "Co, jeśli zgubię telefon albo zapomnę PIN-u?",
+      "answer": "Nie odzyskam ani dziennika, ani PIN-u. Dziennik ze zgubionego telefonu przepada, chyba że masz archiwum: zaszyfrowany plik wyeksportowany wcześniej i trzymany gdzie indziej. Na zapomniany PIN pomaga klucz odzyskiwania, ale trzeba go utworzyć zawczasu."
+    },
+    {
+      "question": "Czy engender potrzebuje internetu?",
+      "answer": "Nie. Aplikacja na Androida nawet nie prosi o dostęp do internetu. Wersja w przeglądarce pobiera się z serwera za pierwszym razem, a po instalacji otwiera się bez sieci."
+    },
+    {
+      "question": "Czy engender udziela porad medycznych?",
+      "answer": "Nie. engender nie podpowiada dawek i nie pokazuje norm laboratoryjnych. Wyniki badań rysuje na wykresie i ich nie interpretuje."
+    }
+  ],
   "sectionSupport": "Kto to robi",
   "support": [
     "Nazywam się Alicja Barankiewicz i na co dzień zajmuję się inżynierią danych w Warszawie. Prowadzę też nazwozbior.pl, wyszukiwarkę wszystkich imion z rejestru PESEL dla osób, które szukają imienia dla siebie.",
