@@ -21,7 +21,7 @@ F-Droid reads this as its Summary, which must have no sentence punctuation.
 
 ## Full description
 
-3886 of 4000 characters.
+3895 of 4000 characters.
 Plain lines are headings; Play shows the text without markup.
 
 > engender helps you understand your gender by giving time and context to your feelings. How masculine or feminine are you feeling today? Any dysphoria? Mark those and anything you want on your own scales. It only takes a moment. After a while, open Look back and see how your gender has changed over time.
@@ -36,7 +36,7 @@ Plain lines are headings; Play shows the text without markup.
 >
 > In Look back, choose a stretch of time, like one month or the time since you started HRT. Follow a scale day by day, with a second one beside it if you like, or plot two against each other. You can see each scale's average and the one that moved furthest, and which tags came with a change. engender draws what you entered and leaves the reading to you.
 >
-> Put photos side by side or revisit a week, month or year. Browse your calendar or search your notes and tags to find a particular moment. Safe Space keeps favourite entries and your own list of things that help within reach on harder days.
+> Put photos side by side or open Wrapped for a week, month or year. Browse your calendar or search your notes and tags to find a particular moment. Safe space keeps favourite entries and your own list of things that help within reach on harder days.
 >
 > Keep your care records together
 >
