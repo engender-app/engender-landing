@@ -46,10 +46,12 @@ decided here and recorded in `.agents/product-marketing.md`.
 
 **Headline**
 
-> Nieważne, czy znasz swój gender. Pora go zrozumieć.
+> Czas lepiej zrozumieć swój gender.
 
-Alicja's own line, 2026-11-11 (tester-report-02 ticket 06), not to be
-reworded. It read „czy znasz już swój gender” until she dropped „już” the same day. An earlier draft read „Poznaj swój gender z własnych wpisów.”; she
+Alicja's own line, 2026-11-24, not to be reworded. It replaced her
+2026-11-11 line „Nieważne, czy znasz swój gender. Pora go zrozumieć.”
+(tester-report-02 ticket 06), whose first clause read as condescending and
+whose „Pora” as a telling-off. That line read „czy znasz już swój gender” until she dropped „już” the same day. An earlier draft read „Poznaj swój gender z własnych wpisów.”; she
 rejected it, and its store twin „dowiedz się o nim więcej z własnych wpisów”
 as form-letter Polish. Ticket 10's line was „Twoja
 tranzycja w jednym miejscu, na własnym urządzeniu.”

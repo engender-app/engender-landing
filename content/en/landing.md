@@ -46,13 +46,16 @@ engender is lowercase everywhere, including at the start of a sentence
 
 **Headline**
 
-> Whether you know your gender or not, it's time to understand it.
+> Small entries. Big picture.
 
-Alicja's own line, 2026-11-11 (Journal tester-report-02 ticket 06), and not to
-be reworded. It replaced "Your transition, in one place, on your own device."
-The promise is understanding, and the person does the understanding: the app
-shows, and nothing on the page has it interpret. "Whether you know your gender
-or not" keeps a questioning reader in the sentence.
+Alicja's own line, 2026-11-24, and not to be reworded. It replaced her
+2026-11-11 line "Whether you know your gender or not, it's time to understand it."
+(Journal tester-report-02 ticket 06), whose "whether or not" clause read as
+condescending and whose "it's time" as urgency. That line replaced "Your
+transition, in one place, on your own device." The English and the Polish
+(„Czas lepiej zrozumieć swój gender.”) are written from the same meaning and
+are not translations of each other. The person does the understanding: the app
+shows, and nothing on the page has it interpret.
 
 An earlier draft of that ticket read "Learn about your gender from your own
 entries." She rejected it: it describes the mechanism and gives nobody a reason

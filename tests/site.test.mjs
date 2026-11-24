@@ -1215,8 +1215,8 @@ const PRIVACY_TITLE = {
 /** The hero headline, which is the one piece of the overview copy that is not
     inside a section and so is not covered by the heading assertions. */
 const HEADLINE = {
-  en: "Whether you know your gender or not, it's time to understand it.",
-  pl: "Nieważne, czy znasz swój gender. Pora go zrozumieć.",
+  en: "Small entries. Big picture.",
+  pl: "Czas lepiej zrozumieć swój gender.",
 };
 
 /** Both languages describe encryption and reject the retired plaintext fallback. */

@@ -21,13 +21,12 @@ Polish title match no Polish search.
 ## Since 2026-11-11
 
 The short descriptions are the landing headline as one phrase (Journal
-tester-report-02 ticket 06, Alicja's line of 2026-11-11): "Whether you know
-your gender or not, it's time to understand it" and "Nieważne, czy znasz
-swój gender, pora go zrozumieć". The repetition of the headline in the store is
-intended (Alicja, 2026-11-11, after trying a separate tracking line there). The Polish takes a comma where the headline
-has a full stop, because F-Droid's summary rule allows no sentence
-punctuation. Both carry "gender"; neither carries a tracking verb, HRT, mood
-or "transition" any more. "Transition" stays in the title, and HRT and
+tester-report-02 ticket 06; Alicja's lines of 2026-11-24): "Small entries,
+big picture" and "Czas lepiej zrozumieć swój gender". The repetition of the headline in the store is
+intended (Alicja, 2026-11-11, after trying a separate tracking line there). Both drop the headline's full stops (the English takes a comma), because
+F-Droid's summary rule allows no sentence punctuation. The Polish carries
+"gender" and the English does not; neither carries HRT, mood or "transition"
+any more. "Transition" stays in the title, and HRT and
 mood move to the full description. The rows that say "short description"
 below record the 2026-10-07 plan; where they disagree with this paragraph,
 this paragraph is current.
