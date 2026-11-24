@@ -21,10 +21,10 @@ F-Droid reads this as its Summary, which must have no sentence punctuation.
 
 ## Full description
 
-3996 of 4000 characters.
+3976 of 4000 characters.
 Plain lines are headings; Play shows the text without markup.
 
-> engender pomaga ci zrozumieć swój gender, nadając uczuciom czas i kontekst. Czujesz się dziś męsko czy kobieco? Bardziej dysforycznie czy euforycznie? Trackuj to oraz cokolwiek zechcesz za pomocą skal, które definiujesz samx. Zajmuje to tylko chwilę. Po jakimś czasie zajrzyj do Statystyk i zobacz, jak twój gender zmieniał się w czasie.
+> engender pomaga ci zrozumieć swój gender, nadając uczuciom czas i kontekst. Czujesz się dziś męsko czy kobieco? Bardziej dysforycznie czy euforycznie? Trackuj to i cokolwiek zechcesz za pomocą skal, które definiujesz samx. To tylko chwila. Po jakimś czasie zajrzyj do Statystyk i zobacz, jak zmieniał się twój gender.
 >
 > To dziennik tranzycji od osoby trans dla innych osób trans. Wybierz te części aplikacji, które ci się przydadzą, niezależnie od tego, czy dopiero zastanawiasz się nad swoim genderem, planujesz kolejne kroki, czy masz za sobą lata tranzycji. Aplikacja jest darmowa, bez reklam i subskrypcji. Konta nie trzeba zakładać, a nawet się nie da.
 >
