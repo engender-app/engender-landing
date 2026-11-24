@@ -105,9 +105,12 @@ copy's shape.
 
 **Subheadline**
 
-> Give time and context to your feelings. Keep a diary and track your gender with either
-> proposed or custom-made scales. After a while, check out the statistics and learn
+> engender helps you understand your gender by giving time and context to your feelings.
+> Keep a diary and track your gender with either proposed or custom-made scales. After a while, check out the statistics and learn
 > something new about your gender!
+
+Since 2026-11-25 it opens with "engender helps you understand your gender by"
+(Alicja), and the store's full description opens with the same sentence.
 
 Since tester-report-02 ticket 06 the supporting line is the mechanism behind
 the headline and nothing else: mark, look back, see. The scales it names are

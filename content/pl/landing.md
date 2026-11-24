@@ -58,9 +58,12 @@ tranzycja w jednym miejscu, na własnym urządzeniu.”
 
 **Subheadline**
 
-> Nadaj swoim uczuciom czas i kontekst. Prowadź swój dziennik i trackuj swój gender za
-> pomocą proponowanych lub zdefiniowanych przez Ciebie skal, a po jakimś czasie wejdź w
+> engender pomaga ci zrozumieć swój gender, nadając twoim uczuciom czas i kontekst.
+> Prowadź swój dziennik i trackuj swój gender za pomocą proponowanych lub zdefiniowanych przez Ciebie skal, a po jakimś czasie wejdź w
 > statystyki i dowiedz się czegoś nowego o sobie!
+
+Since 2026-11-25 it opens with „engender pomaga ci zrozumieć swój gender”
+(Alicja), and the store's full description opens with the same sentence.
 
 Since tester-report-02 ticket 06 the line is the mechanism only, as in
 English, written first in Polish and not translated. Euphoria and dysphoria

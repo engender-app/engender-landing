@@ -21,10 +21,10 @@ F-Droid reads this as its Summary, which must have no sentence punctuation.
 
 ## Full description
 
-3851 of 4000 characters.
+3886 of 4000 characters.
 Plain lines are headings; Play shows the text without markup.
 
-> How masculine or feminine are you feeling today? Any dysphoria? Mark those and anything you want on your own scales. It only takes a moment, and you gain a better understanding of your gender. After a while, open Look back and see how your gender has changed over time.
+> engender helps you understand your gender by giving time and context to your feelings. How masculine or feminine are you feeling today? Any dysphoria? Mark those and anything you want on your own scales. It only takes a moment. After a while, open Look back and see how your gender has changed over time.
 >
 > engender is made by a trans person for other trans people. Use whichever parts fit your life, whether you're questioning, planning your next step or years into transition. It's free, with no ads, subscriptions or accounts to create.
 >
