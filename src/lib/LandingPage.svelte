@@ -108,7 +108,13 @@
       <h1 class="vh">{m.pageTitle}</h1>
 
       <div class="nameplate enter" style:--enter={0}>
-        <p class="headword">{m.hero.definition.headword}</p>
+        <!-- The app's mark in line with its name, as a lockup (Alicja,
+             2026-11-25). The same file the bar uses, so it cannot drift from
+             the app's generated mark. Decorative: the headword says the name,
+             and an image adds nothing to the innerText the tests read. The
+             word has a span of its own so the contrast pass measures the word
+             against the field, not against the mark's stripes. -->
+        <p class="headword"><img class="lockup-mark" src="/mark.svg" alt="" aria-hidden="true" width="64" height="64" /><span>{m.hero.definition.headword}</span></p>
         <p class="grammar tnum">
           <em>{m.hero.definition.grammar}</em>&nbsp;{m.hero.definition.phonetics}
         </p>
@@ -121,6 +127,15 @@
         <p class="headline enter" style:--enter={1}>{m.hero.headline}</p>
         <p class="subheadline enter" style:--enter={2}>{m.hero.subheadline}</p>
         <p class="tagline enter" style:--enter={3}>{m.hero.tagline}</p>
+      </div>
+
+      <!-- The app's real home screen, in the column the motif used to have to
+           itself, standing up out of the field's bottom edge. The splash's
+           clip cuts it there, so it reads as a phone rising rather than a
+           picture placed. Hidden from assistive tech: it is an illustration
+           of the words beside it, and its own text is a screenshot's. -->
+      <div class="screen enter" style:--enter={2} aria-hidden="true">
+        <img src="/splash/{locale}-home.webp" alt="" width="390" height="844" />
       </div>
     </div>
   </div>
@@ -506,7 +521,7 @@
        contrast pass measured the definition at 1.20:1 against the flag's blue.
        A motif is a picture and its size is a fact about the viewport, not about
        the reader's text size. */
-    --splash-sun: clamp(280px, 46vw, 560px);
+    --splash-sun: clamp(330px, 54vw, 660px);
     position: relative;
     background: var(--field-flag);
     color: var(--field-flag-ink);
@@ -555,7 +570,7 @@
      reader's text size. */
   @media (max-width: 60rem) {
     .splash {
-      --splash-sun: min(46vw, 230px);
+      --splash-sun: min(54vw, 270px);
     }
 
     .sheet {
@@ -1346,6 +1361,49 @@
 
     .channels li:nth-child(odd) {
       border-right: 0;
+    }
+  }
+
+  /* In em, so the mark keeps the headword's size at any text size: a little
+     under the cap-to-descender height, sitting on the baseline. */
+  .lockup-mark {
+    width: 0.82em;
+    height: 0.82em;
+    margin-right: 0.16em;
+    vertical-align: -0.04em;
+  }
+
+  /* The bottom margin pulls the phone past the splash's own bottom padding and
+     another 9rem beyond it, which is the part the clip cuts away. The frame is
+     the screenshot's own bezel: the splash copies in static/splash/ have the
+     corners outside it cut to transparent and the scrollbar gutter closed,
+     so nothing is drawn around it here. */
+  .screen {
+    margin-top: 2.5rem;
+    margin-bottom: calc(-1 * clamp(2.5rem, 6vh, 4.5rem) - 9rem);
+    justify-self: center;
+    width: min(62vw, 240px);
+  }
+
+  .screen img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* On a wide window it takes the second column, over the motif - it is a
+     picture, so the rule that keeps text off the stripes does not bind it -
+     and sits toward the column's far edge rather than its middle. */
+  @media (min-width: 60rem) {
+    .screen {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      align-self: end;
+      justify-self: end;
+      width: clamp(240px, 22vw, 300px);
+      margin-top: 0;
+      position: relative;
+      z-index: 1;
     }
   }
 </style>
