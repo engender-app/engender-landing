@@ -546,6 +546,18 @@
     color: inherit;
   }
 
+  /* The running lines on the field are justified, and hyphenated by the
+     page's own language so a phone-width line does not open gaps between
+     words (Alicja, 2026-11-25). The headword and the headline stay ragged:
+     display type stretched to the measure opens gaps a word wide. */
+  .splash .grammar,
+  .splash .sense,
+  .splash .subheadline,
+  .splash .tagline {
+    text-align: justify;
+    hyphens: auto;
+  }
+
   /* No column of its own: the sheet inside it already establishes the page's
      one column, and stating it twice indented the action past the words it
      answers to. */
