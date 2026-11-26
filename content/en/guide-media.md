@@ -39,7 +39,7 @@ what is current.
 
 *Gate: shipped.*
 
-> Media is the fifth group. Photos is every photo in your journal in one dated list, with chips to narrow it by where a photo came from, such as hair progress or surgery, and Starred. Select photos to delete them, or open the record one belongs to.
+> Media is the fifth group. Photos is every photo in your journal in one dated list, with chips to narrow it by where a photo came from, such as progress photos or surgery, and Starred. Select photos to delete them, or open the record one belongs to.
 >
 > Make a collage or timelapse builds one from a date range, with a preview. The file you save is not encrypted. Photos never go to your phone's gallery.
 

@@ -253,8 +253,7 @@ address the reader in the past tense, "a day where all you managed was a mood" a
 
 *Gate: shipped.*
 
-> Poza tym: wyszukiwanie w notatkach i tagach, licznik sytuacji, w których ktoś zwraca
-> się do ciebie zgodnie z twoim genderem albo nie, kamienie milowe z odliczaniem i
+> Poza tym: wyszukiwanie w notatkach i tagach, kamienie milowe z odliczaniem i
 > rocznicami, listy do siebie, mapa kroków prawnych w Polsce z miejscem na własne,
 > instytucje, w których po wyroku trzeba zmienić dane, czas noszenia bindera i tuckingu,
 > sesje depilacji, kolejki do specjalistów, notatki o lekarzach, do których chodzisz,

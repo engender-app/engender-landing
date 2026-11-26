@@ -330,15 +330,14 @@ pitch figure may not be presented as a target.
 
 *Gate: shipped.*
 
-> Also in there: search across your notes and tags, a tally of the times you were
-> misgendered and gendered right, milestones with countdowns ahead and anniversaries
-> behind, letters that open on a date you choose, a roadmap of the legal steps in Poland
-> with room for your own, the offices to update after a name change, binder and tucking
-> wear time, hair removal sessions, waiting lists, notes on the people you see, what
-> each visit or prescription cost, appointment prep, Safe Space with your good days and
-> your own comfort list, a directory of trans organisations and helplines you can read
-> offline, one photo library across all of it, and a place for referrals and court
-> orders. If you already have a diary in Daylio, it imports.
+> Also in there: search across your notes and tags, milestones with countdowns ahead and
+> anniversaries behind, letters that open on a date you choose, a roadmap of the legal
+> steps in Poland with room for your own, the offices to update after a name change,
+> binder and tucking wear time, hair removal sessions, waiting lists, notes on the
+> people you see, what each visit or prescription cost, appointment prep, Safe Space
+> with your good days and your own comfort list, a directory of trans organisations and
+> helplines you can read offline, one photo library across all of it, and a place for
+> referrals and court orders. If you already have a diary in Daylio, it imports.
 
 ### Keeping it
 

@@ -11,7 +11,7 @@ nad cytatem mówi, czy wolno go opublikować (docs/adr/0001).
 „Odczyty”, nazwy odczytów („Dzień po dniu”, „Dwie skale naraz”, „Jak rozłożyły
 się dni”, „Słowa, które się wyróżniają”, „Tagi i to, jak poruszyła się skala”,
 „Najwyższe dni”, „Mapa ciała”, „Porównanie okresów”, „Motywy dające spokój”),
-„Bilans”, „Wspomnienia”, „Licznik”. Wybrany odcinek czasu aplikacja nazywa
+„Bilans”, „Wspomnienia”. Wybrany odcinek czasu aplikacja nazywa
 okresem („Początek okresu”, „Wybierz okres z listy”), więc tekst też.
 
 **Źródła i decyzje** są te same co w `content/en/guide-stats.md`.
@@ -50,8 +50,6 @@ jest rozdział.
 > **Mapa ciała.** Jak czuły się poszczególne części ciała, bliżej dysforii albo euforii.
 >
 > **Porównanie okresów.** Wybrany okres obok równie długiego odcinka tuż przed nim albo dowolne dwa okresy.
->
-> **Licznik.** Ile razy ktoś cię zmisgenderował, a ile razy zwrócił się do ciebie dobrze.
 >
 > **Ile to kosztowało.** Wydatki według obszaru i tego, czy zostały zwrócone, każda waluta osobno.
 

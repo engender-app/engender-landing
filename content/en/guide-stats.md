@@ -11,7 +11,7 @@ and the italic marker above a blockquote says whether it may be published
 
 **Sources.** The Journal's `SCREENS.md` ("The four doors", Look back door:
 `/stats`, `/stats/[reading]`, `/wrapped/[cadence]`, `/on-this-day`,
-`/body-map`, `/tally`, `/compare`), `CONTEXT.md` ("Wrapped", "Wrapped card",
+`/body-map`, `/compare`), `CONTEXT.md` ("Wrapped", "Wrapped card",
 "Era"), ADR-0081 for the body map, and the tile list in the Journal's
 `src/routes/stats/+page.svelte` for which readings the grid holds and in what
 order. Reading names are the English catalogue's.
@@ -21,10 +21,6 @@ order. Reading names are the English catalogue's.
 and "trend chart" are gone as such: the readings grid replaced them, with
 "Tags, and how a scale moved" absorbing the old tag-insight cards and "Day by
 day" standing where the trend chart was.
-
-**Tally is not a tile.** It lights the Look back tab but is reached from a
-tally mark on a day or a chart rather than from the grid, so the chapter does
-not say where it opens from.
 
 **Rechecked 2026-11-11.** The chapter below was checked against the Journal's
 `functional-audit` branch, the 1.0.0 candidate: its catalogues, routes and
@@ -60,8 +56,6 @@ what is current.
 > **Body map.** How each part of the body felt, towards dysphoria or euphoria.
 >
 > **Compare periods.** Your stretch against the same length of time just before it, or any two periods.
->
-> **Tally.** How often you were misgendered and how often people got it right.
 >
 > **What it cost.** Spending by area and by whether it was refunded, each currency separately.
 

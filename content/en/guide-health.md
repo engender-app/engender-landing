@@ -14,7 +14,7 @@ and the italic marker above a blockquote says whether it may be published
 Health table, "Hosted, not drawn on the hub itself" and "Reached from `/care`"),
 `CONTEXT.md` ("Regimen episode", "Dose event", "Dose schedule", "Medication
 stock", "Run-out projection", "Hormone curve", "Analyte", "Lab series", "Side
-effect", "Cycle event", "Personal effect", "Hair staging", "Measurement type",
+effect", "Cycle event", "Personal effect", "Measurement type",
 "Size record", "Procedure", "Recovery log", "Taper", "Appointment"), `PRODUCT.md`
 and the English catalogue for on-screen labels. `docs/ui-copy.md`'s never-list
 holds: nothing here interprets a value, calls a number good or bad, or suggests a
@@ -88,7 +88,7 @@ what is current.
 
 > **Progress photos.** Photos in the same pose. Pick two and drag the divider to compare them.
 >
-> **Changes you've noticed.** Pick a change or add your own, with the day you first noticed it. Side effects go here too, with a strength from 1 to 5. The more private categories start switched off. Hair progress is here as well.
+> **Changes you've noticed.** Pick a change or add your own, with the day you first noticed it. Side effects go here too, with a strength from 1 to 5. The more private categories start switched off.
 >
 > **Hair removal.** Electrolysis and laser sessions: area, method, length, pain, cost, provider and photos.
 >

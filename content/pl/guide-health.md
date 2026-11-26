@@ -68,7 +68,7 @@ jest rozdział.
 
 > **Zdjęcia postępów.** Zdjęcia w tej samej pozie. Wybierz dwa i przeciągnij suwak, żeby je porównać.
 >
-> **Zauważone zmiany.** Wybierz zmianę albo dodaj własną, z dniem, kiedy pojawiła się po raz pierwszy. Tu trafiają też skutki uboczne, z siłą od 1 do 5. Bardziej prywatne kategorie są na początku wyłączone. Tu są też Zmiany włosów.
+> **Zauważone zmiany.** Wybierz zmianę albo dodaj własną, z dniem, kiedy pojawiła się po raz pierwszy. Tu trafiają też skutki uboczne, z siłą od 1 do 5. Bardziej prywatne kategorie są na początku wyłączone.
 >
 > **Depilacja.** Sesje elektrolizy i lasera: obszar, metoda, czas, ból, koszt, gabinet i zdjęcia.
 >
