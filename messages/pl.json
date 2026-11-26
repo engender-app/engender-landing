@@ -477,7 +477,7 @@
           {
             "heading": "Szybki zapis",
             "paragraphs": [
-              "Przycisk na środku dolnego paska to szybki zapis. Działa na każdym ekranie: pięć nastrojów, wpis z wcześniejszego dnia, oba liczniki, dawka, gdy trwa kuracja, oraz start albo koniec noszenia."
+              "Przycisk na środku dolnego paska to szybki zapis. Działa na każdym ekranie: pięć nastrojów, wpis z wcześniejszego dnia, dawka, gdy trwa kuracja, oraz start albo koniec noszenia."
             ]
           }
         ]
@@ -529,7 +529,7 @@
       },
       "stats": {
         "title": "Statystyki",
-        "description": "Wybór okresu, odczyty, licznik, Bilans i Wspomnienia.",
+        "description": "Wybór okresu, odczyty, Bilans i Wspomnienia.",
         "sections": [
           {
             "heading": "Wybór okresu",
@@ -571,10 +571,6 @@
               {
                 "lead": "Porównanie okresów.",
                 "rest": " Wybrany okres obok równie długiego odcinka tuż przed nim albo dowolne dwa okresy."
-              },
-              {
-                "lead": "Licznik.",
-                "rest": " Ile razy ktoś cię zmisgenderował, a ile razy zwrócił się do ciebie dobrze."
               },
               {
                 "lead": "Ile to kosztowało.",
@@ -663,7 +659,7 @@
               },
               {
                 "lead": "Zauważone zmiany.",
-                "rest": " Wybierz zmianę albo dodaj własną, z dniem, kiedy pojawiła się po raz pierwszy. Tu trafiają też skutki uboczne, z siłą od 1 do 5. Bardziej prywatne kategorie są na początku wyłączone. Tu są też Zmiany włosów."
+                "rest": " Wybierz zmianę albo dodaj własną, z dniem, kiedy pojawiła się po raz pierwszy. Tu trafiają też skutki uboczne, z siłą od 1 do 5. Bardziej prywatne kategorie są na początku wyłączone."
               },
               {
                 "lead": "Depilacja.",
@@ -763,7 +759,7 @@
           {
             "heading": "Zdjęcia",
             "paragraphs": [
-              "Piąta grupa to Media. W Zdjęciach są wszystkie zdjęcia z dziennika na jednej liście według dat. Przyciski u góry zawężają ją do jednego źródła, na przykład zmian włosów albo operacji, a Ulubione pokazują zdjęcia z gwiazdką. Zaznacz zdjęcia, żeby je usunąć, albo otwórz zapis, do którego zdjęcie należy.",
+              "Piąta grupa to Media. W Zdjęciach są wszystkie zdjęcia z dziennika na jednej liście według dat. Przyciski u góry zawężają ją do jednego źródła, na przykład zdjęć postępów albo operacji, a Ulubione pokazują zdjęcia z gwiazdką. Zaznacz zdjęcia, żeby je usunąć, albo otwórz zapis, do którego zdjęcie należy.",
               "„Zrób kolaż albo film poklatkowy” składa go ze zdjęć z wybranego okresu i pokazuje podgląd. Zapisany plik nie jest zaszyfrowany. Zdjęcia nigdy nie trafiają do galerii telefonu."
             ],
             "images": [
@@ -963,5 +959,5 @@
       "body": "Dawki, wyniki badań, skutki uboczne i zauważone zmiany na jednym wydruku na wizytę, za wybrany okres i tylko z wybranymi sekcjami."
     }
   ],
-  "holdsAlso": "Poza tym: wyszukiwanie w notatkach i tagach, licznik sytuacji, w których ktoś zwraca się do ciebie zgodnie z twoim genderem albo nie, kamienie milowe z odliczaniem i rocznicami, listy do siebie, mapa kroków prawnych w Polsce z miejscem na własne, instytucje, w których po wyroku trzeba zmienić dane, czas noszenia bindera i tuckingu, sesje depilacji, kolejki do specjalistów, notatki o lekarzach, do których chodzisz, koszt każdej wizyty i recepty, przygotowanie do wizyty, Bezpieczna przestrzeń z dobrymi dniami i własną listą rzeczy, które pomagają, spis organizacji trans i telefonów zaufania dostępny bez internetu, jedna biblioteka zdjęć na wszystko i miejsce na skierowania i postanowienia sądu. Rok zapisków w Daylio da się zaimportować."
+  "holdsAlso": "Poza tym: wyszukiwanie w notatkach i tagach, kamienie milowe z odliczaniem i rocznicami, listy do siebie, mapa kroków prawnych w Polsce z miejscem na własne, instytucje, w których po wyroku trzeba zmienić dane, czas noszenia bindera i tuckingu, sesje depilacji, kolejki do specjalistów, notatki o lekarzach, do których chodzisz, koszt każdej wizyty i recepty, przygotowanie do wizyty, Bezpieczna przestrzeń z dobrymi dniami i własną listą rzeczy, które pomagają, spis organizacji trans i telefonów zaufania dostępny bez internetu, jedna biblioteka zdjęć na wszystko i miejsce na skierowania i postanowienia sądu. Rok zapisków w Daylio da się zaimportować."
 }

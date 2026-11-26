@@ -477,7 +477,7 @@
           {
             "heading": "Quick add",
             "paragraphs": [
-              "The button in the middle of the bottom bar is quick add. It works from any screen: the five moods, an entry for an earlier day, the two tally counters, a dose while a regimen is running, and starting or stopping a wear session."
+              "The button in the middle of the bottom bar is quick add. It works from any screen: the five moods, an entry for an earlier day, a dose while a regimen is running, and starting or stopping a wear session."
             ]
           }
         ]
@@ -529,7 +529,7 @@
       },
       "stats": {
         "title": "Look back",
-        "description": "Choosing a stretch of time, the readings, the tally, Wrapped and On this day.",
+        "description": "Choosing a stretch of time, the readings, Wrapped and On this day.",
         "sections": [
           {
             "heading": "Choosing a stretch",
@@ -571,10 +571,6 @@
               {
                 "lead": "Compare periods.",
                 "rest": " Your stretch against the same length of time just before it, or any two periods."
-              },
-              {
-                "lead": "Tally.",
-                "rest": " How often you were misgendered and how often people got it right."
               },
               {
                 "lead": "What it cost.",
@@ -663,7 +659,7 @@
               },
               {
                 "lead": "Changes you've noticed.",
-                "rest": " Pick a change or add your own, with the day you first noticed it. Side effects go here too, with a strength from 1 to 5. The more private categories start switched off. Hair progress is here as well."
+                "rest": " Pick a change or add your own, with the day you first noticed it. Side effects go here too, with a strength from 1 to 5. The more private categories start switched off."
               },
               {
                 "lead": "Hair removal.",
@@ -763,7 +759,7 @@
           {
             "heading": "Photos",
             "paragraphs": [
-              "Media is the fifth group. Photos is every photo in your journal in one dated list, with chips to narrow it by where a photo came from, such as hair progress or surgery, and Starred. Select photos to delete them, or open the record one belongs to.",
+              "Media is the fifth group. Photos is every photo in your journal in one dated list, with chips to narrow it by where a photo came from, such as progress photos or surgery, and Starred. Select photos to delete them, or open the record one belongs to.",
               "Make a collage or timelapse builds one from a date range, with a preview. The file you save is not encrypted. Photos never go to your phone's gallery."
             ],
             "images": [
@@ -963,5 +959,5 @@
       "body": "Bring your doses, labs, side effects and changes to an appointment as one printed summary, over a range you choose, with only the sections you choose."
     }
   ],
-  "holdsAlso": "Also in there: search across your notes and tags, a tally of the times you were misgendered and gendered right, milestones with countdowns ahead and anniversaries behind, letters that open on a date you choose, a roadmap of the legal steps in Poland with room for your own, the offices to update after a name change, binder and tucking wear time, hair removal sessions, waiting lists, notes on the people you see, what each visit or prescription cost, appointment prep, Safe Space with your good days and your own comfort list, a directory of trans organisations and helplines you can read offline, one photo library across all of it, and a place for referrals and court orders. If you already have a diary in Daylio, it imports."
+  "holdsAlso": "Also in there: search across your notes and tags, milestones with countdowns ahead and anniversaries behind, letters that open on a date you choose, a roadmap of the legal steps in Poland with room for your own, the offices to update after a name change, binder and tucking wear time, hair removal sessions, waiting lists, notes on the people you see, what each visit or prescription cost, appointment prep, Safe Space with your good days and your own comfort list, a directory of trans organisations and helplines you can read offline, one photo library across all of it, and a place for referrals and court orders. If you already have a diary in Daylio, it imports."
 }

@@ -66,4 +66,4 @@ what is current.
 
 *Gate: shipped.*
 
-> The button in the middle of the bottom bar is quick add. It works from any screen: the five moods, an entry for an earlier day, the two tally counters, a dose while a regimen is running, and starting or stopping a wear session.
+> The button in the middle of the bottom bar is quick add. It works from any screen: the five moods, an entry for an earlier day, a dose while a regimen is running, and starting or stopping a wear session.

@@ -1813,7 +1813,7 @@ const TAB_TOUR = {
     stats: [
       "timeline", "Day by day", "Two scales at once", "What you write about",
       "Tags, and how a scale moved", "Body map", "Compare", "What it cost",
-      "Wrapped", "On this day", "Tally",
+      "Wrapped", "On this day",
     ],
   },
   pl: {
@@ -1828,7 +1828,7 @@ const TAB_TOUR = {
     stats: [
       "osi czasu", "Dzień po dniu", "Dwie skale naraz", "O czym piszesz",
       "Tagi a zmiany na skali", "Mapa ciała", "Porównanie okresów",
-      "Ile to kosztowało", "Bilans", "Wspomnienia", "Licznik",
+      "Ile to kosztowało", "Bilans", "Wspomnienia",
     ],
   },
 };
@@ -1883,7 +1883,7 @@ const GROUP_TOUR = {
       "Meds", "Regimen", "Dose log", "Lab results", "lab draw", "Medication stock", "run-out day",
       "Cycle", "Cycle tracking", "Surgery journey", "Dilation", "Appointments", "What to raise",
       "In the room", "Behind you", "Waiting lists", "Who you see", "clinician visit summary",
-      "Progress photos", "Changes you've noticed", "Side effects", "Hair progress",
+      "Progress photos", "Changes you've noticed", "Side effects",
       "Hair removal", "Wear log", "Voice", "benchmark",
     ],
     steps: [
@@ -1894,14 +1894,14 @@ const GROUP_TOUR = {
       "Time-capsule letters", "Safe space", "box breathing", "Good moments", "Things that help",
       "Support and resources",
     ],
-    media: ["Photos", "hair progress", "Starred", "collage", "timelapse", "preview", "Documents", "PDFs"],
+    media: ["Photos", "progress photos", "Starred", "collage", "timelapse", "preview", "Documents", "PDFs"],
   },
   pl: {
     health: [
       "Leki", "Kuracja", "Dawki", "Wyniki badań", "pobranie krwi", "Zapas leków",
       "Cykl", "Śledzenia cyklu", "Operacje", "Rozszerzanie", "Wizyty", "Co poruszyć",
       "Na wizycie", "Za tobą", "Kolejkach", "Do kogo chodzisz", "Podsumowanie dla osoby lekarskiej",
-      "Zdjęcia postępów", "Zauważone zmiany", "skutki uboczne", "Zmiany włosów",
+      "Zdjęcia postępów", "Zauważone zmiany", "skutki uboczne",
       "Depilacja", "Czas noszenia", "Głos", "Próbka",
     ],
     steps: [
@@ -1912,7 +1912,7 @@ const GROUP_TOUR = {
       "Listy w kapsule czasu", "Bezpieczna przestrzeń", "oddechu pudełkowego", "Dobre chwile",
       "Co pomaga", "Wsparcie i kontakty",
     ],
-    media: ["Zdjęcia", "zmian włosów", "Ulubione", "kolaż", "film poklatkowy", "podgląd", "Dokumenty", "PDF"],
+    media: ["Zdjęcia", "zdjęć postępów", "Ulubione", "kolaż", "film poklatkowy", "podgląd", "Dokumenty", "PDF"],
   },
 };
 

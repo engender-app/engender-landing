@@ -52,4 +52,4 @@ jest rozdział.
 
 *Gate: shipped.*
 
-> Przycisk na środku dolnego paska to szybki zapis. Działa na każdym ekranie: pięć nastrojów, wpis z wcześniejszego dnia, oba liczniki, dawka, gdy trwa kuracja, oraz start albo koniec noszenia.
+> Przycisk na środku dolnego paska to szybki zapis. Działa na każdym ekranie: pięć nastrojów, wpis z wcześniejszego dnia, dawka, gdy trwa kuracja, oraz start albo koniec noszenia.
